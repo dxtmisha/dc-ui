@@ -1,0 +1,67 @@
+@import "../../styles/flex";
+@import "../../styles/position";
+@import "../../styles/options/optionHide";
+
+@mixin iconItem() {
+  @include iconItemVar;
+  @include absoluteFull;
+  @include flexCenter;
+  background-size: var(--_ii-background-size);
+  border-radius: inherit;
+  transform: none;
+  transition-duration: var(--transition-menu-expanding);
+  transition-property: opacity, transform;
+
+  @include optionHide();
+}
+
+@mixin iconItemVar() {
+  --_ii-background-size: var(--ii-background-size, cover);
+}
+
+@mixin iconItemMaterial() {
+  &.material-icons {
+    display: flex;
+    font-size: inherit;
+    @content;
+
+    &.type- {
+      &outlined {
+        font-family: 'Material Icons Outlined', sans-serif;
+      }
+
+      &round {
+        font-family: 'Material Icons Round', sans-serif;
+      }
+
+      &sharp {
+        font-family: 'Material Icons Sharp', sans-serif;
+      }
+
+      &two-tone {
+        font-family: 'Material Icons Two Tone', sans-serif;
+      }
+    }
+  }
+}
+
+@mixin iconItemDisabled() {
+  &:not(.status-hide).status-disabled {
+    --basic-text-opacity: var(--opacity-surface-disabled);
+    @content;
+
+    &.type- {
+      &color,
+      &image {
+        filter: grayscale(1);
+        opacity: var(--opacity-surface-disabled);
+      }
+    }
+  }
+}
+
+@mixin iconItemInit() {
+  @include iconItem;
+  @include iconItemMaterial;
+  @include iconItemDisabled;
+}

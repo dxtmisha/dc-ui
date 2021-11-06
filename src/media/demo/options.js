@@ -3,7 +3,7 @@ import { icons } from '@/media/demo/icons'
 export const optionsList = {
   icon: {
     text: 'Icons',
-    default: 'visibility',
+    default: 'lock_open',
     list: icons
   },
   disabled: { text: 'Disabled' },

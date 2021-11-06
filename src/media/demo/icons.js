@@ -2,14 +2,14 @@ export const icons = [
   { value: undefined },
   { subtitle: 'Material icons' },
   {
-    text: 'Visibility',
-    value: 'visibility',
-    icon: 'visibility'
+    text: 'Lock open',
+    value: 'lock_open',
+    icon: 'lock_open'
   },
   {
-    text: 'Visibility off',
-    value: 'visibility_off',
-    icon: 'visibility_off'
+    text: 'Lock',
+    value: 'lock',
+    icon: 'lock'
   },
   {
     text: 'Arrow drop down',
@@ -53,14 +53,14 @@ export const icons = [
   },
   { subtitle: 'Line Awesome' },
   {
-    text: 'Visibility',
-    value: 'la-eye',
-    icon: 'la-eye'
+    text: 'Lock open',
+    value: 'la-lock-open',
+    icon: 'la-lock-open'
   },
   {
-    text: 'Visibility off',
-    value: 'la-eye-slash',
-    icon: 'la-eye-slash'
+    text: 'Lock',
+    value: 'la-lock',
+    icon: 'la-lock'
   },
   {
     text: 'Arrow drop down',

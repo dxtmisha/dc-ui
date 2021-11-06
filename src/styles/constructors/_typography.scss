@@ -19,7 +19,7 @@
     border-radius: 0;
     box-shadow: none;
     box-sizing: border-box;
-    color: inherit;
+    color: varColor(--basic-text, --basic-text-opacity);
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -41,7 +41,6 @@
     @include font('body1');
     background-color: var(--background-type0);
     border-color: var(--basic-border);
-    color: varColor(--basic-text, --opacity-surface-high);
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
   }

@@ -2,6 +2,7 @@
 
 $basic: (
         'text': var(--text-type1),
+        'text-opacity': var(--opacity-surface-high),
         'border': #{varColor(--background-overlay, --opacity-overlay)},
         'border-width': 1px,
         'radius': var(--radius-type2)
