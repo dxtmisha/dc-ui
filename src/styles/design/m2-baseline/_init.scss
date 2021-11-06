@@ -36,7 +36,6 @@
 ) {
   :root {
     @include initConstructor((
-            basic: $basic,
             background: $background,
             text: $text,
             opacity: $opacity,
@@ -56,5 +55,6 @@
 
   body {
     @include initColorsDefault($shade, $colors);
+    @include initConstructor((basic: $basic));
   }
 }

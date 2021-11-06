@@ -4,6 +4,7 @@ import store from './store'
 
 import Translation from '@/classes/Translation'
 import App from './App.vue'
+import dcUi from '@/dcUi'
 
 import './main.scss'
 
@@ -17,5 +18,6 @@ Translation.init({
     createApp(App)
       .use(store)
       .use(router)
+      .use(dcUi)
       .mount('#app')
   )

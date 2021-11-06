@@ -14,7 +14,7 @@
           $chartTailwindcss
   )
 ) {
-  body.theme\:dark {
+  body.theme\:m2-dark {
     @include initConstructor((
             background: $backgroundDark,
             text: $textDark

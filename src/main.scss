@@ -1,7 +1,7 @@
 @import "./styles/design/m2-baseline/init";
 @import "./styles/design/m2-dark/init";
 
-@import "./assets/icons/line-awesome/css/line-awesome.min.css";
+/*@import "./assets/icons/line-awesome/css/line-awesome.min.css";*/
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Material+Icons+Outlined");
 @import url("https://fonts.googleapis.com/css2?family=Material+Icons+Round");
@@ -10,3 +10,10 @@
 
 @include init();
 @include initDark();
+
+main {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: dimension(4);
+  width: 1024px;
+}
