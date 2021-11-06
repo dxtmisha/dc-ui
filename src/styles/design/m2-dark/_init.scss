@@ -1,0 +1,24 @@
+@import "../m2-baseline/chart/chartFlatDesign";
+@import "../m2-baseline/chart/chartMaterialDesign";
+@import "../m2-baseline/chart/chartTailwindcss";
+@import "../../constructors/color";
+@import "../../constructors/constructor";
+@import "background";
+@import "shade";
+@import "text";
+
+@mixin initDark(
+  $charts: (
+          $chartFlatDesign,
+          $chartMaterialDesign,
+          $chartTailwindcss
+  )
+) {
+  body.theme\:dark {
+    @include initConstructor((
+            background: $backgroundDark,
+            text: $textDark
+    ));
+    @include initColors($shadeDark, $charts);
+  }
+}

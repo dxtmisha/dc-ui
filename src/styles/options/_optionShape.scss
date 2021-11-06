@@ -1,0 +1,34 @@
+@mixin optionShape() {
+  @include optionShapeBasic;
+  @include optionShapeRounded;
+  @include optionShapePill;
+  @include optionShapeTile;
+}
+
+@mixin optionShapeBasic() {
+  &.shape-basic {
+    border-radius: var(--shape-basic);
+    @content;
+  }
+}
+
+@mixin optionShapeRounded() {
+  &.shape-rounded {
+    border-radius: var(--radius-type4);
+    @content;
+  }
+}
+
+@mixin optionShapePill() {
+  &.shape-pill {
+    border-radius: var(--radius-pill);
+    @content;
+  }
+}
+
+@mixin optionShapeTile() {
+  &.shape-tile {
+    border-radius: var(--radius-tile);
+    @content;
+  }
+}

@@ -1,0 +1,11 @@
+@function getElevation($index, $level: 0) {
+  @return $index * 32 + $level;
+}
+
+@mixin index($index, $level: 0) {
+  z-index: getElevation($index, $level);
+}
+
+@mixin shadow($index) {
+  box-shadow: var(--shadow-type#{$index});
+}

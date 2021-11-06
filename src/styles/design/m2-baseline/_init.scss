@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import "../../constructors/color";
+@import "../../constructors/constructor";
+@import "../../constructors/font";
+@import "../../constructors/typography";
+@import "chart/chartFlatDesign";
+@import "chart/chartMaterialDesign";
+@import "chart/chartTailwindcss";
+@import "background";
+@import "basic";
+@import "blur";
+@import "radius";
+@import "font";
+@import "opacity";
+@import "shade";
+@import "shadow";
+@import "text";
+@import "transition";
+
+@mixin init(
+  $charts: (
+          $chartFlatDesign,
+          $chartMaterialDesign,
+          $chartTailwindcss
+  ),
+  $colors: (
+          'basic': 'material-blue-grey',
+          'primary': 'material-blue',
+          'secondary': 'material-indigo',
+          'success': 'material-green',
+          'info': 'material-light-blue',
+          'warning': 'material-amber',
+          'error': 'material-red',
+          'disabled': 'material-grey'
+  )
+) {
+  :root {
+    @include initConstructor((
+            basic: $basic,
+            background: $background,
+            text: $text,
+            opacity: $opacity,
+            transition: $transition,
+            radius: $radius,
+            shadow: $shadow,
+            blur: $blur
+    ));
+    @include initFonts($font);
+    @include initColors($shade, $charts);
+  }
+
+  @include initTypography;
+  @include initFontsClasses($font);
+  @include initColorsClasses($shade, $charts);
+  @include initColorsClassesFocus($shade, $colors);
+
+  body {
+    @include initColorsDefault($shade, $colors);
+  }
+}

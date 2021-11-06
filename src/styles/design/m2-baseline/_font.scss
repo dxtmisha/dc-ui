@@ -1,0 +1,82 @@
+$font: (
+        'headline1': (
+                size: 96px,
+                weight: 300,
+                height: 117%,
+                letter: -1.5px
+        ),
+        'headline2': (
+                size: 60px,
+                weight: 300,
+                height: 120%,
+                letter: -0.5px
+        ),
+        'headline3': (
+                size: 48px,
+                weight: normal,
+                height: 117%,
+                letter: initial
+        ),
+        'headline4': (
+                size: 34px,
+                weight: normal,
+                height: 106%,
+                letter: initial
+        ),
+        'headline5': (
+                size: 24px,
+                weight: normal,
+                height: 100%,
+                letter: .18px
+        ),
+        'headline6': (
+                size: 20px,
+                weight: 500,
+                height: 120%,
+                letter: .15px
+        ),
+        'subtitle1': (
+                size: 16px,
+                weight: normal,
+                height: 150%,
+                letter: .15px
+        ),
+        'subtitle2': (
+                size: 14px,
+                weight: 500,
+                height: 171%,
+                letter: .1px
+        ),
+        'body1': (
+                size: 16px,
+                weight: normal,
+                height: 150%,
+                letter: .5px
+        ),
+        'body2': (
+                size: 14px,
+                weight: normal,
+                height: 143%,
+                letter: .25px
+        ),
+        'button': (
+                size: 14px,
+                weight: 500,
+                height: 114%,
+                letter: 1.25px,
+                transform: uppercase
+        ),
+        'caption': (
+                size: 12px,
+                weight: normal,
+                height: 133%,
+                letter: .4px
+        ),
+        'overline': (
+                size: 10px,
+                weight: 500,
+                height: 160%,
+                letter: 1.5px,
+                transform: uppercase
+        )
+);

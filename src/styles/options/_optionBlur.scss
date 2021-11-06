@@ -1,0 +1,7 @@
+@mixin optionBlur($value: var(--blur-type1)) {
+  backdrop-filter: $value;
+
+  @supports not (backdrop-filter: #{$value}) {
+    @content;
+  }
+}

@@ -1,0 +1,31 @@
+@import "dimension";
+
+@mixin margin($value) {
+  margin: dimension($value);
+}
+
+@mixin marginX($value) {
+  margin-left: dimension($value);
+  margin-right: dimension($value);
+}
+
+@mixin marginY($value) {
+  margin-bottom: dimension($value);
+  margin-top: dimension($value);
+}
+
+@mixin marginTop($value) {
+  margin-top: dimension($value);
+}
+
+@mixin marginRight($value) {
+  margin-right: dimension($value);
+}
+
+@mixin marginLeft($value) {
+  margin-left: dimension($value);
+}
+
+@mixin marginBottom($value) {
+  margin-bottom: dimension($value);
+}

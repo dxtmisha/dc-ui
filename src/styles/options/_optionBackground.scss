@@ -1,0 +1,21 @@
+@import "../color";
+@import "../elevation";
+
+@mixin optionBackground() {
+  @include index(9, -2);
+  background-color: varColor(--background-scrim, --opacity-scrim);
+  inset: 0;
+  opacity: 0;
+  position: fixed;
+  transition-duration: var(--transition-large-collapsing);
+  transition-property: opacity, visibility;
+  transition-timing-function: var(--transition-cubic-80-40);
+  visibility: hidden;
+
+  &.status-show {
+    opacity: 1;
+    transition-duration: 90ms;
+    transition-timing-function: var(--transition-cubic-80-40);
+    visibility: visible;
+  }
+}

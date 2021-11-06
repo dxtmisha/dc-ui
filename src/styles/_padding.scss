@@ -1,0 +1,31 @@
+@import "dimension";
+
+@mixin padding($value) {
+  padding: dimension($value);
+}
+
+@mixin paddingX($value) {
+  padding-left: dimension($value);
+  padding-right: dimension($value);
+}
+
+@mixin paddingY($value) {
+  padding-bottom: dimension($value);
+  padding-top: dimension($value);
+}
+
+@mixin paddingTop($value) {
+  padding-top: dimension($value);
+}
+
+@mixin paddingRight($value) {
+  padding-right: dimension($value);
+}
+
+@mixin paddingLeft($value) {
+  padding-left: dimension($value);
+}
+
+@mixin paddingBottom($value) {
+  padding-bottom: dimension($value);
+}

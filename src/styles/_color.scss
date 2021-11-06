@@ -1,0 +1,43 @@
+@import "rules";
+
+@function toColorRBG($color) {
+  @return red($color) + ', ' + green($color) + ', ' + blue($color);
+}
+
+@function toGradient($color) {
+  @return linear-gradient(0deg, #{$color}, #{$color});
+}
+
+@function getColor(
+  $object,
+  $color,
+  $shade: 500,
+  $opacity: null,
+  $gradient: false
+) {
+  $value: getMap($object, $color + '.' + $shade, black);
+
+  @if $opacity {
+    $value: rgba(#{toColorRBG($value)}, #{$opacity});
+  }
+
+  @if $gradient {
+    @return toGradient($value);
+  } @else {
+    @return $value;
+  }
+}
+
+@function varColor(
+  $color: #{--palette-type1, var(--primary-type1)},
+  $opacity: --opacity-primary-high,
+  $gradient: false
+) {
+  $value: rgba(var(#{$color}), var(#{$opacity}));
+
+  @if $gradient {
+    @return toGradient($value);
+  } @else {
+    @return $value;
+  }
+}

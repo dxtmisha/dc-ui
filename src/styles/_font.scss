@@ -1,0 +1,25 @@
+@mixin font($type) {
+  font-size: var(--font-#{$type}-size, inherit);
+  font-weight: var(--font-#{$type}-weight, inherit);
+  line-height: var(--font-#{$type}-height, inherit);
+  letter-spacing: var(--font-#{$type}-letter, inherit);
+  text-transform: var(--font-#{$type}-transform, inherit);
+}
+
+@mixin clamp($clamp) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $clamp;
+  white-space: pre-wrap;
+}
+
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin select-none {
+  touch-callout: none;
+  user-select: none;
+}

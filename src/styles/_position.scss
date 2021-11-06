@@ -1,0 +1,133 @@
+@mixin positionFull($value: 0) {
+  top: $value;
+  right: $value;
+  bottom: $value;
+  left: $value;
+}
+
+@mixin positionX($value: 0) {
+  right: $value;
+  left: $value;
+}
+
+@mixin positionY($value: 0) {
+  top: $value;
+  bottom: $value;
+}
+
+@mixin positionTop($value: 0) {
+  top: $value;
+  right: $value;
+  left: $value;
+}
+
+@mixin positionRight($value: 0) {
+  top: $value;
+  right: $value;
+  bottom: $value;
+}
+
+@mixin positionBottom($value: 0) {
+  right: $value;
+  bottom: $value;
+  left: $value;
+}
+
+@mixin positionLeft($value: 0) {
+  top: $value;
+  bottom: $value;
+  left: $value;
+}
+
+@mixin absoluteFull($value: 0) {
+  position: absolute;
+  @include positionFull($value);
+}
+
+@mixin absoluteX($value: 0) {
+  position: absolute;
+  @include positionX($value);
+}
+
+@mixin absoluteY($value: 0) {
+  position: absolute;
+  @include positionY($value);
+}
+
+@mixin absoluteTop($value: 0) {
+  position: absolute;
+  @include positionTop($value);
+}
+
+@mixin absoluteRight($value: 0) {
+  position: absolute;
+  @include positionRight($value);
+}
+
+@mixin absoluteBottom($value: 0) {
+  position: absolute;
+  @include positionBottom($value);
+}
+
+@mixin absoluteLeft($value: 0) {
+  position: absolute;
+  @include positionLeft($value);
+}
+
+@mixin fixedFull($value: 0) {
+  position: fixed;
+  @include positionFull($value);
+}
+
+@mixin fixedX($value: 0) {
+  position: fixed;
+  @include positionX($value);
+}
+
+@mixin fixedY($value: 0) {
+  position: fixed;
+  @include positionY($value);
+}
+
+@mixin fixedTop($value: 0) {
+  position: fixed;
+  @include positionTop($value);
+}
+
+@mixin fixedRight($value: 0) {
+  position: fixed;
+  @include positionRight($value);
+}
+
+@mixin fixedBottom($value: 0) {
+  position: fixed;
+  @include positionBottom($value);
+}
+
+@mixin fixedLeft($value: 0) {
+  position: fixed;
+  @include positionLeft($value);
+}
+
+@mixin afterAbsolute($type: 'full', $position: relative) {
+  position: $position;
+  &::after {
+    @if $type == 'full' {
+      @include absoluteFull;
+    } @else if $type == 'x' {
+      @include absoluteX;
+    } @else if $type == 'y' {
+      @include absoluteY;
+    } @else if $type == 'top' {
+      @include absoluteTop;
+    } @else if $type == 'right' {
+      @include absoluteRight;
+    } @else if $type == 'bottom' {
+      @include absoluteBottom;
+    } @else if $type == 'left' {
+      @include absoluteLeft;
+    }
+    content: " ";
+    @content;
+  }
+}

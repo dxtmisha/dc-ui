@@ -1,0 +1,15 @@
+$transition: (
+        'basic': 100ms,
+        'flash': 45ms,
+        'menu-expanding': 150ms,
+        'menu-collapsing': 75ms,
+        'small-expanding': 150ms,
+        'small-collapsing': 100ms,
+        'medium-expanding': 250ms,
+        'medium-collapsing': 200ms,
+        'large-expanding': 300ms,
+        'large-collapsing': 250ms,
+        'cubic-80-40': cubic-bezier(0.4, 0.0, 0.2, 1),
+        'cubic-80-00': cubic-bezier(0.0, 0.0, 0.2, 1),
+        'cubic-00-40': cubic-bezier(0.4, 0.0, 1, 1)
+);

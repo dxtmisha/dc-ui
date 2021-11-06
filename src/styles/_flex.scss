@@ -1,0 +1,40 @@
+@mixin flexX() {
+  align-items: center;
+  display: flex;
+}
+
+@mixin flexY() {
+  @include flexX;
+  flex-flow: column;
+}
+
+@mixin flexCenter() {
+  @include flexX;
+  justify-content: center;
+}
+
+@mixin flexCenterY() {
+  @include flexY;
+  justify-content: center;
+}
+
+@mixin flexBetween() {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexInlineX() {
+  align-items: center;
+  display: inline-flex;
+}
+
+@mixin flexInlineCenter() {
+  @include flexInlineX;
+  justify-content: center;
+}
+
+@mixin flexDynamic() {
+  flex-basis: 1px;
+  flex-grow: 1;
+  flex-shrink: 1;
+}

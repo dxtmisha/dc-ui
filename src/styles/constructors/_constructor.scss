@@ -1,0 +1,9 @@
+@mixin initConstructor($object: ()) {
+  @each $type, $types in $object {
+    @if $types {
+      @each $name, $value in $types {
+        --#{$type}-#{$name}: #{$value};
+      }
+    }
+  }
+}

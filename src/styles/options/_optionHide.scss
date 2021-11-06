@@ -1,0 +1,7 @@
+@mixin optionHide() {
+  &.status-hide {
+    opacity: 0;
+    transform: scale(.8);
+    @content;
+  }
+}

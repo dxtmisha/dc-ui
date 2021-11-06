@@ -1,0 +1,40 @@
+@function dimension($size: 4, $increase: 1) {
+  @if type-of($size) == string {
+    @return $size;
+  } @else if unit($size) == '' {
+    @return $size * 4 * $increase + px;
+  } @else {
+    @return $size * 1 * $increase;
+  }
+}
+
+@mixin aspectRatio($value) {
+  aspect-ratio: #{$value};
+
+  @supports not (aspect-ratio: #{$value}) {
+    @content;
+  }
+}
+
+@mixin width($size) {
+  flex-basis: dimension($size);
+  max-width: 100%;
+  width: dimension($size);
+}
+
+@mixin rectangle($width, $height) {
+  @include width($width);
+  height: dimension($height);
+}
+
+@mixin squared($size) {
+  @include width($size);
+  @include aspectRatio(#{1/1}) {
+    height: $size;
+  }
+}
+
+@mixin circle($size) {
+  @include squared($size);
+  border-radius: 100%;
+}

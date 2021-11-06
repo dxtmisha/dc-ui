@@ -1,0 +1,72 @@
+@import "../color";
+
+@function getColorNames($object) {
+  $list: ();
+
+  @each $key, $value in $object {
+    $name: str-slice($key, 0, str-index($key, '.') - 1);
+
+    @if (map-has-key($list, $name) == false) {
+      $list: map-merge($list, ($name: $name));
+    }
+  }
+
+  @return map-keys($list);
+}
+
+@mixin initColors($shades, $colors) {
+  @if $shades and $colors {
+    @each $color in $colors {
+      @each $name in getColorNames($color) {
+        @each $shadeName, $shade in $shades {
+          --shade-#{$name}-#{$shadeName}: #{toColorRBG(getColor($color, $name, $shade))};
+        }
+      }
+    }
+  }
+}
+
+@mixin initColorsClasses(
+  $shades,
+  $colors,
+  $types: (primary, secondary)
+) {
+  @if $shades and $colors {
+    @each $color in $colors {
+      @each $name in getColorNames($color) {
+        @each $type in $types {
+          #{'.'}#{$type}\:#{$name} {
+            @each $shadeName, $shade in $shades {
+              --#{$type}-#{$shadeName}: var(--shade-#{$name}-#{$shadeName});
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin initColorsClassesFocus(
+  $shades,
+  $object
+) {
+  @each $type, $color in $object {
+    .palette\:#{$type} {
+      @each $shadeName, $shade in $shades {
+        --palette-#{$shadeName}: var(--#{$type}-#{$shadeName});
+      }
+    }
+  }
+}
+
+@mixin initColorsDefault(
+  $shades,
+  $object,
+  $default: primary
+) {
+  @each $type, $color in $object {
+    @each $shadeName, $shade in $shades {
+      --#{$type}-#{$shadeName}: var(--shade-#{$color}-#{$shadeName});
+    }
+  }
+}

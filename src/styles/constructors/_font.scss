@@ -1,0 +1,17 @@
+@import "../font";
+
+@mixin initFonts($fonts) {
+  @each $name, $font in $fonts {
+    @each $type, $value in $font {
+      --font-#{$name}-#{$type}: #{$value};
+    }
+  }
+}
+
+@mixin initFontsClasses($fonts) {
+  @each $type, $font in $fonts {
+    .font\:#{$type} {
+      @include font($type);
+    }
+  }
+}

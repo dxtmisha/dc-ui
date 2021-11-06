@@ -1,0 +1,64 @@
+@import "rules";
+
+$mediaWidth: (
+        minimum: 414px,
+        small: 640px,
+        medium: 768px,
+        large: 1024px,
+        extra: 1280px,
+        desktop: 1536px
+);
+
+@function media($width: medium) {
+  @return getMap($mediaWidth, $width);
+}
+
+@mixin mediaMinWidth($width: medium) {
+  @media screen and (min-width: media($width)) {
+    @content;
+  }
+}
+
+@mixin mediaMaxWidth($width: medium) {
+  @media screen and (max-width: media($width) - 1) {
+    @content;
+  }
+}
+
+@mixin mediaMinMaxWidth($min, $max) {
+  @media screen and (min-width: media($min)) and (max-width: media($max) - 1) {
+    @content;
+  }
+}
+
+@mixin mediaMinList($width: medium, $name: '&.adaptive-auto') {
+  #{$name} {
+    @include mediaMinWidth($width) {
+      @content;
+    }
+
+    @each $key, $value in $mediaWidth {
+      &-#{$key} {
+        @include mediaMinWidth($key) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin mediaMaxList($width: medium, $name: '&.adaptive-auto') {
+  #{$name} {
+    @include mediaMaxWidth($width) {
+      @content;
+    }
+
+    @each $key, $value in $mediaWidth {
+      &-#{$key} {
+        @include mediaMaxWidth($key) {
+          @content;
+        }
+      }
+    }
+  }
+}
