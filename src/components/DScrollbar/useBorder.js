@@ -6,8 +6,13 @@ export const useBorder = function (border) {
   const bottom = ref(false)
 
   const update = () => {
-    top.value = scroll.value?.scrollTop !== 0
-    bottom.value = scroll.value?.scrollHeight - scroll.value?.clientHeight !== scroll.value?.scrollTop
+    if (border.value) {
+      top.value = scroll.value?.scrollTop !== 0
+      bottom.value = scroll.value?.scrollHeight - scroll.value?.clientHeight !== scroll.value?.scrollTop
+    } else {
+      top.value = false
+      bottom.value = false
+    }
   }
 
   const onScroll = (event) => {
@@ -16,9 +21,9 @@ export const useBorder = function (border) {
     }
   }
 
-  watch(top, (top) => scroll.value?.classList.toggle('option-border-top', top))
-  watch(bottom, (bottom) => scroll.value?.classList.toggle('option-border-bottom', bottom))
-  watch(border, update)
+  watch(top, (top) => scroll.value?.classList.toggle('status-border-top', top))
+  watch(bottom, (bottom) => scroll.value?.classList.toggle('status-border-bottom', bottom))
+  watch(border, () => requestAnimationFrame(update))
 
   onMounted(update)
 

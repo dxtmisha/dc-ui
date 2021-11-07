@@ -3,7 +3,11 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-scrollbar v-bind="binds" v-html="text"/>
+    <d-scrollbar
+      class="demo-scrollbar"
+      v-bind="binds"
+      v-html="text"
+    />
   </interactive-demo>
 </template>
 
@@ -36,4 +40,8 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.demo-scrollbar {
+  max-height: 480px;
+}
+</style>

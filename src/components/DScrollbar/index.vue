@@ -1,6 +1,7 @@
 <template>
   <component
     :is="tag"
+    ref="scroll"
     :class="classList"
     @scroll="onScroll"
   >

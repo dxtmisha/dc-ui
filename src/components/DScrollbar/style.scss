@@ -44,7 +44,7 @@
 }
 
 @mixin scrollbarBorder() {
-  &.status-border {
+  &.option-border {
     border-bottom-color: transparent;
     border-bottom-width: var(--_sc-border);
     border-top-color: transparent;

@@ -6,6 +6,7 @@ import Translation from '@/classes/Translation'
 import App from './App.vue'
 import dcUi from '@/dcUi'
 
+import './assets/tailwind.css'
 import './main.scss'
 
 Translation.init({
