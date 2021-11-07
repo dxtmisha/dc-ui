@@ -1,0 +1,77 @@
+@mixin scrollbar() {
+  @include scrollbarVar;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@mixin scrollbarVar() {
+  --_sc-background: var(--sc-background, transparent);
+  --_sc-border: var(--sc-border, var(--basic-border-width));
+  --_sc-width: var(--sc-width, 8px);
+  --_sc--hv-background: var(--sc--hv-background, transparent);
+  --_sc__th-background: var(--sc__th-background, transparent);
+  --_sc__thumb--hv-background: var(--sc__thumb--hv-background, #{varColor(--background-scrim, --opacity-border)});
+}
+
+@mixin scrollbarAssets() {
+  &:not(.status-disabled) {
+    scrollbar-color: var(--_sc__th-background) var(--_sc-background);
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+      appearance: none;
+      height: var(--_sc-width);
+      width: var(--_sc-width);
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--_sc-background);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--_sc__th-background);
+      border: transparent solid var(--_sc-border);
+      border-radius: var(--_sc-width);
+    }
+
+    &:hover {
+      --_sc-background: var(--_sc--hv-background);
+      --_sc__th-background: var(--_sc__thumb--hv-background);
+    }
+  }
+}
+
+@mixin scrollbarBorder() {
+  &.status-border {
+    border-bottom-color: transparent;
+    border-bottom-width: var(--_sc-border);
+    border-top-color: transparent;
+    border-top-width: var(--_sc-border);
+    transition: border-color;
+    transition-duration: var(--transition-menu-collapsing);
+  }
+
+  &.status-border-bottom {
+    border-bottom-color: inherit;
+  }
+
+  &.status-border-top {
+    border-top-color: inherit;
+  }
+}
+
+@mixin scrollbarVisible() {
+  &.status-visible {
+    overflow-y: visible;
+    overflow-x: visible;
+  }
+}
+
+@mixin scrollbarInit() {
+  @include scrollbar;
+  @include scrollbarAssets;
+  @include scrollbarBorder;
+  @include scrollbarVisible;
+}
