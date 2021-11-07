@@ -71,6 +71,7 @@ export default {
     flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 1;
+    position: relative;
 
     @include mediaMinWidth() {
       flex-basis: 1px;

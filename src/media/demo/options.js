@@ -4,6 +4,7 @@ export const optionsList = {
   active: { text: 'Active' },
   background: { text: 'Background' },
   border: { text: 'Border' },
+  bottom: { text: 'Bottom' },
   icon: {
     text: 'Icons',
     default: 'lock_open',
