@@ -45,6 +45,18 @@
   }
 }
 
+@mixin iconItemLineAwesome() {
+  &.la,
+  &.lab,
+  &.lad,
+  &.lal,
+  &.lar,
+  &.las {
+    display: flex;
+    @content;
+  }
+}
+
 @mixin iconItemDisabled() {
   &:not(.status-hide).status-disabled {
     --basic-text-opacity: var(--opacity-surface-disabled);
@@ -63,5 +75,6 @@
 @mixin iconItemInit() {
   @include iconItem;
   @include iconItemMaterial;
+  @include iconItemLineAwesome;
   @include iconItemDisabled;
 }
