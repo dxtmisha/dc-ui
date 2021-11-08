@@ -1,0 +1,23 @@
+@import "../../styles/color";
+
+@mixin buttonVar() {
+  --_bt-palette: var(--bt-palette, var(--palette-type1, var(--basic-text)));
+  --_bt-select-palette: var(--bt-select-palette, var(--palette-type2, var(--primary-type2)));
+  --_bt-image-palette: var(--bt-image-palette, var(--_bt-palette));
+
+  --_bt-background: var(--bt-background, transparent);
+  --_bt-border: var(--bt-border, transparent);
+  --_bt-gap: var(--bt-gap, 8px);
+  --_bt-min-width: var(--bt-min-width, 64px);
+  --_bt-padding: var(--bt-padding, 16px);
+  --_bt-space: var(--bt-space, 4px);
+  --_bt-squeeze: var(--bt-squeeze, 8px);
+
+  --_bt-height: var(--bt-height, 36px);
+  --_bt--sm-height: var(--bt--sm-height, 32px);
+  --_bt--lg-height: var(--bt--lg-height, 44px);
+
+  --_bt--dn-padding: var(--bt--dn-padding, 8px);
+
+  --_bt--ac-border: var(--bt--ac-border, #{varColor(--_bt-palette, --opacity-surface-medium)});
+}

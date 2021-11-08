@@ -27,11 +27,13 @@ export const props = {
   // Values
   icon: [File, String],
   iconActive: [File, String],
+
   // Status
   active: Boolean,
   turn: Boolean,
   disabled: Boolean,
   hide: Boolean,
+
   // Options
   size,
   shape,

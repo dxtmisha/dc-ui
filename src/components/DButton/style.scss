@@ -1,0 +1,185 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+@import "../../styles/padding";
+@import "../../styles/position";
+@import "../../styles/options/optionShape";
+@import "styleExtend";
+@import "styleVar";
+
+@mixin button() {
+  @include buttonVar;
+  @include flexInlineCenter;
+  @include font('button');
+  @include paddingX(var(--_bt-padding));
+  @include select-none;
+  background-color: var(--_bt-background);
+  background-image: none;
+  border-radius: var(--basic-radius);
+  box-shadow: var(--_bt-shadow, none);
+  gap: var(--_bt-gap);
+  height: var(--_bt-height);
+  line-height: 1;
+  max-width: 100%;
+  min-width: var(--_bt-min-width);
+  text-overflow: ellipsis;
+  transition-property: box-shadow;
+  white-space: nowrap;
+
+  @include afterAbsolute {
+    border-color: var(--_bt-border);
+    border-radius: inherit;
+    border-width: 1px;
+    transition-duration: var(--transition-large-expanding);
+    transition-property: border-color;
+  }
+}
+
+@mixin buttonIcon() {
+  &__icon {
+    transition-duration: inherit;
+    transition-property: color, opacity, transform;
+
+    &.bt-icon {
+      margin-left: calc(var(--_bt-squeeze) * -1);
+    }
+
+    &.bt-trailing {
+      cursor: default;
+      margin-right: calc(var(--_bt-squeeze) * -1);
+      order: 9;
+      position: relative;
+      z-index: 4;
+    }
+  }
+}
+
+@mixin buttonText() {
+  &__text {
+    @include ellipsis;
+    @include flexDynamic;
+    display: var(--_bt--ic-display, flex);
+    @content;
+  }
+}
+
+@mixin buttonProgress() {
+  .d-progress.status-visible ~ *:not(.d-badge) {
+    background-color: transparent;
+    color: transparent;
+  }
+}
+
+@mixin buttonSize() {
+  &.size- {
+    &small {
+      --_bt-height: var(--_bt--sm-height);
+    }
+
+    &large {
+      --_bt-height: var(--_bt--lg-height);
+    }
+  }
+}
+
+@mixin buttonShape() {
+  @include optionShape;
+
+  &.shape-pill &__icon {
+    --ic-size: calc(var(--_bt-height) - (var(--bt-space) * 2));
+    --_bt-squeeze: calc(var(--_bt-padding) - var(--bt-space));
+  }
+}
+
+@mixin buttonAdaptive() {
+  $this: &;
+
+  @include mediaMaxList {
+    @extend %button-adaptive;
+  }
+
+  &.adaptive-icon {
+    @extend %button-adaptive;
+  }
+
+  &.adaptive-block {
+    width: 100%;
+  }
+}
+
+@mixin buttonLowercase() {
+  &.option-lowercase {
+    @include font('subtitle2');
+    @content;
+  }
+}
+
+@mixin buttonDense() {
+  &.option-dense {
+    --_bt-padding: var(--_bt--dn-padding);
+    @content;
+  }
+}
+
+@mixin buttonStatus() {
+  &:not(:disabled):not(.status-disabled):not(.option-readonly) {
+    &:hover,
+    &.status-hover {
+      background-image: varColor(--_bt-image-palette, --opacity-container-hover, true);
+      box-shadow: var(--_bt--hv-shadow, none);
+    }
+
+    &:focus,
+    &.status-focus,
+    &.status-selected {
+      background-image: varColor(--_bt-image-palette, --opacity-container-focus, true);
+    }
+
+    &:active,
+    &.status-active {
+      background-image: varColor(--_bt-image-palette, --opacity-container-dragged, true);
+      box-shadow: var(--_bt--ac-shadow, none);
+
+      &::after {
+        border-color: var(--_bt--ac-border);
+        transition-duration: var(--transition-flash);
+      }
+    }
+
+    &.status-selected {
+      --_bt-palette: var(--_bt-select-palette);
+      z-index: 4;
+    }
+  }
+}
+
+@mixin buttonDisabled() {
+  &:disabled,
+  &.status-disabled {
+    --basic-text-opacity: var(--opacity-surface-disabled);
+    --_bt-palette: var(--disabled-type1);
+    background-color: var(--_bt--ds-background, transparent);
+    background-image: none;
+    box-shadow: var(--_bt--ds-shadow, none);
+
+    &::after {
+      border-color: var(--_bt--ds-border, transparent);
+    }
+  }
+}
+
+@mixin buttonInit() {
+  @include button;
+  @include buttonIcon;
+  @include buttonText;
+  @include buttonProgress;
+
+  @include buttonSize;
+  @include buttonShape;
+  @include buttonAdaptive;
+  @include buttonLowercase;
+  @include buttonDense;
+  @include buttonStatus;
+  @include buttonDisabled;
+}
