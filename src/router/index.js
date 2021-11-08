@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import DemoBadge from '../views/DemoBadge'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoProgress from '../views/DemoProgress'
@@ -6,6 +7,11 @@ import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 
 const routes = [
+  {
+    path: '/d-badge',
+    name: 'd-badge',
+    component: DemoBadge
+  },
   {
     path: '/d-icon',
     name: 'd-icon',

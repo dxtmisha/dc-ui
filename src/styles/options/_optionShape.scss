@@ -7,7 +7,7 @@
 
 @mixin optionShapeBasic() {
   &.shape-basic {
-    border-radius: var(--shape-basic);
+    border-radius: var(--basic-radius);
     @content;
   }
 }

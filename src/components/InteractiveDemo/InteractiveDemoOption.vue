@@ -9,6 +9,7 @@
         <div class="font:subtitle2">{{ item.subtitle }}</div>
       </template>
       <template v-else-if="item?.list">
+        {{ item.text }}
         <select
           @input="onInput($event, item)"
         >
