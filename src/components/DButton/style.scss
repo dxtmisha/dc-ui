@@ -96,11 +96,11 @@
   $this: &;
 
   @include mediaMaxList {
-    @extend %button-adaptive;
+    @include buttonAdaptive;
   }
 
   &.adaptive-icon {
-    @extend %button-adaptive;
+    @include buttonAdaptive;
   }
 
   &.adaptive-block {

@@ -1,4 +1,4 @@
-%button-adaptive {
+@mixin buttonAdaptive {
   --_bt-padding: 0;
   --_bt-squeeze: 0;
   --_bt--ic-display: none;

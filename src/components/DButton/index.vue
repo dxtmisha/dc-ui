@@ -32,6 +32,7 @@ export default {
 
       // Status
       selected,
+      readonly,
       disabled,
 
       // Options
