@@ -11,9 +11,14 @@ export const optionsList = {
     list: adaptive
   },
   background: { text: 'Background' },
+  badge: {
+    text: 'Badge',
+    message: { value: 'Demo' }
+  },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
   dense: { text: 'Dense' },
+  dragged: { text: 'Dragged' },
   dot: { text: 'Dot' },
   icon: {
     text: 'Icons',
@@ -57,7 +62,11 @@ export const optionsList = {
     text: 'Shape',
     list: shape
   },
-  text: { text: 'Interactive demo' },
+  text: {
+    text: 'Text',
+    default: true,
+    message: 'Interactive demo'
+  },
   turn: { text: 'Turn' },
   visible: { text: 'Visible' },
   options: { subtitle: 'Options' },

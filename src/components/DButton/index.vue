@@ -4,18 +4,37 @@
     :class="classList"
     :disabled="disabled"
     :data-value="value"
-    @click="onClick"
   >
+    <d-progress
+      v-if="progress && !disabled"
+      :visible="progress"
+      type="circular"
+    />
     <d-icon
       v-if="icon"
       v-bind="bindIcon"
-      class="d-button__icon bt-icon"
     />
+    <d-icon
+      v-if="iconTrailing"
+      v-bind="bindTrailing"
+    />
+    <span class="d-button__text">
+      {{ text }}<slot/>
+    </span>
+    <d-badge
+      v-if="badge"
+      v-bind="badge"
+      :alignment="badgeAlignment"
+    />
+    <d-ripple v-if="ripple" :disabled="disabled || readonly"/>
   </component>
 </template>
 
 <script>
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
+import DProgress from '@/components/DProgress'
+import DRipple from '@/components/DRipple'
 import { props } from '@/components/DButton/props'
 import { computed, toRefs } from 'vue'
 import { useColor } from '@/uses/useColors'
@@ -23,15 +42,18 @@ import { useIcon } from './useIcon'
 
 export default {
   name: 'DButton',
-  components: { DIcon },
+  components: {
+    DBadge,
+    DIcon,
+    DProgress,
+    DRipple
+  },
   props,
   setup (props, context) {
     const {
-      // Values
-      text,
-
       // Status
       selected,
+      dragged,
       readonly,
       disabled,
 
@@ -41,25 +63,25 @@ export default {
       appearance,
       size,
       shape,
-      adaptive,
       lowercase,
       dense
     } = toRefs(props)
 
-    const optionAdaptive = computed(() => {
-      return text.value || 'default' in context.slot ? adaptive.value : 'icon'
-    })
-
     const { classColor } = useColor(color, palette)
     const {
+      optionAdaptive,
       bindIcon,
       bindTrailing
-    } = useIcon(props, optionAdaptive)
+    } = useIcon(props, context)
+    const badgeAlignment = computed(
+      () => [undefined, 'text', 'text-color'].indexOf(appearance.value) !== -1 ? 'static' : 'overlap'
+    )
 
     const classList = computed(() => {
       return {
         'd-button a-static': true,
         'status-selected': selected.value,
+        'status-dragged': dragged.value,
         'status-readonly': readonly.value,
         'status-disabled': disabled.value,
         ...classColor.value,
@@ -69,12 +91,14 @@ export default {
         [`adaptive-${optionAdaptive.value}`]: optionAdaptive.value,
         'option-lowercase': lowercase.value,
         'option-dense': dense.value
+
       }
     })
 
     return {
       bindIcon,
       bindTrailing,
+      badgeAlignment,
       classList
     }
   }

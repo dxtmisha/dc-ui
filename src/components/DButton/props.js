@@ -51,6 +51,7 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
+  badge: Object,
   item: undefined,
   value: undefined,
   text: [Number, String],
@@ -58,10 +59,10 @@ export const props = {
   // Status
   selected: Boolean,
   turn: Boolean,
-  progress: Boolean,
+  dragged: Boolean,
   readonly: Boolean,
   disabled: Boolean,
-  iconHide: undefined,
+  progress: Boolean,
 
   // Options
   palette,

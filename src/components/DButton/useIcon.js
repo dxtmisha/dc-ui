@@ -1,11 +1,12 @@
 import { computed, readonly, toRefs } from 'vue'
 
-export const useIcon = function (props, optionAdaptive) {
+export const useIcon = function (props, context) {
   const {
     // Values
     icon,
     iconActive,
     iconTrailing,
+    text,
 
     // Status
     selected,
@@ -15,6 +16,7 @@ export const useIcon = function (props, optionAdaptive) {
 
     // Options
     shape,
+    adaptive,
 
     // Icon
     iconReadonly,
@@ -22,11 +24,11 @@ export const useIcon = function (props, optionAdaptive) {
     iconBackground
   } = toRefs(props)
 
-  const animationHide = computed(() => {
-    return optionAdaptive.value === 'icon' ? 'type1' : 'type2'
-  })
+  const optionAdaptive = computed(() => text.value || 'default' in context.slots ? adaptive.value : 'icon')
+  const animationHide = computed(() => optionAdaptive.value === 'icon' ? 'type1' : 'type2')
 
   const bindIcon = readonly({
+    class: { 'd-button__icon bt-icon': true },
     icon,
     iconActive,
     active: selected,
@@ -39,7 +41,10 @@ export const useIcon = function (props, optionAdaptive) {
   })
 
   const bindTrailing = readonly({
-    class: { 'window-control-static': iconReadonly.value },
+    class: {
+      'd-button__icon bt-trailing': true,
+      'window-control-static': iconReadonly
+    },
     icon: iconTrailing,
     turn,
     disabled,
@@ -47,6 +52,7 @@ export const useIcon = function (props, optionAdaptive) {
   })
 
   return {
+    optionAdaptive,
     bindIcon,
     bindTrailing
   }

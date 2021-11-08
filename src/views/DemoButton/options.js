@@ -51,14 +51,16 @@ export const optionsButton = [
   'icon',
   'iconActive',
   'iconTrailing',
+  'badge',
   'text',
 
   'status',
   'selected',
   'turn',
-  'progress',
+  'dragged',
   'readonly',
   'disabled',
+  'progress',
   'iconHide',
 
   'options',
