@@ -6,6 +6,9 @@ export const useOptions = function (options) {
   const valueOptions = ref([])
   const valueData = ref({})
 
+  const setData = (index, value) => {
+    valueData.value[index] = value
+  }
   const setValue = (item, value) => {
     let data
 
@@ -17,7 +20,7 @@ export const useOptions = function (options) {
       data = value
     }
 
-    valueData.value[item.value] = data
+    setData(item.value, data)
   }
 
   const initOptions = () => {
@@ -50,6 +53,7 @@ export const useOptions = function (options) {
   return {
     valueOptions,
     valueData,
+    setData,
     setValue
   }
 }

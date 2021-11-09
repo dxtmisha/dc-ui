@@ -1,11 +1,17 @@
 <template>
   <interactive-demo
+    ref="interactive"
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-window v-bind="binds">
-      <template v-slot:control>
-        <d-button text="Interactive demo"/>
+    <d-window v-bind="binds" @on-open="onOpen">
+      <template v-slot:control="{ classList, onClick, onContextmenu }">
+        <d-button
+          :class="classList"
+          text="Interactive demo"
+          @click="onClick"
+          @contextmenu="onContextmenu"
+        />
       </template>
     </d-window>
   </interactive-demo>
@@ -27,6 +33,11 @@ export default {
   setup () {
     const options = optionsWindow
     return { options }
+  },
+  methods: {
+    onOpen ({ toOpen }) {
+      this.$refs.interactive.setData('open', toOpen)
+    }
   }
 }
 </script>

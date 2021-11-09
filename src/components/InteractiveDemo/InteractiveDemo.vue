@@ -28,12 +28,14 @@ export default {
     const {
       valueOptions,
       valueData,
+      setData,
       setValue
     } = useOptions(options)
 
     return {
       valueOptions,
       valueData,
+      setData,
       setValue
     }
   },
