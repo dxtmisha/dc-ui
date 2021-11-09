@@ -10,6 +10,7 @@ export const optionsList = {
     text: 'Active',
     list: adaptive
   },
+  autoClose: { text: 'Automatic closing' },
   background: { text: 'Background' },
   badge: {
     text: 'Value',
@@ -24,6 +25,7 @@ export const optionsList = {
   dense: { text: 'Dense' },
   dragged: { text: 'Dragged' },
   dot: { text: 'Dot' },
+  fullscreen: { text: 'Fullscreen' },
   icon: {
     text: 'Icons',
     default: 'lock_open',
@@ -47,10 +49,12 @@ export const optionsList = {
   hide: { text: 'Hide element' },
   left: { text: 'Left' },
   lowercase: { text: 'Lowercase' },
+  open: { text: 'Open' },
   palette: {
     text: 'Palettes',
     list: palettes
   },
+  persistent: { text: 'Persistent' },
   progress: { text: 'Progress' },
   readonly: { text: 'Readonly' },
   ripple: {

@@ -1,0 +1,172 @@
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/media";
+@import "../../styles/position";
+@import "styleExtend";
+
+@mixin window() {
+  @include windowVar;
+  @include fixedFull;
+  @include index(9);
+  align-items: flex-end;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  padding: var(--_wn-padding);
+  transition-duration: var(--transition-menu-collapsing);
+  transition-property: background-color;
+}
+
+@mixin windowVar() {
+  --_wn-height: var(--wn-height, calc(100vh - 64px));
+  --_wn-padding: var(--wn-padding, #{32px 16px});
+  --_wn-transform: var(--wn-transform, #{scale(.8)});
+
+  --_wn__bd-width: var(--wn__bd-width, 280px);
+
+  --_wn--md-padding: var(--wn--md-padding, 24px);
+  --_wn--md__bd-width: var(--wn__bd-width, 560px);
+}
+
+@mixin windowBody() {
+  &__body {
+    background: var(--background-type9);
+    border-radius: var(--basic-radius);
+    box-shadow: var(--shadow-type9);
+    max-height: var(--_wn-height);
+    max-width: 640px;
+    opacity: 0;
+    overflow-y: auto;
+    transform: var(--_wn-transform);
+    transform-origin: bottom center;
+    transition: opacity var(--transition-menu-collapsing) linear,
+    transform var(--transition-menu-collapsing) linear,
+    visibility var(--transition-flash) linear var(--transition-menu-collapsing);
+    width: 100%;
+    visibility: hidden;
+    @content;
+  }
+
+  &.option-body-auto &__body {
+    width: auto;
+  }
+}
+
+@mixin windowShape() {
+  &.shape-basic &__body {
+    border-radius: var(--basic-radius);
+  }
+
+  &.shape-rounded &__body {
+    border-radius: var(--radius-type4);
+  }
+
+  &.shape-tile &__body {
+    border-radius: var(--radius-tile);
+  }
+}
+
+@mixin windowFullscreen() {
+  &.option-fullscreen {
+    --_wn-padding: 0;
+    --_wn--md-padding: 0;
+  }
+
+  &.option-fullscreen &__body {
+    border-radius: 0;
+    height: 100%;
+    max-height: none;
+    max-width: none;
+    transform: scale(.2);
+    transform-origin: var(--_wn-cl-x, center) var(--_wn-cl-y, bottom);
+    width: 100%;
+  }
+}
+
+@mixin windowPersistent() {
+  @keyframes __animate-window--persistent {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.02);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  &.option-persistent &__body {
+    animation-duration: var(--transition-menu-expanding);
+    animation-name: __animate-window--persistent;
+    animation-timing-function: var(--transition-cubic-80-40);
+  }
+}
+
+@mixin windowStatus() {
+  &.status-show {
+    background-color: varColor(--background-scrim, --opacity-scrim);
+    transition-duration: var(--transition-menu-expanding);
+  }
+
+  &.status-show & {
+    &__body {
+      opacity: 1;
+      transform: none;
+      transition: opacity var(--transition-flash) linear,
+      transform var(--transition-menu-expanding) var(--transition-cubic-80-00);
+      visibility: visible;
+    }
+  }
+
+  &.status-hide & {
+    &__body {
+      transform: none;
+    }
+  }
+}
+
+@mixin windowMenu() {
+  $this: &;
+
+  @include mediaMinList {
+    @include mixinMenu($this);
+    @content;
+  }
+
+  &.adaptive-menu {
+    @include mixinMenu($this);
+    @content;
+  }
+}
+
+@mixin windowModal() {
+  &.adaptive-modal {
+    @include mediaMinWidth {
+      --_wn-padding: var(--_wn--md-padding);
+      align-items: center;
+      transform-origin: center;
+      @content;
+    }
+  }
+
+  &.adaptive-modal &__body {
+    @include mediaMinWidth {
+      max-width: 100%;
+      width: var(--_wn--md__bd-width);
+    }
+  }
+}
+
+@mixin windowInit() {
+  @include window;
+  @include windowBody;
+  @include windowShape;
+  @include windowFullscreen;
+  @include windowPersistent;
+  @include windowStatus;
+  @include windowMenu;
+  @include windowModal;
+}

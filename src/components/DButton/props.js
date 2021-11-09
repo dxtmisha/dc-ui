@@ -5,7 +5,7 @@ const defaultProps = defaultInit('d-button')
 
 export const appearance = {
   type: String,
-  default: defaultProps('appearance'),
+  default: defaultProps('appearance', 'contained'),
   validator: validator([
     'text',
     'text-color',

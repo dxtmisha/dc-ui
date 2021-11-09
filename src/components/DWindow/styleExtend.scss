@@ -1,0 +1,29 @@
+@mixin mixinMenu($this: &) {
+  bottom: auto;
+  content: "--MENU--";
+  display: block;
+  left: var(--_wn-x, 0);
+  padding: 0;
+  right: auto;
+  top: var(--_wn-y, 0);
+
+  #{$this}__body,
+  &.option-fullscreen #{$this}__body {
+    background: var(--background-type6);
+    box-shadow: var(--shadow-type6);
+    max-height: 100vh;
+    max-width: 100vw;
+    min-width: var(--_wn__bd-width);
+    transform-origin: var(--_wd-or-x, left) var(--_wd-or-y, top);
+    width: auto;
+    @content;
+  }
+
+  &:not(.status-show) #{$this}__body {
+    transform: var(--_wn-transform);
+  }
+
+  &.status-show {
+    background-color: transparent;
+  }
+}
