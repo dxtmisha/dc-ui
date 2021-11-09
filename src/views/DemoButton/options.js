@@ -51,8 +51,11 @@ export const optionsButton = [
   'icon',
   'iconActive',
   'iconTrailing',
-  'badge',
   'text',
+
+  'valuesBadge',
+  'badgeIcon',
+  'badge',
 
   'status',
   'selected',

@@ -38,6 +38,7 @@ export const props = {
   max,
 
   // Status
+  disabled: Boolean,
   hide: Boolean,
 
   // Options

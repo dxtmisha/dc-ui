@@ -22,8 +22,9 @@
       {{ text }}<slot/>
     </span>
     <d-badge
-      v-if="badge"
-      v-bind="badge"
+      v-if="bindBadge"
+      v-bind="bindBadge"
+      :disabled="disabled"
       :alignment="badgeAlignment"
     />
     <d-ripple v-if="ripple" :disabled="disabled || readonly"/>
@@ -37,6 +38,7 @@ import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DButton/props'
 import { computed, toRefs } from 'vue'
+import { setupBadge } from '@/components/DBadge/setupBadge'
 import { useColor } from '@/uses/useColors'
 import { useIcon } from './useIcon'
 
@@ -73,8 +75,9 @@ export default {
       bindIcon,
       bindTrailing
     } = useIcon(props, context)
+    const { bindBadge } = setupBadge(props)
     const badgeAlignment = computed(
-      () => [undefined, 'text', 'text-color'].indexOf(appearance.value) !== -1 ? 'static' : 'overlap'
+      () => [undefined, 'text', 'text-color'].indexOf(appearance.value) !== -1 && optionAdaptive.value !== 'icon' ? 'static' : 'overlap'
     )
 
     const classList = computed(() => {
@@ -98,6 +101,7 @@ export default {
     return {
       bindIcon,
       bindTrailing,
+      bindBadge,
       badgeAlignment,
       classList
     }

@@ -18,6 +18,7 @@
   @include select-none;
   --pr-palette: var(--basic-text);
   --rp-palette: var(--_bt-image-palette);
+  --bg--ov-position: 3*2;
   background-color: var(--_bt-background);
   background-image: none;
   border-radius: var(--_bt-radius);
@@ -76,7 +77,7 @@
 }
 
 @mixin buttonProgress() {
-  .d-progress.status-visible ~ *:not(.d-badge) {
+  .d-progress.status-visible ~ * {
     background-color: transparent;
     color: transparent;
     opacity: 0;

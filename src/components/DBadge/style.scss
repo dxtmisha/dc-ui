@@ -17,7 +17,7 @@
   --ii-font-size: calc(var(--_bg-size) * .64);
   --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
-  background-color: varColor(--_bg-palette);
+  background-color: varColor(--_bg-palette, --basic-text-opacity);
   border-radius: var(--_bg-radius);
   height: var(--_bg-size);
   inset: auto;
@@ -43,6 +43,7 @@
 
   --_bg--dot-size: var(--bg--dot-size, 8px);
 
+  --_bg--ov-position: var(--bg--ov-position, 2);
   --_bg--ol-border-width: var(--bg--ol-border-width, 2px);
 }
 
@@ -79,7 +80,7 @@
 @mixin badgeAlignment() {
   &.alignment- {
     &overlap {
-      --_bg-position: calc(var(--_bg-size) / 2);
+      --_bg-position: calc(var(--_bg-size) / var(--_bg--ov-position));
     }
 
     &static {
@@ -123,6 +124,13 @@
   }
 }
 
+@mixin badgeDisabled() {
+  &.status-disabled {
+    --_bg-palette: var(--disabled-type1);
+    --basic-text-opacity: var(--opacity-primary-disabled);
+  }
+}
+
 @mixin badgeInit() {
   @include badge;
   @include badgeDot;
@@ -131,4 +139,5 @@
   @include badgeSize;
   @include badgeShape;
   @include badgeOutlined;
+  @include badgeDisabled;
 }

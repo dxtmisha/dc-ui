@@ -12,8 +12,12 @@ export const optionsList = {
   },
   background: { text: 'Background' },
   badge: {
-    text: 'Badge',
+    text: 'Value',
     message: { value: 'Demo' }
+  },
+  badgeIcon: {
+    text: 'Icon',
+    list: icons
   },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
@@ -73,5 +77,6 @@ export const optionsList = {
   optionsIcon: { subtitle: 'Icon' },
   position: { subtitle: 'Position' },
   status: { subtitle: 'Status' },
-  values: { subtitle: 'Values' }
+  values: { subtitle: 'Values' },
+  valuesBadge: { subtitle: 'Badge' }
 }

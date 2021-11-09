@@ -32,6 +32,7 @@ export default {
       max,
 
       // Status
+      disabled,
       hide,
 
       // Options
@@ -64,6 +65,7 @@ export default {
       return {
         'd-badge': true,
         'value-dot': dot.value,
+        'status-disabled': disabled.value,
         'status-hide': hide.value,
         ...classColor.value,
         [`alignment-${alignment.value}`]: alignment.value,

@@ -32,11 +32,6 @@ export const icons = [
     icon: 'delete'
   },
   {
-    text: 'Lock: filled',
-    value: 'lock',
-    icon: 'lock'
-  },
-  {
     text: 'Lock: outlined',
     value: 'outlined-lock',
     icon: 'outlined-lock'

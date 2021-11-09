@@ -68,7 +68,8 @@
 }
 
 %chip-selected {
-  &.status-selected {
+  &:not(:disabled):not(.status-disabled):not(.status-readonly).status-selected {
     @extend %text-color;
   }
+
 }

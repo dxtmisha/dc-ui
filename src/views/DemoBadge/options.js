@@ -107,6 +107,7 @@ export const optionsBadge = [
   'dot',
 
   'status',
+  'disabled',
   'hide',
 
   'options',

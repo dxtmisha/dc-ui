@@ -52,6 +52,7 @@ export const props = {
   iconActive: undefined,
   iconTrailing: undefined,
   badge: Object,
+  badgeIcon: undefined,
   item: undefined,
   value: undefined,
   text: [Number, String],
