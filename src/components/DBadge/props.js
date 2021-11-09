@@ -1,41 +1,16 @@
 import { defaultInit, validator, validatorShape, validatorSize } from '@/uses/useDefault'
 import { palette } from '@/uses/useColors'
 
-const defaultProps = defaultInit('d-progress')
-
-export const alignment = {
-  type: String,
-  default: 'overlap',
-  validator: validator([
-    'basic',
-    'overlap',
-    'static'
-  ])
-}
-export const max = {
-  type: Number,
-  default: defaultProps('max', 99)
-}
-export const outline = {
-  type: String,
-  default: defaultProps('outlined', null)
-}
-export const shape = {
-  type: String,
-  default: defaultProps('shape'),
-  validator: validatorShape
-}
-export const size = {
-  type: String,
-  validator: validatorSize
-}
-
+const defaultProps = defaultInit('d-badge')
 export const props = {
   // Values
   icon: String,
   dot: Boolean,
   value: undefined,
-  max,
+  max: {
+    type: Number,
+    default: defaultProps('max', 99)
+  },
 
   // Status
   disabled: Boolean,
@@ -44,10 +19,28 @@ export const props = {
   // Options
   palette,
   color: String,
-  alignment,
-  size,
-  shape,
-  outline,
+  alignment: {
+    type: String,
+    default: 'overlap',
+    validator: validator([
+      'basic',
+      'overlap',
+      'static'
+    ])
+  },
+  size: {
+    type: String,
+    validator: validatorSize
+  },
+  shape: {
+    type: String,
+    default: defaultProps('shape'),
+    validator: validatorShape
+  },
+  outline: {
+    type: String,
+    default: defaultProps('outlined', null)
+  },
 
   // Position
   left: Boolean,

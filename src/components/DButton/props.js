@@ -2,50 +2,6 @@ import { defaultInit, validator, validatorAdaptive, validatorShape, validatorSiz
 import { palette } from '@/uses/useColors'
 
 const defaultProps = defaultInit('d-button')
-
-export const appearance = {
-  type: String,
-  default: defaultProps('appearance', 'contained'),
-  validator: validator([
-    'text',
-    'text-color',
-    'outlined',
-    'outlined-color',
-    'outlined-contained',
-    'contained',
-    'fab',
-    'chip',
-    'chip-color',
-    'chip-outlined'
-  ])
-}
-export const adaptive = {
-  type: String,
-  default: 'basic',
-  validator: validatorAdaptive
-}
-export const lowercase = {
-  type: Boolean,
-  default: defaultProps('lowercase')
-}
-export const ripple = {
-  type: Boolean,
-  default: defaultProps('ripple', true)
-}
-export const shape = {
-  type: String,
-  default: defaultProps('shape'),
-  validator: validatorShape
-}
-export const size = {
-  type: String,
-  validator: validatorSize
-}
-export const tag = {
-  type: String,
-  default: 'button'
-}
-
 export const props = {
   // Values
   icon: undefined,
@@ -64,22 +20,57 @@ export const props = {
   readonly: Boolean,
   disabled: Boolean,
   progress: Boolean,
-  iconReadonly: Boolean,
-  iconHide: Boolean,
 
   // Options
   palette,
   color: String,
-  tag,
-  appearance,
-  size,
-  shape,
-  adaptive,
-  lowercase,
+  tag: {
+    type: String,
+    default: 'button'
+  },
+  appearance: {
+    type: String,
+    default: defaultProps('appearance', 'contained'),
+    validator: validator([
+      'text',
+      'text-color',
+      'outlined',
+      'outlined-color',
+      'outlined-contained',
+      'contained',
+      'fab',
+      'chip',
+      'chip-color',
+      'chip-outlined'
+    ])
+  },
+  size: {
+    type: String,
+    default: defaultProps('size'),
+    validator: validatorSize
+  },
+  shape: {
+    type: String,
+    default: defaultProps('shape'),
+    validator: validatorShape
+  },
+  adaptive: {
+    type: String,
+    validator: validatorAdaptive
+  },
+  lowercase: {
+    type: Boolean,
+    default: defaultProps('lowercase')
+  },
   dense: Boolean,
-  ripple,
+  ripple: {
+    type: Boolean,
+    default: defaultProps('ripple', true)
+  },
 
   // Icon
+  iconReadonly: Boolean,
+  iconHide: Boolean,
   iconAnimationShow: Boolean,
   iconBackground: Boolean
 }
