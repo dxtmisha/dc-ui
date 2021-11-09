@@ -1,53 +1,3 @@
-export const delay = {
-  text: 'Delay',
-  value: 'delay',
-  list: [
-    {
-      text: '',
-      value: undefined
-    },
-    {
-      text: '0ms',
-      value: 0
-    },
-    {
-      text: '200ms',
-      value: 200
-    },
-    {
-      text: '400ms',
-      value: 400
-    },
-    {
-      text: '800ms',
-      value: 800
-    },
-    {
-      text: '1200ms',
-      value: 1200
-    }
-  ]
-}
-
-export const indeterminate = {
-  text: 'Indeterminate indicators',
-  value: 'indeterminate',
-  list: [
-    {
-      text: '',
-      value: undefined
-    },
-    {
-      text: 'Type 1',
-      value: 'type1'
-    },
-    {
-      text: 'Type 2',
-      value: 'type2'
-    }
-  ]
-}
-
 export const type = {
   text: 'Type',
   value: 'type',
@@ -115,7 +65,7 @@ export const optionsProgress = [
 
   'options',
   type,
-  indeterminate,
-  delay,
+  'indeterminate',
+  'delay',
   'bottom'
 ]

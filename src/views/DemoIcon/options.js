@@ -1,33 +1,8 @@
-export const animationHide = {
-  text: 'Animation',
-  value: 'animationHide',
-  list: [
-    {
-      text: '',
-      value: undefined
-    },
-    {
-      text: 'Type 1',
-      value: 'type1'
-    },
-    {
-      text: 'Type 2',
-      value: 'type2'
-    }
-  ]
-}
-export const animationShow = {
-  text: 'Show with animation',
-  value: 'animationShow'
-}
 export const size = {
   text: 'Size',
   value: 'size',
   list: [
-    {
-      text: '',
-      value: undefined
-    },
+    { value: undefined },
     {
       text: 'Dynamical',
       value: 'dynamic'
@@ -68,7 +43,7 @@ export const optionsIcon = [
 
   'options',
   size,
-  animationHide,
-  animationShow,
+  'animationHide',
+  'animationShow',
   'background'
 ]

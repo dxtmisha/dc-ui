@@ -64,6 +64,8 @@ export const props = {
   readonly: Boolean,
   disabled: Boolean,
   progress: Boolean,
+  iconReadonly: Boolean,
+  iconHide: Boolean,
 
   // Options
   palette,
@@ -78,7 +80,6 @@ export const props = {
   ripple,
 
   // Icon
-  iconReadonly: Boolean,
   iconAnimationShow: Boolean,
   iconBackground: Boolean
 }

@@ -1,11 +1,10 @@
+import { badge } from '@/media/demo/badge'
+
 export const alignment = {
   text: 'Alignment',
   value: 'alignment',
   list: [
-    {
-      text: '',
-      value: undefined
-    },
+    { value: undefined },
     {
       text: 'Basic',
       value: 'basic'
@@ -25,10 +24,7 @@ export const max = {
   text: 'Max',
   value: 'max',
   list: [
-    {
-      text: '',
-      value: undefined
-    },
+    { value: undefined },
     {
       text: '99',
       value: 99
@@ -40,63 +36,9 @@ export const max = {
   ]
 }
 
-export const outline = {
-  text: 'Outline',
-  value: 'outline',
-  list: [
-    { value: undefined },
-    {
-      text: 'Red',
-      value: '#F44336'
-    },
-    {
-      text: 'Blue',
-      value: '#2196F3'
-    },
-    {
-      text: 'Green',
-      value: '#4CAF50'
-    },
-    {
-      text: 'Yellow',
-      value: '#FFEB3B'
-    },
-    {
-      text: 'Gray',
-      value: '#9E9E9E'
-    }
-  ]
-}
-
 export const value = {
-  text: 'Value',
-  value: 'value',
-  list: [
-    {
-      text: '',
-      value: undefined
-    },
-    {
-      text: '8',
-      value: 8
-    },
-    {
-      text: '32',
-      value: 32
-    },
-    {
-      text: '128',
-      value: 128
-    },
-    {
-      text: 'Demo',
-      value: 'Demo'
-    },
-    {
-      text: 'Interactive demo',
-      value: 'Interactive demo'
-    }
-  ]
+  ...badge.badge,
+  value: 'value'
 }
 
 export const optionsBadge = [
@@ -115,8 +57,9 @@ export const optionsBadge = [
   alignment,
   'size',
   'shape',
-  outline,
-  'position',
+  'outline',
+
+  'optionsPosition',
   'left',
   'bottom'
 ]

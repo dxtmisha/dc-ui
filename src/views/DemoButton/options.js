@@ -64,7 +64,6 @@ export const optionsButton = [
   'readonly',
   'disabled',
   'progress',
-  'iconHide',
 
   'options',
   'palette',
@@ -78,6 +77,7 @@ export const optionsButton = [
 
   'optionsIcon',
   'iconReadonly',
+  'iconHide',
   'iconAnimationShow',
   'iconBackground'
 ]

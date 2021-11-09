@@ -1,3 +1,5 @@
+@import "../../styles/color";
+
 @mixin scrollbar() {
   @include scrollbarVar;
   -webkit-overflow-scrolling: touch;
@@ -12,7 +14,7 @@
   --_sc-width: var(--sc-width, 8px);
   --_sc--hv-background: var(--sc--hv-background, transparent);
   --_sc__th-background: var(--sc__th-background, transparent);
-  --_sc__thumb--hv-background: var(--sc__thumb--hv-background, #{varColor(--background-scrim, --opacity-border)});
+  --_sc__thumb--hv-background: var(--sc__thumb--hv-background, #{varColor(--background-overlay, --opacity-overlay)});
 }
 
 @mixin scrollbarAssets() {

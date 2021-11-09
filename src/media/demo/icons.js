@@ -1,4 +1,4 @@
-export const icons = [
+export const iconList = [
   { value: undefined },
   { subtitle: 'Material icons' },
   {
@@ -201,3 +201,30 @@ export const icons = [
     value: '#607D8B'
   }
 ]
+
+export const icon = {
+  // Values
+  icon: {
+    text: 'Icon',
+    default: 'lock_open',
+    list: iconList
+  },
+  iconActive: {
+    text: 'Active icon',
+    default: 'lock',
+    list: iconList
+  },
+  iconTrailing: {
+    text: 'Trailing icon',
+    default: 'arrow_drop_down',
+    list: iconList
+  },
+
+  // Status
+  iconHide: { text: 'Hide icon' },
+  iconReadonly: { text: 'Readonly' },
+
+  // Options
+  iconAnimationShow: { text: 'Show with animation' },
+  iconBackground: { text: 'Background' }
+}
