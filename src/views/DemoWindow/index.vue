@@ -68,18 +68,10 @@ export default {
     }
   },
   methods: {
-    onOpen ({
-      toOpen,
-      type
-    }) {
-      console.log('type: open', type)
+    onOpen ({ toOpen }) {
       this.$refs.interactive.setData('open', toOpen)
     },
-    onInfo ({
-      toOpen,
-      type
-    }) {
-      console.log('type: info', type)
+    onInfo ({ toOpen }) {
       this.info = toOpen
     }
   }

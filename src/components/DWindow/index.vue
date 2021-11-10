@@ -47,6 +47,7 @@ export default {
       width,
       adaptive,
       fullscreen,
+      widthByControl,
       bodyWidthAuto
     } = toRefs(props)
 
@@ -57,6 +58,7 @@ export default {
       contextmenu,
       clientX,
       clientY,
+      widthControl,
       watchPosition
     } = usePosition(props)
 
@@ -89,12 +91,14 @@ export default {
         [`adaptive-${adaptive.value}`]: adaptive.value,
         [`shape-${shape.value}`]: shape.value,
         'option-fullscreen': fullscreen.value,
+        'option-control': widthByControl.value,
         'option-body-auto': bodyWidthAuto.value
       }
     })
     const styleList = computed(() => {
       return {
-        '--wn__bd-width': width.value
+        '--wn__bd-width': width.value,
+        '--wn__cn-width': widthControl.value
       }
     })
 

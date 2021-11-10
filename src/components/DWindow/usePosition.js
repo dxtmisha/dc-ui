@@ -36,6 +36,7 @@ export const usePosition = function (props) {
   const right = ref(0)
   const bottom = ref(0)
   const left = ref(0)
+  const widthControl = ref('0px')
 
   const getControl = () => document.querySelector(`.d-window__control.${id}`)
   const getControlRect = () => getControl()?.getBoundingClientRect()
@@ -121,6 +122,7 @@ export const usePosition = function (props) {
           right.value = rect.right
           bottom.value = rect.bottom
           left.value = rect.left
+          widthControl.value = `${rect.width}px`
         }
       }, () => valueOpen.value)
     }
@@ -144,6 +146,7 @@ export const usePosition = function (props) {
     contextmenu,
     clientX,
     clientY,
+    widthControl,
     watchPosition
   }
 }

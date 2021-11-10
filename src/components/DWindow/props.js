@@ -53,5 +53,6 @@ export const props = {
     type: Boolean,
     default: true
   },
+  widthByControl: Boolean,
   bodyWidthAuto: Boolean
 }

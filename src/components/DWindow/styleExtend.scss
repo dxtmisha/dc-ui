@@ -15,7 +15,7 @@
     max-width: 100vw;
     min-width: var(--_wn__bd-width);
     transform-origin: var(--_wd-or-x, left) var(--_wd-or-y, top);
-    width: auto;
+    width: var(--_wn__bd--cn-width, auto);
     @content;
   }
 
@@ -25,5 +25,9 @@
 
   &.status-show {
     background-color: transparent;
+  }
+
+  &.option-control {
+    --_wn__bd--cn-width: var(--wn__cn-width, var(--wn__bd-width));
   }
 }

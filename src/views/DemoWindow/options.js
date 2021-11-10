@@ -48,6 +48,10 @@ export const optionsWindow = [
     list: [
       { value: undefined },
       {
+        text: '0px',
+        value: '0px'
+      },
+      {
         text: '280px',
         value: '280px'
       },
@@ -134,6 +138,10 @@ export const optionsWindow = [
   'fullscreen',
   'persistent',
   'autoClose',
+  {
+    text: 'Width by control',
+    value: 'widthByControl'
+  },
   {
     text: 'Body: automatic width',
     value: 'bodyWidthAuto'
