@@ -1,0 +1,8 @@
+@mixin mixinAdaptive() {
+  --_li-padding: 0;
+  --_li--nr-height: var(--_li--nr--ic-height);
+  --_li--ic-display: none;
+  --_li__ic-padding: 0;
+  justify-content: center;
+  min-width: calc(var(--_li-height) - var(--_li-margin));
+}
