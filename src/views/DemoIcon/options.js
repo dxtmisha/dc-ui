@@ -1,35 +1,3 @@
-export const size = {
-  text: 'Size',
-  value: 'size',
-  list: [
-    { value: undefined },
-    {
-      text: 'Dynamical',
-      value: 'dynamic'
-    },
-    {
-      text: 'Compacted',
-      value: 'compact'
-    },
-    {
-      text: 'Small',
-      value: 'small'
-    },
-    {
-      text: 'Medium',
-      value: 'medium'
-    },
-    {
-      text: 'Large',
-      value: 'large'
-    },
-    {
-      text: 'Rectangle',
-      value: 'rectangle'
-    }
-  ]
-}
-
 export const optionsIcon = [
   'values',
   'icon',
@@ -42,7 +10,37 @@ export const optionsIcon = [
   'hide',
 
   'options',
-  size,
+  {
+    text: 'Size',
+    value: 'size',
+    list: [
+      { value: undefined },
+      {
+        text: 'Dynamical',
+        value: 'dynamic'
+      },
+      {
+        text: 'Compacted',
+        value: 'compact'
+      },
+      {
+        text: 'Small',
+        value: 'small'
+      },
+      {
+        text: 'Medium',
+        value: 'medium'
+      },
+      {
+        text: 'Large',
+        value: 'large'
+      },
+      {
+        text: 'Rectangle',
+        value: 'rectangle'
+      }
+    ]
+  },
   'animationHide',
   'animationShow',
   'background'

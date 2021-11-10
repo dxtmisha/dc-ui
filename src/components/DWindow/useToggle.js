@@ -4,7 +4,7 @@ import { nextTick, onMounted, toRefs, watch } from 'vue'
 export const useToggle = function (
   props,
   valueOpen,
-  window,
+  modal,
   verification,
   watchPosition
 ) {
@@ -18,8 +18,8 @@ export const useToggle = function (
     }
   })
 
-  const classShow = (value) => window.value.classList.toggle('status-show', value)
-  const classHide = (value) => window.value.classList.toggle('status-hide', value)
+  const classShow = (value) => modal.value.classList.toggle('status-show', value)
+  const classHide = (value) => modal.value.classList.toggle('status-hide', value)
 
   const toggle = async () => {
     if (valueOpen.value !== open.value) {
@@ -31,7 +31,7 @@ export const useToggle = function (
 
         requestAnimationFrame(() => {
           classShow(true)
-          eventBody.setDomElement(window.value).go()
+          eventBody.setDomElement(modal.value).go()
         })
       } else {
         classHide(true)

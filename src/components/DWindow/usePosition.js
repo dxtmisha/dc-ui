@@ -27,7 +27,7 @@ export const usePosition = function (props) {
   const valueOpen = ref(false)
 
   const id = `w--${getIdElement()}`
-  const window = ref(undefined)
+  const modal = ref(undefined)
 
   const contextmenu = ref(false)
   const clientX = ref(0)
@@ -43,22 +43,22 @@ export const usePosition = function (props) {
   const updateOrigin = () => {
     if (clientX.value || clientY.value) {
       const coordinates = watchCoordinates()
-      window.value.style.setProperty('--_wd-or-x', `${clientX.value - coordinates.x}px`)
-      window.value.style.setProperty('--_wd-or-y', `${clientY.value - coordinates.y}px`)
+      modal.value.style.setProperty('--_wd-or-x', `${clientX.value - coordinates.x}px`)
+      modal.value.style.setProperty('--_wd-or-y', `${clientY.value - coordinates.y}px`)
     } else {
-      window.value.style.setProperty('--_wd-or-x', 'left')
-      window.value.style.setProperty('--_wd-or-y', 'top')
+      modal.value.style.setProperty('--_wd-or-x', 'left')
+      modal.value.style.setProperty('--_wd-or-y', 'top')
     }
   }
   const updateXY = () => {
     const coordinates = watchCoordinates()
-    window.value.style.setProperty('--_wn-x', `${coordinates.x}px`)
-    window.value.style.setProperty('--_wn-y', `${coordinates.y}px`)
+    modal.value.style.setProperty('--_wn-x', `${coordinates.x}px`)
+    modal.value.style.setProperty('--_wn-y', `${coordinates.y}px`)
   }
   const updateClientXY = () => {
-    if (window.value) {
-      window.value.style.setProperty('--_wn-cl-x', `${clientX.value}px`)
-      window.value.style.setProperty('--_wn-cl-y', `${clientY.value}px`)
+    if (modal.value) {
+      modal.value.style.setProperty('--_wn-cl-x', `${clientX.value}px`)
+      modal.value.style.setProperty('--_wn-cl-y', `${clientY.value}px`)
     }
   }
 
@@ -87,16 +87,16 @@ export const usePosition = function (props) {
 
     switch (axis.value) {
       case 'x':
-        x = getInnerPosition(position.right, position.left, window.value.offsetWidth, window.value.innerWidth)
-        y = getInnerPosition(position.top, position.bottom, window.value.offsetHeight, window.value.innerHeight)
+        x = getInnerPosition(position.right, position.left, modal.value.offsetWidth, window.innerWidth)
+        y = getInnerPosition(position.top, position.bottom, modal.value.offsetHeight, window.innerHeight)
         break
       case 'y':
-        x = getInnerPosition(position.left, position.right, window.value.offsetWidth, window.value.innerWidth)
-        y = getInnerPosition(position.bottom, position.top, window.value.offsetHeight, window.value.innerHeight)
+        x = getInnerPosition(position.left, position.right, modal.value.offsetWidth, window.innerWidth)
+        y = getInnerPosition(position.bottom, position.top, modal.value.offsetHeight, window.innerHeight)
         break
       case 'on':
-        x = getInnerPosition(position.right, position.left, window.value.offsetWidth, window.value.innerWidth)
-        y = getInnerPosition(position.bottom, position.top, window.value.offsetHeight, window.value.innerHeight)
+        x = getInnerPosition(position.left, position.right, modal.value.offsetWidth, window.innerWidth)
+        y = getInnerPosition(position.top, position.bottom, modal.value.offsetHeight, window.innerHeight)
         break
     }
 
@@ -110,10 +110,11 @@ export const usePosition = function (props) {
 
     if (valueOpen.value && control) {
       updateOrigin()
+      updateXY()
       updateClientXY()
 
       frame(() => {
-        if (getComputedStyle(window.value).content === '"--MENU--"') {
+        if (modal.value && getComputedStyle(modal.value).content === '"--MENU--"') {
           const rect = control.getBoundingClientRect()
 
           top.value = rect.top
@@ -139,7 +140,7 @@ export const usePosition = function (props) {
   return {
     valueOpen,
     id,
-    window,
+    modal,
     contextmenu,
     clientX,
     clientY,

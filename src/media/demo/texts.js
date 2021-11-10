@@ -119,7 +119,7 @@ export const helper1 = 'Some important text'
 export const textarea = 'The HTML <textarea> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.'
 export const quote1 = 'All the world is made of faith, and trust, and pixie dust.'
 export const quote2 = `
-    There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything
-    is a miracle.
+    There are only two ways to live your life. One is as though nothing is a miracle.<br>
+    The other is as though everything is a miracle.
 `
 export const validation1 = 'Incorrect entry'

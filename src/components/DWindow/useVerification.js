@@ -4,7 +4,7 @@ export const useVerification = function (
   props,
   context,
   id,
-  window
+  modal
 ) {
   const {
     // Values
@@ -18,59 +18,59 @@ export const useVerification = function (
     autoClose
   } = toRefs(props)
 
-  const emit = (go = false) => {
+  const emit = (go = false, type = undefined) => {
     if (go) {
       context.emit('on-open', {
-        window,
+        modal,
         open: open.value,
-        toOpen: !open.value
+        toOpen: !open.value,
+        type
       })
     }
   }
 
   const isChildren = (target) => {
-    const window = target.closest('.d-window')
+    const focus = target.closest('.d-window')
 
-    if (window) {
-      return window.dataset.windowId === id || isChildren(document.querySelector(`.d-window__control.${window.dataset.windowId}`))
+    if (focus) {
+      return focus.dataset.windowId === id || isChildren(document.querySelector(`.d-window__control.${focus.dataset.windowId}`))
     } else {
       return false
     }
   }
-  const updatePersistent = (value) => window.value.classList.toggle('option-persistent', value)
+  const updatePersistent = (value) => modal.value.classList.toggle('option-persistent', value)
 
   const verification = (target) => {
     if (open.value) {
       const focus = target.closest('.d-window')
 
       if (focus === null) {
-        emit(true)
-      } else if (focus !== window.value) {
+        emit(true, 'background')
+      } else if (focus !== modal.value) {
         if (!target.classList.contains('d-window')) {
           if (isChildren(target)) {
-            requestAnimationFrame(() => {
-              emit(!focus.classList.contains('status-show'))
-            })
+            requestAnimationFrame(() => emit(!focus.classList.contains('status-show'), 'children'))
           } else {
-            emit(true)
+            emit(true, 'out')
           }
         }
-      } else if (target === window.value) {
+      } else if (target === modal.value) {
         if (persistent.value) {
           updatePersistent(true)
         } else {
-          emit(true)
+          emit(true, 'target')
         }
       } else {
         emit(
           target.closest(`.${id} .window-close`) ||
-          (autoClose.value && !target.closest(`.${id} .window-static`))
+          (autoClose.value && !target.closest(`.${id} .window-static, .${id} .d-window__control`)),
+          'on'
         )
       }
     } else {
       emit(
-        !disabled.value &&
-        !target.closest(`.${id} .window-control-static`)
+        !disabled.value && !target.closest(`.${id} .window-control-static`),
+        'control'
       )
     }
   }

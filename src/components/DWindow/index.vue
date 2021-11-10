@@ -8,7 +8,7 @@
   <teleport to="body">
     <div
       v-if="valueOpen"
-      ref="window"
+      ref="modal"
       v-bind="$attrs"
       :class="classList"
       :style="styleList"
@@ -28,11 +28,11 @@
 <script>
 import DScrollbar from '@/components/DScrollbar'
 import { props } from '@/components/DWindow/props'
+import { computed, toRefs } from 'vue'
 import { useEvent } from './useEvent'
 import { usePosition } from './usePosition'
 import { useToggle } from './useToggle'
 import { useVerification } from './useVerification'
-import { computed, toRefs } from 'vue'
 
 export default {
   name: 'DWindow',
@@ -53,7 +53,7 @@ export default {
     const {
       valueOpen,
       id,
-      window,
+      modal,
       contextmenu,
       clientX,
       clientY,
@@ -67,7 +67,7 @@ export default {
       props,
       context,
       id,
-      window
+      modal
     )
 
     const {
@@ -101,7 +101,7 @@ export default {
     useToggle(
       props,
       valueOpen,
-      window,
+      modal,
       verification,
       watchPosition
     )
@@ -109,7 +109,7 @@ export default {
     return {
       valueOpen,
       id,
-      window,
+      modal,
       classList,
       styleList,
       onClick,

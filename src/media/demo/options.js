@@ -80,7 +80,10 @@ export const optionsList = {
     ]
   },
   animationShow: { text: 'Show with animation' },
-  autoClose: { text: 'Automatic closing' },
+  autoClose: {
+    text: 'Automatic closing',
+    default: true
+  },
   background: { text: 'Background' },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
