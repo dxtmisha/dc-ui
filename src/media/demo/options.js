@@ -103,6 +103,10 @@ export const optionsList = {
     default: true
   },
   background: { text: 'Background' },
+  backgroundColor: {
+    text: 'Background color',
+    message: '244,67,54'
+  },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
   delay: {

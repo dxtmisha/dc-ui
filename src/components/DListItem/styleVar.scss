@@ -1,14 +1,17 @@
 @mixin listItemVar() {
   --_li-palette: var(--li-palette, var(--palette-type1, var(--basic-text)));
+  --_li-color-palette: var(--li-color-palette, var(--palette-type1, var(--primary-type1)));
   --_li-select-palette: var(--li-select-palette, var(--palette-type1, var(--primary-type1)));
   --_li-image-palette: var(--li-image-palette, var(--_li-palette));
 
   --_li-background: var(--li-background, var(--_li-palette));
   --_li-background-opacity: var(--li-background-opacity, 0);
-  --_li-background-select: var(--li-select-background, var(--_li-select-palette));
+  --_li-background-select: var(--li-background-select, var(--opacity-container-selected));
   --_li-margin: var(--li-margin, 0px);
+
   --_li-padding: var(--li-padding, 16px);
   --_li-padding-y: var(--li-padding-y, 4px);
+  --_li--ds-padding: var(--li--ds-padding, 24px);
   --_li-squeeze: var(--li-squeeze, 0px);
 
   --_li-height: var(--li-height, 48px);

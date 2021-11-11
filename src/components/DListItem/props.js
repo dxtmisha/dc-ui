@@ -81,7 +81,7 @@ export const props = {
     validator: validatorAdaptive
   },
   dense: Boolean,
-  background: String,
+  backgroundColor: String,
   border: {
     type: Boolean,
     default: defaultProps('border')

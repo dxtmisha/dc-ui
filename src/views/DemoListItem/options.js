@@ -79,7 +79,7 @@ export const optionsListItem = [
   'shape',
   'adaptive',
   'dense',
-  'background',
+  'backgroundColor',
   'border',
   'ripple',
 

@@ -27,9 +27,7 @@ export default {
       hide
     } = toRefs(props)
 
-    const {
-      image
-    } = useImage(icon)
+    const { image } = useImage(icon)
 
     const type = computed(() => {
       let type

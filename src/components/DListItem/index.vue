@@ -2,6 +2,7 @@
   <component
     :is="tag"
     :class="classList"
+    :style="styleList"
     :data-value="value"
     @click="onClick"
   >
@@ -81,6 +82,8 @@ export default {
       navigationRail,
       size,
       shape,
+      dense,
+      backgroundColor,
       border
     } = toRefs(props)
 
@@ -107,7 +110,14 @@ export default {
         [`navigation-rail-${navigationRail.value}`]: navigationRail.value,
         [`size-${size.value}`]: size.value,
         [`shape-${shape.value}`]: shape.value,
+        'option-dense': dense.value,
+        'option-background': backgroundColor.value,
         'option-border': border.value
+      }
+    })
+    const styleList = computed(() => {
+      return {
+        '--_li-background-color': backgroundColor.value
       }
     })
 
@@ -115,7 +125,8 @@ export default {
       bindThumbnail,
       bindIcon,
       bindTrailing,
-      classList
+      classList,
+      styleList
     }
   },
   methods: {

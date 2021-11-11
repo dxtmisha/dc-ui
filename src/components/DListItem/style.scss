@@ -21,6 +21,12 @@
   overflow: hidden;
   padding: 0 var(--_li-padding);
   position: relative;
+
+  @include mediaMinWidth() {
+    &:not(.option-dense) {
+      --_li-padding: var(--_li--ds-padding);
+    }
+  }
 }
 
 @mixin listItemThumbnail() {
@@ -114,6 +120,46 @@
   }
 }
 
+@mixin listItemTonal() {
+  &.appearance-tonal {
+    @extend %rp-palette;
+
+    @include mixinStatus {
+      @extend %tonal;
+    }
+
+    @content;
+  }
+}
+
+@mixin listItemContained() {
+  &.appearance-contained {
+    @extend %rp-palette;
+
+    @include mixinStatus {
+      @extend %filled;
+    }
+
+    @content;
+  }
+}
+
+@mixin listItemContainedStatus() {
+  &.appearance-contained-status {
+    @extend %rp-palette;
+
+    @include mixinStatus {
+      @extend %tonal;
+    }
+
+    &:not(.status-disabled).status-selected {
+      @extend %filled;
+    }
+
+    @content;
+  }
+}
+
 @mixin listItemAdaptive() {
   @include mediaMaxList {
     @include mixinAdaptive;
@@ -175,8 +221,15 @@
   }
 }
 
+@mixin listItemBackground() {
+  &:not(.status-selected).option-background {
+    --_li-background: var(--_li-background-color);
+    --_li-background-opacity: var(--opacity-overlay);
+  }
+}
+
 @mixin listItemBorder() {
-  & + &.option-border &__text {
+  & + &:not(.shape-basic):not(.shape-rounded):not(.shape-pill).option-border &__text {
     @include afterAbsolute('top') {
       border-top-width: 1px;
       right: calc((var(--_li-padding) + var(--_li__trailing-width, 0px)) * -1);
@@ -205,7 +258,7 @@
     &.status-selected {
       --basic-text: var(--_li-select-palette);
       --_li-palette: var(--_li-select-palette);
-      --_li-background-opacity: var(--opacity-container-selected);
+      --_li-background-opacity: var(--_li-background-select);
     }
   }
 }
@@ -228,10 +281,17 @@
   @include listItemTextShort;
   @include listItemSubText;
   @include listItemDescription;
+
+  @include listItemTonal;
+  @include listItemContained;
+  @include listItemContainedStatus;
+
   @include listItemAdaptive;
   @include listItemSize;
   @include listItemShape;
+  @include listItemBackground;
   @include listItemBorder;
+
   @include listItemStatus;
   @include listItemDisabled;
 }
