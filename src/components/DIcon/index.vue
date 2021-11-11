@@ -4,13 +4,13 @@
       v-if="icon"
       :icon="icon"
       :disabled="disabled"
-      :hide="active"
+      :hide="isActive"
     />
     <d-icon-item
       v-if="iconActive"
       :icon="iconActive"
       :disabled="disabled"
-      :hide="!active"
+      :hide="!isActive"
     />
   </span>
 </template>
@@ -24,6 +24,9 @@ export default {
   components: { DIconItem },
   props,
   computed: {
+    isActive () {
+      return !!this.active && !!this.iconActive
+    },
     classList () {
       return {
         'd-icon': true,
