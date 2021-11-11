@@ -33,6 +33,11 @@
       </template>
       <template v-else>{{ text }}</template>
     </div>
+    <d-badge
+      v-if="bindBadge"
+      v-bind="bindBadge"
+      :disabled="disabled"
+    />
     <d-ripple
       v-if="ripple"
       :disabled="disabled"
@@ -49,16 +54,19 @@
 </template>
 
 <script>
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
 import { computed, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/uses/useColors'
+import { setupBadge } from '@/components/DBadge/setupBadge'
 
 export default {
   name: 'DListItem',
   components: {
+    DBadge,
     DIcon,
     DRipple
   },
@@ -94,6 +102,7 @@ export default {
       bindIcon,
       bindTrailing
     } = useIcon(props, context)
+    const { bindBadge } = setupBadge(props)
 
     const classList = computed(() => {
       return {
@@ -125,6 +134,7 @@ export default {
       bindThumbnail,
       bindIcon,
       bindTrailing,
+      bindBadge,
       classList,
       styleList
     }
