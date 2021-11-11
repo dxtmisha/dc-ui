@@ -1,4 +1,5 @@
 import { defaultInit, validator, validatorAdaptive, validatorShape } from '@/uses/useDefault'
+import { palette } from '@/uses/useColors'
 
 const defaultProps = defaultInit('d-list-item')
 export const props = {
@@ -9,6 +10,8 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
+  badge: Object,
+  badgeIcon: undefined,
   text: String,
   textShort: String,
   prefix: [Number, String],
@@ -22,6 +25,8 @@ export const props = {
   disabled: Boolean,
 
   // Options
+  palette,
+  color: String,
   tag: {
     type: String,
     default: 'a'
@@ -35,10 +40,6 @@ export const props = {
       'contained',
       'contained-status'
     ])
-  },
-  adaptive: {
-    type: String,
-    validator: validatorAdaptive
   },
   navigationRail: {
     type: String,
@@ -75,6 +76,11 @@ export const props = {
     default: defaultProps('shape'),
     validator: validatorShape
   },
+  adaptive: {
+    type: String,
+    validator: validatorAdaptive
+  },
+  dense: Boolean,
   background: String,
   border: {
     type: Boolean,

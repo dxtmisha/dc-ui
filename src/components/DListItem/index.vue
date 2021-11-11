@@ -53,6 +53,7 @@ import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
 import { computed, toRefs } from 'vue'
 import { useIcon } from './useIcon'
+import { useColor } from '@/uses/useColors'
 
 export default {
   name: 'DListItem',
@@ -73,6 +74,8 @@ export default {
       disabled,
 
       // Options
+      palette,
+      color,
       appearance,
       navigationRail,
       size,
@@ -80,6 +83,7 @@ export default {
       border
     } = toRefs(props)
 
+    const { classColor } = useColor(color, palette)
     const {
       optionAdaptive,
       bindThumbnail,
@@ -95,6 +99,7 @@ export default {
         'status-focus': focus.value,
         'status-selected': selected.value,
         'status-disabled': disabled.value,
+        ...classColor.value,
         [`appearance-${appearance.value}`]: appearance.value,
         [`adaptive-${optionAdaptive.value}`]: optionAdaptive.value,
         [`navigation-rail-${navigationRail.value}`]: navigationRail.value,

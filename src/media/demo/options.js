@@ -1,20 +1,38 @@
 import { badge } from '@/media/demo/badge'
 import { icon } from '@/media/demo/icons'
 import { subtitles } from '@/media/demo/subtitles'
+import { quote1 } from '@/media/demo/texts'
 
 export const optionsList = {
   // Values
+  description: {
+    text: 'Description',
+    message: quote1
+  },
   open: { text: 'Open' },
+  prefix: {
+    text: 'Prefix text',
+    message: '+7'
+  },
+  suffix: {
+    text: 'Suffix text',
+    message: '.00'
+  },
   text: {
     text: 'Text',
     default: true,
     message: 'Interactive demo'
+  },
+  textShort: {
+    text: 'Text short',
+    message: 'Demo'
   },
 
   // Status
   active: { text: 'Active' },
   disabled: { text: 'Disabled' },
   dragged: { text: 'Dragged' },
+  focus: { text: 'Focus' },
   hide: { text: 'Hide element' },
   progress: { text: 'Progress' },
   readonly: { text: 'Readonly' },
@@ -132,6 +150,64 @@ export const optionsList = {
   },
   left: { text: 'Left' },
   lowercase: { text: 'Lowercase' },
+  navigationRail: {
+    text: 'Navigation rail',
+    list: [
+      { value: undefined },
+      {
+        text: 'Small',
+        value: 'small'
+      },
+      {
+        text: 'Medium',
+        value: 'medium'
+      },
+      {
+        text: 'Medium only',
+        value: 'medium-medium'
+      },
+      {
+        text: 'Medium to large',
+        value: 'medium-large'
+      },
+      {
+        text: 'Medium to extra',
+        value: 'medium-extra'
+      },
+      {
+        text: 'Medium to desktop',
+        value: 'medium-desktop'
+      },
+      {
+        text: 'Large',
+        value: 'large'
+      },
+      {
+        text: 'Large only',
+        value: 'large-large'
+      },
+      {
+        text: 'Large to extra',
+        value: 'large-extra'
+      },
+      {
+        text: 'Large to desktop',
+        value: 'large-desktop'
+      },
+      {
+        text: 'Extra',
+        value: 'extra'
+      },
+      {
+        text: 'Desktop',
+        value: 'desktop'
+      },
+      {
+        text: 'Always',
+        value: 'always'
+      }
+    ]
+  },
   palette: {
     text: 'Palettes',
     list: [

@@ -25,6 +25,7 @@
 
 @mixin listItemThumbnail() {
   &__thumbnail {
+    margin-left: var(--_bt-squeeze);
     @content;
   }
 
@@ -144,10 +145,10 @@
     &rectangle {
       --_li-height: var(--_li--lg-height);
     }
+  }
 
-    &rectangle &__thumbnail {
-      margin-left: calc(var(--_li-padding) * -1);
-    }
+  &.size-rectangle &__thumbnail {
+    margin-left: calc(var(--_li-padding) * -1);
   }
 }
 
@@ -159,6 +160,14 @@
   &.shape-pill {
     --_li-margin: var(--_li--sh-margin);
     @content;
+  }
+
+  &.shape-pill &__thumbnail {
+    --ic-size: calc(var(--_li-height) - (var(--_li-padding-y) * 2) - var(--_li-margin));
+    --ic--md-size: var(--ic-size);
+    --ic--lg-size: var(--ic-size);
+    --ic--lg-radius: var(--radius-pill);
+    --_bt-squeeze: calc(var(--_li-padding-y) - var(--_li-padding));
   }
 }
 
@@ -192,6 +201,7 @@
     &.status-selected {
       --basic-text: var(--_li-select-palette);
       --_li-palette: var(--_li-select-palette);
+      --_li-background-opacity: var(--opacity-container-selected);
     }
   }
 }

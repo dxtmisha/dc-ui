@@ -28,7 +28,7 @@ export const useIcon = function (props, context) {
 
   const bindThumbnail = readonly({
     class: { 'd-list-item__thumbnail li-thumbnail': true },
-    thumbnail,
+    icon: thumbnail,
     iconActive,
     active: selected,
     disabled,
@@ -49,7 +49,7 @@ export const useIcon = function (props, context) {
       'd-list-item__trailing li-trailing': true,
       'window-control-static': iconReadonly
     },
-    iconTrailing,
+    icon: iconTrailing,
     turn,
     disabled
   })

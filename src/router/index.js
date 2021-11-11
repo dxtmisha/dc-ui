@@ -4,6 +4,7 @@ import DemoBadge from '../views/DemoBadge'
 import DemoButton from '../views/DemoButton'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
+import DemoListItem from '../views/DemoListItem'
 import DemoProgress from '../views/DemoProgress'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
@@ -14,6 +15,7 @@ const routes = getRoutes({
   'd-button': DemoButton,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,
+  'd-list-item': DemoListItem,
   'd-progress': DemoProgress,
   'd-ripple': DemoRipple,
   'd-scrollbar': DemoScrollbar,

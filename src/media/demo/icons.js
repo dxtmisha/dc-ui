@@ -204,6 +204,10 @@ export const iconList = [
 
 export const icon = {
   // Values
+  thumbnail: {
+    text: 'Thumbnail',
+    list: iconList
+  },
   icon: {
     text: 'Icon',
     default: 'lock_open',
