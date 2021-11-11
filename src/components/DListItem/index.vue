@@ -67,6 +67,7 @@ export default {
       // Values
       thumbnail,
       icon,
+      iconTrailing,
 
       // Status
       focus,
@@ -96,6 +97,7 @@ export default {
         'd-list-item a-static': true,
         'value-thumbnail': thumbnail.value,
         'value-icon': icon.value,
+        'value-trailing': iconTrailing.value,
         'status-focus': focus.value,
         'status-selected': selected.value,
         'status-disabled': disabled.value,

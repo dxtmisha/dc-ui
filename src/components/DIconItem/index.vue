@@ -32,16 +32,15 @@ export default {
     } = useImage(icon)
 
     const type = computed(() => {
-      const value = icon.value
       let type
 
-      if (value) {
-        if (value instanceof File || value.match(/\//)) {
+      if (icon.value) {
+        if (icon.value instanceof File || icon.value.match(/\//)) {
           type = 'image'
-        } else if (value.match(/^#/)) {
+        } else if (icon.value.match(/^#/)) {
           type = 'color'
         } else {
-          type = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
+          type = icon.value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
         }
       }
 

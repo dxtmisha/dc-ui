@@ -51,6 +51,10 @@
     order: 2;
     @content;
   }
+
+  &.value-trailing {
+    --_li__trailing-width: calc(24px + var(--_li-padding));
+  }
 }
 
 @mixin listItemText() {
@@ -175,7 +179,7 @@
   & + &.option-border &__text {
     @include afterAbsolute('top') {
       border-top-width: 1px;
-      right: calc(var(--_li-padding) * -1);
+      right: calc((var(--_li-padding) + var(--_li__trailing-width, 0px)) * -1);
       @content;
     }
   }
@@ -206,7 +210,7 @@
   }
 }
 
-@mixin listItemDisabled {
+@mixin listItemDisabled() {
   &.status-disabled {
     --basic-text: var(--disabled-type1);
     --basic-text-opacity: var(--opacity-surface-disabled);

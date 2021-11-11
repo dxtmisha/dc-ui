@@ -38,13 +38,18 @@ export const iconList = [
   },
   {
     text: 'Lock: rounded',
-    value: 'rounded-lock',
-    icon: 'rounded-lock'
+    value: 'round-lock',
+    icon: 'round-lock'
+  },
+  {
+    text: 'Lock: sharp',
+    value: 'sharp-lock',
+    icon: 'sharp-lock'
   },
   {
     text: 'Lock: two tone',
-    value: 'two-lock',
-    icon: 'two-lock'
+    value: 'two-tone-lock',
+    icon: 'two-tone-lock'
   },
   { subtitle: 'Line Awesome' },
   {
