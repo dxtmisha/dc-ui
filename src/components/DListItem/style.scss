@@ -52,7 +52,7 @@
 
 @mixin listItemTrailing() {
   &__trailing {
-    display: var(--_li--ic-display, block);
+    display: var(--_li--ic-display, var(--_li--sh__text-display, block));
     margin-left: var(--_li-padding);
     order: 2;
     @content;
@@ -108,6 +108,12 @@
       --basic-text-opacity: var(--opacity-surface-medium);
     }
   }
+
+  &__prefix,
+  &__suffix,
+  &__description {
+    display: var(--_li--sh__text-display, block);
+  }
 }
 
 @mixin listItemDescription() {
@@ -157,6 +163,70 @@
     }
 
     @content;
+  }
+}
+
+@mixin listItemNavigationRail() {
+  $this: &;
+
+  @include mediaMaxWidth(small) {
+    &.navigation-rail-small,
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop {
+      @include mixinNavigationRail($this);
+    }
+  }
+
+  @include mediaMinMaxWidth(small, medium) {
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-medium,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop {
+      @include mixinNavigationRail($this);
+    }
+  }
+
+  @include mediaMinMaxWidth(medium, large) {
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-large,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail($this);
+    }
+  }
+
+  @include mediaMinMaxWidth(large, extra) {
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail($this);
+    }
+  }
+
+  @include mediaMinMaxWidth(extra, desktop) {
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail($this);
+    }
+  }
+
+  &.navigation-rail-always {
+    @include mixinNavigationRail($this);
   }
 }
 
@@ -285,6 +355,7 @@
   @include listItemTonal;
   @include listItemContained;
   @include listItemContainedStatus;
+  @include listItemNavigationRail;
 
   @include listItemAdaptive;
   @include listItemSize;

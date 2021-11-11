@@ -1,3 +1,6 @@
+@import "../../styles/dimension";
+@import "../../styles/flex";
+
 @mixin mixinAdaptive() {
   --_li-padding: 0;
   --_li--nr-height: var(--_li--nr--ic-height);
@@ -5,6 +8,35 @@
   --_li__ic-padding: 0;
   justify-content: center;
   min-width: calc(var(--_li-height) - var(--_li-margin));
+}
+
+@mixin mixinNavigationRail($this: &) {
+  --_li-padding: 4px;
+  --_li__ic-padding: 0;
+
+  --_li-height: var(--_li--nr-height);
+  --_li--cm-height: var(--_li--nr-height);
+  --_li--md-height: var(--_li--nr-height);
+  --_li--lg-height: var(--_li--nr-height);
+
+  --_li--sh-display: block;
+  --_li--sh__text-display: none;
+
+  @include flexY;
+  @include squared(var(--_li--nr-height));
+  justify-content: center;
+
+  #{$this}__text,
+  #{$this}__main {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 100%;
+  }
+
+  #{$this}__text-short + #{$this}__text {
+    display: none;
+  }
 }
 
 @mixin mixinStatus() {
