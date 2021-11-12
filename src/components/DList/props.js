@@ -13,9 +13,9 @@ export const props = {
     type: String,
     default: defaultProps('iconArrowRight', 'arrow_right')
   },
+  group: Object,
 
   // Status
-  group: undefined,
   focus: undefined,
   selected: undefined,
   disabled: Boolean,

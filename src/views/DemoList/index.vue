@@ -4,7 +4,12 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-list">
-      <d-list v-bind="binds" :list="list"/>
+      <d-list
+        v-bind="binds"
+        :list="list"
+        :selected="selected"
+        @on-click="onClick"
+      />
     </div>
   </interactive-demo>
 </template>
@@ -12,8 +17,9 @@
 <script>
 import DList from '@/components/DList'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsList } from '@/views/DemoList/options'
 import List from '@/classes/List'
+import { ref } from 'vue'
+import { optionsList } from '@/views/DemoList/options'
 import { menu } from '@/media/demo/list'
 
 export default {
@@ -25,10 +31,20 @@ export default {
   setup () {
     const options = optionsList
     const list = new List(menu, true, { translation: ['subtitle', 'text'] }).get()
+    const selected = ref(undefined)
 
     return {
       options,
-      list
+      list,
+      selected
+    }
+  },
+  methods: {
+    onClick ({
+      toSelected,
+      value
+    }) {
+      this.selected = toSelected ? value : undefined
     }
   }
 }

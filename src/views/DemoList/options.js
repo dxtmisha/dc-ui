@@ -3,12 +3,9 @@ import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoList
 export const optionsList = [
   'status',
   'focus',
-  'selected',
-  'disabled',
 
   'options',
   'palette',
-  'axis',
   optionsListItemAppearance,
   'navigationRail',
   optionsListItemSize,
