@@ -5,6 +5,7 @@ export const optionsListItem = [
   'iconActive',
   'iconTrailing',
   'text',
+  'textShort',
   'prefix',
   'suffix',
   'description',

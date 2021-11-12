@@ -1,0 +1,7 @@
+@mixin mixinAdaptive() {
+  -_ls__ad-display: block;
+}
+
+%mixin-adaptive {
+  @include mixinAdaptive;
+}

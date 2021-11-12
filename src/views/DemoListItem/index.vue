@@ -4,9 +4,9 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-list-item">
-      <d-list-item v-bind="binds" :text-short="binds.text ? 'Demo' : undefined"/>
-      <d-list-item v-bind="binds" :text-short="binds.text ? 'Demo' : undefined"/>
-      <d-list-item v-bind="binds" :text-short="binds.text ? 'Demo' : undefined"/>
+      <d-list-item v-bind="binds"/>
+      <d-list-item v-bind="binds"/>
+      <d-list-item v-bind="binds"/>
     </div>
   </interactive-demo>
 </template>

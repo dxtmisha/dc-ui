@@ -1,4 +1,5 @@
 import { defaultInit, validatorAxis } from '@/uses/useDefault'
+import { palette } from '@/uses/useColors'
 
 const defaultProps = defaultInit('d-list')
 export const props = {
@@ -17,19 +18,38 @@ export const props = {
   focus: undefined,
   selected: undefined,
   group: undefined,
+  disabled: Boolean,
 
   // Options
+  attrsMenu: Object,
+  palette,
+  color: String,
+  tag: {
+    type: String,
+    default: 'a'
+  },
   axis: {
     type: String,
     validator: validatorAxis
   },
-  width: {
-    type: String,
-    default: defaultProps('width')
-  },
+  appearance: undefined,
+  navigationRail: undefined,
+  size: undefined,
+  shape: undefined,
+  adaptive: undefined,
   groupShow: {
     type: Boolean,
     default: defaultProps('groupShow')
   },
-  attrsMenu: Object
+  dense: undefined,
+  border: undefined,
+  ripple: {
+    type: Boolean,
+    default: defaultProps('ripple', true)
+  },
+
+  // Icon
+  iconReadonly: Boolean,
+  iconAnimationShow: Boolean,
+  iconBackground: Boolean
 }

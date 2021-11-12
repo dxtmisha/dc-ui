@@ -254,6 +254,7 @@
     }
 
     &compact {
+      @include font('body2');
       --_li-height: var(--_li--cm-height);
     }
 
