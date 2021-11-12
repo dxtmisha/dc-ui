@@ -15,9 +15,9 @@ export const props = {
   },
 
   // Status
+  group: undefined,
   focus: undefined,
   selected: undefined,
-  group: undefined,
   disabled: Boolean,
 
   // Options

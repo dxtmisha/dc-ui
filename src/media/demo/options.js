@@ -102,6 +102,20 @@ export const optionsList = {
     text: 'Automatic closing',
     default: true
   },
+  axis: {
+    text: 'Axis',
+    list: [
+      { value: undefined },
+      {
+        text: 'X',
+        value: 'x'
+      },
+      {
+        text: 'Y',
+        value: 'y'
+      }
+    ]
+  },
   background: { text: 'Background' },
   backgroundColor: {
     text: 'Background color',
@@ -137,6 +151,7 @@ export const optionsList = {
   },
   dense: { text: 'Dense' },
   fullscreen: { text: 'Fullscreen' },
+  groupShow: { text: 'Show group' },
   indeterminate: {
     text: 'Indeterminate indicators',
     value: 'indeterminate',

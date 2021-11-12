@@ -1,3 +1,59 @@
+export const optionsListItemAppearance = {
+  text: 'Appearance',
+  value: 'appearance',
+  list: [
+    { value: undefined },
+    {
+      text: 'Basic',
+      value: 'basic'
+    },
+    {
+      text: 'Tonal',
+      value: 'tonal'
+    },
+    {
+      text: 'Contained',
+      value: 'contained'
+    },
+    {
+      text: 'Contained: status',
+      value: 'contained-status'
+    }
+  ]
+}
+
+export const optionsListItemSize = {
+  text: 'Size',
+  value: 'size',
+  list: [
+    { value: undefined },
+    {
+      text: 'Dynamical',
+      value: 'dynamic'
+    },
+    {
+      text: 'Compacted',
+      value: 'compact'
+    },
+    {
+      text: 'Small',
+      value: 'small'
+    },
+    {
+      text: 'Medium',
+      value: 'medium'
+    },
+    {
+      text: 'Large',
+      value: 'large'
+    },
+    {
+      text: 'Rectangle',
+      value: 'rectangle'
+    }
+  ]
+}
+
 export const optionsListItem = [
   'values',
   'thumbnail',
@@ -22,61 +78,9 @@ export const optionsListItem = [
 
   'options',
   'palette',
-  {
-    text: 'Appearance',
-    value: 'appearance',
-    list: [
-      { value: undefined },
-      {
-        text: 'Basic',
-        value: 'basic'
-      },
-      {
-        text: 'Tonal',
-        value: 'tonal'
-      },
-      {
-        text: 'Contained',
-        value: 'contained'
-      },
-      {
-        text: 'Contained: status',
-        value: 'contained-status'
-      }
-    ]
-  },
+  optionsListItemAppearance,
   'navigationRail',
-  {
-    text: 'Size',
-    value: 'size',
-    list: [
-      { value: undefined },
-      {
-        text: 'Dynamical',
-        value: 'dynamic'
-      },
-      {
-        text: 'Compacted',
-        value: 'compact'
-      },
-      {
-        text: 'Small',
-        value: 'small'
-      },
-      {
-        text: 'Medium',
-        value: 'medium'
-      },
-      {
-        text: 'Large',
-        value: 'large'
-      },
-      {
-        text: 'Rectangle',
-        value: 'rectangle'
-      }
-    ]
-  },
+  optionsListItemSize,
   'shape',
   'adaptive',
   'dense',
