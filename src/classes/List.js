@@ -1,5 +1,5 @@
 import Translation from './Translation'
-import { forEach, getColumn, isSelected } from '@/uses/useObject'
+import { forEach, getColumn, isSelected } from '@/dcUi'
 
 export default class List {
   _list
@@ -104,7 +104,7 @@ export default class List {
   }
 
   setGroup (group) {
-    this._caching.primary = null
+    this._caching.first = null
     this._group = group
     return this
   }

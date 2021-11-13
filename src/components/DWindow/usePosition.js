@@ -1,6 +1,5 @@
-import { frame } from '@/uses/useControl'
-import { getIdElement } from '@/uses/useElement'
 import { ref, toRefs, watch } from 'vue'
+import { frame, getIdElement } from '@/dcUi'
 
 export const getInnerPosition = function (
   inValue,

@@ -1,5 +1,6 @@
 <template>
   <d-window
+    ref="menu"
     class="d-menu"
     :open="open"
     :disabled="disabled"
@@ -29,9 +30,11 @@
         v-bind="bindList"
         class="d-menu__list"
         :list="objectList.get()"
+        :focus="focusValue"
         :selected="selectedByValue"
-        :group="this.objectList.group"
+        :group="objectList.group"
         @on-click="onInput"
+        @on-group="onGroup"
       >
         <slot name="list"/>
       </d-list>
@@ -45,6 +48,7 @@ import DWindow from '@/components/DWindow'
 import { props } from '@/components/DMenu/props'
 import { readonly, ref, toRefs } from 'vue'
 import { setupList } from '@/components/DList/setupList'
+import { useFocus } from '@/components/DMenu/useFocus'
 
 export default {
   name: 'DMenu',
@@ -54,6 +58,7 @@ export default {
   },
   inheritAttrs: false,
   props,
+  emits: ['on-input', 'on-open'],
   setup (props, context) {
     const {
       // Status
@@ -84,6 +89,18 @@ export default {
       onInput
     } = setupList(props, context)
 
+    const {
+      menu,
+      list,
+      focusValue,
+      focusGo
+    } = useFocus(
+      context,
+      objectList,
+      selectedByValue,
+      open
+    )
+
     const bindList = readonly({
       ...context.attrs,
       disabled,
@@ -107,7 +124,13 @@ export default {
       }
     })
 
+    const onGroup = ({ group }) => {
+      objectList.value.setGroup(group)
+    }
+
     return {
+      menu,
+      list,
       open,
       progress,
       objectList,
@@ -116,9 +139,12 @@ export default {
       selectedByName,
       selectedByValue,
       bindList,
+      focusValue,
       initFetch,
       updateSelected,
-      onInput
+      focusGo,
+      onInput,
+      onGroup
     }
   },
   methods: {
@@ -126,7 +152,8 @@ export default {
       await this.initFetch(event.toOpen)
 
       this.open = event.toOpen
-      this.$emit('onOpen', event)
+      this.focusGo()
+      this.$emit('on-open', event)
     }
   }
 }

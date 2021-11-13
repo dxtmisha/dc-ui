@@ -43,7 +43,7 @@
 import DListItem from '@/components/DListItem'
 import { props } from '@/components/DList/props'
 import { computed, toRefs } from 'vue'
-import { isSelected } from '@/uses/useObject'
+import { isSelected } from '@/dcUi'
 import { useGroup } from '@/components/DList/useGroup'
 import { useList } from '@/components/DListItem/useList'
 import { useColor } from '@/uses/useColors'

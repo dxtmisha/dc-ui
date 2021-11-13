@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { createElement } from '@/uses/useElement'
+import { createElement } from '@/dcUi'
 
 const SCROLL = '__dui-scroll'
 

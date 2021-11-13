@@ -1,5 +1,5 @@
 import { onBeforeMount, ref, watch } from 'vue'
-import { getFileResult } from '@/uses/useFile'
+import { getFileResult } from '@/dcUi'
 
 export const useImage = function (icon) {
   const image = ref(undefined)

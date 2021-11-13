@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { getRoutes } from '@/uses/useRoutes'
+import { getRoutes } from '@/dcUi'
 import DemoBadge from '../views/DemoBadge'
 import DemoButton from '../views/DemoButton'
 import DemoIcon from '../views/DemoIcon'
