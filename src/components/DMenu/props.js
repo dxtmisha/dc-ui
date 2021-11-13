@@ -45,7 +45,6 @@ export const props = {
     type: String,
     default: defaultProps('shape')
   },
-  adaptive: undefined,
   groupShow: {
     type: Boolean,
     default: defaultProps('groupShow')

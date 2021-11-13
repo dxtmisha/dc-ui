@@ -111,20 +111,16 @@
     transition-duration: var(--transition-menu-expanding);
   }
 
-  &.status-show & {
-    &__body {
-      opacity: 1;
-      transform: none;
-      transition: opacity var(--transition-flash) linear,
-      transform var(--transition-menu-expanding) var(--transition-cubic-80-00);
-      visibility: visible;
-    }
+  &.status-show &__body {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--transition-flash) linear,
+    transform var(--transition-menu-expanding) var(--transition-cubic-80-00);
+    visibility: visible;
   }
 
-  &.status-hide & {
-    &__body {
-      transform: none;
-    }
+  &.status-hide &__body {
+    transform: none !important;
   }
 }
 
@@ -165,8 +161,10 @@
   @include windowBody;
   @include windowShape;
   @include windowFullscreen;
-  @include windowPersistent;
-  @include windowStatus;
+
   @include windowMenu;
   @include windowModal;
+
+  @include windowPersistent;
+  @include windowStatus;
 }
