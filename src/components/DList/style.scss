@@ -56,7 +56,7 @@
 
 @mixin listSubtitle() {
   &__subtitle {
-    --basic-text-opacity: --opacity-surface-medium;
+    --basic-text-opacity: var(--opacity-surface-medium);
     @include font('body2');
     display: var(-_ls__ad-display, block);
     padding: var(--_ls__st-padding);

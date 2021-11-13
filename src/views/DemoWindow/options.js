@@ -1,3 +1,79 @@
+export const optionsWindowAxis = {
+  text: 'Axis',
+  value: 'axis',
+  list: [
+    { value: undefined },
+    {
+      text: 'X',
+      value: 'x'
+    },
+    {
+      text: 'Y',
+      value: 'y'
+    },
+    {
+      text: 'On',
+      value: 'on'
+    }
+  ]
+}
+
+export const optionsWindowIndent = {
+  text: 'Indent',
+  value: 'indent',
+  list: [
+    { value: undefined },
+    {
+      text: '0px',
+      value: 0
+    },
+    {
+      text: '4px',
+      value: 4
+    },
+    {
+      text: '8px',
+      value: 8
+    },
+    {
+      text: '16px',
+      value: 16
+    },
+    {
+      text: '32px',
+      value: 32
+    }
+  ]
+}
+
+export const optionsWindowWidth = {
+  text: 'Width',
+  value: 'width',
+  list: [
+    { value: undefined },
+    {
+      text: '0px',
+      value: '0px'
+    },
+    {
+      text: '280px',
+      value: '280px'
+    },
+    {
+      text: '320px',
+      value: '320px'
+    },
+    {
+      text: '400px',
+      value: '400px'
+    },
+    {
+      text: '640px',
+      value: '640px'
+    }
+  ]
+}
+
 export const optionsWindow = [
   'status',
   'open',
@@ -23,79 +99,9 @@ export const optionsWindow = [
       }
     ]
   },
-  {
-    text: 'Axis',
-    value: 'axis',
-    list: [
-      { value: undefined },
-      {
-        text: 'X',
-        value: 'x'
-      },
-      {
-        text: 'Y',
-        value: 'y'
-      },
-      {
-        text: 'On',
-        value: 'on'
-      }
-    ]
-  },
-  {
-    text: 'Width',
-    value: 'width',
-    list: [
-      { value: undefined },
-      {
-        text: '0px',
-        value: '0px'
-      },
-      {
-        text: '280px',
-        value: '280px'
-      },
-      {
-        text: '320px',
-        value: '320px'
-      },
-      {
-        text: '400px',
-        value: '400px'
-      },
-      {
-        text: '640px',
-        value: '640px'
-      }
-    ]
-  },
-  {
-    text: 'Indent',
-    value: 'indent',
-    list: [
-      { value: undefined },
-      {
-        text: '0px',
-        value: 0
-      },
-      {
-        text: '4px',
-        value: 4
-      },
-      {
-        text: '8px',
-        value: 8
-      },
-      {
-        text: '16px',
-        value: 16
-      },
-      {
-        text: '32px',
-        value: 32
-      }
-    ]
-  },
+  optionsWindowAxis,
+  optionsWindowWidth,
+  optionsWindowIndent,
   {
     text: 'Adaptive',
     value: 'adaptive',

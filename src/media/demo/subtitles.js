@@ -9,5 +9,6 @@ export const subtitles = {
   // Options
   options: { subtitle: 'Options' },
   optionsIcon: { subtitle: 'Icon' },
-  optionsPosition: { subtitle: 'Position' }
+  optionsPosition: { subtitle: 'Position' },
+  optionsWindow: { subtitle: 'Window' }
 }

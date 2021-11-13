@@ -52,6 +52,7 @@ export default {
 
 <style lang="scss">
 .demo-list {
+  border-width: var(--basic-border-width);
   max-width: 100%;
   width: 320px;
 }

@@ -1,7 +1,11 @@
 export const menu = [
   {
     html: `
-<div class="flex"></div>
+<div class="flex flex-col items-center justify-center pt-8 pb-12">
+    <div class="w-32 h-32 rounded-full" style="background-image: url(${require('@/assets/images/image-12.jpeg')})"></div>
+    <div class="font:headline6 pt-4">Loretta Kelley</div>
+    <div class="font:body2 pt-1 opacity-60">+7 (902) 334-33-33</div>
+</div>
 `
   },
   {
@@ -81,28 +85,42 @@ export const menu = [
         thumbnail: require('@/assets/images/image-04.jpeg')
       },
       {
-        text: 'Frederick Mitchell',
-        thumbnail: require('@/assets/images/image-05.jpeg')
-      },
-      {
-        text: 'Roberto Reeves',
-        thumbnail: require('@/assets/images/image-06.jpeg')
-      },
-      {
-        text: 'Julie Bowman',
-        thumbnail: require('@/assets/images/image-07.jpeg')
-      },
-      {
-        text: 'Roberta Collier',
-        thumbnail: require('@/assets/images/image-08.jpeg')
-      },
-      {
-        text: 'Armando Schwartz',
-        thumbnail: require('@/assets/images/image-09.jpeg')
-      },
-      {
-        text: 'Christopher Daniels',
-        thumbnail: require('@/assets/images/image-10.jpeg')
+        text: 'More',
+        value: 'more',
+        menu: [
+          {
+            text: 'Frederick Mitchell',
+            thumbnail: require('@/assets/images/image-05.jpeg')
+          },
+          {
+            text: 'Roberto Reeves',
+            thumbnail: require('@/assets/images/image-06.jpeg')
+          },
+          {
+            text: 'Julie Bowman',
+            thumbnail: require('@/assets/images/image-07.jpeg')
+          },
+          {
+            text: 'Roberta Collier',
+            thumbnail: require('@/assets/images/image-08.jpeg')
+          },
+          {
+            text: 'Armando Schwartz',
+            thumbnail: require('@/assets/images/image-09.jpeg')
+          },
+          {
+            text: 'Christopher Daniels',
+            thumbnail: require('@/assets/images/image-10.jpeg')
+          },
+          {
+            text: 'Brenda Thompson',
+            thumbnail: require('@/assets/images/image-11.jpeg')
+          },
+          {
+            text: 'Phyllis Webb',
+            thumbnail: require('@/assets/images/image-12.jpeg')
+          }
+        ]
       }
     ],
     attrsMenu: { size: 'large' }

@@ -9,6 +9,15 @@ module.exports = {
   },
   plugins: [],
   corePlugins: [
-    'padding'
+    'alignItems',
+    'borderRadius',
+    'display',
+    'height',
+    'flex',
+    'flexDirection',
+    'justifyContent',
+    'opacity',
+    'padding',
+    'width'
   ]
 }

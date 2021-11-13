@@ -5,10 +5,20 @@ import { quote1 } from '@/media/demo/texts'
 
 export const optionsList = {
   // Values
+  ajax: {
+    text: 'Ajax',
+    message: '/demo/request/menu.json'
+  },
+  cache: { text: 'Cache' },
   description: {
     text: 'Description',
     message: quote1
   },
+  maxlength: {
+    text: 'Maxlength',
+    message: 4
+  },
+  multiple: { text: 'Multiple' },
   open: { text: 'Open' },
   prefix: {
     text: 'Prefix text',

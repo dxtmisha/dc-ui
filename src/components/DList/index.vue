@@ -46,6 +46,7 @@ import { computed, toRefs } from 'vue'
 import { isSelected } from '@/uses/useObject'
 import { useGroup } from '@/components/DList/useGroup'
 import { useList } from '@/components/DListItem/useList'
+import { useColor } from '@/uses/useColors'
 
 export default {
   name: 'DList',
@@ -59,6 +60,8 @@ export default {
       selected,
 
       // Options
+      palette,
+      color,
       axis,
       adaptive,
       navigationRail
@@ -70,6 +73,7 @@ export default {
       onGroup
     } = useGroup(props, context)
 
+    const { classColor } = useColor(color, palette)
     const { valueList } = useList(props, context)
 
     const isFocus = (value) => isSelected(value, focus.value)
@@ -78,6 +82,7 @@ export default {
     const classList = computed(() => {
       return {
         'd-list': true,
+        ...classColor.value,
         [`axis-${axis.value}`]: axis.value,
         [`adaptive-${adaptive.value}`]: adaptive.value,
         [`navigation-rail-${navigationRail.value}`]: navigationRail.value

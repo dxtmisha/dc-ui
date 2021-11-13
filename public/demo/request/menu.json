@@ -1,0 +1,23 @@
+[
+  {
+    "text": "Profile",
+    "value": "profile",
+    "icon": "account_circle"
+  },
+  {
+    "text": "Notifications",
+    "value": "notifications",
+    "icon": "notifications",
+    "href": "#notifications"
+  },
+  {
+    "text": "Setting",
+    "value": "setting",
+    "icon": "settings"
+  },
+  {
+    "text": "Help and support",
+    "value": "help_and_support",
+    "icon": "support"
+  }
+]
