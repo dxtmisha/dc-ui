@@ -1,0 +1,664 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/padding";
+@import "../../styles/position";
+@import "../../styles/options/optionShape";
+@import "styleExtend";
+
+@mixin carcassField() {
+  @include carcassFieldVar;
+  --_cf-border-color: var(--_cf-palette);
+  --_cf-border-opacity: var(--opacity-outline);
+
+  --_cf-shift: 0px;
+  --_cf-half: calc(var(--_cf-height) / 2);
+
+  --_cf__tx-half: calc(var(--_cf__tx-height) / 2);
+  --_cf__tx-opacity: 1;
+  --_cf__tx-scale: 1;
+  --_cf__tx-translate-x: var(--_cf__ld-padding);
+  --_cf__tx-translate-y: calc(var(--_cf-height) / 4);
+
+  --_cf__cn-padding: 0px;
+  --_cf__ld-padding: 0px;
+  --_cf__tr-padding: 0px;
+
+  --_cf__pr-opacity: 0;
+  --_cf__pr-width: 0px;
+  --_cf__sf-width: 0px;
+
+  width: var(--_cf-width);
+
+  &.adaptive-block {
+    width: 100%;
+  }
+}
+
+@mixin carcassFieldVar() {
+  --_cf-palette: var(--cf-palette, var(--background-outline));
+  --_cf-status-palette: var(--cf-status-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_cf-background: var(--cf-background, transparent);
+  --_cf-background-image: var(--cf-background, none);
+  --_cf-width: var(--cf-width, 280px);
+
+  --_cf-padding: var(--cf-padding, 12px);
+  --_cf-space: var(--cf-space, 4px);
+
+  --_cf-border-width: var(--cf-border-width, 1px);
+  --_cf--fc-border-width: var(--cf--fc-border-width, 2px);
+
+  --_cf-height: var(--cf-height, 56px);
+  --_cf__tx-height: var(--cf__tx-height, 24px);
+  --_cf--dn-height: var(--cf--dn-height, 40px);
+  --_cf--sm-height: var(--cf--sm-height, 48px);
+  --_cf--lg-height: var(--cf--lg-height, 64px);
+  --_cf--ds-height: var(--cf--ds-height, 80px);
+
+  --_cf--ds-font: var(--cf--ds-font, 56px);
+
+  --_cf__ic-height: var(--cf__ic-height, 24px);
+  --_cf__ic--ar-height: var(--cf__ic--ar-height, 32px);
+
+  --_cf--fl-border-width: var(--cf--fl-border-width, 1px);
+  --_cf--fl--fc-border-width: var(--cf--fl--fc-border-width, 2px);
+}
+
+@mixin carcassFieldBody() {
+  &__body {
+    @include font('subtitle1');
+    border-radius: var(--basic-radius);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    position: relative;
+  }
+}
+
+@mixin carcassFieldInput() {
+  &__input {
+    -moz-appearance: textfield;
+    border-radius: inherit;
+    min-height: var(--_cf-height);
+    padding: {
+      top: calc(var(--_cf-half) - var(--_cf__tx-half) + var(--_cf-shift));
+      right: calc(var(--_cf-padding) + (var(--_cf-space) / 2) + var(--_cf__cn-padding) + var(--_cf__tr-padding) + var(--_cf__sf-width));
+      bottom: calc(var(--_cf-half) - var(--_cf__tx-half) - var(--_cf-shift));
+      left: calc(var(--_cf-padding) + var(--_cf-space) + var(--_cf__ld-padding) + var(--_cf__pr-width));
+    }
+    position: relative;
+    width: 100%;
+    z-index: 3;
+    @content;
+
+    &::placeholder {
+      --basic-text-opacity: var(--opacity-surface-disabled);
+      color: inherit;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  &.view-suffix &__input {
+    text-align: right;
+  }
+}
+
+@mixin carcassFieldLabel() {
+  &__label {
+    @include absoluteTop;
+    @extend %text-medium;
+    border-radius: inherit;
+    display: flex;
+    height: var(--_cf-half);
+    @content;
+
+    &::before,
+    &::after {
+      @extend %border-color;
+      border-top-width: var(--_cf-border-width);
+      content: " ";
+      flex-basis: var(--_cf-padding);
+      min-width: var(--_cf-padding);
+    }
+
+    &::before {
+      border-top-left-radius: inherit;
+    }
+
+    &::after {
+      border-top-right-radius: inherit;
+      flex-grow: 1;
+    }
+  }
+}
+
+@mixin carcassFieldTitle() {
+  &__title {
+    @include flexX;
+    @include paddingX(var(--_cf-space));
+    max-width: calc(100% - (var(--_cf-padding) * 2) - var(--_cf__ld-padding) - var(--_cf__cn-padding) - var(--_cf__tr-padding));
+    @content;
+
+    @include afterAbsolute('top') {
+      @extend %border-color;
+      border-top-width: var(--_cf-border-width);
+    }
+  }
+}
+
+@mixin carcassFieldText() {
+  &__text {
+    @include ellipsis;
+    line-height: 1;
+    max-width: 100%;
+    opacity: var(--_cf__tx-opacity);
+    transform: translate(#{calc(var(--_cf__tx-translate-x))}, #{calc(var(--_cf__tx-translate-y) - var(--_cf-shift))}) scale(var(--_cf__tx-scale));
+    transform-origin: left;
+    transition-property: font-size, opacity, transform;
+    transition-timing-function: var(--transition-cubic-80-40);
+    @content;
+  }
+}
+
+@mixin carcassFieldRequired() {
+  &__required {
+    --basic-text: var(--error-type1);
+
+    &::after {
+      content: '*';
+    }
+  }
+}
+
+@mixin carcassFieldScoreboard() {
+  &__scoreboard {
+    @include flexX;
+    @include paddingX(var(--_cf-padding));
+    @extend %text-medium;
+    height: 0;
+    transform: translateY(#{calc(-1 * var(--_cf-half))});
+    width: 100%;
+    @content;
+  }
+
+  &.view-icon-cancel &,
+  &.option-arrow & {
+    &__scoreboard {
+      position: relative;
+      z-index: 5;
+    }
+  }
+
+  &__space {
+    flex-grow: 1;
+  }
+}
+
+@mixin carcassFieldIcon() {
+  &.view-icon {
+    --_cf__ld-padding: calc(var(--_cf__ic-height) + var(--_cf-space));
+  }
+
+  &.view-icon-cancel {
+    --_cf__cn-padding: calc(var(--_cf__ic-height) + var(--_cf-space));
+  }
+
+  &.view-icon-trailing {
+    --_cf__tr-padding: calc(var(--_cf__ic-height) + var(--_cf-space));
+  }
+
+  .cf-cancel {
+    @extend %text-medium;
+    cursor: default;
+
+    &:hover {
+      --basic-text-opacity: inherit;
+    }
+  }
+
+  .cf-trailing {
+    margin-left: var(--_cf-space);
+  }
+}
+
+@mixin carcassFieldPrefix() {
+  &__prefix,
+  &__suffix {
+    @extend %text-medium;
+    opacity: var(--_cf__pr-opacity);
+    transform: translateY(var(--_cf-shift));
+    transition-property: opacity;
+    @content;
+  }
+
+  &__prefix {
+    padding-left: var(--_cf-space);
+  }
+
+  &__suffix {
+    padding-right: var(--_cf-space);
+  }
+
+  &.view-icon &__prefix {
+    padding-left: calc(var(--_cf-space) * 2);
+  }
+
+  &.view-icon-trailing &__suffix {
+    padding-right: var(--_cf-space);
+  }
+}
+
+@mixin carcassFieldBorder() {
+  &__border {
+    @include absoluteFull;
+    @extend %border-color;
+    border-right-width: var(--_cf-border-width);
+    border-bottom-width: var(--_cf-border-width);
+    border-left-width: var(--_cf-border-width);
+    border-radius: inherit;
+    @content;
+  }
+}
+
+@mixin carcassFieldMessage() {
+  &__message {
+    @include font('caption');
+    @extend %text-medium;
+    align-items: flex-start;
+    display: flex;
+    padding: dimension(1) calc(var(--_cf-padding) + var(--_cf-space)) 0;
+    @content;
+  }
+
+  &__info {
+    flex-basis: dimension(1);
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &__counter {
+    flex-basis: dimension(8);
+    padding-left: dimension(2);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  &__validation {
+    --basic-text: var(--error-type1);
+  }
+}
+
+@mixin carcassFieldSize() {
+  &.size-dense {
+    --_cf-height: var(--_cf--dn-height);
+  }
+
+  &.size-small {
+    --_cf-height: var(--_cf--sm-height);
+  }
+
+  &.size-large {
+    --_cf-height: var(--_cf--lg-height);
+  }
+
+  &.size-interactive-display {
+    --_cf-height: var(--_cf--ds-height);
+  }
+
+  &.size-interactive-display & {
+    &__input {
+      @include paddingY(0);
+      font-size: var(--_cf--ds-font);
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__message {
+      @include paddingX(0);
+    }
+  }
+}
+
+@mixin carcassFieldShape() {
+  &__body {
+    @include optionShape;
+
+    &.shape-pill {
+      border-radius: calc(var(--_cf-height) / 2);
+      --_cf-padding: calc((var(--_cf-height) / 2) - var(--_cf__ic--pill, 0px));
+    }
+  }
+}
+
+@mixin carcassFieldAlign() {
+  &.align-center,
+  &.option-arrow:not(.align-left):not(.align-right) {
+    --_cf__tx-translate-x: 0px;
+  }
+
+  &.align-center &,
+  &.option-arrow:not(.align-left):not(.align-right) & {
+    &__label::before {
+      flex-grow: 1;
+    }
+
+    &__text {
+      transform-origin: center;
+    }
+
+    &__input {
+      text-align: center;
+    }
+  }
+
+  &.align-left,
+  &.align-right {
+    --_cf__ic-quantity: 0;
+
+    &.view-icon,
+    &.view-icon-trailing {
+      --_cf__ic-quantity: 1;
+    }
+
+    &.view-icon.view-icon-trailing {
+      --_cf__ic-quantity: 2;
+    }
+  }
+
+  &.align-left {
+    --_cf__tr-padding: 0px;
+    --_cf__ld-padding: calc((var(--_cf__ic-height) + var(--_cf-space)) * var(--_cf__ic-quantity));
+  }
+
+  &.align-left & {
+    &__space,
+    &__icon.cf-cancel {
+      order: 2;
+    }
+  }
+
+  &.align-right {
+    --_cf__tr-padding: calc((var(--_cf__ic-height) + var(--_cf-space)) * var(--_cf__ic-quantity));
+    --_cf__ld-padding: 0px;
+  }
+
+  &.align-right & {
+    &__space,
+    &__icon.cf-cancel {
+      order: -1;
+    }
+  }
+}
+
+@mixin carcassFieldStatus() {
+  &__input:hover,
+  &__body:hover &__input {
+    --_cf-background-image: #{varColor(--_cf-palette, --opacity-container-hover, true)};
+  }
+
+  &__input:hover ~ &,
+  &__body:hover & {
+    &__label,
+    &__border {
+      --_cf-border-opacity: var(--opacity-surface-medium);
+    }
+  }
+
+  &__input:focus:not([readonly]),
+  &:not(.status-readonly):focus-within &__input,
+  &:not(.status-readonly).status-focus &__input {
+    --_cf-background-image: #{varColor(--_cf-palette, --opacity-container-focus, true)};
+  }
+
+  &__input:focus:not([readonly]) ~ &,
+  &:not(.status-readonly):focus-within &,
+  &:not(.status-readonly).status-focus & {
+    &__label,
+    &__border {
+      --basic-text: var(--_cf-status-palette);
+      --_cf-border-color: var(--_cf-status-palette);
+      --_cf-border-opacity: 1;
+      --_cf-border-width: var(--_cf--fc-border-width);
+    }
+  }
+
+  &__input:focus:not([readonly]) ~ &,
+  &:not(.status-readonly):focus-within &,
+  &:not(.status-readonly).status-focus &,
+  &.view-value & {
+    &__label,
+    &__scoreboard {
+      --_cf__tx-opacity: 0;
+      --_cf__pr-opacity: 1;
+    }
+  }
+
+  &:not(.status-disabled).status-validation & {
+    &__label,
+    &__border {
+      --basic-text: var(--error-type1);
+      --_cf-palette: var(--error-type1);
+      --_cf-status-palette: var(--error-type1);
+      --_cf-border-color: var(--error-type1);
+    }
+  }
+
+  &:not(.status-disabled).status-selected {
+    --_cf-palette: var(--_cf-status-palette);
+  }
+
+  &:not(.status-disabled).status-selected & {
+    &__input {
+      --basic-text: var(--_cf-palette);
+    }
+  }
+}
+
+@mixin carcassFieldReadonly() {
+  .status-readonly &__input {
+    cursor: default;
+  }
+}
+
+@mixin carcassFieldDisabled() {
+  &__input:disabled {
+    @extend %status-disabled;
+  }
+
+  &__input:disabled ~ &,
+  &.status-disabled & {
+    &__input,
+    &__label,
+    &__scoreboard,
+    &__border {
+      @extend %status-disabled;
+    }
+  }
+}
+
+@mixin carcassFieldArrow() {
+  &.option-arrow {
+    --rp-palette: var(--_cf-palette);
+    --_cf__ic--pill: calc(var(--_cf__ic-height) / 2);
+    @content;
+  }
+
+  &.option-arrow:not(.option-ripple) & {
+    &__icon:active {
+      --ic--bg-opacity: var(--opacity-container-pressed);
+    }
+  }
+
+  &.option-arrow:not(.size-dense) {
+    --ic-size: var(--_cf__ic--ar-height);
+    --_cf__ic-height: var(--_cf__ic--ar-height);
+  }
+}
+
+@mixin carcassFieldBasic() {
+  &.appearance-basic {
+    @extend %background-color;
+    --_cf-border-opacity: 0;
+  }
+
+  &.appearance-basic &__input {
+    @extend %background-input;
+  }
+
+  &.appearance-basic &__input:focus:not([readonly]),
+  &.appearance-basic:not(.status-readonly):focus-within &__input,
+  &.appearance-basic:not(.status-readonly).status-focus &__input {
+    --_cf-background: transparent;
+  }
+}
+
+@mixin carcassFieldClassic() {
+  &__label--classic {
+    @include font('subtitle2');
+    @extend %text-medium;
+  }
+
+  &.appearance-classic &__text {
+    visibility: hidden;
+  }
+
+  &.appearance-classic &__message {
+    @include paddingX(0);
+  }
+}
+
+@mixin carcassFieldFilled() {
+  &.appearance-filled {
+    @extend %background-color;
+    --_cf-border-width: 0;
+    --_cf--fc-border-width: 0;
+    @content;
+  }
+
+  &.appearance-filled &__body {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &.appearance-filled &__input {
+    @extend %background-input;
+  }
+
+  &.appearance-filled &__input,
+  &.appearance-filled &__scoreboard {
+    --_cf-shift: calc(var(--_cf__tx-height) / 3);
+  }
+
+  &.appearance-filled &__border {
+    &::before,
+    &::after {
+      @include positionBottom();
+      border-radius: inherit;
+      content: " ";
+      position: absolute;
+    }
+
+    &::before {
+      border-bottom-width: var(--_cf--fl-border-width);
+      border-color: inherit;
+    }
+
+    &::after {
+      border-color: varColor(--_cf-status-palette);
+      border-bottom-width: var(--_cf--fl--fc-border-width);
+      clip-path: inset(0 50%);
+      transition-property: clip-path;
+    }
+  }
+
+  &.appearance-filled &__input:focus:not([readonly]) ~ &,
+  &.appearance-filled:not(.status-readonly):focus-within &,
+  &.appearance-filled:not(.status-readonly).status-focus & {
+    &__border::after {
+      clip-path: inset(0 0);
+    }
+  }
+
+  &.appearance-filled &__input:focus:not([readonly]) ~ &,
+  &.appearance-filled:not(.status-readonly):focus-within &,
+  &.appearance-filled:not(.status-readonly).status-focus &,
+  &.appearance-filled.view-value & {
+    &__label {
+      --_cf-shift: calc(var(--_cf__tx-height) / 2);
+      --_cf__tx-opacity: 1;
+      --_cf__tx-scale: .875;
+    }
+  }
+}
+
+@mixin carcassFieldOutlined() {
+  &.appearance-outlined {
+    @content;
+  }
+
+  &.appearance-outlined &__input {
+    background-color: transparent;
+    background-image: none;
+  }
+
+  &.appearance-outlined &__input:focus:not([readonly]) ~ &,
+  &.appearance-outlined:not(.status-readonly):focus-within &,
+  &.appearance-outlined:not(.status-readonly).status-focus &,
+  &.appearance-outlined.view-value & {
+    &__label {
+      --_cf-shift: calc(var(--_cf-height) / 2);
+      --_cf__tx-opacity: 1;
+      --_cf__tx-translate-x: 0px;
+      font-size: 14px;
+    }
+  }
+
+  &.appearance-outlined &__input:focus:not([readonly]) ~ &__label &,
+  &.appearance-outlined:not(.status-readonly):focus-within &__label &,
+  &.appearance-outlined:not(.status-readonly).status-focus &__label &,
+  &.appearance-outlined.view-value &__label & {
+    &__title::after {
+      border-top-color: transparent;
+    }
+  }
+}
+
+@mixin carcassFieldInit() {
+  @include carcassField;
+  @include carcassFieldBody;
+  @include carcassFieldInput;
+  @include carcassFieldLabel;
+  @include carcassFieldTitle;
+  @include carcassFieldText;
+  @include carcassFieldRequired;
+  @include carcassFieldScoreboard;
+  @include carcassFieldIcon;
+  @include carcassFieldPrefix;
+  @include carcassFieldBorder;
+  @include carcassFieldMessage;
+
+  @include carcassFieldSize;
+  @include carcassFieldShape;
+  @include carcassFieldAlign;
+  
+  @include carcassFieldStatus;
+  @include carcassFieldReadonly;
+  @include carcassFieldDisabled;
+
+  @include carcassFieldArrow;
+  @include carcassFieldBasic;
+  @include carcassFieldClassic;
+  @include carcassFieldFilled;
+  @include carcassFieldOutlined;
+}
