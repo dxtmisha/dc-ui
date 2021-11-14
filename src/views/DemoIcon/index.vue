@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DIcon from '@/--components/DIcon'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsIcon } from '@/views/DemoIcon/options'
 
 export default {

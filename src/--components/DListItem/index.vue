@@ -54,15 +54,15 @@
 </template>
 
 <script>
-import DBadge from '@/components/DBadge'
-import DIcon from '@/components/DIcon'
-import DRipple from '@/components/DRipple'
-import { props } from '@/components/DListItem/props'
+import DBadge from '@/--components/DBadge'
+import DIcon from '@/--components/DIcon'
+import DRipple from '@/--components/DRipple'
+import { props } from '@/--components/DListItem/props'
 import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/uses/useColors'
-import { setupBadge } from '@/components/DBadge/setupBadge'
-import { useAdmin } from '@/uses/useAdmin'
+import { setupBadge } from '@/--components/DBadge/setupBadge'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DListItem',

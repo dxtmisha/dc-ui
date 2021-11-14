@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import { props } from '@/components/DWindow/props'
+import { props } from '@/--components/DWindow/props'
 import { computed, readonly, toRefs } from 'vue'
-import { setupScroll } from '@/components/DScrollbar/setupScroll'
-import { useAdmin } from '@/uses/useAdmin'
+import { setupScroll } from '@/--components/DScrollbar/setupScroll'
+import { useAdmin } from '@/tool/use/useAdmin'
 import { useEvent } from './useEvent'
 import { usePosition } from './usePosition'
 import { useToggle } from './useToggle'

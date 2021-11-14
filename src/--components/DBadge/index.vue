@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
+import DIconItem from '@/--components/DIconItem'
 import { props } from './props'
 import { computed, readonly, toRefs } from 'vue'
 import { useColor } from '@/uses/useColors'
-import { useAdmin } from '@/uses/useAdmin'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DBadge',

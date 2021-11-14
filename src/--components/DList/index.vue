@@ -66,21 +66,21 @@
 </template>
 
 <script>
-import DListItem from '@/components/DListItem'
-import DProgress from '@/components/DProgress'
-import { props } from '@/components/DList/props'
+import DListItem from '@/--components/DListItem'
+import DProgress from '@/--components/DProgress'
+import { props } from '@/--components/DList/props'
 import { computed, defineAsyncComponent, toRefs } from 'vue'
 import { isSelected } from '@/dcUi'
-import { setupListItem } from '@/components/DList/setupListItem'
+import { setupListItem } from '@/--components/DList/setupListItem'
 import { useColor } from '@/uses/useColors'
-import { useGroup } from '@/components/DList/useGroup'
-import { useAdmin } from '@/uses/useAdmin'
+import { useGroup } from '@/--components/DList/useGroup'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DList',
   components: {
     DProgress,
-    DMenu: defineAsyncComponent(() => import('@/components/DMenu')),
+    DMenu: defineAsyncComponent(() => import('@/--components/DMenu')),
     DListItem
   },
   props,

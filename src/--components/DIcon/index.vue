@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
+import DIconItem from '@/--components/DIconItem'
 import { props } from './props'
-import { useAdmin } from '@/uses/useAdmin'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DIcon',

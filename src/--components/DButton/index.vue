@@ -32,16 +32,16 @@
 </template>
 
 <script>
-import DBadge from '@/components/DBadge'
-import DIcon from '@/components/DIcon'
-import DProgress from '@/components/DProgress'
-import DRipple from '@/components/DRipple'
-import { props } from '@/components/DButton/props'
+import DBadge from '@/--components/DBadge'
+import DIcon from '@/--components/DIcon'
+import DProgress from '@/--components/DProgress'
+import DRipple from '@/--components/DRipple'
+import { props } from '@/--components/DButton/props'
 import { computed, toRefs } from 'vue'
-import { setupBadge } from '@/components/DBadge/setupBadge'
+import { setupBadge } from '@/--components/DBadge/setupBadge'
 import { useColor } from '@/uses/useColors'
 import { useIcon } from './useIcon'
-import { useAdmin } from '@/uses/useAdmin'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DButton',

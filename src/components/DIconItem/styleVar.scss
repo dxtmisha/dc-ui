@@ -1,0 +1,4 @@
+@mixin iconItemVar() {
+  --_ii-background-size: var(--ii-background-size, cover);
+  --_ii-font-size: var(--ii-font-size, inherit);
+}

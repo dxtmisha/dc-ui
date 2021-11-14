@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DWindow from '@/components/DWindow'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DButton from '@/--components/DButton'
+import DWindow from '@/--components/DWindow'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsWindow } from '@/views/DemoWindow/options'
 import { quote2 } from '@/media/demo/texts'
 

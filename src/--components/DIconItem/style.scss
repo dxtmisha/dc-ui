@@ -1,16 +1,18 @@
 @import "../../styles/flex";
 @import "../../styles/position";
 @import "../../styles/options/optionHide";
-@import "styleExtend";
-@import "styleVar";
+
+%display {
+  display: flex;
+}
 
 @mixin iconItem() {
   @include iconItemVar;
   @include absoluteFull;
   @include flexCenter;
-  @extend %font-size;
   background-size: var(--_ii-background-size);
   border-radius: inherit;
+  font-size: var(--_ii-font-size);
   transform: none;
   transition-duration: var(--transition-menu-expanding);
   transition-property: opacity, transform;
@@ -18,10 +20,15 @@
   @include optionHide();
 }
 
+@mixin iconItemVar() {
+  --_ii-background-size: var(--ii-background-size, cover);
+  --_ii-font-size: var(--ii-font-size, inherit);
+}
+
 @mixin iconItemMaterial() {
   &.material-icons {
     @extend %display;
-    @extend %font-size;
+    font-size: var(--_ii-font-size);
     @content;
 
     &.type- {

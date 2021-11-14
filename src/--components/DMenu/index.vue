@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import DList from '@/components/DList'
-import DWindow from '@/components/DWindow'
-import { props } from '@/components/DMenu/props'
+import DList from '@/--components/DList'
+import DWindow from '@/--components/DWindow'
+import { props } from '@/--components/DMenu/props'
 import { readonly, ref, toRefs } from 'vue'
-import { setupList } from '@/components/DList/setupList'
-import { useFocus } from '@/components/DMenu/useFocus'
-import { useShifted } from '@/components/DMenu/useShifted'
-import { useAdmin } from '@/uses/useAdmin'
+import { setupList } from '@/--components/DList/setupList'
+import { useFocus } from '@/--components/DMenu/useFocus'
+import { useShifted } from '@/--components/DMenu/useShifted'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DMenu',

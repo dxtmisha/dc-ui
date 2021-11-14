@@ -12,7 +12,7 @@
 <script>
 import { readonly, toRefs } from 'vue'
 import { setupScroll } from './setupScroll'
-import { useAdmin } from '@/uses/useAdmin'
+import { useAdmin } from '@/tool/use/useAdmin'
 import { useBorder } from './useBorder'
 
 export default {

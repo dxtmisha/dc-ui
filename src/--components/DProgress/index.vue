@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import { props } from '@/components/DProgress/props'
+import { props } from '@/--components/DProgress/props'
 import { computed, toRefs } from 'vue'
-import { useVisible } from '@/components/DProgress/useVisible'
-import { useAdmin } from '@/uses/useAdmin'
+import { useVisible } from '@/--components/DProgress/useVisible'
+import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
   name: 'DProgress',

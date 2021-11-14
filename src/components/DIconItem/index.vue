@@ -3,106 +3,71 @@
     :class="classList"
     :style="styleList"
     translate="no"
-    v-text="valueText"
+    v-text="text"
   />
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
-import { useImage } from '@/components/DIconItem/useImage'
-import { useAdmin } from '@/uses/useAdmin'
+import { props } from '@/components/DIconItem/props'
+import { toRefs } from 'vue'
+import { useAdmin } from '@/tool/use/useAdmin'
+import { useWatch } from '@/tool/use/useWatch'
+import { useIcon } from './useIcon'
 
 export default {
   name: 'DIconItem',
-  props: {
-    // Values
-    icon: [File, String],
-    // Status
-    disabled: Boolean,
-    hide: Boolean
-  },
+  props,
   setup (props) {
     const {
+      // Values
       icon,
+
+      // Status
       disabled,
       hide
     } = toRefs(props)
 
-    const { image } = useImage(icon)
+    const {
+      type,
+      text,
+      classIcon,
+      image
+    } = useIcon(icon)
 
-    const type = computed(() => {
-      let type
-
-      if (icon.value) {
-        if (icon.value instanceof File || icon.value.match(/\//)) {
-          type = 'image'
-        } else if (icon.value.match(/^#/)) {
-          type = 'color'
-        } else {
-          type = icon.value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
-        }
-      }
-
-      return type
-    })
-    const valueText = computed(() => {
-      if ([
-        'filled',
-        'outlined',
-        'round',
-        'sharp',
-        'two-tone',
-        'material'
-      ].indexOf(type.value) !== -1) {
-        return icon.value.replace(/^(filled|outlined|round|sharp|two-tone)-/, '')
-      } else {
-        return undefined
-      }
-    })
-
-    const classIconName = computed(() => {
-      switch (type.value) {
-        case 'la':
-          return `las ${icon.value}`
-        case 'filled':
-        case 'outlined':
-        case 'round':
-        case 'sharp':
-        case 'two-tone':
-        case 'material':
-          return 'material-icons'
-        default:
-          return undefined
-      }
-    })
-    const classList = computed(() => {
-      return {
+    const classList = useWatch([
+      image,
+      disabled,
+      hide
+    ], data => {
+      data.value = {
         'd-icon-item notranslate': true,
-        [classIconName.value]: classIconName.value,
+        [classIcon.value]: classIcon.value,
         [`type-${type.value}`]: type.value,
         'status-disabled': disabled.value,
         'status-hide': hide.value
       }
     })
-    const styleList = computed(() => {
+    const styleList = useWatch(image, data => {
+      let style
+
       if (image.value) {
         switch (type.value) {
           case 'image':
-            return { 'background-image': `url(${image.value})` }
+            style = { 'background-image': `url(${image.value})` }
+            break
           case 'color':
-            return { 'background-color': image.value }
-          default:
-            return undefined
+            style = { 'background-color': image.value }
+            break
         }
-      } else {
-        return undefined
       }
+
+      data.value = style
     })
 
     useAdmin('d-icon-item')
 
     return {
-      valueText,
+      text,
       classList,
       styleList
     }

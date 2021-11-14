@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import DRipple from '@/components/DRipple'
-import { props } from '@/components/DCarcassField/props'
-import { usePrefix } from '@/components/DCarcassField/usePrefix'
+import DIcon from '@/--components/DIcon'
+import DRipple from '@/--components/DRipple'
+import { props } from '@/--components/DCarcassField/props'
+import { usePrefix } from '@/--components/DCarcassField/usePrefix'
 
 export default {
   name: 'DCarcassField',

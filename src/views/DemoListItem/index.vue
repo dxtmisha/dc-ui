@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import DListItem from '@/components/DListItem'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DListItem from '@/--components/DListItem'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsListItem } from '@/views/DemoListItem/options'
 
 export default {
