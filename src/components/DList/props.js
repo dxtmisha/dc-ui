@@ -14,42 +14,38 @@ export const props = {
     default: defaultProps('iconArrowRight', 'arrow_right')
   },
   group: Object,
+  multiple: undefined,
+  maxlength: undefined,
 
   // Status
   focus: undefined,
   selected: undefined,
-  disabled: Boolean,
 
   // Options
-  attrsMenu: Object,
   palette,
   color: String,
-  tag: {
-    type: String,
-    default: 'a'
-  },
   axis: {
     type: String,
     validator: validatorAxis
   },
+  groupShow: {
+    type: Boolean,
+    default: defaultProps('groupShow')
+  },
+
+  // Item
+  tag: undefined,
   appearance: undefined,
   navigationRail: undefined,
   size: undefined,
   shape: undefined,
   adaptive: undefined,
-  groupShow: {
-    type: Boolean,
-    default: defaultProps('groupShow')
-  },
   dense: undefined,
   border: undefined,
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
-  },
+  ripple: undefined,
 
   // Icon
-  iconReadonly: Boolean,
-  iconAnimationShow: Boolean,
-  iconBackground: Boolean
+  iconReadonly: undefined,
+  iconAnimationShow: undefined,
+  iconBackground: undefined
 }

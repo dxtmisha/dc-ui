@@ -29,12 +29,17 @@ export const props = {
 
   // Status
   selected: undefined,
-  readonly: Boolean,
   disabled: Boolean,
 
   // Options
   palette,
   color: String,
+  groupShow: {
+    type: Boolean,
+    default: defaultProps('groupShow')
+  },
+
+  // Item
   tag: undefined,
   appearance: undefined,
   size: {
@@ -45,26 +50,13 @@ export const props = {
     type: String,
     default: defaultProps('shape')
   },
-  groupShow: {
-    type: Boolean,
-    default: defaultProps('groupShow')
-  },
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
-  },
+  ripple: undefined,
 
   // Window
-  axis: {
-    type: String,
-    default: defaultProps('axis')
-  },
+  axis: undefined,
   width: {
     type: String,
     default: defaultProps('width')
   },
-  indent: {
-    type: Number,
-    default: defaultProps('indent', 4)
-  }
+  indent: undefined
 }

@@ -65,6 +65,7 @@ export const optionsListItem = [
   'prefix',
   'suffix',
   'description',
+  'backgroundColor',
 
   'valuesBadge',
   'badgeIcon',
@@ -84,7 +85,6 @@ export const optionsListItem = [
   'shape',
   'adaptive',
   'dense',
-  'backgroundColor',
   'border',
   'ripple',
 

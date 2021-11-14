@@ -6,12 +6,14 @@ export const optionsList = [
 
   'options',
   'palette',
+  'groupShow',
+
+  'optionsItem',
   optionsListItemAppearance,
   'navigationRail',
   optionsListItemSize,
   'shape',
   'adaptive',
-  'groupShow',
   'dense',
   'border',
   'ripple',

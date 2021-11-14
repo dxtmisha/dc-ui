@@ -1,12 +1,13 @@
-import { computed, readonly, toRefs } from 'vue'
+import { readonly, ref, toRefs, watch } from 'vue'
 
 export const setupListItem = function (props) {
   const {
     // Values
     list,
+    multiple,
+    maxlength,
 
     // Options
-    attrsMenu,
     palette,
     color,
     tag,
@@ -27,89 +28,65 @@ export const setupListItem = function (props) {
     iconBackground
   } = toRefs(props)
 
-  const cash = {}
+  const valueList = ref([])
 
-  const getItem = (item) => {
-    if (item?.text || item?.icon) {
-      return readonly({
-        item,
-        tag,
-        appearance,
-        navigationRail,
-        size,
-        shape,
-        adaptive,
-        dense,
-        border,
-        ripple,
-        iconReadonly,
-        iconAnimationShow,
-        iconBackground,
-        ...item
-      })
-    } else {
-      return undefined
-    }
-  }
-  const getList = (item) => {
-    if (item?.list) {
-      return readonly({
-        ...props,
-        list: item.list
-      })
-    } else {
-      return undefined
-    }
-  }
-  const getMenu = (item) => {
-    if (item?.menu) {
-      return readonly({
-        ajax: undefined,
-        request: undefined,
-        palette,
-        color,
-        appearance,
-        size,
-        shape,
-        groupShow,
-        ripple,
-        ...attrsMenu.value,
-        ...item?.attrsMenu,
-        list: item.menu,
-        listInit: false,
-        axis: axis.value === 'x' ? 'y' : 'x',
-        indent: axis.value === 'x' ? undefined : -4
-      })
-    } else {
-      return undefined
-    }
-  }
+  const getItem = (item) => readonly({
+    item,
+    tag,
+    appearance,
+    navigationRail,
+    size,
+    shape,
+    adaptive,
+    dense,
+    border,
+    ripple,
+    iconReadonly,
+    iconAnimationShow,
+    iconBackground,
+    ...item
+  })
+  const getList = (item) => 'list' in item
+    ? readonly({
+      ...props,
+      list: item.list
+    })
+    : undefined
+  const getMenu = (item) => 'menu' in item
+    ? readonly({
+      multiple,
+      maxlength,
+      palette,
+      color,
+      groupShow,
+      tag,
+      appearance,
+      size,
+      shape,
+      ripple,
+      ...item?.attrsMenu,
+      list: item.menu,
+      listInit: false,
+      axis: axis.value === 'x' ? 'y' : 'x',
+      indent: axis.value === 'x' ? undefined : -4
+    })
+    : undefined
 
-  const valueList = computed(() => {
+  watch(list, () => {
     const data = []
 
-    if (list.value?.length > 0) {
-      list.value.forEach(item => {
-        const value = item?.value
+    list.value?.forEach(item => data.push({
+      value: item?.value,
+      html: item?.html,
+      subtitle: item?.subtitle,
+      line: item?.line,
+      space: item?.space,
+      item: getItem(item),
+      list: getList(item),
+      menu: getMenu(item)
+    }))
 
-        if (!(value in cash)) {
-          cash[value] = {
-            value,
-            html: item?.html,
-            subtitle: item?.subtitle,
-            line: item?.line,
-            space: item?.space,
-            item: getItem(item),
-            list: getList(item),
-            menu: getMenu(item)
-          }
-        }
-
-        data.push(cash[value])
-      })
-    }
-
-    return data
+    valueList.value = data
   })
 
   return {

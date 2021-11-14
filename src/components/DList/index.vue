@@ -25,6 +25,7 @@
         <d-list
           v-if="isGroupOpen(item.value)"
           v-bind="item.list"
+          :focus="focus"
           :selected="selected"
           @on-click="onClick"
         />
@@ -54,7 +55,7 @@
         </template>
       </d-menu>
       <d-list-item
-        v-else-if="item.item"
+        v-else
         v-bind="item.item"
         :focus="isFocus(item.value)"
         :selected="isSelect(item.value)"

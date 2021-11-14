@@ -17,6 +17,7 @@ export const props = {
   prefix: [Number, String],
   suffix: [Number, String],
   description: String,
+  backgroundColor: String,
 
   // Status
   focus: Boolean,
@@ -81,7 +82,6 @@ export const props = {
     validator: validatorAdaptive
   },
   dense: Boolean,
-  backgroundColor: String,
   border: {
     type: Boolean,
     default: defaultProps('border')
