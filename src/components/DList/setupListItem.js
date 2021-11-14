@@ -1,6 +1,6 @@
 import { computed, readonly, toRefs } from 'vue'
 
-export const useList = function (props) {
+export const setupListItem = function (props) {
   const {
     // Values
     list,
@@ -8,12 +8,15 @@ export const useList = function (props) {
     // Options
     attrsMenu,
     palette,
+    color,
     tag,
+    axis,
     appearance,
     navigationRail,
     size,
     shape,
     adaptive,
+    groupShow,
     dense,
     border,
     ripple,
@@ -24,12 +27,12 @@ export const useList = function (props) {
     iconBackground
   } = toRefs(props)
 
+  const cash = {}
+
   const getItem = (item) => {
     if (item?.text || item?.icon) {
       return readonly({
-        ...item,
         item,
-        palette,
         tag,
         appearance,
         navigationRail,
@@ -41,7 +44,8 @@ export const useList = function (props) {
         ripple,
         iconReadonly,
         iconAnimationShow,
-        iconBackground
+        iconBackground,
+        ...item
       })
     } else {
       return undefined
@@ -59,20 +63,23 @@ export const useList = function (props) {
   }
   const getMenu = (item) => {
     if (item?.menu) {
-      return {
+      return readonly({
+        ajax: undefined,
+        request: undefined,
+        palette,
+        color,
+        appearance,
+        size,
+        shape,
+        groupShow,
+        ripple,
         ...attrsMenu.value,
         ...item?.attrsMenu,
         list: item.menu,
-        listInit: false
-        /*
-        attrsWindow: {
-          ...this.attrsMenu?.attrsWindow,
-          ...item.menu?.attrsWindow,
-          axis: this.axis === 'x' ? 'y' : 'x',
-          indent: this.axis === 'x' ? undefined : -4
-        }
-        */
-      }
+        listInit: false,
+        axis: axis.value === 'x' ? 'y' : 'x',
+        indent: axis.value === 'x' ? undefined : -4
+      })
     } else {
       return undefined
     }
@@ -82,16 +89,24 @@ export const useList = function (props) {
     const data = []
 
     if (list.value?.length > 0) {
-      list.value.forEach(item => data.push({
-        value: item?.value,
-        html: item?.html,
-        subtitle: item?.subtitle,
-        line: item?.line,
-        space: item?.space,
-        item: getItem(item),
-        list: getList(item),
-        menu: getMenu(item)
-      }))
+      list.value.forEach(item => {
+        const value = item?.value
+
+        if (!(value in cash)) {
+          cash[value] = {
+            value,
+            html: item?.html,
+            subtitle: item?.subtitle,
+            line: item?.line,
+            space: item?.space,
+            item: getItem(item),
+            list: getList(item),
+            menu: getMenu(item)
+          }
+        }
+
+        data.push(cash[value])
+      })
     }
 
     return data

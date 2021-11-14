@@ -94,6 +94,7 @@ export const setupList = function (props, context) {
       if (listInit.value) {
         updateSelected(event.value)
         context.emit('on-input', {
+          value: statusSelected.value,
           selected: statusSelected.value,
           selectedByItem: selectedByItem.value,
           selectedByName: selectedByName.value

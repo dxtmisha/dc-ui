@@ -25,9 +25,34 @@
         <d-list
           v-if="isGroupOpen(item.value)"
           v-bind="item.list"
+          :selected="selected"
           @on-click="onClick"
         />
       </div>
+      <d-menu
+        v-else-if="item.menu"
+        v-bind="item.menu"
+        :selected="selected"
+        @on-input="onClick"
+      >
+        <template v-slot:default="{classList, onClick, open, progress}">
+          <d-list-item
+            v-bind="item.item"
+            class="ls-menu window-static"
+            :class="classList"
+            :icon-trailing="iconArrowRight"
+            :focus="open || isFocus(item.value)"
+            :turn="open"
+            @click="onClick"
+          >
+            <d-progress
+              v-if="item.menu?.ajax"
+              :bottom="true"
+              :visible="progress"
+            />
+          </d-list-item>
+        </template>
+      </d-menu>
       <d-list-item
         v-else-if="item.item"
         v-bind="item.item"
@@ -41,16 +66,21 @@
 
 <script>
 import DListItem from '@/components/DListItem'
+import DProgress from '@/components/DProgress'
 import { props } from '@/components/DList/props'
-import { computed, toRefs } from 'vue'
+import { computed, defineAsyncComponent, toRefs } from 'vue'
 import { isSelected } from '@/dcUi'
-import { useGroup } from '@/components/DList/useGroup'
-import { useList } from '@/components/DListItem/useList'
+import { setupListItem } from '@/components/DList/setupListItem'
 import { useColor } from '@/uses/useColors'
+import { useGroup } from '@/components/DList/useGroup'
 
 export default {
   name: 'DList',
-  components: { DListItem },
+  components: {
+    DProgress,
+    DMenu: defineAsyncComponent(() => import('@/components/DMenu')),
+    DListItem
+  },
   props,
   emits: ['on-click', 'on-group'],
   setup (props, context) {
@@ -74,7 +104,7 @@ export default {
     } = useGroup(props, context)
 
     const { classColor } = useColor(color, palette)
-    const { valueList } = useList(props, context)
+    const { valueList } = setupListItem(props, context)
 
     const isFocus = (value) => isSelected(value, focus.value)
     const isSelect = (value) => isSelected(value, selected.value)

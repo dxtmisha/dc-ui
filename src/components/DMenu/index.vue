@@ -49,6 +49,7 @@ import { props } from '@/components/DMenu/props'
 import { readonly, ref, toRefs } from 'vue'
 import { setupList } from '@/components/DList/setupList'
 import { useFocus } from '@/components/DMenu/useFocus'
+import { useShifted } from '@/components/DMenu/useShifted'
 
 export default {
   name: 'DMenu',
@@ -101,8 +102,20 @@ export default {
       open
     )
 
+    const {
+      previous,
+      next
+    } = useShifted(
+      props,
+      objectList,
+      selectedByValue,
+      initFetch,
+      onInput
+    )
+
     const bindList = readonly({
       ...context.attrs,
+      selected: selectedByValue,
       disabled,
       palette,
       color,
@@ -113,20 +126,8 @@ export default {
       groupShow,
       ripple,
       adaptive: 'basic',
-      attrsMenu: {
-        ...props,
-        ...context.attrs,
-        list: undefined,
-        listInit: false,
-        ajax: undefined,
-        request: undefined,
-        selected: selectedByValue.value
-      }
+      attrsMenu: props
     })
-
-    const onGroup = ({ group }) => {
-      objectList.value.setGroup(group)
-    }
 
     return {
       menu,
@@ -143,8 +144,9 @@ export default {
       initFetch,
       updateSelected,
       focusGo,
-      onInput,
-      onGroup
+      previous,
+      next,
+      onInput
     }
   },
   methods: {
@@ -154,6 +156,9 @@ export default {
       this.open = event.toOpen
       this.focusGo()
       this.$emit('on-open', event)
+    },
+    onGroup ({ group }) {
+      this.objectList.setGroup(group)
     }
   }
 }

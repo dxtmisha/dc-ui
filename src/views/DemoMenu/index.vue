@@ -4,11 +4,11 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-menu">
-      <d-menu v-bind="binds" :list="list">
+      <d-menu ref="menu" v-bind="binds" :list="list">
         <template v-slot:default="{ classList, onClick, progress }">
           <d-button
             :class="classList"
-            :text="'Interactive demo'"
+            text="Interactive demo"
             :progress="progress"
             @click="onClick"
           />
@@ -44,4 +44,9 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.demo-menu {
+  display: flex;
+  gap: 8px;
+}
+</style>

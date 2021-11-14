@@ -70,18 +70,22 @@ export const menu = [
     menu: [
       {
         text: 'Joseph Fox',
+        value: 'image-01',
         thumbnail: require('@/assets/images/image-01.jpeg')
       },
       {
         text: 'Joseph Johnson',
+        value: 'image-02',
         thumbnail: require('@/assets/images/image-02.jpeg')
       },
       {
         text: 'Vera Campbell',
+        value: 'image-03',
         thumbnail: require('@/assets/images/image-03.jpeg')
       },
       {
         text: 'Patricia Edwards',
+        value: 'image-04',
         thumbnail: require('@/assets/images/image-04.jpeg')
       },
       {
@@ -90,34 +94,42 @@ export const menu = [
         menu: [
           {
             text: 'Frederick Mitchell',
+            value: 'image-05',
             thumbnail: require('@/assets/images/image-05.jpeg')
           },
           {
             text: 'Roberto Reeves',
+            value: 'image-06',
             thumbnail: require('@/assets/images/image-06.jpeg')
           },
           {
             text: 'Julie Bowman',
+            value: 'image-07',
             thumbnail: require('@/assets/images/image-07.jpeg')
           },
           {
             text: 'Roberta Collier',
+            value: 'image-08',
             thumbnail: require('@/assets/images/image-08.jpeg')
           },
           {
             text: 'Armando Schwartz',
+            value: 'image-09',
             thumbnail: require('@/assets/images/image-09.jpeg')
           },
           {
             text: 'Christopher Daniels',
+            value: 'image-10',
             thumbnail: require('@/assets/images/image-10.jpeg')
           },
           {
             text: 'Brenda Thompson',
+            value: 'image-11',
             thumbnail: require('@/assets/images/image-11.jpeg')
           },
           {
             text: 'Phyllis Webb',
+            value: 'image-12',
             thumbnail: require('@/assets/images/image-12.jpeg')
           }
         ]

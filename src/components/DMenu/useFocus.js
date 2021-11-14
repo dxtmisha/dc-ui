@@ -13,7 +13,7 @@ export const useFocus = function (
   const focus = ref(undefined)
 
   const getList = () => objectList.value.getFirst()
-  const querySelector = (selectors) => list.value.$el.querySelector(selectors)
+  const querySelector = (selectors) => list.value?.$el.querySelector(selectors)
 
   const focusValue = computed(() => getList()?.[focus.value]?.value)
   const elementFocus = () => querySelector(`[data-value="${focusValue.value}"]`)
