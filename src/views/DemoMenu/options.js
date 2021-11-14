@@ -9,15 +9,16 @@ export const optionsMenu = [
   'maxlength',
 
   'status',
-  'readonly',
   'disabled',
 
   'options',
   'palette',
+  'groupShow',
+
+  'optionsItem',
   optionsListItemAppearance,
   optionsListItemSize,
   'shape',
-  'groupShow',
   'ripple',
 
   'optionsWindow',

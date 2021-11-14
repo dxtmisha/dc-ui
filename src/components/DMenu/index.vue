@@ -10,29 +10,16 @@
     adaptive="auto"
     :auto-close="!multiple"
     :width-by-control="axis === 'on'"
-    @onOpen="onOpen"
+    @on-open="onOpen"
   >
     <template v-slot:control="binds">
-      <slot
-        v-bind="binds"
-        :if-selected="ifSelected"
-        :value="selectedByValue"
-        :selected="selectedByValue"
-        :selected-item="selectedByItem"
-        :selected-name="selectedByName"
-        :open="open"
-        :progress="progress"
-      />
+      <slot v-bind="{ ...binds, ...bindControl }"/>
     </template>
     <template v-slot:window>
       <d-list
         ref="list"
         v-bind="bindList"
         class="d-menu__list"
-        :list="objectList.get()"
-        :focus="focusValue"
-        :selected="selectedByValue"
-        :group="objectList.group"
         @on-click="onInput"
         @on-group="onGroup"
       >
@@ -62,8 +49,9 @@ export default {
   emits: ['on-input', 'on-open'],
   setup (props, context) {
     const {
-      // Status
-      disabled,
+      // Values
+      multiple,
+      maxlength,
 
       // Options
       palette,
@@ -86,7 +74,6 @@ export default {
       selectedByName,
       selectedByValue,
       initFetch,
-      updateSelected,
       onInput
     } = setupList(props, context)
 
@@ -113,41 +100,48 @@ export default {
       onInput
     )
 
+    const bindControl = readonly({
+      ifSelected,
+      value: selectedByValue,
+      selected: selectedByValue,
+      selectedItem: selectedByItem,
+      selectedName: selectedByName,
+      open,
+      progress
+    })
     const bindList = readonly({
       ...context.attrs,
+      multiple,
+      maxlength,
+      focus: focusValue,
       selected: selectedByValue,
-      disabled,
       palette,
       color,
+      groupShow,
       tag,
       appearance,
       size,
       shape,
-      groupShow,
-      ripple,
       adaptive: 'basic',
-      attrsMenu: props
+      ripple
     })
 
     return {
       menu,
       list,
       open,
-      progress,
       objectList,
-      ifSelected,
-      selectedByItem,
-      selectedByName,
-      selectedByValue,
+      bindControl,
       bindList,
-      focusValue,
       initFetch,
-      updateSelected,
       focusGo,
       previous,
       next,
       onInput
     }
+  },
+  updated () {
+    console.log('updated')
   },
   methods: {
     async onOpen (event) {

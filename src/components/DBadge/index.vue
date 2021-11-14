@@ -19,6 +19,7 @@ import DIconItem from '@/components/DIconItem'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
 import { useColor } from '@/uses/useColors'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DBadge',
@@ -81,6 +82,8 @@ export default {
         '--_bg--ol-color': outline.value
       }
     })
+
+    useAdmin('d-badge')
 
     return {
       text,

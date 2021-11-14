@@ -18,11 +18,16 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DIcon',
   components: { DIconItem },
   props,
+  setup () {
+    useAdmin('d-icon')
+    return {}
+  },
   computed: {
     isActive () {
       return !!this.active && !!this.iconActive

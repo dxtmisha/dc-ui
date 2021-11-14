@@ -10,6 +10,7 @@
 <script>
 import { computed, toRefs } from 'vue'
 import { useImage } from '@/components/DIconItem/useImage'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DIconItem',
@@ -97,6 +98,8 @@ export default {
         return undefined
       }
     })
+
+    useAdmin('d-icon-item')
 
     return {
       valueText,

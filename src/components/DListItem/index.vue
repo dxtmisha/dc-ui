@@ -139,6 +139,9 @@ export default {
       styleList
     }
   },
+  updated () {
+    console.log('updated item')
+  },
   methods: {
     onClick () {
       this.$emit('on-click', {

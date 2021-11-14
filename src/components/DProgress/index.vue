@@ -1,6 +1,7 @@
 <template>
   <component
     :is="tag"
+    ref="progress"
     :class="classList"
     :style="styleList"
     :max="max"
@@ -22,6 +23,7 @@
 import { props } from '@/components/DProgress/props'
 import { computed, toRefs } from 'vue'
 import { useVisible } from '@/components/DProgress/useVisible'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DProgress',
@@ -39,8 +41,7 @@ export default {
     } = toRefs(props)
 
     const {
-      move,
-      statusVisible,
+      progress,
       onAnimation
     } = useVisible(props)
 
@@ -56,8 +57,6 @@ export default {
     const classList = computed(() => {
       return {
         'd-progress': true,
-        'status-move': move.value,
-        'status-visible': statusVisible.value,
         [`d-progress type-${type.value}`]: type.value,
         [`indeterminate-${indeterminate.value}`]: indeterminate.value,
         'option-bottom': bottom.value
@@ -70,7 +69,10 @@ export default {
       }
     })
 
+    useAdmin('d-progress')
+
     return {
+      progress,
       tag,
       classList,
       styleList,

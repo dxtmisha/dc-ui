@@ -71,8 +71,7 @@ export const setupListItem = function (props) {
       indent: axis.value === 'x' ? undefined : -4
     })
     : undefined
-
-  watch(list, () => {
+  const update = () => {
     const data = []
 
     list.value?.forEach(item => data.push({
@@ -87,7 +86,11 @@ export const setupListItem = function (props) {
     }))
 
     valueList.value = data
-  })
+  }
+
+  watch(list, update)
+
+  update()
 
   return {
     valueList

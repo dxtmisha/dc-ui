@@ -16,9 +16,7 @@ export const setupList = function (props, context) {
     maxlength,
 
     // Status
-    selected,
-    readonly,
-    disabled
+    selected
   } = toRefs(props)
 
   const buffer = ref(undefined)
@@ -90,18 +88,16 @@ export const setupList = function (props, context) {
   }
 
   const onInput = (event) => {
-    if (!disabled.value && !readonly.value) {
-      if (listInit.value) {
-        updateSelected(event.value)
-        context.emit('on-input', {
-          value: statusSelected.value,
-          selected: statusSelected.value,
-          selectedByItem: selectedByItem.value,
-          selectedByName: selectedByName.value
-        })
-      } else {
-        context.emit('on-input', event)
-      }
+    if (listInit.value) {
+      updateSelected(event.value)
+      context.emit('on-input', {
+        value: statusSelected.value,
+        selected: statusSelected.value,
+        selectedByItem: selectedByItem.value,
+        selectedByName: selectedByName.value
+      })
+    } else {
+      context.emit('on-input', event)
     }
   }
 

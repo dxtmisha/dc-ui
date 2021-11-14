@@ -9,8 +9,12 @@ export const useVisible = function (props) {
     delay
   } = toRefs(props)
 
+  const progress = ref(undefined)
   const move = ref(false)
   const statusVisible = ref(false)
+
+  const classMove = (value) => progress.value?.classList.toggle('status-move', value)
+  const classVisible = (value) => progress.value?.classList.toggle('status-visible', value)
 
   const update = () => {
     clearTimeout(timeout)
@@ -33,15 +37,16 @@ export const useVisible = function (props) {
   let timeout
 
   watch(visible, update)
+  watch(move, (value) => classMove(value))
   watch(statusVisible, (value) => {
     move.value = !value
+    classVisible(value)
   })
 
   onMounted(update)
 
   return {
-    move,
-    statusVisible,
+    progress,
     onAnimation
   }
 }
