@@ -4,6 +4,7 @@
     :class-list="`d-window__control ${id}`"
     :on-click="onClick"
     :on-contextmenu="onContextmenu"
+    :open="valueOpen"
   />
   <teleport to="body">
     <div
@@ -43,6 +44,9 @@ export default {
   emits: ['on-open'],
   setup (props, context) {
     const {
+      // Status,
+      open,
+
       // Options
       shape,
       width,
@@ -63,7 +67,6 @@ export default {
     } = usePosition(props)
 
     const {
-      valueToggle,
       verification,
       onPersistent
     } = useVerification(
@@ -78,7 +81,7 @@ export default {
       onContextmenu,
       onClose
     } = useEvent(
-      valueToggle,
+      open,
       valueOpen,
       contextmenu,
       clientX,
@@ -100,7 +103,7 @@ export default {
     const styleList = readonly({ '--wn__bd-width': width })
 
     useToggle(
-      valueToggle,
+      open,
       valueOpen,
       modal,
       verification,

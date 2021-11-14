@@ -20,11 +20,11 @@
         ref="list"
         v-bind="bindList"
         class="d-menu__list"
+        :list="objectList.get()"
+        :group="objectList.group"
         @on-click="onInput"
         @on-group="onGroup"
-      >
-        <slot name="list"/>
-      </d-list>
+      />
     </template>
   </d-window>
 </template>
@@ -37,6 +37,7 @@ import { readonly, ref, toRefs } from 'vue'
 import { setupList } from '@/components/DList/setupList'
 import { useFocus } from '@/components/DMenu/useFocus'
 import { useShifted } from '@/components/DMenu/useShifted'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DMenu',
@@ -106,7 +107,6 @@ export default {
       selected: selectedByValue,
       selectedItem: selectedByItem,
       selectedName: selectedByName,
-      open,
       progress
     })
     const bindList = readonly({
@@ -126,6 +126,8 @@ export default {
       ripple
     })
 
+    useAdmin('d-menu')
+
     return {
       menu,
       list,
@@ -140,14 +142,11 @@ export default {
       onInput
     }
   },
-  updated () {
-    console.log('updated')
-  },
   methods: {
     async onOpen (event) {
-      await this.initFetch(event.toOpen)
+      await this.initFetch(event.open)
 
-      this.open = event.toOpen
+      this.open = event.open
       this.focusGo()
       this.$emit('on-open', event)
     },

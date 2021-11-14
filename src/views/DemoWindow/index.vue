@@ -4,7 +4,10 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-window v-bind="binds">
+    <d-window
+      v-bind="binds"
+      @on-open="$refs.interactive.setData('open', $event.open)"
+    >
       <template v-slot:control="{ classList, onClick, onContextmenu }">
         <d-button
           :class="classList"

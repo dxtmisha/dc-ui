@@ -62,6 +62,7 @@ import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/uses/useColors'
 import { setupBadge } from '@/components/DBadge/setupBadge'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DListItem',
@@ -124,9 +125,9 @@ export default {
         'option-border': border.value
       }
     })
-    const styleList = readonly({
-      '--_li-background-color': backgroundColor
-    })
+    const styleList = readonly({ '--_li-background-color': backgroundColor })
+
+    useAdmin('d-list-item')
 
     return {
       bindThumbnail,
@@ -136,9 +137,6 @@ export default {
       classList,
       styleList
     }
-  },
-  updated () {
-    console.log('updated item')
   },
   methods: {
     onClick () {

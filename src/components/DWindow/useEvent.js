@@ -1,5 +1,5 @@
 export const useEvent = function (
-  valueToggle,
+  open,
   valueOpen,
   contextmenu,
   clientX,
@@ -10,7 +10,7 @@ export const useEvent = function (
     clientX.value = event.clientX
     clientY.value = event.clientY
 
-    if (!valueToggle.value) {
+    if (!open.value) {
       contextmenu.value = event.type === 'contextmenu'
       verification(event.target)
     }

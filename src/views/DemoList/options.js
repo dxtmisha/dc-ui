@@ -2,7 +2,11 @@ import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoList
 
 export const optionsList = [
   'status',
-  'focus',
+  {
+    text: 'Focus',
+    value: 'focus',
+    message: 'help_and_feedback'
+  },
 
   'options',
   'palette',

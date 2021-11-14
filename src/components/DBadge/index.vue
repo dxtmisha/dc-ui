@@ -77,9 +77,7 @@ export default {
         'position-bottom': bottom.value
       }
     })
-    const styleList = readonly({
-      '--_bg--ol-color': outline
-    })
+    const styleList = readonly({ '--_bg--ol-color': outline })
 
     useAdmin('d-badge')
 

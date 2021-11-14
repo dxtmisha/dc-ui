@@ -42,10 +42,7 @@ export const optionsList = {
   active: { text: 'Active' },
   disabled: { text: 'Disabled' },
   dragged: { text: 'Dragged' },
-  focus: {
-    text: 'Focus',
-    message: 'help_and_feedback'
-  },
+  focus: { text: 'Focus' },
   hide: { text: 'Hide element' },
   progress: { text: 'Progress' },
   readonly: { text: 'Readonly' },

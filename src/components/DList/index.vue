@@ -74,6 +74,7 @@ import { isSelected } from '@/dcUi'
 import { setupListItem } from '@/components/DList/setupListItem'
 import { useColor } from '@/uses/useColors'
 import { useGroup } from '@/components/DList/useGroup'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DList',
@@ -119,6 +120,8 @@ export default {
         [`navigation-rail-${navigationRail.value}`]: navigationRail.value
       }
     })
+
+    useAdmin('d-list')
 
     return {
       isFocus,

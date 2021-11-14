@@ -1,4 +1,4 @@
-import { ref, toRefs, watch } from 'vue'
+import { toRefs } from 'vue'
 
 export const useVerification = function (
   props,
@@ -7,10 +7,8 @@ export const useVerification = function (
   modal
 ) {
   const {
-    // Values
-    open,
-
     // Status
+    open,
     disabled,
 
     // Options
@@ -18,13 +16,12 @@ export const useVerification = function (
     autoClose
   } = toRefs(props)
 
-  const valueToggle = ref(open.value)
   const emit = (go = false, type = undefined) => {
     if (go) {
-      valueToggle.value = !valueToggle.value
+      console.log('on-open', open.value)
       context.emit('on-open', {
         modal,
-        open: valueToggle.value,
+        open: !open.value,
         type
       })
     }
@@ -42,7 +39,7 @@ export const useVerification = function (
   const updatePersistent = (value) => modal.value.classList.toggle('option-persistent', value)
 
   const verification = (target) => {
-    if (valueToggle.value) {
+    if (open.value) {
       const focus = target.closest('.d-window')
 
       if (focus === null) {
@@ -82,12 +79,7 @@ export const useVerification = function (
     }
   }
 
-  watch(open, (value) => {
-    valueToggle.value = value
-  })
-
   return {
-    valueToggle,
     verification,
     onPersistent
   }

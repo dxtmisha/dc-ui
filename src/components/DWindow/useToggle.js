@@ -2,14 +2,14 @@ import EventControl from '@/classes/EventControl'
 import { nextTick, onMounted, watch } from 'vue'
 
 export const useToggle = function (
-  valueToggle,
+  open,
   valueOpen,
   modal,
   verification,
   watchPosition
 ) {
   const eventBody = EventControl.init(document.body, (event) => {
-    if (valueToggle.value) {
+    if (open.value) {
       verification(event.target)
     } else {
       event.$event.stop()
@@ -20,9 +20,9 @@ export const useToggle = function (
   const classHide = (value) => modal.value.classList.toggle('status-hide', value)
 
   const toggle = async () => {
-    if (!valueOpen.value !== !valueToggle.value) {
-      if (valueToggle.value) {
-        valueOpen.value = valueToggle.value
+    if (!valueOpen.value !== !open.value) {
+      if (open.value) {
+        valueOpen.value = open.value
 
         await nextTick()
         watchPosition()
@@ -39,7 +39,7 @@ export const useToggle = function (
     }
   }
 
-  watch(valueToggle, toggle)
+  watch(open, toggle)
   onMounted(toggle)
 
   return {}
