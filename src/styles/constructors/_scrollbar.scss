@@ -1,4 +1,4 @@
-@import "../../styles/color";
+@import "../color";
 
 @mixin scrollbar() {
   @include scrollbarVar;
@@ -71,9 +71,11 @@
   }
 }
 
-@mixin scrollbarInit() {
-  @include scrollbar;
-  @include scrollbarAssets;
-  @include scrollbarBorder;
-  @include scrollbarVisible;
+@mixin initScrollbar() {
+  .d-scrollbar {
+    @include scrollbar;
+    @include scrollbarAssets;
+    @include scrollbarBorder;
+    @include scrollbarVisible;
+  }
 }

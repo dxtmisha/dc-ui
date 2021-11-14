@@ -35,7 +35,7 @@ export const usePosition = function (props) {
   const right = ref(0)
   const bottom = ref(0)
   const left = ref(0)
-  const widthControl = ref('0px')
+  const widthControl = ref(0)
 
   const getControl = () => document.querySelector(`.d-window__control.${id}`)
   const getControlRect = () => getControl()?.getBoundingClientRect()
@@ -61,6 +61,7 @@ export const usePosition = function (props) {
       modal.value.style.setProperty('--_wn-cl-y', `${clientY.value}px`)
     }
   }
+  const updateControl = () => modal.value.style.setProperty('--wn__cn-width', `${widthControl.value}px`)
 
   const watchRect = () => {
     if (contextmenu.value) {
@@ -121,7 +122,7 @@ export const usePosition = function (props) {
           right.value = rect.right
           bottom.value = rect.bottom
           left.value = rect.left
-          widthControl.value = `${rect.width}px`
+          widthControl.value = rect.width
         }
       }, () => valueOpen.value)
     }
@@ -137,6 +138,7 @@ export const usePosition = function (props) {
     clientX,
     clientY
   ], updateClientXY)
+  watch(widthControl, updateControl)
 
   return {
     valueOpen,
@@ -145,7 +147,6 @@ export const usePosition = function (props) {
     contextmenu,
     clientX,
     clientY,
-    widthControl,
     watchPosition
   }
 }

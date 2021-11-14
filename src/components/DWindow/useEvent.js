@@ -1,20 +1,16 @@
-import { toRefs } from 'vue'
-
 export const useEvent = function (
-  props,
+  valueToggle,
   valueOpen,
   contextmenu,
   clientX,
   clientY,
   verification
 ) {
-  const { open } = toRefs(props)
-
   const onClick = (event) => {
     clientX.value = event.clientX
     clientY.value = event.clientY
 
-    if (!open.value) {
+    if (!valueToggle.value) {
       contextmenu.value = event.type === 'contextmenu'
       verification(event.target)
     }

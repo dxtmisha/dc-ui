@@ -58,7 +58,7 @@ import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
-import { computed, toRefs } from 'vue'
+import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/uses/useColors'
 import { setupBadge } from '@/components/DBadge/setupBadge'
@@ -124,10 +124,8 @@ export default {
         'option-border': border.value
       }
     })
-    const styleList = computed(() => {
-      return {
-        '--_li-background-color': backgroundColor.value
-      }
+    const styleList = readonly({
+      '--_li-background-color': backgroundColor
     })
 
     return {

@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { createElement } from '@/dcUi'
 
 const SCROLL = '__dui-scroll'
@@ -43,8 +43,14 @@ const setWidth = async function () {
   })
 }
 
-export const useScroll = function () {
+export const setupScroll = function () {
   const scrollWidth = ref(width)
+
+  const isScroll = computed(() => scrollWidth.value < 8)
+  const classScroll = readonly({
+    'd-scrollbar': true,
+    'status-disabled': isScroll
+  })
 
   if (scrollWidth.value === -1) {
     (async () => {
@@ -53,6 +59,8 @@ export const useScroll = function () {
   }
 
   return {
-    scrollWidth
+    scrollWidth,
+    isScroll,
+    classScroll
   }
 }

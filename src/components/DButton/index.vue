@@ -41,6 +41,7 @@ import { computed, toRefs } from 'vue'
 import { setupBadge } from '@/components/DBadge/setupBadge'
 import { useColor } from '@/uses/useColors'
 import { useIcon } from './useIcon'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DButton',
@@ -97,6 +98,8 @@ export default {
 
       }
     })
+
+    useAdmin('d-button')
 
     return {
       bindIcon,

@@ -17,7 +17,7 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
-import { computed, toRefs } from 'vue'
+import { computed, readonly, toRefs } from 'vue'
 import { useColor } from '@/uses/useColors'
 import { useAdmin } from '@/uses/useAdmin'
 
@@ -77,10 +77,8 @@ export default {
         'position-bottom': bottom.value
       }
     })
-    const styleList = computed(() => {
-      return {
-        '--_bg--ol-color': outline.value
-      }
+    const styleList = readonly({
+      '--_bg--ol-color': outline
     })
 
     useAdmin('d-badge')

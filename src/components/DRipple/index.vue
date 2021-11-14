@@ -17,6 +17,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DRipple',
@@ -63,6 +64,8 @@ export default {
     }
 
     let index = 1
+
+    useAdmin('d-ripple')
 
     return {
       items,

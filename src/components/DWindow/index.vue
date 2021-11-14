@@ -14,21 +14,23 @@
       :style="styleList"
       :data-window-id="id"
     >
-      <d-scrollbar
+      <div
         class="d-window__body"
+        :class="classScroll"
         @animationend="onPersistent"
         @transitionend="onClose"
       >
         <slot name="window"/>
-      </d-scrollbar>
+      </div>
     </div>
   </teleport>
 </template>
 
 <script>
-import DScrollbar from '@/components/DScrollbar'
 import { props } from '@/components/DWindow/props'
-import { computed, toRefs } from 'vue'
+import { computed, readonly, toRefs } from 'vue'
+import { setupScroll } from '@/components/DScrollbar/setupScroll'
+import { useAdmin } from '@/uses/useAdmin'
 import { useEvent } from './useEvent'
 import { usePosition } from './usePosition'
 import { useToggle } from './useToggle'
@@ -36,7 +38,6 @@ import { useVerification } from './useVerification'
 
 export default {
   name: 'DWindow',
-  components: { DScrollbar },
   inheritAttrs: false,
   props,
   emits: ['on-open'],
@@ -58,11 +59,11 @@ export default {
       contextmenu,
       clientX,
       clientY,
-      widthControl,
       watchPosition
     } = usePosition(props)
 
     const {
+      valueToggle,
       verification,
       onPersistent
     } = useVerification(
@@ -77,7 +78,7 @@ export default {
       onContextmenu,
       onClose
     } = useEvent(
-      props,
+      valueToggle,
       valueOpen,
       contextmenu,
       clientX,
@@ -85,6 +86,7 @@ export default {
       verification
     )
 
+    const { classScroll } = setupScroll()
     const classList = computed(() => {
       return {
         [`d-window ${id}`]: true,
@@ -95,26 +97,24 @@ export default {
         'option-body-auto': bodyWidthAuto.value
       }
     })
-    const styleList = computed(() => {
-      return {
-        '--wn__bd-width': width.value,
-        '--wn__cn-width': widthControl.value
-      }
-    })
+    const styleList = readonly({ '--wn__bd-width': width })
 
     useToggle(
-      props,
+      valueToggle,
       valueOpen,
       modal,
       verification,
       watchPosition
     )
 
+    useAdmin('d-window')
+
     return {
       valueOpen,
       id,
       modal,
       classList,
+      classScroll,
       styleList,
       onClick,
       onContextmenu,

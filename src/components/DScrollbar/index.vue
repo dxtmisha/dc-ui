@@ -10,9 +10,10 @@
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
+import { readonly, toRefs } from 'vue'
+import { setupScroll } from './setupScroll'
+import { useAdmin } from '@/uses/useAdmin'
 import { useBorder } from './useBorder'
-import { useScroll } from './useScroll'
 
 export default {
   name: 'DScrollbar',
@@ -37,30 +38,24 @@ export default {
       scroll,
       onScroll
     } = useBorder(border)
-    const { scrollWidth } = useScroll()
+    const { isScroll } = setupScroll()
 
-    const classList = computed(() => {
-      return {
-        'd-scrollbar': true,
-        'status-visible': visible.value,
-        'status-disabled': scrollWidth.value < 8,
-        'option-border': border.value
-      }
+    const classList = readonly({
+      'd-scrollbar': true,
+      'status-visible': visible,
+      'status-disabled': isScroll,
+      'option-border': border
     })
 
+    useAdmin('d-scrollbar')
+
     return {
+      scroll,
       classList,
-      onScroll,
-      scroll
+      onScroll
     }
   }
 }
 </script>
 
-<style lang="scss">
-@import "style";
-
-.d-scrollbar {
-  @include scrollbarInit;
-}
-</style>
+<style lang="scss"></style>
