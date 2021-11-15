@@ -1,5 +1,5 @@
 import { defaultInit } from '@/uses/useDefault'
-import { palette } from '@/uses/useColors'
+import { palette } from '@/tool/use/useColors'
 
 const defaultProps = defaultInit('d-menu')
 export const props = {

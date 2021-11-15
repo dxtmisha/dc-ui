@@ -5,16 +5,19 @@ const defaultProps = defaultInit('d-badge')
 export const props = {
   // Values
   icon: String,
-  dot: Boolean,
   value: undefined,
   max: {
     type: Number,
     default: defaultProps('max', 99)
   },
+  dot: Boolean,
 
   // Status
-  disabled: Boolean,
   hide: Boolean,
+
+  // Position
+  left: Boolean,
+  bottom: Boolean,
 
   // Options
   palette,
@@ -40,9 +43,5 @@ export const props = {
   outline: {
     type: String,
     default: defaultProps('outlined', null)
-  },
-
-  // Position
-  left: Boolean,
-  bottom: Boolean
+  }
 }

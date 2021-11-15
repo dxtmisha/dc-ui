@@ -33,6 +33,7 @@
 
 @mixin badgeVar() {
   --_bg-palette: var(--bg-palette, var(--palette-type1, var(--error-type1)));
+  --_bg-opacity: var(--bg-opacity, var(--opacity-primary-high));
 
   --_bg-position: var(--bg-position, 0px);
   --_bg-radius: var(--bg-radius, var(--radius-pill));

@@ -25,8 +25,11 @@ export const optionsBadge = [
   'dot',
 
   'status',
-  'disabled',
   'hide',
+
+  'optionsPosition',
+  'left',
+  'bottom',
 
   'options',
   'palette',
@@ -51,9 +54,5 @@ export const optionsBadge = [
   },
   'size',
   'shape',
-  'outline',
-
-  'optionsPosition',
-  'left',
-  'bottom'
+  'outline'
 ]

@@ -1,4 +1,5 @@
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
+import { useWatch } from '@/tool/use/useWatch'
 
 export const palette = {
   type: String,
@@ -17,15 +18,19 @@ export const palette = {
   }
 }
 
-export const useColor = function (color, palette = ref(undefined)) {
-  const classColor = computed(() => {
-    return {
+export const useColor = function (
+  color,
+  palette = ref(undefined)
+) {
+  const classColor = useWatch([
+    color,
+    palette
+  ], data => {
+    data.value = {
       [`palette:${palette.value}`]: palette.value,
       [`${palette.value || 'primary'}:${color.value}`]: color.value
     }
   })
 
-  return {
-    classColor
-  }
+  return { classColor }
 }

@@ -18,7 +18,7 @@
 import DIconItem from '@/--components/DIconItem'
 import { props } from './props'
 import { computed, readonly, toRefs } from 'vue'
-import { useColor } from '@/uses/useColors'
+import { useColor } from '@/tool/use/useColors'
 import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {
@@ -79,7 +79,7 @@ export default {
     })
     const styleList = readonly({ '--_bg--ol-color': outline })
 
-    useAdmin('d-badge')
+    useAdmin('d-badge-old')
 
     return {
       text,
@@ -91,9 +91,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-badge {
-  @include badgeInit;
-}
 </style>

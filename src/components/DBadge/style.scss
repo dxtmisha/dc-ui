@@ -1,0 +1,114 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/elevation";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/position";
+@import "../../styles/options/optionHide";
+@import "../../styles/options/optionShape";
+@import "styleExtend";
+@import "styleVar";
+
+@mixin badge() {
+  @include badgeVar;
+  @include flexCenter;
+  @include font('overline');
+  @include index(1);
+  @include select-none;
+
+  --basic-text: var(--text-type2);
+  --basic-text-opacity: var(--opacity-primary-high);
+  --ii-font-size: calc(var(--_bg-size) * .64);
+
+  background-color: varColor(--_bg-palette, --_bg-opacity);
+  border-radius: var(--_bg-radius);
+  height: var(--_bg-size);
+  inset: auto;
+  margin: auto;
+  min-width: var(--_bg-size);
+  padding: var(--_bg-padding);
+  position: absolute;
+  transition-duration: var(--transition-menu-expanding);
+  transition-property: opacity, transform;
+  white-space: nowrap;
+
+  @include optionHide;
+}
+
+@mixin badgePosition() {
+  &:not(&.alignment-static) {
+    &:not(.position-bottom) {
+      bottom: calc(100% - var(--_bg-overlap, 0px));
+    }
+
+    &:not(.position-left) {
+      left: calc(100% - var(--_bg-overlap, 0px));
+    }
+
+    &.position-bottom {
+      top: calc(100% - var(--_bg-overlap, 0px));
+    }
+
+    &.position-left {
+      right: calc(100% - var(--_bg-overlap, 0px));
+    }
+  }
+}
+
+@mixin badgeAlignment() {
+  &.alignment- {
+    &overlap {
+      --_bg-overlap: calc((var(--_bg-size) / 2) + var(--_bg-shift));
+    }
+
+    &static {
+      position: relative;
+    }
+  }
+}
+
+@mixin badgeSize() {
+  &.size- {
+    &dot {
+      @extend %padding-none;
+      --_bg-size: var(--_bg--dt-size);
+    }
+
+    &small {
+      --_bg-size: var(--_bg--sm-size);
+    }
+
+    &large {
+      --_bg-size: var(--_bg--lr-size);
+    }
+  }
+}
+
+@mixin badgeShape() {
+  @include optionShape;
+
+  &.shape-pill {
+    @extend %padding-none;
+    max-width: var(--_bg-size);
+  }
+}
+
+@mixin badgeOutlined() {
+  &.option-outline {
+    @include afterAbsolute('full', absolute) {
+      border-color: var(--_bg--ol-color, transparent);
+      border-radius: inherit;
+      border-width: var(--_bg-border-width);
+      @content;
+    }
+  }
+}
+
+@mixin badgeInit() {
+  @include badge;
+  @include badgePosition;
+  @include badgeAlignment;
+  @include badgeSize;
+  @include badgeShape;
+  @include badgeOutlined;
+}
