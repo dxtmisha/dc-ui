@@ -131,3 +131,7 @@
     @content;
   }
 }
+
+%absolute-full {
+  @include absoluteFull;
+}

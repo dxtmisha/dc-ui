@@ -65,7 +65,7 @@ export default {
 
     let index = 1
 
-    useAdmin('d-ripple')
+    useAdmin('d-ripple-old')
 
     return {
       items,
@@ -77,9 +77,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-ripple {
-  @include rippleInit;
-}
 </style>
