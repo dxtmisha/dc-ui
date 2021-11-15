@@ -3,7 +3,7 @@
     :is="tag"
     ref="progress"
     :class="classList"
-    :style="styleList"
+    :style="styleValue"
     :max="max"
     :value="value"
     viewBox="0 0 48 48"
@@ -21,61 +21,63 @@
 
 <script>
 import { props } from '@/components/DProgress/props'
-import { computed, toRefs } from 'vue'
-import { useVisible } from '@/--components/DProgress/useVisible'
+import { toRefs } from 'vue'
 import { useAdmin } from '@/tool/use/useAdmin'
+import { useWatch } from '@/tool/use/useWatch'
+import { useValue } from '@/components/DProgress/useValue'
+import { useVisible } from '@/components/DProgress/useVisible'
 
 export default {
   name: 'DProgress',
   props,
   setup (props) {
     const {
-      // Values
       value,
       max,
-
-      // Options
+      visible,
       type,
       indeterminate,
+      delay,
       bottom
     } = toRefs(props)
 
     const {
       progress,
       onAnimation
-    } = useVisible(props)
+    } = useVisible(
+      visible,
+      delay
+    )
 
-    const tag = computed(() => {
-      if (type.value !== 'linear') {
-        return 'svg'
-      } else if (value.value) {
-        return 'progress'
-      } else {
-        return 'div'
-      }
-    })
-    const classList = computed(() => {
-      return {
+    const {
+      tag,
+      styleValue
+    } = useValue(
+      value,
+      max,
+      type
+    )
+
+    const classList = useWatch([
+      type,
+      indeterminate,
+      bottom
+    ], data => {
+      data.value = {
         'd-progress': true,
-        [`d-progress type-${type.value}`]: type.value,
+        [`type-${type.value}`]: type.value,
         [`indeterminate-${indeterminate.value}`]: indeterminate.value,
         'option-bottom': bottom.value
       }
     })
-    const styleList = computed(() => {
-      return {
-        '--pr__vl-max': max.value,
-        '--pr__vl-value': value.value
-      }
-    })
 
-    useAdmin('d-progress-old')
+    useAdmin('d-progress')
 
     return {
       progress,
       tag,
       classList,
-      styleList,
+      styleValue,
       onAnimation
     }
   }
@@ -83,4 +85,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import "style";
+
+.d-progress {
+  @include progressInit;
+}
 </style>
