@@ -3,20 +3,54 @@ import { getFileResult } from '@/tool/functions'
 import { ref } from 'vue'
 
 export const useIcon = function (icon) {
-  const type = ref(undefined)
+  let type
+
   const text = ref(undefined)
-  const classIcon = ref(undefined)
+  const classIcon = ref({})
+  const styleIcon = ref({})
+
+  const getClassName = () => {
+    switch (type) {
+      case 'la':
+        return `las ${icon.value}`
+      case 'filled':
+      case 'outlined':
+      case 'round':
+      case 'sharp':
+      case 'two-tone':
+      case 'material':
+        return 'material-icons'
+      default:
+        return undefined
+    }
+  }
+  const getStyleName = (image) => {
+    let style
+
+    if (image) {
+      switch (type) {
+        case 'image':
+          style = { 'background-image': `url(${image})` }
+          break
+        case 'color':
+          style = { 'background-color': image }
+          break
+      }
+    }
+
+    return style
+  }
 
   const updateType = () => {
     const value = icon.value
 
     if (value) {
       if (value instanceof File || value.match(/\//)) {
-        type.value = 'image'
+        type = 'image'
       } else if (value.match(/^#/)) {
-        type.value = 'color'
+        type = 'color'
       } else {
-        type.value = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
+        type = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
       }
     }
   }
@@ -28,42 +62,32 @@ export const useIcon = function (icon) {
       'sharp',
       'two-tone',
       'material'
-    ].indexOf(type.value) !== -1) {
+    ].indexOf(type) !== -1) {
       text.value = icon.value.replace(/^(filled|outlined|round|sharp|two-tone)-/, '')
     } else {
       text.value = undefined
-    }
-  }
-  const updateClassIcon = () => {
-    switch (type.value) {
-      case 'la':
-        classIcon.value = `las ${icon.value}`
-        break
-      case 'filled':
-      case 'outlined':
-      case 'round':
-      case 'sharp':
-      case 'two-tone':
-      case 'material':
-        classIcon.value = 'material-icons'
-        break
-      default:
-        classIcon.value = undefined
-        break
     }
   }
 
   const image = useWatch(icon, async data => {
     updateType()
     updateText()
-    updateClassIcon()
+
+    const name = getClassName()
+
+    classIcon.value = {
+      [`type-${type}`]: type,
+      [name]: name
+    }
+
     data.value = icon.value instanceof File ? await getFileResult(icon.value) : icon.value
+    styleIcon.value = getStyleName(data.value)
   })
 
   return {
-    type,
     text,
     classIcon,
+    styleIcon,
     image
   }
 }

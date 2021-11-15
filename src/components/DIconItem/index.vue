@@ -1,7 +1,7 @@
 <template>
   <span
     :class="classList"
-    :style="styleList"
+    :style="styleIcon"
     translate="no"
     v-text="text"
   />
@@ -28,9 +28,9 @@ export default {
     } = toRefs(props)
 
     const {
-      type,
       text,
       classIcon,
+      styleIcon,
       image
     } = useIcon(icon)
 
@@ -41,27 +41,10 @@ export default {
     ], data => {
       data.value = {
         'd-icon-item notranslate': true,
-        [classIcon.value]: classIcon.value,
-        [`type-${type.value}`]: type.value,
+        ...classIcon.value,
         'status-disabled': disabled.value,
         'status-hide': hide.value
       }
-    })
-    const styleList = useWatch(image, data => {
-      let style
-
-      if (image.value) {
-        switch (type.value) {
-          case 'image':
-            style = { 'background-image': `url(${image.value})` }
-            break
-          case 'color':
-            style = { 'background-color': image.value }
-            break
-        }
-      }
-
-      data.value = style
     })
 
     useAdmin('d-icon-item')
@@ -69,7 +52,7 @@ export default {
     return {
       text,
       classList,
-      styleList
+      styleIcon
     }
   }
 }

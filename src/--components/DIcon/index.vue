@@ -25,7 +25,7 @@ export default {
   components: { DIconItem },
   props,
   setup () {
-    useAdmin('d-icon')
+    useAdmin('d-icon-old')
     return {}
   },
   computed: {
@@ -49,9 +49,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
 
-.d-icon {
-  @include iconInit;
-}
 </style>
