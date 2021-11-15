@@ -18,7 +18,7 @@
 import DIconItem from '@/--components/DIconItem'
 import { props } from './props'
 import { computed, readonly, toRefs } from 'vue'
-import { useColor } from '@/tool/use/useColors'
+import { useColor } from '@/tool/use/useColor'
 import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {

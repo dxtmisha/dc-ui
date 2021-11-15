@@ -3,6 +3,7 @@
 @import "../../constructors/constructor";
 @import "../../constructors/font";
 @import "../../constructors/scrollbar";
+@import "../../constructors/scrollbarBorder";
 @import "../../constructors/typography";
 @import "chart/chartFlatDesign";
 @import "chart/chartMaterialDesign";
@@ -51,6 +52,8 @@
 
   @include initTypography;
   @include initScrollbar;
+  @include initScrollbarBorder;
+
   @include initFontsClasses($font);
   @include initColorsClasses($shade, $charts);
   @include initColorsClassesFocus($shade, $colors);

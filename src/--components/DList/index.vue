@@ -72,7 +72,7 @@ import { props } from '@/--components/DList/props'
 import { computed, defineAsyncComponent, toRefs } from 'vue'
 import { isSelected } from '@/dcUi'
 import { setupListItem } from '@/--components/DList/setupListItem'
-import { useColor } from '@/tool/use/useColors'
+import { useColor } from '@/tool/use/useColor'
 import { useGroup } from '@/--components/DList/useGroup'
 import { useAdmin } from '@/tool/use/useAdmin'
 

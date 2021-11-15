@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DScrollbar from '@/--components/DScrollbar'
+import DScrollbar from '@/components/DScrollbar'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { alexanderPushkin } from '@/media/demo/texts'
 

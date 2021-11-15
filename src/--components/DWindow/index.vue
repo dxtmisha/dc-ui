@@ -30,7 +30,7 @@
 <script>
 import { props } from '@/--components/DWindow/props'
 import { computed, readonly, toRefs } from 'vue'
-import { setupScroll } from '@/--components/DScrollbar/setupScroll'
+import { useScroll } from '@/--components/DScrollbar/useScroll'
 import { useAdmin } from '@/tool/use/useAdmin'
 import { useEvent } from './useEvent'
 import { usePosition } from './usePosition'
@@ -89,7 +89,7 @@ export default {
       verification
     )
 
-    const { classScroll } = setupScroll()
+    const { classScroll } = useScroll()
     const classList = computed(() => {
       return {
         [`d-window ${id}`]: true,

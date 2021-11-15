@@ -1,0 +1,18 @@
+@mixin initScrollbarBorder() {
+  .d-scrollbar-border {
+    border-bottom-color: transparent;
+    border-bottom-width: var(--basic-border-width);
+    border-top-color: transparent;
+    border-top-width: var(--basic-border-width);
+    transition: border-color;
+    transition-duration: var(--transition-menu-collapsing);
+
+    &.status-bottom {
+      border-bottom-color: inherit;
+    }
+
+    &.status-top {
+      border-top-color: inherit;
+    }
+  }
+}

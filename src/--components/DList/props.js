@@ -1,5 +1,5 @@
 import { defaultInit, validatorAxis } from '@/uses/useDefault'
-import { palette } from '@/tool/use/useColors'
+import { palette } from '@/tool/use/useColor'
 
 const defaultProps = defaultInit('d-list')
 export const props = {

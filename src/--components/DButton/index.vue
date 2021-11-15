@@ -39,7 +39,7 @@ import DRipple from '@/--components/DRipple'
 import { props } from '@/--components/DButton/props'
 import { computed, toRefs } from 'vue'
 import { setupBadge } from '@/--components/DBadge/setupBadge'
-import { useColor } from '@/tool/use/useColors'
+import { useColor } from '@/tool/use/useColor'
 import { useIcon } from './useIcon'
 import { useAdmin } from '@/tool/use/useAdmin'
 

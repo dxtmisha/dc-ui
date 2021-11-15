@@ -43,7 +43,7 @@ const setWidth = async function () {
   })
 }
 
-export const setupScroll = function () {
+export const useScroll = function () {
   const scrollWidth = ref(width)
 
   const isScroll = computed(() => scrollWidth.value < 8)

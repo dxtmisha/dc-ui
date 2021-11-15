@@ -10,24 +10,15 @@
 </template>
 
 <script>
+import { props } from '@/components/DScrollbar/props'
 import { readonly, toRefs } from 'vue'
-import { setupScroll } from './setupScroll'
+import { useScroll } from './useScroll'
 import { useAdmin } from '@/tool/use/useAdmin'
 import { useBorder } from './useBorder'
 
 export default {
   name: 'DScrollbar',
-  props: {
-    // Status
-    visible: Boolean,
-
-    // Options
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    border: Boolean
-  },
+  props,
   setup (props) {
     const {
       visible,
@@ -38,7 +29,7 @@ export default {
       scroll,
       onScroll
     } = useBorder(border)
-    const { isScroll } = setupScroll()
+    const { isScroll } = useScroll()
 
     const classList = readonly({
       'd-scrollbar': true,
@@ -47,7 +38,7 @@ export default {
       'option-border': border
     })
 
-    useAdmin('d-scrollbar')
+    useAdmin('d-scrollbar-old')
 
     return {
       scroll,
