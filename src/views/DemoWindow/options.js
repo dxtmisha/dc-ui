@@ -46,6 +46,26 @@ export const optionsWindowIndent = {
   ]
 }
 
+export const optionsWindowSize = {
+  text: 'Size',
+  value: 'size',
+  list: [
+    { value: undefined },
+    {
+      text: 'Basic',
+      value: 'basic'
+    },
+    {
+      text: 'Fullscreen',
+      value: 'fullscreen'
+    },
+    {
+      text: 'Minimum',
+      value: 'minimum'
+    }
+  ]
+}
+
 export const optionsWindowWidth = {
   text: 'Width',
   value: 'width',
@@ -76,10 +96,13 @@ export const optionsWindowWidth = {
 
 export const optionsWindow = [
   'status',
-  'open',
   'disabled',
 
   'options',
+  optionsWindowWidth,
+  optionsWindowSize,
+  optionsWindowAxis,
+  optionsWindowIndent,
   {
     text: 'Shape',
     value: 'shape',
@@ -99,9 +122,6 @@ export const optionsWindow = [
       }
     ]
   },
-  optionsWindowAxis,
-  optionsWindowWidth,
-  optionsWindowIndent,
   {
     text: 'Adaptive',
     value: 'adaptive',
@@ -141,15 +161,6 @@ export const optionsWindow = [
       }
     ]
   },
-  'fullscreen',
-  'persistent',
   'autoClose',
-  {
-    text: 'Width by control',
-    value: 'widthByControl'
-  },
-  {
-    text: 'Body: automatic width',
-    value: 'bodyWidthAuto'
-  }
+  'persistent'
 ]

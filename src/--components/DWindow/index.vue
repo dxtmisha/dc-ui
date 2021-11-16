@@ -110,7 +110,7 @@ export default {
       watchPosition
     )
 
-    useAdmin('d-window')
+    useAdmin('d-window-old')
 
     return {
       valueOpen,

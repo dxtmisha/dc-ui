@@ -8,9 +8,7 @@ export const useClass = function (element, name, cb = undefined) {
       cb(value)
     }
 
-    if (element.value) {
-      element.value?.classList.toggle(name, value)
-    }
+    element.value?.classList.toggle(name, value)
   })
 
   return item

@@ -1,5 +1,7 @@
 import { forEach, goFunction } from '@/dcUi'
 
+let ids = 1
+
 export const createElement = function (
   parentElement,
   tagName,
@@ -30,6 +32,18 @@ export const getFileResult = function (file) {
       resolve(undefined)
     }
   })
+}
+
+export const getIdElement = function (element = undefined, selector = undefined) {
+  if (element) {
+    if (!element.id) {
+      element.setAttribute('id', `id-${ids++}`)
+    }
+
+    return selector !== undefined ? `#${element.id}${selector}`.trim() : element.id
+  } else {
+    return ids++
+  }
 }
 
 export const isImage = function (file) {
