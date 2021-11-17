@@ -129,9 +129,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-window {
-  @include windowInit;
-}
 </style>

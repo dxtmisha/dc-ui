@@ -13,7 +13,7 @@ export const useOptions = function (options) {
     let data
 
     if ('list' in item) {
-      data = (isNaN(parseInt(value)) ? value : parseInt(value)) || undefined
+      data = (value.match(/^[0-9]+$/ig) ? parseInt(value) : value) || undefined
     } else if ('message' in item) {
       data = value ? item.message : undefined
     } else {

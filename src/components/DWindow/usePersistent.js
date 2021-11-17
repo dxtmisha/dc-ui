@@ -4,7 +4,9 @@ export const usePersistent = function (modal) {
   const classPersistent = useClass(modal, 'option-persistent')
 
   const onPersistent = ({ animationName }) => {
-    classPersistent.value = animationName !== '__animate-window--persistent'
+    if (animationName === '__animate-window--persistent') {
+      classPersistent.value = false
+    }
   }
 
   return {

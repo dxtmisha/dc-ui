@@ -8,14 +8,14 @@
   top: var(--_wn-y, 0);
 
   #{$this}__body,
-  &.option-fullscreen #{$this}__body {
+  &.size-fullscreen #{$this}__body {
     background: var(--background-type6);
     box-shadow: var(--shadow-type6);
     max-height: 100vh;
     max-width: 100vw;
-    min-width: var(--_wn-width);
-    transform-origin: var(--_wd-or-x, left) var(--_wd-or-y, top);
-    width: var(--_wn__bd--cn-width, auto);
+    min-width: var(--_wn--cn-width, var(--_wn-width));
+    transform-origin: var(--_wn-or-x, left) var(--_wn-or-y, top);
+    width: var(--_wn--cn-width, auto);
     @content;
   }
 
@@ -25,9 +25,5 @@
 
   &.status-show {
     background-color: transparent;
-  }
-
-  &.option-control {
-    --_wn__bd--cn-width: var(--wn__cn-width, var(--wn__bd-width));
   }
 }

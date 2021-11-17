@@ -1,6 +1,8 @@
 @import "../../styles/color";
 @import "../../styles/elevation";
+@import "../../styles/media";
 @import "../../styles/position";
+@import "styleExtend";
 @import "styleVar";
 
 @mixin window() {
@@ -36,6 +38,38 @@
     width: 100%;
     visibility: hidden;
     @content;
+  }
+}
+
+@mixin windowMenu() {
+  $this: &;
+
+  @include mediaMinList {
+    @include mixinMenu($this);
+    @content;
+  }
+
+  &.adaptive-menu {
+    @include mixinMenu($this);
+    @content;
+  }
+}
+
+@mixin windowModal() {
+  &.adaptive-modal {
+    @include mediaMinWidth {
+      --_wn-padding: var(--_wn--md-padding);
+      align-items: center;
+      transform-origin: center;
+      @content;
+    }
+  }
+
+  &.adaptive-modal &__body {
+    @include mediaMinWidth {
+      max-width: 100%;
+      width: var(--_wn--md-width);
+    }
   }
 }
 
@@ -104,6 +138,9 @@
 @mixin windowInit() {
   @include window;
   @include windowBody;
+
+  @include windowMenu;
+  @include windowModal;
 
   @include windowSize;
   @include windowShape;

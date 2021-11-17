@@ -4,10 +4,7 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-window
-      v-bind="binds"
-      @on-open="$refs.interactive.setData('open', $event.open)"
-    >
+    <d-window v-bind="binds">
       <template v-slot:control="{ classList, onClick, onContextmenu }">
         <d-button
           :class="classList"
@@ -17,7 +14,7 @@
         />
       </template>
       <template v-slot:window>
-        <div class="p-4" v-html="text"/>
+        <div class="demo-window p-4" v-html="text"/>
       </template>
     </d-window>
   </interactive-demo>
@@ -25,10 +22,10 @@
 
 <script>
 import DButton from '@/--components/DButton'
-import DWindow from '@/--components/DWindow'
+import DWindow from '@/components/DWindow'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsWindow } from '@/views/DemoWindow/options'
-import { quote2 } from '@/media/demo/texts'
+import { leoTolstoy } from '@/media/demo/texts'
 
 export default {
   name: 'DemoWindow',
@@ -39,7 +36,7 @@ export default {
   },
   setup () {
     const options = optionsWindow
-    const text = quote2
+    const text = leoTolstoy
 
     return {
       options,
@@ -49,4 +46,8 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.demo-window {
+  max-width: 640px;
+}
+</style>

@@ -2,7 +2,7 @@
 @import "../../styles/elevation";
 @import "../../styles/media";
 @import "../../styles/position";
-@import "styleExtend";
+@import "src/components/DWindow/styleExtend";
 
 @mixin window() {
   @include windowVar;

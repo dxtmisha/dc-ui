@@ -22,6 +22,22 @@ export const createElement = function (
   return element
 }
 
+export const frame = function (
+  callback,
+  next = () => false,
+  end = null
+) {
+  requestAnimationFrame(() => {
+    callback()
+
+    if (next()) {
+      frame(callback, next, end)
+    } else if (end) {
+      end()
+    }
+  })
+}
+
 export const getFileResult = function (file) {
   return new Promise(resolve => {
     if (isImage(file)) {
