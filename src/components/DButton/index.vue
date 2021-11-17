@@ -59,7 +59,6 @@ export default {
       dragged,
       disabled,
       readonly,
-      hide,
       palette,
       color,
       appearance,
@@ -69,6 +68,7 @@ export default {
       lowercase,
       dense,
       iconReadonly,
+      iconHide,
       iconAnimationShow,
       iconBackground
     } = toRefs(props)
@@ -94,7 +94,7 @@ export default {
       bindIcon,
       bindTrailing
     } = setupIcon(
-      'd-button__icon bt-',
+      'd-button__icon bt',
       icon,
       iconActive,
       iconTrailing,
@@ -102,7 +102,7 @@ export default {
       selected,
       turn,
       disabled,
-      hide,
+      iconHide,
       undefined,
       iconAnimationHide,
       iconAnimationShow,

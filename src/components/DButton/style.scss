@@ -1,7 +1,9 @@
 @import "../../styles/color";
 @import "../../styles/font";
 @import "../../styles/flex";
+@import "../../styles/media";
 @import "../../styles/padding";
+@import "../../styles/options/optionShape";
 @import "styleExtend";
 @import "styleVar";
 
@@ -12,12 +14,12 @@
   @include paddingX(var(--_bt-padding));
   @include select-none;
 
-  --bg-shift: calc(var(--_bt-padding) * -1);
+  --bg-shift: var(--_bt-space);
   --pr-palette: var(--basic-text);
   --rp-palette: var(--_bt-palette-image);
 
   --_bt-background: var(--_bt-palette-type1);
-  --_bt-border: var(--_bt-palette-type1);
+  --_bt-border: var(--background-overlay);
   --_bt-border--before-opacity: 0;
 
   background-color: varColor(--_bt-background, --_bt-background-opacity);
@@ -40,7 +42,7 @@
 
   &::before {
     @extend %border-after;
-    border-color: varColor(--_bt-border, --_bt-border--before-opacity);
+    border-color: varColor(--_bt-palette-image, --_bt-border--before-opacity);
     transition-duration: var(--transition-large-expanding);
     transition-property: border-color;
   }
@@ -87,6 +89,167 @@
   }
 }
 
+@mixin buttonTextColor() {
+  &.appearance-text-color {
+    @extend %text-color;
+    @content;
+  }
+}
+
+@mixin buttonOutlined() {
+  &.appearance-outlined {
+    @extend %border;
+    @extend %border-before-disabled;
+    @extend %text-color;
+    @content;
+  }
+}
+
+@mixin buttonOutlinedColor() {
+  &.appearance-outlined-color {
+    @extend %border-color;
+    @extend %border-before-disabled;
+    @extend %text-color;
+    @content;
+  }
+}
+
+@mixin buttonOutlinedContained() {
+  &.appearance-outlined-contained {
+    @extend %border-color;
+    @extend %border-before-disabled;
+    @extend %text-color;
+
+    &:not(:disabled):not(.status-disabled):not(.status-readonly) {
+      &:hover,
+      &.status-hover,
+      &:focus,
+      &.status-focus,
+      &:active,
+      &.status-active,
+      &.status-selected,
+      &.status-dragged {
+        @extend %background-filled;
+        @extend %border-before-none;
+      }
+    }
+
+    @content;
+  }
+}
+
+@mixin buttonContained() {
+  &.appearance-contained {
+    @extend %background-disabled;
+    @extend %background-filled;
+    @extend %border-before-none;
+    --_bt-shadow: var(--shadow-type2);
+    --_bt--hv-shadow: var(--shadow-type2);
+    --_bt--ac-shadow: var(--shadow-type6);
+    @content;
+  }
+}
+
+@mixin buttonFab() {
+  &.appearance-fab {
+    @extend %background-disabled;
+    @extend %background-filled;
+    @extend %border-before-none;
+    --_bt-gap: var(--_bt--fb-gap);
+    --_bt-radius: var(--_bt--fb-radius);
+    --_bt-padding: var(--_bt--fb-padding);
+
+    --_bt-height: var(--_bt--fb-height);
+    --_bt--sm-height: var(--_bt--fb--sm-height);
+    --_bt--lg-height: var(--_bt--fb--lg-height);
+
+    --_bt-shadow: var(--shadow-type5);
+    --_bt--hv-shadow: var(--shadow-type5);
+    --_bt--ac-shadow: var(--shadow-type7);
+    @content;
+  }
+}
+
+@mixin buttonChip() {
+  &.appearance-chip {
+    @extend %chip;
+    @extend %chip-background;
+    @extend %chip-selected;
+    @content;
+  }
+}
+
+@mixin buttonChipColor() {
+  &.appearance-chip-color {
+    @extend %text-color;
+    @extend %chip;
+    @extend %chip-background;
+    @content;
+  }
+}
+
+@mixin buttonChipOutlined() {
+  &.appearance-chip-outlined {
+    @extend %border;
+    @extend %border-before-disabled;
+    @extend %chip;
+    @extend %chip-background;
+    @extend %chip-selected;
+    @content;
+  }
+}
+
+@mixin buttonSize() {
+  &.size- {
+    &small {
+      --_bt-height: var(--_bt--sm-height);
+    }
+
+    &large {
+      --_bt-height: var(--_bt--lg-height);
+    }
+  }
+}
+
+@mixin buttonShape() {
+  @include optionShape;
+
+  &.shape-pill &__icon {
+    --ic-size: calc(var(--_bt-height) - (var(--_bt-space) * 2));
+    --_bt-squeeze: calc(var(--_bt-padding) - var(--_bt-space));
+  }
+}
+
+@mixin buttonAdaptive() {
+  $this: &;
+
+  @include mediaMaxList {
+    @include mixinAdaptive;
+  }
+
+  &.adaptive-icon {
+    @include mixinAdaptive;
+  }
+
+  &.adaptive-block {
+    width: 100%;
+  }
+}
+
+@mixin buttonLowercase() {
+  &.option-lowercase {
+    @include font('body2');
+    @content;
+  }
+}
+
+@mixin buttonDense() {
+  &.option-dense {
+    --_bt-padding: var(--_bt--dn-padding);
+    @content;
+  }
+}
+
 @mixin buttonStatus() {
   &:not(:disabled):not(.status-disabled):not(.status-readonly) {
     &:hover,
@@ -113,7 +276,7 @@
     }
 
     &.status-selected {
-      --_bt-palette-type1: var(--_bt-palette-select);
+      --_bt-palette-type1: var(--_bt-palette-select) !important;
       z-index: 4;
     }
 
@@ -127,15 +290,15 @@
 @mixin buttonDisabled() {
   &:disabled,
   &.status-disabled {
-    --basic-text: var(--disabled-type1);
+    @extend %border-before-none;
+    --basic-text: var(--text-type1);
     --basic-text-opacity: var(--opacity-surface-disabled);
     --_bt-palette-type1: var(--disabled-type1);
     --_bt-palette-type2: var(--disabled-type1);
+    --_bt-background-opacity: var(--_bt--ds-background-opacity, 0);
+    --_bt-border: var(--disabled-type1);
+    --_bt-border-opacity: var(--_bt--ds-border-opacity, 0);
     box-shadow: var(--_bt--ds-shadow, none);
-
-    &::before {
-      content: none;
-    }
   }
 }
 
@@ -144,6 +307,22 @@
   @include buttonIcon;
   @include buttonText;
   @include buttonProgress;
+
+  @include buttonTextColor;
+  @include buttonOutlined;
+  @include buttonOutlinedColor;
+  @include buttonOutlinedContained;
+  @include buttonContained;
+  @include buttonFab;
+  @include buttonChip;
+  @include buttonChipColor;
+  @include buttonChipOutlined;
+
+  @include buttonSize;
+  @include buttonShape;
+  @include buttonAdaptive;
+  @include buttonLowercase;
+  @include buttonDense;
 
   @include buttonStatus;
   @include buttonDisabled;

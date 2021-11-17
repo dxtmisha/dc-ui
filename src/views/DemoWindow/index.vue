@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DWindow from '@/components/DWindow'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsWindow } from '@/views/DemoWindow/options'
