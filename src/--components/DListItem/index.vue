@@ -61,7 +61,7 @@ import { props } from '@/--components/DListItem/props'
 import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/tool/use/useColor'
-import { setupBadge } from '@/--components/DBadge/setupBadge'
+import { setupBadge } from '@/components/DBadge/setupBadge'
 import { useAdmin } from '@/tool/use/useAdmin'
 
 export default {

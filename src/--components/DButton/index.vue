@@ -36,9 +36,9 @@ import DBadge from '@/--components/DBadge'
 import DIcon from '@/--components/DIcon'
 import DProgress from '@/--components/DProgress'
 import DRipple from '@/--components/DRipple'
-import { props } from '@/--components/DButton/props'
+import { props } from '@/components/DButton/props'
 import { computed, toRefs } from 'vue'
-import { setupBadge } from '@/--components/DBadge/setupBadge'
+import { setupBadge } from '@/components/DBadge/setupBadge'
 import { useColor } from '@/tool/use/useColor'
 import { useIcon } from './useIcon'
 import { useAdmin } from '@/tool/use/useAdmin'
@@ -99,7 +99,7 @@ export default {
       }
     })
 
-    useAdmin('d-button')
+    useAdmin('d-button-old')
 
     return {
       bindIcon,
@@ -113,9 +113,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-button {
-  @include buttonInit;
-}
 </style>

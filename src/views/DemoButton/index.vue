@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsButton } from '@/views/DemoButton/options'
 

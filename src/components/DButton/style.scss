@@ -1,0 +1,150 @@
+@import "../../styles/color";
+@import "../../styles/font";
+@import "../../styles/flex";
+@import "../../styles/padding";
+@import "styleExtend";
+@import "styleVar";
+
+@mixin button() {
+  @include buttonVar;
+  @include flexInlineCenter;
+  @include font('button');
+  @include paddingX(var(--_bt-padding));
+  @include select-none;
+
+  --bg-shift: calc(var(--_bt-padding) * -1);
+  --pr-palette: var(--basic-text);
+  --rp-palette: var(--_bt-palette-image);
+
+  --_bt-background: var(--_bt-palette-type1);
+  --_bt-border: var(--_bt-palette-type1);
+  --_bt-border--before-opacity: 0;
+
+  background-color: varColor(--_bt-background, --_bt-background-opacity);
+  background-image: none;
+  border-radius: var(--_bt-radius);
+  box-shadow: var(--_bt-shadow);
+  height: var(--_bt-height);
+  line-height: 1;
+  max-width: 100%;
+  min-width: var(--_bt-min-width);
+  position: relative;
+  text-overflow: ellipsis;
+  transition-property: color, background-color, box-shadow;
+  white-space: nowrap;
+
+  &::after {
+    @extend %border-after;
+    border-color: varColor(--_bt-border, --_bt-border-opacity);
+  }
+
+  &::before {
+    @extend %border-after;
+    border-color: varColor(--_bt-border, --_bt-border--before-opacity);
+    transition-duration: var(--transition-large-expanding);
+    transition-property: border-color;
+  }
+}
+
+@mixin buttonIcon() {
+  &__icon {
+    transition-duration: inherit;
+    transition-property: color, opacity, transform;
+
+    &.bt-icon {
+      margin-left: calc(var(--_bt-squeeze) * -1);
+      margin-right: var(--_bt-gap);
+    }
+
+    &.bt-trailing {
+      cursor: default;
+      display: var(--_bt--ic-display, inline-block);
+      margin-left: var(--_bt-gap);
+      margin-right: calc(var(--_bt-squeeze) * -1);
+      order: 9;
+      position: relative;
+      z-index: 4;
+    }
+  }
+}
+
+@mixin buttonText() {
+  &__text {
+    @include ellipsis;
+    @include flexX;
+    @include flexDynamic;
+    display: var(--_bt--ic-display, flex);
+    @content;
+  }
+}
+
+@mixin buttonProgress() {
+  .d-progress.status-visible ~ * {
+    background-color: transparent;
+    color: transparent;
+    opacity: 0;
+    @content;
+  }
+}
+
+@mixin buttonStatus() {
+  &:not(:disabled):not(.status-disabled):not(.status-readonly) {
+    &:hover,
+    &.status-hover {
+      background-image: varColor(--_bt-palette-image, --opacity-container-hover, true);
+      box-shadow: var(--_bt--hv-shadow);
+    }
+
+    &:focus,
+    &.status-focus,
+    &.status-selected {
+      background-image: varColor(--_bt-palette-image, --opacity-container-focus, true);
+    }
+
+    &:active,
+    &.status-active {
+      background-image: varColor(--_bt-palette-image, --opacity-container-dragged, true);
+      box-shadow: var(--_bt--ac-shadow);
+
+      &::before {
+        --_bt-border--before-opacity: var(--opacity-surface-medium);
+        transition-duration: var(--transition-flash);
+      }
+    }
+
+    &.status-selected {
+      --_bt-palette-type1: var(--_bt-palette-select);
+      z-index: 4;
+    }
+
+    &.status-dragged {
+      box-shadow: var(--_bt--dr-shadow);
+      z-index: 6;
+    }
+  }
+}
+
+@mixin buttonDisabled() {
+  &:disabled,
+  &.status-disabled {
+    --basic-text: var(--disabled-type1);
+    --basic-text-opacity: var(--opacity-surface-disabled);
+    --_bt-palette-type1: var(--disabled-type1);
+    --_bt-palette-type2: var(--disabled-type1);
+    box-shadow: var(--_bt--ds-shadow, none);
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+@mixin buttonInit() {
+  @include button;
+  @include buttonIcon;
+  @include buttonText;
+  @include buttonProgress;
+
+  @include buttonStatus;
+  @include buttonDisabled;
+}

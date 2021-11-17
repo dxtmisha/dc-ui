@@ -1,0 +1,24 @@
+@mixin buttonVar() {
+  --_bt-palette-type1: var(--bt-palette-type1, var(--palette-type1, var(--basic-text)));
+  --_bt-palette-type2: var(--bt-palette-type2, var(--palette-type1, var(--primary-type1)));
+  --_bt-palette-select: var(--bt-palette-select, var(--palette-type2, var(--primary-type2)));
+  --_bt-palette-image: var(--bt-palette-image, var(--_bt-palette-type1));
+
+  --_bt-gap: var(--bt-gap, 8px);
+  --_bt-min-width: var(--bt-min-width, 64px);
+  --_bt-padding: var(--bt-padding, 16px);
+  --_bt-radius: var(--bt-radius, var(--basic-radius));
+  --_bt-space: var(--bt-space, 4px);
+  --_bt-squeeze: var(--bt-squeeze, 8px);
+
+  --_bt-height: var(--bt-height, 36px);
+  --_bt--sm-height: var(--bt--sm-height, 32px);
+  --_bt--lg-height: var(--bt--lg-height, 44px);
+
+  --_bt-border-opacity: var(--bt-border-opacity, 0);
+
+  --_bt-shadow: var(--bt-shadow, none);
+  --_bt--hv-shadow: var(--bt--hv-shadow, none);
+  --_bt--ac-shadow: var(--bt--ac-shadow, none);
+  --_bt--dr-shadow: var(--bt--dr-shadow, var(--shadow-type6));
+}
