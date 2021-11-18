@@ -8,8 +8,8 @@ export const optionsListItemAppearance = {
       value: 'basic'
     },
     {
-      text: 'Tonal',
-      value: 'tonal'
+      text: 'Color',
+      value: 'color'
     },
     {
       text: 'Contained',

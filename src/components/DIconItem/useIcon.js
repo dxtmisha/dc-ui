@@ -43,14 +43,19 @@ export const useIcon = function (icon) {
 
   const updateType = () => {
     const value = icon.value
+    type = undefined
 
     if (value) {
-      if (value instanceof File || value.match(/\//)) {
+      if (value instanceof File) {
         type = 'image'
-      } else if (value.match(/^#/)) {
-        type = 'color'
-      } else {
-        type = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
+      } else if (typeof value === 'string') {
+        if (value.match(/\//)) {
+          type = 'image'
+        } else if (value.match(/^#/)) {
+          type = 'color'
+        } else {
+          type = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
+        }
       }
     }
   }

@@ -1,0 +1,29 @@
+@mixin listItemVar() {
+  --_li-palette-type1: var(--li-palette-type1, var(--palette-type1, var(--text-type1)));
+  --_li-palette-type2: var(--li-palette-type2, var(--palette-type1, var(--primary-type1)));
+  --_li-palette-select: var(--li-palette-select, var(--palette-type2, var(--primary-type2)));
+  --_li-palette-image: var(--li-palette-image, var(--_li-palette-type1));
+
+  --_li-gap: var(--li-gap, 16px);
+
+  --_li-background-color: var(--li-background-color, var(--_li-palette-type1));
+  --_li-text-color: var(--li-text-color, var(--text-type1));
+
+  --_li-height: var(--li-height, 48px);
+  --_li--cm-height: var(--li--cm-height, 32px);
+  --_li--md-height: var(--li--md-height, 56px);
+  --_li--lg-height: var(--li--lg-height, 72px);
+  --_li--nr-height: var(--li--nr-height, 72px);
+  --_li--nr--ic-height: var(--li--nr--ic-height, 56px);
+
+  --_li-padding: var(--li-padding, 16px);
+  --_li-padding-y: var(--li-padding-y, 4px);
+  --_li--ds-padding: var(--li--ds-padding, 24px);
+  --_li__ic-padding: var(--li__ic-padding, 32px);
+  --_li-squeeze: var(--li-squeeze, 0px);
+
+  --_li-margin: var(--li-margin, 0px);
+  --_li--sh-margin: var(--li--sh-margin, 8px);
+
+  --_li__st-gap: var(--li__st-gap, 8px);
+}

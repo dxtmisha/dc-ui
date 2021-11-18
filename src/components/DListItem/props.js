@@ -17,7 +17,10 @@ export const props = {
   prefix: [Number, String],
   suffix: [Number, String],
   description: String,
-  backgroundColor: String,
+  backgroundColor: {
+    type: String,
+    default: null
+  },
 
   // Status
   focus: Boolean,
@@ -37,7 +40,7 @@ export const props = {
     default: defaultProps('appearance'),
     validator: validator([
       'basic',
-      'tonal',
+      'color',
       'contained',
       'contained-status'
     ])

@@ -57,7 +57,7 @@
 import DBadge from '@/--components/DBadge'
 import DIcon from '@/--components/DIcon'
 import DRipple from '@/--components/DRipple'
-import { props } from '@/--components/DListItem/props'
+import { props } from '@/components/DListItem/props'
 import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
 import { useColor } from '@/tool/use/useColor'
@@ -127,7 +127,7 @@ export default {
     })
     const styleList = readonly({ '--_li-background-color': backgroundColor })
 
-    useAdmin('d-list-item')
+    useAdmin('d-list-item-old')
 
     return {
       bindThumbnail,
@@ -152,9 +152,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-list-item {
-  @include listItemInit;
-}
 </style>

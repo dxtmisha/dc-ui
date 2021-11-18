@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DListItem from '@/--components/DListItem'
+import DListItem from '@/components/DListItem'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsListItem } from '@/views/DemoListItem/options'
 
@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
 .demo-list-item {
+  border-width: var(--basic-border-width);
   max-width: 100%;
-  width: 320px;
 }
 </style>

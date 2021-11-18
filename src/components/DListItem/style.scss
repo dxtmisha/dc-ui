@@ -14,7 +14,18 @@
   @extend %flex-x;
 
   --bg-shift: var(--_li-padding-y);
-  --rp-palette: var(--_li-palette-image);
+  --ic-palette: var(--basic-text);
+  --rp-palette: var(--_li-image);
+
+  --_li-background: var(--_li-palette-type1);
+  --_li-background-opacity: 0;
+  --_li--hv-background-opacity: 0;
+  --_li--sl-background-opacity: var(--opacity-container-selected);
+
+  --_li-image: var(--_li-palette-image);
+  --_li--sl-image: var(--_li-palette-image);
+
+  --_li--sl-text: var(--_li-palette-select);
 
   background-color: varColor(--_li-background, --_li-background-opacity);
   background-image: none;
@@ -31,33 +42,24 @@
   }
 }
 
-@mixin listItemThumbnail() {
-  &__thumbnail {
-    margin-left: var(--_bt-squeeze);
-    @content;
-  }
-
-  &__thumbnail ~ &__text {
-    margin-left: var(--_li-padding);
-  }
-}
-
 @mixin listItemIcon() {
-  &__icon {
-    @content;
+  &__icon.li-thumbnail {
+    margin-left: var(--_bt-squeeze);
   }
 
-  &__icon ~ &__text {
-    margin-left: var(--_li__ic-padding);
-  }
-}
-
-@mixin listItemTrailing() {
-  &__trailing {
+  &__icon.li-trailing {
+    @extend %icon-margin-left;
     display: var(--_li--ic-display, var(--_li--sh__text-display, block));
-    margin-left: var(--_li-padding);
     order: 2;
     @content;
+  }
+
+  &__icon.li-icon ~ &__text {
+    margin-left: var(--_li__ic-padding);
+  }
+
+  &__icon.li-thumbnail ~ &__text {
+    @extend %icon-margin-left;
   }
 
   &.value-trailing {
@@ -128,43 +130,98 @@
   }
 }
 
-@mixin listItemTonal() {
-  &.appearance-tonal {
-    @extend %rp-palette;
-
-    @include mixinStatus {
-      @extend %tonal;
-    }
-
+@mixin listItemColor() {
+  &.appearance-color {
+    @extend %palette-color;
+    @extend %text-color;
     @content;
   }
 }
 
 @mixin listItemContained() {
   &.appearance-contained {
-    @extend %rp-palette;
-
-    @include mixinStatus {
-      @extend %filled;
-    }
-
+    @extend %palette-color;
+    @extend %background-filled;
+    @extend %background-filled-selected;
     @content;
   }
 }
 
 @mixin listItemContainedStatus() {
   &.appearance-contained-status {
-    @extend %rp-palette;
-
-    @include mixinStatus {
-      @extend %tonal;
-    }
-
-    &:not(.status-disabled).status-selected {
-      @extend %filled;
-    }
-
+    @extend %palette-color;
+    @extend %text-color;
+    @extend %background-filled-selected;
     @content;
+  }
+}
+
+@mixin listItemSize() {
+  &.size- {
+    &dynamic {
+      --_li-height: auto;
+      --_li__ic-padding: var(--_li-gap);
+    }
+
+    &compact {
+      @include font('body2');
+      --_li-height: var(--_li--cm-height);
+    }
+
+    &medium {
+      --_li-height: var(--_li--md-height);
+    }
+
+    &large,
+    &rectangle {
+      --_li-height: var(--_li--lg-height);
+    }
+  }
+
+  &.size-rectangle:not(.shape-basic):not(.shape-rounded):not(.shape-pill) {
+    --_bt-squeeze: calc(var(--_li-padding) * -1);
+  }
+}
+
+@mixin listItemShape() {
+  @include optionShape;
+
+  &.shape-basic,
+  &.shape-rounded,
+  &.shape-pill {
+    --_li-margin: var(--_li--sh-margin);
+    @content;
+  }
+
+  &.shape-pill:not(.size-rectangle) {
+    --_bt-squeeze: calc(var(--_li-padding-y) - var(--_li-padding));
+  }
+
+  &.shape-pill:not(.size-rectangle) &__icon.li-thumbnail {
+    --ic-radius: var(--radius-pill);
+    --ic-size: calc(var(--_li-height) - (var(--_li-padding-y) * 2) - var(--_li-margin));
+    --ic--md-size: var(--ic-size);
+    --ic--lg-size: var(--ic-size);
+  }
+
+  &.shape-pill.size-rectangle {
+    --_bt-squeeze: calc((var(--_li-height) - (var(--_li-padding-y) * 2)) / 2 - var(--_li-padding));
+  }
+}
+
+@mixin listItemAdaptive() {
+  @include mediaMaxList {
+    @include mixinAdaptive;
+    @content;
+  }
+
+  &.adaptive-icon {
+    @include mixinAdaptive;
+    @content;
+  }
+
+  &.adaptive-block {
+    width: 100%;
   }
 }
 
@@ -232,68 +289,6 @@
   }
 }
 
-@mixin listItemAdaptive() {
-  @include mediaMaxList {
-    @include mixinAdaptive;
-    @content;
-  }
-
-  &.adaptive-icon {
-    @include mixinAdaptive;
-    @content;
-  }
-
-  &.adaptive-block {
-    width: 100%;
-  }
-}
-
-@mixin listItemSize() {
-  &.size- {
-    &dynamic {
-      --_li-height: auto;
-      --_li__ic-padding: var(--_li-padding);
-    }
-
-    &compact {
-      @include font('body2');
-      --_li-height: var(--_li--cm-height);
-    }
-
-    &medium {
-      --_li-height: var(--_li--md-height);
-    }
-
-    &large,
-    &rectangle {
-      --_li-height: var(--_li--lg-height);
-    }
-  }
-
-  &.size-rectangle:not(.shape-basic):not(.shape-rounded):not(.shape-pill) &__thumbnail {
-    margin-left: calc(var(--_li-padding) * -1);
-  }
-}
-
-@mixin listItemShape() {
-  @include optionShape;
-
-  &.shape-basic,
-  &.shape-rounded,
-  &.shape-pill {
-    --_li-margin: var(--_li--sh-margin);
-    @content;
-  }
-
-  &.shape-pill:not(.size-rectangle) &__thumbnail {
-    --ic-size: calc(var(--_li-height) - (var(--_li-padding-y) * 2) - var(--_li-margin));
-    --ic--md-size: var(--ic-size);
-    --ic--lg-size: var(--ic-size);
-    --ic--lg-radius: var(--radius-pill);
-    --_bt-squeeze: calc(var(--_li-padding-y) - var(--_li-padding));
-  }
-}
-
 @mixin listItemBackground() {
   &:not(.status-selected).option-background {
     --_li-background: var(--_li-background-color);
@@ -315,23 +310,30 @@
   &:not(.status-disabled) {
     &:hover,
     &.status-hover {
-      background-image: varColor(--_li-image-palette, --opacity-container-hover, true);
+      --basic-text: var(--_li-text-color);
+      --_li-background-opacity: var(--_li--hv-background-opacity);
+      background-image: varColor(--_li-image, --opacity-container-hover, true);
     }
 
     &:active,
     &.status-active {
-      background-image: varColor(--_li-image-palette, --opacity-container-dragged, true);
+      --basic-text: var(--_li-text-color);
+      --_li-background-opacity: var(--_li--hv-background-opacity);
+      background-image: varColor(--_li-image, --opacity-container-dragged, true);
     }
 
     &:focus,
     &.status-focus {
-      background-image: varColor(--_li-image-palette, --opacity-container-focus, true);
+      --basic-text: var(--_li-text-color);
+      --_li-background-opacity: var(--_li--hv-background-opacity);
+      background-image: varColor(--_li-image, --opacity-container-focus, true);
     }
 
     &.status-selected {
-      --basic-text: var(--_li-select-palette);
-      --_li-palette: var(--_li-select-palette);
-      --_li-background-opacity: var(--_li-background-select);
+      --basic-text: var(--_li--sl-text);
+      --_li-palette-type1: var(--_li-palette-select);
+      --_li-image: var(--_li--sl-image);
+      --_li-background-opacity: var(--_li--sl-background-opacity);
     }
   }
 }
@@ -340,29 +342,27 @@
   &.status-disabled {
     --basic-text: var(--disabled-type1);
     --basic-text-opacity: var(--opacity-surface-disabled);
-    --_li-palette: var(--disabled-type1);
+    --_li-palette-type1: var(--disabled-type1);
     @content;
   }
 }
 
 @mixin listItemInit() {
   @include listItem;
-  @include listItemThumbnail;
   @include listItemIcon;
-  @include listItemTrailing;
   @include listItemText;
   @include listItemTextShort;
   @include listItemSubText;
   @include listItemDescription;
 
-  @include listItemTonal;
+  @include listItemColor;
   @include listItemContained;
   @include listItemContainedStatus;
-  @include listItemNavigationRail;
 
-  @include listItemAdaptive;
   @include listItemSize;
   @include listItemShape;
+  @include listItemAdaptive;
+  @include listItemNavigationRail;
   @include listItemBackground;
   @include listItemBorder;
 
