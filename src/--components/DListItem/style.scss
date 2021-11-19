@@ -16,13 +16,19 @@
   --bg-shift: var(--_li-padding-y);
   --rp-palette: var(--_li-palette-image);
 
+  --_li-margin-gap: calc(var(--_li-margin) / 2);
+
   background-color: varColor(--_li-background, --_li-background-opacity);
   background-image: none;
   cursor: default;
-  margin: calc(var(--_li-margin) / 2) var(--_li-margin);
-  min-height: calc(var(--_li-height) - var(--_li-margin));
+  margin: 0 var(--_li-margin) var(--_li-margin-gap);
+  min-height: calc(var(--_li-height) - (var(--_li-margin) / 2));
   padding: 0 var(--_li-padding);
   position: relative;
+
+  &:first-child {
+    margin-top: var(--_li-margin-gap);
+  }
 
   @include mediaMinWidth() {
     &:not(.option-dense) {

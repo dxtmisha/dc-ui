@@ -1,5 +1,3 @@
-import { forEach, goFunction } from '@/dcUi'
-
 let ids = 1
 
 export const createElement = function (
@@ -20,6 +18,26 @@ export const createElement = function (
 
   parentElement.insertBefore(element, referenceElement)
   return element
+}
+
+export const forEach = function (data, callback) {
+  if (data && typeof data === 'object') {
+    let values = null
+
+    if ('forEach' in data) {
+      values = []
+      data.forEach((item, key) => values.push(callback(item, key, data)))
+    } else {
+      values = {}
+      Object.entries(data).forEach(([key, item]) => {
+        values[key] = callback(item, key, data)
+      })
+    }
+
+    return values
+  } else {
+    return null
+  }
 }
 
 export const frame = function (
@@ -62,6 +80,30 @@ export const getIdElement = function (element = undefined, selector = undefined)
   }
 }
 
+export const getObjectValues = function (object, keys = []) {
+  const item = {}
+
+  keys.forEach(key => {
+    item[key] = object?.[key]
+  })
+
+  return item
+}
+
+export const goFunction = function (item) {
+  return typeof item === 'function' ? item() : item
+}
+
 export const isImage = function (file) {
   return file.type.match(/^image\//)
+}
+
+export const isSelected = function (value, selected) {
+  if (Array.isArray(selected)) {
+    return selected.indexOf(value) !== -1
+  } else if (value === undefined) {
+    return false
+  } else {
+    return value === selected
+  }
 }

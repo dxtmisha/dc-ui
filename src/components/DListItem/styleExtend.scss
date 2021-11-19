@@ -30,12 +30,13 @@
   #{$this}__text,
   #{$this}__main {
     @include ellipsis;
-    display: block;
+    display: var(--_li--ic-display, block);
     flex-basis: auto;
     flex-grow: 0;
     flex-shrink: 0;
     max-width: 100%;
     padding: 0;
+    text-align: center;
   }
 
   #{$this}__text-short + #{$this}__text {

@@ -1,0 +1,22 @@
+@import "../../styles/color";
+
+@mixin listVar() {
+  --_ls-palette: var(--ls-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_ls-padding: var(--ls-padding, #{8px 0});
+  --_ls__li-padding: var(--ls__li-padding, 12px);
+  --_ls__st-padding: var(--ls__st-padding, #{4px 16px});
+  --_ls--ds__st-padding: var(--ls--ds__st-padding, #{4px 24px});
+
+  --_ls__ln-margin: var(--ls__ln-margin, #{8px 0});
+
+  --_ls__sp-height: var(--ls__sp-height, 32px);
+  --_ls--ad__sp-height: var(--ls--ad__sp-height, 24px);
+  --_ls__sp-width: var(--ls__sp-width, 24px);
+
+  --_ls__gr-background: var(--ls__gr-background, #{varColor(--_ls-palette)});
+  --_ls__gr-padding: var(--ls__gr-padding, 4px);
+  --_ls__gr-width: var(--ls__gr-width, 4px);
+  --_ls__gr--op-background: var(--ls__gr--op-background, #{varColor(--background-overlay, --opacity-overlay)});
+  --_ls__gr--op-font-weight: var(--ls__gr--op-font-weight, 500);
+}

@@ -5,17 +5,7 @@ const defaultProps = defaultInit('d-list')
 export const props = {
   // Values
   list: Array,
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
-  iconArrowRight: {
-    type: String,
-    default: defaultProps('iconArrowRight', 'arrow_right')
-  },
-  group: Object,
-  multiple: undefined,
-  maxlength: undefined,
+  menu: Object,
 
   // Status
   focus: undefined,
@@ -28,15 +18,11 @@ export const props = {
     type: String,
     validator: validatorAxis
   },
-  groupShow: {
-    type: Boolean,
-    default: defaultProps('groupShow')
-  },
+  navigationRail: undefined,
 
   // Item
   tag: undefined,
   appearance: undefined,
-  navigationRail: undefined,
   size: undefined,
   shape: undefined,
   adaptive: undefined,
@@ -45,7 +31,14 @@ export const props = {
   ripple: undefined,
 
   // Icon
-  iconReadonly: undefined,
+  iconArrowDown: {
+    type: String,
+    default: defaultProps('iconArrowDown', 'arrow_drop_down')
+  },
+  iconArrowRight: {
+    type: String,
+    default: defaultProps('iconArrowRight', 'arrow_right')
+  },
   iconAnimationShow: undefined,
   iconBackground: undefined
 }

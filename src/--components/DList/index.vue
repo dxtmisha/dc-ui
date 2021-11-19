@@ -68,7 +68,7 @@
 <script>
 import DListItem from '@/--components/DListItem'
 import DProgress from '@/--components/DProgress'
-import { props } from '@/--components/DList/props'
+import { props } from '@/components/DList/props'
 import { computed, defineAsyncComponent, toRefs } from 'vue'
 import { isSelected } from '@/dcUi'
 import { setupListItem } from '@/--components/DList/setupListItem'
@@ -121,7 +121,7 @@ export default {
       }
     })
 
-    useAdmin('d-list')
+    useAdmin('d-list-old')
 
     return {
       isFocus,
@@ -144,9 +144,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
-
-.d-list {
-  @include listInit;
-}
 </style>

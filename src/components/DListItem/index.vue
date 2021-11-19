@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import DBadge from '@/--components/DBadge'
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
@@ -88,10 +88,10 @@ export default {
       palette,
       color,
       appearance,
-      navigationRail,
       size,
       shape,
       adaptive,
+      navigationRail,
       dense,
       border,
       iconReadonly,
@@ -137,6 +137,8 @@ export default {
     const { classColor } = useColor(color, palette)
 
     const binds = useWatch([
+      thumbnail,
+      icon,
       iconTrailing,
       backgroundColor,
       focus,
@@ -144,16 +146,18 @@ export default {
       disabled,
       classColor,
       appearance,
-      navigationRail,
       size,
       shape,
       propAdaptive,
+      navigationRail,
       dense,
       border
     ], data => {
       data.value = {
         class: {
           'd-list-item a-static': true,
+          'value-thumbnail': thumbnail.value,
+          'value-icon': icon.value,
           'value-trailing': iconTrailing.value,
           'value-background': backgroundColor.value,
           'status-focus': focus.value,
@@ -161,10 +165,10 @@ export default {
           'status-disabled': disabled.value,
           ...classColor.value,
           [`appearance-${appearance.value}`]: appearance.value,
-          [`navigation-rail-${navigationRail.value}`]: navigationRail.value,
           [`size-${size.value}`]: size.value,
           [`shape-${shape.value}`]: shape.value,
           [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
+          [`navigation-rail-${navigationRail.value}`]: navigationRail.value,
           'option-dense': dense.value,
           'option-border': border.value
         },

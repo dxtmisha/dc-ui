@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DList from '@/--components/DList'
+import DList from '@/components/DList'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import List from '@/classes/List'
 import { ref } from 'vue'
@@ -40,11 +40,8 @@ export default {
     }
   },
   methods: {
-    onClick ({
-      toSelected,
-      value
-    }) {
-      this.selected = toSelected ? value : undefined
+    onClick ({ value }) {
+      this.selected = value
     }
   }
 }
@@ -54,6 +51,5 @@ export default {
 .demo-list {
   border-width: var(--basic-border-width);
   max-width: 100%;
-  width: 320px;
 }
 </style>

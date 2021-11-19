@@ -1,0 +1,8 @@
+@mixin mixinAdaptive() {
+  --_ls__ad-display: none;
+  --_ls__sp-height: var(--_ls--ad__sp-height);
+}
+
+%mixin-adaptive {
+  @include mixinAdaptive;
+}

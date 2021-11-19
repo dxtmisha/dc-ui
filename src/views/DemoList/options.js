@@ -10,7 +10,6 @@ export const optionsList = [
 
   'options',
   'palette',
-  'groupShow',
 
   'optionsItem',
   optionsListItemAppearance,
@@ -23,7 +22,6 @@ export const optionsList = [
   'ripple',
 
   'optionsIcon',
-  'iconReadonly',
   'iconAnimationShow',
   'iconBackground'
 ]

@@ -45,24 +45,6 @@ export const props = {
       'contained-status'
     ])
   },
-  navigationRail: {
-    type: String,
-    validator: validator([
-      'small',
-      'medium',
-      'medium-medium',
-      'medium-large',
-      'medium-extra',
-      'medium-desktop',
-      'large',
-      'large-large',
-      'large-extra',
-      'large-desktop',
-      'extra',
-      'desktop',
-      'always'
-    ])
-  },
   size: {
     type: String,
     default: defaultProps('size'),
@@ -83,6 +65,24 @@ export const props = {
   adaptive: {
     type: String,
     validator: validatorAdaptive
+  },
+  navigationRail: {
+    type: String,
+    validator: validator([
+      'small',
+      'medium',
+      'medium-medium',
+      'medium-large',
+      'medium-extra',
+      'medium-desktop',
+      'large',
+      'large-large',
+      'large-extra',
+      'large-desktop',
+      'extra',
+      'desktop',
+      'always'
+    ])
   },
   dense: Boolean,
   border: {
