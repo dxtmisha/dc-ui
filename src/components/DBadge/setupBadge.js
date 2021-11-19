@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { useWatch } from '@/tool/use/useWatch'
+import { useWatch } from '@/uses/useWatch'
 
 export const setupBadge = function (
   badge,

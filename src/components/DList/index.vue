@@ -18,7 +18,7 @@
           class="window-static"
           :icon-trailing="iconArrowDown"
           :turn="item.group"
-          @click.stop="item.group = !item.group"
+          @on-click="onGroup(item.value, item.group = !item.group)"
         />
         <keep-alive>
           <d-list
@@ -41,19 +41,20 @@
 import DListItem from '@/components/DListItem'
 import { props } from '@/components/DList/props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
+import { useColor } from '@/uses/useColor'
 import { useItems } from '@/components/DList/useItems'
-import { useWatch } from '@/tool/use/useWatch'
-import { useColor } from '@/tool/use/useColor'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DList',
   components: { DListItem },
   props,
-  emits: ['on-click'],
+  emits: ['on-click', 'on-group'],
   setup (props, context) {
     const {
       list,
+      group,
       menu,
       focus,
       selected,
@@ -79,6 +80,7 @@ export default {
       propList
     } = useItems(
       list,
+      group,
       menu,
       focus,
       selected,
@@ -120,13 +122,20 @@ export default {
     })
 
     const onClick = event => context.emit('on-click', event)
+    const onGroup = (value, open) => {
+      context.emit('on-group', {
+        value,
+        open
+      })
+    }
 
     useAdmin('d-list')
 
     return {
       propList,
       classList,
-      onClick
+      onClick,
+      onGroup
     }
   }
 }

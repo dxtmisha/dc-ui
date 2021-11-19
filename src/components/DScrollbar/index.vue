@@ -12,10 +12,10 @@
 <script>
 import { props } from '@/components/DScrollbar/props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useScroll } from '@/tool/use/useScroll'
-import { useScrollBorder } from '@/tool/use/useScrollBorder'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useScroll } from '@/uses/useScroll'
+import { useScrollBorder } from '@/uses/useScrollBorder'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DScrollbar',

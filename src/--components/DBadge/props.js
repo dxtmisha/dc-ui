@@ -1,5 +1,5 @@
 import { defaultInit, validator, validatorShape, validatorSize } from '@/uses/useDefault'
-import { palette } from '@/tool/use/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-badge')
 export const props = {

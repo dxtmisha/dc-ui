@@ -22,8 +22,8 @@
 <script>
 import { props } from '@/components/DProgress/props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useWatch } from '@/uses/useWatch'
 import { useValue } from '@/components/DProgress/useValue'
 import { useVisible } from '@/components/DProgress/useVisible'
 

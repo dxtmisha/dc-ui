@@ -1,4 +1,4 @@
-import { useWatch } from '@/tool/use/useWatch'
+import { useWatch } from '@/uses/useWatch'
 
 export const useValue = function (
   value,

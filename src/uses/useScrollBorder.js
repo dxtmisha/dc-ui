@@ -1,6 +1,6 @@
 import { ref } from 'vue'
-import { useClass } from '@/tool/use/useClass'
-import { useWatch } from '@/tool/use/useWatch'
+import { useClass } from '@/uses/useClass'
+import { useWatch } from '@/uses/useWatch'
 
 export const useScrollBorder = function (border) {
   const scroll = ref(undefined)

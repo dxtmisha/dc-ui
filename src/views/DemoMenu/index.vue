@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
-import DMenu from '@/--components/DMenu'
+import DButton from '@/components/DButton'
+import DMenu from '@/components/DMenu'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMenu } from '@/views/DemoMenu/options'
 import { menu } from '@/media/demo/list'
@@ -48,5 +48,6 @@ export default {
 .demo-menu {
   display: flex;
   gap: 8px;
+  max-width: 400px;
 }
 </style>

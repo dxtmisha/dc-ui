@@ -1,4 +1,4 @@
-import { useClass } from '@/tool/use/useClass'
+import { useClass } from '@/uses/useClass'
 
 export const usePersistent = function (modal) {
   const classPersistent = useClass(modal, 'option-persistent')

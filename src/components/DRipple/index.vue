@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 import { useItem } from '@/components/DRipple/useItem'
 
 export default {

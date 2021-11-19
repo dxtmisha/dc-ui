@@ -19,8 +19,8 @@
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DIcon',

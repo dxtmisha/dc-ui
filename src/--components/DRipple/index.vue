@@ -17,7 +17,7 @@
 
 <script>
 import { ref } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DRipple',

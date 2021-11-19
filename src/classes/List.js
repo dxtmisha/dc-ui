@@ -1,5 +1,5 @@
 import Translation from './Translation'
-import { forEach, getColumn, isSelected } from '@/dcUi'
+import { forEach, getColumn, isSelected } from '@/tool/functions'
 
 export default class List {
   _list
@@ -103,9 +103,19 @@ export default class List {
     return this._group
   }
 
+  getGroup () {
+    return this._group
+  }
+
   setGroup (group) {
     this._caching.first = null
     this._group = group
+    return this
+  }
+
+  setGroupItem (index, value) {
+    this._caching.first = null
+    this._group[index] = value
     return this
   }
 

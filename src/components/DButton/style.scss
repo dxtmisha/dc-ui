@@ -73,9 +73,8 @@
 @mixin buttonText() {
   &__text {
     @include ellipsis;
-    @include flexX;
     @include flexDynamic;
-    display: var(--_bt--ic-display, flex);
+    display: var(--_bt--ic-display, block);
     @content;
   }
 }

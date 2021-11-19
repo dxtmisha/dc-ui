@@ -33,9 +33,9 @@ import { props } from '@/components/DButton/props'
 import { ref, toRefs } from 'vue'
 import { setupBadge } from '@/components/DBadge/setupBadge'
 import { setupIcon } from '@/components/DIcon/setupIcon'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useColor } from '@/tool/use/useColor'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useColor } from '@/uses/useColor'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DButton',

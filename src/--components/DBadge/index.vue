@@ -18,8 +18,8 @@
 import DIconItem from '@/--components/DIconItem'
 import { props } from './props'
 import { computed, readonly, toRefs } from 'vue'
-import { useColor } from '@/tool/use/useColor'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useColor } from '@/uses/useColor'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DBadge',

@@ -1,5 +1,4 @@
 import { defaultInit } from '@/uses/useDefault'
-import { palette } from '@/tool/use/useColor'
 
 const defaultProps = defaultInit('d-menu')
 export const props = {
@@ -32,12 +31,8 @@ export const props = {
   disabled: Boolean,
 
   // Options
-  palette,
-  color: String,
-  groupShow: {
-    type: Boolean,
-    default: defaultProps('groupShow')
-  },
+  palette: undefined,
+  color: undefined,
 
   // Item
   tag: undefined,

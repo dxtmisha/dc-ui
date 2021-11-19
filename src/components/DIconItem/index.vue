@@ -10,8 +10,8 @@
 <script>
 import { props } from '@/components/DIconItem/props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useWatch } from '@/uses/useWatch'
 import { useIcon } from './useIcon'
 
 export default {

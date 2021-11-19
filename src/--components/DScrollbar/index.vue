@@ -13,7 +13,7 @@
 import { props } from '@/components/DScrollbar/props'
 import { readonly, toRefs } from 'vue'
 import { useScroll } from './useScroll'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 import { useBorder } from './useBorder'
 
 export default {

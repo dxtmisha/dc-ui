@@ -37,15 +37,16 @@
 import { props } from '@/components/DWindow/props'
 import { ref, toRefs } from 'vue'
 import { getIdElement } from '@/tool/functions'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 import { useCoordinates } from '@/components/DWindow/useCoordinates'
 import { useOpen } from '@/components/DWindow/useOpen'
 import { usePersistent } from '@/components/DWindow/usePersistent'
-import { useScroll } from '@/tool/use/useScroll'
-import { useWatch } from '@/tool/use/useWatch'
+import { useScroll } from '@/uses/useScroll'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DWindow',
+  inheritAttrs: false,
   props,
   emits: ['on-open'],
   setup (props, context) {
@@ -77,11 +78,6 @@ export default {
     const {
       clientX,
       clientY,
-      x,
-      y,
-      originX,
-      originY,
-      minimum,
       watchPosition
     } = useCoordinates(
       id,
@@ -139,20 +135,8 @@ export default {
         [`adaptive-${adaptive.value}`]: adaptive.value
       }
     })
-    const styleList = useWatch([
-      open,
-      width
-    ], data => {
-      data.value = {
-        '--_wn-width': width.value,
-        '--_wn-cl-x': `${clientX.value}px`,
-        '--_wn-cl-y': `${clientY.value}px`,
-        '--_wn-x': `${x.value}px`,
-        '--_wn-y': `${y.value}px`,
-        '--_wn-or-x': originX.value,
-        '--_wn-or-y': originY.value,
-        '--_wn--cn-width': minimum.value ? `${minimum.value}px` : null
-      }
+    const styleList = useWatch(width, data => {
+      data.value = { '--_wn-width': width.value }
     })
 
     useAdmin('d-window')

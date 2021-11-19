@@ -60,9 +60,9 @@ import DRipple from '@/--components/DRipple'
 import { props } from '@/components/DListItem/props'
 import { computed, readonly, toRefs } from 'vue'
 import { useIcon } from './useIcon'
-import { useColor } from '@/tool/use/useColor'
+import { useColor } from '@/uses/useColor'
 import { setupBadge } from '@/components/DBadge/setupBadge'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DListItem',

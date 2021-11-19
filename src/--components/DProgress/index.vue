@@ -23,7 +23,7 @@
 import { props } from '@/components/DProgress/props'
 import { computed, toRefs } from 'vue'
 import { useVisible } from '@/--components/DProgress/useVisible'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 
 export default {
   name: 'DProgress',

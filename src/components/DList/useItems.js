@@ -1,9 +1,10 @@
 import { reactive, readonly, ref, watch } from 'vue'
 import { getObjectValues, isSelected } from '@/tool/functions'
-import { useWatch } from '@/tool/use/useWatch'
+import { useWatch } from '@/uses/useWatch'
 
 export const useItems = function (
   list,
+  group,
   menu,
   focus,
   selected,
@@ -22,7 +23,7 @@ export const useItems = function (
   iconAnimationShow,
   iconBackground
 ) {
-  const group = {}
+  const cacheGroup = {}
   const propsItem = {
     tag,
     appearance,
@@ -97,7 +98,7 @@ export const useItems = function (
           item.menu = getMenu(original)
 
           if (item.list) {
-            item.group = group[item.value] || (group[item.value] = ref(false))
+            item.group = cacheGroup[item.value] || (cacheGroup[item.value] = ref(group.value?.[item.value] || false))
           }
         }
 

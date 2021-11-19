@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { createElement } from '@/tool/functions'
-import { useWatch } from '@/tool/use/useWatch'
+import { useWatch } from '@/uses/useWatch'
 
 const SCROLL = '__dui-scroll'
 

@@ -1,5 +1,5 @@
 import { onMounted, ref, watch } from 'vue'
-import { useClass } from '@/tool/use/useClass'
+import { useClass } from '@/uses/useClass'
 
 export const useVisible = function (
   visible,

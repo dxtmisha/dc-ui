@@ -1,7 +1,7 @@
 import { nextTick, ref } from 'vue'
 import { frame } from '@/tool/functions'
-import { useStyle } from '@/tool/use/useStyle'
-import { useWatch } from '@/tool/use/useWatch'
+import { useStyle } from '@/uses/useStyle'
+import { useWatch } from '@/uses/useWatch'
 
 export const getInnerPosition = function (
   inValue,
@@ -106,7 +106,17 @@ export const useCoordinates = function (
             top.value = 0
           }
         },
-        () => open.value
+        () => open.value,
+        () => {
+          clientX.value = undefined
+          clientY.value = undefined
+          originX.value = undefined
+          originY.value = undefined
+          minimum.value = undefined
+
+          x.value = undefined
+          y.value = undefined
+        }
       )
     }
   }

@@ -31,7 +31,7 @@
 import { props } from '@/--components/DWindow/props'
 import { computed, readonly, toRefs } from 'vue'
 import { useScroll } from '@/--components/DScrollbar/useScroll'
-import { useAdmin } from '@/tool/use/useAdmin'
+import { useAdmin } from '@/uses/useAdmin'
 import { useEvent } from './useEvent'
 import { usePosition } from './usePosition'
 import { useToggle } from './useToggle'

@@ -15,9 +15,9 @@
 import DIconItem from '@/components/DIconItem'
 import { props } from '@/components/DBadge/props'
 import { toRefs } from 'vue'
-import { useAdmin } from '@/tool/use/useAdmin'
-import { useColor } from '@/tool/use/useColor'
-import { useWatch } from '@/tool/use/useWatch'
+import { useAdmin } from '@/uses/useAdmin'
+import { useColor } from '@/uses/useColor'
+import { useWatch } from '@/uses/useWatch'
 import { useText } from '@/components/DBadge/useText'
 
 export default {

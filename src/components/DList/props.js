@@ -1,10 +1,11 @@
 import { defaultInit, validatorAxis } from '@/uses/useDefault'
-import { palette } from '@/tool/use/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-list')
 export const props = {
   // Values
   list: Array,
+  group: Object,
   menu: Object,
 
   // Status

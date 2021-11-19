@@ -1,4 +1,4 @@
-import { useWatch } from '@/tool/use/useWatch'
+import { useWatch } from '@/uses/useWatch'
 import { getFileResult } from '@/tool/functions'
 import { ref } from 'vue'
 
