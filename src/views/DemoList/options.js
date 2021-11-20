@@ -23,6 +23,8 @@ export const optionsList = [
   'ripple',
 
   'optionsIcon',
+  'icon',
+  'iconActive',
   'iconAnimationShow',
   'iconBackground'
 ]

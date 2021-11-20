@@ -19,6 +19,8 @@ export const useItems = function (
   dense,
   border,
   ripple,
+  icon,
+  iconActive,
   iconArrowDown,
   iconArrowRight,
   iconAnimationShow,
@@ -35,6 +37,8 @@ export const useItems = function (
     dense,
     border,
     ripple,
+    icon,
+    iconActive,
     iconAnimationShow,
     iconBackground
   }

@@ -33,6 +33,8 @@ export const props = {
   ripple: undefined,
 
   // Icon
+  icon: undefined,
+  iconActive: undefined,
   iconArrowDown: {
     type: String,
     default: defaultProps('iconArrowDown', 'arrow_drop_down')
