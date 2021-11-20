@@ -1,7 +1,7 @@
 import { badge } from '@/media/demo/badge'
 import { icon } from '@/media/demo/icons'
 import { subtitles } from '@/media/demo/subtitles'
-import { quote1 } from '@/media/demo/texts'
+import { helper1, quote1, validation1 } from '@/media/demo/texts'
 
 export const optionsList = {
   // Values
@@ -10,13 +10,21 @@ export const optionsList = {
     message: '/demo/request/menu.json'
   },
   cache: { text: 'Cache' },
+  counterValue: {
+    text: 'Character counter',
+    message: 4
+  },
   description: {
     text: 'Description',
     message: quote1
   },
+  helperMessage: {
+    text: 'Helper text',
+    message: helper1
+  },
   maxlength: {
     text: 'Maxlength',
-    message: 4
+    message: 8
   },
   multiple: { text: 'Multiple' },
   open: { text: 'Open' },
@@ -24,6 +32,7 @@ export const optionsList = {
     text: 'Prefix text',
     message: '+7'
   },
+  required: { text: 'Required' },
   suffix: {
     text: 'Suffix text',
     message: '.00'
@@ -37,13 +46,20 @@ export const optionsList = {
     text: 'Text short',
     message: 'Demo'
   },
+  validationMessage: {
+    text: 'Error text',
+    message: validation1
+  },
 
   // Status
   active: { text: 'Active' },
   disabled: { text: 'Disabled' },
+  disabledNext: { text: 'Disabled: next' },
+  disabledPrevious: { text: 'Disabled: previous' },
   dragged: { text: 'Dragged' },
   focus: { text: 'Focus' },
   hide: { text: 'Hide element' },
+  isValue: { text: 'Hide element' },
   progress: { text: 'Progress' },
   readonly: { text: 'Readonly' },
   selected: { text: 'Selected' },
@@ -97,6 +113,24 @@ export const optionsList = {
       }
     ]
   },
+  align: {
+    text: 'Align',
+    list: [
+      { value: undefined },
+      {
+        text: 'Center',
+        value: 'center'
+      },
+      {
+        text: 'Left',
+        value: 'left'
+      },
+      {
+        text: 'Right',
+        value: 'right'
+      }
+    ]
+  },
   animationHide: {
     text: 'Hide animation',
     list: [
@@ -112,6 +146,7 @@ export const optionsList = {
     ]
   },
   animationShow: { text: 'Show with animation' },
+  arrow: { text: 'Arrow' },
   autoClose: {
     text: 'Automatic closing',
     default: true
@@ -137,6 +172,8 @@ export const optionsList = {
   },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
+  cancel: { text: 'Cancel' },
+  counter: { text: 'Counter' },
   delay: {
     text: 'Delay',
     list: [
