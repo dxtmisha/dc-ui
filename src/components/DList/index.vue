@@ -28,6 +28,24 @@
           />
         </keep-alive>
       </div>
+      <d-menu
+        v-else-if="item.menu"
+        v-bind="item.menu"
+        @on-input="onClick"
+      >
+        <template v-slot:default="{ classList, onClick, open, progress }">
+          <d-list-item
+            v-bind="item.item"
+            class="ls-menu window-static"
+            :class="classList"
+            :icon-trailing="iconArrowRight"
+            :focus="open || item.item.focus"
+            :turn="open"
+            :progress="progress"
+            @click="onClick"
+          />
+        </template>
+      </d-menu>
       <d-list-item
         v-else
         v-bind="item.item"
@@ -40,7 +58,7 @@
 <script>
 import DListItem from '@/components/DListItem'
 import { props } from '@/components/DList/props'
-import { toRefs } from 'vue'
+import { defineAsyncComponent, toRefs } from 'vue'
 import { useAdmin } from '@/uses/useAdmin'
 import { useColor } from '@/uses/useColor'
 import { useItems } from '@/components/DList/useItems'
@@ -48,7 +66,10 @@ import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DList',
-  components: { DListItem },
+  components: {
+    DListItem,
+    DMenu: defineAsyncComponent(() => import('@/components/DMenu'))
+  },
   props,
   emits: ['on-click', 'on-group'],
   setup (props, context) {

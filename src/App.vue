@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import InteractiveDemoTheme from '@/--components/InteractiveDemo/InteractiveDemoTheme'
+import InteractiveDemoTheme from '@/components/InteractiveDemo/InteractiveDemoTheme'
 
 export default {
   name: 'App',

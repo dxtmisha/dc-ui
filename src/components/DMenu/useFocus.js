@@ -72,6 +72,8 @@ export const useFocus = function (
       focusKey = getKey(getList(), selected.value)
       await nextTick()
       goScroll(querySelector('.d-list-item.status-selected'))
+    } else {
+      focus.value = undefined
     }
   }
 

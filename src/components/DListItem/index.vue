@@ -36,6 +36,11 @@
       v-bind="bindBadge"
       :hide="disabled"
     />
+    <d-progress
+      v-if="progress && !disabled"
+      :visible="progress"
+      :bottom="true"
+    />
     <d-ripple v-if="ripple && !disabled"/>
     <slot
       class-name="d-list-item__text"
@@ -51,6 +56,7 @@
 <script>
 import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
+import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
 import { toRefs } from 'vue'
@@ -63,6 +69,7 @@ import { useWatch } from '@/uses/useWatch'
 export default {
   name: 'DListItem',
   components: {
+    DProgress,
     DBadge,
     DIcon,
     DRipple

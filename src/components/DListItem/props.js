@@ -27,6 +27,7 @@ export const props = {
   selected: Boolean,
   turn: Boolean,
   disabled: Boolean,
+  progress: Boolean,
 
   // Options
   palette,

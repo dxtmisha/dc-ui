@@ -36,9 +36,10 @@ import DList from '@/components/DList'
 import DWindow from '@/components/DWindow'
 import { props } from '@/components/DMenu/props'
 import { readonly, toRefs } from 'vue'
+import { useFocus } from '@/components/DMenu/useFocus'
 import { useObjectList } from '@/uses/useObjectList'
 import { useSelected } from '@/components/DMenu/useSelected'
-import { useFocus } from '@/components/DMenu/useFocus'
+import { useShifted } from '@/components/DMenu/useShifted'
 
 export default {
   name: 'DMenu',
@@ -55,12 +56,20 @@ export default {
       translation,
       keyText,
       keyValue,
+      ajax,
+      request,
+      cache,
       multiple,
       maxlength,
       selected,
-      ajax,
-      request,
-      cache
+      disabled,
+      palette,
+      color,
+      tag,
+      appearance,
+      size,
+      shape,
+      ripple
     } = toRefs(props)
 
     const {
@@ -105,12 +114,40 @@ export default {
       object
     )
 
+    const {
+      previous,
+      next
+    } = useShifted(
+      multiple,
+      propSelected,
+      disabled,
+      object,
+      beforeOpening,
+      onInput
+    )
+
     const bindList = readonly({
       class: 'd-menu__list',
       list: buffer,
       group,
+      menu: readonly({
+        translation,
+        keyText,
+        keyValue,
+        multiple,
+        maxlength
+      }),
       focus,
-      selected: propSelected
+      selected: propSelected,
+      palette,
+      color,
+      tag,
+      appearance,
+      size,
+      shape,
+      adaptive: 'basic',
+      border: false,
+      ripple
     })
 
     return {
@@ -121,6 +158,8 @@ export default {
       items,
       names,
       bindList,
+      previous,
+      next,
       beforeOpening,
       opening,
       onInput,

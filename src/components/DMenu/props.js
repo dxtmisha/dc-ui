@@ -51,7 +51,7 @@ export const props = {
   axis: undefined,
   width: {
     type: String,
-    default: defaultProps('width')
+    default: defaultProps('width', '0px')
   },
   indent: undefined
 }

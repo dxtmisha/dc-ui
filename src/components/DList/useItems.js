@@ -43,7 +43,10 @@ export const useItems = function (
     focus: ref(isSelected(item.value, focus.value)),
     selected: ref(isSelected(item.value, selected.value)),
     ...propsItem,
-    ...item
+    ...item,
+    list: undefined,
+    menu: undefined,
+    menuProps: undefined
   })
   const getList = item => item?.list
     ? readonly({
@@ -59,10 +62,17 @@ export const useItems = function (
     : undefined
   const getMenu = (item) => item?.menu
     ? readonly({
-      ...menu,
+      ajax: undefined,
+      tag,
+      appearance,
+      size,
+      shape,
+      ripple,
+      ...menu.value,
       ...item?.menuProps,
       list: item.menu,
       listInit: false,
+      selected,
       axis: axis.value === 'x' ? 'y' : 'x',
       indent: axis.value === 'x' ? undefined : -4
     })

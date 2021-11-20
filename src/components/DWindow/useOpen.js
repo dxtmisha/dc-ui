@@ -52,6 +52,10 @@ export const useOpen = function (
         classHide.value = true
         classShow.value = false
         eventBody.stop()
+
+        if (opening.value) {
+          opening.value(toOpen)
+        }
       }
 
       context.emit('on-open', {

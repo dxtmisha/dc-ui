@@ -4,16 +4,26 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-menu">
+      <d-button
+        icon="chevron_left"
+        appearance="text-color"
+        @click="$refs.menu.previous()"
+      />
       <d-menu ref="menu" v-bind="binds" :list="list">
-        <template v-slot:default="{ classList, onClick, progress }">
+        <template v-slot:default="{ classList, onClick, names, progress }">
           <d-button
             :class="classList"
-            text="Interactive demo"
+            :text="names ? names.join(', ') : 'Interactive demo'"
             :progress="progress"
             @click="onClick"
           />
         </template>
       </d-menu>
+      <d-button
+        icon="chevron_right"
+        appearance="text-color"
+        @click="$refs.menu.next()"
+      />
     </div>
   </interactive-demo>
 </template>
@@ -21,7 +31,7 @@
 <script>
 import DButton from '@/components/DButton'
 import DMenu from '@/components/DMenu'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsMenu } from '@/views/DemoMenu/options'
 import { menu } from '@/media/demo/list'
 

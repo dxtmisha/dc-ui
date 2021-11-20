@@ -61,14 +61,20 @@ export const useCoordinates = function (
       }
     }
   }
-  const update = async () => {
+  const update = async (control) => {
     await nextTick()
     updateX(x)
     updateY(y)
 
     requestAnimationFrame(() => {
-      originX.value = clientX.value ? `${clientX.value - x.value}px` : 'left'
-      originY.value = clientY.value ? `${clientY.value - y.value}px` : 'top'
+      if (clientX.value === 0 && clientY.value === 0) {
+        const rect = control.getBoundingClientRect()
+        originX.value = `${(rect.left + (rect.width / 2)) - x.value}px`
+        originY.value = `${(rect.top + (rect.height / 2)) - y.value}px`
+      } else {
+        originX.value = clientX.value ? `${clientX.value - x.value}px` : 'left'
+        originY.value = clientY.value ? `${clientY.value - y.value}px` : 'top'
+      }
     })
   }
 
@@ -89,7 +95,7 @@ export const useCoordinates = function (
   const watchPosition = () => {
     const control = document.querySelector(`.d-window__control.${id}`)
 
-    update().then()
+    update(control).then()
 
     if (open.value && control) {
       frame(
