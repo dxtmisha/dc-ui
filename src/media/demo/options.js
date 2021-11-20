@@ -49,6 +49,10 @@ export const optionsList = {
   selected: { text: 'Selected' },
   turn: { text: 'Turn' },
   visible: { text: 'Visible' },
+  underline: {
+    text: 'Underline',
+    message: 'int|demo|support'
+  },
 
   // Options
   adaptive: {

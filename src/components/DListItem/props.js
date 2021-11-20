@@ -25,6 +25,7 @@ export const props = {
   // Status
   focus: Boolean,
   selected: Boolean,
+  underline: String,
   turn: Boolean,
   disabled: Boolean,
   progress: Boolean,

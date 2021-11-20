@@ -17,10 +17,10 @@
       v-if="text"
       class="d-list-item__text"
     >
-      <template v-if="prefix || suffix || description">
+      <template v-if="prefix || suffix || description || underline">
         <div class="d-list-item__title">
           <span v-if="prefix" class="d-list-item__prefix">{{ prefix }}</span>
-          <span class="d-list-item__main" v-html="text"/>
+          <span class="d-list-item__main" v-html="propText"/>
           <span v-if="suffix" class="d-list-item__suffix">{{ suffix }}</span>
         </div>
         <div
@@ -87,6 +87,7 @@ export default {
       badge,
       badgeIcon,
       text,
+      underline,
       backgroundColor,
       focus,
       selected,
@@ -143,6 +144,14 @@ export default {
 
     const { classColor } = useColor(color, palette)
 
+    const propText = useWatch([text, underline], data => {
+      data.value = underline.value
+        ? text.value.toString().replace(
+          new RegExp(`(${underline.value})`, 'ig'),
+          subtext => `<span class="d-list-item__underline">${subtext}</span>`
+        )
+        : text.value
+    })
     const binds = useWatch([
       thumbnail,
       icon,
@@ -195,6 +204,7 @@ export default {
     useAdmin('d-list-item')
 
     return {
+      propText,
       bindBadge,
       bindThumbnail,
       bindIcon,

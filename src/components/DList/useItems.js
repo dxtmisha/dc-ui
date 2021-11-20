@@ -8,6 +8,7 @@ export const useItems = function (
   menu,
   focus,
   selected,
+  underline,
   axis,
   navigationRail,
   tag,
@@ -42,6 +43,7 @@ export const useItems = function (
     item,
     focus: ref(isSelected(item.value, focus.value)),
     selected: ref(isSelected(item.value, selected.value)),
+    underline: ref(undefined),
     ...propsItem,
     ...item,
     list: undefined,
@@ -121,6 +123,11 @@ export const useItems = function (
 
   watch(focus, (value) => setStatus('focus', value))
   watch(selected, (value) => setStatus('selected', value))
+  watch(underline, (value) => propList.value.forEach(({ item }) => {
+    if (item) {
+      item.underline = item.text.match(new RegExp(`(${value})`, 'ig')) ? value : undefined
+    }
+  }))
 
   return { propList }
 }

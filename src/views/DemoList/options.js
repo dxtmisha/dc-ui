@@ -7,6 +7,7 @@ export const optionsList = [
     value: 'focus',
     message: 'help_and_feedback'
   },
+  'underline',
 
   'options',
   'palette',

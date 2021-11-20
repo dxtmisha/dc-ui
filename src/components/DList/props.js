@@ -11,6 +11,7 @@ export const props = {
   // Status
   focus: undefined,
   selected: undefined,
+  underline: undefined,
 
   // Options
   palette,

@@ -108,6 +108,7 @@ export default {
       elWindow,
       elMenu,
       focus,
+      search,
       opening
     } = useFocus(
       propSelected,
@@ -139,6 +140,7 @@ export default {
       }),
       focus,
       selected: propSelected,
+      underline: search,
       palette,
       color,
       tag,

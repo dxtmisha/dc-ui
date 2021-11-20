@@ -104,6 +104,12 @@
   }
 }
 
+@mixin listItemUnderline() {
+  &__underline {
+    background-color: varColor(--warning-type1, --opacity-scrim);
+  }
+}
+
 @mixin listItemSubText() {
   &__prefix,
   &__suffix {
@@ -357,6 +363,7 @@
   @include listItemIcon;
   @include listItemText;
   @include listItemTextShort;
+  @include listItemUnderline;
   @include listItemSubText;
   @include listItemDescription;
 
