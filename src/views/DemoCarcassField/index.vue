@@ -3,13 +3,29 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-carcass-field v-bind="binds"/>
+    <d-carcass-field
+      v-bind="binds"
+      :active="active"
+      :filled="active"
+    >
+      <template v-slot:default="{ className }">
+        <input
+          ref="input"
+          type="text"
+          :class="className"
+          :readonly="binds?.readonly"
+          :disabled="binds?.disabled"
+          @input="onInput"
+        >
+      </template>
+    </d-carcass-field>
   </interactive-demo>
 </template>
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import { ref } from 'vue'
 import { optionsCarcassField } from '@/views/DemoCarcassField/options'
 
 export default {
@@ -20,7 +36,19 @@ export default {
   },
   setup () {
     const options = optionsCarcassField
-    return { options }
+    const input = ref(undefined)
+    const active = ref(undefined)
+
+    const onInput = () => {
+      active.value = !!input.value.value
+    }
+
+    return {
+      input,
+      options,
+      active,
+      onInput
+    }
   }
 }
 </script>

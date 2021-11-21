@@ -12,6 +12,7 @@
       :disabled="disabled"
       :hide="!isActive"
     />
+    <slot/>
   </span>
 </template>
 

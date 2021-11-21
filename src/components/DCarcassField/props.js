@@ -21,6 +21,7 @@ export const props = {
   focus: Boolean,
   active: Boolean,
   selected: Boolean,
+  filled: Boolean,
   turn: Boolean,
   readonly: Boolean,
   disabled: Boolean,

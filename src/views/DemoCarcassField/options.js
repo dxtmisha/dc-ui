@@ -56,8 +56,12 @@ export const optionsCarcassFieldSize = {
       value: 'medium'
     },
     {
-      text: 'Outlined',
-      value: 'outlined'
+      text: 'Large',
+      value: 'large'
+    },
+    {
+      text: 'Interactive display',
+      value: 'interactive-display'
     }
   ]
 }
@@ -78,7 +82,6 @@ export const optionsCarcassField = [
 
   'status',
   'focus',
-  'active',
   'selected',
   'turn',
   'readonly',
