@@ -1,29 +1,24 @@
 import Geo from '../../classes/Geo'
 import { defaultInit, validator } from '@/uses/useDefault'
 
-const defaultProps = defaultInit('d-mask')
+const defaultProps = defaultInit('d-mask-date')
 export const props = {
   // Values
-  mask: String,
   value: String,
-  view: {
-    default: '0'
-  },
-  match: {
-    default: /[0-9]/
-  },
-  pattern: undefined,
   on: {
     type: Object,
     default: {}
   },
 
   // Options
+  tag: {
+    type: String,
+    default: 'input'
+  },
   type: {
     type: String,
-    default: 'datetime',
+    default: 'date',
     validator: validator([
-      'text',
       'date',
       'datetime',
       'month',
@@ -33,9 +28,5 @@ export const props = {
   locales: {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
-  },
-  visibleMask: {
-    type: Boolean,
-    default: defaultProps('visibleMask', true)
   }
 }

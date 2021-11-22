@@ -8,6 +8,7 @@ export const useEvent = function (
   pasteValue,
   popValue,
   checkValidity,
+  inputValue,
   context
 ) {
   const emit = (name = 'on-input') => requestAnimationFrame(() => {
@@ -20,7 +21,7 @@ export const useEvent = function (
 
   const change = useWatch(standard, data => {
     if (input.value) {
-      input.value.value = standard.value
+      inputValue(standard.value)
 
       emit()
       data.value = true

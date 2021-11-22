@@ -234,6 +234,40 @@ export const optionsList = {
     ]
   },
   left: { text: 'Left' },
+  locales: {
+    text: 'Locales',
+    list: [
+      { value: undefined },
+      {
+        text: 'en-US',
+        value: 'en-US'
+      },
+      {
+        text: 'en-GB',
+        value: 'en-GB'
+      },
+      {
+        text: 'en-AU',
+        value: 'en-AU'
+      },
+      {
+        text: 'de-DE',
+        value: 'de-DE'
+      },
+      {
+        text: 'ko-KR',
+        value: 'ko-KR'
+      },
+      {
+        text: 'he-IL',
+        value: 'he-IL'
+      },
+      {
+        text: 'ru-RU',
+        value: 'ru-RU'
+      }
+    ]
+  },
   lowercase: { text: 'Lowercase' },
   navigationRail: {
     text: 'Navigation rail',

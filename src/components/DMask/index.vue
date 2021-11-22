@@ -1,16 +1,23 @@
 <template>
-  <component
-    ref="input"
-    :is="tag"
-    class="d-mask"
-    type="text"
-    :pattern="propPattern"
-    v-on="on"
-    @keypress.prevent="onKeypress"
-    @keydown="onKeydown"
-    @paste.prevent="onPaste"
-    @blur="onBlur"
-  />
+  <label class="d-mask">
+    <span class="d-mask__view">
+      <input
+        ref="input"
+        class="d-mask__input"
+        type="text"
+        :pattern="propPattern"
+        v-on="on"
+        @keypress.prevent="onKeypress"
+        @keydown="onKeydown"
+        @paste.prevent="onPaste"
+        @blur="onBlur"
+      />
+      <span
+        ref="char"
+        class="d-mask__char"
+      />
+    </span>
+  </label>
 </template>
 
 <script>
@@ -22,7 +29,6 @@ import { useEvent } from '@/components/DMask/useEvent'
 import { useInit } from '@/components/DMask/useInit'
 import { useValidity } from '@/components/DMask/useValidity'
 import { useValue } from '@/components/DMask/useValue'
-import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DMask',
@@ -32,21 +38,35 @@ export default {
     const {
       mask,
       value,
+      view,
       match,
-      pattern
+      pattern,
+      type,
+      locales
     } = toRefs(props)
 
     const input = ref(false)
+    const char = ref(false)
+    // delete
     const resetValue = () => resetCharacter(value.value)
 
     const {
-      propMask
-    } = useInit(mask)
-    const propPattern = useWatch([propMask, pattern], data => {
-      data.value = pattern.value || `.{${propMask.value?.length}}`
-    })
+      propView,
+      propMask,
+      propPattern,
+      // delete
+      inputValue
+    } = useInit(
+      input,
+      mask,
+      view,
+      pattern,
+      type,
+      locales
+    )
 
     const {
+      character,
       standard,
       resetCharacter,
       setValue,
@@ -77,6 +97,7 @@ export default {
       pasteValue,
       popValue,
       checkValidity,
+      inputValue,
       context
     )
 
@@ -90,6 +111,7 @@ export default {
 
     return {
       input,
+      char,
       propPattern,
       validationMessage,
       cancel,
@@ -103,4 +125,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "style";
+
+.d-mask {
+  @include maskInit;
+}
+</style>

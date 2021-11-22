@@ -125,6 +125,7 @@ export const useCharacter = function (
   }
 
   return {
+    character,
     standard,
     resetCharacter,
     setValue,

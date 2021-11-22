@@ -1,0 +1,69 @@
+@import "../../styles/position";
+
+@mixin mask() {
+  display: block;
+}
+
+@mixin maskShow() {
+  &__view {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  &__mask,
+  &__passed,
+  &__character {
+    cursor: auto;
+    opacity: 0;
+    position: relative;
+    text-transform: lowercase;
+    z-index: 2;
+  }
+
+  &__mask {
+    --basic-text-opacity: var(--opacity-surface-disabled);
+  }
+
+  &__passed {
+    color: transparent;
+  }
+
+  &__character {
+    --basic-text-opacity: var(--opacity-surface-high);
+
+    &.status-error {
+      --basic-text: var(--error-type1);
+    }
+  }
+
+  &:focus-within &,
+  &__view.status-character & {
+    &__mask,
+    &__passed,
+    &__character {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin maskInput() {
+  &__input {
+    @include absoluteFull;
+    --basic-text-opacity: var(--opacity-surface-medium);
+    text-align: inherit;
+    width: 100%;
+    z-index: 1;
+    @content;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+@mixin maskInit() {
+  @include mask;
+  @include maskShow;
+  @include maskInput;
+}
