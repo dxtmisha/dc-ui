@@ -7,6 +7,7 @@ import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoList from '../views/DemoList'
 import DemoListItem from '../views/DemoListItem'
+import DemoMask from '../views/DemoMask'
 import DemoMenu from '../views/DemoMenu'
 import DemoProgress from '../views/DemoProgress'
 import DemoRipple from '../views/DemoRipple'
@@ -21,6 +22,7 @@ const routes = getRoutes({
   'd-icon-item': DemoIconItem,
   'd-list': DemoList,
   'd-list-item': DemoListItem,
+  'd-mask': DemoMask,
   'd-menu': DemoMenu,
   'd-progress': DemoProgress,
   'd-ripple': DemoRipple,

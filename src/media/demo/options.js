@@ -22,6 +22,21 @@ export const optionsList = {
     text: 'Helper text',
     message: helper1
   },
+  mask: {
+    text: 'Mask',
+    default: '**** **** **** ***',
+    list: [
+      { value: undefined },
+      {
+        text: '+7 (***) ***-**-**',
+        value: '+7 (***) ***-**-**'
+      },
+      {
+        text: '**** **** **** ***',
+        value: '**** **** **** ***'
+      }
+    ]
+  },
   maxlength: {
     text: 'Maxlength',
     message: 8
