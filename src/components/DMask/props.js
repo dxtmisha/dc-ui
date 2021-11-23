@@ -6,7 +6,7 @@ export const props = {
   // Values
   mask: String,
   value: String,
-  view: {
+  viewSpecial: {
     default: '0'
   },
   match: {
@@ -21,7 +21,7 @@ export const props = {
   // Options
   type: {
     type: String,
-    default: 'datetime',
+    default: 'text',
     validator: validator([
       'text',
       'date',

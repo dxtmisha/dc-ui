@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DMaskDate/props'
+import { props } from '@/components/--DMaskDate/props'
 import { ref, toRefs } from 'vue'
 
 export default {
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/components/DMask/style";
+@import "../--DMask/style";
 
 .d-mask-date {
   @include maskDateInit;

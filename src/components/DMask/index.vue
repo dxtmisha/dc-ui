@@ -4,18 +4,12 @@
       <input
         ref="input"
         class="d-mask__input"
-        type="text"
         :pattern="propPattern"
-        v-on="on"
         @keypress.prevent="onKeypress"
         @keydown="onKeydown"
         @paste.prevent="onPaste"
-        @blur="onBlur"
       />
-      <span
-        ref="char"
-        class="d-mask__char"
-      />
+      <span ref="chars" class="d-mask__chars"></span>
     </span>
   </label>
 </template>
@@ -24,42 +18,38 @@
 import { props } from '@/components/DMask/props'
 import { ref, toRefs } from 'vue'
 import { useAdmin } from '@/uses/useAdmin'
+import { useMask } from '@/components/DMask/useMask'
 import { useCharacter } from '@/components/DMask/useCharacter'
-import { useEvent } from '@/components/DMask/useEvent'
-import { useInit } from '@/components/DMask/useInit'
-import { useValidity } from '@/components/DMask/useValidity'
 import { useValue } from '@/components/DMask/useValue'
+import { useEvent } from '@/components/DMask/useEvent'
 
 export default {
   name: 'DMask',
   props,
-  emits: ['on-change', 'on-input'],
-  setup (props, context) {
+  setup (props) {
     const {
       mask,
       value,
-      view,
+      viewSpecial,
       match,
       pattern,
       type,
-      locales
+      locales,
+      visibleMask
     } = toRefs(props)
 
     const input = ref(false)
-    const char = ref(false)
-    // delete
-    const resetValue = () => resetCharacter(value.value)
+    const chars = ref(false)
 
     const {
-      propView,
+      geo,
       propMask,
+      propView,
       propPattern,
-      // delete
-      inputValue
-    } = useInit(
-      input,
+      getDate,
+      setDate
+    } = useMask(
       mask,
-      view,
       pattern,
       type,
       locales
@@ -67,68 +57,56 @@ export default {
 
     const {
       character,
-      standard,
-      resetCharacter,
+      ifSpecialChar,
       setValue,
       pasteValue,
       popValue
     } = useCharacter(
       input,
+      geo,
       propMask,
       value,
       match
     )
 
     const {
-      validationMessage,
-      checkValidity
-    } = useValidity(input)
+      propValue,
+      standard,
+      sample,
+      change
+    } = useValue(
+      input,
+      character,
+      propMask,
+      ifSpecialChar
+    )
 
     const {
       onKeypress,
       onKeydown,
-      onPaste,
-      onBlur
+      onPaste
     } = useEvent(
       input,
       standard,
-      validationMessage,
       setValue,
-      pasteValue,
       popValue,
-      checkValidity,
-      inputValue,
-      context
-    )
-
-    const { cancel } = useValue(
-      value,
-      resetValue,
-      resetCharacter
+      pasteValue
     )
 
     useAdmin('d-mask')
 
     return {
       input,
-      char,
+      chars,
       propPattern,
-      validationMessage,
-      cancel,
-      checkValidity,
       onKeypress,
       onKeydown,
-      onPaste,
-      onBlur
+      onPaste
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import "style";
 
-.d-mask {
-  @include maskInit;
-}
 </style>

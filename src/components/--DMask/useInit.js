@@ -47,44 +47,12 @@ export const useInit = function (
         .split('')
     }
   })
-  const propPattern = useWatch([propMask, pattern], data => {
-    if (type.value === 'text') {
-      data.value = pattern.value || `.{${propMask.value?.length}}`
-    } else {
-      const day = []
-      const month = '01|02|03|04|05|06|07|08|09|10|11|12'
-      const hour = `00|${month}|13|14|15|16|17|18|19|20|21|22|23|24`
-      const minute = []
-
-      for (let i = 1; i <= geo.getMaxDay(); i++) {
-        if (i < 10) {
-          day.push(`0${i}`)
-        } else {
-          day.push(i)
-        }
-      }
-
-      for (let m = 0; m < 60; m++) {
-        if (m < 10) {
-          minute.push(`0${m}`)
-        } else {
-          minute.push(m)
-        }
-      }
-
-      data.value = propView.value.join('')
-        .replace('yyyy', '[12]{1}[0-9]{3}')
-        .replace('mm', `(${month})`)
-        .replace('dd', `(${day.join('|')})`)
-        .replace('HH', `(${hour})`)
-        .replace('MM', `(${minute.join('|')})`)
-    }
-  })
 
   return {
     propView,
     propMask,
     propPattern,
+    // delete
     inputValue
   }
 }
