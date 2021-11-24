@@ -11,8 +11,6 @@ export const useMask = function (
     type,
     locales
   ], data => {
-    console.log('type', type.value)
-    console.log('locales', locales.value)
     data.value = type.value === 'text' ? undefined : new GeoDate(locales.value).setType(type.value)
   })
 
@@ -21,11 +19,11 @@ export const useMask = function (
     if (geo.value) {
       const object = geo.value.getObject()
 
-      object.setFullYear(date.year)
-      object.setMonth(date.month - 1)
-      object.setDate(date.day)
-      object.setHours(date.hour)
-      object.setMinutes(date.minute)
+      object.setFullYear(date.y)
+      object.setMonth(date.m - 1)
+      object.setDate(date.d)
+      object.setHours(date.H)
+      object.setMinutes(date.M)
     }
   }
 
@@ -53,15 +51,13 @@ export const useMask = function (
     }
   })
   const propPattern = useWatch([propMask, pattern], data => {
-    if (type.value === 'text') {
-      data.value = pattern.value || `.{${propMask.value?.length}}`
-    } else {
+    if (geo.value) {
       const day = []
       const month = '01|02|03|04|05|06|07|08|09|10|11|12'
       const hour = `00|${month}|13|14|15|16|17|18|19|20|21|22|23|24`
       const minute = []
 
-      for (let i = 1; i <= geo.getMaxDay(); i++) {
+      for (let i = 1; i <= geo.value.getMaxDay(); i++) {
         if (i < 10) {
           day.push(`0${i}`)
         } else {
@@ -83,6 +79,8 @@ export const useMask = function (
         .replace('dd', `(${day.join('|')})`)
         .replace('HH', `(${hour})`)
         .replace('MM', `(${minute.join('|')})`)
+    } else {
+      data.value = pattern.value || `.{${propMask.value?.length}}`
     }
   })
 
@@ -91,7 +89,6 @@ export const useMask = function (
     propMask,
     propView,
     propPattern,
-    getDate,
     setDate
   }
 }

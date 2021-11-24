@@ -1,5 +1,5 @@
 <template>
-  <label class="d-mask">
+  <label :class="classList">
     <span class="d-mask__view">
       <input
         ref="input"
@@ -8,6 +8,7 @@
         @keypress.prevent="onKeypress"
         @keydown="onKeydown"
         @paste.prevent="onPaste"
+        @blur="onBlur"
       />
       <span ref="chars" class="d-mask__chars"></span>
     </span>
@@ -18,15 +19,17 @@
 import { props } from '@/components/DMask/props'
 import { ref, toRefs } from 'vue'
 import { useAdmin } from '@/uses/useAdmin'
-import { useMask } from '@/components/DMask/useMask'
 import { useCharacter } from '@/components/DMask/useCharacter'
-import { useValue } from '@/components/DMask/useValue'
 import { useEvent } from '@/components/DMask/useEvent'
+import { useMask } from '@/components/DMask/useMask'
+import { useValue } from '@/components/DMask/useValue'
+import { useView } from '@/components/DMask/useView'
+import { useWatch } from '@/uses/useWatch'
 
 export default {
   name: 'DMask',
   props,
-  setup (props) {
+  setup (props, context) {
     const {
       mask,
       value,
@@ -38,15 +41,14 @@ export default {
       visibleMask
     } = toRefs(props)
 
-    const input = ref(false)
-    const chars = ref(false)
+    const input = ref(undefined)
+    const chars = ref(undefined)
 
     const {
       geo,
       propMask,
       propView,
       propPattern,
-      getDate,
       setDate
     } = useMask(
       mask,
@@ -56,8 +58,7 @@ export default {
     )
 
     const {
-      character,
-      ifSpecialChar,
+      standard,
       setValue,
       pasteValue,
       popValue
@@ -70,28 +71,53 @@ export default {
     )
 
     const {
-      propValue,
-      standard,
-      sample,
-      change
+      validationCode,
+      validationMessage,
+      change,
+      checkValidity
     } = useValue(
       input,
-      character,
-      propMask,
-      ifSpecialChar
+      geo,
+      standard,
+      propView,
+      type,
+      setDate,
+      context
     )
 
     const {
       onKeypress,
       onKeydown,
-      onPaste
+      onPaste,
+      onBlur
     } = useEvent(
-      input,
-      standard,
+      change,
       setValue,
       popValue,
       pasteValue
     )
+
+    useView(
+      input,
+      chars,
+      viewSpecial,
+      standard,
+      propView,
+      validationCode
+    )
+
+    const isCharacter = useWatch(standard, data => {
+      data.value = !!standard.value
+    })
+    const classList = useWatch([
+      isCharacter,
+      visibleMask
+    ], data => {
+      data.value = {
+        'd-mask': true,
+        'status-character': isCharacter.value || visibleMask.value
+      }
+    })
 
     useAdmin('d-mask')
 
@@ -99,14 +125,22 @@ export default {
       input,
       chars,
       propPattern,
+      validationMessage,
+      classList,
+      checkValidity,
       onKeypress,
       onKeydown,
-      onPaste
+      onPaste,
+      onBlur
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import "style";
 
+.d-mask {
+  @include maskInit;
+}
 </style>

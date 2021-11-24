@@ -1,13 +1,20 @@
-import { useWatch } from '@/uses/useWatch'
-
 export const useEvent = function (
-  input,
-  standard,
+  change,
   setValue,
   popValue,
   pasteValue
 ) {
-  const onKeypress = event => setValue(event.target.selectionStart, event.key)
+  const onKeypress = event => {
+    if (event.target.selectionStart === event.target.selectionEnd) {
+      setValue(event.target.selectionStart, event.key)
+    } else {
+      for (let i = event.target.selectionEnd; i > event.target.selectionStart; i--) {
+        popValue(i, false)
+      }
+
+      setValue(event.target.selectionStart, event.key)
+    }
+  }
   const onKeydown = event => {
     if (event.key === 'Backspace') {
       event.preventDefault()
@@ -39,13 +46,13 @@ export const useEvent = function (
   const onBlur = () => {
     if (change.value) {
       change.value = false
-      // emit('on-change')
     }
   }
 
   return {
     onKeypress,
     onKeydown,
-    onPaste
+    onPaste,
+    onBlur
   }
 }

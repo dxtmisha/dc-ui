@@ -7,25 +7,50 @@ export const useCharacter = function (
   value,
   match
 ) {
-  const character = useWatch([mask, value], data => {
-    data.value = []
-
-    if (value.value) {
-      const data = geo ? geo.value.setValue(value.value).toString() : value.value
-      data.split('').forEach((char, selection) => {
-        if (charMask(selection) === '*') {
-          data.value.push(char)
-        }
-      })
-    }
-  })
-
   const ifSpecialChar = char => char === '*'
   const charMask = selection => mask.value?.[selection]
   const goSelection = selection => requestAnimationFrame(() => {
     input.value.selectionEnd = selection
     input.value.selectionStart = selection
   })
+
+  const character = useWatch([mask, value], data => {
+    data.value = []
+
+    if (value.value) {
+      const chars = geo.value ? geo.value.setValue(value.value).toString() : value.value
+      chars.split('').forEach((char, selection) => {
+        if (charMask(selection) === '*') {
+          data.value.push(char)
+        }
+      })
+    }
+  })
+  const standard = useWatch(character, data => {
+    const value = []
+    let stop
+    let key = 0
+
+    if (character.value.length > 0) {
+      mask.value.forEach(char => {
+        if (!stop) {
+          if (!ifSpecialChar(char)) {
+            value.push(char)
+          } else if (key in character.value) {
+            value.push(character.value[key++])
+          } else {
+            stop = true
+          }
+        }
+      })
+    }
+
+    data.value = value.join('')
+
+    if (input.value) {
+      input.value.value = data.value
+    }
+  }, ['go'], '', true)
 
   const valueToCharacter = selection => {
     let value = -1
@@ -92,8 +117,7 @@ export const useCharacter = function (
   }
 
   return {
-    character,
-    ifSpecialChar,
+    standard,
     setValue,
     pasteValue,
     popValue

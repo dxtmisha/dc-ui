@@ -7,7 +7,7 @@ export const props = {
   mask: String,
   value: String,
   viewSpecial: {
-    default: '0'
+    default: defaultProps('viewSpecial', '0')
   },
   match: {
     default: /[0-9]/

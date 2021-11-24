@@ -1,51 +1,114 @@
+import { ref, watch } from 'vue'
+import { forEach } from '@/tool/functions'
 import { useWatch } from '@/uses/useWatch'
 
 export const useValue = function (
   input,
-  character,
-  mask,
-  ifSpecialChar
+  geo,
+  standard,
+  view,
+  type,
+  setDate,
+  context
 ) {
-  const propValue = useWatch([character, mask], data => {
-  })
-  const standard = useWatch(character, data => {
-    const value = []
-    let stop
-    let key = 0
+  let date
+  const propValue = useWatch(standard, data => {
+    if (type.value === 'text') {
+      date = undefined
+      data.value = standard.value
+    } else {
+      let meaning = false
+      const read = standard.value.split('')
 
-    if (character.value.length > 0) {
-      mask.value.forEach(char => {
-        if (!stop) {
-          if (!ifSpecialChar(char)) {
-            value.push(char)
-          } else if (key in character.value) {
-            value.push(character.value[key++])
-          } else {
-            stop = true
+      date = {
+        y: '',
+        m: '',
+        d: '',
+        H: '',
+        M: ''
+      }
+
+      view.value.forEach((char, index) => {
+        if (char in date && index in read) {
+          meaning = true
+          date[char] += read[index]
+        }
+      })
+
+      if (meaning) {
+        setDate(date)
+        data.value = geo.value.toStandard()
+      } else {
+        data.value = ''
+      }
+    }
+  }, ['go'], '')
+
+  const validationCode = ref({})
+  const validationMessage = ref(undefined)
+
+  const checkDate = () => {
+    if (date) {
+      const validation = {
+        y: [1000, 2999],
+        m: [1, 12],
+        d: [1, geo.value.getMaxDay()],
+        H: [0, 23],
+        M: [0, 59]
+      }
+
+      forEach(date, (item, key) => {
+        if (
+          (key === 'y' && item.match(/^([0-9]{4})$/)) ||
+          (key !== 'y' && item.match(/^([0-9]{2})$/))
+        ) {
+          const value = parseInt(item)
+
+          if (!(value >= validation[key][0] && value <= validation[key][1])) {
+            validationCode.value[key] = true
           }
         }
       })
     }
+  }
+  const checkValidity = () => {
+    const check = input.value?.checkValidity()
 
-    data.value = value.join('')
-    console.log('data.value', data.value)
-  }, [], '', true)
-  const sample = useWatch([character, mask], data => {
+    validationCode.value = {}
+    validationMessage.value = input.value?.validationMessage
+
+    if (!check) {
+      checkDate()
+    }
+
+    return check
+  }
+
+  const emit = (name = 'on-input') => requestAnimationFrame(() => {
+    context.emit(name, {
+      value: propValue.value,
+      validation: checkValidity(),
+      validationMessage: validationMessage.value
+    })
   })
-
   const change = useWatch(standard, data => {
     if (input.value) {
-      input.value.value = standard.value
-
-      // emit()
+      emit()
       data.value = true
     }
   }, [])
 
+  watch(change, (change) => {
+    if (!change) {
+      emit('on-change')
+    }
+  })
+
   return {
     propValue,
-    standard,
-    sample,
-    change
+    validationCode,
+    validationMessage,
+    change,
+    checkValidity
   }
 }
