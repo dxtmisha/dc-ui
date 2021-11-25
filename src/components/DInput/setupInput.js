@@ -41,8 +41,8 @@ export const setupInput = function (
   }
   const emitFrame = (type = EVENT_DEFAULT) => requestAnimationFrame(() => emit(type))
 
-  const onInput = () => {
-    propValue.value = input.value?.value
+  const onInput = event => {
+    propValue.value = event?.value || input.value?.value || ''
     emit()
   }
   const onChange = () => {
@@ -50,13 +50,14 @@ export const setupInput = function (
     emit('on-change')
   }
   const onCancel = () => {
+    change.value = true
+
     if (input.value && 'cancel' in input.value) {
       input.value.cancel()
+    } else {
+      propValue.value = ''
+      emitFrame()
     }
-
-    change.value = true
-    propValue.value = ''
-    emitFrame()
   }
 
   watch(validationMessage, () => {

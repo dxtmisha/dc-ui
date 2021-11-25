@@ -52,10 +52,6 @@ export const optionsInputType = {
     {
       text: 'url',
       value: 'url'
-    },
-    {
-      text: 'week',
-      value: 'week'
     }
   ]
 }
@@ -70,7 +66,6 @@ export const optionsInput = [
   'suffix',
   'helperMessage',
   'validationMessage',
-  'counterValue',
   'maxlength',
   'required',
 
@@ -81,7 +76,17 @@ export const optionsInput = [
 
   'optionsInput',
   optionsInputType,
+  'step',
+  'min',
+  'max',
+  'minlength',
+  'maxlength',
+  'pattern',
   'placeholder',
+
+  'optionsMask',
+  'locales',
+  'visibleMask',
 
   'optionsField',
   'arrow',

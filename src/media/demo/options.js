@@ -38,10 +38,6 @@ export const optionsList = {
       }
     ]
   },
-  maxlength: {
-    text: 'Maxlength',
-    message: 8
-  },
   multiple: { text: 'Multiple' },
   open: { text: 'Open' },
   prefix: {
@@ -417,6 +413,10 @@ export const optionsList = {
         value: 'large'
       }
     ]
+  },
+  visibleMask: {
+    text: 'Visible mask',
+    default: true
   },
 
   ...badge,

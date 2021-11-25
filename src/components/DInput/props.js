@@ -35,13 +35,13 @@ export const props = {
       'tel',
       'text',
       'time',
-      'url',
-      'week'
+      'url'
     ])
   },
   autocomplete: String,
   autofocus: Boolean,
   inputmode: String,
+  step: Number,
   min: Number,
   max: Number,
   minlength: Number,
@@ -49,7 +49,6 @@ export const props = {
   pattern: String,
   placeholder: String,
   spellcheck: Boolean,
-  step: Number,
   attrsInput: Object,
   on: {
     type: Object,

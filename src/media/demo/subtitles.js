@@ -12,6 +12,7 @@ export const subtitles = {
   optionsIcon: { subtitle: 'Icon' },
   optionsInput: { subtitle: 'Input' },
   optionsItem: { subtitle: 'Item' },
+  optionsMask: { subtitle: 'Mask' },
   optionsPosition: { subtitle: 'Position' },
   optionsWindow: { subtitle: 'Window' }
 }

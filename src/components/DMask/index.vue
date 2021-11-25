@@ -5,6 +5,7 @@
         ref="input"
         v-bind="attrsInput"
         class="d-mask__input"
+        type="text"
         :pattern="propPattern"
         @keypress.prevent="onKeypress"
         @keydown="onKeydown"
@@ -63,7 +64,8 @@ export default {
       standard,
       setValue,
       pasteValue,
-      popValue
+      popValue,
+      cancel
     } = useCharacter(
       input,
       geo,
@@ -130,6 +132,7 @@ export default {
       validationMessage,
       classList,
       checkValidity,
+      cancel,
       onKeypress,
       onKeydown,
       onPaste,

@@ -115,11 +115,16 @@ export const useCharacter = function (
       goSelection(characterToValue(selectionChar - 1))
     }
   }
+  const cancel = () => {
+    character.value = []
+    console.log('character.value', character.value)
+  }
 
   return {
     standard,
     setValue,
     pasteValue,
-    popValue
+    popValue,
+    cancel
   }
 }

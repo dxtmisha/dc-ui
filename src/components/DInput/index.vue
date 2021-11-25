@@ -130,13 +130,14 @@ export default {
             'month',
             'time'
           ].indexOf(type.value) !== -1 ||
-          (type.value === 'text' && mask.value)
+          ((type.value === 'text' || !type.value) && mask.value)
         )
     })
     const active = useWatch([
       propValue,
       placeholder,
-      visibleMask
+      visibleMask,
+      isMask
     ], data => {
       data.value = !!propValue.value || !!placeholder.value || (isMask.value && visibleMask.value)
     })

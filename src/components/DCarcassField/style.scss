@@ -67,8 +67,10 @@
       color: varColor(--basic-text, --opacity-surface-disabled);
     }
 
+    &::-webkit-clear-button,
     &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
+    &::-webkit-inner-spin-button,
+    &::-webkit-search-cancel-button {
       -webkit-appearance: none;
     }
   }

@@ -50,5 +50,6 @@ export const optionsMask = [
     ]
   },
   optionsMaskType,
-  'locales'
+  'locales',
+  'visibleMask'
 ]
