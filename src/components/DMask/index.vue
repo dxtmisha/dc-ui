@@ -3,6 +3,7 @@
     <span class="d-mask__view">
       <input
         ref="input"
+        v-bind="attrsInput"
         class="d-mask__input"
         :pattern="propPattern"
         @keypress.prevent="onKeypress"
@@ -29,6 +30,7 @@ import { useWatch } from '@/uses/useWatch'
 export default {
   name: 'DMask',
   props,
+  emits: ['on-input', 'on-change'],
   setup (props, context) {
     const {
       mask,

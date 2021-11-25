@@ -4,23 +4,23 @@ export const optionsMaskType = {
   list: [
     { value: undefined },
     {
-      text: 'Text',
+      text: 'text',
       value: 'text'
     },
     {
-      text: 'Date',
+      text: 'date',
       value: 'date'
     },
     {
-      text: 'Datetime',
+      text: 'datetime',
       value: 'datetime'
     },
     {
-      text: 'Month',
+      text: 'month',
       value: 'month'
     },
     {
-      text: 'Time',
+      text: 'time',
       value: 'time'
     }
   ]

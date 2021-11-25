@@ -1,13 +1,11 @@
 import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
 
-export const defaultProps = defaultInit('DCarcassField')
+export const defaultProps = defaultInit('d-carcass-field')
 export const props = {
   // Values
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
-  item: undefined,
-  value: undefined,
   text: String,
   prefix: [Number, String],
   suffix: [Number, String],

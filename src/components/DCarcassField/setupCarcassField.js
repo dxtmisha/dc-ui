@@ -1,0 +1,71 @@
+import { readonly as read } from 'vue'
+
+export const setupCarcassField = function (
+  icon,
+  iconActive,
+  iconTrailing,
+  text,
+  prefix,
+  suffix,
+  helperMessage,
+  validationMessage,
+  counterValue,
+  maxlength,
+  required,
+  focus,
+  active,
+  selected,
+  filled,
+  turn,
+  readonly,
+  disabled,
+  disabledPrevious,
+  disabledNext,
+  progress,
+  arrow,
+  appearance,
+  size,
+  shape,
+  align,
+  adaptive,
+  counter,
+  cancel,
+  ripple
+) {
+  const bindCarcassField = read({
+    icon,
+    iconActive,
+    iconTrailing,
+    text,
+    prefix,
+    suffix,
+    helperMessage,
+    validationMessage,
+    counterValue,
+    maxlength,
+    required,
+
+    focus,
+    active,
+    selected,
+    filled,
+    turn,
+    readonly,
+    disabled,
+    disabledPrevious,
+    disabledNext,
+    progress,
+
+    arrow,
+    appearance,
+    size,
+    shape,
+    align,
+    adaptive,
+    counter,
+    cancel,
+    ripple
+  })
+
+  return { bindCarcassField }
+}

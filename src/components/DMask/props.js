@@ -37,5 +37,6 @@ export const props = {
   visibleMask: {
     type: Boolean,
     default: defaultProps('visibleMask', true)
-  }
+  },
+  attrsInput: Object
 }

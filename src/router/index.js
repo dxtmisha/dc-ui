@@ -5,6 +5,7 @@ import DemoButton from '../views/DemoButton'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
+import DemoInput from '../views/DemoInput'
 import DemoList from '../views/DemoList'
 import DemoListItem from '../views/DemoListItem'
 import DemoMask from '../views/DemoMask'
@@ -20,6 +21,7 @@ const routes = getRoutes({
   'd-carcass-field': DemoCarcassField,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,
+  'd-input': DemoInput,
   'd-list': DemoList,
   'd-list-item': DemoListItem,
   'd-mask': DemoMask,

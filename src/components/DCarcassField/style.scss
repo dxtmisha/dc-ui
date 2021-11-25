@@ -402,7 +402,6 @@
       }
     }
 
-    #{$this}__input:invalid ~,
     &.status-validation {
       #{$this}__label,
       #{$this}__border {

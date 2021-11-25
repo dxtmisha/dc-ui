@@ -2,6 +2,7 @@ import { badge } from '@/media/demo/badge'
 import { icon } from '@/media/demo/icons'
 import { subtitles } from '@/media/demo/subtitles'
 import { helper1, quote1, validation1 } from '@/media/demo/texts'
+import { input } from '@/media/demo/input'
 
 export const optionsList = {
   // Values
@@ -187,7 +188,10 @@ export const optionsList = {
   },
   border: { text: 'Border' },
   bottom: { text: 'Bottom' },
-  cancel: { text: 'Cancel' },
+  cancel: {
+    text: 'Cancel',
+    default: true
+  },
   counter: { text: 'Counter' },
   delay: {
     text: 'Delay',
@@ -417,5 +421,6 @@ export const optionsList = {
 
   ...badge,
   ...icon,
+  ...input,
   ...subtitles
 }

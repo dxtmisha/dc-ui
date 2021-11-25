@@ -84,8 +84,8 @@ export const useValue = function (
     return check
   }
 
-  const emit = (name = 'on-input') => requestAnimationFrame(() => {
-    context.emit(name, {
+  const emit = (type = 'on-input') => requestAnimationFrame(() => {
+    context.emit(type, {
       value: propValue.value,
       validation: checkValidity(),
       validationMessage: validationMessage.value

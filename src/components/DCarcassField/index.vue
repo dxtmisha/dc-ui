@@ -55,14 +55,16 @@
           <d-ripple v-if="ripple && !disabled && !disabledNext"/>
         </d-icon>
         <template v-else>
-          <d-icon
-            v-if="ifCancel"
-            class="d-carcass-field__icon window-control-static cf-cancel"
-            :icon="iconCancel"
-            :disabled="disabled"
-            size="small"
-            @click.stop="onClick('on-cancel')"
-          />
+          <keep-alive>
+            <d-icon
+              v-if="ifCancel"
+              class="d-carcass-field__icon window-control-static cf-cancel"
+              :icon="iconCancel"
+              :disabled="disabled"
+              size="small"
+              @click.stop="onClick('on-cancel')"
+            />
+          </keep-alive>
           <d-icon
             v-if="iconTrailing"
             class="d-carcass-field__icon cf-trailing"
@@ -92,6 +94,7 @@
 
 <script>
 import DIcon from '@/components/DIcon'
+import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DCarcassField/props'
 import { ref, toRefs } from 'vue'
@@ -99,7 +102,6 @@ import { getIdElement } from '@/tool/functions'
 import { useAdmin } from '@/uses/useAdmin'
 import { usePrefix } from '@/components/DCarcassField/usePrefix'
 import { useWatch } from '@/uses/useWatch'
-import DProgress from '@/components/DProgress'
 
 export default {
   name: 'DCarcassField',
