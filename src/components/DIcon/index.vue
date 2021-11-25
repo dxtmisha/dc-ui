@@ -21,6 +21,7 @@ import DIconItem from '@/components/DIconItem'
 import { props } from './props'
 import { toRefs } from 'vue'
 import { useAdmin } from '@/uses/useAdmin'
+import { useClasses } from '@/uses/useClasses'
 import { useWatch } from '@/uses/useWatch'
 
 export default {
@@ -43,22 +44,19 @@ export default {
       data.value = !!(iconActive.value && active.value)
     })
 
-    const classList = useWatch([
-      turn,
-      hide,
-      size,
-      animationHide,
-      animationShow,
-      background
-    ], data => {
-      data.value = {
-        'd-icon': true,
-        'status-turn': turn.value,
-        'status-hide': hide.value,
-        [`size-${size.value}`]: size.value,
-        [`animation-${animationHide.value}`]: animationHide.value,
-        'option-animation': animationShow.value,
-        'option-background': background.value
+    const classList = useClasses({
+      'd-icon': true,
+      status: {
+        turn,
+        hide
+      },
+      option: {
+        animation: animationShow,
+        background
+      },
+      values: {
+        size,
+        animation: animationHide
       }
     })
 

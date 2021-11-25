@@ -1,10 +1,14 @@
-import { ref } from 'vue'
+import { toRefs } from 'vue'
 import { useWatch } from '@/uses/useWatch'
 
 export const setupBadge = function (
-  badge,
-  badgeIcon = ref(undefined)
+  props
 ) {
+  const {
+    badge,
+    badgeIcon
+  } = toRefs(props)
+
   const bindBadge = useWatch([
     badge,
     badgeIcon

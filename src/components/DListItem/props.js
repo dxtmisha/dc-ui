@@ -28,6 +28,7 @@ export const props = {
   underline: String,
   turn: Boolean,
   disabled: Boolean,
+  hide: Boolean,
   progress: Boolean,
 
   // Options

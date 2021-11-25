@@ -30,10 +30,11 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DButton/props'
-import { ref, toRefs } from 'vue'
+import { reactive, ref, toRefs } from 'vue'
 import { setupBadge } from '@/components/DBadge/setupBadge'
 import { setupIcon } from '@/components/DIcon/setupIcon'
 import { useAdmin } from '@/uses/useAdmin'
+import { useClasses } from '@/uses/useClasses'
 import { useColor } from '@/uses/useColor'
 import { useWatch } from '@/uses/useWatch'
 
@@ -48,14 +49,8 @@ export default {
   props,
   setup (props, context) {
     const {
-      icon,
-      iconActive,
-      iconTrailing,
-      badge,
-      badgeIcon,
       text,
       selected,
-      turn,
       dragged,
       disabled,
       readonly,
@@ -74,71 +69,48 @@ export default {
     } = toRefs(props)
 
     const iconAnimationHide = ref(undefined)
-
-    const propAdaptive = useWatch([
-      text,
-      adaptive
-    ], data => {
+    const propAdaptive = useWatch([text, adaptive], data => {
       data.value = text.value || 'default' in context.slots ? adaptive.value : 'icon'
       iconAnimationHide.value = data.value === 'icon' ? 'type1' : 'type2'
     })
-
-    const {
-      bindBadge
-    } = setupBadge(
-      badge,
-      badgeIcon
-    )
 
     const {
       bindIcon,
       bindTrailing
     } = setupIcon(
       'd-button__icon bt',
-      icon,
-      iconActive,
-      iconTrailing,
-      undefined,
-      selected,
-      turn,
-      disabled,
-      iconHide,
-      undefined,
-      iconAnimationHide,
-      iconAnimationShow,
-      iconBackground,
-      iconReadonly
+      reactive({
+        ...toRefs(props),
+        active: selected,
+        hide: iconHide,
+        size: undefined,
+        animationHide: iconAnimationHide,
+        animationShow: iconAnimationShow,
+        background: iconBackground,
+        iconStatic: iconReadonly
+      })
     )
+    const { bindBadge } = setupBadge(props)
 
-    const { classColor } = useColor(color, palette)
-
-    const classList = useWatch([
-      selected,
-      dragged,
-      readonly,
-      disabled,
-      classColor,
-      appearance,
-      size,
-      shape,
-      propAdaptive,
-      lowercase,
-      dense
-    ], data => {
-      data.value = {
-        'd-button a-static': true,
-        'status-selected': selected.value,
-        'status-dragged': dragged.value,
-        'status-readonly': readonly.value,
-        'status-disabled': disabled.value,
-        ...classColor.value,
-        [`appearance-${appearance.value}`]: appearance.value,
-        [`size-${size.value}`]: size.value,
-        [`shape-${shape.value}`]: shape.value,
-        [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
-        'option-lowercase': lowercase.value,
-        'option-dense': dense.value
-      }
+    const classList = useClasses({
+      'd-button a-static': true,
+      status: {
+        selected,
+        dragged,
+        readonly,
+        disabled
+      },
+      option: {
+        lowercase,
+        dense
+      },
+      values: {
+        appearance,
+        size,
+        shape,
+        adaptive: propAdaptive
+      },
+      ...useColor(color, palette)
     })
 
     useAdmin('d-button')

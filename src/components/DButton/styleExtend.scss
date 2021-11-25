@@ -3,6 +3,7 @@
 @mixin mixinAdaptive() {
   --_bt-gap: 0;
   --_bt-padding: 0;
+  --_bt--dn-padding: 0;
   --_bt-squeeze: 0;
   --_bt--ic-display: none;
   min-width: var(--_bt-height);

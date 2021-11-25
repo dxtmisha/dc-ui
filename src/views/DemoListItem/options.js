@@ -77,6 +77,7 @@ export const optionsListItem = [
   'underline',
   'turn',
   'disabled',
+  'hide',
   'progress',
 
   'options',

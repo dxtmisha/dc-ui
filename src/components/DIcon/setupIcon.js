@@ -1,21 +1,25 @@
-import { readonly } from 'vue'
+import { readonly, toRefs } from 'vue'
 
 export const setupIcon = function (
   className,
-  icon,
-  iconActive,
-  iconTrailing,
-  thumbnail,
-  active,
-  turn,
-  disabled,
-  hide,
-  size,
-  animationHide,
-  animationShow,
-  background,
-  iconStatic
+  props
 ) {
+  const {
+    icon,
+    iconActive,
+    iconTrailing,
+    thumbnail,
+    active,
+    turn,
+    disabled,
+    hide,
+    size,
+    animationHide,
+    animationShow,
+    background,
+    iconStatic
+  } = toRefs(props)
+
   const bindThumbnail = thumbnail === undefined
     ? undefined
     : readonly({

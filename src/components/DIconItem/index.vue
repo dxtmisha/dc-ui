@@ -11,7 +11,7 @@
 import { props } from '@/components/DIconItem/props'
 import { toRefs } from 'vue'
 import { useAdmin } from '@/uses/useAdmin'
-import { useWatch } from '@/uses/useWatch'
+import { useClasses } from '@/uses/useClasses'
 import { useIcon } from './useIcon'
 
 export default {
@@ -19,10 +19,7 @@ export default {
   props,
   setup (props) {
     const {
-      // Values
       icon,
-
-      // Status
       disabled,
       hide
     } = toRefs(props)
@@ -34,17 +31,14 @@ export default {
       image
     } = useIcon(icon)
 
-    const classList = useWatch([
-      image,
-      disabled,
-      hide
-    ], data => {
-      data.value = {
-        'd-icon-item notranslate': true,
-        ...classIcon.value,
-        'status-disabled': disabled.value,
-        'status-hide': hide.value
-      }
+    const classList = useClasses({
+      'd-icon-item notranslate': true,
+      status: {
+        image,
+        disabled,
+        hide
+      },
+      classIcon
     })
 
     useAdmin('d-icon-item')

@@ -1,6 +1,7 @@
 <template>
   <component
     :is="tag"
+    v-if="!hide"
     v-bind="binds"
     @click="onClick"
   >
@@ -59,7 +60,7 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from '@/components/DListItem/props'
-import { toRefs } from 'vue'
+import { reactive, toRefs } from 'vue'
 import { setupBadge } from '@/components/DBadge/setupBadge'
 import { setupIcon } from '@/components/DIcon/setupIcon'
 import { useAdmin } from '@/uses/useAdmin'
@@ -82,16 +83,12 @@ export default {
       value,
       thumbnail,
       icon,
-      iconActive,
       iconTrailing,
-      badge,
-      badgeIcon,
       text,
       underline,
       backgroundColor,
       focus,
       selected,
-      turn,
       disabled,
       palette,
       color,
@@ -113,37 +110,6 @@ export default {
     ], data => {
       data.value = text.value || 'default' in context.slots ? adaptive.value : 'icon'
     })
-
-    const {
-      bindBadge
-    } = setupBadge(
-      badge,
-      badgeIcon
-    )
-
-    const {
-      bindThumbnail,
-      bindIcon,
-      bindTrailing
-    } = setupIcon(
-      'd-list-item__icon li',
-      icon,
-      iconActive,
-      iconTrailing,
-      thumbnail,
-      selected,
-      turn,
-      disabled,
-      undefined,
-      size,
-      undefined,
-      iconAnimationShow,
-      iconBackground,
-      iconReadonly
-    )
-
-    const { classColor } = useColor(color, palette)
-
     const propText = useWatch([text, underline], data => {
       data.value = underline.value
         ? text.value.toString().replace(
@@ -152,6 +118,25 @@ export default {
         )
         : text.value
     })
+
+    const {
+      bindThumbnail,
+      bindIcon,
+      bindTrailing
+    } = setupIcon(
+      'd-list-item__icon li',
+      reactive({
+        ...toRefs(props),
+        active: selected,
+        hide: undefined,
+        animationShow: iconAnimationShow,
+        background: iconBackground,
+        iconStatic: iconReadonly
+      })
+    )
+    const { bindBadge } = setupBadge(props)
+
+    const { classColor } = useColor(color, palette)
     const binds = useWatch([
       thumbnail,
       icon,
