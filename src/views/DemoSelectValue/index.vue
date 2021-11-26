@@ -3,24 +3,23 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-textarea v-bind="binds"/>
+    <d-select-value v-bind="binds"/>
   </interactive-demo>
 </template>
 
 <script>
-import DTextarea from '@/components/DTextarea'
+import DSelectValue from '@/components/DSelectValue'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsTextarea } from '@/views/DemoTextarea/options'
+import { optionsSelectValue } from '@/views/DemoSelectValue/options'
 
 export default {
-  name: 'DemoTextarea',
+  name: 'DemoSelectValue',
   components: {
-    DTextarea,
+    DSelectValue,
     InteractiveDemo
   },
   setup () {
-    const options = optionsTextarea
-
+    const options = optionsSelectValue
     return { options }
   }
 }

@@ -13,6 +13,7 @@ import DemoMenu from '../views/DemoMenu'
 import DemoProgress from '../views/DemoProgress'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
+import DemoSelectValue from '../views/DemoSelectValue'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoWindow from '../views/DemoWindow'
@@ -31,6 +32,7 @@ const routes = getRoutes({
   'd-progress': DemoProgress,
   'd-ripple': DemoRipple,
   'd-scrollbar': DemoScrollbar,
+  'd-select-value': DemoSelectValue,
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-window': DemoWindow

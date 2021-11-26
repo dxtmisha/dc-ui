@@ -4,6 +4,7 @@
     :class="classList"
     :disabled="disabled"
     :data-value="value"
+    @click="onClick"
   >
     <d-progress
       v-if="progress && !disabled"
@@ -11,7 +12,9 @@
       type="circular"
     />
     <d-icon v-if="icon" v-bind="bindIcon"/>
-    <d-icon v-if="iconTrailing" v-bind="bindTrailing"/>
+    <keep-alive>
+      <d-icon v-if="iconTrailing" v-bind="bindTrailing"/>
+    </keep-alive>
     <span class="d-button__text">
       {{ text }}<slot/>
     </span>
@@ -20,7 +23,9 @@
       v-bind="bindBadge"
       :hide="disabled"
     />
-    <d-ripple v-if="ripple && !disabled && !readonly"/>
+    <keep-alive>
+      <d-ripple v-if="ripple && !disabled && !readonly"/>
+    </keep-alive>
   </component>
 </template>
 
@@ -47,7 +52,9 @@ export default {
     DRipple
   },
   props,
+  emits: ['on-click', 'on-trailing'],
   setup (props, context) {
+    const refs = toRefs(props)
     const {
       text,
       selected,
@@ -66,7 +73,7 @@ export default {
       iconHide,
       iconAnimationShow,
       iconBackground
-    } = toRefs(props)
+    } = refs
 
     const iconAnimationHide = ref(undefined)
     const propAdaptive = useWatch([text, adaptive], data => {
@@ -80,7 +87,7 @@ export default {
     } = setupIcon(
       'd-button__icon bt',
       reactive({
-        ...toRefs(props),
+        ...refs,
         active: selected,
         hide: iconHide,
         size: undefined,
@@ -113,13 +120,33 @@ export default {
       ...useColor(color, palette)
     })
 
+    const onClick = event => {
+      let type = 'on-click'
+
+      if (
+        iconReadonly.value &&
+        event.target.closest('.bt-trailing')
+      ) {
+        event.preventDefault()
+        event.stopPropagation()
+        type = 'on-trailing'
+      }
+
+      context.emit(type, {
+        type,
+        item: props.item,
+        value: props.value || props.item?.value
+      })
+    }
+
     useAdmin('d-button')
 
     return {
       bindBadge,
       bindIcon,
       bindTrailing,
-      classList
+      classList,
+      onClick
     }
   }
 }

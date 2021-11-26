@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/uses/useDefault'
+import { defaultInit } from '@/uses/useDefault'
 
 export const defaultProps = defaultInit('d-textarea')
 export const props = {
