@@ -56,47 +56,23 @@ export default {
   props,
   emits: ['on-input', 'on-change'],
   setup (props, context) {
+    const refs = toRefs(props)
     const {
-      icon,
-      iconActive,
-      iconTrailing,
       item,
       value,
       name,
-      text,
-      prefix,
-      suffix,
-      helperMessage,
       validationMessage,
-      required,
       selected,
-      readonly,
-      disabled,
       type,
-      autocomplete,
-      autofocus,
-      inputmode,
       min,
       max,
-      minlength,
-      maxlength,
-      pattern,
       placeholder,
-      spellcheck,
       step,
       attrsInput,
       mask,
       visibleMask,
-      arrow,
-      appearance,
-      size,
-      shape,
-      align,
-      adaptive,
-      counter,
-      cancel,
-      ripple
-    } = toRefs(props)
+      arrow
+    } = refs
 
     const field = ref(undefined)
     const input = ref(undefined)
@@ -159,58 +135,17 @@ export default {
       emit
     )
 
-    const { bindInput } = useInput(
-      name,
-      required,
-      readonly,
-      disabled,
-      type,
-      autocomplete,
-      autofocus,
-      inputmode,
-      min,
-      max,
-      minlength,
-      maxlength,
-      pattern,
-      placeholder,
-      spellcheck,
-      step,
-      attrsInput
-    )
-
-    const { bindCarcassField } = setupCarcassField(
-      icon,
-      iconActive,
-      iconTrailing,
-      text,
-      prefix,
-      suffix,
-      helperMessage,
-      propValidationMessage,
-      propCounter,
-      maxlength,
-      required,
-      undefined,
+    const { bindInput } = useInput(refs, attrsInput)
+    const { bindCarcassField } = setupCarcassField({
+      ...refs,
+      validationMessage: propValidationMessage,
+      counterValue: propCounter,
       active,
       selected,
       filled,
-      undefined,
-      readonly,
-      disabled,
-      isPrevious,
-      isNext,
-      undefined,
-      arrow,
-      appearance,
-      size,
-      shape,
-      align,
-      adaptive,
-      counter,
-      cancel,
-      ripple
-    )
+      disabledPrevious: isPrevious,
+      disabledNext: isNext
+    })
 
     useAdmin('d-input')
 

@@ -1,43 +1,24 @@
-import { readonly as read } from 'vue'
+import { useRefs } from '@/uses/useRefs'
 
-export const useInput = function (
-  name,
-  required,
-  readonly,
-  disabled,
-  type,
-  autocomplete,
-  autofocus,
-  inputmode,
-  min,
-  max,
-  minlength,
-  maxlength,
-  pattern,
-  placeholder,
-  spellcheck,
-  step,
-  attrsInput
-) {
-  const bindInput = read({
-    name,
-    required,
-    readonly,
-    disabled,
-    type,
-    autocomplete,
-    autofocus,
-    inputmode,
-    min,
-    max,
-    minlength,
-    maxlength,
-    pattern,
-    placeholder,
-    spellcheck,
-    step,
-    ...attrsInput.value
-  })
+export const useInput = function (props, attrs) {
+  const bindInput = useRefs(props, [
+    'name',
+    'required',
+    'readonly',
+    'disabled',
+    'type',
+    'autocomplete',
+    'autofocus',
+    'inputmode',
+    'min',
+    'max',
+    'minlength',
+    'maxlength',
+    'pattern',
+    'placeholder',
+    'spellcheck',
+    'step'
+  ], attrs.value || {})
 
   return {
     bindInput
