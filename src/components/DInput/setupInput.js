@@ -4,7 +4,6 @@ import { useWatch } from '@/uses/useWatch'
 const EVENT_DEFAULT = 'on-input'
 
 export const setupInput = function (
-  field,
   input,
   item,
   value,
@@ -41,6 +40,11 @@ export const setupInput = function (
   }
   const emitFrame = (type = EVENT_DEFAULT) => requestAnimationFrame(() => emit(type))
 
+  const cancel = () => {
+    propValue.value = ''
+    emit()
+  }
+
   const onInput = event => {
     propValue.value = event?.value || input.value?.value || ''
     emit()
@@ -72,6 +76,7 @@ export const setupInput = function (
     change,
     emit,
     checkValidity,
+    cancel,
     onInput,
     onChange,
     onCancel

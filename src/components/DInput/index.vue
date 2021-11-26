@@ -88,7 +88,6 @@ export default {
       onChange,
       onCancel
     } = setupInput(
-      field,
       input,
       item,
       value,

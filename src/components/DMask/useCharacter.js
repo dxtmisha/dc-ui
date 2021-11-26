@@ -117,7 +117,6 @@ export const useCharacter = function (
   }
   const cancel = () => {
     character.value = []
-    console.log('character.value', character.value)
   }
 
   return {
