@@ -13,13 +13,15 @@ export const setupInput = function (
 ) {
   const checkValidity = () => {
     const check = input.value?.checkValidity()
-    propValidationMessage.value = change.value ? (validationMessage.value || input.value?.validationMessage) : undefined
+    propValidationMessage.value = change.value
+      ? (validationMessage.value || input.value?.propValidationMessage || input.value?.validationMessage)
+      : undefined
 
     return check
   }
 
   const propValue = useWatch(value, data => {
-    data.value = value.value
+    data.value = value.value || ''
     requestAnimationFrame(checkValidity)
   })
   const propCounter = useWatch(propValue, data => {
@@ -46,7 +48,7 @@ export const setupInput = function (
   }
 
   const onInput = event => {
-    propValue.value = event?.value || input.value?.value || ''
+    propValue.value = 'value' in event ? event.value : (input.value?.value || '')
     emit()
   }
   const onChange = () => {

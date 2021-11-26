@@ -3,11 +3,7 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-input
-      v-bind="binds"
-      @on-input="onInput"
-      @on-change="onInput"
-    />
+    <d-input v-bind="binds"/>
   </interactive-demo>
 </template>
 
@@ -24,12 +20,8 @@ export default {
   },
   setup () {
     const options = optionsInput
-    const onInput = event => console.log('event', event)
 
-    return {
-      options,
-      onInput
-    }
+    return { options }
   }
 }
 </script>

@@ -61,6 +61,7 @@ export const optionsInput = [
   'icon',
   'iconActive',
   'iconTrailing',
+  'value',
   'text',
   'prefix',
   'suffix',

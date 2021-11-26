@@ -1,56 +1,35 @@
 <template>
-  <d-carcass-field
-    v-bind="bindCarcassField"
-    @on-previous="onPrevious"
-    @on-next="onNext"
-    @on-cancel="onCancel"
-  >
+  <d-carcass-field v-bind="bindCarcassField">
     <template v-slot:default="{ className }">
-      <d-mask
-        v-if="isMask"
-        ref="input"
-        :class="className"
-        :mask="mask"
-        :value="value"
-        :type="type"
-        :locales="locales"
-        :visibleMask="visibleMask"
-        :on="on"
-        :attrsInput="bindInput"
-        @on-input="onInput"
-        @on-change="onChange"
-      />
-      <input
-        v-else
+      <d-textarea-autosize
         ref="input"
         :class="className"
         v-bind="bindInput"
-        v-model="propValue"
+        :value="value"
         v-on="on"
-        @input="onInput"
-        @change="onChange"
-      >
+        @on-input="onInput"
+        @on-change="onChange"
+      />
     </template>
   </d-carcass-field>
 </template>
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DMask from '@/components/DMask'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import { props } from '@/components/DInput/props'
 import { ref, toRefs } from 'vue'
 import { setupCarcassField } from '@/components/DCarcassField/setupCarcassField'
 import { setupInput } from '@/components/DInput/setupInput'
 import { useAdmin } from '@/uses/useAdmin'
-import { useArrow } from '@/components/DInput/useArrow'
 import { useInput } from '@/components/DInput/useInput'
 import { useWatch } from '@/uses/useWatch'
 
 export default {
-  name: 'DInput',
+  name: 'DTextarea',
   components: {
-    DCarcassField,
-    DMask
+    DTextareaAutosize,
+    DCarcassField
   },
   props,
   emits: ['on-input', 'on-change'],
@@ -62,15 +41,8 @@ export default {
       name,
       validationMessage,
       selected,
-      type,
-      min,
-      max,
       placeholder,
-      step,
-      attrsInput,
-      mask,
-      visibleMask,
-      arrow
+      attrsInput
     } = refs
 
     const input = ref(undefined)
@@ -79,12 +51,9 @@ export default {
       propValue,
       propCounter,
       propValidationMessage,
-      change,
-      emit,
       checkValidity,
       onInput,
-      onChange,
-      onCancel
+      onChange
     } = setupInput(
       input,
       item,
@@ -94,43 +63,12 @@ export default {
       context
     )
 
-    const isMask = useWatch([type, mask], data => {
-      data.value = !arrow.value &&
-        (
-          [
-            'date',
-            'datetime',
-            'month',
-            'time'
-          ].indexOf(type.value) !== -1 ||
-          ((type.value === 'text' || !type.value) && mask.value)
-        )
-    })
-    const active = useWatch([
-      propValue,
-      placeholder,
-      visibleMask,
-      isMask
-    ], data => {
-      data.value = !!propValue.value || !!placeholder.value || (isMask.value && visibleMask.value)
+    const active = useWatch([propValue, placeholder], data => {
+      data.value = !!propValue.value || !!placeholder.value
     })
     const filled = useWatch(propValue, data => {
       data.value = !!propValue.value
     })
-
-    const {
-      isPrevious,
-      isNext,
-      onPrevious,
-      onNext
-    } = useArrow(
-      propValue,
-      min,
-      max,
-      step,
-      change,
-      emit
-    )
 
     const { bindInput } = useInput(refs, attrsInput)
     const { bindCarcassField } = setupCarcassField({
@@ -140,25 +78,21 @@ export default {
       active,
       selected,
       filled,
-      disabledPrevious: isPrevious,
-      disabledNext: isNext
+      cancel: false,
+      ripple: false
     })
 
-    useAdmin('d-input')
+    useAdmin('d-textarea')
 
     return {
       input,
       propValue,
       propValidationMessage,
-      isMask,
       bindInput,
       bindCarcassField,
       checkValidity,
       onInput,
-      onChange,
-      onPrevious,
-      onNext,
-      onCancel
+      onChange
     }
   }
 }

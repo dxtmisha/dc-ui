@@ -7,6 +7,7 @@
         class="d-mask__input"
         type="text"
         :pattern="propPattern"
+        :on="on"
         @keypress.prevent="onKeypress"
         @keydown="onKeydown"
         @paste.prevent="onPaste"

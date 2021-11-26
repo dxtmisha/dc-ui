@@ -45,5 +45,9 @@ export const input = {
         value: 16
       }
     ]
+  },
+  value: {
+    text: 'Value',
+    message: 'Is Value'
   }
 }

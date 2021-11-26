@@ -5,8 +5,10 @@
     class="d-textarea-autosize"
     :value="value"
     :name="name"
+    :on="on"
     @focus="reSize"
     @input="onInput"
+    @change="onChange"
   />
   <div v-once
        ref="clone"
@@ -14,6 +16,7 @@
 </template>
 
 <script>
+import { props } from '@/components/DTextareaAutosize/props'
 import { onUpdated, ref, toRefs } from 'vue'
 import { setupInput } from '@/components/DInput/setupInput'
 import { useAdmin } from '@/uses/useAdmin'
@@ -22,10 +25,7 @@ import { useResize } from '@/components/DTextareaAutosize/useResize'
 export default {
   name: 'DTextareaAutosize',
   inheritAttrs: false,
-  props: {
-    value: String,
-    name: String
-  },
+  props,
   emits: ['on-input', 'on-change'],
   setup (props, context) {
     const {
@@ -38,9 +38,11 @@ export default {
 
     const {
       propValue,
+      propValidationMessage,
       checkValidity,
       cancel,
-      onInput
+      onInput,
+      onChange
     } = setupInput(
       input,
       ref(undefined),
@@ -66,10 +68,12 @@ export default {
     return {
       input,
       clone,
+      propValidationMessage,
       checkValidity,
       reSize,
       cancel,
-      onInput
+      onInput,
+      onChange
     }
   }
 }
