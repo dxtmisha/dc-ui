@@ -1,0 +1,22 @@
+@mixin buttonSelect() {
+  &__button {
+    --_bs-gap: var(--bs-gap, 8px);
+  }
+
+  &__body {
+    display: flex;
+    gap: var(--_bs-gap);
+  }
+
+  &__button[data-value] &__text {
+    --basic-text-opacity: var(--opacity-primary-medium);
+
+    &::after {
+      content: ":";
+    }
+  }
+}
+
+@mixin buttonSelectInit() {
+  @include buttonSelect;
+}

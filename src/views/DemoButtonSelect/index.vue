@@ -3,7 +3,7 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-select
+    <d-button-select
       v-bind="binds"
       name="interactive-demo"
       :list="list"
@@ -13,19 +13,19 @@
 </template>
 
 <script>
-import DSelect from '@/components/DSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsSelect } from '@/views/DemoSelect/options'
+import { optionsButtonSelect } from '@/views/DemoButtonSelect/options'
 import { menu } from '@/media/demo/list'
 
 export default {
-  name: 'DemoSelect',
+  name: 'DemoButtonSelect',
   components: {
-    DSelect,
+    DButtonSelect,
     InteractiveDemo
   },
   setup () {
-    const options = optionsSelect
+    const options = optionsButtonSelect
     const list = menu
 
     return {

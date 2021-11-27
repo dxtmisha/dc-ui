@@ -3,7 +3,10 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-input v-bind="binds"/>
+    <d-input
+      v-bind="binds"
+      name="interactive-demo"
+    />
   </interactive-demo>
 </template>
 

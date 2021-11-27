@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { getRoutes } from '@/dcUi'
 import DemoBadge from '../views/DemoBadge'
 import DemoButton from '../views/DemoButton'
+import DemoButtonSelect from '../views/DemoButtonSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoCheckbox from '../views/DemoCheckbox'
 import DemoIcon from '../views/DemoIcon'
@@ -23,6 +24,7 @@ import DemoWindow from '../views/DemoWindow'
 const routes = getRoutes({
   'd-badge': DemoBadge,
   'd-button': DemoButton,
+  'd-button-select': DemoButtonSelect,
   'd-carcass-field': DemoCarcassField,
   'd-checkbox': DemoCheckbox,
   'd-icon': DemoIcon,
