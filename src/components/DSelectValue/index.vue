@@ -14,6 +14,7 @@
           tag="span"
           :appearance="appearance"
           :size="size"
+          :shape="shape"
           :icon-readonly="cancel"
           @on-click="onClick"
           @on-trailing="onClick"

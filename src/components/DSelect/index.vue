@@ -7,7 +7,6 @@
     <template v-slot:default="{ classList, onClick, open, items, progress }">
       <d-carcass-field
         v-bind="bindCarcassField"
-        :class="classList"
         :focus="open"
         :turn="open"
         :progress="progress"
@@ -25,7 +24,7 @@
             v-model="propValue"
           >
           <d-select-value
-            :class="className"
+            :class="`${classList} ${className}`"
             :value="items"
             :multiple="multiple"
             :disabled="disabled"

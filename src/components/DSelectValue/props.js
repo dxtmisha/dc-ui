@@ -20,6 +20,10 @@ export const props = {
     type: String,
     default: defaultProps('size', 'small')
   },
+  shape: {
+    type: String,
+    default: defaultProps('shape', 'pill')
+  },
   cancel: {
     type: Boolean,
     default: defaultProps('cancel', true)
