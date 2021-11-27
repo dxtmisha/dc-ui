@@ -1,18 +1,29 @@
 import { defaultInit, validator } from '@/uses/useDefault'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-checkbox')
-export default {
+export const props = {
   // Values
   item: undefined,
   value: undefined,
   name: String,
   text: String,
-  icon: String,
   helperMessage: String,
   validationMessage: String,
-  required: Boolean,
+
+  // Status
+  disabled: Boolean,
 
   // Options
+  palette,
+  color: String,
+  right: Boolean,
+  ripple: {
+    type: Boolean,
+    default: defaultProps('ripple', true)
+  },
+
+  // Input
   type: {
     type: String,
     default: 'checkbox',
@@ -22,10 +33,11 @@ export default {
       'switch'
     ])
   },
-  right: Boolean,
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
+  required: Boolean,
+  attrsInput: Object,
+  on: {
+    type: Object,
+    default: {}
   },
 
   // Icon

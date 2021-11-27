@@ -3,6 +3,7 @@ import { getRoutes } from '@/dcUi'
 import DemoBadge from '../views/DemoBadge'
 import DemoButton from '../views/DemoButton'
 import DemoCarcassField from '../views/DemoCarcassField'
+import DemoCheckbox from '../views/DemoCheckbox'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../views/DemoInput'
@@ -23,6 +24,7 @@ const routes = getRoutes({
   'd-badge': DemoBadge,
   'd-button': DemoButton,
   'd-carcass-field': DemoCarcassField,
+  'd-checkbox': DemoCheckbox,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,
   'd-input': DemoInput,

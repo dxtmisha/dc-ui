@@ -60,7 +60,7 @@ export default {
     DCarcassField
   },
   props,
-  emits: ['on-input', 'on-change'],
+  emits: ['on-input'],
   setup (props, context) {
     const refs = toRefs(props)
     const {

@@ -63,6 +63,11 @@ export const setupInput = function (
     change.value = true
     emit('on-change')
   }
+  const onChecked = () => {
+    change.value = true
+    propValue.value = !!input.value.checked
+    emit()
+  }
   const onSelect = event => {
     change.value = true
     set(event)
@@ -103,6 +108,7 @@ export const setupInput = function (
     cancel,
     onInput,
     onChange,
+    onChecked,
     onSelect,
     onCancel,
     onCancelValue

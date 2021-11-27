@@ -370,6 +370,7 @@ export const optionsList = {
     ]
   },
   persistent: { text: 'Persistent' },
+  right: { text: 'Right' },
   ripple: {
     text: 'Ripple',
     default: true

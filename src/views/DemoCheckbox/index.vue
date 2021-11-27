@@ -3,30 +3,28 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-select v-bind="binds" :list="list" @on-input="on"/>
+    <d-checkbox
+      v-bind="binds"
+      name="interactive-demo"
+      @on-input="on"
+    />
   </interactive-demo>
 </template>
 
 <script>
-import DSelect from '@/components/DSelect'
+import DCheckbox from '@/components/DCheckbox'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsSelect } from '@/views/DemoSelect/options'
-import { menu } from '@/media/demo/list'
+import { optionsCheckbox } from '@/views/DemoCheckbox/options'
 
 export default {
-  name: 'DemoSelect',
+  name: 'DemoCheckbox',
   components: {
-    DSelect,
+    DCheckbox,
     InteractiveDemo
   },
   setup () {
-    const options = optionsSelect
-    const list = menu
-
-    return {
-      options,
-      list
-    }
+    const options = optionsCheckbox
+    return { options }
   },
   methods: {
     on (event) {
