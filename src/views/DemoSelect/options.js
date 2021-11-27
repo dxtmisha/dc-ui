@@ -4,8 +4,28 @@ import {
   optionsCarcassFieldSize
 } from '@/views/DemoCarcassField/options'
 import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoListItem/options'
-import { optionsList } from '@/media/demo/options'
 import { optionsWindowWidth } from '@/views/DemoWindow/options'
+import { optionsList } from '@/media/demo/options'
+
+export const optionsSelectType = {
+  text: 'Type',
+  value: 'type',
+  list: [
+    { value: undefined },
+    {
+      text: 'select',
+      value: 'select'
+    },
+    {
+      text: 'month',
+      value: 'month'
+    },
+    {
+      text: 'week',
+      value: 'week'
+    }
+  ]
+}
 
 export const optionsSelect = [
   'values',
@@ -23,10 +43,12 @@ export const optionsSelect = [
   'disabled',
 
   'optionsInput',
+  optionsSelectType,
   'ajax',
   'cache',
   'multiple',
   'maxlength',
+  'locales',
 
   'optionsMenu',
   {

@@ -1,4 +1,5 @@
-import { defaultInit } from '@/uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
+import Geo from '@/classes/Geo'
 
 export const defaultProps = defaultInit('d-select')
 export const props = {
@@ -23,6 +24,15 @@ export const props = {
   color: undefined,
 
   // Input
+  type: {
+    type: String,
+    default: 'select',
+    validator: validator([
+      'select',
+      'month',
+      'week'
+    ])
+  },
   list: undefined,
   listInit: undefined,
   translation: {
@@ -42,6 +52,10 @@ export const props = {
   cache: Boolean,
   maxlength: Number,
   multiple: Boolean,
+  locales: {
+    type: String,
+    default: defaultProps('locales', Geo.getGlobalLang())
+  },
 
   // Field
   arrow: Boolean,
@@ -64,7 +78,10 @@ export const props = {
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWidth: undefined,
+  menuWidth: {
+    type: String,
+    default: defaultProps('menuWidth', '280px')
+  },
 
   // Icon
   iconArrowDown: {

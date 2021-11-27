@@ -49,6 +49,7 @@ import { setupInput } from '@/components/DInput/setupInput'
 import { setupMenu } from '@/components/DMenu/setupMenu'
 import { useAdmin } from '@/uses/useAdmin'
 import { useArrow } from './useArrow'
+import { useSelect } from '@/components/DSelect/useSelect'
 import { useWatch } from '@/uses/useWatch'
 
 export default {
@@ -68,6 +69,9 @@ export default {
       name,
       validationMessage,
       selected,
+      type,
+      list,
+      locales,
       multiple,
       cancel,
       iconArrowDown
@@ -94,6 +98,11 @@ export default {
       context
     )
 
+    const { propList } = useSelect(
+      type,
+      list,
+      locales
+    )
     const propCancel = useWatch([multiple, cancel], data => {
       data.value = !multiple.value && cancel.value
     })
@@ -106,7 +115,10 @@ export default {
       onNext
     } = useArrow(menu)
 
-    const { bindMenu } = setupMenu(refs)
+    const { bindMenu } = setupMenu({
+      ...refs,
+      list: propList
+    })
     const { bindCarcassField } = setupCarcassField({
       ...refs,
       iconTrailing: iconArrowDown,
