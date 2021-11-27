@@ -87,6 +87,7 @@ export default {
       onCancel
     } = setupInput(
       input,
+      undefined,
       item,
       value,
       name,

@@ -91,6 +91,7 @@ export const optionsCarcassField = [
   'progress',
 
   'options',
+  'palette',
   'arrow',
   optionsCarcassFieldAppearance,
   optionsCarcassFieldSize,

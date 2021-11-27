@@ -90,6 +90,7 @@ export const optionsInput = [
   'visibleMask',
 
   'optionsField',
+  'palette',
   'arrow',
   optionsCarcassFieldAppearance,
   optionsCarcassFieldSize,

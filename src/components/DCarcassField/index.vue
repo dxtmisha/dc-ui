@@ -102,6 +102,7 @@ import { getIdElement } from '@/tool/functions'
 import { useAdmin } from '@/uses/useAdmin'
 import { usePrefix } from '@/components/DCarcassField/usePrefix'
 import { useWatch } from '@/uses/useWatch'
+import { useColor } from '@/uses/useColor'
 
 export default {
   name: 'DCarcassField',
@@ -134,6 +135,8 @@ export default {
       disabled,
       disabledPrevious,
       disabledNext,
+      palette,
+      color,
       arrow,
       appearance,
       size,
@@ -175,6 +178,7 @@ export default {
       data.value = (helperMessage.value || validationMessage.value || counter.value) && !disabled.value
     })
 
+    const { classColor } = useColor(color, palette)
     const classList = useWatch([
       icon,
       ifCancel,
@@ -187,6 +191,7 @@ export default {
       selected,
       readonly,
       disabled,
+      classColor,
       arrow,
       appearance,
       size,
@@ -207,6 +212,7 @@ export default {
         'status-validation': validationMessage.value,
         'status-readonly': readonly.value,
         'status-disabled': disabled.value,
+        ...classColor.value,
         'option-arrow': arrow.value,
         [`appearance-${appearance.value}`]: appearance.value,
         [`size-${size.value}`]: size.value,

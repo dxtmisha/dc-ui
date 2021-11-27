@@ -18,14 +18,30 @@ export const props = {
   readonly: Boolean,
   disabled: Boolean,
 
+  // Options
+  palette: undefined,
+  color: undefined,
+
   // Input
-  autofocus: Boolean,
-  maxlength: Number,
-  attrsInput: Object,
-  on: {
-    type: Object,
-    default: {}
+  list: undefined,
+  listInit: undefined,
+  translation: {
+    type: Array,
+    default: defaultProps('translation')
   },
+  keyText: {
+    type: String,
+    default: defaultProps('keyText', 'text')
+  },
+  keyValue: {
+    type: String,
+    default: defaultProps('keyValue', 'value')
+  },
+  ajax: String,
+  request: Object,
+  cache: Boolean,
+  maxlength: Number,
+  multiple: Boolean,
 
   // Field
   arrow: Boolean,
@@ -42,5 +58,17 @@ export const props = {
   ripple: {
     type: Boolean,
     default: defaultProps('ripple', true)
+  },
+
+  // Menu
+  menuAppearance: undefined,
+  menuSize: undefined,
+  menuShape: undefined,
+  menuWidth: undefined,
+
+  // Icon
+  iconArrowDown: {
+    type: String,
+    default: defaultProps('iconArrowDown', 'arrow_drop_down')
   }
 }

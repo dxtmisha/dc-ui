@@ -33,6 +33,8 @@ export const props = {
   },
 
   // Field
+  palette: undefined,
+  color: undefined,
   appearance: undefined,
   size: undefined,
   shape: undefined,

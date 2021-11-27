@@ -1,4 +1,5 @@
 import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
+import { palette } from '@/uses/useColor'
 
 export const defaultProps = defaultInit('d-carcass-field')
 export const props = {
@@ -28,6 +29,8 @@ export const props = {
   progress: Boolean,
 
   // Options
+  palette,
+  color: String,
   arrow: Boolean,
   appearance: {
     type: String,

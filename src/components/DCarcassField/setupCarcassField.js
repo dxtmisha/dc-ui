@@ -25,6 +25,8 @@ export const setupCarcassField = function (props) {
     'disabledNext',
     'progress',
 
+    'palette',
+    'color',
     'arrow',
     'appearance',
     'size',

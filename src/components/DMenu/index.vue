@@ -94,6 +94,7 @@ export default {
       propSelected,
       items,
       names,
+      cancel,
       onInput
     } = useSelected(
       listInit,
@@ -164,6 +165,7 @@ export default {
       next,
       beforeOpening,
       opening,
+      cancel,
       onInput,
       onGroup
     }

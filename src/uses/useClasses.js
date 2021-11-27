@@ -22,6 +22,7 @@ export const useClasses = function (classes) {
             data.value[`${name}-${value.value}`] = value.value
           })
           break
+        case 'view':
         case 'status':
         case 'option':
           forEach(item, (value, name) => {

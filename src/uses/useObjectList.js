@@ -63,6 +63,8 @@ export const useObjectList = function (
     group.value = object.value.getGroup()
   }
 
+  beforeOpening(true).then()
+
   return {
     object,
     buffer,

@@ -64,6 +64,8 @@ export const props = {
   },
 
   // Field
+  palette: undefined,
+  color: undefined,
   arrow: Boolean,
   appearance: undefined,
   size: undefined,

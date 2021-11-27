@@ -5,6 +5,7 @@ const EVENT_DEFAULT = 'on-input'
 
 export const setupInput = function (
   input,
+  menu,
   item,
   value,
   name,
@@ -14,8 +15,8 @@ export const setupInput = function (
   const checkValidity = () => {
     const check = input.value?.checkValidity()
     propValidationMessage.value = change.value
-      ? (validationMessage.value || input.value?.propValidationMessage || input.value?.validationMessage)
-      : undefined
+      ? (validationMessage.value || input.value?.propValidationMessage || input.value?.validationMessage || '')
+      : ''
 
     return check
   }
@@ -33,7 +34,7 @@ export const setupInput = function (
   const emit = (type = EVENT_DEFAULT) => {
     context.emit(type, {
       type,
-      item: item.value,
+      item: item?.value,
       value: propValue.value,
       name: name.value,
       validation: checkValidity(),
@@ -42,27 +43,48 @@ export const setupInput = function (
   }
   const emitFrame = (type = EVENT_DEFAULT) => requestAnimationFrame(() => emit(type))
 
+  const set = event => {
+    const value = 'value' in event ? event.value : (input.value?.value || '')
+
+    propValue.value = !Array.isArray(value)
+      ? value
+      : value.length > 0 ? value : ''
+  }
   const cancel = () => {
     propValue.value = ''
     emit()
   }
 
   const onInput = event => {
-    propValue.value = 'value' in event ? event.value : (input.value?.value || '')
+    set(event)
     emit()
   }
   const onChange = () => {
     change.value = true
     emit('on-change')
   }
+  const onSelect = event => {
+    change.value = true
+    set(event)
+    emitFrame()
+  }
   const onCancel = () => {
     change.value = true
 
     if (input.value && 'cancel' in input.value) {
       input.value.cancel()
+    } else if (menu.value && 'cancel' in menu.value) {
+      menu.value.cancel()
     } else {
       propValue.value = ''
       emitFrame()
+    }
+  }
+  const onCancelValue = event => {
+    change.value = true
+
+    if (menu.value && 'onInput' in menu.value) {
+      menu.value.onInput(event)
     }
   }
 
@@ -81,6 +103,8 @@ export const setupInput = function (
     cancel,
     onInput,
     onChange,
-    onCancel
+    onSelect,
+    onCancel,
+    onCancelValue
   }
 }

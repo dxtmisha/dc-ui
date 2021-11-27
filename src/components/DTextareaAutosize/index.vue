@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DTextareaAutosize/props'
+import { props } from './props'
 import { onUpdated, ref, toRefs } from 'vue'
 import { setupInput } from '@/components/DInput/setupInput'
 import { useAdmin } from '@/uses/useAdmin'
@@ -45,7 +45,8 @@ export default {
       onChange
     } = setupInput(
       input,
-      ref(undefined),
+      undefined,
+      undefined,
       value,
       name,
       ref(undefined),

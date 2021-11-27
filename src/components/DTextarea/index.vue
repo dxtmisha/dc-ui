@@ -17,7 +17,7 @@
 <script>
 import DCarcassField from '@/components/DCarcassField'
 import DTextareaAutosize from '@/components/DTextareaAutosize'
-import { props } from '@/components/DInput/props'
+import { props } from './props'
 import { ref, toRefs } from 'vue'
 import { setupCarcassField } from '@/components/DCarcassField/setupCarcassField'
 import { setupInput } from '@/components/DInput/setupInput'
@@ -56,6 +56,7 @@ export default {
       onChange
     } = setupInput(
       input,
+      undefined,
       item,
       value,
       name,

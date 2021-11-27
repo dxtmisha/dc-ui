@@ -26,6 +26,7 @@ export const optionsTextarea = [
   'placeholder',
 
   'optionsField',
+  'palette',
   optionsCarcassFieldAppearance,
   optionsCarcassFieldSize,
   'shape',
