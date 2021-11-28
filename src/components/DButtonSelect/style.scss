@@ -17,6 +17,21 @@
   }
 }
 
+@mixin buttonSelectAlign() {
+  &__button.align-left &__body {
+    justify-content: left;
+  }
+
+  &__button.align-right &__body {
+    justify-content: right;
+  }
+
+  &__button.align-center &__body {
+    justify-content: center;
+  }
+}
+
 @mixin buttonSelectInit() {
   @include buttonSelect;
+  @include buttonSelectAlign;
 }

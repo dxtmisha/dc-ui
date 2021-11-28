@@ -66,6 +66,7 @@ export default {
       appearance,
       size,
       shape,
+      align,
       adaptive,
       lowercase,
       dense,
@@ -115,6 +116,7 @@ export default {
         appearance,
         size,
         shape,
+        align,
         adaptive: propAdaptive
       },
       ...useColor(color, palette)

@@ -47,6 +47,10 @@ export const props = {
   },
   size: undefined,
   shape: undefined,
+  align: {
+    type: String,
+    default: defaultProps('align', 'left')
+  },
   adaptive: undefined,
   lowercase: undefined,
   dense: undefined,

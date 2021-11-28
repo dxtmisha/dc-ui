@@ -54,6 +54,15 @@ export const props = {
     default: defaultProps('shape'),
     validator: validatorShape
   },
+  align: {
+    type: String,
+    default: defaultProps('align'),
+    validator: validator([
+      'center',
+      'left',
+      'right'
+    ])
+  },
   adaptive: {
     type: String,
     validator: validatorAdaptive

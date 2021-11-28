@@ -24,6 +24,7 @@ export const setupButton = function (props) {
     'appearance',
     'size',
     'shape',
+    'align',
     'adaptive',
     'lowercase',
     'dense',

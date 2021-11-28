@@ -70,6 +70,7 @@ export const optionsButton = [
   optionsButtonAppearance,
   'size',
   'shape',
+  'align',
   'adaptive',
   'lowercase',
   'dense',

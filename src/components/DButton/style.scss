@@ -219,6 +219,20 @@
   }
 }
 
+@mixin buttonAlign() {
+  &.align-left {
+    text-align: left;
+  }
+
+  &.align-right {
+    text-align: right;
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+}
+
 @mixin buttonAdaptive() {
   $this: &;
 
@@ -319,6 +333,7 @@
 
   @include buttonSize;
   @include buttonShape;
+  @include buttonAlign;
   @include buttonAdaptive;
   @include buttonLowercase;
   @include buttonDense;

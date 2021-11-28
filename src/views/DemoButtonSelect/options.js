@@ -42,6 +42,7 @@ export const optionsButtonSelect = [
   optionsButtonAppearance,
   'size',
   'shape',
+  'align',
   'adaptive',
   'lowercase',
   'dense',
