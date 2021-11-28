@@ -1,8 +1,8 @@
-import { useWatch } from '@/--uses/useWatch'
-import { getFileResult } from '@/--tool/functions'
 import { ref } from 'vue'
+import getFileResult from '@/functions/getFileResult'
+import useWatch from '@/uses/useWatch'
 
-export const useIcon = function (icon) {
+export default function useIcon (icon) {
   let type
 
   const text = ref(undefined)
@@ -79,10 +79,10 @@ export const useIcon = function (icon) {
     updateText()
 
     const name = getClassName()
+    classIcon.value = { [`type-${type}`]: type }
 
-    classIcon.value = {
-      [`type-${type}`]: type,
-      [name]: name
+    if (name) {
+      classIcon.value[name] = true
     }
 
     data.value = icon.value instanceof File ? await getFileResult(icon.value) : icon.value

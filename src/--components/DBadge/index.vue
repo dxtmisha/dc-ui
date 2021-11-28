@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DIconItem from '@/--components/DIconItem'
+import DIconItem from '@/components/DIconItem'
 import { props } from '@/--components/DBadge/props'
 import { toRefs } from 'vue'
 import { useAdmin } from '@/--uses/useAdmin'

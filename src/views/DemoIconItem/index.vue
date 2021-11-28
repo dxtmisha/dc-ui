@@ -2,7 +2,12 @@
   <interactive-demo :options="options" v-slot:default="{ binds }">
     <div class="demo-icon-item">
       <div class="demo-icon-item__item">
-        <d-icon-item v-bind="binds" :icon="file || binds.icon"/>
+        <d-icon-item
+          id="id-icon-item"
+          v-bind="binds"
+          :icon="file || binds.icon"
+          :admin="true"
+        />
       </div>
       <div class="demo-icon-item__input">
         <input type="file" @input="onInput">
@@ -12,7 +17,7 @@
 </template>
 
 <script>
-import DIconItem from '@/--components/DIconItem'
+import DIconItem from '@/components/DIconItem'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsIconItem } from '@/views/DemoIconItem/options'

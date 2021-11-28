@@ -1,13 +1,18 @@
-import { onMounted, onUnmounted, onUpdated } from 'vue'
+import { onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated } from 'vue'
 
-const admin = false
+export const useAdmin = function (name, context = undefined) {
+  let mounted, updated
 
-export const useAdmin = function (name) {
-  if (admin) {
-    onMounted(() => console.info(`${name}: mounted`))
-    onUpdated(() => console.info(`${name}: updated`))
+  if (context?.attrs?.admin) {
+    onBeforeMount(() => {
+      mounted = new Date()
+    })
+    onBeforeUpdate(() => {
+      updated = new Date()
+    })
+
+    onMounted(() => console.info(`${name}: mounted (${new Date() - mounted})`))
+    onUpdated(() => console.info(`${name}: updated (${new Date() - updated})`))
     onUnmounted(() => console.info(`${name}: unmounted`))
   }
-
-  return {}
 }

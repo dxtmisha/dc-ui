@@ -1,8 +1,10 @@
-export const optionsIconItem = [
-  'values',
-  'icon',
+import { disabled, hide, icon, status, values } from '@/media/demo/options'
 
-  'status',
-  'disabled',
-  'hide'
-]
+export const optionsIconItem = {
+  values,
+  icon,
+
+  status,
+  disabled,
+  hide
+}

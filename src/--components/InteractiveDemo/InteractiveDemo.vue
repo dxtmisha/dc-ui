@@ -24,7 +24,7 @@ export default {
     InteractiveDemoOption
   },
   props: {
-    options: Array,
+    options: [Array, Object],
     sticky: {
       type: Boolean,
       default: true

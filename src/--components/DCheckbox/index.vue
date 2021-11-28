@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import DIconItem from '@/--components/DIconItem'
+import DIconItem from '@/components/DIconItem'
 import DRipple from '@/--components/DRipple'
 import { props } from '@/--components/DCheckbox/props'
 import { ref, toRefs } from 'vue'

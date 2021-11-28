@@ -1,6 +1,6 @@
-import { ref } from 'vue'
-import { optionsList } from '@/media/--demo/options'
 import List from '@/classes/List'
+import forEach from '@/functions/forEach'
+import { ref } from 'vue'
 
 export const useOptions = function (options) {
   const valueOptions = ref([])
@@ -27,15 +27,12 @@ export const useOptions = function (options) {
     const data = []
 
     if (options.value) {
-      options.value.forEach(value => {
-        if (typeof value !== 'string') {
-          data.push(value)
-        } else if (value in optionsList) {
-          data.push({
-            ...optionsList[value],
-            value
-          })
-        }
+      forEach(options.value, (value, text) => {
+        data.push({
+          ...value,
+          text,
+          value: text
+        })
       })
     }
 
