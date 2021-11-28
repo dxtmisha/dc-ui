@@ -1,58 +1,100 @@
-import { badge } from '@/media/--demo/badge'
+import {
+  bottom,
+  dot,
+  hide,
+  icon,
+  left,
+  options,
+  optionsPosition,
+  palette,
+  shape,
+  size,
+  status,
+  values
+} from '@/media/demo/options'
 
-export const optionsBadge = [
-  'values',
-  'icon',
-  {
-    ...badge.badge,
-    value: 'value'
-  },
-  {
-    text: 'Max',
-    value: 'max',
-    list: [
-      { value: undefined },
-      {
-        text: '99',
-        value: 99
-      },
-      {
-        text: '999',
-        value: 999
-      }
-    ]
-  },
-  'dot',
+export const badgeBadge = {
+  value: 'badge',
+  list: [
+    { value: undefined },
+    { value: 8 },
+    { value: 32 },
+    { value: 128 },
+    { value: 'Demo' },
+    { value: 'Interactive demo' }
+  ]
+}
 
-  'status',
-  'hide',
+export const badgeMax = {
+  value: 'max',
+  list: [
+    { value: undefined },
+    { value: 9 },
+    { value: 99 },
+    { value: 999 }
+  ]
+}
 
-  'optionsPosition',
-  'left',
-  'bottom',
+export const badgeAlignment = {
+  value: 'alignment',
+  list: [
+    { value: undefined },
+    { value: 'basic' },
+    { value: 'overlap' },
+    { value: 'static' }
+  ]
+}
 
-  'options',
-  'palette',
-  {
-    text: 'Alignment',
-    value: 'alignment',
-    list: [
-      { value: undefined },
-      {
-        text: 'Basic',
-        value: 'basic'
-      },
-      {
-        text: 'Overlap',
-        value: 'overlap'
-      },
-      {
-        text: 'Static',
-        value: 'static'
-      }
-    ]
-  },
-  'size',
-  'shape',
-  'outline'
-]
+export const badgeOutline = {
+  value: 'outline',
+  list: [
+    { value: undefined },
+    {
+      text: 'red',
+      value: '#F44336',
+      icon: '#F44336'
+    },
+    {
+      text: 'blue',
+      value: '#2196F3',
+      icon: '#2196F3'
+    },
+    {
+      text: 'green',
+      value: '#4CAF50',
+      icon: '#4CAF50'
+    },
+    {
+      text: 'yellow',
+      value: '#FFEB3B',
+      icon: '#FFEB3B'
+    },
+    {
+      text: 'gray',
+      value: '#9E9E9E',
+      icon: '#9E9E9E'
+    }
+  ]
+}
+
+export const optionsBadge = {
+  values,
+  icon,
+  badgeBadge,
+  dot,
+
+  status,
+  hide,
+
+  options,
+  palette,
+  badgeMax,
+  badgeAlignment,
+  size,
+  shape,
+  badgeOutline,
+
+  optionsPosition,
+  left,
+  bottom
+}

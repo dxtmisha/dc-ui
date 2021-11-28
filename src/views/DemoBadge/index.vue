@@ -5,13 +5,17 @@
   >
     <div class="demo-badge">
       Interactive demo
-      <d-badge v-bind="binds"/>
+      <d-badge
+        id="id-badge"
+        v-bind="binds"
+        :admin="true"
+      />
     </div>
   </interactive-demo>
 </template>
 
 <script>
-import DBadge from '@/--components/DBadge'
+import DBadge from '@/components/DBadge'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsBadge } from '@/views/DemoBadge/options'
 

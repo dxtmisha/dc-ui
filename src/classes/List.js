@@ -73,6 +73,14 @@ export default class List {
       }
     }
 
+    if (
+      data.text &&
+      typeof data.text !== 'string' &&
+      data.text?.toString
+    ) {
+      data.text = data.text.toString()
+    }
+
     return data
   }
 

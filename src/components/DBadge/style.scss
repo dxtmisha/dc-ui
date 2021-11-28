@@ -6,8 +6,11 @@
 @import "../../styles/position";
 @import "../../styles/options/optionHide";
 @import "../../styles/options/optionShape";
-@import "styleExtend";
 @import "styleVar";
+
+%padding-none {
+  --_bg-padding: 0px;
+}
 
 @mixin badge() {
   @include badgeVar;

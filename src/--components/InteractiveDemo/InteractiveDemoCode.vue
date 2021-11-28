@@ -23,7 +23,7 @@ export default {
           if (item === true) {
             values.push(toKebabCase(index))
           } else if (item) {
-            if (typeof item === 'string' && item.length < 20) {
+            if (['number', 'string'].indexOf(typeof item) !== -1 && item.length < 20) {
               values.push(`${toKebabCase(index)}="${item}"`)
             } else {
               values.push(`${toKebabCase(index)}="..."`)

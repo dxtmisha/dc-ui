@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import DBadge from '@/--components/DBadge'
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DProgress from '@/--components/DProgress'
 import DRipple from '@/--components/DRipple'

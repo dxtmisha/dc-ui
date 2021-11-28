@@ -1,9 +1,14 @@
 import { dataIcon } from '@/media/demo/data/icon'
+import { dataPalette } from '@/media/demo/data/palette'
 
 // Subtitle
 export const values = { subtitle: 'Values' }
 export const status = { subtitle: 'Status' }
 export const options = { subtitle: 'Options' }
+export const optionsPosition = { subtitle: 'Option: position' }
+
+// Values
+export const dot = {}
 
 // Status
 export const active = {}
@@ -21,6 +26,26 @@ export const animationHide = {
 }
 export const animationShow = {}
 export const background = {}
+export const bottom = {}
+export const left = {}
+export const palette = { list: dataPalette }
+export const shape = {
+  list: [
+    { value: undefined },
+    { value: 'basic' },
+    { value: 'rounded' },
+    { value: 'pill' },
+    { value: 'tile' }
+  ]
+}
+export const size = {
+  list: [
+    { value: undefined },
+    { value: 'small' },
+    { value: 'medium' },
+    { value: 'large' }
+  ]
+}
 
 // Icons
 export const icon = {

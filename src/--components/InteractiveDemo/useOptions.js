@@ -13,7 +13,7 @@ export const useOptions = function (options) {
     let data
 
     if ('list' in item) {
-      data = (value.match(/^[0-9]+$/ig) ? parseInt(value) : value) || undefined
+      data = value
     } else if ('message' in item) {
       data = value ? item.message : undefined
     } else {
