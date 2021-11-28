@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorAdaptive, validatorShape, validatorSize } from '@/--uses/useDefault'
+import { defaultInit, validator, validatorAdaptive, validatorShape, validatorSize } from '@/uses/useDefault'
 import { palette } from '@/--uses/useColor'
 
 const defaultProps = defaultInit('d-button')

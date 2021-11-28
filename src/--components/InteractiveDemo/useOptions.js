@@ -29,9 +29,9 @@ export const useOptions = function (options) {
     if (options.value) {
       forEach(options.value, (value, text) => {
         data.push({
-          ...value,
-          text,
-          value: text
+          text: value.value || text,
+          value: text,
+          ...value
         })
       })
     }

@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import DIcon from '@/--components/DIcon'
+import DIcon from '@/components/DIcon'
 import DProgress from '@/--components/DProgress'
 import DRipple from '@/--components/DRipple'
 import { props } from '@/--components/DCarcassField/props'

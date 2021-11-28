@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorShape } from '@/--uses/useDefault'
+import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
 import { palette } from '@/--uses/useColor'
 
 export const defaultProps = defaultInit('d-carcass-field')

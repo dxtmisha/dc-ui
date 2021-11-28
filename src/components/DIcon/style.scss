@@ -2,8 +2,11 @@
 @import "../../styles/dimension";
 @import "../../styles/font";
 @import "../../styles/options/optionHide";
-@import "styleExtend";
 @import "styleVar";
+
+%size-large-font {
+  --_ic-font: var(--_ic--lg-font);
+}
 
 @mixin icon() {
   @include iconVar;

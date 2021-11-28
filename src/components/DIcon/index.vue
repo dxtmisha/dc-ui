@@ -19,48 +19,33 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
-import { toRefs } from 'vue'
-import { useAdmin } from '@/--uses/useAdmin'
-import { useClasses } from '@/--uses/useClasses'
-import { useWatch } from '@/--uses/useWatch'
+import { computed, toRefs } from 'vue'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DIcon',
   components: { DIconItem },
   props,
-  setup (props) {
+  setup (props, context) {
     const {
       iconActive,
-      active,
-      turn,
-      hide,
-      size,
-      animationHide,
-      animationShow,
-      background
+      active
     } = toRefs(props)
 
-    const isActive = useWatch(active, data => {
-      data.value = !!(iconActive.value && active.value)
-    })
-
-    const classList = useClasses({
-      'd-icon': true,
-      status: {
-        turn,
-        hide
-      },
-      option: {
-        animation: animationShow,
-        background
-      },
-      values: {
-        size,
-        animation: animationHide
+    const isActive = computed(() => iconActive.value && active.value)
+    const classList = computed(() => {
+      return {
+        'd-icon': true,
+        'status-turn': props.turn,
+        'status-hide': props.hide,
+        [`size-${props.size}`]: props.size,
+        [`animation-${props.animationHide}`]: props.animationHide,
+        'option-animation': props.animationShow,
+        'option-background': props.background
       }
     })
 
-    useAdmin('d-icon')
+    useAdmin('d-icon', context)
 
     return {
       isActive,

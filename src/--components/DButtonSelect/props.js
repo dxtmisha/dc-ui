@@ -1,4 +1,4 @@
-import { defaultInit } from '@/--uses/useDefault'
+import { defaultInit } from '@/uses/useDefault'
 
 export const defaultProps = defaultInit('d-button-select')
 export const props = {

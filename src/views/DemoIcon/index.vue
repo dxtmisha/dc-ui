@@ -3,14 +3,19 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-icon class="demo-icon" v-bind="binds"/>
+    <d-icon
+      id="id-icon"
+      v-bind="binds"
+      class="demo-icon"
+      :admin="true"
+    />
   </interactive-demo>
 </template>
 
 <script>
-import DIcon from '@/--components/DIcon'
+import DIcon from '@/components/DIcon'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsIcon } from '@/views/DemoIcon/options'
+import { optionsIcon } from './options'
 
 export default {
   name: 'DemoIcon',

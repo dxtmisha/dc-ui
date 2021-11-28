@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/--uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-progress')
 export const props = {

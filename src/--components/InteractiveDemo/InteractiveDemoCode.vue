@@ -21,7 +21,7 @@ export default {
       if (options.value) {
         forEach(options.value, (item, index) => {
           if (item === true) {
-            values.push(`${toKebabCase(index)}="1"`)
+            values.push(toKebabCase(index))
           } else if (item) {
             if (typeof item === 'string' && item.length < 20) {
               values.push(`${toKebabCase(index)}="${item}"`)
