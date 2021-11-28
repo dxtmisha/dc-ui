@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import DSelect from '@/components/DSelect'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DSelect from '@/--components/DSelect'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsSelect } from '@/views/DemoSelect/options'
-import { menu } from '@/media/demo/list'
+import { menu } from '@/media/--demo/list'
 
 export default {
   name: 'DemoSelect',

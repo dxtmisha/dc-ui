@@ -11,9 +11,24 @@
 @include init();
 @include initDark();
 
+header,
+main {
+  width: 1024px;
+}
+
+header {
+  background: var(--background-type4);
+  border-radius: var(--basic-radius);
+  box-shadow: var(--shadow-type4);
+  margin: dimension(6) auto dimension(8);
+  padding: dimension(2) dimension(4);
+  position: sticky;
+  top: dimension(1);
+}
+
 main {
   margin: 0 auto;
   max-width: 100%;
-  padding: dimension(4);
+  padding: 0 0 dimension(10);
   width: 1024px;
 }

@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import DList from '@/components/DList'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DList from '@/--components/DList'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import List from '@/classes/List'
 import { ref } from 'vue'
 import { optionsList } from '@/views/DemoList/options'
-import { menu } from '@/media/demo/list'
+import { menu } from '@/media/--demo/list'
 
 export default {
   name: 'DemoList',

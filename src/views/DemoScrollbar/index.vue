@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import DScrollbar from '@/components/DScrollbar'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { alexanderPushkin } from '@/media/demo/texts'
+import DScrollbar from '@/--components/DScrollbar'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import { alexanderPushkin } from '@/media/--demo/texts'
 
 export default {
   name: 'DemoScrollbar',

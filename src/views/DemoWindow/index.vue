@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DWindow from '@/components/DWindow'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DButton from '@/--components/DButton'
+import DWindow from '@/--components/DWindow'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsWindow } from '@/views/DemoWindow/options'
-import { leoTolstoy } from '@/media/demo/texts'
+import { leoTolstoy } from '@/media/--demo/texts'
 
 export default {
   name: 'DemoWindow',

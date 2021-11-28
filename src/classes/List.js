@@ -1,5 +1,5 @@
 import Translation from './Translation'
-import { forEach, getColumn, isSelected } from '@/tool/functions'
+import { forEach, getColumn, isSelected } from '@/--tool/functions'
 
 export default class List {
   _list

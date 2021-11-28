@@ -1,7 +1,7 @@
 import { optionsButtonAppearance } from '@/views/DemoButton/options'
 import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoListItem/options'
 import { optionsWindowWidth } from '@/views/DemoWindow/options'
-import { optionsList } from '@/media/demo/options'
+import { optionsList } from '@/media/--demo/options'
 
 export const optionsButtonSelect = [
   'values',

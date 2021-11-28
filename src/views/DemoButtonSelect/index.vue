@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import DButtonSelect from '@/components/DButtonSelect'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DButtonSelect from '@/--components/DButtonSelect'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsButtonSelect } from '@/views/DemoButtonSelect/options'
-import { menu } from '@/media/demo/list'
+import { menu } from '@/media/--demo/list'
 
 export default {
   name: 'DemoButtonSelect',

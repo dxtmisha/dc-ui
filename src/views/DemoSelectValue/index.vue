@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import DSelectValue from '@/components/DSelectValue'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DSelectValue from '@/--components/DSelectValue'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsSelectValue } from '@/views/DemoSelectValue/options'
 
 export default {

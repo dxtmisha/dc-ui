@@ -1,4 +1,4 @@
-import { badge } from '@/media/demo/badge'
+import { badge } from '@/media/--demo/badge'
 
 export const optionsBadge = [
   'values',

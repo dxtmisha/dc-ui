@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import DTextareaAutosize from '@/components/DTextareaAutosize'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { textarea } from '@/media/demo/texts'
+import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import { textarea } from '@/media/--demo/texts'
 
 export default {
   name: 'DemoTextareaAutosize',

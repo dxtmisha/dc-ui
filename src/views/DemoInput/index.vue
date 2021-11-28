@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import DInput from '@/components/DInput'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DInput from '@/--components/DInput'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsInput } from '@/views/DemoInput/options'
 
 export default {

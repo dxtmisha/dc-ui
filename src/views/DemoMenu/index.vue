@@ -29,11 +29,11 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DButton from '@/--components/DButton'
+import DMenu from '@/--components/DMenu'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMenu } from '@/views/DemoMenu/options'
-import { menu } from '@/media/demo/list'
+import { menu } from '@/media/--demo/list'
 
 export default {
   name: 'DemoMenu',

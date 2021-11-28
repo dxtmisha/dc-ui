@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import DMask from '@/components/DMask'
-import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import DMask from '@/--components/DMask'
+import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMask } from '@/views/DemoMask/options'
 
 export default {
