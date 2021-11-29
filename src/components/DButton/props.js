@@ -1,17 +1,20 @@
-import { defaultInit, validator, validatorAdaptive, validatorShape, validatorSize } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
+import {
+  defaultInit,
+  validator,
+  validatorAdaptive,
+  validatorAlign,
+  validatorShape,
+  validatorSize
+} from '@/uses/useDefault'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-button')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
-  iconTrailing: undefined,
-  badge: [Number, Object, String],
-  badgeIcon: undefined,
   item: undefined,
   value: undefined,
   text: [Number, String],
+  badge: [Number, Object, String],
 
   // Status
   selected: Boolean,
@@ -57,11 +60,7 @@ export const props = {
   align: {
     type: String,
     default: defaultProps('align'),
-    validator: validator([
-      'center',
-      'left',
-      'right'
-    ])
+    validator: validatorAlign
   },
   adaptive: {
     type: String,
@@ -78,8 +77,11 @@ export const props = {
   },
 
   // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconTrailing: undefined,
   iconReadonly: Boolean,
-  iconHide: Boolean,
-  iconAnimationShow: Boolean,
-  iconBackground: Boolean
+  iconHide: undefined,
+  iconAnimationShow: undefined,
+  iconBackground: undefined
 }

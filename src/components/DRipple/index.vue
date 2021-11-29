@@ -7,18 +7,17 @@
 </template>
 
 <script>
-import { useAdmin } from '@/--uses/useAdmin'
-import { useItem } from '@/--components/DRipple/useItem'
+import { ref } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useItem from './useItem'
 
 export default {
   name: 'DRipple',
-  setup () {
-    const {
-      ripple,
-      onMousedown
-    } = useItem()
+  setup (props, context) {
+    const ripple = ref(undefined)
+    const { onMousedown } = useItem(ripple)
 
-    useAdmin('d-ripple')
+    useAdmin('d-ripple', context)
 
     return {
       ripple,

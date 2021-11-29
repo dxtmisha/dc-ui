@@ -21,6 +21,12 @@ export const validatorAdaptive = validator([
   'block'
 ])
 
+export const validatorAlign = validator([
+  'center',
+  'left',
+  'right'
+])
+
 export const validatorAxis = validator([
   'x',
   'y'

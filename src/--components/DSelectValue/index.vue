@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import { props } from '@/--components/DSelectValue/props'
 import { toRefs } from 'vue'
 import { useClasses } from '@/--uses/useClasses'

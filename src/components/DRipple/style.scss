@@ -1,5 +1,5 @@
 @import "../../styles/position";
-@import "styleVar";
+@import "src/components/DRipple/styleVar";
 
 @mixin ripple() {
   @include rippleVar;

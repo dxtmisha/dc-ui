@@ -1,10 +1,7 @@
-import { ref } from 'vue'
-import { createElement } from '@/--tool/functions'
+import createElement from '@/functions/createElement'
 
-export const useItem = function () {
-  const ripple = ref([])
-
-  const add = (x, y) => createElement(ripple.value, 'span', (item) => {
+export default function useItem (ripple) {
+  const add = (x, y) => createElement(ripple.value, 'span', item => {
     item.onanimationend = () => item.classList.add('step-1')
     item.ontransitionend = () => ripple.value.removeChild(item)
 
@@ -19,8 +16,5 @@ export const useItem = function () {
     offsetY
   }) => add(offsetX, offsetY)
 
-  return {
-    ripple,
-    onMousedown
-  }
+  return { onMousedown }
 }

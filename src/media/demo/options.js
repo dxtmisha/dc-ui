@@ -5,19 +5,50 @@ import { dataPalette } from '@/media/demo/data/palette'
 export const values = { subtitle: 'Values' }
 export const status = { subtitle: 'Status' }
 export const options = { subtitle: 'Options' }
+export const optionsIcon = { subtitle: 'Option: icon' }
 export const optionsPosition = { subtitle: 'Option: position' }
 
 // Values
 export const dot = {}
+export const text = {
+  default: true,
+  message: 'Interactive demo'
+}
 
 // Status
 export const active = {}
 export const disabled = {}
+export const dragged = {}
 export const hide = {}
+export const progress = {}
+export const readonly = {}
+export const selected = {}
 export const turn = {}
 export const visible = {}
 
 // Options
+export const adaptive = {
+  list: [
+    { value: undefined },
+    { value: 'auto' },
+    { value: 'auto-small' },
+    { value: 'auto-medium' },
+    { value: 'auto-large' },
+    { value: 'auto-extra' },
+    { value: 'auto-desktop' },
+    { value: 'basic' },
+    { value: 'icon' },
+    { value: 'block' }
+  ]
+}
+export const align = {
+  list: [
+    { value: undefined },
+    { value: 'center' },
+    { value: 'left' },
+    { value: 'right' }
+  ]
+}
 export const animationHide = {
   list: [
     { value: undefined },
@@ -53,8 +84,11 @@ export const delay = {
     }
   ]
 }
+export const dense = {}
 export const left = {}
+export const lowercase = {}
 export const palette = { list: dataPalette }
+export const ripple = { default: true }
 export const shape = {
   list: [
     { value: undefined },
@@ -87,3 +121,7 @@ export const iconTrailing = {
   list: dataIcon
 }
 export const thumbnail = { list: dataIcon }
+export const iconAnimationShow = {}
+export const iconBackground = {}
+export const iconHide = {}
+export const iconReadonly = {}

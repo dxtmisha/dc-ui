@@ -1,84 +1,80 @@
-export const optionsButtonAppearance = {
-  text: 'Appearance',
+import {
+  adaptive,
+  align,
+  dense,
+  disabled,
+  dragged,
+  icon,
+  iconActive,
+  iconAnimationShow,
+  iconBackground,
+  iconHide,
+  iconReadonly,
+  iconTrailing,
+  lowercase,
+  options,
+  optionsIcon,
+  palette,
+  progress,
+  readonly,
+  ripple,
+  selected,
+  shape,
+  size,
+  status,
+  text,
+  turn,
+  values
+} from '@/media/demo/options'
+import { badgeBadge } from '@/views/DemoBadge/options'
+
+export const buttonAppearance = {
   value: 'appearance',
   list: [
     { value: undefined },
-    {
-      text: 'Text',
-      value: 'text'
-    },
-    {
-      text: 'Text: color',
-      value: 'text-color'
-    },
-    {
-      text: 'Outlined',
-      value: 'outlined'
-    },
-    {
-      text: 'Outlined: color',
-      value: 'outlined-color'
-    },
-    {
-      text: 'Outlined: contained',
-      value: 'outlined-contained'
-    },
-    {
-      text: 'Contained',
-      value: 'contained'
-    },
-    {
-      text: 'Floating action button',
-      value: 'fab'
-    },
-    {
-      text: 'Chip',
-      value: 'chip'
-    },
-    {
-      text: 'Chip: color',
-      value: 'chip-color'
-    },
-    {
-      text: 'Chip: outlined',
-      value: 'chip-outlined'
-    }
+    { value: 'text' },
+    { value: 'text-color' },
+    { value: 'outlined' },
+    { value: 'outlined-color' },
+    { value: 'outlined-contained' },
+    { value: 'contained' },
+    { value: 'fab' },
+    { value: 'chip' },
+    { value: 'chip-color' },
+    { value: 'chip-outlined' }
   ]
 }
 
-export const optionsButton = [
-  'values',
-  'icon',
-  'iconActive',
-  'iconTrailing',
-  'text',
+export const optionsButton = {
+  values,
+  badgeBadge,
+  text,
 
-  'valuesBadge',
-  'badgeIcon',
-  'badge',
+  status,
+  selected,
+  turn,
+  dragged,
+  readonly,
+  disabled,
+  progress,
 
-  'status',
-  'selected',
-  'turn',
-  'dragged',
-  'readonly',
-  'disabled',
-  'progress',
+  options,
+  palette,
+  buttonAppearance,
+  size,
+  shape,
+  align,
+  adaptive,
+  lowercase,
+  dense,
+  ripple,
 
-  'options',
-  'palette',
-  optionsButtonAppearance,
-  'size',
-  'shape',
-  'align',
-  'adaptive',
-  'lowercase',
-  'dense',
-  'ripple',
-
-  'optionsIcon',
-  'iconReadonly',
-  'iconHide',
-  'iconAnimationShow',
-  'iconBackground'
-]
+  optionsIcon,
+  icon,
+  iconActive,
+  iconTrailing,
+  iconReadonly,
+  iconHide,
+  iconAnimationShow,
+  iconBackground
+}
