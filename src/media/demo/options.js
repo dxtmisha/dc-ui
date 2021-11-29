@@ -15,6 +15,7 @@ export const active = {}
 export const disabled = {}
 export const hide = {}
 export const turn = {}
+export const visible = {}
 
 // Options
 export const animationHide = {
@@ -27,6 +28,31 @@ export const animationHide = {
 export const animationShow = {}
 export const background = {}
 export const bottom = {}
+export const delay = {
+  list: [
+    { value: undefined },
+    {
+      text: '0s',
+      value: 0
+    },
+    {
+      text: '400s',
+      value: 400
+    },
+    {
+      text: '800s',
+      value: 800
+    },
+    {
+      text: '1600s',
+      value: 1600
+    },
+    {
+      text: '3200s',
+      value: 3200
+    }
+  ]
+}
 export const left = {}
 export const palette = { list: dataPalette }
 export const shape = {

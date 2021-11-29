@@ -57,7 +57,7 @@
 <script>
 import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
-import DProgress from '@/--components/DProgress'
+import DProgress from '@/components/DProgress'
 import DRipple from '@/--components/DRipple'
 import { props } from '@/--components/DListItem/props'
 import { reactive, toRefs } from 'vue'

@@ -1,30 +1,14 @@
 import { useWatch } from '@/--uses/useWatch'
+import { computed } from 'vue'
 
-export const useValue = function (
-  value,
-  max,
-  type
-) {
-  const tag = useWatch([
-    value,
-    type
-  ], data => {
-    if (type.value !== 'linear') {
-      data.value = 'svg'
-    } else if (value.value) {
-      data.value = 'progress'
+export const useValue = function (props) {
+  const tag = computed(() => {
+    if (props.type !== 'linear') {
+      return 'svg'
+    } else if (props.value) {
+      return 'progress'
     } else {
-      data.value = 'div'
-    }
-  })
-
-  const styleValue = useWatch([
-    value,
-    max
-  ], data => {
-    data.value = {
-      '--_pr__vl-value': value.value,
-      '--_pr__vl-max': max.value
+      return 'div'
     }
   })
 
