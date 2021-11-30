@@ -6,8 +6,10 @@
     <div class="demo-list">
       <d-list
         v-bind="binds"
+        id="id-list"
         :list="list"
         :selected="selected"
+        :admin="true"
         @on-click="onClick"
       />
     </div>
@@ -15,12 +17,12 @@
 </template>
 
 <script>
-import DList from '@/--components/DList'
+import DList from '@/components/DList'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import List from '@/classes/List'
 import { ref } from 'vue'
 import { optionsList } from '@/views/DemoList/options'
-import { menu } from '@/media/--demo/list'
+import menu from '@/media/demo/list/menu'
 
 export default {
   name: 'DemoList',

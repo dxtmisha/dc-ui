@@ -1,5 +1,5 @@
 <template>
-  <span :class="classList">
+  <span ref="main" :class="classList">
     <d-icon-item
       v-if="icon"
       :icon="icon"
@@ -19,7 +19,7 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
-import { computed, toRefs } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
@@ -32,6 +32,7 @@ export default {
       active
     } = toRefs(props)
 
+    const main = ref(undefined)
     const isActive = computed(() => iconActive.value && active.value)
     const classList = computed(() => {
       return {
@@ -45,9 +46,10 @@ export default {
       }
     })
 
-    useAdmin('d-icon', context)
+    useAdmin('d-icon', context, main)
 
     return {
+      main,
       isActive,
       classList
     }

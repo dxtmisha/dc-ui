@@ -1,23 +1,23 @@
-import EventControl from '@/classes/EventControl'
 import { nextTick, ref } from 'vue'
-import { getKey, goScroll } from '@/--tool/functions'
+import EventControl from '@/classes/EventControl'
+import getKey from '@/functions/getKey'
+import goScroll from '@/functions/goScroll'
 
-export const useFocus = function (
+export default function useFocus (
   selected,
   object
 ) {
-  let focusKey
-  let resetSearch
-  const elWindow = ref(undefined)
-  const elMenu = ref(undefined)
+  let focusKey, resetSearch
+  const menu = ref(undefined)
+  const window = ref(undefined)
   const focus = ref(undefined)
   const search = ref(undefined)
 
   const getList = () => object.value.getFirst()
-  const querySelector = (selectors) => elMenu.value?.$el.querySelector(selectors)
+  const querySelector = selectors => menu.value?.$el.querySelector(selectors)
   const elementFocus = () => querySelector(`[data-value="${focus.value}"]`)
 
-  const setFocus = (value) => {
+  const setFocus = value => {
     const list = getList()
     const length = list.length
 
@@ -32,7 +32,7 @@ export const useFocus = function (
     focus.value = list?.[focusKey]?.value
     goScroll(elementFocus())
   }
-  const setSearch = (key) => {
+  const setSearch = key => {
     const list = getList()
 
     search.value = resetSearch ? search.value + key : key
@@ -47,7 +47,7 @@ export const useFocus = function (
     goScroll(elementFocus())
   }
 
-  const eventBody = EventControl.init(document.body, async (event) => {
+  const eventBody = EventControl.init(document.body, async event => {
     if (!querySelector('.ls-menu .status-turn')) {
       if (event.type === 'keypress') {
         setSearch(event.key)
@@ -78,7 +78,7 @@ export const useFocus = function (
           case 'ArrowLeft':
           case 37:
             event.preventDefault()
-            elWindow.value.toggle(false)
+            window.value.toggle(false)
             break
         }
       }
@@ -98,8 +98,8 @@ export const useFocus = function (
   }
 
   return {
-    elWindow,
-    elMenu,
+    menu,
+    window,
     focus,
     search,
     opening

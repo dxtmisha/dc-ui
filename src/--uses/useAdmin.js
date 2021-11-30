@@ -1,6 +1,10 @@
 import { onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated } from 'vue'
 
-export const useAdmin = function (name, context = undefined) {
+export const useAdmin = function (
+  name,
+  context = undefined,
+  item = undefined
+) {
   let mounted, updated
 
   if (context?.attrs?.admin) {
@@ -11,8 +15,8 @@ export const useAdmin = function (name, context = undefined) {
       updated = new Date()
     })
 
-    onMounted(() => console.info(`${name}: mounted (${new Date() - mounted})`))
-    onUpdated(() => console.info(`${name}: updated (${new Date() - updated})`))
-    onUnmounted(() => console.info(`${name}: unmounted`))
+    onMounted(() => console.log(`${name}: mounted (${new Date() - mounted})`, item))
+    onUpdated(() => console.log(`${name}: updated (${new Date() - updated})`, item))
+    onUnmounted(() => console.log(`${name}: unmounted`))
   }
 }

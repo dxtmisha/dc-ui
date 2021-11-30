@@ -1,30 +1,48 @@
-import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoListItem/options'
+import { iconSize } from '@/views/DemoIcon/options'
+import { listItemAppearance } from '@/views/DemoListItem/options'
+import {
+  adaptive,
+  axis,
+  border,
+  dense,
+  iconAnimationShow,
+  iconBackground,
+  navigationRail,
+  options,
+  optionsIcon,
+  optionsItem,
+  palette,
+  ripple,
+  shape,
+  status,
+  underline
+} from '@/media/demo/options'
 
-export const optionsList = [
-  'status',
-  {
-    text: 'Focus',
-    value: 'focus',
-    message: 'help_and_feedback'
-  },
-  'underline',
+export const listFocus = {
+  value: 'focus',
+  message: 'help_and_feedback'
+}
 
-  'options',
-  'palette',
+export const optionsList = {
+  status,
+  listFocus,
+  underline,
 
-  'optionsItem',
-  optionsListItemAppearance,
-  'navigationRail',
-  optionsListItemSize,
-  'shape',
-  'adaptive',
-  'dense',
-  'border',
-  'ripple',
+  options,
+  axis,
 
-  'optionsIcon',
-  'icon',
-  'iconActive',
-  'iconAnimationShow',
-  'iconBackground'
-]
+  optionsItem,
+  palette,
+  listItemAppearance,
+  iconSize,
+  shape,
+  adaptive,
+  navigationRail,
+  dense,
+  border,
+  ripple,
+
+  optionsIcon,
+  iconAnimationShow,
+  iconBackground
+}

@@ -1,6 +1,6 @@
 <template>
   <d-window
-    ref="elWindow"
+    ref="window"
     class="d-menu"
     :before-opening="beforeOpening"
     :opening="opening"
@@ -22,7 +22,7 @@
     </template>
     <template v-slot:window>
       <d-list
-        ref="elMenu"
+        ref="menu"
         v-bind="bindList"
         @on-click="onInput"
         @on-group="onGroup"
@@ -32,14 +32,15 @@
 </template>
 
 <script>
-import DList from '@/--components/DList'
+import DList from '@/components/DList'
 import DWindow from '@/components/DWindow'
-import { props } from '@/--components/DMenu/props'
+import { props } from './props'
 import { readonly, toRefs } from 'vue'
-import { useFocus } from '@/--components/DMenu/useFocus'
-import { useObjectList } from '@/--uses/useObjectList'
-import { useSelected } from '@/--components/DMenu/useSelected'
-import { useShifted } from '@/--components/DMenu/useShifted'
+import useFocus from './useFocus'
+import useObjectList from '@/uses/useObjectList'
+import useSelected from './useSelected'
+import useShifted from './useShifted'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DMenu',
@@ -50,45 +51,16 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const {
-      list,
-      listInit,
-      translation,
-      keyText,
-      keyValue,
-      ajax,
-      request,
-      cache,
-      multiple,
-      maxlength,
-      selected,
-      disabled,
-      palette,
-      color,
-      tag,
-      appearance,
-      size,
-      shape,
-      ripple
-    } = toRefs(props)
+    const refs = toRefs(props)
 
     const {
-      object,
-      buffer,
       progress,
-      group,
+      object,
+      propList,
+      propGroup,
       beforeOpening,
       onGroup
-    } = useObjectList(
-      list,
-      listInit,
-      translation,
-      keyText,
-      keyValue,
-      ajax,
-      request,
-      cache
-    )
+    } = useObjectList(props)
 
     const {
       propSelected,
@@ -97,17 +69,14 @@ export default {
       cancel,
       onInput
     } = useSelected(
-      listInit,
-      multiple,
-      maxlength,
-      selected,
+      props,
       object,
       context
     )
 
     const {
-      elWindow,
-      elMenu,
+      menu,
+      window,
       focus,
       search,
       opening
@@ -120,9 +89,8 @@ export default {
       previous,
       next
     } = useShifted(
-      multiple,
+      props,
       propSelected,
-      disabled,
       object,
       beforeOpening,
       onInput
@@ -130,32 +98,28 @@ export default {
 
     const bindList = readonly({
       class: 'd-menu__list',
-      list: buffer,
-      group,
-      menu: readonly({
-        translation,
-        keyText,
-        keyValue,
-        multiple,
-        maxlength
-      }),
+      list: propList,
+      underline: search,
+      group: propGroup,
+      menu: props,
       focus,
       selected: propSelected,
-      underline: search,
-      palette,
-      color,
-      tag,
-      appearance,
-      size,
-      shape,
+      palette: refs.palette,
+      color: refs.color,
+      tag: refs.tag,
+      appearance: refs.appearance,
+      size: refs.size,
+      shape: refs.shape,
       adaptive: 'basic',
       border: false,
-      ripple
+      ripple: refs.ripple
     })
 
+    useAdmin('d-menu', context, menu)
+
     return {
-      elWindow,
-      elMenu,
+      menu,
+      window,
       progress,
       propSelected,
       items,

@@ -1,5 +1,6 @@
 <template>
   <component
+    ref="main"
     :is="tag"
     v-if="!hide"
     v-bind="binds"
@@ -60,7 +61,7 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import setupBadge from '@/components/DBadge/setupBadge'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
@@ -77,6 +78,7 @@ export default {
   props,
   emits: ['on-click'],
   setup (props, context) {
+    const main = ref(undefined)
     const palette = useColor(props)
     const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
     const propText = computed(() => {
@@ -122,13 +124,14 @@ export default {
 
     const onClick = () => context.emit('on-click', {
       item: props.item,
-      value: props.value,
+      value: props.value || props.item?.value,
       selected: !props.selected
     })
 
-    useAdmin('d-list-item', context)
+    useAdmin('d-list-item', context, main)
 
     return {
+      main,
       propText,
       bindThumbnail,
       bindIcon,

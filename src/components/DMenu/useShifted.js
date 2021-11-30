@@ -1,9 +1,8 @@
-import { getKey } from '@/--tool/functions'
+import getKey from '@/functions/getKey'
 
-export const useShifted = function (
-  multiple,
+export default function useShifted (
+  props,
   selected,
-  disabled,
   object,
   beforeOpening,
   onInput
@@ -35,8 +34,8 @@ export const useShifted = function (
     }
   }
 
-  const shifted = async (value) => {
-    if (!multiple.value && !disabled.value) {
+  const shifted = async value => {
+    if (!props.multiple && !props.disabled) {
       await beforeOpening(true)
       onInput({ value: getItem(selected.value, value) })
     }

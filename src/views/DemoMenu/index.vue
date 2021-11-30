@@ -9,11 +9,17 @@
         appearance="text-color"
         @click="$refs.menu.previous()"
       />
-      <d-menu ref="menu" v-bind="binds" :list="list">
+      <d-menu
+        ref="menu"
+        v-bind="binds"
+        id="id-menu"
+        :list="list"
+        :admin="true"
+      >
         <template v-slot:default="{ classList, onClick, names, progress }">
           <d-button
             :class="classList"
-            :text="names ? names.join(', ') : 'Interactive demo'"
+            :text="names ? names?.join(', ') : 'Interactive demo'"
             :progress="progress"
             @click="onClick"
           />
@@ -30,10 +36,10 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DMenu from '@/--components/DMenu'
+import DMenu from '@/components/DMenu'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsMenu } from '@/views/DemoMenu/options'
-import { menu } from '@/media/--demo/list'
+import { optionsMenu } from './options'
+import menu from '@/media/demo/list/menu'
 
 export default {
   name: 'DemoMenu',

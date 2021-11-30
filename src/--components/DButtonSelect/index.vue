@@ -32,7 +32,7 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DMenu from '@/--components/DMenu'
+import DMenu from '@/components/DMenu'
 import { props } from './props'
 import { ref, toRefs } from 'vue'
 import { setupButton } from '@/--components/DButton/setupButton'

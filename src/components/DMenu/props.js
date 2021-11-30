@@ -30,11 +30,9 @@ export const props = {
   selected: undefined,
   disabled: Boolean,
 
-  // Options
+  // Item
   palette: undefined,
   color: undefined,
-
-  // Item
   tag: undefined,
   appearance: undefined,
   size: {
@@ -48,10 +46,10 @@ export const props = {
   ripple: undefined,
 
   // Window
-  axis: undefined,
   width: {
     type: String,
     default: defaultProps('width', '0px')
   },
+  axis: undefined,
   indent: undefined
 }

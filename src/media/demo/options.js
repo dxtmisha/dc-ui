@@ -7,12 +7,18 @@ export const values = { subtitle: 'Values' }
 export const status = { subtitle: 'Status' }
 export const options = { subtitle: 'Options' }
 export const optionsIcon = { subtitle: 'Option: icon' }
+export const optionsItem = { subtitle: 'Option: item' }
 export const optionsPosition = { subtitle: 'Option: position' }
+export const optionsWindow = { subtitle: 'Option: window' }
 
 // Values
+export const ajax = { message: '/demo/request/menu.json' }
 export const backgroundColor = { message: '244,67,54' }
+export const cache = {}
 export const description = { message: quote1 }
 export const dot = {}
+export const maxlength = { message: 4 }
+export const multiple = {}
 export const prefix = { message: 'pr' }
 export const suffix = { message: 'sf' }
 export const text = {
@@ -23,7 +29,7 @@ export const textShort = {
   default: true,
   message: 'Demo'
 }
-export const underline = { message: 'act' }
+export const underline = { message: 'act|pro' }
 
 // Status
 export const active = {}
@@ -65,6 +71,13 @@ export const animationHide = {
     { value: undefined },
     { value: 'type1' },
     { value: 'type2' }
+  ]
+}
+export const axis = {
+  list: [
+    { value: undefined },
+    { value: 'x' },
+    { value: 'y' }
   ]
 }
 export const animationShow = {}

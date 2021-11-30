@@ -1,4 +1,4 @@
-export const menu = [
+export default [
   {
     html: `
 <div class="flex flex-col items-center justify-center pt-8 px-4 pb-12">

@@ -1,33 +1,32 @@
 import { defaultInit, validatorAxis } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
 
 const defaultProps = defaultInit('d-list')
 export const props = {
   // Values
   list: Array,
+  underline: String,
   group: Object,
   menu: Object,
 
   // Status
   focus: undefined,
   selected: undefined,
-  underline: undefined,
 
   // Options
-  palette,
-  color: String,
   axis: {
     type: String,
     validator: validatorAxis
   },
-  navigationRail: undefined,
 
   // Item
+  palette: undefined,
+  color: undefined,
   tag: undefined,
   appearance: undefined,
   size: undefined,
   shape: undefined,
   adaptive: undefined,
+  navigationRail: undefined,
   dense: undefined,
   border: undefined,
   ripple: undefined,
