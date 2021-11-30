@@ -1,5 +1,6 @@
 import { dataIcon } from '@/media/demo/data/icon'
 import { dataPalette } from '@/media/demo/data/palette'
+import { quote1 } from '@/media/demo/data/text'
 
 // Subtitle
 export const values = { subtitle: 'Values' }
@@ -9,16 +10,26 @@ export const optionsIcon = { subtitle: 'Option: icon' }
 export const optionsPosition = { subtitle: 'Option: position' }
 
 // Values
+export const backgroundColor = { message: '244,67,54' }
+export const description = { message: quote1 }
 export const dot = {}
+export const prefix = { message: 'pr' }
+export const suffix = { message: 'sf' }
 export const text = {
   default: true,
   message: 'Interactive demo'
 }
+export const textShort = {
+  default: true,
+  message: 'Demo'
+}
+export const underline = { message: 'act' }
 
 // Status
 export const active = {}
 export const disabled = {}
 export const dragged = {}
+export const focus = {}
 export const hide = {}
 export const progress = {}
 export const readonly = {}
@@ -89,6 +100,24 @@ export const delay = {
 export const dense = {}
 export const left = {}
 export const lowercase = {}
+export const navigationRail = {
+  list: [
+    { value: undefined },
+    { value: 'small' },
+    { value: 'medium' },
+    { value: 'medium-medium' },
+    { value: 'medium-large' },
+    { value: 'medium-extra' },
+    { value: 'medium-desktop' },
+    { value: 'large' },
+    { value: 'large-large' },
+    { value: 'large-extra' },
+    { value: 'large-desktop' },
+    { value: 'extra' },
+    { value: 'desktop' },
+    { value: 'always' }
+  ]
+}
 export const palette = { list: dataPalette }
 export const persistent = {}
 export const ripple = { default: true }

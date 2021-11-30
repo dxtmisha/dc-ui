@@ -4,7 +4,11 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-list-item">
-      <d-list-item v-bind="binds"/>
+      <d-list-item
+        v-bind="binds"
+        id="id-list-item"
+        :admin="true"
+      />
       <d-list-item v-bind="binds"/>
       <d-list-item v-bind="binds"/>
     </div>
@@ -12,7 +16,7 @@
 </template>
 
 <script>
-import DListItem from '@/--components/DListItem'
+import DListItem from '@/components/DListItem'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsListItem } from '@/views/DemoListItem/options'
 

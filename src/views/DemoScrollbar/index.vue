@@ -4,8 +4,10 @@
     v-slot:default="{ binds }"
   >
     <d-scrollbar
-      class="demo-scrollbar"
       v-bind="binds"
+      id="id-scrollbar"
+      class="demo-scrollbar"
+      :admin="true"
       v-html="text"
     />
   </interactive-demo>

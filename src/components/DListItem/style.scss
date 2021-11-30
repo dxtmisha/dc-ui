@@ -301,7 +301,7 @@
 }
 
 @mixin listItemBackground() {
-  &:not(.status-selected).option-background {
+  &:not(.status-selected).value-background {
     --_li-background: var(--_li-background-color);
     --_li-background-opacity: var(--opacity-overlay);
   }

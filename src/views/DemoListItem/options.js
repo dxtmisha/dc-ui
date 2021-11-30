@@ -1,98 +1,86 @@
-export const optionsListItemAppearance = {
-  text: 'Appearance',
+import { badgeBadge } from '@/views/DemoBadge/options'
+import { iconSize } from '@/views/DemoIcon/options'
+import {
+  adaptive,
+  backgroundColor,
+  border,
+  dense,
+  description,
+  disabled,
+  focus,
+  hide,
+  icon,
+  iconActive,
+  iconAnimationShow,
+  iconBackground,
+  iconReadonly,
+  iconTrailing,
+  navigationRail,
+  options,
+  optionsIcon,
+  palette,
+  prefix,
+  progress,
+  ripple,
+  selected,
+  shape,
+  status,
+  suffix,
+  text,
+  textShort,
+  thumbnail,
+  turn,
+  underline,
+  values
+} from '@/media/demo/options'
+
+export const listItemAppearance = {
   value: 'appearance',
   list: [
     { value: undefined },
-    {
-      text: 'Basic',
-      value: 'basic'
-    },
-    {
-      text: 'Color',
-      value: 'color'
-    },
-    {
-      text: 'Contained',
-      value: 'contained'
-    },
-    {
-      text: 'Contained: status',
-      value: 'contained-status'
-    }
+    { value: 'basic' },
+    { value: 'color' },
+    { value: 'contained' },
+    { value: 'contained-status' }
   ]
 }
 
-export const optionsListItemSize = {
-  text: 'Size',
-  value: 'size',
-  list: [
-    { value: undefined },
-    {
-      text: 'Dynamical',
-      value: 'dynamic'
-    },
-    {
-      text: 'Compacted',
-      value: 'compact'
-    },
-    {
-      text: 'Small',
-      value: 'small'
-    },
-    {
-      text: 'Medium',
-      value: 'medium'
-    },
-    {
-      text: 'Large',
-      value: 'large'
-    },
-    {
-      text: 'Rectangle',
-      value: 'rectangle'
-    }
-  ]
+export const optionsListItem = {
+  values,
+  text,
+  textShort,
+  underline,
+  prefix,
+  suffix,
+  description,
+  badgeBadge,
+  backgroundColor,
+
+  status,
+  focus,
+  selected,
+  turn,
+  disabled,
+  hide,
+  progress,
+
+  options,
+  palette,
+  listItemAppearance,
+  iconSize,
+  shape,
+  adaptive,
+  navigationRail,
+  dense,
+  border,
+  ripple,
+
+  optionsIcon,
+  thumbnail,
+  icon,
+  iconActive,
+  iconTrailing,
+  iconReadonly,
+  iconAnimationShow,
+  iconBackground
 }
-
-export const optionsListItem = [
-  'values',
-  'thumbnail',
-  'icon',
-  'iconActive',
-  'iconTrailing',
-  'text',
-  'textShort',
-  'prefix',
-  'suffix',
-  'description',
-  'backgroundColor',
-
-  'valuesBadge',
-  'badgeIcon',
-  'badge',
-
-  'status',
-  'focus',
-  'selected',
-  'underline',
-  'turn',
-  'disabled',
-  'hide',
-  'progress',
-
-  'options',
-  'palette',
-  optionsListItemAppearance,
-  'navigationRail',
-  optionsListItemSize,
-  'shape',
-  'adaptive',
-  'dense',
-  'border',
-  'ripple',
-
-  'optionsIcon',
-  'iconReadonly',
-  'iconAnimationShow',
-  'iconBackground'
-]
