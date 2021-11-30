@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import DScrollbar from '@/--components/DScrollbar'
+import DScrollbar from '@/components/DScrollbar'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import { optionsScrollbar } from './options'
 import { alexanderPushkin } from '@/media/demo/data/text'
 
 export default {
@@ -23,13 +24,7 @@ export default {
     InteractiveDemo
   },
   setup () {
-    const options = [
-      'status',
-      'visible',
-
-      'options',
-      'border'
-    ]
+    const options = optionsScrollbar
     const text = alexanderPushkin
 
     return {

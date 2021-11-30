@@ -59,6 +59,7 @@ export const animationHide = {
 export const animationShow = {}
 export const autoClose = { default: true }
 export const background = {}
+export const border = {}
 export const bottom = {}
 export const delay = {
   list: [
