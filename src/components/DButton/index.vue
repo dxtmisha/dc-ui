@@ -21,9 +21,7 @@
       v-bind="bindBadge"
       :hide="disabled"
     />
-    <keep-alive>
-      <d-ripple v-if="ripple && !disabled && !readonly"/>
-    </keep-alive>
+    <d-ripple v-if="ripple && !disabled && !readonly"/>
   </component>
 </template>
 

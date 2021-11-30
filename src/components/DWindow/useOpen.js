@@ -1,6 +1,6 @@
-import EventControl from '@/classes/EventControl'
 import { nextTick } from 'vue'
-import { useClass } from '@/--uses/useClass'
+import EventControl from '@/classes/EventControl'
+import useClass from '@/uses/useClass'
 
 const isChildren = (target, id) => {
   const focus = target.closest('.d-window')
@@ -13,49 +13,73 @@ const isChildren = (target, id) => {
   }
 }
 
-export const useOpen = function (
+export default function useOpen (
   id,
   modal,
+  props,
   open,
-  beforeOpening,
-  opening,
-  disabled,
-  autoClose,
-  persistent,
-  classPersistent,
   watchPosition,
   context
 ) {
   const classShow = useClass(modal, 'status-show')
   const classHide = useClass(modal, 'status-hide')
+  const classPersistent = useClass(
+    modal,
+    'option-persistent',
+    false,
+    (value) => {
+      if (value) {
+        EventControl.init(
+          modal.value,
+          ({ animationName }) => {
+            if (animationName === '__animate-window--persistent') {
+              classPersistent.set(false)
+            }
+          },
+          ['animationend']
+        ).goOnce()
+      }
+    },
+    false
+  )
 
+  const eventBody = EventControl.init(document.body, async (event) => {
+    if (open.value) {
+      await verification(event.target)
+    } else {
+      event.$event.stop()
+    }
+  })
+    .setDomElement(modal.value)
+
+  const emitOpening = (open) => {
+    if (props.opening) {
+      props.opening(open)
+    }
+  }
   const emit = async () => {
     const toOpen = !open.value
 
-    if (!beforeOpening.value || await beforeOpening.value(toOpen)) {
+    if (!props.beforeOpening || await props.beforeOpening(toOpen)) {
       if (toOpen) {
-        classHide.value = false
+        classHide.set(false)
         open.value = toOpen
 
         await nextTick()
         watchPosition()
 
         requestAnimationFrame(() => {
-          classShow.value = true
+          classShow.set(true)
           eventBody.go()
 
-          if (opening.value) {
-            opening.value(toOpen)
-          }
+          emitOpening(toOpen)
         })
       } else {
-        classHide.value = true
-        classShow.value = false
+        classHide.set(true)
+        classShow.set(false)
         eventBody.stop()
 
-        if (opening.value) {
-          opening.value(toOpen)
-        }
+        emitOpening(toOpen)
       }
 
       context.emit('on-open', {
@@ -84,39 +108,29 @@ export const useOpen = function (
           }
         }
       } else if (target === modal.value) {
-        if (persistent.value) {
-          classPersistent.value = true
+        if (props.persistent) {
+          classPersistent.set(true)
         } else {
           await emit()
         }
       } else if (
         target.closest(`.${id} .window-close`) ||
-        (autoClose.value && !target.closest(`.${id} .window-static, .${id} .d-window__control`))
+        (props.autoClose && !target.closest(`.${id} .window-static, .${id} .d-window__control`))
       ) {
         await emit()
       }
     } else if (
-      !disabled.value &&
+      !props.disabled &&
       !target.closest(`.${id} .window-control-static`)
     ) {
       await emit()
     }
   }
-
   const toggle = async (status = true) => {
     if (open.value !== status) {
       await emit()
     }
   }
-
-  const eventBody = EventControl.init(document.body, async (event) => {
-    if (open.value) {
-      await verification(event.target)
-    } else {
-      event.$event.stop()
-    }
-  })
-    .setDomElement(modal.value)
 
   const onTransition = ({ propertyName }) => {
     if (propertyName === 'visibility') {

@@ -57,6 +57,7 @@ export const animationHide = {
   ]
 }
 export const animationShow = {}
+export const autoClose = { default: true }
 export const background = {}
 export const bottom = {}
 export const delay = {
@@ -88,6 +89,7 @@ export const dense = {}
 export const left = {}
 export const lowercase = {}
 export const palette = { list: dataPalette }
+export const persistent = {}
 export const ripple = { default: true }
 export const shape = {
   list: [

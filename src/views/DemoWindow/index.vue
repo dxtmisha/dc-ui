@@ -4,7 +4,11 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-window v-bind="binds">
+    <d-window
+      v-bind="binds"
+      id="id-window"
+      :admin="true"
+    >
       <template v-slot:control="{ classList, onClick, onContextmenu }">
         <d-button
           :class="classList"
@@ -22,10 +26,10 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DWindow from '@/--components/DWindow'
+import DWindow from '@/components/DWindow'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsWindow } from '@/views/DemoWindow/options'
-import { leoTolstoy } from '@/media/--demo/texts'
+import { optionsWindow } from './options'
+import { leoTolstoy } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoWindow',

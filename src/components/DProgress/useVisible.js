@@ -1,5 +1,5 @@
 import { onMounted, toRefs, watch } from 'vue'
-import { useClass } from '@/uses/useClass'
+import useClass from '@/uses/useClass'
 
 export default function useVisible (
   progress,

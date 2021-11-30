@@ -9,7 +9,8 @@
 
     &:not(.status-disabled) {
       --_sc-background: transparent;
-      --_sc__th-background: transparent;
+      --_sc__th-opacity: var(--opacity-overlay);
+      --_sc__th-background: #{varColor(--background-overlay, --_sc__th-opacity)};
       --_sc-width: 8px;
 
       scrollbar-color: var(--_sc__th-background) var(--_sc-background);
@@ -28,11 +29,11 @@
       &::-webkit-scrollbar-thumb {
         background: var(--_sc__th-background);
         border: transparent solid var(--basic-border-width);
-        border-radius: var(--_sc-width);
+        border-radius: var(--basic-radius);
       }
 
       &:hover {
-        --_sc__th-background: varColor(--background-overlay, --opacity-overlay);
+        --_sc__th-opacity: var(--opacity-scrim);
       }
     }
 

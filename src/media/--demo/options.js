@@ -1,7 +1,7 @@
 import { badge } from '@/media/--demo/badge'
 import { icon } from '@/media/--demo/icons'
 import { subtitles } from '@/media/--demo/subtitles'
-import { helper1, quote1, validation1 } from '@/media/--demo/texts'
+import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 import { input } from '@/media/--demo/input'
 
 export const optionsList = {

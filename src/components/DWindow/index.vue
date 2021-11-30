@@ -19,7 +19,6 @@
       <div
         class="d-window__body"
         :class="classScroll"
-        @animationend="onPersistent"
         @transitionend="onTransition"
       >
         <slot
@@ -34,15 +33,13 @@
 </template>
 
 <script>
-import { props } from '@/--components/DWindow/props'
-import { ref, toRefs } from 'vue'
-import { getIdElement } from '@/--tool/functions'
-import { useAdmin } from '@/--uses/useAdmin'
-import { useCoordinates } from '@/--components/DWindow/useCoordinates'
-import { useOpen } from '@/--components/DWindow/useOpen'
-import { usePersistent } from '@/--components/DWindow/usePersistent'
-import { useScroll } from '@/--uses/useScroll'
-import { useWatch } from '@/--uses/useWatch'
+import { props } from '@/components/DWindow/props'
+import { computed, ref } from 'vue'
+import getIdElement from '@/functions/getIdElement'
+import useAdmin from '@/uses/useAdmin'
+import useCoordinates from './useCoordinates'
+import useOpen from './useOpen'
+import useScroll from '@/uses/useScroll'
 
 export default {
   name: 'DWindow',
@@ -50,30 +47,10 @@ export default {
   props,
   emits: ['on-open'],
   setup (props, context) {
-    const {
-      beforeOpening,
-      opening,
-      disabled,
-      width,
-      size,
-      axis,
-      indent,
-      shape,
-      adaptive,
-      autoClose,
-      persistent
-    } = toRefs(props)
-
     const id = `w--${getIdElement()}`
     const modal = ref(undefined)
     const open = ref(false)
     const contextmenu = ref(false)
-
-    const { classScroll } = useScroll()
-    const {
-      classPersistent,
-      onPersistent
-    } = usePersistent(modal)
 
     const {
       clientX,
@@ -82,10 +59,9 @@ export default {
     } = useCoordinates(
       id,
       modal,
+      props,
       contextmenu,
-      open,
-      axis,
-      indent
+      open
     )
 
     const {
@@ -95,63 +71,53 @@ export default {
     } = useOpen(
       id,
       modal,
+      props,
       open,
-      beforeOpening,
-      opening,
-      disabled,
-      autoClose,
-      persistent,
-      classPersistent,
       watchPosition,
       context
     )
 
-    const onClick = (event) => {
-      clientX.value = event.clientX
-      clientY.value = event.clientY
+    const classScroll = useScroll()
+    const classList = computed(() => {
+      return {
+        [`d-window ${id}`]: true,
+        [`size-${props.size}`]: props.size,
+        [`shape-${props.shape}`]: props.shape,
+        [`adaptive-${props.adaptive}`]: props.adaptive,
+        [`axis-${props.axis}`]: props.axis
+      }
+    })
+    const styleList = computed(() => {
+      return { '--_wn-width': props.width }
+    })
+
+    const onClick = event => {
+      clientX.set(event.clientX)
+      clientY.set(event.clientY)
 
       if (!open.value) {
         contextmenu.value = event.type === 'contextmenu'
         verification(event.target)
       }
     }
-    const onContextmenu = (event) => {
+    const onContextmenu = event => {
       event.preventDefault()
       event.stopPropagation()
       onClick(event)
     }
 
-    const classList = useWatch([
-      size,
-      axis,
-      shape,
-      adaptive
-    ], data => {
-      data.value = {
-        [`d-window ${id}`]: true,
-        [`size-${size.value}`]: size.value,
-        [`axis-${axis.value}`]: axis.value,
-        [`shape-${shape.value}`]: shape.value,
-        [`adaptive-${adaptive.value}`]: adaptive.value
-      }
-    })
-    const styleList = useWatch(width, data => {
-      data.value = { '--_wn-width': width.value }
-    })
-
-    useAdmin('d-window')
+    useAdmin('d-window', context)
 
     return {
       id,
       modal,
       open,
-      classList,
       classScroll,
+      classList,
       styleList,
       toggle,
       onClick,
       onContextmenu,
-      onPersistent,
       onTransition
     }
   }

@@ -283,7 +283,7 @@
       box-shadow: var(--_bt--ac-shadow);
 
       &::before {
-        --_bt-border--before-opacity: var(--opacity-surface-medium);
+        --_bt-border--before-opacity: var(--opacity-scrim);
         transition-duration: var(--transition-flash);
       }
     }

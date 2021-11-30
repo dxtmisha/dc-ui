@@ -7,7 +7,7 @@
 <script>
 import DTextareaAutosize from '@/--components/DTextareaAutosize'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { textarea } from '@/media/--demo/texts'
+import { textarea } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoTextareaAutosize',

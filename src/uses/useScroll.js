@@ -1,9 +1,7 @@
-import { ref } from 'vue'
-import { createElement } from '@/--tool/functions'
-import { useWatch } from '@/--uses/useWatch'
+import { computed, ref } from 'vue'
+import createElement from '@/functions/createElement'
 
 const SCROLL = '__dui-scroll'
-
 let calculate = false
 
 const getWidth = () => parseInt(localStorage.getItem(SCROLL) || '-1')
@@ -43,29 +41,20 @@ const setWidth = function () {
   })
 }
 
-export const useScroll = function () {
-  const width = ref(getWidth())
-  const disabled = useWatch(width, data => {
-    data.value = width.value < 8
-  })
+export default function useScroll () {
+  const width = getWidth()
+  const disabled = ref(width < 8)
 
-  const classScroll = useWatch(disabled, data => {
-    data.value = {
+  if (width === -1) {
+    setWidth().then(value => {
+      disabled.value = value < 8
+    })
+  }
+
+  return computed(() => {
+    return {
       'd-scrollbar': true,
       'status-disabled': disabled.value
     }
   })
-
-  if (width.value === -1) {
-    setWidth().then(
-      /**
-       * @param {number} value
-       */
-      value => {
-        width.value = value
-      }
-    )
-  }
-
-  return { classScroll }
 }

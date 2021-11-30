@@ -22,19 +22,6 @@ export const props = {
       'minimum'
     ])
   },
-  axis: {
-    type: String,
-    default: 'y',
-    validator: validator([
-      'x',
-      'y',
-      'on'
-    ])
-  },
-  indent: {
-    type: Number,
-    default: defaultProps('indent', 4)
-  },
   shape: {
     type: String,
     default: defaultProps('shape'),
@@ -57,6 +44,19 @@ export const props = {
       'menu',
       'modal'
     ])
+  },
+  axis: {
+    type: String,
+    default: 'y',
+    validator: validator([
+      'x',
+      'y',
+      'on'
+    ])
+  },
+  indent: {
+    type: Number,
+    default: defaultProps('indent', 4)
   },
   autoClose: {
     type: Boolean,

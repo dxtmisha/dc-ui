@@ -1,6 +1,6 @@
 import { onUpdated } from 'vue'
 
-export const useClass = function (
+export default function useClass (
   element,
   name,
   value = false,
