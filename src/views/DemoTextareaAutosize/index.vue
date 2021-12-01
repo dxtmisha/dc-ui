@@ -1,11 +1,17 @@
 <template>
   <interactive-demo v-slot:default="{ binds }">
-    <d-textarea-autosize class="demo-textarea-autosize" v-bind="binds" :value="text"/>
+    <d-textarea-autosize
+      v-bind="binds"
+      id="id-textarea-autosize"
+      class="demo-textarea-autosize"
+      :value="text"
+      :admin="true"
+    />
   </interactive-demo>
 </template>
 
 <script>
-import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { textarea } from '@/media/demo/data/text'
 

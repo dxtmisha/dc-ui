@@ -1,11 +1,13 @@
-import { onMounted, watch } from 'vue'
+import { onMounted, toRefs, watch } from 'vue'
 
-export const useResize = function (
+export default function useResize (
   input,
   clone,
-  value,
-  propValue
+  propValue,
+  props
 ) {
+  const { value } = toRefs(props)
+
   const updateHeight = () => {
     clone.value.innerText = `${propValue.value} --`
     input.value.style.height = `${clone.value.offsetHeight}px`

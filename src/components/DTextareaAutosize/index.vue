@@ -3,11 +3,11 @@
     ref="input"
     v-bind="$attrs"
     class="d-textarea-autosize"
-    :value="value"
     :name="name"
+    v-model="propValue"
     :on="on"
     @focus="reSize"
-    @input="onInput"
+    @input="onEmit"
     @change="onChange"
   />
   <div v-once
@@ -17,10 +17,10 @@
 
 <script>
 import { props } from './props'
-import { onUpdated, ref, toRefs } from 'vue'
-import { setupInput } from '@/--components/DInput/setupInput'
-import { useAdmin } from '@/--uses/useAdmin'
-import { useResize } from '@/--components/DTextareaAutosize/useResize'
+import { onUpdated, ref } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useInput from '@/uses/useInput'
+import useResize from './useResize'
 
 export default {
   name: 'DTextareaAutosize',
@@ -28,52 +28,45 @@ export default {
   props,
   emits: ['on-input', 'on-change'],
   setup (props, context) {
-    const {
-      value,
-      name
-    } = toRefs(props)
-
     const input = ref(undefined)
     const clone = ref(undefined)
 
     const {
-      propValue,
       propValidationMessage,
+      propValue,
       checkValidity,
       cancel,
-      onInput,
+      onEmit,
       onChange
-    } = setupInput(
+    } = useInput(
       input,
       undefined,
-      undefined,
-      value,
-      name,
-      ref(undefined),
+      props,
       context
     )
 
     const { reSize } = useResize(
       input,
       clone,
-      value,
-      propValue
+      propValue,
+      props
     )
 
     onUpdated(() => {
       input.value.value = propValue.value
     })
 
-    useAdmin('d-textarea-autosize')
+    useAdmin('d-textarea-autosize', context, input)
 
     return {
       input,
       clone,
       propValidationMessage,
+      propValue,
       checkValidity,
-      reSize,
       cancel,
-      onInput,
+      reSize,
+      onEmit,
       onChange
     }
   }

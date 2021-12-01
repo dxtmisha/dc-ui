@@ -16,7 +16,7 @@
 
 <script>
 import DCarcassField from '@/--components/DCarcassField'
-import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import { props } from './props'
 import { ref, toRefs } from 'vue'
 import { setupCarcassField } from '@/--components/DCarcassField/setupCarcassField'
