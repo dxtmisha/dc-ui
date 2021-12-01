@@ -17,13 +17,11 @@ export default function useSelected (
   const items = computed(() => ifValue() && object.value ? object.value.getSelected(propSelected.value) : undefined)
   const names = computed(() => ifValue() && object.value ? object.value.getNames(propSelected.value) : undefined)
 
-  const emit = (event = undefined) => {
-    context.emit('on-input', event || {
-      value: propSelected.value,
-      items: items.value,
-      names: names.value
-    })
-  }
+  const emit = (event = undefined) => context.emit('on-input', event || {
+    value: propSelected.value,
+    items: items.value,
+    names: names.value
+  })
   const set = value => {
     propSelected.value = setValues(
       propSelected.value,
@@ -38,8 +36,12 @@ export default function useSelected (
   }
 
   const onInput = (event) => {
-    set(event.value)
-    emit()
+    if (props.listInit) {
+      set(event.value)
+      emit()
+    } else {
+      emit(event)
+    }
   }
 
   return {

@@ -1,82 +1,90 @@
 import {
-  optionsCarcassFieldAdaptive,
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize
+  carcassFieldAdaptive,
+  carcassFieldAppearance,
+  carcassFieldSize
 } from '@/views/DemoCarcassField/options'
-import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoListItem/options'
-import { optionsWindowWidth } from '@/views/DemoWindow/options'
-import { optionsList } from '@/media/--demo/options'
+import { iconSize } from '@/views/DemoIcon/options'
+import { listItemAppearance } from '@/views/DemoListItem/options'
+import { windowWidth } from '@/views/DemoWindow/options'
+import {
+  ajax,
+  align,
+  arrow,
+  cache,
+  cancel,
+  counter,
+  disabled,
+  helperMessage,
+  icon,
+  iconActive,
+  locales,
+  maxlength,
+  multiple,
+  optionField,
+  optionIcon,
+  optionList,
+  optionMenu,
+  optionSelect,
+  palette,
+  required,
+  selected,
+  shape,
+  status,
+  text,
+  validationMessage,
+  values
+} from '@/media/demo/options'
 
-export const optionsSelectType = {
-  text: 'Type',
+export const selectType = {
   value: 'type',
   list: [
     { value: undefined },
-    {
-      text: 'select',
-      value: 'select'
-    },
-    {
-      text: 'month',
-      value: 'month'
-    },
-    {
-      text: 'week',
-      value: 'week'
-    }
+    { value: 'select' },
+    { value: 'month' },
+    { value: 'week' }
   ]
 }
 
-export const optionsSelect = [
-  'values',
-  'icon',
-  'iconActive',
-  'value',
-  'text',
-  'helperMessage',
-  'validationMessage',
-  'required',
+export const optionsSelect = {
+  values,
+  value: { message: 'profile' },
 
-  'status',
-  'selected',
-  'readonly',
-  'disabled',
+  status,
+  selected,
+  disabled,
 
-  'optionsInput',
-  optionsSelectType,
-  'ajax',
-  'cache',
-  'multiple',
-  'maxlength',
-  'locales',
+  optionList,
+  ajax,
+  cache,
+  multiple,
 
-  'optionsMenu',
-  {
-    ...optionsListItemAppearance,
-    value: 'menuAppearance'
-  },
-  {
-    ...optionsListItemSize,
-    value: 'menuSize'
-  },
-  {
-    ...optionsList.shape,
-    value: 'menuShape'
-  },
-  {
-    ...optionsWindowWidth,
-    value: 'menuWidth'
-  },
+  optionSelect,
+  selectType,
+  locales,
+  maxlength,
+  required,
 
-  'optionsField',
-  'palette',
-  'arrow',
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize,
-  'shape',
-  'align',
-  optionsCarcassFieldAdaptive,
-  'counter',
-  'cancel',
-  'ripple'
-]
+  optionField,
+  text,
+  helperMessage,
+  validationMessage,
+  palette,
+  carcassFieldAppearance,
+  carcassFieldSize,
+  shape,
+  align,
+  carcassFieldAdaptive,
+  arrow,
+  counter,
+  cancel,
+
+  optionIcon,
+  icon,
+  iconActive,
+
+  optionMenu,
+  menuAppearance: { list: listItemAppearance.list },
+  menuSize: { list: iconSize.list },
+  menuShape: { list: shape.list },
+  menuWidth: { list: windowWidth.list }
+}

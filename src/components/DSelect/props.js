@@ -1,38 +1,18 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
 
-export const defaultProps = defaultInit('d-select')
+const defaultProps = defaultInit('d-select')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
   item: undefined,
   value: undefined,
   name: undefined,
-  text: undefined,
-  helperMessage: undefined,
-  validationMessage: String,
-  required: Boolean,
 
   // Status
   selected: Boolean,
-  readonly: Boolean,
   disabled: Boolean,
 
-  // Options
-  palette: undefined,
-  color: undefined,
-
-  // Input
-  type: {
-    type: String,
-    default: 'select',
-    validator: validator([
-      'select',
-      'month',
-      'week'
-    ])
-  },
+  // List
   list: undefined,
   listInit: undefined,
   translation: {
@@ -50,28 +30,50 @@ export const props = {
   ajax: String,
   request: Object,
   cache: Boolean,
-  maxlength: Number,
   multiple: Boolean,
+
+  // Select
+  type: {
+    type: String,
+    default: 'select',
+    validator: validator([
+      'select',
+      'month',
+      'week'
+    ])
+  },
   locales: {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
   },
+  maxlength: Number,
+  required: Boolean,
+  attrsSelect: Object,
 
   // Field
-  arrow: Boolean,
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
+  palette: undefined,
+  color: undefined,
   appearance: undefined,
   size: undefined,
   shape: undefined,
   align: undefined,
   adaptive: undefined,
-  counter: Boolean,
+  arrow: undefined,
+  counter: undefined,
   cancel: {
     type: Boolean,
     default: defaultProps('cancel', true)
   },
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconArrowDown: {
+    type: String,
+    default: defaultProps('iconArrowDown', 'arrow_drop_down')
   },
 
   // Menu
@@ -81,11 +83,5 @@ export const props = {
   menuWidth: {
     type: String,
     default: defaultProps('menuWidth', '280px')
-  },
-
-  // Icon
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
   }
 }

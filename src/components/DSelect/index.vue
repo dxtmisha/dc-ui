@@ -43,102 +43,70 @@ import DCarcassField from '@/components/DCarcassField'
 import DMenu from '@/components/DMenu'
 import DSelectValue from '@/components/DSelectValue'
 import { props } from './props'
-import { ref, toRefs } from 'vue'
-import { setupCarcassField } from '@/--components/DCarcassField/setupCarcassField'
-import { setupInput } from '@/--components/DInput/setupInput'
-import { setupMenu } from '@/--components/DMenu/setupMenu'
-import { useAdmin } from '@/--uses/useAdmin'
-import { useArrow } from './useArrow'
-import { useSelect } from '@/--components/DSelect/useSelect'
-import { useWatch } from '@/--uses/useWatch'
+import { computed, ref } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useArrow from './useArrow'
+import useCarcass from './useCarcass'
+import useField from '@/uses/useField'
+import useMenu from './useMenu'
+import useSelect from './useSelect'
 
 export default {
   name: 'DSelect',
   components: {
+    DCarcassField,
     DMenu,
-    DSelectValue,
-    DCarcassField
+    DSelectValue
   },
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const refs = toRefs(props)
-    const {
-      item,
-      value,
-      name,
-      validationMessage,
-      selected,
-      type,
-      list,
-      locales,
-      multiple,
-      cancel,
-      iconArrowDown
-    } = refs
-
     const input = ref(undefined)
     const menu = ref(undefined)
 
     const {
+      propValidationMessage,
       propValue,
       propCounter,
-      propValidationMessage,
       checkValidity,
       onSelect,
       onCancel,
       onCancelValue
-    } = setupInput(
+    } = useField(
       input,
       menu,
-      item,
-      value,
-      name,
-      validationMessage,
+      props,
       context
     )
 
-    const { propList } = useSelect(
-      type,
-      list,
-      locales
-    )
-    const propCancel = useWatch([multiple, cancel], data => {
-      data.value = !multiple.value && cancel.value
-    })
-    const filled = useWatch(propValue, data => {
-      data.value = !!propValue.value
-    })
+    const propCancel = computed(() => !props.multiple && props.cancel)
+    const filled = computed(() => !!propValue.value)
+
+    const { propList } = useSelect(props)
 
     const {
       onPrevious,
       onNext
     } = useArrow(menu)
 
-    const { bindMenu } = setupMenu({
-      ...refs,
-      list: propList
-    })
-    const { bindCarcassField } = setupCarcassField({
-      ...refs,
-      iconTrailing: iconArrowDown,
-      validationMessage: propValidationMessage,
-      counterValue: propCounter,
-      active: filled,
-      selected,
-      filled,
-      cancel: propCancel
-    })
+    const { bindMenu } = useMenu(props, propList)
+    const { bindCarcassField } = useCarcass(
+      props,
+      propValidationMessage,
+      propCounter,
+      propCancel,
+      filled
+    )
 
-    useAdmin('d-select')
+    useAdmin('d-select', context, input)
 
     return {
       input,
       menu,
-      propValue,
       propValidationMessage,
-      bindCarcassField,
+      propValue,
       bindMenu,
+      bindCarcassField,
       checkValidity,
       onSelect,
       onPrevious,

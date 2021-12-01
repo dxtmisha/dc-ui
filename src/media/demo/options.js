@@ -14,8 +14,11 @@ export const optionField = { subtitle: 'Option: field' }
 export const optionIcon = { subtitle: 'Option: icon' }
 export const optionInput = { subtitle: 'Option: input' }
 export const optionItem = { subtitle: 'Option: item' }
+export const optionList = { subtitle: 'Option: list' }
 export const optionMask = { subtitle: 'Option: mask' }
+export const optionMenu = { subtitle: 'Option: menu' }
 export const optionPosition = { subtitle: 'Option: position' }
+export const optionSelect = { subtitle: 'Option: select' }
 export const optionWindow = { subtitle: 'Option: window' }
 
 // Values
@@ -138,7 +141,7 @@ export const step = {
 }
 export const visibleMask = { default: true }
 
-// Icons
+// Icon
 export const icon = {
   default: 'lock_open',
   list: dataIcon

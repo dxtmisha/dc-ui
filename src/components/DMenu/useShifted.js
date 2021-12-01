@@ -25,7 +25,8 @@ export default function useShifted (
         list[index]?.html ||
         list[index]?.subtitle ||
         list[index]?.line ||
-        list[index]?.space
+        list[index]?.space ||
+        list[index]?.value === undefined
       )
     ) {
       return getItem(list[index]?.value, value, max - 1)

@@ -101,7 +101,13 @@ export default {
       list: propList,
       underline: search,
       group: propGroup,
-      menu: props,
+      menu: {
+        ...refs,
+        list: undefined,
+        listInit: undefined,
+        ajax: undefined,
+        selected: propSelected
+      },
       focus,
       selected: propSelected,
       palette: refs.palette,
