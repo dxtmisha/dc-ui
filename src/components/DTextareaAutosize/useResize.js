@@ -10,7 +10,9 @@ export default function useResize (
 
   const updateHeight = () => {
     clone.value.innerText = `${propValue.value} --`
-    input.value.style.height = `${clone.value.offsetHeight}px`
+    requestAnimationFrame(() => {
+      input.value.style.height = `${clone.value.offsetHeight}px`
+    })
   }
 
   const reSize = (update = true) => {
@@ -27,7 +29,7 @@ export default function useResize (
     }
   }
 
-  watch(value, () => reSize(false))
+  watch(value, () => requestAnimationFrame(() => reSize(false)))
   watch(propValue, updateHeight)
 
   onMounted(reSize)

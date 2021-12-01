@@ -56,7 +56,7 @@ export default {
       input.value.value = propValue.value
     })
 
-    useAdmin('d-textarea-autosize', context, input)
+    useAdmin('d-textarea-autosize', context)
 
     return {
       input,

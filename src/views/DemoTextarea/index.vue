@@ -5,13 +5,17 @@
   >
     <d-textarea
       v-bind="binds"
+      id="id-textarea"
       name="interactive-demo"
+      :admin="true"
+      @on-input="on"
+      @on-change="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DTextarea from '@/--components/DTextarea'
+import DTextarea from '@/components/DTextarea'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsTextarea } from '@/views/DemoTextarea/options'
 
@@ -23,8 +27,12 @@ export default {
   },
   setup () {
     const options = optionsTextarea
-
     return { options }
+  },
+  methods: {
+    on (event) {
+      console.warn('event', event)
+    }
   }
 }
 </script>

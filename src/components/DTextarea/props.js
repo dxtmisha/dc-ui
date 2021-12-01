@@ -1,17 +1,12 @@
-import { defaultInit } from '@/uses/useDefault'
-
-export const defaultProps = defaultInit('d-textarea')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
   item: undefined,
   value: undefined,
   name: undefined,
-  text: undefined,
-  helperMessage: undefined,
-  validationMessage: String,
-  required: Boolean,
+  on: {
+    type: Object,
+    default: {}
+  },
 
   // Status
   selected: Boolean,
@@ -19,26 +14,32 @@ export const props = {
   disabled: Boolean,
 
   // Input
-  autocomplete: String,
+  autocomplete: {
+    type: String,
+    default: 'off'
+  },
   autofocus: Boolean,
   inputmode: String,
   minlength: Number,
   maxlength: Number,
   placeholder: String,
+  required: Boolean,
   spellcheck: Boolean,
   attrsInput: Object,
-  on: {
-    type: Object,
-    default: {}
-  },
 
   // Field
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: String,
   palette: undefined,
   color: undefined,
   appearance: undefined,
   size: undefined,
   shape: undefined,
-  align: undefined,
   adaptive: undefined,
-  counter: Boolean
+  counter: undefined,
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined
 }

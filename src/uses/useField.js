@@ -28,7 +28,7 @@ export default function useField (
   const propValue = useWatch(value, data => {
     data.value = value.value || ''
     requestAnimationFrame(checkValidity)
-  }, value.value ? ['go'] : [])
+  }, value.value ? ['go'] : [], '')
   const propCounter = computed(() => propValue.value?.length || 0)
 
   const emit = (type = EVENT_DEFAULT) => {

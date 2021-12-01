@@ -1,36 +1,64 @@
 import {
-  optionsCarcassFieldAdaptive,
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize
+  carcassFieldAdaptive,
+  carcassFieldAppearance,
+  carcassFieldSize
 } from '@/views/DemoCarcassField/options'
+import {
+  counter,
+  disabled,
+  helperMessage,
+  icon,
+  iconActive,
+  maxlength,
+  minlength,
+  optionField,
+  optionIcon,
+  optionInput,
+  palette,
+  placeholder,
+  readonly,
+  required,
+  selected,
+  shape,
+  status,
+  text,
+  validationMessage,
+  values
+} from '@/media/demo/options'
+import { textarea } from '@/media/demo/data/text'
 
-export const optionsTextarea = [
-  'values',
-  'icon',
-  'iconActive',
-  'value',
-  'text',
-  'helperMessage',
-  'validationMessage',
-  'maxlength',
-  'required',
+export const textareaValue = {
+  value: 'value',
+  message: textarea
+}
 
-  'status',
-  'selected',
-  'readonly',
-  'disabled',
+export const optionsTextarea = {
+  values,
+  textareaValue,
 
-  'optionsInput',
-  'minlength',
-  'maxlength',
-  'placeholder',
+  status,
+  selected,
+  readonly,
+  disabled,
 
-  'optionsField',
-  'palette',
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize,
-  'shape',
-  'align',
-  optionsCarcassFieldAdaptive,
-  'counter'
-]
+  optionInput,
+  minlength,
+  maxlength,
+  placeholder,
+  required,
+
+  optionField,
+  text,
+  helperMessage,
+  validationMessage,
+  palette,
+  carcassFieldAppearance,
+  carcassFieldSize,
+  shape,
+  carcassFieldAdaptive,
+  counter,
+
+  optionIcon,
+  icon,
+  iconActive
+}
