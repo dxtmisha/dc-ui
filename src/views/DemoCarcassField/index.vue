@@ -5,8 +5,10 @@
   >
     <d-carcass-field
       v-bind="binds"
+      id="id-carcass-field"
       :active="active"
       :filled="active"
+      :admin="true"
     >
       <template v-slot:default="{ className }">
         <input
@@ -23,10 +25,10 @@
 </template>
 
 <script>
-import DCarcassField from '@/--components/DCarcassField'
+import DCarcassField from '@/components/DCarcassField'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
-import { optionsCarcassField } from '@/views/DemoCarcassField/options'
+import { optionsCarcassField } from './options'
 
 export default {
   name: 'DemoCarcassField',

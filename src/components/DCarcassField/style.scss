@@ -3,8 +3,8 @@
 @import "../../styles/font";
 @import "../../styles/padding";
 @import "../../styles/position";
-@import "styleExtend";
-@import "styleVar";
+@import "src/components/DCarcassField/styleExtend";
+@import "src/components/DCarcassField/styleVar";
 
 @mixin carcassField() {
   @include carcassFieldVar;

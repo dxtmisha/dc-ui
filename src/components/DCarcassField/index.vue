@@ -96,13 +96,12 @@
 import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
-import { props } from '@/--components/DCarcassField/props'
-import { ref, toRefs } from 'vue'
-import { getIdElement } from '@/--tool/functions'
-import { useAdmin } from '@/--uses/useAdmin'
-import { usePrefix } from '@/--components/DCarcassField/usePrefix'
-import { useWatch } from '@/--uses/useWatch'
-import { useColor } from '@/--uses/useColor'
+import { props } from '@/components/DCarcassField/props'
+import { computed, ref } from 'vue'
+import getIdElement from '@/functions/getIdElement'
+import useAdmin from '@/uses/useAdmin'
+import useColor from '@/uses/useColor'
+import usePrefix from './usePrefix'
 
 export default {
   name: 'DCarcassField',
@@ -118,107 +117,43 @@ export default {
     'on-cancel'
   ],
   setup (props, context) {
-    const {
-      icon,
-      iconTrailing,
-      prefix,
-      suffix,
-      helperMessage,
-      validationMessage,
-      counterValue,
-      maxlength,
-      focus,
-      active,
-      selected,
-      filled,
-      readonly,
-      disabled,
-      disabledPrevious,
-      disabledNext,
-      palette,
-      color,
-      arrow,
-      appearance,
-      size,
-      shape,
-      align,
-      adaptive,
-      counter,
-      cancel
-    } = toRefs(props)
-
     const id = `cf--${getIdElement()}`
     const field = ref(undefined)
 
-    const counterMessage = useWatch([counterValue, maxlength], data => {
-      data.value = (counterValue.value || '0') + (maxlength.value ? ` / ${maxlength.value}` : '')
+    const palette = useColor(props)
+    const counterMessage = computed(() => (props.counterValue || '0') + (props.maxlength ? ` / ${props.maxlength}` : ''))
+
+    const ifMessage = computed(() => (props.helperMessage || props.validationMessage || props.counter) && !props.disabled)
+    const ifCancel = computed(() => {
+      return props.cancel &&
+        props.filled &&
+        !props.readonly &&
+        !props.disabled &&
+        !props.arrow &&
+        props.align !== 'center'
     })
 
-    const ifCancel = useWatch([
-      cancel,
-      filled,
-      readonly,
-      disabled,
-      arrow,
-      align
-    ], data => {
-      data.value = cancel.value &&
-        filled.value &&
-        !readonly.value &&
-        !disabled.value &&
-        !arrow.value &&
-        align.value !== 'center'
-    })
-    const ifMessage = useWatch([
-      helperMessage,
-      validationMessage,
-      disabled,
-      counter
-    ], data => {
-      data.value = (helperMessage.value || validationMessage.value || counter.value) && !disabled.value
-    })
-
-    const { classColor } = useColor(color, palette)
-    const classList = useWatch([
-      icon,
-      ifCancel,
-      iconTrailing,
-      prefix,
-      suffix,
-      validationMessage,
-      focus,
-      active,
-      selected,
-      readonly,
-      disabled,
-      classColor,
-      arrow,
-      appearance,
-      size,
-      shape,
-      align,
-      adaptive
-    ], data => {
-      data.value = {
+    const classList = computed(() => {
+      return {
         'd-carcass-field': true,
-        'view-icon': icon.value || arrow.value,
+        'view-icon': props.icon || props.arrow,
         'view-icon-cancel': ifCancel.value,
-        'view-icon-trailing': iconTrailing.value || arrow.value,
-        'view-prefix': prefix.value,
-        'view-suffix': suffix.value,
-        'status-focus': focus.value,
-        'status-active': active.value,
-        'status-selected': selected.value,
-        'status-validation': validationMessage.value,
-        'status-readonly': readonly.value,
-        'status-disabled': disabled.value,
-        ...classColor.value,
-        'option-arrow': arrow.value,
-        [`appearance-${appearance.value}`]: appearance.value,
-        [`size-${size.value}`]: size.value,
-        [`shape-${shape.value}`]: shape.value,
-        [`align-${align.value}`]: align.value,
-        [`adaptive-${adaptive.value}`]: adaptive.value
+        'view-icon-trailing': props.iconTrailing || props.arrow,
+        'view-prefix': props.prefix,
+        'view-suffix': props.suffix,
+        'status-focus': props.focus,
+        'status-active': props.active,
+        'status-selected': props.selected,
+        'status-validation': props.validationMessage,
+        'status-readonly': props.readonly,
+        'status-disabled': props.disabled,
+        [`appearance-${props.appearance}`]: props.appearance,
+        [`size-${props.size}`]: props.size,
+        [`shape-${props.shape}`]: props.shape,
+        [`align-${props.align}`]: props.align,
+        [`adaptive-${props.adaptive}`]: props.adaptive,
+        'option-arrow': props.arrow,
+        ...palette.value
       }
     })
 
@@ -227,13 +162,13 @@ export default {
 
       switch (type) {
         case 'on-previous':
-          value = disabledPrevious.value || disabled.value
+          value = props.disabledPrevious || props.disabled
           break
         case 'on-next':
-          value = disabledNext.value || disabled.value
+          value = props.disabledNext || props.disabled
           break
         default:
-          value = disabled.value
+          value = props.disabled
           break
       }
 
@@ -242,20 +177,15 @@ export default {
       }
     }
 
-    usePrefix(
-      field,
-      prefix,
-      suffix
-    )
-
-    useAdmin('d-carcass-field')
+    usePrefix(field, props)
+    useAdmin('d-carcass-field', context)
 
     return {
       id,
       field,
       counterMessage,
-      ifCancel,
       ifMessage,
+      ifCancel,
       classList,
       onClick
     }

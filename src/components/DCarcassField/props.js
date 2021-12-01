@@ -1,12 +1,9 @@
 import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
+import { palette } from '@/uses/useColor'
 
 export const defaultProps = defaultInit('d-carcass-field')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
-  iconTrailing: undefined,
   text: String,
   prefix: [Number, String],
   suffix: [Number, String],
@@ -19,8 +16,8 @@ export const props = {
   // Status
   focus: Boolean,
   active: Boolean,
-  selected: Boolean,
   filled: Boolean,
+  selected: Boolean,
   turn: Boolean,
   readonly: Boolean,
   disabled: Boolean,
@@ -31,7 +28,6 @@ export const props = {
   // Options
   palette,
   color: String,
-  arrow: Boolean,
   appearance: {
     type: String,
     default: defaultProps('appearance', 'filled'),
@@ -75,6 +71,7 @@ export const props = {
       'block'
     ])
   },
+  arrow: Boolean,
   counter: Boolean,
   cancel: {
     type: Boolean,
@@ -86,6 +83,9 @@ export const props = {
   },
 
   // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconTrailing: undefined,
   iconChevronLeft: {
     type: String,
     default: defaultProps('iconChevronLeft', 'chevron_left')

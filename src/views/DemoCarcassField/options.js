@@ -1,104 +1,107 @@
-export const optionsCarcassFieldAdaptive = {
-  text: 'Adaptive',
-  value: 'adaptive',
-  list: [
-    { value: undefined },
-    {
-      text: 'Basic',
-      value: 'basic'
-    },
-    {
-      text: 'Block',
-      value: 'block'
-    }
-  ]
+import {
+  align,
+  arrow,
+  cancel,
+  counter,
+  disabled,
+  disabledNext,
+  disabledPrevious,
+  focus,
+  helperMessage,
+  icon,
+  iconActive,
+  iconTrailing,
+  maxlength,
+  options,
+  optionsIcon,
+  palette,
+  prefix,
+  progress,
+  readonly,
+  required,
+  ripple,
+  selected,
+  shape,
+  status,
+  suffix,
+  text,
+  turn,
+  validationMessage,
+  values
+} from '@/media/demo/options'
+
+export const carcassFieldCounterValue = {
+  value: 'counterValue',
+  message: 2
 }
 
-export const optionsCarcassFieldAppearance = {
-  text: 'Appearance',
+export const carcassFieldAppearance = {
   value: 'appearance',
   list: [
     { value: undefined },
-    {
-      text: 'Basic',
-      value: 'basic'
-    },
-    {
-      text: 'Classic',
-      value: 'classic'
-    },
-    {
-      text: 'Filled',
-      value: 'filled'
-    },
-    {
-      text: 'Outlined',
-      value: 'outlined'
-    }
+    { value: 'basic' },
+    { value: 'classic' },
+    { value: 'filled' },
+    { value: 'outlined' }
   ]
 }
 
-export const optionsCarcassFieldSize = {
-  text: 'Size',
+export const carcassFieldSize = {
   value: 'size',
   list: [
     { value: undefined },
-    {
-      text: 'Dense',
-      value: 'dense'
-    },
-    {
-      text: 'Small',
-      value: 'small'
-    },
-    {
-      text: 'Medium',
-      value: 'medium'
-    },
-    {
-      text: 'Large',
-      value: 'large'
-    },
-    {
-      text: 'Interactive display',
-      value: 'interactive-display'
-    }
+    { value: 'dense' },
+    { value: 'small' },
+    { value: 'medium' },
+    { value: 'large' },
+    { value: 'interactive-display' }
   ]
 }
 
-export const optionsCarcassField = [
-  'values',
-  'icon',
-  'iconActive',
-  'iconTrailing',
-  'text',
-  'prefix',
-  'suffix',
-  'helperMessage',
-  'validationMessage',
-  'counterValue',
-  'maxlength',
-  'required',
+export const carcassFieldAdaptive = {
+  value: 'adaptive',
+  list: [
+    { value: undefined },
+    { value: 'basic' },
+    { value: 'block' }
+  ]
+}
 
-  'status',
-  'focus',
-  'selected',
-  'turn',
-  'readonly',
-  'disabled',
-  'disabledPrevious',
-  'disabledNext',
-  'progress',
+export const optionsCarcassField = {
+  values,
+  text,
+  prefix,
+  suffix,
+  helperMessage,
+  validationMessage,
+  carcassFieldCounterValue,
+  maxlength,
+  required,
 
-  'options',
-  'palette',
-  'arrow',
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize,
-  'shape',
-  'align',
-  optionsCarcassFieldAdaptive,
-  'counter',
-  'cancel',
-  'ripple'
-]
+  status,
+  focus,
+  selected,
+  turn,
+  readonly,
+  disabled,
+  disabledPrevious,
+  disabledNext,
+  progress,
+
+  options,
+  palette,
+  carcassFieldAppearance,
+  carcassFieldSize,
+  shape,
+  align,
+  carcassFieldAdaptive,
+  arrow,
+  counter,
+  cancel,
+  ripple,
+
+  optionsIcon,
+  icon,
+  iconActive,
+  iconTrailing
+}

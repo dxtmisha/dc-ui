@@ -1,4 +1,5 @@
 import { defaultInit } from '@/uses/useDefault'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-select-value')
 export const props = {
@@ -10,7 +11,7 @@ export const props = {
   disabled: Boolean,
 
   // Options
-  palette: undefined,
+  palette: palette,
   color: undefined,
   tag: undefined,
   appearance: {

@@ -4,7 +4,7 @@ import { dataIcon } from '@/media/demo/data/icon'
 import { dataLocales } from '@/media/demo/data/locales'
 import { dataNavigationRail } from '@/media/demo/data/navigationRail'
 import { dataPalette } from '@/media/demo/data/palette'
-import { quote1 } from '@/media/demo/data/text'
+import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 
 // Subtitle
 export const values = { subtitle: 'Values' }
@@ -21,6 +21,7 @@ export const backgroundColor = { message: '244,67,54' }
 export const cache = {}
 export const description = { message: quote1 }
 export const dot = {}
+export const helperMessage = { message: helper1 }
 export const mask = {
   default: '**** ****',
   list: [
@@ -32,6 +33,7 @@ export const mask = {
 export const maxlength = { message: 4 }
 export const multiple = {}
 export const prefix = { message: 'pr' }
+export const required = {}
 export const suffix = { message: 'sf' }
 export const text = {
   default: true,
@@ -41,12 +43,16 @@ export const textShort = {
   default: true,
   message: 'Demo'
 }
+export const validationMessage = { message: validation1 }
 export const underline = { message: 'act|pro' }
 
 // Status
 export const active = {}
 export const disabled = {}
+export const disabledPrevious = {}
+export const disabledNext = {}
 export const dragged = {}
+export const filled = {}
 export const focus = {}
 export const hide = {}
 export const progress = {}
@@ -80,11 +86,13 @@ export const axis = {
   ]
 }
 export const animationShow = {}
+export const arrow = {}
 export const autoClose = { default: true }
 export const background = {}
 export const border = {}
 export const bottom = {}
 export const cancel = { default: true }
+export const counter = {}
 export const delay = { list: dataDelay }
 export const dense = {}
 export const left = {}
