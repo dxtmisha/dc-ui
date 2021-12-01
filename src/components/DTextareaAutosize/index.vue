@@ -5,7 +5,7 @@
     class="d-textarea-autosize"
     :name="name"
     v-model="propValue"
-    :on="on"
+    v-on="on"
     @focus="reSize"
     @input="onEmit"
     @change="onChange"
@@ -19,7 +19,7 @@
 import { props } from './props'
 import { onUpdated, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useInput from '@/uses/useInput'
+import useField from '@/uses/useField'
 import useResize from './useResize'
 
 export default {
@@ -38,7 +38,7 @@ export default {
       cancel,
       onEmit,
       onChange
-    } = useInput(
+    } = useField(
       input,
       undefined,
       props,

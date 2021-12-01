@@ -22,7 +22,7 @@ import { ref, toRefs } from 'vue'
 import { setupCarcassField } from '@/--components/DCarcassField/setupCarcassField'
 import { setupInput } from '@/--components/DInput/setupInput'
 import { useAdmin } from '@/--uses/useAdmin'
-import { useInput } from '@/--components/DInput/useInput'
+import { useInput } from '@/components/DInput/useInput'
 import { useWatch } from '@/--uses/useWatch'
 
 export default {

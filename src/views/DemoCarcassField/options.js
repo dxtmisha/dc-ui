@@ -13,7 +13,7 @@ import {
   iconTrailing,
   maxlength,
   options,
-  optionsIcon,
+  optionIcon,
   palette,
   prefix,
   progress,
@@ -100,7 +100,7 @@ export const optionsCarcassField = {
   cancel,
   ripple,
 
-  optionsIcon,
+  optionIcon,
   icon,
   iconActive,
   iconTrailing

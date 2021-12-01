@@ -13,7 +13,7 @@ import {
   iconTrailing,
   lowercase,
   options,
-  optionsIcon,
+  optionIcon,
   palette,
   progress,
   readonly,
@@ -69,7 +69,7 @@ export const optionsButton = {
   dense,
   ripple,
 
-  optionsIcon,
+  optionIcon,
   icon,
   iconActive,
   iconTrailing,

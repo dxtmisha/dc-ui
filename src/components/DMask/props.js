@@ -7,13 +7,16 @@ export const props = {
   mask: String,
   value: String,
   viewSpecial: {
-    default: defaultProps('viewSpecial', '0')
+    default: defaultProps('viewSpecial', '_')
   },
   match: {
     default: /[0-9]/
   },
   pattern: undefined,
-  on: Object,
+  on: {
+    type: Object,
+    default: {}
+  },
 
   // Options
   type: {

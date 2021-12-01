@@ -17,7 +17,7 @@ import {
   iconTrailing,
   navigationRail,
   options,
-  optionsIcon,
+  optionIcon,
   palette,
   prefix,
   progress,
@@ -75,7 +75,7 @@ export const optionsListItem = {
   border,
   ripple,
 
-  optionsIcon,
+  optionIcon,
   thumbnail,
   icon,
   iconActive,

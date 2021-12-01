@@ -5,7 +5,7 @@ import {
   icon,
   left,
   options,
-  optionsPosition,
+  optionPosition,
   palette,
   shape,
   size,
@@ -94,7 +94,7 @@ export const optionsBadge = {
   shape,
   badgeOutline,
 
-  optionsPosition,
+  optionsPosition: optionPosition,
   left,
   bottom
 }

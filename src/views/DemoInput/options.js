@@ -1,103 +1,107 @@
 import {
-  optionsCarcassFieldAdaptive,
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize
+  carcassFieldAdaptive,
+  carcassFieldAppearance,
+  carcassFieldSize
 } from '@/views/DemoCarcassField/options'
+import { maskValue } from '@/views/DemoMask/options'
+import {
+  align, arrow, cancel, counter,
+  disabled,
+  helperMessage,
+  icon,
+  iconActive,
+  iconTrailing,
+  locales,
+  mask,
+  max,
+  maxlength,
+  min,
+  minlength,
+  optionField,
+  optionIcon,
+  optionInput,
+  optionMask,
+  palette,
+  pattern,
+  placeholder,
+  prefix,
+  readonly,
+  required,
+  selected,
+  shape,
+  status,
+  step,
+  suffix,
+  text,
+  validationMessage,
+  values,
+  visibleMask
+} from '@/media/demo/options'
 
-export const optionsInputType = {
-  text: 'Type',
+export const inputType = {
   value: 'type',
   list: [
     { value: undefined },
-    {
-      text: 'date',
-      value: 'date'
-    },
-    {
-      text: 'datetime',
-      value: 'datetime'
-    },
-    {
-      text: 'email',
-      value: 'email'
-    },
-    {
-      text: 'month',
-      value: 'month'
-    },
-    {
-      text: 'number',
-      value: 'number'
-    },
-    {
-      text: 'password',
-      value: 'password'
-    },
-    {
-      text: 'search',
-      value: 'search'
-    },
-    {
-      text: 'tel',
-      value: 'tel'
-    },
-    {
-      text: 'text',
-      value: 'text'
-    },
-    {
-      text: 'time',
-      value: 'time'
-    },
-    {
-      text: 'url',
-      value: 'url'
-    }
+    { value: 'date' },
+    { value: 'datetime' },
+    { value: 'email' },
+    { value: 'month' },
+    { value: 'number' },
+    { value: 'password' },
+    { value: 'search' },
+    { value: 'tel' },
+    { value: 'text' },
+    { value: 'time' },
+    { value: 'url' }
   ]
 }
 
-export const optionsInput = [
-  'values',
-  'icon',
-  'iconActive',
-  'iconTrailing',
-  'value',
-  'text',
-  'prefix',
-  'suffix',
-  'helperMessage',
-  'validationMessage',
-  'maxlength',
-  'required',
+export const optionsInput = {
+  values,
+  maskValue,
 
-  'status',
-  'selected',
-  'readonly',
-  'disabled',
+  status,
+  selected,
+  readonly,
+  disabled,
 
-  'optionsInput',
-  optionsInputType,
-  'step',
-  'min',
-  'max',
-  'minlength',
-  'maxlength',
-  'pattern',
-  'placeholder',
+  optionInput,
+  inputType,
+  step,
+  min,
+  max,
+  minlength,
+  maxlength,
+  pattern,
+  placeholder,
+  required,
 
-  'optionsMask',
-  'locales',
-  'visibleMask',
+  optionMask,
+  mask: {
+    ...mask,
+    default: undefined
+  },
+  locales,
+  visibleMask,
 
-  'optionsField',
-  'palette',
-  'arrow',
-  optionsCarcassFieldAppearance,
-  optionsCarcassFieldSize,
-  'shape',
-  'align',
-  optionsCarcassFieldAdaptive,
-  'counter',
-  'cancel',
-  'ripple'
-]
+  optionField,
+  text,
+  prefix,
+  suffix,
+  helperMessage,
+  validationMessage,
+  palette,
+  carcassFieldAppearance,
+  carcassFieldSize,
+  shape,
+  align,
+  carcassFieldAdaptive,
+  arrow,
+  counter,
+  cancel,
+
+  optionIcon,
+  icon,
+  iconActive,
+  iconTrailing
+}

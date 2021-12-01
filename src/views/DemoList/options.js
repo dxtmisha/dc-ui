@@ -9,8 +9,8 @@ import {
   iconBackground,
   navigationRail,
   options,
-  optionsIcon,
-  optionsItem,
+  optionIcon,
+  optionItem,
   palette,
   ripple,
   shape,
@@ -31,7 +31,7 @@ export const optionsList = {
   options,
   axis,
 
-  optionsItem,
+  optionsItem: optionItem,
   palette,
   listItemAppearance,
   iconSize,
@@ -42,7 +42,7 @@ export const optionsList = {
   border,
   ripple,
 
-  optionsIcon,
+  optionIcon,
   iconAnimationShow,
   iconBackground
 }

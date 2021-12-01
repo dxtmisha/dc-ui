@@ -8,7 +8,7 @@
         :value="standard"
         type="text"
         :pattern="propPattern"
-        :on="on"
+        v-on="on"
         @keypress.prevent="onKeypress"
         @keydown="onKeydown"
         @paste.prevent="onPaste"

@@ -10,10 +10,13 @@ import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 export const values = { subtitle: 'Values' }
 export const status = { subtitle: 'Status' }
 export const options = { subtitle: 'Options' }
-export const optionsIcon = { subtitle: 'Option: icon' }
-export const optionsItem = { subtitle: 'Option: item' }
-export const optionsPosition = { subtitle: 'Option: position' }
-export const optionsWindow = { subtitle: 'Option: window' }
+export const optionField = { subtitle: 'Option: field' }
+export const optionIcon = { subtitle: 'Option: icon' }
+export const optionInput = { subtitle: 'Option: input' }
+export const optionItem = { subtitle: 'Option: item' }
+export const optionMask = { subtitle: 'Option: mask' }
+export const optionPosition = { subtitle: 'Option: position' }
+export const optionWindow = { subtitle: 'Option: window' }
 
 // Values
 export const ajax = { message: '/demo/request/menu.json' }
@@ -30,7 +33,6 @@ export const mask = {
     { value: '**** ****' }
   ]
 }
-export const maxlength = { message: 4 }
 export const multiple = {}
 export const prefix = { message: 'pr' }
 export const required = {}
@@ -98,9 +100,15 @@ export const dense = {}
 export const left = {}
 export const locales = { list: dataLocales }
 export const lowercase = {}
+export const max = { message: 8 }
+export const maxlength = { message: 8 }
+export const min = { message: 2 }
+export const minlength = { message: 2 }
 export const navigationRail = { list: dataNavigationRail }
 export const palette = { list: dataPalette }
+export const pattern = { message: '[A-Z]{1}[a-z]{3,}' }
 export const persistent = {}
+export const placeholder = { message: 'Placeholder' }
 export const ripple = { default: true }
 export const shape = {
   list: [
@@ -117,6 +125,15 @@ export const size = {
     { value: 'small' },
     { value: 'medium' },
     { value: 'large' }
+  ]
+}
+export const step = {
+  list: [
+    { value: undefined },
+    { value: 1 },
+    { value: 2 },
+    { value: 4 },
+    { value: 8 }
   ]
 }
 export const visibleMask = { default: true }

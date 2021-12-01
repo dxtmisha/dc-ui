@@ -7,8 +7,8 @@ import {
   disabled,
   maxlength,
   multiple,
-  optionsItem,
-  optionsWindow,
+  optionItem,
+  optionWindow,
   palette,
   ripple,
   shape,
@@ -27,14 +27,14 @@ export const optionsMenu = {
   selected: { message: 'profile' },
   disabled,
 
-  optionsItem,
+  optionsItem: optionItem,
   palette,
   listItemAppearance,
   iconSize,
   shape,
   ripple,
 
-  optionsWindow,
+  optionsWindow: optionWindow,
   windowWidth,
   windowAxis,
   windowIndent

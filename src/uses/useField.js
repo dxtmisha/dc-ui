@@ -3,7 +3,7 @@ import useWatch from './useWatch'
 
 const EVENT_DEFAULT = 'on-input'
 
-export default function useInput (
+export default function useField (
   input,
   menu,
   props,
@@ -15,7 +15,7 @@ export default function useInput (
   } = toRefs(props)
 
   const change = ref(!!props.validationMessage)
-  const propValidationMessage = ref(props.validationMessage)
+  const propValidationMessage = ref(props.validationMessage || '')
   const checkValidity = () => {
     const check = input.value?.checkValidity()
     propValidationMessage.value = !change.value
@@ -28,7 +28,7 @@ export default function useInput (
   const propValue = useWatch(value, data => {
     data.value = value.value || ''
     requestAnimationFrame(checkValidity)
-  })
+  }, value.value ? ['go'] : [])
   const propCounter = computed(() => propValue.value?.length || 0)
 
   const emit = (type = EVENT_DEFAULT) => {
@@ -113,6 +113,7 @@ export default function useInput (
     propCounter,
     checkValidity,
     emit,
+    emitFrame,
     set,
     cancel,
     onEmit,

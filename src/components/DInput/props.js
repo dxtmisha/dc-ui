@@ -1,20 +1,15 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 
-export const defaultProps = defaultInit('d-input')
+const defaultProps = defaultInit('d-input')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
-  iconTrailing: undefined,
   item: undefined,
   value: undefined,
   name: undefined,
-  text: undefined,
-  prefix: undefined,
-  suffix: undefined,
-  helperMessage: undefined,
-  validationMessage: String,
-  required: Boolean,
+  on: {
+    type: Object,
+    default: {}
+  },
 
   // Status
   selected: Boolean,
@@ -38,7 +33,10 @@ export const props = {
       'url'
     ])
   },
-  autocomplete: String,
+  autocomplete: {
+    type: String,
+    default: 'off'
+  },
   autofocus: Boolean,
   inputmode: String,
   step: Number,
@@ -48,12 +46,9 @@ export const props = {
   maxlength: Number,
   pattern: String,
   placeholder: String,
+  required: Boolean,
   spellcheck: Boolean,
   attrsInput: Object,
-  on: {
-    type: Object,
-    default: {}
-  },
 
   // Mask
   mask: undefined,
@@ -64,21 +59,27 @@ export const props = {
   },
 
   // Field
+  text: undefined,
+  prefix: undefined,
+  suffix: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
   palette: undefined,
   color: undefined,
-  arrow: Boolean,
   appearance: undefined,
   size: undefined,
   shape: undefined,
   align: undefined,
   adaptive: undefined,
-  counter: Boolean,
+  arrow: undefined,
+  counter: undefined,
   cancel: {
     type: Boolean,
     default: defaultProps('cancel', true)
   },
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
-  }
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconTrailing: undefined
 }
