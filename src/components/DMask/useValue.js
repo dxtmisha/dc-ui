@@ -1,21 +1,21 @@
-import { ref, watch } from 'vue'
-import { forEach } from '@/--tool/functions'
-import { useWatch } from '@/--uses/useWatch'
+import { computed, ref, watch } from 'vue'
+import forEach from '@/functions/forEach'
+import useWatch from '@/uses/useWatch'
 
-export const useValue = function (
+export default function useValue (
   input,
+  props,
   geo,
-  standard,
   view,
-  type,
+  standard,
   setDate,
   context
 ) {
   let date
-  const propValue = useWatch(standard, data => {
-    if (type.value === 'text') {
+  const propValue = computed(() => {
+    if (props.type === 'text') {
       date = undefined
-      data.value = standard.value
+      return standard.value
     } else {
       let meaning = false
       const read = standard.value.split('')
@@ -37,18 +37,20 @@ export const useValue = function (
 
       if (meaning) {
         setDate(date)
-        data.value = geo.value.toStandard()
+        return geo.value.toStandard()
       } else {
-        data.value = ''
+        return ''
       }
     }
-  }, ['go'], '')
+  })
 
-  const validationCode = ref({})
-  const validationMessage = ref(undefined)
+  const validationCode = ref(undefined)
+  const validationMessage = ref('')
 
   const checkDate = () => {
     if (date) {
+      let error = false
+      const code = {}
       const validation = {
         y: [1000, 2999],
         m: [1, 12],
@@ -65,16 +67,21 @@ export const useValue = function (
           const value = parseInt(item)
 
           if (!(value >= validation[key][0] && value <= validation[key][1])) {
-            validationCode.value[key] = true
+            error = true
+            code[key] = true
           }
         }
       })
+
+      if (error) {
+        validationCode.value = code
+      }
     }
   }
   const checkValidity = () => {
     const check = input.value?.checkValidity()
 
-    validationCode.value = {}
+    validationCode.value = undefined
     validationMessage.value = input.value?.validationMessage
 
     if (!check) {

@@ -1,55 +1,38 @@
-export const optionsMaskType = {
-  text: 'Type',
-  value: 'type',
+import { locales, mask, options, values, visibleMask } from '@/media/demo/options'
+
+export const maskValue = {
+  value: 'value',
   list: [
     { value: undefined },
-    {
-      text: 'text',
-      value: 'text'
-    },
-    {
-      text: 'date',
-      value: 'date'
-    },
-    {
-      text: 'datetime',
-      value: 'datetime'
-    },
-    {
-      text: 'month',
-      value: 'month'
-    },
-    {
-      text: 'time',
-      value: 'time'
-    }
+    { value: '1234 5678' },
+    { value: '+7 (902) 334-33-33' },
+    { value: '1987-09-21' },
+    { value: '1996-12-30 20:30' },
+    { value: '1996-12-35 20:30' },
+    { value: '2000-01' },
+    { value: '21:45' }
   ]
 }
 
-export const optionsMask = [
-  'values',
-  'mask',
-  {
-    text: 'Value',
-    value: 'value',
-    message: '1234567890'
-  },
-  {
-    text: 'Match',
-    value: 'match',
-    list: [
-      { value: undefined },
-      {
-        text: '0-9',
-        value: /[0-9]/
-      },
-      {
-        text: 'a-Z, 0-9',
-        value: /[a-zA-Z0-9]/
-      }
-    ]
-  },
-  optionsMaskType,
-  'locales',
-  'visibleMask'
-]
+export const maskType = {
+  value: 'type',
+  list: [
+    { value: undefined },
+    { value: 'text' },
+    { value: 'date' },
+    { value: 'datetime' },
+    { value: 'month' },
+    { value: 'time' }
+  ]
+}
+
+export const optionsMask = {
+  values,
+  mask,
+  maskValue,
+
+  options,
+  maskType,
+  locales,
+  visibleMask
+}

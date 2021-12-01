@@ -1,18 +1,8 @@
+import { computed } from 'vue'
 import GeoDate from '@/classes/GeoDate'
-import { useWatch } from '@/--uses/useWatch'
 
-export const useMask = function (
-  mask,
-  pattern,
-  type,
-  locales
-) {
-  const geo = useWatch([
-    type,
-    locales
-  ], data => {
-    data.value = type.value === 'text' ? undefined : new GeoDate(locales.value).setType(type.value)
-  })
+export default function useMask (props) {
+  const geo = computed(() => props.type === 'text' ? undefined : new GeoDate(props.locales).setType(props.type))
 
   const getDate = (date = '1987-12-18 10:20:00') => geo.value.toString(date)
   const setDate = (date) => {
@@ -27,19 +17,19 @@ export const useMask = function (
     }
   }
 
-  const propMask = useWatch([geo, mask], data => {
+  const propMask = computed(() => {
     if (geo.value) {
-      data.value = getDate()
+      return getDate()
         .replace('1987', '****')
         .replace(/12|18|10|20/ig, '**')
         .split('')
     } else {
-      data.value = mask.value?.toString().split('') || []
+      return props.mask?.toString().split('') || []
     }
   })
-  const propView = useWatch([geo, mask], data => {
+  const propView = computed(() => {
     if (geo.value) {
-      data.value = getDate()
+      return getDate()
         .replace('1987', 'yyyy')
         .replace('12', 'mm')
         .replace('18', 'dd')
@@ -47,10 +37,10 @@ export const useMask = function (
         .replace('20', 'MM')
         .split('')
     } else {
-      data.value = mask.value?.toString().split('') || []
+      return props.mask?.toString().split('') || []
     }
   })
-  const propPattern = useWatch([propMask, pattern], data => {
+  const propPattern = computed(() => {
     if (geo.value) {
       const day = []
       const month = '01|02|03|04|05|06|07|08|09|10|11|12'
@@ -73,14 +63,14 @@ export const useMask = function (
         }
       }
 
-      data.value = propView.value.join('')
+      return propView.value.join('')
         .replace('yyyy', '[12]{1}[0-9]{3}')
         .replace('mm', `(${month})`)
         .replace('dd', `(${day.join('|')})`)
         .replace('HH', `(${hour})`)
         .replace('MM', `(${minute.join('|')})`)
     } else {
-      data.value = pattern.value || `.{${propMask.value?.length}}`
+      return props.pattern || `.{${propMask.value?.length}}`
     }
   })
 
@@ -89,6 +79,7 @@ export const useMask = function (
     propMask,
     propView,
     propPattern,
+    getDate,
     setDate
   }
 }

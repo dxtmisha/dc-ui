@@ -1,12 +1,14 @@
-import { useWatch } from '@/--uses/useWatch'
+import { computed, toRefs } from 'vue'
+import useWatch from '@/uses/useWatch'
 
-export const useCharacter = function (
+export default function useCharacter (
   input,
+  props,
   geo,
-  mask,
-  value,
-  match
+  mask
 ) {
+  const { value } = toRefs(props)
+
   const ifSpecialChar = char => char === '*'
   const charMask = selection => mask.value?.[selection]
   const goSelection = selection => requestAnimationFrame(() => {
@@ -20,13 +22,13 @@ export const useCharacter = function (
     if (value.value) {
       const chars = geo.value ? geo.value.setValue(value.value).toString() : value.value
       chars.split('').forEach((char, selection) => {
-        if (charMask(selection) === '*') {
+        if (ifSpecialChar(charMask(selection))) {
           data.value.push(char)
         }
       })
     }
   })
-  const standard = useWatch(character, data => {
+  const standard = computed(() => {
     const value = []
     let stop
     let key = 0
@@ -45,12 +47,8 @@ export const useCharacter = function (
       })
     }
 
-    data.value = value.join('')
-
-    if (input.value) {
-      input.value.value = data.value
-    }
-  }, ['go'], '', true)
+    return value.join('')
+  })
 
   const valueToCharacter = selection => {
     let value = -1
@@ -88,7 +86,7 @@ export const useCharacter = function (
 
     if (wait) {
       if (ifSpecialChar(wait)) {
-        if (char.toString().match(match.value)) {
+        if (char.toString().match(props.match)) {
           const selectionChar = valueToCharacter(selection)
           setCharacter(selectionChar, char)
           goSelection(characterToValue(selectionChar))

@@ -36,7 +36,7 @@
 
 <script>
 import DCarcassField from '@/--components/DCarcassField'
-import DMask from '@/--components/DMask'
+import DMask from '@/components/DMask'
 import { props } from '@/--components/DInput/props'
 import { ref, toRefs } from 'vue'
 import { setupCarcassField } from '@/--components/DCarcassField/setupCarcassField'

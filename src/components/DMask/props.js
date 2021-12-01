@@ -13,10 +13,7 @@ export const props = {
     default: /[0-9]/
   },
   pattern: undefined,
-  on: {
-    type: Object,
-    default: {}
-  },
+  on: Object,
 
   // Options
   type: {

@@ -1,4 +1,4 @@
-export const useEvent = function (
+export default function useEvent (
   change,
   setValue,
   popValue,

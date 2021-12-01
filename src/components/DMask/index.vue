@@ -5,6 +5,7 @@
         ref="input"
         v-bind="attrsInput"
         class="d-mask__input"
+        :value="standard"
         type="text"
         :pattern="propPattern"
         :on="on"
@@ -13,38 +14,33 @@
         @paste.prevent="onPaste"
         @blur="onBlur"
       />
-      <span ref="chars" class="d-mask__chars"></span>
+      <span ref="chars" class="d-mask__chars">
+        <span
+          v-for="(item, key) in propChars"
+          :key="key"
+          :class="item.class"
+          v-text="item.text"
+        />
+      </span>
     </span>
   </label>
 </template>
 
 <script>
-import { props } from '@/--components/DMask/props'
-import { ref, toRefs } from 'vue'
-import { useAdmin } from '@/--uses/useAdmin'
-import { useCharacter } from '@/--components/DMask/useCharacter'
-import { useEvent } from '@/--components/DMask/useEvent'
-import { useMask } from '@/--components/DMask/useMask'
-import { useValue } from '@/--components/DMask/useValue'
-import { useView } from '@/--components/DMask/useView'
-import { useWatch } from '@/--uses/useWatch'
+import { props } from './props'
+import { computed, ref } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useCharacter from './useCharacter'
+import useEvent from './useEvent'
+import useMask from './useMask'
+import useValue from './useValue'
+import useView from './useView'
 
 export default {
   name: 'DMask',
   props,
   emits: ['on-input', 'on-change'],
   setup (props, context) {
-    const {
-      mask,
-      value,
-      viewSpecial,
-      match,
-      pattern,
-      type,
-      locales,
-      visibleMask
-    } = toRefs(props)
-
     const input = ref(undefined)
     const chars = ref(undefined)
 
@@ -54,12 +50,7 @@ export default {
       propView,
       propPattern,
       setDate
-    } = useMask(
-      mask,
-      pattern,
-      type,
-      locales
-    )
+    } = useMask(props)
 
     const {
       standard,
@@ -69,10 +60,9 @@ export default {
       cancel
     } = useCharacter(
       input,
+      props,
       geo,
-      propMask,
-      value,
-      match
+      propMask
     )
 
     const {
@@ -82,10 +72,10 @@ export default {
       checkValidity
     } = useValue(
       input,
+      props,
       geo,
-      standard,
       propView,
-      type,
+      standard,
       setDate,
       context
     )
@@ -102,34 +92,29 @@ export default {
       pasteValue
     )
 
-    useView(
-      input,
-      chars,
-      viewSpecial,
-      standard,
+    const { propChars } = useView(
+      props,
       propView,
+      standard,
       validationCode
     )
 
-    const isCharacter = useWatch(standard, data => {
-      data.value = !!standard.value
-    })
-    const classList = useWatch([
-      isCharacter,
-      visibleMask
-    ], data => {
-      data.value = {
+    const isCharacter = computed(() => !!standard.value)
+    const classList = computed(() => {
+      return {
         'd-mask': true,
-        'status-character': isCharacter.value || visibleMask.value
+        'status-character': isCharacter.value || props.visibleMask
       }
     })
 
-    useAdmin('d-mask')
+    useAdmin('d-mask', context)
 
     return {
       input,
       chars,
+      standard,
       propPattern,
+      propChars,
       validationMessage,
       classList,
       checkValidity,

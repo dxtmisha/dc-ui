@@ -3,14 +3,19 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-mask class="demo-mask" v-bind="binds"/>
+    <d-mask
+      v-bind="binds"
+      id="id-mask"
+      class="demo-mask"
+      :admin="true"
+    />
   </interactive-demo>
 </template>
 
 <script>
-import DMask from '@/--components/DMask'
+import DMask from '@/components/DMask'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsMask } from '@/views/DemoMask/options'
+import { optionsMask } from './options'
 
 export default {
   name: 'DemoMask',

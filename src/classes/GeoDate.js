@@ -132,7 +132,7 @@ export default class GeoDate {
   }
 
   getMaxDay () {
-    return this.getEndDay().toLocaleString(this._lang, { day: '2-digit' })
+    return this.getEndDay().toLocaleString(LANG_STANDARD, { day: '2-digit' })
   }
 
   getPreviousMonth () {
