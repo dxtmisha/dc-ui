@@ -84,6 +84,7 @@ export const autoClose = { default: true }
 export const background = {}
 export const border = {}
 export const bottom = {}
+export const cancel = { default: true }
 export const delay = { list: dataDelay }
 export const dense = {}
 export const left = {}

@@ -3,12 +3,16 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-select-value v-bind="binds"/>
+    <d-select-value
+      v-bind="binds"
+      id="id-select-value"
+      :admin="true"
+    />
   </interactive-demo>
 </template>
 
 <script>
-import DSelectValue from '@/--components/DSelectValue'
+import DSelectValue from '@/components/DSelectValue'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsSelectValue } from '@/views/DemoSelectValue/options'
 

@@ -10,11 +10,16 @@
           :item="item"
           :text="item.text"
           :icon-trailing="propIcon"
+          :selected="item?.selected"
+          :turn="item?.turn"
           :disabled="disabled"
           tag="span"
           :appearance="appearance"
           :size="size"
           :shape="shape"
+          align="left"
+          adaptive="basic"
+          :lowercase="true"
           :icon-readonly="cancel"
           @on-click="onClick"
           @on-trailing="onClick"
@@ -27,11 +32,10 @@
 
 <script>
 import DButton from '@/components/DButton'
-import { props } from '@/--components/DSelectValue/props'
-import { toRefs } from 'vue'
-import { useClasses } from '@/--uses/useClasses'
-import { useColor } from '@/--uses/useColor'
-import { useWatch } from '@/--uses/useWatch'
+import { props } from '@/components/DSelectValue/props'
+import { computed } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DSelectValue',
@@ -39,32 +43,23 @@ export default {
   props,
   emits: ['on-click', 'on-trailing'],
   setup (props, context) {
-    const {
-      value,
-      multiple,
-      disabled,
-      color,
-      palette,
-      cancel
-    } = toRefs(props)
+    const palette = useColor(props)
+    const propIcon = computed(() => props.cancel && !props.disabled ? props.iconCancel : undefined)
+    const propValue = computed(() => !props.value
+      ? undefined
+      : Array.isArray(props.value) ? props.value : [props.value])
 
-    const propValue = useWatch([value, multiple], data => {
-      data.value = !value.value
-        ? undefined
-        : Array.isArray(value.value) ? value.value : [value.value]
-    })
-
-    const propIcon = useWatch([disabled, cancel], data => {
-      data.value = cancel.value && !disabled.value ? props.iconCancel : undefined
-    })
-
-    const classList = useClasses({
-      'd-select-value': true,
-      option: { multiple },
-      ...useColor(color, palette)
+    const classList = computed(() => {
+      return {
+        'd-select-value': true,
+        'option-multiple': props.multiple,
+        ...palette.value
+      }
     })
 
     const onClick = event => context.emit(event.type, event)
+
+    useAdmin('d-select-value', context)
 
     return {
       propIcon,

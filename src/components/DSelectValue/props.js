@@ -1,6 +1,6 @@
 import { defaultInit } from '@/uses/useDefault'
 
-export const defaultProps = defaultInit('d-select-value')
+const defaultProps = defaultInit('d-select-value')
 export const props = {
   // Values
   value: undefined,
@@ -12,6 +12,7 @@ export const props = {
   // Options
   palette: undefined,
   color: undefined,
+  tag: undefined,
   appearance: {
     type: String,
     default: defaultProps('appearance', 'chip')
@@ -34,5 +35,6 @@ export const props = {
   iconCancel: {
     type: String,
     default: defaultProps('iconCancel', 'cancel')
-  }
+  },
+  iconBackground: undefined
 }
