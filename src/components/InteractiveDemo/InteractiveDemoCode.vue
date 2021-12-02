@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import { toRefs } from 'vue'
-import { useWatch } from '@/--uses/useWatch'
-import { forEach, toKebabCase } from '@/--tool/functions'
+import { computed, toRefs } from 'vue'
+import forEach from '@/functions/forEach'
+import toKebabCase from '@/functions/toKebabCase'
 
 export default {
   name: 'InteractiveDemoCode',
@@ -15,7 +15,7 @@ export default {
   setup (props) {
     const { options } = toRefs(props)
 
-    const propOptions = useWatch(options, data => {
+    const propOptions = computed(() => {
       const values = []
 
       if (options.value) {
@@ -31,8 +31,8 @@ export default {
           }
         })
       }
-      data.value = values.join(' ')
-    }, ['go'], undefined, true)
+      return values.join(' ')
+    })
 
     return { propOptions }
   },

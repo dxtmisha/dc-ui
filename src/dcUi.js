@@ -1,6 +1,6 @@
 import Translation from '@/classes/Translation'
-import { forEach } from '@/--tool/functions'
-import { useTheme } from '@/--uses/useTheme'
+import { useTheme } from '@/uses/useTheme'
+import forEach from '@/functions/forEach'
 
 export const getRoutes = function (list) {
   const data = []

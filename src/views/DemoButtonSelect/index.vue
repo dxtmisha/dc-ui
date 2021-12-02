@@ -16,7 +16,7 @@
 
 <script>
 import DButtonSelect from '@/components/DButtonSelect'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsButtonSelect } from './options'
 import menu from '@/media/demo/list/menu'
 

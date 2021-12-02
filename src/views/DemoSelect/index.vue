@@ -16,7 +16,7 @@
 
 <script>
 import DSelect from '@/components/DSelect'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSelect } from './options'
 import menu from '@/media/demo/list/menu'
 

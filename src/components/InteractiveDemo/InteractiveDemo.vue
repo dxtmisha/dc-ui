@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import InteractiveDemoOption from '@/--components/InteractiveDemo/InteractiveDemoOption'
+import InteractiveDemoCode from './InteractiveDemoCode'
+import InteractiveDemoOption from './InteractiveDemoOption'
 import { toRefs } from 'vue'
 import { useOptions } from './useOptions'
-import InteractiveDemoCode from '@/--components/InteractiveDemo/InteractiveDemoCode'
 
 export default {
   name: 'InteractiveDemo',

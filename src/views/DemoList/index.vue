@@ -18,7 +18,7 @@
 
 <script>
 import DList from '@/components/DList'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import List from '@/classes/List'
 import { ref } from 'vue'
 import { optionsList } from './options'

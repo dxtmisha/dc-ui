@@ -14,7 +14,7 @@
 
 <script>
 import DIcon from '@/components/DIcon'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsIcon } from './options'
 
 export default {
