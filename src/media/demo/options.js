@@ -141,6 +141,7 @@ export const step = {
     { value: 8 }
   ]
 }
+export const top = {}
 export const visibleMask = { default: true }
 
 // Icon

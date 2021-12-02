@@ -1,0 +1,91 @@
+<template>
+  <slot
+    name="control"
+    :class-list="`d-tooltip__control ${id}`"
+    :on-click="onClick"
+    :on-mouseover="onMouseover"
+    :on-mouseout="onMouseout"
+  />
+  <teleport to="body">
+    <div
+      v-if="isShow"
+      ref="tooltip"
+      v-bind="binds"
+    >
+      {{ text }}
+      <slot/>
+    </div>
+  </teleport>
+</template>
+
+<script>
+import { props } from './props'
+import { computed, ref } from 'vue'
+import getIdElement from '@/functions/getIdElement'
+import useEvent from './useEvent'
+import usePosition from './usePosition'
+import useAdmin from '@/uses/useAdmin'
+
+export default {
+  name: 'DTooltip',
+  inheritAttrs: false,
+  props,
+  setup (props, context) {
+    const id = `t--${getIdElement()}`
+    const tooltip = ref(false)
+    const open = ref(false)
+
+    const {
+      isShow,
+      toggle
+    } = usePosition(
+      tooltip,
+      props,
+      context,
+      id,
+      open
+    )
+
+    const {
+      onClick,
+      onMouseover,
+      onMouseout
+    } = useEvent(
+      id,
+      open,
+      toggle
+    )
+
+    const binds = computed(() => {
+      return {
+        class: {
+          'd-tooltip': true,
+          [`shape-${props.shape}`]: props.shape,
+          'option-arrow': props.arrow
+        },
+        style: { '--_tt-max-width': props.width }
+      }
+    })
+
+    useAdmin('d-tooltip', context)
+
+    return {
+      id,
+      tooltip,
+      isShow,
+      binds,
+      onClick,
+      onMouseover,
+      onMouseout
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import "style";
+
+.d-tooltip {
+  @include tooltipInit;
+}
+</style>
