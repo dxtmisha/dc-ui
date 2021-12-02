@@ -44,6 +44,7 @@ import useSelect from '@/components/DSelect/useSelect'
 
 export default {
   name: 'DButtonSelect',
+  inheritAttrs: false,
   components: {
     DButton,
     DMenu
@@ -69,7 +70,7 @@ export default {
     const { propList } = useSelect(props)
 
     const { bindMenu } = useMenu(props, propList)
-    const { bindButton } = useButton(props)
+    const { bindButton } = useButton(props, context)
 
     useAdmin('d-button-select', context)
 

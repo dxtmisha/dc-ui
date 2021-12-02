@@ -15,6 +15,7 @@ module.exports = {
     'height',
     'flex',
     'flexDirection',
+    'flexGrow',
     'justifyContent',
     'margin',
     'opacity',

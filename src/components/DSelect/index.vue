@@ -54,6 +54,7 @@ import useSelect from './useSelect'
 
 export default {
   name: 'DSelect',
+  inheritAttrs: false,
   components: {
     DCarcassField,
     DMenu,
@@ -93,6 +94,7 @@ export default {
     const { bindMenu } = useMenu(props, propList)
     const { bindCarcassField } = useCarcass(
       props,
+      context,
       propValidationMessage,
       propCounter,
       propCancel,

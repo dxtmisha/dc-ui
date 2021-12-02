@@ -2,6 +2,7 @@ import { readonly, toRefs } from 'vue'
 
 export default function useCarcass (
   props,
+  context,
   propValidationMessage,
   propCounter,
   propCancel,
@@ -31,7 +32,8 @@ export default function useCarcass (
     cancel: propCancel,
     icon: refs.icon,
     iconActive: refs.iconActive,
-    iconTrailing: refs.iconTrailing
+    iconTrailing: refs.iconTrailing,
+    ...context.attrs
   })
 
   return { bindCarcassField }

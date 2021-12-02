@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import createElement from '@/functions/createElement'
 
-const SCROLL = '__dui-scroll'
+const SCROLL = '__dcUi-scroll'
 let calculate = false
 
 const getWidth = () => parseInt(localStorage.getItem(SCROLL) || '-1')

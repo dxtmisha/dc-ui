@@ -1,6 +1,6 @@
 import { readonly, toRefs } from 'vue'
 
-export default function useButton (props) {
+export default function useButton (props, context) {
   const refs = toRefs(props)
   const bindButton = readonly({
     item: refs.item,
@@ -21,7 +21,8 @@ export default function useButton (props) {
     icon: refs.icon,
     iconActive: refs.iconActive,
     iconTrailing: refs.iconArrowDown,
-    iconBackground: refs.iconBackground
+    iconBackground: refs.iconBackground,
+    ...context.attrs
   })
 
   return { bindButton }

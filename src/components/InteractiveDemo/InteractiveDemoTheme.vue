@@ -2,8 +2,11 @@
   <d-button-select
     :value="valueTheme"
     name="theme"
-    :text="text.Theme"
+    :title="text.Theme"
     :list="list"
+    appearance="text"
+    size="small"
+    :lowercase="true"
     menu-size="compact"
     @on-input="onInput"
   />
@@ -22,11 +25,11 @@ export default {
         return {
           m2: { subtitle: 'Material 2' },
           'm2-baseline': {
-            text: 'material 2: baseline',
+            text: 'Material 2: baseline',
             icon: 'light_mode'
           },
           'm2-dark': {
-            text: 'material 2: dark',
+            text: 'Material 2: dark',
             icon: 'dark_mode'
           },
           'm2-line': { line: true }

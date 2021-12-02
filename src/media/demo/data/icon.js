@@ -51,6 +51,7 @@ export const dataIcon = [
     value: 'two-tone-lock',
     icon: 'two-tone-lock'
   },
+  { line: true },
   { subtitle: 'Line Awesome' },
   {
     text: 'Lock open',
@@ -67,6 +68,7 @@ export const dataIcon = [
     value: 'la-caret-down',
     icon: 'la-caret-down'
   },
+  { line: true },
   { subtitle: 'Images' },
   {
     text: 'Image 01',
@@ -128,6 +130,7 @@ export const dataIcon = [
     value: require('@/assets/images/image-12.jpeg'),
     icon: require('@/assets/images/thumbnails/image-12-icon.jpeg')
   },
+  { line: true },
   { subtitle: 'Colors' },
   {
     text: 'Red',
