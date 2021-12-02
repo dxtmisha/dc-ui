@@ -17,7 +17,7 @@
 <script>
 import DTextarea from '@/components/DTextarea'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsTextarea } from '@/views/DemoTextarea/options'
+import { optionsTextarea } from './options'
 
 export default {
   name: 'DemoTextarea',

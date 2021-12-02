@@ -5,16 +5,18 @@
   >
     <d-checkbox
       v-bind="binds"
+      id="id-checkbox"
       name="interactive-demo"
+      :admin="true"
       @on-input="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DCheckbox from '@/--components/DCheckbox'
+import DCheckbox from '@/components/DCheckbox'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsCheckbox } from '@/views/DemoCheckbox/options'
+import { optionsCheckbox } from './options'
 
 export default {
   name: 'DemoCheckbox',

@@ -14,7 +14,7 @@
 <script>
 import DProgress from '@/components/DProgress'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsProgress } from '@/views/DemoProgress/options'
+import { optionsProgress } from './options'
 
 export default {
   name: 'DemoProgress',

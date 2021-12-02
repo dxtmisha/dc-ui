@@ -10,6 +10,10 @@ export const props = {
   text: String,
   helperMessage: String,
   validationMessage: String,
+  on: {
+    type: Object,
+    default: {}
+  },
 
   // Status
   disabled: Boolean,
@@ -35,10 +39,6 @@ export const props = {
   },
   required: Boolean,
   attrsInput: Object,
-  on: {
-    type: Object,
-    default: {}
-  },
 
   // Icon
   iconCheck: {

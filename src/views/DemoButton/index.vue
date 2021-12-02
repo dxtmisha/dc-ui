@@ -14,7 +14,7 @@
 <script>
 import DButton from '@/components/DButton'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsButton } from '@/views/DemoButton/options'
+import { optionsButton } from './options'
 
 export default {
   name: 'DemoButton',

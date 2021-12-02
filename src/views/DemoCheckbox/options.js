@@ -1,38 +1,43 @@
-export const optionsCheckboxType = {
-  text: 'Type',
+import {
+  disabled,
+  helperMessage,
+  optionInput,
+  options,
+  palette,
+  required,
+  right,
+  ripple,
+  status,
+  text,
+  validationMessage,
+  values
+} from '@/media/demo/options'
+
+export const checkboxType = {
   value: 'type',
   list: [
     { value: undefined },
-    {
-      text: 'checkbox',
-      value: 'checkbox'
-    },
-    {
-      text: 'radio',
-      value: 'radio'
-    },
-    {
-      text: 'switch',
-      value: 'switch'
-    }
+    { value: 'checkbox' },
+    { value: 'radio' },
+    { value: 'switch' }
   ]
 }
 
-export const optionsCheckbox = [
-  'values',
-  'text',
-  'helperMessage',
-  'validationMessage',
+export const optionsCheckbox = {
+  values,
+  text,
+  helperMessage,
+  validationMessage,
 
-  'status',
-  'disabled',
+  status,
+  disabled,
 
-  'options',
-  'palette',
-  'right',
-  'ripple',
+  options,
+  palette,
+  right,
+  ripple,
 
-  'optionsInput',
-  optionsCheckboxType,
-  'required'
-]
+  optionInput,
+  checkboxType,
+  required
+}

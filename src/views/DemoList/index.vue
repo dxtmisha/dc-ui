@@ -21,7 +21,7 @@ import DList from '@/components/DList'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import List from '@/classes/List'
 import { ref } from 'vue'
-import { optionsList } from '@/views/DemoList/options'
+import { optionsList } from './options'
 import menu from '@/media/demo/list/menu'
 
 export default {

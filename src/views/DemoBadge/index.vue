@@ -17,7 +17,7 @@
 <script>
 import DBadge from '@/components/DBadge'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsBadge } from '@/views/DemoBadge/options'
+import { optionsBadge } from './options'
 
 export default {
   name: 'DemoBadge',

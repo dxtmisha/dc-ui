@@ -17,7 +17,7 @@
 <script>
 import DSelect from '@/components/DSelect'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsSelect } from '@/views/DemoSelect/options'
+import { optionsSelect } from './options'
 import menu from '@/media/demo/list/menu'
 
 export default {

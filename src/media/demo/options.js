@@ -113,6 +113,7 @@ export const palette = { list: dataPalette }
 export const pattern = { message: '[A-Z]{1}[a-z]{3,}' }
 export const persistent = {}
 export const placeholder = { message: 'Placeholder' }
+export const right = {}
 export const ripple = { default: true }
 export const shape = {
   list: [

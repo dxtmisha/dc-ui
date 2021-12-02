@@ -4,8 +4,8 @@
 @import "../../styles/media";
 @import "../../styles/padding";
 @import "../../styles/options/optionShape";
-@import "src/components/DButton/styleExtend";
-@import "src/components/DButton/styleVar";
+@import "styleExtend";
+@import "styleVar";
 
 @mixin button() {
   @include buttonVar;

@@ -17,7 +17,7 @@
 <script>
 import DInput from '@/components/DInput'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { optionsInput } from '@/views/DemoInput/options'
+import { optionsInput } from './options'
 
 export default {
   name: 'DemoInput',

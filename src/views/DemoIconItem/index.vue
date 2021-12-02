@@ -20,7 +20,7 @@
 import DIconItem from '@/components/DIconItem'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
-import { optionsIconItem } from '@/views/DemoIconItem/options'
+import { optionsIconItem } from './options'
 
 export default {
   name: 'DemoIconItem',

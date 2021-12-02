@@ -39,12 +39,10 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import DRipple from '@/components/DRipple'
-import { props } from '@/--components/DCheckbox/props'
-import { ref, toRefs } from 'vue'
-import { setupInput } from '@/--components/DInput/setupInput'
-import { useClasses } from '@/--uses/useClasses'
-import { useColor } from '@/--uses/useColor'
-import { useWatch } from '@/--uses/useWatch'
+import { props } from '@/components/DCheckbox/props'
+import { computed, ref } from 'vue'
+import useColor from '@/uses/useColor'
+import useField from '@/uses/useField'
 
 export default {
   name: 'DCheckbox',
@@ -55,68 +53,44 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const refs = toRefs(props)
-    const {
-      item,
-      value,
-      name,
-      text,
-      validationMessage,
-      required,
-      palette,
-      color,
-      type,
-      right,
-      iconCheck
-    } = refs
-
     const input = ref(undefined)
 
-    const propIcon = ref(iconCheck.value)
-    const propType = useWatch(type, data => {
-      data.value = type.value === 'radio' ? 'radio' : 'checkbox'
-      propIcon.value = type.value === 'radio' ? '' : iconCheck.value
-    })
+    const palette = useColor(props)
+    const propType = computed(() => props.type === 'radio' ? 'radio' : 'checkbox')
+    const propIcon = computed(() => props.type === 'radio' ? '' : props.iconCheck)
 
-    const ifText = useWatch(text, data => {
-      data.value = text.value || 'default' in context.slots
-    })
+    const ifText = computed(() => props.text || 'default' in context.slots)
 
     const {
-      propValue,
       propValidationMessage,
+      propValue,
       checkValidity,
       onChecked
-    } = setupInput(
+    } = useField(
       input,
       undefined,
-      item,
-      value,
-      name,
-      validationMessage,
+      props,
       context
     )
 
-    const classList = useClasses({
-      'd-checkbox': true,
-      status: {
-        checked: propValue,
-        error: propValidationMessage
-      },
-      option: {
-        required,
-        right
-      },
-      values: { type },
-      ...useColor(color, palette)
+    const classList = computed(() => {
+      return {
+        'd-checkbox': true,
+        'status-checked': propValue.value,
+        'status-error': propValidationMessage.value,
+        [`type-${propType.value}`]: propType.value,
+        'option-right': props.right,
+        'option-required': props.required,
+        ...palette.value
+      }
     })
 
     return {
       input,
-      propValue,
       propType,
       propIcon,
       propValidationMessage,
+      propValue,
       ifText,
       classList,
       checkValidity,
