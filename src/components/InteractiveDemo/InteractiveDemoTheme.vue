@@ -1,25 +1,38 @@
 <template>
-  <d-button-select
-    :value="valueTheme"
-    name="theme"
-    :title="text.Theme"
-    :list="list"
-    appearance="text"
-    size="small"
-    adaptive="auto"
-    :lowercase="true"
-    :icon="icon"
-    menu-size="compact"
-    @on-input="onInput"
-  />
+  <d-tooltip
+    :text="text.Theme"
+    :indent="4"
+  >
+    <template v-slot:control="{ classList, onMouseover, onMouseout }">
+      <d-button-select
+        :class="classList"
+        :value="valueTheme"
+        name="theme"
+        :list="list"
+        appearance="text"
+        size="small"
+        adaptive="auto"
+        :lowercase="true"
+        :icon="icon"
+        menu-size="compact"
+        @on-input="onInput"
+        @mouseover="onMouseover"
+        @mouseout="onMouseout"
+      />
+    </template>
+  </d-tooltip>
 </template>
 
 <script>
 import DButtonSelect from '@/components/DButtonSelect'
+import DTooltip from '@/components/DTooltip'
 
 export default {
   name: 'InteractiveDemoTheme',
-  components: { DButtonSelect },
+  components: {
+    DButtonSelect,
+    DTooltip
+  },
   props: {
     list: {
       type: Object,

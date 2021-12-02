@@ -1,5 +1,6 @@
 @import "../../styles/color";
 @import "../../styles/dimension";
+@import "../../styles/elevation";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -17,6 +18,7 @@
 
   @include flexCenter;
   @include font('body2');
+  @include index(9);
   --basic-text: var(--text-type2);
   background-color: varColor(--_tt-palette, --opacity-surface-medium);
   border-radius: var(--_tt-radius);
