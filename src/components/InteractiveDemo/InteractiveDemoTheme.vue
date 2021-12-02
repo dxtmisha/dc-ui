@@ -6,7 +6,9 @@
     :list="list"
     appearance="text"
     size="small"
+    adaptive="auto"
     :lowercase="true"
+    :icon="icon"
     menu-size="compact"
     @on-input="onInput"
   />
@@ -46,7 +48,10 @@ export default {
   },
   computed: {
     valueTheme () {
-      return this.$theme.get() || 'm2-baseline'
+      return this.$theme.value.value || 'm2-baseline'
+    },
+    icon () {
+      return this.list[this.valueTheme]?.icon || 'style'
     }
   },
   methods: {

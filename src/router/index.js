@@ -21,7 +21,7 @@ import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoWindow from '../views/DemoWindow'
 
-const routes = getRoutes({
+export const routes = getRoutes({
   'd-badge': DemoBadge,
   'd-button': DemoButton,
   'd-button-select': DemoButtonSelect,

@@ -14,8 +14,10 @@
 @include initDark();
 
 header,
-main {
+main,
+footer {
   width: 1024px;
+  max-width: calc(100% - 32px);
 }
 
 header {
@@ -25,15 +27,19 @@ header {
   border-radius: var(--basic-radius);
   box-shadow: var(--shadow-type4);
   gap: 8px;
-  margin: dimension(32) auto dimension(8);
+  margin: dimension(32) auto dimension(4);
   padding: dimension(2) dimension(4);
   position: sticky;
-  top: dimension(2);
+  top: dimension(4);
 }
 
 main {
   margin: 0 auto;
-  max-width: 100%;
-  padding: 0 0 dimension(10);
   width: 1024px;
+}
+
+footer {
+  --basic-text-opacity: var(--opacity-surface-medium);
+  margin: dimension(4) auto dimension(16);
+  text-align: right;
 }
