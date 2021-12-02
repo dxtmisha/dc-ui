@@ -7,6 +7,7 @@
     <template v-slot:default="{ classList, onClick, open, value, names, progress }">
       <input
         ref="input"
+        v-bind="attrsSelect"
         :name="name"
         type="hidden"
         v-model="propValue"
@@ -34,11 +35,12 @@
 import DButton from '@/components/DButton'
 import DMenu from '@/components/DMenu'
 import { props } from './props'
-import { ref, toRefs } from 'vue'
-import { setupButton } from '@/--components/DButton/setupButton'
-import { setupInput } from '@/--components/DInput/setupInput'
-import { setupMenu } from '@/--components/DMenu/setupMenu'
-import { useAdmin } from '@/--uses/useAdmin'
+import { ref } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useButton from './useButton'
+import useField from '@/uses/useField'
+import useMenu from '@/components/DSelect/useMenu'
+import useSelect from '@/components/DSelect/useSelect'
 
 export default {
   name: 'DButtonSelect',
@@ -49,47 +51,35 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const refs = toRefs(props)
-    const {
-      item,
-      value,
-      name,
-      iconArrowDown
-    } = refs
-
     const input = ref(undefined)
     const menu = ref(undefined)
 
     const {
-      propValue,
       propValidationMessage,
+      propValue,
       checkValidity,
       onSelect
-    } = setupInput(
+    } = useField(
       input,
       menu,
-      item,
-      value,
-      name,
-      ref(undefined),
+      props,
       context
     )
 
-    const { bindButton } = setupButton({
-      ...refs,
-      iconTrailing: iconArrowDown
-    })
-    const { bindMenu } = setupMenu(refs)
+    const { propList } = useSelect(props)
 
-    useAdmin('d-button-select')
+    const { bindMenu } = useMenu(props, propList)
+    const { bindButton } = useButton(props)
+
+    useAdmin('d-button-select', context)
 
     return {
       input,
       menu,
-      propValue,
       propValidationMessage,
-      bindButton,
+      propValue,
       bindMenu,
+      bindButton,
       checkValidity,
       onSelect
     }

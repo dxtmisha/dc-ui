@@ -19,7 +19,6 @@
           :name="item.value"
           :text="item.text"
           :list="item.list"
-          :list-init="false"
           menu-size="compact"
           adaptive="block"
           menu-width="248px"
@@ -40,7 +39,7 @@
 
 <script>
 import DCheckbox from '@/--components/DCheckbox'
-import DButtonSelect from '@/--components/DButtonSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 
 export default {
   name: 'InteractiveDemoOption',

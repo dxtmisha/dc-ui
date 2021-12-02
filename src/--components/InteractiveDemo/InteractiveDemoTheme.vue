@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DButtonSelect from '@/--components/DButtonSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 
 export default {
   name: 'InteractiveDemoTheme',

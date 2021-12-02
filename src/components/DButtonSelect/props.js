@@ -1,24 +1,18 @@
-import { defaultInit } from '@/uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
+import Geo from '@/classes/Geo'
 
-export const defaultProps = defaultInit('d-button-select')
+const defaultProps = defaultInit('d-button-select')
 export const props = {
   // Values
-  icon: undefined,
-  iconActive: undefined,
   item: undefined,
   value: undefined,
   name: undefined,
-  text: undefined,
 
   // Status
   selected: Boolean,
   disabled: Boolean,
 
-  // Options
-  palette: undefined,
-  color: undefined,
-
-  // Input
+  // List
   list: undefined,
   listInit: undefined,
   translation: {
@@ -36,10 +30,29 @@ export const props = {
   ajax: String,
   request: Object,
   cache: Boolean,
-  maxlength: Number,
   multiple: Boolean,
 
+  // Select
+  type: {
+    type: String,
+    default: 'select',
+    validator: validator([
+      'select',
+      'month',
+      'week'
+    ])
+  },
+  locales: {
+    type: String,
+    default: defaultProps('locales', Geo.getGlobalLang())
+  },
+  maxlength: Number,
+  attrsSelect: Object,
+
   // Button
+  text: undefined,
+  palette: undefined,
+  color: undefined,
   tag: undefined,
   appearance: {
     type: String,
@@ -54,10 +67,15 @@ export const props = {
   adaptive: undefined,
   lowercase: undefined,
   dense: undefined,
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconArrowDown: {
+    type: String,
+    default: defaultProps('iconArrowDown', 'arrow_drop_down')
   },
+  iconBackground: undefined,
 
   // Menu
   menuAppearance: undefined,
@@ -66,12 +84,5 @@ export const props = {
   menuWidth: {
     type: String,
     default: defaultProps('menuWidth', '0px')
-  },
-
-  // Icon
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
-  iconBackground: undefined
+  }
 }

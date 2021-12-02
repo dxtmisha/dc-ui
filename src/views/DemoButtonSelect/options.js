@@ -1,53 +1,73 @@
-import { optionsButtonAppearance } from '@/views/DemoButton/options'
-import { optionsListItemAppearance, optionsListItemSize } from '@/views/DemoListItem/options'
-import { optionsWindowWidth } from '@/views/DemoWindow/options'
-import { optionsList } from '@/media/--demo/options'
+import { buttonAppearance } from '@/views/DemoButton/options'
+import { iconSize } from '@/views/DemoIcon/options'
+import { listItemAppearance } from '@/views/DemoListItem/options'
+import { selectType } from '@/views/DemoSelect/options'
+import { windowWidth } from '@/views/DemoWindow/options'
+import {
+  adaptive,
+  ajax,
+  align,
+  cache,
+  dense,
+  disabled,
+  icon,
+  iconActive,
+  iconBackground,
+  locales,
+  lowercase,
+  maxlength,
+  multiple,
+  optionButton,
+  optionIcon,
+  optionList,
+  optionMenu,
+  optionSelect,
+  palette,
+  selected,
+  shape,
+  size,
+  status,
+  text,
+  values
+} from '@/media/demo/options'
 
-export const optionsButtonSelect = [
-  'values',
-  'icon',
-  'iconActive',
-  'text',
+export const optionsButtonSelect = {
+  values,
+  value: { message: 'profile' },
 
-  'status',
-  'selected',
-  'disabled',
+  status,
+  selected,
+  disabled,
 
-  'optionsInput',
-  'ajax',
-  'cache',
-  'multiple',
-  'maxlength',
+  optionList,
+  ajax,
+  cache,
+  multiple,
 
-  'optionsMenu',
-  {
-    ...optionsListItemAppearance,
-    value: 'menuAppearance'
-  },
-  {
-    ...optionsListItemSize,
-    value: 'menuSize'
-  },
-  {
-    ...optionsList.shape,
-    value: 'menuShape'
-  },
-  {
-    ...optionsWindowWidth,
-    value: 'menuWidth'
-  },
+  optionSelect,
+  selectType,
+  locales,
+  maxlength,
 
-  'optionsButton',
-  'palette',
-  optionsButtonAppearance,
-  'size',
-  'shape',
-  'align',
-  'adaptive',
-  'lowercase',
-  'dense',
-  'ripple',
+  optionButton,
+  text,
+  palette,
+  buttonAppearance,
+  size,
+  shape,
+  align,
+  adaptive,
+  lowercase,
+  dense,
 
-  'optionsIcon',
-  'iconBackground'
-]
+  optionIcon,
+  icon,
+  iconActive,
+  iconBackground,
+
+  optionMenu,
+  menuAppearance: { list: listItemAppearance.list },
+  menuSize: { list: iconSize.list },
+  menuShape: { list: shape.list },
+  menuWidth: { list: windowWidth.list }
+}

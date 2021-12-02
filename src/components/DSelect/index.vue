@@ -17,6 +17,7 @@
         <template v-slot:default="{ className, classNameHidden }">
           <input
             ref="input"
+            v-bind="attrsSelect"
             :class="classNameHidden"
             :name="name"
             :required="required"
