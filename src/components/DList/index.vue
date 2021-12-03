@@ -57,7 +57,7 @@
 
 <script>
 import DListItem from '@/components/DListItem'
-import { props } from '@/components/DList/props'
+import { props } from './props'
 import { computed, defineAsyncComponent } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'

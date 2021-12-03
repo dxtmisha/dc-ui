@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DWindow/props'
+import { props } from './props'
 import { computed, ref } from 'vue'
 import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'

@@ -4,8 +4,10 @@
     :list="routers"
     appearance="text"
     size="small"
+    adaptive="auto"
     :lowercase="true"
     :dense="true"
+    icon="drag_indicator"
     menu-size="compact"
     @on-input="onInput"
   />

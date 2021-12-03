@@ -1,24 +1,18 @@
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
-import EventControl from '@/classes/EventControl'
 
 export default function useMotion (
   id,
   scroll,
   props,
-  context
+  propElement,
+  context,
+  onScroll
 ) {
   let top = -1
   let distance = 0
 
   const propPage = ref(props.page)
   const propItem = computed(() => document.querySelector(`.${id}[data-page="${propPage.value}"]`))
-  const propElement = computed(() => {
-    if (props.element === window) {
-      return document.documentElement
-    } else {
-      return props.element || scroll.value
-    }
-  })
 
   const emit = () => context.emit('on-scroll', {
     value: propPage.value,
@@ -38,7 +32,7 @@ export default function useMotion (
     }
   }
 
-  const onScroll = event => {
+  onScroll.value = event => {
     if (
       event.$element !== propElement.value &&
       event.$element !== props.element
@@ -62,9 +56,6 @@ export default function useMotion (
       }
     }
   }
-  const switchEvent = () => EventControl
-    .init(props.element || propElement.value, onScroll, ['scroll'])
-    .go()
 
   watch(propPage, () => {
     top = propElement.value.scrollTop
@@ -76,12 +67,10 @@ export default function useMotion (
       update()
     })
   })
-  watch(propElement, () => switchEvent())
 
   onMounted(async () => {
     await nextTick()
     update(true)
-    switchEvent()
   })
 
   return {}

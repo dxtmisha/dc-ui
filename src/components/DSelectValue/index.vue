@@ -32,7 +32,7 @@
 
 <script>
 import DButton from '@/components/DButton'
-import { props } from '@/components/DSelectValue/props'
+import { props } from './props'
 import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'

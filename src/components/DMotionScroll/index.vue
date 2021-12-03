@@ -9,10 +9,11 @@
 </template>
 
 <script>
-import { props } from '@/components/DMotionScroll/props'
+import { props } from './props'
 import { computed, ref } from 'vue'
 import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'
+import useElement from './useElement'
 import useMotion from './useMotion'
 import useScroll from '@/uses/useScroll'
 
@@ -22,6 +23,11 @@ export default {
   setup (props, context) {
     const id = `s--${getIdElement()}`
     const scroll = ref(undefined)
+
+    const {
+      propElement,
+      onScroll
+    } = useElement(scroll, props)
 
     const classScroll = useScroll()
     const classList = computed(() => {
@@ -35,7 +41,9 @@ export default {
       id,
       scroll,
       props,
-      context
+      propElement,
+      context,
+      onScroll
     )
 
     useAdmin('d-motion-scroll', context)

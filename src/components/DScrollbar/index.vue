@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DScrollbar/props'
+import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useScroll from '@/uses/useScroll'
