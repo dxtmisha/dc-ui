@@ -38,6 +38,10 @@ export default function useStyle (
       if (action) {
         action(value)
       }
+
+      return true
+    } else {
+      return false
     }
   }
 

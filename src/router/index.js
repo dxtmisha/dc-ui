@@ -12,6 +12,7 @@ import DemoList from '../views/DemoList'
 import DemoListItem from '../views/DemoListItem'
 import DemoMask from '../views/DemoMask'
 import DemoMenu from '../views/DemoMenu'
+import DemoMotionAxis from '../views/DemoMotionAxis'
 import DemoProgress from '../views/DemoProgress'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
@@ -35,6 +36,7 @@ export const routes = getRoutes({
   'd-list-item': DemoListItem,
   'd-mask': DemoMask,
   'd-menu': DemoMenu,
+  'd-motion-axis': DemoMotionAxis,
   'd-progress': DemoProgress,
   'd-ripple': DemoRipple,
   'd-scrollbar': DemoScrollbar,
