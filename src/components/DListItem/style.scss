@@ -31,7 +31,7 @@
   background-color: varColor(--_li-background, --_li-background-opacity);
   background-image: none;
   cursor: default;
-  margin: 0 var(--_li-margin) var(--_li-margin-gap);
+  margin: var(--_li-margin-gap) var(--_li-margin);
   min-height: calc(var(--_li-height) - var(--_li-margin-gap));
   padding: 0 var(--_li-padding);
   position: relative;

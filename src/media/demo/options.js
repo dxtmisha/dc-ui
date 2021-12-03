@@ -115,6 +115,7 @@ export const persistent = {}
 export const placeholder = { message: 'Placeholder' }
 export const right = {}
 export const ripple = { default: true }
+export const scrollHide = {}
 export const shape = {
   list: [
     { value: undefined },
