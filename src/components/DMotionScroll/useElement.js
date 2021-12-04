@@ -19,6 +19,7 @@ export default function useElement (
     if (switchItem !== propElement.value) {
       EventControl
         .init(props.element || propElement.value, event => onScroll.value(event), ['scroll'])
+        .setDomElement(propElement.value)
         .go()
 
       switchItem = propElement.value

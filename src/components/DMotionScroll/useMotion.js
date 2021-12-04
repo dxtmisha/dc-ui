@@ -34,8 +34,10 @@ export default function useMotion (
 
   onScroll.value = event => {
     if (
-      event.$element !== propElement.value &&
-      event.$element !== props.element
+      !scroll.value || (
+        event.$element !== propElement.value &&
+        event.$element !== props.element
+      )
     ) {
       event.$event.stop()
     } else if (top < 0) {
