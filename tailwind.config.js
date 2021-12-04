@@ -11,6 +11,8 @@ module.exports = {
   corePlugins: [
     'alignItems',
     'borderRadius',
+    'borderWidth',
+    'cursor',
     'display',
     'height',
     'flex',
@@ -21,6 +23,7 @@ module.exports = {
     'maxWidth',
     'opacity',
     'padding',
+    'textAlign',
     'width'
   ]
 }

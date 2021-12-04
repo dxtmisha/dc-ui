@@ -54,6 +54,7 @@ export const underline = { message: 'act|pro' }
 
 // Status
 export const active = {}
+export const click = { default: true }
 export const disabled = {}
 export const disabledPrevious = {}
 export const disabledNext = {}
@@ -63,6 +64,7 @@ export const focus = {}
 export const hide = {}
 export const progress = {}
 export const readonly = {}
+export const open = {}
 export const selected = {}
 export const turn = {}
 export const visible = {}
