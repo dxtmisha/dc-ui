@@ -1,0 +1,90 @@
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/font";
+
+@mixin controlPosition {
+  --_cp-palette: var(--cp-palette, var(--color-palette, var(--primary-type1)));
+  --_cp__it-display: var(--cp__it-display, block);
+
+  position: relative;
+}
+
+@mixin controlPositionItem() {
+  &__item {
+    cursor: default;
+    position: relative;
+
+    &::before {
+      @include index(8);
+      background-color: varColor(--_cp-palette, --opacity-container-selected);
+      content: " ";
+      display: none;
+      inset: 0;
+      position: absolute;
+      transition-property: background-color;
+    }
+
+    &.cp-active {
+      @include index(8);
+      @include shadow(8);
+      left: calc(var(--_cp-x) + var(--_cp-shift-x, 0px));
+      position: absolute;
+      height: var(--_cp-height);
+      margin: 0 !important;
+      opacity: var(--opacity-surface-high);
+      transform: scale(1.08);
+      transition-property: box-shadow, opacity, transform;
+      top: calc(var(--_cp-y) + var(--_cp-shift-y, 0px));
+      width: var(--_cp-width);
+
+      &::before {
+        display: var(--_cp__it-display);
+      }
+    }
+
+    &.cp-selection {
+      @include index(8, -1);
+      @include shadow(7);
+      opacity: var(--opacity-surface-medium);
+      transform: scale(1.08) rotate(var(--_cp-shift));
+      transform-origin: 60% 40%;
+      transition-property: none;
+    }
+
+    &.cp-selection-more {
+      opacity: 0;
+    }
+
+    &.cp-return {
+      box-shadow: none;
+      opacity: 1;
+      transform: none;
+      transition-property: box-shadow, left, transform, top;
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@mixin controlPositionSquare {
+  &__square {
+    &:not(.cp-show) {
+      display: none;
+    }
+  }
+}
+
+@mixin controlPositionBody {
+  &__body {
+    @include select-none;
+  }
+}
+
+@mixin controlPositionInit {
+  @include controlPosition;
+  @include controlPositionItem;
+  @include controlPositionSquare;
+  @include controlPositionBody;
+}

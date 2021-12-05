@@ -10,7 +10,9 @@ export default function useClassByFocus (
 ) {
   const item = { value }
   const update = () => forEach(
-    elements.value, (element, index) => element.classList?.toggle(name, index === item.value))
+    typeof elements === 'string' ? document.querySelectorAll(elements) : elements.value,
+    (element, index) => element.classList?.toggle(name, index === item.value || element === item.value)
+  )
 
   item.set = (value = undefined) => {
     if (value !== item.value) {
