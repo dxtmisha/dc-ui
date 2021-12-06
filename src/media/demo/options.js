@@ -53,6 +53,7 @@ export const validationMessage = { message: validation1 }
 export const underline = { message: 'act|pro' }
 
 // Status
+export const action = {}
 export const active = {}
 export const click = { default: true }
 export const disabled = {}

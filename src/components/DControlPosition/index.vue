@@ -184,8 +184,8 @@ export default {
         }
       }
     }
-    const onTransitionend = event => {
-      if (event.propertyName === 'transform') {
+    const onTransitionend = ({ propertyName }) => {
+      if (propertyName === 'transform') {
         toNone()
       }
     }

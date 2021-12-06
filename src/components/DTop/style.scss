@@ -1,0 +1,55 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+
+@mixin top {
+  --_tp-palette: var(--tp-palette, var(--palette-type1, var(--primary-type1)));
+  --_tp-gap: var(--tp-gap, 8px);
+  --_tp-height: var(--tp-height, 56px);
+  --_tp-padding: var(--tp-padding, 8px);
+  --_tp__tt-padding: var(--tp__tt-padding, 24px);
+  @include flexX;
+  --basic-text: var(--text-type2);
+  --basic-text-opacity: var(--opacity-primary-high);
+  --bt-palette-type1: var(--text-type2);
+  background-color: varColor(--_tp-palette);
+  gap: 0 var(--_tp-gap);
+  min-height: var(--_tp-height);
+  padding: 0 var(--_tp-padding);
+  max-width: 100%;
+  transition-property: background-color;
+}
+
+@mixin topTitle {
+  &__title {
+    @include clamp(2);
+    @include font('headline6');
+    flex-basis: 1px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: var(--_tp__tt-padding);
+  }
+}
+
+@mixin topAction {
+  &.status-action {
+    --basic-text: var(--text-type3);
+    --bt-palette-type1: var(--text-type3);
+    background-color: varColor(--background-scrim, --opacity-surface-high);
+  }
+}
+
+@mixin topHide {
+  &.status-hide &__bar {
+    opacity: 0;
+    transition-property: opacity;
+  }
+}
+
+@mixin topInit {
+  @include top;
+  @include topTitle;
+
+  @include topAction;
+  @include topHide;
+}

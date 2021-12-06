@@ -27,6 +27,7 @@ import DemoSelectValue from '../views/DemoSelectValue'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTooltip from '../views/DemoTooltip'
+import DemoTop from '../views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
 
 export const routes = getRoutes({
@@ -57,6 +58,7 @@ export const routes = getRoutes({
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-tooltip': DemoTooltip,
+  'd-top': DemoTop,
   'd-window': DemoWindow
 })
 
