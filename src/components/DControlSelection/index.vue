@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DControlSelection/props'
+import { props } from './props'
 import { ref, toRefs } from 'vue'
 import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'

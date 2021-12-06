@@ -23,6 +23,7 @@ import useDrop from './useDrop'
 import usePosition from './usePosition'
 import useSelection from './useSelection'
 import useSquare from './useSquare'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DControlPosition',
@@ -188,6 +189,8 @@ export default {
         toNone()
       }
     }
+
+    useAdmin('d-control-position', context)
 
     return {
       id,

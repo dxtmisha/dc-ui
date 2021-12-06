@@ -6,6 +6,7 @@ import DemoButtonSelect from '../views/DemoButtonSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoCheckbox from '../views/DemoCheckbox'
 import DemoControlPosition from '../views/DemoControlPosition'
+import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
@@ -35,6 +36,7 @@ export const routes = getRoutes({
   'd-carcass-field': DemoCarcassField,
   'd-checkbox': DemoCheckbox,
   'd-control-position': DemoControlPosition,
+  'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,

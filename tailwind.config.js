@@ -23,6 +23,7 @@ module.exports = {
     'maxWidth',
     'opacity',
     'padding',
+    'position',
     'textAlign',
     'width'
   ]

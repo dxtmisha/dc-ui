@@ -1,0 +1,204 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/position";
+
+@mixin controlResize {
+  @include controlResizeVar;
+  --_cr-disabled: #{varColor(--disabled-type1, --opacity-surface-disabled)};
+  display: flex;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+
+  &__center,
+  &__right,
+  &__left {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+@mixin controlResizeVar() {
+  --_cr-palette-type1: var(--cr-palette-type1, var(--background-scrim));
+  --_cr-palette-type2: var(--cr-palette-type2, var(--palette-type1, var(--primary-type1)));
+  --_cr-size: var(--cr-size, 8px);
+}
+
+@mixin controlResizeMove {
+  &__move {
+    background-color: varColor(--_cr-palette-type1, --opacity-surface-medium);
+    flex-basis: 0;
+    @content;
+
+    @include afterAbsolute {
+      z-index: 4;
+    }
+
+    &.cr-right,
+    &.cr-left {
+      @include flexDynamic;
+      cursor: ew-resize;
+
+      &::after {
+        width: var(--_cr-size);
+      }
+
+      &-top,
+      &-bottom {
+        &::after {
+          height: var(--_cr-size);
+          width: var(--_cr-size);
+        }
+      }
+
+      &-top {
+        flex-basis: var(--_cr-top);
+
+        &::after {
+          bottom: auto;
+        }
+      }
+
+      &-bottom {
+        flex-basis: var(--_cr-bottom);
+
+        &::after {
+          top: auto;
+        }
+      }
+    }
+
+    &.cr-right-bottom,
+    &.cr-left-top {
+      cursor: nwse-resize;
+    }
+
+    &.cr-right-top,
+    &.cr-left-bottom {
+      cursor: nesw-resize;
+    }
+  }
+}
+
+@mixin controlResizeCenter() {
+  &__center {
+    @include flexDynamic;
+    @content;
+  }
+}
+
+@mixin controlResizeCenterMove() {
+  &__move {
+    &.cr-top,
+    &.cr-bottom {
+      cursor: ns-resize;
+
+      &::after {
+        height: var(--_cr-size);
+      }
+    }
+
+    &.cr-top {
+      flex-basis: var(--_cr-top);
+
+      &::after {
+        bottom: auto;
+      }
+    }
+
+    &.cr-bottom {
+      flex-basis: var(--_cr-bottom);
+
+      &::after {
+        top: auto;
+      }
+    }
+  }
+}
+
+@mixin controlResizeCenterActive() {
+  &__active {
+    @include flexDynamic;
+    @content;
+
+    @include afterAbsolute() {
+      border-color: varColor(--_cr-palette-type2, --opacity-surface-high);
+      border-width: 2px;
+    }
+  }
+}
+
+@mixin controlResizeRight() {
+  &__right {
+    flex-basis: var(--_cr-right);
+    @content;
+  }
+
+  &__move {
+    &.cr-right {
+      &::after,
+      &-top::after,
+      &-bottom::after {
+        left: auto;
+      }
+    }
+  }
+}
+
+@mixin controlResizeLeft() {
+  &__left {
+    flex-basis: var(--_cr-left);
+    @content;
+  }
+
+  &__move {
+    &.cr-left {
+      &::after,
+      &-top::after,
+      &-bottom::after {
+        right: auto;
+      }
+    }
+  }
+}
+
+@mixin controlResizeBody {
+  &__body {
+    @include select-none;
+  }
+}
+
+@mixin controlResizeDisabled {
+  &.status-disabled &__active::after {
+    border-color: var(--_cr-disabled);
+  }
+
+  &.status-disabled-top &__active::after {
+    border-top-color: var(--_cr-disabled);
+  }
+
+  &.status-disabled-right &__active::after {
+    border-right-color: var(--_cr-disabled);
+  }
+
+  &.status-disabled-bottom &__active::after {
+    border-bottom-color: var(--_cr-disabled);
+  }
+
+  &.status-disabled-left &__active::after {
+    border-left-color: var(--_cr-disabled);
+  }
+}
+
+@mixin controlResizeInit {
+  @include controlResize;
+  @include controlResizeMove;
+  @include controlResizeCenter;
+  @include controlResizeCenterMove;
+  @include controlResizeCenterActive;
+  @include controlResizeRight;
+  @include controlResizeLeft;
+  @include controlResizeBody;
+  @include controlResizeDisabled;
+}

@@ -1,5 +1,8 @@
 import { onBeforeMount, onMounted, onUpdated, ref, watch } from 'vue'
 
+/**
+ * @returns {ref}
+ */
 export default function useWatch (
   sources,
   cb,

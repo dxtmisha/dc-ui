@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DMotionTransform/props'
+import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useClasses from './useClasses'
