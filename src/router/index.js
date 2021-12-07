@@ -24,6 +24,7 @@ import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
 import DemoSelectValue from '../views/DemoSelectValue'
+import DemoSlider from '../views/DemoSlider'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTooltip from '../views/DemoTooltip'
@@ -55,6 +56,7 @@ export const routes = getRoutes({
   'd-scrollbar': DemoScrollbar,
   'd-select': DemoSelect,
   'd-select-value': DemoSelectValue,
+  'd-slider': DemoSlider,
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-tooltip': DemoTooltip,
