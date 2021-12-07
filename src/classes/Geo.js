@@ -26,6 +26,9 @@ export default class Geo {
     return this.getCountry()?.firstDay || 'Mo'
   }
 
+  /**
+   * @returns {Array}
+   */
   getListMonth (month = 'long') {
     const date = new Date()
     const format = Intl.DateTimeFormat(this._lang, { month })
