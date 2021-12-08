@@ -49,7 +49,15 @@ export default {
   emits: ['on-click', 'on-trailing'],
   setup (props, context) {
     const palette = useColor(props)
-    const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
+    const propAdaptive = computed(() => {
+      if (!(props.text || 'default' in context.slots)) {
+        return 'icon'
+      } else if (props.icon || props.iconTrailing || ['basic', 'block'].indexOf(props.adaptive) !== -1) {
+        return props.adaptive
+      } else {
+        return 'basic'
+      }
+    })
 
     const {
       bindIcon,
@@ -79,19 +87,24 @@ export default {
       let type = 'on-click'
 
       if (
-        props.iconReadonly &&
-        event.target.closest('.bt-trailing')
+        !props.readonly &&
+        !props.disabled
       ) {
-        event.preventDefault()
-        event.stopPropagation()
-        type = 'on-trailing'
-      }
+        if (
+          props.iconReadonly &&
+          event.target.closest('.bt-trailing')
+        ) {
+          event.preventDefault()
+          event.stopPropagation()
+          type = 'on-trailing'
+        }
 
-      context.emit(type, {
-        type,
-        item: props.item,
-        value: props.value || props.item?.value
-      })
+        context.emit(type, {
+          type,
+          item: props.item,
+          value: props.value || props.item?.value
+        })
+      }
     }
 
     useAdmin('d-button', context)

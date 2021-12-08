@@ -10,7 +10,7 @@ export default function useObjectList (props) {
   } = toRefs(props)
 
   const progress = ref(false)
-  const buffer = useWatch([list, ajax], data => {
+  const buffer = useWatch(ajax ? [list, ajax] : list, data => {
     data.value = undefined
   })
   const object = computed(() => {

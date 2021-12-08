@@ -141,6 +141,7 @@ export const cancel = { default: true }
 export const counter = {}
 export const delay = { list: dataDelay }
 export const dense = {}
+export const landscape = {}
 export const left = {}
 export const locales = { list: dataLocales }
 export const lowercase = {}

@@ -1,0 +1,139 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/media";
+@import "../../styles/position";
+@import "../../styles/options/optionShape";
+
+@mixin buttonGroup() {
+  @include flexX;
+  border-radius: var(--basic-radius);
+
+  &.type-contained,
+  &.type-fab {
+    box-shadow: var(--shadow-type2);
+
+    &.status-disabled {
+      box-shadow: var(--shadow-type1);
+    }
+  }
+}
+
+@mixin buttonGroupItem() {
+  &__item {
+    flex-grow: 1;
+    min-width: 0;
+    @content;
+
+    &:not(:active) {
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin buttonGroupAxis() {
+  $this: &;
+
+  &.axis-x {
+    &:not(.option-landscape) {
+      @include _buttonGroupAxisX($this);
+    }
+
+    @include mediaMinWidth(extra) {
+      @include _buttonGroupAxisX($this);
+    }
+
+    @include mediaMaxWidth(extra) {
+      &.option-landscape {
+        @media screen and (orientation: portrait) {
+          @include _buttonGroupAxisX($this);
+        }
+
+        @media screen and (orientation: landscape) {
+          @include _buttonGroupAxisY($this);
+        }
+      }
+    }
+  }
+
+  &.axis-y {
+    &:not(.option-landscape) {
+      @include _buttonGroupAxisY($this);
+    }
+
+    @include mediaMinWidth(extra) {
+      @include _buttonGroupAxisY($this);
+    }
+
+    @include mediaMaxWidth(extra) {
+      &.option-landscape {
+        @media screen and (orientation: portrait) {
+          @include _buttonGroupAxisY($this);
+        }
+
+        @media screen and (orientation: landscape) {
+          @include _buttonGroupAxisX($this);
+        }
+      }
+    }
+  }
+}
+
+@mixin _buttonGroupAxisX($this) {
+  #{$this}__item {
+    &:first-child {
+      border-bottom-left-radius: inherit;
+      border-top-left-radius: inherit;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+
+  #{$this}__item + #{$this}__item::after {
+    margin-left: -1px;
+  }
+}
+
+@mixin _buttonGroupAxisY($this) {
+  flex-flow: column;
+
+  #{$this}__item {
+    width: 100%;
+
+    &:first-child {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+  }
+
+  #{$this}__item + #{$this}__item::after {
+    margin-top: -1px;
+  }
+}
+
+@mixin buttonGroupShape() {
+  @include optionShape;
+}
+
+@mixin buttonGroupDelimiter() {
+  &:not(.status-disabled).option-delimiter.type-contained &__item,
+  &:not(.status-disabled).option-delimiter.type-fab &__item {
+    --bt-border: #{varColor(--shaded-type1, --opacity-primary-disabled)};
+  }
+}
+
+@mixin buttonGroupInit() {
+  @include buttonGroup;
+  @include buttonGroupItem;
+  @include buttonGroupAxis;
+  @include buttonGroupShape;
+  @include buttonGroupDelimiter;
+}

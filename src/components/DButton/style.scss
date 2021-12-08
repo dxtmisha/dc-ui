@@ -60,12 +60,16 @@
 
     &.bt-trailing {
       cursor: default;
-      display: var(--_bt--ic-display, inline-block);
+      display: inline-block;
       margin-left: var(--_bt-gap);
       margin-right: calc(var(--_bt-squeeze) * -1);
       order: 9;
       position: relative;
       z-index: 4;
+    }
+
+    &.bt-icon + .bt-trailing {
+      display: var(--_bt--ic-display, inline-block);
     }
   }
 }
