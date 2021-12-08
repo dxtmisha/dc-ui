@@ -1,0 +1,41 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+
+@mixin actions {
+  --_ac-gap: var(--ac-gap, 8px);
+  --_ac-height: var(--ac-height, 52px);
+  --_ac-padding: var(--ac-padding, 8px);
+
+  @include flexX;
+  gap: var(--_ac-gap);
+  min-height: var(--_ac-height);
+  padding: var(--_ac-padding);
+  max-width: 100%;
+}
+
+@mixin actionsSpacer {
+  &__spacer {
+    @include flexDynamic;
+  }
+}
+
+@mixin actionsAxis {
+  &.axis-y {
+    align-items: flex-end;
+    flex-flow: column;
+  }
+
+  &.axis-y & {
+    &__management,
+    &__spacer {
+      display: none;
+    }
+  }
+}
+
+@mixin actionsInit {
+  @include actions;
+  @include actionsSpacer;
+  @include actionsAxis;
+}

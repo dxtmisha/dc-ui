@@ -1,5 +1,5 @@
-import Translation from '../../classes/Translation'
 import { defaultInit } from '@/uses/useDefault'
+import Translation from '../../classes/Translation'
 
 const defaultProps = defaultInit('d-top')
 export const props = {

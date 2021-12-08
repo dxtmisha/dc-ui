@@ -1,5 +1,10 @@
 {
+  "AM": "AM",
   "Cancel": "Cancel",
+  "Hour": "Hour",
+  "Minute": "Minute",
   "Ok": "Ok",
-  "Save": "Save"
+  "PM": "PM",
+  "Save": "Save",
+  "Select Time": "Select Time"
 }
