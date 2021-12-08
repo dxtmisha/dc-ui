@@ -37,6 +37,7 @@ import { computed, ref, watch } from 'vue'
 import isSelected from '@/functions/isSelected'
 import useObjectList from '@/uses/useObjectList'
 import useSelected from '@/components/DMenu/useSelected'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DButtonGroup',
@@ -121,6 +122,8 @@ export default {
     watch(propSelected, () => bar.value.forEach(item => {
       item.selected.value = isSelected(item.value, propSelected.value)
     }))
+
+    useAdmin('d-button-group', context)
 
     return {
       bar,

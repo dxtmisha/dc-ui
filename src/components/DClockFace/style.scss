@@ -1,0 +1,193 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/position";
+@import "../../styles/options/optionShape";
+@import "styleVar";
+
+@mixin clockFace() {
+  @include clockFaceVar;
+  @include select-none;
+  @include squared(var(--_cf-width));
+  --_cf__vl-padding: calc(var(--_cf__vl-width) / 2);
+  background-color: var(--_cf-background);
+  position: relative;
+}
+
+@mixin clockFaceList() {
+  &__list {
+    @include absoluteFull(var(--_cf-padding));
+    @content;
+  }
+}
+
+@mixin clockFaceValue() {
+  &__value {
+    display: block;
+    left: 0;
+    right: 50%;
+    position: absolute;
+    top: calc(50% - var(--_cf__vl-padding));
+    transform: rotate(calc(+90deg + var(--_cf__vl-rotate, 0deg)));
+    transform-origin: right;
+    z-index: 8;
+    @content;
+
+    &.status-select {
+      --basic-text: var(--text-type2);
+    }
+
+    &.status-disabled {
+      --basic-text-opacity: var(--opacity-surface-disabled);
+    }
+  }
+
+  &.type-24 &__value:nth-child(n+13) {
+    @include font('subtitle2');
+    padding-left: calc(var(--_cf__vl-width) - var(--_cf__vl-section));
+
+    &:not(.status-select):not(.status-disabled) {
+      --basic-text-opacity: var(--opacity-surface-medium);
+    }
+  }
+}
+
+@mixin clockFaceName() {
+  &__name {
+    @include flexCenter;
+    @include squared(var(--_cf__vl-width));
+    border-radius: 50%;
+    cursor: default;
+    position: relative;
+    transform: rotate(calc(-90deg - var(--_cf__vl-rotate, 0deg)));
+    z-index: 4;
+    @content;
+  }
+
+  &.type-minute &__value:not(:nth-child(5n)) &__name,
+  &.type-second &__value:not(:nth-child(5n)) &__name {
+    color: transparent;
+  }
+
+  &.type-minute &__value:not(:nth-child(5n)).status-select &__name,
+  &.type-second &__value:not(:nth-child(5n)).status-select &__name {
+    &::after {
+      @include squared(var(--_cf__vl--dot-width));
+      background-color: varColor(--text-type2, --opacity-primary-high);
+      border-radius: 50%;
+      content: " ";
+      margin: auto;
+      position: absolute;
+    }
+  }
+
+  &.option-select &__name {
+    cursor: pointer;
+  }
+}
+
+@mixin clockFaceInfo() {
+  &__info {
+    @include absoluteFull(var(--_cf-padding));
+    @content;
+  }
+}
+
+@mixin clockFaceArrow() {
+  &__arrow {
+    background-color: varColor(--_cf-palette-type1, --opacity-primary-high);
+    border-radius: var(--_cf__ar-height);
+    display: block;
+    height: var(--_cf__ar-height);
+    left: var(--_cf__vl-padding);
+    right: 50%;
+    position: absolute;
+    transform: rotate(calc(+90deg + var(--_cf__ar-rotate, 0deg)));
+    transform-origin: right;
+    top: calc(50% - (var(--_cf__ar-height) / 2));
+    z-index: 4;
+    @content;
+
+    &.cf-select::after {
+      @include squared(var(--_cf__vl-width));
+      background-color: inherit;
+      border-radius: calc(var(--_cf__vl-width) / 2);
+      content: " ";
+      left: calc(0px - var(--_cf__vl-padding));
+      position: absolute;
+      top: calc(50% - var(--_cf__vl-padding));
+    }
+
+    &.cf-hour {
+      --_cf__ar-height: var(--_cf__ar--hour-height);
+      left: calc(var(--_cf__vl-padding) * 3);
+    }
+
+    &.cf-minute {
+      --_cf__ar-height: var(--_cf__ar--minute-height);
+      left: calc(var(--_cf__vl-padding) * 2);
+    }
+
+    &.cf-second {
+      --_cf-palette-type1: var(--_cf-palette-type2);
+    }
+  }
+
+  &.option-section &__arrow.cf-select {
+    left: calc(var(--_cf__vl-padding) + var(--_cf__vl-width) - var(--_cf__vl-section));
+
+    &::after {
+      transform: scale(.875);
+    }
+  }
+}
+
+@mixin clockFacePoint() {
+  &__point {
+    @include absoluteFull;
+    @include squared(var(--_cf__pn-height));
+    background-color: varColor(--_cf-palette-type1, --opacity-primary-high);
+    border-radius: 50%;
+    left: calc(50% - (var(--_cf__pn-height) / 2));
+    top: calc(50% - (var(--_cf__pn-height) / 2));
+    z-index: 6;
+    @content;
+  }
+}
+
+@mixin clockFaceDial() {
+  &__dial {
+    @content;
+    @include absoluteBottom(var(--_cf-padding));
+    @include flexCenter;
+    @include font('body2');
+    top: 50%;
+    z-index: 2;
+  }
+}
+
+@mixin clockFaceCensor() {
+  &__censor {
+    @content;
+    @include absoluteFull;
+    z-index: 16;
+  }
+}
+
+@mixin clockFaceShape() {
+  @include optionShape;
+}
+
+@mixin clockFaceInit() {
+  @include clockFace;
+  @include clockFaceList;
+  @include clockFaceValue;
+  @include clockFaceName;
+  @include clockFaceInfo;
+  @include clockFaceArrow;
+  @include clockFacePoint;
+  @include clockFaceDial;
+  @include clockFaceCensor;
+  @include clockFaceShape;
+}

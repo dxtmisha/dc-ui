@@ -7,6 +7,7 @@ import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoCheckbox from '../views/DemoCheckbox'
+import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
@@ -41,6 +42,7 @@ export const routes = getRoutes({
   'd-button-select': DemoButtonSelect,
   'd-carcass-field': DemoCarcassField,
   'd-checkbox': DemoCheckbox,
+  'd-clock-face': DemoClockFace,
   'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
