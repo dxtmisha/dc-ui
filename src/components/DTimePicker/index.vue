@@ -79,6 +79,7 @@ import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
 import useDateTime from '@/uses/useDateTime'
 import useWatch from '@/uses/useWatch'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DTimePicker',
@@ -94,6 +95,7 @@ export default {
   setup (props, context) {
     const { switchClock } = toRefs(props)
 
+    const palette = useColor(props)
     const hour = ref(undefined)
     const minute = ref(undefined)
     const text = Translation.getByList([
@@ -154,7 +156,8 @@ export default {
     const classList = computed(() => {
       return {
         'd-time-picker': true,
-        'status-switch-clock': propSwitchClock.value
+        'status-switch-clock': propSwitchClock.value,
+        ...palette.value
       }
     })
 
@@ -264,6 +267,7 @@ export default {
       landscape: true
     }
     const bindActions = computed(() => {
+      console.log('propSwitchClock.value', propSwitchClock.value)
       return {
         class: 'd-time-picker__button',
         barManagement: [{

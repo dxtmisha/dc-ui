@@ -11,7 +11,7 @@
       </template>
       <div
         v-else-if="item?.list"
-        class="mb-1"
+        class="interactive-demo__option__item"
       >
         <d-button-select
           :item="item"

@@ -1,5 +1,6 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-time-picker')
 export const props = {
@@ -27,6 +28,8 @@ export const props = {
   },
 
   // Options
+  palette,
+  color: String,
   locales: {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())

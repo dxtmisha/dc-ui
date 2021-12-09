@@ -9,7 +9,7 @@ export default function useIcon (
       class: 'd-button__icon bt-icon',
       icon: props.icon,
       iconActive: props.iconActive,
-      active: props.selected,
+      active: props.selected || props.active,
       disabled: props.disabled,
       hide: props.iconHide,
       size: 'small',

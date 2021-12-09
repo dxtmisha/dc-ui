@@ -30,6 +30,7 @@ import DemoSelectValue from '../views/DemoSelectValue'
 import DemoSlider from '../views/DemoSlider'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
+import DemoTime from '../views/DemoTime'
 import DemoTimePicker from '../views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
 import DemoTop from '../views/DemoTop'
@@ -66,6 +67,7 @@ export const routes = getRoutes({
   'd-slider': DemoSlider,
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
+  'd-time': DemoTime,
   'd-time-picker': DemoTimePicker,
   'd-tooltip': DemoTooltip,
   'd-top': DemoTop,

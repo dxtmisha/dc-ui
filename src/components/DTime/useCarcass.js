@@ -4,8 +4,6 @@ export default function useCarcass (
   props,
   context,
   propValidationMessage,
-  propCounter,
-  propCancel,
   filled
 ) {
   const refs = toRefs(props)
@@ -13,12 +11,11 @@ export default function useCarcass (
     text: refs.text,
     helperMessage: refs.helperMessage,
     validationMessage: propValidationMessage,
-    counterValue: propCounter,
-    maxlength: refs.maxlength,
     required: refs.required,
     active: filled,
     filled,
     selected: refs.selected,
+    readonly: refs.readonly,
     disabled: refs.disabled,
     palette: refs.palette,
     color: refs.color,
@@ -27,9 +24,7 @@ export default function useCarcass (
     shape: refs.shape,
     align: refs.align,
     adaptive: refs.adaptive,
-    arrow: refs.arrow,
-    counter: refs.counter,
-    cancel: propCancel,
+    cancel: refs.cancel,
     icon: refs.icon,
     iconActive: refs.iconActive,
     iconTrailing: refs.iconArrowDown,

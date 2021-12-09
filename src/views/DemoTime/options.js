@@ -1,0 +1,60 @@
+import {
+  carcassFieldAdaptive,
+  carcassFieldAppearance,
+  carcassFieldSize
+} from '@/views/DemoCarcassField/options'
+import { timePickerFormat, timePickerMax, timePickerMin } from '@/views/DemoTimePicker/options'
+import {
+  align,
+  cancel,
+  disabled,
+  helperMessage,
+  icon,
+  iconActive,
+  locales,
+  optionField,
+  optionIcon,
+  optionInput,
+  palette,
+  readonly,
+  required,
+  selected,
+  shape,
+  status,
+  text,
+  validationMessage,
+  values
+} from '@/media/demo/options'
+
+export const optionsTime = {
+  values,
+  value: { message: '15:39' },
+
+  status,
+  selected,
+  readonly,
+  disabled,
+
+  optionInput,
+  locales,
+  timePickerFormat,
+  timePickerMin,
+  timePickerMax,
+  required,
+
+  optionField,
+  text,
+  helperMessage,
+  validationMessage,
+  palette,
+  carcassFieldAppearance,
+  carcassFieldSize,
+  shape,
+  align,
+  carcassFieldAdaptive,
+  cancel,
+
+  optionIcon,
+  icon,
+  iconActive
+}

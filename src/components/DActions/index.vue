@@ -27,6 +27,7 @@ export default {
   name: 'DActions',
   components: { DButton },
   props,
+  emits: ['on-click'],
   setup (props, context) {
     const propBar = computed(() => {
       const list = []
@@ -52,7 +53,7 @@ export default {
         ...props.attrsBarManagement,
         ...item
       }))
-
+      console.log('propBarManagement', list)
       return list
     })
 

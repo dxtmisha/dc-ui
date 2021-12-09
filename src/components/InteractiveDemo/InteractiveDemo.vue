@@ -112,6 +112,12 @@ export default {
       flex-basis: 280px;
     }
 
+    &__item {
+      @include flexCenterY;
+      align-items: stretch;
+      min-height: 40px;
+    }
+
     &__subtitle {
       @include font('subtitle2');
       padding: dimension(6) 0 dimension(2);

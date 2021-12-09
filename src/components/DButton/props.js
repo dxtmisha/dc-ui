@@ -17,6 +17,7 @@ export const props = {
   badge: [Number, Object, String],
 
   // Status
+  active: Boolean,
   selected: Boolean,
   turn: Boolean,
   dragged: Boolean,

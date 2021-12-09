@@ -24,7 +24,7 @@ import {
   status,
   text,
   turn,
-  values
+  values, active
 } from '@/media/demo/options'
 import { badgeBadge } from '@/views/DemoBadge/options'
 
@@ -51,6 +51,7 @@ export const optionsButton = {
   text,
 
   status,
+  active,
   selected,
   turn,
   dragged,
