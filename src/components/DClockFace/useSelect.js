@@ -136,6 +136,7 @@ export default function useSelect (props, context) {
     items,
     propSelect,
     list,
+    focus,
     styleSelect,
     styleHour,
     styleMinute,

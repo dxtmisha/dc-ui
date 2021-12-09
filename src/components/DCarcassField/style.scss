@@ -382,37 +382,38 @@
 @mixin carcassFieldStatus() {
   $this: &;
 
-  &:not(.status-disabled):not(.status-readonly) {
-    #{$this}__body:hover {
-      --_cf-background-image: #{varColor(--_cf-palette-type1, --opacity-container-hover, true)};
-      --_cf-border-opacity: var(--opacity-surface-medium);
-    }
-
-    &:focus-within,
-    &.status-focus {
-      @extend %status-focus-text;
-
-      #{$this}__input {
-        --_cf-background-image: #{varColor(--_cf-palette-type1, --opacity-container-focus, true)};
+  &:not(.status-disabled) {
+    &:not(.status-readonly) {
+      #{$this}__body:hover {
+        --_cf-background-image: #{varColor(--_cf-palette-type1, --opacity-container-hover, true)};
+        --_cf-border-opacity: var(--opacity-surface-medium);
       }
 
-      #{$this}__label,
-      #{$this}__border {
-        @extend %border-focus-opacity;
-        @extend %border-focus-width;
-        @extend %status-focus;
+      &:focus-within,
+      &.status-focus {
+        @extend %status-focus-text;
+
+        #{$this}__input {
+          --_cf-background-image: #{varColor(--_cf-palette-type1, --opacity-container-focus, true)};
+        }
+
+        #{$this}__label,
+        #{$this}__border {
+          @extend %border-focus-opacity;
+          @extend %border-focus-width;
+          @extend %status-focus;
+        }
+      }
+
+      &.status-validation {
+        #{$this}__label,
+        #{$this}__border {
+          @extend %border-focus-opacity;
+          @extend %status-focus;
+          --_cf-palette-type2: var(--error-type1);
+        }
       }
     }
-
-    &.status-validation {
-      #{$this}__label,
-      #{$this}__border {
-        @extend %border-focus-opacity;
-        @extend %status-focus;
-        --_cf-palette-type2: var(--error-type1);
-      }
-    }
-
 
     &.status-selected {
       --_cf-palette-type1: var(--_cf-palette-type2);

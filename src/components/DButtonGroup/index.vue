@@ -46,6 +46,7 @@ export default {
     DMenu
   },
   props,
+  emits: ['on-input'],
   setup (props, context) {
     const {
       object,

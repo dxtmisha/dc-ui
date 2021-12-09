@@ -1,11 +1,14 @@
-import { computed, ref } from 'vue'
+import { computed, ref, toRefs, watch } from 'vue'
 import Geo from '@/classes/Geo'
 import GeoDate from '@/classes/GeoDate'
 
 export default function useDateTime (
   type = 'date',
-  props
+  props,
+  context
 ) {
+  const { value } = toRefs(props)
+
   const object = (value = undefined) => {
     const date = new GeoDate(props.locales).setType(type)
 
@@ -17,9 +20,10 @@ export default function useDateTime (
   }
 
   const propValue = ref(props.value)
+  const propOld = ref(props.value)
   const propFormat = computed(() => props.format === 'auto' ? object().getFormat() : props.format)
 
-  const hours12 = computed(() => propFormat.value === '12')
+  const type12 = computed(() => propFormat.value === '12')
 
   const valueFocus = computed(() => Array.isArray(propValue.value) ? propValue.value?.[0] : propValue.value)
   const valueSecondary = computed(() => Array.isArray(propValue.value) ? propValue.value?.[1] : undefined)
@@ -59,34 +63,64 @@ export default function useDateTime (
     return week
   })
 
-  const getMaxHours = () => hours12.value ? 12 : 23
+  const hours12 = computed(() => objectFocus.value.getHoursLocale().replace(/[^0-9]+/ig, ''))
+  const hoursMin = computed(() => {
+    const min = parseInt(props.min.split(':')[0])
+    return type12.value && amPm.value === 'pm' && min < 12
+      ? 0
+      : min
+  })
+  const hoursMax = computed(() => {
+    const max = parseInt(props.max.split(':')[0])
+    return !(type12.value && max > 12)
+      ? max
+      : amPm.value === 'am'
+        ? 12
+        : max - 12
+  })
+  const amPm = computed(() => getHours() >= 12 ? 'pm' : 'am')
+  const minutes = computed(() => objectFocus.value.getMinutes())
+  const minutesMin = computed(() => hoursMin.value === parseInt(hours12.value) ? parseInt(props.min.split(':')[1]) : 0)
+  const minutesMax = computed(() => {
+    const max = props.max.split(':')
+    return hoursMax.value === parseInt(hours12.value) && max[0] !== '24' ? parseInt(max[1]) : 59
+  })
+
+  const getItemFocus = () => objectFocus.value.getObject()
+  const getItemSecondary = () => objectSecondary.value.getObject()
+  const getMaxHours = () => type12.value ? 12 : 23
   const getYear = () => objectFocus.value.getObject().getFullYear()
   const getMonth = () => objectFocus.value.getObject().getMonth() + 1
   const getDay = () => objectFocus.value.getObject().getDate()
   const getHours = () => objectFocus.value.getHours()
-  const getHours12 = () => objectFocus.value.getHoursLocale().replace(/[^0-9]+/ig, '')
-  const getAmPm = () => getHours() >= 12 ? 'pm' : 'am'
-  const getMinutes = () => objectFocus.value.getMinutes()
 
   const getStandardMonth = () => objectFocus.value.toStandardMonth()
   const getStandardMonthPrevious = () => objectFocus.value.toStandardMonth(objectFocus.value.getPreviousMonth())
   const getStandardMonthNext = () => objectFocus.value.toStandardMonth(objectFocus.value.getNextMonth())
 
-  const getObjectEvent = () => {
-    return {
-      object: objectFocus.value,
-      value: propValue.value,
-      text: textLocale
-    }
-  }
-
   const updateDate = () => {
     propValue.value = objectFocus.value.toStandard()
   }
+  const resetDate = () => {
+    propValue.value = propOld.value
+  }
+  const emit = (type = 'on-input') => context.emit(type, {
+    objectFocus: objectFocus.value,
+    objectSecondary: objectSecondary.value,
+    value: propValue.value,
+    text: textLocale.value
+  })
+
+  watch(value, value => {
+    propValue.value = value
+    propOld.value = value
+  })
 
   return {
     propValue,
-    hours12,
+    propOld,
+    propFormat,
+    type12,
     valueFocus,
     valueSecondary,
     today,
@@ -100,18 +134,25 @@ export default function useDateTime (
     listYear,
     listMonth,
     listWeekday,
+    hours12,
+    hoursMin,
+    hoursMax,
+    amPm,
+    minutes,
+    minutesMin,
+    minutesMax,
+    getItemFocus,
+    getItemSecondary,
     getMaxHours,
     getYear,
     getMonth,
     getDay,
     getHours,
-    getHours12,
-    getAmPm,
-    getMinutes,
     getStandardMonth,
     getStandardMonthPrevious,
     getStandardMonthNext,
-    getObjectEvent,
-    updateDate
+    updateDate,
+    resetDate,
+    emit
   }
 }

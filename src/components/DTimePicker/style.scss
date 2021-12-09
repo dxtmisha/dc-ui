@@ -30,6 +30,10 @@
   &__content {
     padding: 0 var(--_tp-padding) 0;
   }
+
+  &__panel {
+    overflow: hidden;
+  }
 }
 
 @mixin timePickerInput() {
@@ -47,9 +51,7 @@
     @content;
 
     .tp-field {
-      flex-basis: 1px;
-      flex-grow: 1;
-      flex-shrink: 1;
+      @include flexDynamic;
     }
   }
 }
@@ -110,9 +112,7 @@
 
         &__input,
         &__clock-dial {
-          flex-basis: 1px;
-          flex-grow: 1;
-          flex-shrink: 1;
+          @include flexDynamic;
         }
       }
     }

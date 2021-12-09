@@ -74,6 +74,7 @@ export default {
       items,
       propSelect,
       list,
+      focus,
       styleSelect,
       styleHour,
       styleMinute,
