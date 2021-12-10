@@ -1,165 +1,183 @@
 <template>
-  <div ref="slider" :class="classList">
-    <button
-      v-if="multiple"
-      ref="min"
-      class="d-slider__thumb sl-min"
-      @mousedown="onMousedown"
-      @touchstart="onMousedown"
-      @keydown="onKeydown"
-    >
-      <span ref="minLabel" class="d-slider__label"/>
-      <d-ripple v-if="ripple && this.appearance !== 'drop' && !disabled"/>
-    </button>
-    <button
-      ref="max"
-      class="d-slider__thumb sl-max"
-      @mousedown="onMousedown"
-      @touchstart="onMousedown"
-      @keydown="onKeydown"
-    >
-      <span ref="maxLabel" class="d-slider__label"/>
-      <d-ripple v-if="ripple && this.appearance !== 'drop' && !disabled"/>
-    </button>
-    <div class="d-slider__rail"/>
-    <div class="d-slider__track"/>
-    <div v-if="propMarks" class="d-slider__marks">
+  <div :class="classList">
+    <input
+      ref="input"
+      v-bind="bindInput"
+      class="d-slider__hidden"
+      :name="name"
+      type="text"
+      :value="propValue || ''"
+    />
+    <label v-if="text" class="d-slider__label">
+      {{ text }}<span v-if="required" class="d-slider__required"/>
+      <span v-if="showLabel" class="d-slider__label__value">{{ textLabel }}</span>
+    </label>
+    <div class="d-slider__body">
+      <d-icon
+        v-if="icon"
+        class="d-slider__icon is-icon"
+        :icon="icon"
+        :icon-active="iconActive"
+        :active="active"
+        :disabled="disabled"
+      />
       <span
-        v-for="item in propMarks"
-        :key="item.mark"
-        class="d-slider__mark"
-        :style="item.style"
-        :data-text="item.text"
-        :data-value="item.value"
+        v-if="textLeading"
+        class="d-slider__text is-min"
+        v-html="textLeading"
+      />
+
+      <template v-if="multiple">
+        <input
+          v-if="showInput"
+          ref="inputMin"
+          v-bind="bindInput"
+          :placeholder="textMin"
+          class="d-slider__input is-min"
+          data-type="min"
+          @input="onInput"
+          @focus="onFocus"
+          @blur="onBlur"
+        />
+        <span
+          v-else-if="showValue"
+          class="d-slider__value is-min"
+          v-html="textMin || '0'"
+        />
+      </template>
+      <d-slider-picker
+        ref="slider"
+        v-bind="bindSlider"
+        class="d-slider__slider is-min"
+        :value="value"
+        :disabled="disabled"
+        @on-input="onSelect"
+        @on-change="onChange"
+      />
+      <input
+        v-if="showInput"
+        ref="inputMax"
+        v-bind="bindInput"
+        :placeholder="textMax || (multiple ? '100' : '0')"
+        class="d-slider__input is-max"
+        data-type="max"
+        @input="onInput"
+        @focus="onFocus"
+        @blur="onBlur"
+      />
+      <span
+        v-else-if="showValue"
+        class="d-slider__value is-max"
+        v-html="textMax || (multiple ? '100' : '0')"
+      />
+      <span
+        v-if="textTrailing"
+        class="d-slider__text is-max"
+        v-html="textTrailing"
+      />
+      <d-icon
+        v-if="iconTrailing"
+        class="d-slider__icon is-trailing"
+        :icon="iconTrailing"
+        :disabled="disabled"
       />
     </div>
-    <div class="d-slider__select" @mousedown="onMousedown" @touchstart="onMousedown"/>
+    <template v-if="!disabled">
+      <div v-if="propValidationMessage" class="d-slider__validation">{{ propValidationMessage }}</div>
+      <div v-else-if="helperMessage" class="d-slider__helper">{{ helperMessage }}</div>
+    </template>
   </div>
 </template>
 
 <script>
-import DRipple from '@/components/DRipple'
+import DIcon from '@/components/DIcon'
+import DSliderPicker from '@/components/DSliderPicker'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import EventControl from '@/classes/EventControl'
 import useAdmin from '@/uses/useAdmin'
-import useClass from '@/uses/useClass'
 import useColor from '@/uses/useColor'
-import useMarks from './useMarks'
+import useField from '@/uses/useField'
+import useInput from './useInput'
+import useSlider from './useSlider'
 
 export default {
   name: 'DSlider',
-  components: { DRipple },
+  components: {
+    DIcon,
+    DSliderPicker
+  },
   props,
-  emits: ['on-input', 'on-change'],
   setup (props, context) {
+    const input = ref(undefined)
+    const inputMin = ref(undefined)
     const slider = ref(undefined)
-    const min = ref(undefined)
-    const max = ref(undefined)
-    const minLabel = ref(undefined)
-    const maxLabel = ref(undefined)
 
     const palette = useColor(props)
-    const classBody = useClass(document.body, 'd-slider__body')
-    let old
 
     const {
-      propMarks,
-      getCoordinates,
-      emit,
-      init,
-      initFocus,
-      increase,
-      decrease
-    } = useMarks(
-      slider,
-      min,
-      max,
-      minLabel,
-      maxLabel,
+      propValidationMessage,
+      propValue,
+      valueMin,
+      valueMax,
+      textMin,
+      textMax,
+      textLabel,
+      checkValidity,
+      onSelect,
+      onChange
+    } = useField(
+      input,
+      undefined,
       props,
       context
     )
 
+    const { bindSlider } = useSlider(props)
+    const { bindInput } = useInput(props)
+
     const classList = computed(() => {
       return {
         'd-slider': true,
-        'status-disabled': props.disabled,
-        [`appearance-${props.appearance}`]: props.appearance,
-        'option-mark': propMarks.value,
         'option-vertical': props.vertical,
         ...palette.value
       }
     })
 
-    const onMousemove = event => {
-      const point = props.vertical ? event.clientY : event.clientX
-
-      if (
-        ['mouseup', 'contextmenu', 'touchend', 'touchcancel'].indexOf(event.type) !== -1 ||
-        (!event?.buttons && !('touches' in event) && !('targetTouches' in event))
-      ) {
-        event.$event.stop()
-        emit('on-change')
-        classBody.set(false)
-      } else if (point !== old) {
-        event.preventDefault()
-        event.stopPropagation()
-        init(getCoordinates(event))
-
-        old = point
-      }
-    }
-    const onMousedown = event => {
-      if (!props.disabled) {
-        const x = getCoordinates(event)
-        classBody.set(true)
-
-        event.preventDefault()
-        event.stopPropagation()
-
-        initFocus(x)
-        init(x)
-
-        requestAnimationFrame(() => EventControl.init(document.body, onMousemove, [
-          'mousemove',
-          'mouseup',
-          'contextmenu',
-          'touchmove',
-          'touchend',
-          'touchcancel'
-        ])
-          .setDomElement(slider.value)
-          .go())
-      }
-    }
-    const onKeydown = event => {
-      const key = event.code || event.key || event.keyCode
-
-      switch (key) {
-        case 'ArrowRight':
-        case 39:
-          increase()
+    const onInput = ({ target }) => slider.value.set(parseFloat(target.value) || 0, target.dataset.type)
+    const onFocus = ({ target }) => {
+      switch (target.dataset.type) {
+        case 'min':
+          target.value = valueMin.value || ''
           break
-        case 'ArrowLeft':
-        case 37:
-          decrease()
+        case 'max':
+          target.value = valueMax.value || ''
           break
       }
+    }
+    const onBlur = ({ target }) => {
+      target.value = ''
     }
 
     useAdmin('d-slider', context)
 
     return {
+      input,
+      inputMin,
       slider,
-      min,
-      max,
-      minLabel,
-      maxLabel,
+      propValidationMessage,
+      propValue,
+      textMin,
+      textMax,
+      textLabel,
+      bindSlider,
+      bindInput,
       classList,
-      propMarks,
-      onMousedown,
-      onKeydown
+      checkValidity,
+      onSelect,
+      onChange,
+      onInput,
+      onFocus,
+      onBlur
     }
   }
 }

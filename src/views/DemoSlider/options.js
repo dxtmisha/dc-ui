@@ -1,84 +1,69 @@
+import { sliderPickerAppearance, sliderPickerValue } from '@/views/DemoSliderPicker/options'
 import {
+  active,
   disabled,
+  helperMessage,
+  icon,
+  iconActive,
+  iconTrailing,
   magnet,
   marks,
   minimumDistance,
   multiple,
+  optionIcon,
   optionInput,
   options,
+  optionSlider,
   palette,
+  required,
   ripple,
+  showInput,
+  showLabel,
+  showValue,
   status,
   step,
+  text,
+  textLeading,
+  textTrailing,
+  validationMessage,
   values,
   vertical
 } from '@/media/demo/options'
 
-export const sliderValue = {
-  value: 'value',
-  list: [
-    { value: undefined },
-    {
-      text: '10%',
-      value: 10
-    },
-    {
-      text: '50%',
-      value: 50
-    },
-    {
-      text: '90%',
-      value: 90
-    },
-    {
-      text: '99%',
-      value: 99
-    },
-    {
-      text: '100%',
-      value: 100
-    },
-    {
-      text: '200%',
-      value: 200
-    },
-    {
-      text: '20% - 80%',
-      value: [20, 80]
-    },
-    {
-      text: '0% - 100%',
-      value: [0, 100]
-    }
-  ]
-}
-
-export const sliderAppearance = {
-  value: 'appearance',
-  list: [
-    { value: undefined },
-    { value: 'basic' },
-    { value: 'drop' }
-  ]
-}
-
 export const optionsSlider = {
   values,
   marks,
-  sliderValue,
+  sliderPickerValue,
+  text,
+  textLeading,
+  textTrailing,
+  helperMessage,
+  validationMessage,
 
   status,
+  active,
   disabled,
 
-  optionInput,
-  minimumDistance,
-  multiple,
-  step,
-
   options,
+  showValue,
+  showLabel,
+  showInput,
+
+  optionInput,
+  multiple,
+  minimumDistance,
+  step,
+  required,
+
+  optionSlider,
   palette,
-  sliderAppearance,
+  sliderPickerAppearance,
   vertical,
   magnet,
-  ripple
+  ripple,
+
+  optionIcon,
+  icon,
+  iconActive,
+  iconTrailing
 }

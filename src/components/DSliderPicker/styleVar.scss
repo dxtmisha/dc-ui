@@ -1,4 +1,4 @@
-@mixin sliderVar() {
+@mixin sliderPickerVar() {
   --_sl-palette: var(--sl-palette, var(--palette-type1, var(--primary-type1)));
   --_sl-label-palette: var(--sl-label-palette, var(--text-type1));
 
@@ -15,7 +15,7 @@
   --_sl__lb--ar-size: var(--sl__lb--ar-size, 8px);
 }
 
-@mixin sliderVarDrop() {
+@mixin sliderPickerVarDrop() {
   --_sl--drop-height: var(--sl--drop-height, 2px);
   --_sl--drop__th-size: var(--sl--drop__th-size, 12px);
 

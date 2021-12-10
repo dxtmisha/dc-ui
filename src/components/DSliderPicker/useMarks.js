@@ -69,7 +69,7 @@ export default function useMarks (
 
   const propMark = ref(getMark(props.value))
   const markMin = computed(() => props.multiple ? (propMark.value?.[0] || 0) : 0)
-  const markMax = computed(() => props.multiple ? (propMark.value?.[1] || propMark.value || 100) : (propMark.value || 0))
+  const markMax = computed(() => props.multiple || Array.isArray(propMark.value) ? (propMark.value?.[1] || propMark.value || 100) : (propMark.value || 0))
 
   const getCoordinates = event => props.vertical ? isY(event) : isX(event)
   const getMarkByFocus = () => focus.value === 'min' ? markMin.value : markMax.value
@@ -226,8 +226,13 @@ export default function useMarks (
     focus.value = getType(x)
     requestAnimationFrame(() => (focus.value === 'min' ? min.value : max.value).focus())
   }
+  const set = (value, type = 'max') => {
+    const mark = propMarks.value?.find(item => item.value === value)
+
+    focus.value = type
+    toPosition(mark ? mark.mark : toMark(value))
+  }
   const updateToDo = () => {
-    propMark.value = getMark(props.value)
     toDo('min', toPercent(markMin.value))
     toDo('max', toPercent(markMax.value))
     toText()
@@ -252,10 +257,13 @@ export default function useMarks (
     }
   }
 
-  watch([value, multiple], async () => {
+  watch(value, async () => {
+    propMark.value = getMark(props.value)
+
     await nextTick()
     updateToDo()
   })
+  watch(multiple, updateToDo)
   onMounted(updateToDo)
 
   return {
@@ -264,6 +272,7 @@ export default function useMarks (
     emit,
     init,
     initFocus,
+    set,
     increase,
     decrease
   }

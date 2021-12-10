@@ -1,68 +1,55 @@
-import { defaultInit, validator } from '@/uses/useDefault'
-import { palette } from '@/uses/useColor'
-
-const defaultProps = defaultInit('d-slider')
 export const props = {
   // Values
-  marks: Array,
-  marksInit: {
-    type: Boolean,
-    default: true
-  },
-  value: [Array, Number, String],
-  translation: {
-    type: Array,
-    default: defaultProps('translation')
-  },
-  keyText: {
-    type: String,
-    default: defaultProps('keyText', 'text')
-  },
-  keyValue: {
-    type: String,
-    default: defaultProps('keyValue', 'value')
+  marks: undefined,
+  value: undefined,
+  translation: undefined,
+  keyText: undefined,
+  keyValue: undefined,
+  name: undefined,
+  text: String,
+  textLeading: String,
+  textTrailing: String,
+  helperMessage: String,
+  validationMessage: String,
+  treatment: Function,
+  on: {
+    type: Object,
+    default: {}
   },
 
   // Status
+  active: Boolean,
   disabled: Boolean,
 
+  // Options
+  showValue: Boolean,
+  showLabel: Boolean,
+  showInput: Boolean,
+  attrsButton: Object,
+
   // Input
-  minimumDistance: {
-    type: Number,
-    default: 1
-  },
-  multiple: Boolean,
-  step: {
-    type: Number,
-    default: 1
-  },
+  multiple: undefined,
+  minimumDistance: undefined,
+  step: undefined,
   min: {
-    type: Number,
     default: 0
   },
   max: {
-    type: Number,
     default: 100
   },
+  required: Boolean,
+  attrsInput: Object,
 
-  // Options
-  palette,
-  color: String,
-  appearance: {
-    type: String,
-    default: defaultProps('appearance', 'basic'),
-    validator: validator([
-      'basic',
-      'drop'
-    ])
-  },
-  vertical: Boolean,
-  magnet: {
-    type: Boolean,
-    default: defaultProps('magnet')
-  },
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
-  }
+  // Slider
+  palette: undefined,
+  color: undefined,
+  appearance: undefined,
+  vertical: undefined,
+  magnet: undefined,
+  ripple: undefined,
+
+  // Icon
+  icon: [File, String],
+  iconActive: [File, String],
+  iconTrailing: [File, String]
 }

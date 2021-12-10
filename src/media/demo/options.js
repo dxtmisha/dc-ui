@@ -20,6 +20,7 @@ export const optionMask = { subtitle: 'Option: mask' }
 export const optionMenu = { subtitle: 'Option: menu' }
 export const optionPosition = { subtitle: 'Option: position' }
 export const optionSelect = { subtitle: 'Option: select' }
+export const optionSlider = { subtitle: 'Option: slider' }
 export const optionWindow = { subtitle: 'Option: window' }
 
 // Values
@@ -78,10 +79,12 @@ export const text = {
   default: true,
   message: 'Interactive demo'
 }
+export const textLeading = { message: 'L' }
 export const textShort = {
   default: true,
   message: 'Demo'
 }
+export const textTrailing = { message: 'T' }
 export const validationMessage = { message: validation1 }
 export const underline = { message: 'act|pro' }
 
@@ -168,6 +171,9 @@ export const shape = {
     { value: 'tile' }
   ]
 }
+export const showInput = {}
+export const showLabel = {}
+export const showValue = {}
 export const size = {
   list: [
     { value: undefined },

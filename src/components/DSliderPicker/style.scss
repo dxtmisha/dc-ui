@@ -1,0 +1,324 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/elevation";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/position";
+@import "styleVar";
+
+@mixin sliderPicker() {
+  @include sliderPickerVar;
+  @include sliderPickerVarDrop;
+
+  height: var(--_sl-size);
+  position: relative;
+  width: var(--_sl-width);
+}
+
+@mixin sliderPickerRail() {
+  &__rail,
+  &__track,
+  &__select {
+    border-radius: var(--_sl-radius);
+    inset: 0;
+    height: var(--_sl-height);
+    margin: auto 0;
+    position: absolute;
+    @content;
+  }
+
+  &__rail {
+    background-color: varColor(--_sl-palette, --opacity-surface-disabled);
+    width: 100%;
+  }
+
+  &__track {
+    background-color: varColor(--_sl-palette);
+    left: var(--_sl__min-x, 0);
+    right: calc(100% - var(--_sl__max-x, 0%));
+    transition-property: left, right;
+  }
+
+  &__select {
+    height: var(--_sl__th-size);
+  }
+}
+
+@mixin sliderPickerMarks() {
+  &__marks {
+    @include flexX;
+    border-radius: var(--_sl-radius);
+    inset: 0;
+    margin: auto 0;
+    position: absolute;
+    @content;
+  }
+
+  &__mark {
+    @include width(var(--_sl__mr-width));
+    background-color: varColor(--background-colorless, --opacity-primary-disabled);
+    border-radius: 50%;
+    height: var(--_sl__mr-height);
+    left: calc(var(--_sl__mark, 0%) - var(--_sl__mr-width) / 2);
+    position: absolute;
+  }
+}
+
+@mixin sliderPickerInput() {
+  &__input {
+    display: none;
+    @content;
+  }
+}
+
+@mixin sliderPickerThumb() {
+  &__thumb {
+    @include flexCenter;
+    @include squared(var(--_sl-size));
+    background-color: transparent;
+    border: none;
+    border-radius: calc(var(--_sl-size) / 2);
+    position: absolute;
+    transition-property: left;
+    transform: translateX(#{calc(var(--_sl-size) / 2 * -1)});
+    top: 0;
+    z-index: 4;
+    @content;
+
+    &::after {
+      @include shadow(1);
+      @include squared(var(--_sl__th-size));
+      background-color: varColor(--_sl-palette);
+      border-radius: inherit;
+      content: " ";
+      display: block;
+    }
+
+    &.sl-min {
+      left: var(--_sl__min-x, 0);
+    }
+
+    &.sl-max {
+      left: var(--_sl__max-x, 0);
+    }
+
+    &:hover {
+      background-color: varColor(--_sl-palette, --opacity-container-hover);
+    }
+
+    &:focus {
+      background-color: varColor(--_sl-palette, --opacity-container-focus);
+    }
+
+    &:active {
+      background-color: varColor(--_sl-palette, --opacity-container-pressed);
+    }
+  }
+
+  &__thumb:hover,
+  &__thumb:hover ~ &__track {
+    transition-property: none !important;
+  }
+}
+
+@mixin sliderPickerLabel {
+  &__label {
+    --_sl__lb-scale: .2;
+    @include font('body2');
+    --basic-text: var(--text-type2);
+    background-color: varColor(--_sl-label-palette, --opacity-surface-medium);
+    border-radius: var(--_sl-radius);
+    display: block;
+    padding: var(--_sl__lb-padding);
+    position: absolute;
+    opacity: 0;
+    transform: translateY(#{calc(var(--_sl__th-size) * -1 - var(--_sl__lb--ar-size) * 1.5)}) scale(var(--_sl__lb-scale));
+    transform-origin: 50% 150%;
+    transition: opacity var(--transition-flash) linear;
+    visibility: hidden;
+    white-space: nowrap;
+
+    @include afterAbsolute('bottom', fixed) {
+      @include squared(var(--_sl__lb--ar-size));
+      background-color: inherit;
+      clip-path: polygon(0 0, 100% 100%, 100% 0);
+      margin: auto;
+      transform: translateY(#{calc(var(--_sl__lb--ar-size) / 2)}) rotate(135deg);
+    }
+  }
+
+  &.option-mark &__thumb:focus &__label,
+  &.appearance-drop &__thumb:focus &__label {
+    --_sl__lb-scale: 1;
+    opacity: 1;
+    transition: opacity var(--transition-flash) linear,
+    transform var(--transition-basic) var(--transition-cubic-80-00);
+    visibility: visible;
+  }
+}
+
+@mixin sliderPickerVertical() {
+  &.option-vertical {
+    height: var(--_sl-width);
+    width: var(--_sl-size);
+  }
+
+  &.option-vertical & {
+    &__rail,
+    &__track,
+    &__select {
+      height: auto;
+      margin: 0 auto;
+      width: var(--_sl-height);
+      @content;
+    }
+
+    &__rail {
+      background-color: varColor(--_sl-palette, --opacity-surface-disabled);
+      height: 100%;
+    }
+
+    &__track {
+      background-color: varColor(--_sl-palette);
+      bottom: var(--_sl__min-x, 0);
+      left: 0;
+      right: 0;
+      top: calc(100% - var(--_sl__max-x, 0%));
+      transition-property: bottom, top;
+    }
+
+    &__select {
+      width: var(--_sl__th-size);
+    }
+
+    &__marks {
+      margin: 0 auto;
+    }
+
+    &__mark {
+      @include width(var(--_sl__mr-height));
+      bottom: calc(var(--_sl__mark, 0%) - var(--_sl__mr-width) / 2);
+      height: var(--_sl__mr-width);
+      left: 0;
+      margin: 0 auto;
+      right: 0;
+    }
+
+    &__thumb {
+      transform: translateY(#{calc(var(--_sl-size) / 2 * -1)});
+      transition-property: top;
+
+      &.sl-min,
+      &.sl-max {
+        left: 0;
+      }
+
+      &.sl-min {
+        top: calc(100% - var(--_sl__min-x, 0%));
+      }
+
+      &.sl-max {
+        top: calc(100% - var(--_sl__max-x, 0%));
+      }
+    }
+
+    &__label {
+      left: calc(var(--_sl-size) + var(--_sl__lb--ar-size));
+      transform: scale(var(--_sl__lb-scale));
+      transform-origin: 0 50%;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+@mixin sliderPickerDrop() {
+  &.appearance-drop {
+    --_sl-height: var(--_sl--drop-height);
+    --_sl__th-size: var(--_sl--drop__th-size);
+    --_sl__mr-height: var(--_sl--drop__mr-height);
+    --_sl__mr-width: var(--_sl--drop__mr-width);
+  }
+
+  &.appearance-drop & {
+    &__thumb {
+      &::after {
+        box-shadow: none;
+        transform: rotate(45deg);
+        transition: border-radius var(--transition-basic) var(--transition-cubic-80-00);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: transparent;
+      }
+    }
+
+    &__label {
+      @include flexCenter;
+      @include squared(var(--_sl--drop__lb-width));
+      background-color: transparent;
+      transform: translateY(#{calc(var(--_sl--drop__lb-width) * -1)}) scale(var(--_sl__lb-scale));
+
+      &::after {
+        content: none;
+        display: none;
+      }
+
+      &::before {
+        background-color: varColor(--_sl-palette);
+        border-radius: var(--_sl--drop__lb-width);
+        border-bottom-right-radius: 0;
+        content: " ";
+        inset: 0;
+        position: absolute;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+    }
+  }
+
+  &.appearance-drop.option-vertical &__label {
+    left: var(--_sl-size);
+
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+}
+
+@mixin sliderPickerBody {
+  &__body {
+    @include select-none;
+  }
+}
+
+@mixin sliderPickerDisabled {
+  &.status-disabled {
+    --_sl-palette: var(--disabled-type1);
+  }
+
+  &.status-disabled &__thumb {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin sliderPickerInit() {
+  @include sliderPicker;
+  @include sliderPickerRail;
+  @include sliderPickerMarks;
+  @include sliderPickerInput;
+  @include sliderPickerThumb;
+  @include sliderPickerLabel;
+  @include sliderPickerDrop;
+  @include sliderPickerVertical;
+  @include sliderPickerBody;
+  @include sliderPickerDisabled;
+}

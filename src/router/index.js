@@ -28,6 +28,7 @@ import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
 import DemoSelectValue from '../views/DemoSelectValue'
 import DemoSlider from '../views/DemoSlider'
+import DemoSliderPicker from '../views/DemoSliderPicker'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../views/DemoTime'
@@ -65,6 +66,7 @@ export const routes = getRoutes({
   'd-select': DemoSelect,
   'd-select-value': DemoSelectValue,
   'd-slider': DemoSlider,
+  'd-slider-picker': DemoSliderPicker,
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-time': DemoTime,

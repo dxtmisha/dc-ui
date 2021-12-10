@@ -31,6 +31,18 @@ export default function useField (
   }, value.value ? ['go'] : [], '')
   const propCounter = computed(() => propValue.value?.length || 0)
 
+  const valueMin = computed(() => Array.isArray(propValue.value) ? (propValue.value?.[0] || 0) : 0)
+  const valueMax = computed(() => Array.isArray(propValue.value) ? (propValue.value?.[1] || 0) : propValue.value)
+  const textMin = computed(() => props.treatment ? props.treatment(valueMin.value) : valueMin.value)
+  const textMax = computed(() => props.treatment ? props.treatment(valueMax.value) : valueMax.value)
+  const textLabel = computed(() => {
+    const text = Array.isArray(propValue.value)
+      ? propValue.value[0] + (propValue.value[1] ? ` - ${propValue.value[1]}` : '')
+      : propValue.value
+
+    return props.treatment ? props.treatment(text) : text
+  })
+
   const emit = (type = EVENT_DEFAULT) => {
     context.emit(type, {
       type,
@@ -111,6 +123,11 @@ export default function useField (
     propValidationMessage,
     propValue,
     propCounter,
+    valueMin,
+    valueMax,
+    textMin,
+    textMax,
+    textLabel,
     checkValidity,
     emit,
     emitFrame,
