@@ -42,7 +42,9 @@ export const props = {
       'auto-extra',
       'auto-desktop',
       'menu',
-      'modal'
+      'modal',
+      'modal-left',
+      'modal-right'
     ])
   },
   axis: {

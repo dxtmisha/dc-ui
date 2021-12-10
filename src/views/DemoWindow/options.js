@@ -43,7 +43,9 @@ export const windowAdaptive = {
     { value: 'auto-extra' },
     { value: 'auto-desktop' },
     { value: 'menu' },
-    { value: 'modal' }
+    { value: 'modal' },
+    { value: 'modal-left' },
+    { value: 'modal-right' }
   ]
 }
 

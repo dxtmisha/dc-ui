@@ -1,10 +1,13 @@
 @mixin windowVar() {
   --_wn-height: var(--wn-height, calc(100vh - 64px));
   --_wn-radius: var(--wn-radius, var(--basic-radius));
-  --_wn-transform: var(--wn-transform, #{scale(.8)});
 
   --_wn-padding: var(--wn-padding, #{32px 16px});
   --_wn--md-padding: var(--wn--md-padding, 24px);
+
+  --_wn-transform: var(--wn-transform, #{scale(.8)});
+  --_wn--ml-transform: var(--wn--ml-transform, #{translateX(-64px)});
+  --_wn--mr-transform: var(--wn--mr-transform, #{translateX(+64px)});
 
   --_wn-width: var(--wn-width, 280px);
   --_wn--md-width: var(--wn--md-width, 560px);
