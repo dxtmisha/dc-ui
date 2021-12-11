@@ -1,34 +1,54 @@
-import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
 
-const defaultProps = defaultInit('d-carcass-field')
+const defaultProps = defaultInit('d-dialog')
 export const props = {
   // Values
   title: String,
   text: String,
-  actions: Array,
-  actionsManagement: Array,
   image: [Boolean, String],
 
   // Status
   open: Boolean,
   disabled: Boolean,
 
+  // Actions
+  actions: Array,
+  actionsManagement: Array,
+  axis: undefined,
+  attrsActions: Object,
+
   // Options
-  axis: String,
-  fullscreen: Boolean,
+  landscape: {
+    type: Boolean,
+    default: defaultProps('landscape')
+  },
+  dense: Boolean,
+  border: {
+    type: Boolean,
+    default: true
+  },
+
+  // Window
   width: {
     type: String,
-    default: defaultData('width', null)
+    default: defaultProps('width', null)
+  },
+  size: undefined,
+  shape: undefined,
+  adaptive: {
+    default: defaultProps('adaptive', 'modal'),
+    validator: validator([
+      'modal',
+      'modal-left',
+      'modal-right'
+    ])
+  },
+  autoClose: {
+    default: false
   },
   persistent: {
     type: Boolean,
-    default: defaultData('persistent')
+    default: defaultProps('persistent')
   },
-  landscape: {
-    type: Boolean,
-    default: defaultData('landscape')
-  },
-  dense: Boolean,
-  attrsActions: Object,
   attrsWindow: Object
 }

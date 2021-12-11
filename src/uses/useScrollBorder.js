@@ -6,7 +6,6 @@ export default function useScrollBorder (
   scroll,
   border
 ) {
-  let eventControl
   const top = useClass(scroll, 'status-top')
   const bottom = useClass(scroll, 'status-bottom')
 
@@ -19,15 +18,19 @@ export default function useScrollBorder (
   const toggle = () => {
     if (
       border.value &&
-      scroll.value &&
-      !eventControl
+      scroll.value
     ) {
-      eventControl = EventControl.init(
+      if ('eventControl' in scroll.value) {
+        scroll.value.eventControl.stop()
+        scroll.value.eventControl = undefined
+      }
+
+      scroll.value.eventControl = EventControl.init(
         scroll.value,
         event => {
           if (!border.value) {
             event.$event.stop()
-            eventControl = undefined
+            scroll.value.eventControl = undefined
           } else if (event.target === scroll.value) {
             update()
           }
@@ -41,7 +44,7 @@ export default function useScrollBorder (
     }
   }
 
-  watch(border, toggle)
+  watch([scroll, border], toggle)
   onMounted(toggle)
 
   return computed(() => {

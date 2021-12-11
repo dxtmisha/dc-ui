@@ -32,7 +32,7 @@ export default {
     const propBar = computed(() => {
       const list = []
 
-      props.bar.forEach(item => list.push({
+      props.bar?.forEach(item => list.push({
         item,
         class: 'window-close',
         appearance: 'text-color',
@@ -45,7 +45,7 @@ export default {
     const propBarManagement = computed(() => {
       const list = []
 
-      props.barManagement.forEach(item => list.push({
+      props.barManagement?.forEach(item => list.push({
         item,
         class: 'd-actions__management',
         appearance: 'text',
@@ -53,7 +53,7 @@ export default {
         ...props.attrsBarManagement,
         ...item
       }))
-      console.log('propBarManagement', list)
+
       return list
     })
 

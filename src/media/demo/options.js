@@ -10,6 +10,7 @@ import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 export const values = { subtitle: 'Values' }
 export const status = { subtitle: 'Status' }
 export const options = { subtitle: 'Options' }
+export const optionActions = { subtitle: 'Option: actions' }
 export const optionButton = { subtitle: 'Option: button' }
 export const optionField = { subtitle: 'Option: field' }
 export const optionIcon = { subtitle: 'Option: icon' }
@@ -85,6 +86,7 @@ export const textShort = {
   message: 'Demo'
 }
 export const textTrailing = { message: 'T' }
+export const title = { message: 'Interactive demo' }
 export const validationMessage = { message: validation1 }
 export const underline = { message: 'act|pro' }
 

@@ -11,6 +11,7 @@ import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
+import DemoDialog from '../views/DemoDialog'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../views/DemoInput'
@@ -49,6 +50,7 @@ export const routes = getRoutes({
   'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
+  'd-dialog': DemoDialog,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,
   'd-input': DemoInput,

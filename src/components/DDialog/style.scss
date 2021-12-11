@@ -1,0 +1,150 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+
+@mixin dialog() {
+  @include dialogVar;
+  --_wn--md__bd-width: var(--_dl-width);
+}
+
+@mixin dialogVar() {
+  --_dl-palette: var(--dl-palette, var(--palette-type1, var(--primary-type1)));
+  --_dl-padding-y: var(--dl-padding-y, 24px);
+  --_dl-width: var(--dl-width, 560px);
+
+  --_dl__hd-height: var(--dl__hd-height, 64px);
+  --_dl__hd-image: var(--dl__hd-image, none);
+
+  --_dl--im__hd-height: var(--dl--im__hd-height, 194px);
+  --_dl--ln-width: var(--dl--ln-width, 160px);
+}
+
+@mixin dialogBody() {
+  &__body,
+  &__main {
+    display: flex;
+    flex-flow: column;
+    max-height: var(--_wn-height);
+  }
+
+  &__main {
+    flex-shrink: 1;
+    max-height: calc(var(--_wn-height) - var(--_dl__hd-height));
+  }
+}
+
+@mixin dialogHead() {
+  &__head,
+  &__title {
+    @include flexX;
+    background-color: var(--_dl-background, transparent);
+    min-height: var(--_dl__hd-height);
+    padding: 0 var(--_dl-padding-y);
+    @content;
+  }
+
+  &__head {
+    @include font('headline6');
+  }
+
+  &__title {
+    @include font('subtitle1');
+  }
+}
+
+@mixin dialogContext() {
+  &__context {
+    flex-shrink: 1;
+    overflow: auto;
+    padding: 0 var(--_dl-padding-y);
+  }
+
+  &__text {
+    --basic-text-opacity: var(--opacity-surface-medium);
+  }
+
+  &__main:first-child &__context {
+    border-top-width: 0;
+    padding-top: var(--_dl-padding-y);
+  }
+
+  &__main &__context:last-child {
+    border-bottom-width: 0;
+    padding-bottom: var(--_dl-padding-y);
+  }
+
+  &.option-dense &__context,
+  &.option-dense &__main:first-child &__context,
+  &.option-dense &__main:last-child &__context {
+    padding: 0;
+  }
+}
+
+@mixin dialogImage() {
+  &.option-image {
+    --_dl-background: #{varColor(--_dl-palette)};
+    --_dl__hd-height: var(--_dl--im__hd-height);
+  }
+
+  &.option-image & {
+    &__head,
+    &__title {
+      --basic-text: var(--text-type2);
+      --basic-text-opacity: var(--opacity-primary-high);
+      align-items: flex-end;
+      background-image: var(--_dl__hd-image);
+      padding-bottom: var(--_dl-padding-y);
+    }
+
+    &__context {
+      padding-top: var(--_dl-padding-y);
+    }
+  }
+}
+
+@mixin dialogLandscape() {
+  &.option-landscape {
+    @include mediaMinWidth {
+      --_wn--md__bd-width: calc(var(--_dl--ln-width) + var(--_dl-width));
+    }
+  }
+
+  &.option-landscape & {
+    @include mediaMinWidth {
+      &__body {
+        flex-flow: row;
+      }
+
+      &__context {
+        border-top-width: 0;
+        padding-top: var(--_dl-padding-y);
+      }
+
+      &__head,
+      &__title {
+        align-items: flex-start;
+        flex-basis: var(--_dl--ln-width);
+        flex-grow: 1;
+        max-width: var(--_dl--ln-width);
+        min-height: auto;
+        padding-top: var(--_dl-padding-y);
+        width: var(--_dl--ln-width);
+      }
+
+      &__main {
+        flex-basis: 1px;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+@mixin dialogInit() {
+  @include dialog;
+  @include dialogBody;
+  @include dialogHead;
+  @include dialogContext;
+  @include dialogImage;
+  @include dialogLandscape;
+}
