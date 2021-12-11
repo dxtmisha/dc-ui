@@ -7,26 +7,31 @@ import Geo from '../../classes/Geo'
 import GeoDate from '../../classes/GeoDate'
 
 const defaultProps = defaultInit('d-calendar')
+
+export const min = {
+  type: String,
+  default () {
+    const date = new GeoDate()
+    date.getObject().setFullYear(date.getObject().getFullYear() - 15)
+    return date.toStandard()
+  }
+}
+
+export const max = {
+  type: String,
+  default () {
+    const date = new GeoDate()
+    date.getObject().setFullYear(date.getObject().getFullYear() + 25)
+    return date.toStandard()
+  }
+}
+
 export const props = {
   // Values
   value: String,
   multiple: Boolean,
-  min: {
-    type: String,
-    default () {
-      const date = new GeoDate()
-      date.getObject().setFullYear(date.getObject().getFullYear() - 15)
-      return date.toStandard()
-    }
-  },
-  max: {
-    type: String,
-    default () {
-      const date = new GeoDate()
-      date.getObject().setFullYear(date.getObject().getFullYear() + 25)
-      return date.toStandard()
-    }
-  },
+  min,
+  max,
 
   // Status
   selected: [Array, String],

@@ -1,0 +1,31 @@
+@mixin calendarSelectVar() {
+  --_cs-status-palette: var(--cs-status-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_cs-columns: var(--cs-columns, 3);
+  --_cs-padding: var(--cs-padding, 16px);
+  --_cs-padding-x: var(--cs-padding-x, 12px);
+  --_cs-width: var(--cs-width, 328px);
+
+  --_cs__cl-bottom: var(--cs__cl-bottom, 8px);
+  --_cs__ls-height: var(--cs__ls-height, 280px);
+  --_cs__ls-padding: var(--cs__ls-padding, 24px);
+  --_cs__it-padding: var(--cs__it-padding, 8px);
+
+  --_cs__bt-height: var(--cs__bt-height, 36px);
+  --_cs__bt-shape: var(--cs__bt-shape, 1024px);
+  --_cs__bt-width: var(--cs__bt-width, 72px);
+
+  --_cs--ml-width: var(--cs--ml-width, 360px);
+  --_cs__ls--ml-height: var(--cs__ls--ml-height, 336px);
+
+  --_cs--ds-columns: var(--cs--ds-columns, 4);
+  --_cs--ds-width: var(--cs--ds-width, 256px);
+  --_cs__mn-padding-rg: var(--cs__mn-padding-rg, 8px);
+  --_cs__mn-padding-bt: var(--cs__mn-padding-bt, 12px);
+  --_cs__ls--ds-height: var(--cs__ls--ds-height, 224px);
+  --_cs__ls--ds-padding: var(--cs__ls--ds-padding, 12px);
+  --_cs__it--ds-padding: var(--cs__it--ds-padding, 2px);
+  --_cs__bt--ds-height: var(--cs__bt--ds-height, 28px);
+  --_cs__bt--ds-padding: var(--cs__bt--ds-padding, 8px);
+  --_cs__bt--ds-width: var(--cs__bt--ds-width, 52px);
+}

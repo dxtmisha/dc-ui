@@ -19,8 +19,8 @@ export default function useDateTime (
     return date
   }
 
-  const propValue = ref(props.value)
-  const propOld = ref(props.value)
+  const propValue = ref(props?.value)
+  const propOld = ref(props?.value)
   const propFormat = computed(() => props.format === 'auto' ? object().getFormat() : props.format)
 
   const type12 = computed(() => propFormat.value === '12')
@@ -141,6 +141,7 @@ export default function useDateTime (
     minutes,
     minutesMin,
     minutesMax,
+    object,
     getItemFocus,
     getItemSecondary,
     getMaxHours,
