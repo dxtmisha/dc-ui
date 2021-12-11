@@ -33,7 +33,11 @@
         :data-value="item.value"
       />
     </div>
-    <div class="d-slider-picker__select" @mousedown="onMousedown" @touchstart="onMousedown"/>
+    <div
+      class="d-slider-picker__select"
+      @mousedown="onMousedown"
+      @touchstart="onMousedown"
+    />
   </div>
 </template>
 
@@ -94,8 +98,6 @@ export default {
     })
 
     const onMousemove = event => {
-      const point = props.vertical ? event.clientY : event.clientX
-
       if (
         ['mouseup', 'contextmenu', 'touchend', 'touchcancel'].indexOf(event.type) !== -1 ||
         (!event?.buttons && !('touches' in event) && !('targetTouches' in event))
@@ -103,12 +105,18 @@ export default {
         event.$event.stop()
         emit('on-change')
         classBody.set(false)
-      } else if (point !== old) {
-        event.preventDefault()
+      } else {
         event.stopPropagation()
-        init(getCoordinates(event))
 
-        old = point
+        const point = props.vertical
+          ? (event?.targetTouches?.[0].clientY || event?.clientY)
+          : (event?.targetTouches?.[0].clientX || event?.clientX)
+
+        if (point !== old) {
+          init(getCoordinates(event))
+
+          old = point
+        }
       }
     }
     const onMousedown = event => {

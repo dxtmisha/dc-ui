@@ -33,6 +33,7 @@ export default {
     // Status
     disabled: Boolean
   },
+  emits: ['on-drop'],
   setup (props, context) {
     const input = ref(undefined)
 

@@ -25,6 +25,7 @@ import DemoMotionScroll from '../views/DemoMotionScroll'
 import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoProgress from '../views/DemoProgress'
+import DemoRedactionFile from '../views/DemoRedactionFile'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
@@ -65,6 +66,7 @@ export const routes = getRoutes({
   'd-motion-sticky': DemoMotionSticky,
   'd-motion-transform': DemoMotionTransform,
   'd-progress': DemoProgress,
+  'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,
   'd-scrollbar': DemoScrollbar,
   'd-select': DemoSelect,

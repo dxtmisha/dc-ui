@@ -107,6 +107,7 @@ export default {
     DSliderPicker
   },
   props,
+  emits: ['on-input', 'on-change'],
   setup (props, context) {
     const input = ref(undefined)
     const inputMin = ref(undefined)

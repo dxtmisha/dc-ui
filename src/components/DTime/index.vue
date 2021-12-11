@@ -58,6 +58,7 @@ export default {
     DWindow
   },
   props,
+  emits: ['on-input', 'on-change'],
   setup (props, context) {
     const input = ref(undefined)
 
