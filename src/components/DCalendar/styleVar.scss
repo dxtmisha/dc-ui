@@ -1,0 +1,26 @@
+@mixin calendarVar() {
+  --_cl-palette: var(--cl-palette, var(--background-overlay));
+  --_cl-status-palette: var(--cl-status-palette, var(--color-style-type1, var(--primary-type1)));
+  --_cl-text-palette: var(--cl-text-palette, var(--text-type1));
+
+  --_cl-width: var(--cl-width, 328px);
+  --_cl--ml-width: var(--cl--ml-width, 360px);
+  --_cl--ds-width: var(--cl--ds-width, 256px);
+
+  --_cl__nm--mb-gap: var(--cl__nm--mb-gap, 4px);
+  --_cl__nm--ml-gap: var(--cl__nm--ml-gap, 0px);
+  --_cl__nm--ds-gap: var(--cl__nm--ds-gap, 0px);
+
+  --_cl__nm--mb-margin: var(--cl__nm--mb-margin, 2px);
+  --_cl__nm--ml-margin: var(--cl__nm--ml-margin, 4px);
+  --_cl__nm--ds-margin: var(--cl__nm--ds-margin, 2px);
+
+  --_cl__nm--mb-padding: var(--cl__nm--mb-padding, 12px);
+  --_cl__nm--ds-padding: var(--cl__nm--ds-padding, 16px);
+
+  --_cl__nm--mb-width: var(--cl__nm--mb-width, 40px);
+  --_cl__nm--ml-width: var(--cl__nm--ml-width, 48px);
+  --_cl__nm--ds-width: var(--cl__nm--ds-width, 32px);
+
+  --_cl__dy-shape: var(--cl__dy-shape, 1024px);
+}

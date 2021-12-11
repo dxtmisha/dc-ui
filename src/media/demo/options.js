@@ -127,6 +127,9 @@ export const min = { message: 2 }
 export const minimumDistance = { message: 20 }
 export const minlength = { message: 2 }
 export const navigationRail = { list: dataNavigationRail }
+export const outputDay = { default: true }
+export const outputMonth = { default: true }
+export const outputWeek = { default: true }
 export const palette = { list: dataPalette }
 export const pattern = { message: '[A-Z]{1}[a-z]{3,}' }
 export const persistent = {}
@@ -163,6 +166,7 @@ export const step = {
     { value: 8 }
   ]
 }
+export const today = { default: true }
 export const top = {}
 export const vertical = {}
 export const visibleMask = { default: true }

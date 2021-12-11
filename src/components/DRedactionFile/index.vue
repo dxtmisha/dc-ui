@@ -42,7 +42,7 @@
 <script>
 import DControlResize from '@/components/DControlResize'
 import DSlider from '@/components/DSlider'
-import { props } from '@/components/DRedactionFile/props'
+import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import getFileResult from '@/functions/getFileResult'
 import useWatch from '@/uses/useWatch'

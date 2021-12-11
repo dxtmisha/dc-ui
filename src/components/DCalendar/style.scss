@@ -1,0 +1,272 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+@import "../../styles/position";
+@import "../../styles/options/optionShape";
+@import "styleVar";
+
+@mixin calendar() {
+  @include calendarVar;
+  --_cl__nm-padding: var(--_cl__nm--mb-padding);
+  --_cl__nm-gap: var(--_cl__nm--mb-gap);
+  --_cl__nm-margin: var(--_cl__nm--mb-margin);
+  --_cl__nm-width: var(--_cl__nm--mb-width);
+  --_cl__dy-width: calc(var(--_cl__nm-width) - (var(--_cl__nm-margin) * 2));
+
+  width: var(--_cl-width);
+}
+
+@mixin calendarList() {
+  &__head,
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    @content;
+  }
+}
+
+@mixin calendarName() {
+  &__name {
+    --_cl__nm-padding-left: 0px;
+    --_cl__nm-padding-right: 0px;
+    @include select-none;
+    @include width(var(--_cl__nm-width));
+    box-sizing: content-box;
+    cursor: pointer;
+    margin: {
+      top: var(--_cl__nm-margin);
+      right: var(--_cl__nm-padding-right);
+      bottom: var(--_cl__nm-margin);
+      left: var(--_cl__nm-padding-left);
+    };
+    min-height: var(--_cl__dy-width);
+    padding-left: var(--_cl__nm-gap);
+    @content;
+
+    &:first-child,
+    &:last-child,
+    &.status-start,
+    &.status-end {
+      flex-grow: 1;
+    }
+
+    &:first-child,
+    &.status-start {
+      --_cl__nm-padding-left: var(--_cl__nm-padding);
+      padding-left: 0;
+    }
+
+    &:last-child,
+    &.status-end {
+      --_cl__nm-padding-right: var(--_cl__nm-padding);
+    }
+
+    &.status-output,
+    &.cl-week {
+      cursor: default;
+    }
+
+    &.status-output:not(.status-focus) {
+      opacity: 0;
+    }
+
+    &:not(.status-output):not(.cl-week) {
+      &:hover {
+        --_cl__dy-border: #{varColor(--_cl-palette, --opacity-surface-medium)};
+      }
+
+      &.status-today {
+        --_cl__dy-border: #{varColor(--_cl-palette, --opacity-surface-high)};
+      }
+    }
+  }
+
+  &__name.status-output.status-focus,
+  &.option-output-day &__name.status-output {
+    opacity: var(--opacity-surface-disabled);
+  }
+}
+
+@mixin calendarDay() {
+  &__week,
+  &__day {
+    @include flexCenter;
+    @include aspectRatio(#{1/1}) {
+      height: var(--_cl__dy-width);
+    }
+    width: var(--_cl__dy-width);
+    margin: 0 auto;
+    z-index: 2;
+    @content;
+
+    @include afterAbsolute() {
+      border-color: var(--_cl__dy-border, transparent);
+      border-radius: inherit;
+      border-width: 1px;
+    }
+  }
+
+  &__week {
+    --basic-text-opacity: var(--opacity-surface-medium);
+  }
+
+  &__day {
+    background-color: var(--_cl__dy-background, transparent);
+    border-radius: var(--_cl__dy-shape);
+    color: var(--_cl__dy-color, inherit);
+  }
+}
+
+@mixin calendarShape() {
+  &.shape- {
+    &basic {
+      --_cl__dy-shape: var(--shape-basic);
+    }
+
+    &rounded {
+      --_cl__dy-shape: var(--radius-roundedType3);
+    }
+
+    &pill {
+      --_cl__dy-shape: 1024px;
+    }
+
+    &tile {
+      --_cl__dy-shape: 0;
+    }
+  }
+}
+
+@mixin calendarStatus() {
+  &__name {
+    &.status-selected {
+      --_cl__dy-background: #{varColor(--_cl-status-palette, --opacity-primary-high)};
+      --_cl__dy-color: #{varColor(--text-type2, --opacity-primary-high)};
+    }
+
+    &.status-between,
+    &.status-hover {
+      @include afterAbsolute('right') {
+        left: calc(var(--_cl__nm-gap) + (var(--_cl__dy-width) / 2) + var(--_cl__nm-padding-left));
+      }
+
+      &:first-child,
+      &.status-start {
+        margin-left: 0;
+        padding-left: var(--_cl__nm-padding);
+      }
+
+      &:last-child,
+      &.status-end {
+        margin-right: 0;
+        padding-right: var(--_cl__nm-padding);
+      }
+    }
+
+    &.status-between::after {
+      background-color: #{varColor(--_cl-status-palette, --opacity-container-focus)};
+    }
+
+    &.status-hover::after {
+      border-color: varColor(--_cl-text-palette, --opacity-container-focus);
+      border-bottom-width: 1px;
+      border-style: dashed;
+      border-top-width: 1px;
+    }
+
+    &.status-between:first-child::after,
+    &.status-between + &.status-between::after,
+    &.status-hover:first-child::after,
+    &.status-hover + &.status-hover::after {
+      left: 0;
+    }
+
+    &.status-between + &.status-between.status-selected::after,
+    &.status-hover + &.status-hover.status-selected::after,
+    &.status-hover + &.status-hover:hover::after {
+      right: calc((var(--_cl__dy-width) / 2) + var(--_cl__nm-padding-right));
+    }
+  }
+}
+
+@mixin calendarMultiple() {
+  &.option-multiple {
+    --_cl-width: var(--_cl--ml-width);
+    --_cl__nm-gap: var(--_cl__nm--ml-gap);
+    --_cl__nm-margin: var(--_cl__nm--ml-margin);
+    --_cl__nm-width: var(--_cl__nm--ml-width);
+  }
+}
+
+@mixin calendarAdaptive() {
+  $this: &;
+
+  @include mediaMinList {
+    @include _calendarAdaptiveDesktop($this);
+  }
+
+  @include mediaMaxWidth(minimum) {
+    @include _calendarAdaptiveDesktop($this);
+  }
+
+  &.adaptive-desktop {
+    @include _calendarAdaptiveDesktop($this);
+  }
+}
+
+@mixin _calendarAdaptiveDesktop($this: &) {
+  &,
+  &.option-multiple {
+    --_cl-width: var(--_cl--ds-width);
+    --_cl__nm-gap: var(--_cl__nm--ds-gap);
+    --_cl__nm-margin: var(--_cl__nm--ds-margin);
+    --_cl__nm-padding: var(--_cl__nm--ds-padding);
+    --_cl__nm-width: var(--_cl__nm--ds-width);
+  }
+
+  &:not(.option-output-day) {
+    #{$this}__name {
+      &.status-between.status-output + .status-between.status-focus:not(.status-output)::after {
+        border-bottom-left-radius: var(--_cl__dy-shape);
+        border-top-left-radius: var(--_cl__dy-shape);
+      }
+
+      &.status-between.status-end-day::after {
+        border-bottom-right-radius: var(--_cl__dy-shape);
+        border-top-right-radius: var(--_cl__dy-shape);
+      }
+    }
+  }
+
+  #{$this}__name {
+    &.status-between.status-start::after {
+      border-bottom-left-radius: var(--_cl__dy-shape);
+      border-top-left-radius: var(--_cl__dy-shape);
+      left: calc(var(--_cl__nm-padding) + var(--_cl__nm-margin));
+    }
+
+    &.status-between.status-end::after {
+      border-bottom-right-radius: var(--_cl__dy-shape);
+      border-top-right-radius: var(--_cl__dy-shape);
+      right: calc(var(--_cl__nm-padding) + var(--_cl__nm-margin));
+    }
+  }
+
+  #{$this}__week,
+  #{$this}__day {
+    @include font('body2');
+  }
+}
+
+@mixin calendarInit() {
+  @include calendar;
+  @include calendarList;
+  @include calendarName;
+  @include calendarDay;
+  @include calendarShape;
+  @include calendarStatus;
+  @include calendarMultiple;
+  @include calendarAdaptive;
+}
