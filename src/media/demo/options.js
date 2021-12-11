@@ -5,6 +5,7 @@ import { dataLocales } from '@/media/demo/data/locales'
 import { dataNavigationRail } from '@/media/demo/data/navigationRail'
 import { dataPalette } from '@/media/demo/data/palette'
 import { helper1, quote1, validation1 } from '@/media/demo/data/text'
+import { dataMarks } from '@/media/demo/data/marks'
 
 // Subtitle
 export const values = { subtitle: 'Values' }
@@ -25,45 +26,14 @@ export const optionSlider = { subtitle: 'Option: slider' }
 export const optionWindow = { subtitle: 'Option: window' }
 
 // Values
+export const accept = {}
 export const ajax = { message: '/demo/request/menu.json' }
 export const backgroundColor = { message: '244,67,54' }
 export const cache = {}
 export const description = { message: quote1 }
 export const dot = {}
 export const helperMessage = { message: helper1 }
-export const marks = {
-  message: [
-    { value: 0 },
-    { value: 10 },
-    { value: 20 },
-    { value: 30 },
-    { value: 40 },
-    {
-      text: '50%',
-      value: 50
-    },
-    {
-      text: 'x2 / 100%',
-      value: 100,
-      mark: 60
-    },
-    {
-      text: 'x4 / 200%',
-      value: 200,
-      mark: 80
-    },
-    {
-      text: 'x5 / 250%',
-      value: 250,
-      mark: 90
-    },
-    {
-      text: 'x10 / 2500%',
-      value: 250,
-      mark: 100
-    }
-  ]
-}
+export const marks = { message: dataMarks }
 export const mask = {
   default: '**** ****',
   list: [

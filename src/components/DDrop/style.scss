@@ -1,0 +1,42 @@
+@import "../../styles/color";
+@import "../../styles/elevation";
+
+@mixin drop() {
+  @include index(1);
+
+  --_dr-padding: var(--dr-padding, 8px);
+  --_dr-width: var(--dr-width, 2px);
+
+  --_dr-border: var(--background-outline);
+  --_dr-border-opacity: var(--opacity-outline);
+
+  background-color: transparent;
+  border-color: varColor(--_dr-border, --_dr-border-opacity);
+  border-style: dashed;
+  border-width: var(--_dr-width);
+  position: absolute;
+  inset: var(--_dr-padding);
+  transition-property: background-color, border-color;
+
+  &.status-enter {
+    --_dr-border: var(--warning-type1);
+    --_dr-border-opacity: var(--opacity-surface-medium);
+    background-color: varColor(--warning-type1, --opacity-container-dragged);
+  }
+
+  &.status-disabled {
+    --_dr-border-opacity: 0;
+  }
+}
+
+@mixin dropInput() {
+  &__input {
+    width: 12px;
+    visibility: hidden;
+  }
+}
+
+@mixin dropInit() {
+  @include drop;
+  @include dropInput;
+}
