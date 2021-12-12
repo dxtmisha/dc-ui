@@ -126,7 +126,7 @@
 @mixin buttonGroupDelimiter() {
   &:not(.status-disabled).option-delimiter.type-contained &__item,
   &:not(.status-disabled).option-delimiter.type-fab &__item {
-    --bt-border: #{varColor(--shaded-type1, --opacity-primary-disabled)};
+    --bt-border: #{varColor(--background-outline, --opacity-primary-disabled)};
   }
 }
 

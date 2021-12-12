@@ -310,8 +310,9 @@
 @mixin listItemBorder() {
   & + &:not(.shape-basic):not(.shape-rounded):not(.shape-pill).option-border &__text {
     @include afterAbsolute('top') {
+      border-top-color: var(--basic-border);
       border-top-width: 1px;
-      right: calc((var(--_li-padding) + var(--_li__trailing-width, 0px)) * -1);
+      right: calc((var(--_li-gap) + var(--_li__trailing-width, 0px)) * -1);
       @content;
     }
   }

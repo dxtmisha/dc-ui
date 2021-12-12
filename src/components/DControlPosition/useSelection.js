@@ -7,7 +7,7 @@ export default function useSelection (
   itemActive,
   itemSelection
 ) {
-  const getSelection = () => forEach(itemSelection.value, (item) => item?.dataset?.value)
+  const getSelection = () => forEach(itemSelection.value || [itemActive.value], (item) => item?.dataset?.value)
 
   const findSelection = () => position.value.querySelectorAll(`.${id}.cp-active, .${id}.status-selected`)
   const goSelection = () => {

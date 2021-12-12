@@ -130,6 +130,23 @@ export default {
       resetDrop
     )
 
+    const toNewPosition = (values, {
+      valueSelection,
+      valueTo,
+      route
+    }) => {
+      const items = values.filter(item => valueSelection.indexOf(item.value) !== -1)
+      const newValues = values.filter(item => valueSelection.indexOf(item.value) === -1)
+
+      if (valueTo) {
+        newValues.splice(newValues.findIndex(item => item.value === valueTo) + !route, 0, ...items)
+      } else {
+        newValues.unshift(...items)
+      }
+
+      return newValues
+    }
+
     const onMousemove = event => {
       const item = getClick(event.target)
 
@@ -196,6 +213,7 @@ export default {
       id,
       position,
       square,
+      toNewPosition,
       onMousedown,
       onTransitionend
     }

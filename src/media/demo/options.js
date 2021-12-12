@@ -27,7 +27,7 @@ export const optionSlider = { subtitle: 'Option: slider' }
 export const optionWindow = { subtitle: 'Option: window' }
 
 // Values
-export const accept = {}
+export const accept = { message: 'image/*' }
 export const ajax = { message: '/demo/request/menu.json' }
 export const backgroundColor = { message: '244,67,54' }
 export const cache = {}

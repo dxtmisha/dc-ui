@@ -32,6 +32,7 @@
     <template v-slot:window>
       <d-date-picker
         v-bind="bindPicker"
+        class="d-date"
         @on-input="onSelect"
       />
     </template>

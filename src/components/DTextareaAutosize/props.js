@@ -5,5 +5,5 @@ export const props = {
   on: {
     type: Object,
     default: {}
-  },
+  }
 }

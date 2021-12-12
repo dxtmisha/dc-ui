@@ -1,10 +1,21 @@
 {
+  "Add": "Add",
   "AM": "AM",
   "Cancel": "Cancel",
+  "Delete": "Delete",
+  "Depart": "Depart",
+  "Drag and drop files here": "Drag and drop files here",
+  "Edit": "Edit",
+  "End": "End",
+  "Enter date": "Enter date",
   "Hour": "Hour",
   "Minute": "Minute",
+  "Return": "Return",
   "Ok": "Ok",
   "PM": "PM",
   "Save": "Save",
-  "Select Time": "Select Time"
+  "Select date": "Select date",
+  "Selected range": "Selected range",
+  "Select Time": "Select Time",
+  "Start": "Start"
 }

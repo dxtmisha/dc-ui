@@ -24,7 +24,7 @@
 
 <script>
 import { props } from './props'
-import { computed, ref, toRefs, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
 import EventControl from '@/classes/EventControl'
 import useAdmin from '@/uses/useAdmin'
 import useClass from '@/uses/useClass'
@@ -48,7 +48,7 @@ export default {
     const propValue = useWatch(refs.value, data => {
       data.value = props.value || [0, 0, 0, 0]
       toResize()
-    }, [], [0, 0, 0, 0])
+    }, [], props.value || [0, 0, 0, 0])
 
     const classBody = useClass(document.body, 'd-control-resize__body')
     const styleResize = useStyleList(resize, {
@@ -184,6 +184,10 @@ export default {
     }
 
     watch(propValue, toResize, { deep: true })
+    onMounted(async () => {
+      await nextTick()
+      toResize()
+    })
 
     useAdmin('d-control-resize', context)
 

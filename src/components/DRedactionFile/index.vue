@@ -69,6 +69,7 @@ export default {
     const propValue = useWatch(value, data => {
       data.value = value.value
     })
+
     const propThumbnail = useWatch(thumbnail, async data => {
       if (thumbnail.value) {
         if (thumbnail.value instanceof File) {
