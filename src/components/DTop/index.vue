@@ -1,12 +1,16 @@
 <template>
   <div ref="top" :class="classList">
-    <d-button v-bind="propClose"/>
+    <d-button
+      v-bind="propClose"
+      @on-click="onClick"
+    />
     <div class="d-top__title" v-html="propAction ? textAction : text"/>
     <template v-if="propAction">
       <d-button
         v-for="item in propBarAction"
         :key="item.value"
         v-bind="item"
+        @on-click="onClick"
       />
     </template>
     <template v-else>
@@ -14,6 +18,7 @@
         v-for="item in propBar"
         :key="item.value"
         v-bind="item"
+        @on-click="onClick"
       />
     </template>
   </div>
@@ -23,8 +28,8 @@
 import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
 import useAction from '@/components/DAppBar/useAction'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DTop',
@@ -59,6 +64,7 @@ export default {
       [{ icon: props.iconClose }],
       {
         class: 'window-close',
+        value: 'cancel',
         shape: 'pill'
       }
     )[0])
@@ -72,6 +78,8 @@ export default {
       }
     })
 
+    const onClick = event => context.emit('on-click', event)
+
     useAdmin('d-top', context)
 
     return {
@@ -80,7 +88,8 @@ export default {
       propBarAction,
       propClose,
       propAction,
-      classList
+      classList,
+      onClick
     }
   }
 }

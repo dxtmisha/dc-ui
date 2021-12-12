@@ -27,7 +27,8 @@ export const timePickerMax = {
 }
 
 export const timePickerSwitchClock = {
-  value: 'switchClock'
+  value: 'switchClock',
+  default: true
 }
 
 export const timePickerFormat = {

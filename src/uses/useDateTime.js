@@ -3,7 +3,7 @@ import Geo from '@/classes/Geo'
 import GeoDate from '@/classes/GeoDate'
 
 export default function useDateTime (
-  type = 'date',
+  type,
   props,
   context
 ) {
@@ -102,6 +102,7 @@ export default function useDateTime (
     propValue.value = objectFocus.value.toStandard()
   }
   const resetDate = () => {
+    console.log('propValue.value = propOld.value', propValue.value, propOld.value)
     propValue.value = propOld.value
   }
   const emit = (type = 'on-input') => context.emit(type, {

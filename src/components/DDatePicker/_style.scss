@@ -1,0 +1,194 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+
+@mixin datePicker() {
+  @include datePickerVar;
+  max-width: 100%;
+  width: var(--_dp-width);
+}
+
+@mixin datePickerVar() {
+  --_dp-palette: var(--dp-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_dp-padding: var(--dp-padding, 24px);
+  --_dp-padding-y: var(--dp-padding-y, 8px);
+  --_dp-padding-top: var(--dp-padding-top, 16px);
+  --_dp-width: var(--dp-width, 328px);
+  --_dp--ds-width: var(--dp--ds-width, 256px);
+
+  --_dp__mn-height: var(--dp__mn-height, 56px);
+  --_dp__mn-padding: var(--dp__mn-padding, 12px);
+  --_dp__sl-padding-top: var(--dp__sl-padding-top, 32px);
+
+  --_dp--ml-width: var(--dp--ml-width, 360px);
+  --_dp--ds--ml-width: var(--dp--ds--ml-width, 513px);
+
+  --_dp--ln-padding: var(--dp--ln-padding, 16px);
+  --_dp--ln__hd-width: var(--dp--ln__hd-width, 160px);
+  --_dp--ln__mn-height: var(--dp--ln__mn-height, 48px);
+  --_dp--ln__mn-padding: var(--dp--ln__mn-padding, 4px);
+}
+
+@mixin datePickerHead() {
+  &__head {
+    --basic-text: var(--text-type2);
+    --basic-text-opacity: var(--opacity-primary-high);
+    background-color: varColor(--_dp-palette);
+    padding-bottom: calc(var(--_dp-padding-y) * 2);
+    padding-top: var(--_dp-padding-y);
+    @content;
+  }
+
+  &__spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &__title,
+  &__selected {
+    padding: 0 var(--_dp-padding);
+  }
+}
+
+@mixin datePickerManagement() {
+  &__management {
+  }
+}
+
+@mixin datePickerTitle() {
+  &__title {
+    @include font('overline');
+    padding-top: var(--_dp-padding-y);
+    @content;
+  }
+}
+
+@mixin datePickerSelected() {
+  &__selected {
+    @include flexX;
+    @include font('headline4');
+    padding-top: var(--_dp__sl-padding-top);
+    @content;
+  }
+
+  &__null {
+    --basic-text-opacity: var(--opacity-primary-medium);
+  }
+}
+
+@mixin datePickerBody() {
+  &__body {
+    @include flexY;
+  }
+}
+
+@mixin datePickerInput() {
+  &__input {
+    --cf-width: auto;
+    display: flex;
+    gap: 0 var(--_dp-padding-y);
+    padding: var(--_dp-padding-top) var(--_dp-padding);
+
+    &__item {
+      flex-basis: 1px;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+}
+
+@mixin datePickerMultiple() {
+  &.option-multiple {
+    --_dp-width: var(--_dp--ml-width);
+  }
+
+  &.option-multiple & {
+    &__selected {
+      @include font('headline5');
+      --_dp__sl-padding-top: var(--_dp-padding-top);
+    }
+  }
+}
+
+@mixin datePickerAdaptive() {
+  $this: &;
+
+  @include mediaMinList {
+    @include _datePickerAdaptiveMin($this);
+    @include _datePickerAdaptiveDesktop($this);
+  }
+
+  @include mediaMaxWidth(minimum) {
+    @include _datePickerAdaptiveMin($this);
+  }
+
+  &.adaptive-desktop {
+    @include _datePickerAdaptiveMin($this);
+    @include _datePickerAdaptiveDesktop($this);
+  }
+}
+
+@mixin _datePickerAdaptiveMin($this: &) {
+  --_dp-width: var(--_dp--ds-width);
+  --_dp--ml-width: var(--_dp--ds-width);
+}
+
+@mixin _datePickerAdaptiveDesktop($this: &) {
+  &.option-multiple {
+    --_dp-width: var(--_dp--ds--ml-width);
+  }
+
+  #{$this}__head,
+  #{$this}__management {
+    display: none;
+  }
+}
+
+@mixin datePickerLandscape() {
+  @media screen and (orientation: landscape) {
+    @include mediaMaxWidth(extra) {
+      --_dp-padding: var(--_dp--ln-padding);
+      --_dp__mn-height: var(--_dp--ln__mn-height);
+      --_dp__mn-padding: var(--_dp--ln__mn-padding);
+      display: flex;
+      width: auto;
+
+      &__content {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        max-width: 100%;
+        width: var(--_dp-width);
+      }
+
+      &__head {
+        display: flex;
+        flex-flow: column;
+        width: var(--_dp--ln__hd-width);
+      }
+
+      &__selected {
+        align-items: flex-start;
+        flex-flow: column;
+        flex-grow: 1;
+        gap: var(--_dp-padding-y) 0;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@mixin datePickerInit() {
+  @include datePicker;
+  @include datePickerHead;
+  @include datePickerManagement;
+  @include datePickerTitle;
+  @include datePickerSelected;
+  @include datePickerBody;
+  @include datePickerInput;
+  @include datePickerMultiple;
+  @include datePickerAdaptive;
+  @include datePickerLandscape;
+}

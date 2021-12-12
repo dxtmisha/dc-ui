@@ -23,6 +23,7 @@ export default function useMotion (
   const update = (start = false) => {
     if (
       propPage.value &&
+      propItem.value &&
       ((top >= 0 && propElement.value.scrollTop === top) || start)
     ) {
       propElement.value.scrollTop = propItem.value.offsetTop + distance + propElement.value.scrollTop - top
