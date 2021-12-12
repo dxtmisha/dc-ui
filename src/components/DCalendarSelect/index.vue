@@ -98,7 +98,7 @@ import DButton from '@/components/DButton'
 import DMotionAxis from '@/components/DMotionAxis'
 import DScrollbar from '@/components/DScrollbar'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useCalendar from './useCalendar'
 
@@ -113,6 +113,8 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
+    const { value } = toRefs(props)
+
     const motion = ref(undefined)
     const motionYears = ref(undefined)
     const years = ref(undefined)
@@ -124,6 +126,7 @@ export default {
       listMonths,
       active,
       activeLocale,
+      toActive,
       toPrevious,
       toNext,
       onSelected,
@@ -133,6 +136,7 @@ export default {
     } = useCalendar(
       motion,
       motionYears,
+      undefined,
       years,
       props,
       context
@@ -154,6 +158,9 @@ export default {
         'option-multiple': props.multiple
       }
     })
+
+    watch(value, toActive)
+    onMounted(toActive)
 
     useAdmin('d-calendar-select', context)
 

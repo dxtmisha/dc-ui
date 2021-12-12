@@ -1,21 +1,26 @@
-import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import useDateTime from '@/uses/useDateTime'
+
+const QUANTITY = 3
 
 export default function useCalendar (
   motion,
   motionYears,
+  scroll,
   years,
   props,
-  context
+  context,
+  desktop = undefined
 ) {
-  const { value } = toRefs(props)
-
   const list = ref({})
+  const listMobile = ref({})
   const active = ref(undefined)
 
   const {
     propValue,
     objectFocus,
+    objectMin,
+    objectMax,
     listYear,
     listMonth,
     object,
@@ -69,7 +74,17 @@ export default function useCalendar (
           value,
           previous,
           next,
-          slot: geo.toStandardMonth()
+          slot: geo.toStandardMonth(),
+          calendar: [
+            {
+              value: 'calendarMain',
+              item: value
+            },
+            {
+              value: 'calendarNext',
+              item: next
+            }
+          ]
         }
 
         nextTick().then(() => {
@@ -79,13 +94,48 @@ export default function useCalendar (
       }
     })
   }
+  const updateMobile = (date = undefined) => {
+    const value = date || getStandardMonth()
+    const month = object(value).getObject()
+    const startDay = objectMin.value.getStartDay()
+    const endDay = objectMax.value.getEndDay()
+
+    listMobile.value = {}
+
+    return new Promise(resolve => {
+      month.setMonth(month.getMonth() - QUANTITY)
+
+      for (let i = 0; i < ((QUANTITY * 2) + 1); i++) {
+        const index = objectFocus.value.toStandardMonth(month)
+
+        if (month >= startDay && month <= endDay) {
+          listMobile.value[index] = {
+            text: objectFocus.value.toStringMonth(index),
+            value: index
+          }
+        }
+
+        month.setMonth(month.getMonth() + 1)
+      }
+
+      nextTick().then(() => {
+        active.value = value
+        resolve(value)
+      })
+    })
+  }
 
   const toActive = async () => {
     await update()
-    motion.value.toGo(active.value)
+    motion.value?.toGo(active.value)
+  }
+  const toActiveMobile = async () => {
+    await updateMobile()
+    scroll.value?.update()
   }
   const toPrevious = async () => motion.value.toLeft(await update(getActiveItem().previous))
   const toNext = async () => motion.value.toRight(await update(getActiveItem().next))
+  const toMobile = async () => desktop.value ? await toActive() : await toActiveMobile()
 
   const onSelected = ({ selected }) => {
     propValue.value = selected
@@ -120,12 +170,10 @@ export default function useCalendar (
     }
   }
 
-  watch(value, toActive)
-  onMounted(toActive)
-
   return {
     propValue,
     list,
+    listMobile,
     listYears,
     listMonths,
     active,
@@ -135,9 +183,12 @@ export default function useCalendar (
     activeMonth,
     activeStandard,
     object,
+    update,
+    updateMobile,
     toActive,
     toPrevious,
     toNext,
+    toMobile,
     onSelected,
     onSelectedYear,
     onSelectedMonth,

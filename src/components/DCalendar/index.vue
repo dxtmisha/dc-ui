@@ -24,8 +24,8 @@
         class="d-calendar__name"
         :class="item.classList"
         :data-value="item.value"
-        @mouseover="onMouseover($event, item)"
-        @click="onClick($event, item)"
+        @mouseover="onMouseover(item)"
+        @click="onClick(item)"
       >
         <div class="d-calendar__day">{{ item.name }}</div>
         <slot :name="`day:${item.value}`"/>
@@ -45,10 +45,11 @@ import useWatch from '@/uses/useWatch'
 export default {
   name: 'DCalendar',
   props,
-  emits: ['on-selected'],
+  emits: ['on-selected', 'on-hover'],
   setup (props, context) {
     const { selected } = toRefs(props)
 
+    let hoverUpdate = false
     const hover = useWatch(selected, data => {
       data.value = undefined
     })
@@ -87,20 +88,35 @@ export default {
       }
     })
 
-    const onMouseout = () => {
-      hover.value = undefined
+    const onMouseout = event => {
+      if (hover.value !== undefined) {
+        hoverUpdate = true
+
+        setTimeout(() => {
+          if (hoverUpdate) {
+            hover.value = undefined
+            context.emit('on-hover', { item: undefined })
+          }
+        }, event ? 100 : 0)
+      }
     }
-    const onMouseover = (event, item) => {
+    const onMouseover = item => {
+      hoverUpdate = false
+
       if (
         props.multiple &&
         !item.output &&
         Array.isArray(props.selected) &&
-        props.selected.length < 2
+        props.selected.length < 2 && (
+          hover.value === undefined ||
+          hover.value[1] !== item.value
+        )
       ) {
         hover.value = [props.selected[0], item.value]
+        context.emit('on-hover', { item })
       }
     }
-    const onClick = (event, item) => {
+    const onClick = item => {
       if (!item.output) {
         context.emit('on-selected', {
           item,

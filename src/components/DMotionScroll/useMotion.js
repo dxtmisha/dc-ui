@@ -75,5 +75,7 @@ export default function useMotion (
     update(true)
   })
 
-  return {}
+  return {
+    update
+  }
 }

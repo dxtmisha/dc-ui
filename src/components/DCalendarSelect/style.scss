@@ -85,11 +85,11 @@
 @mixin calendarSelectShape() {
   &.shape- {
     &basic {
-      --_cs__bt-shape: var(--shape-basic);
+      --_cs__bt-shape: var(--basic-radius);
     }
 
     &rounded {
-      --_cs__bt-shape: var(--radius-roundedType3);
+      --_cs__bt-shape: var(--radius-type3);
     }
 
     &pill {

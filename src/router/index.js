@@ -6,6 +6,7 @@ import DemoButton from '../views/DemoButton'
 import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
 import DemoCalendar from '../views/DemoCalendar'
+import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoCheckbox from '../views/DemoCheckbox'
@@ -49,6 +50,7 @@ export const routes = getRoutes({
   'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,
   'd-calendar': DemoCalendar,
+  'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
   'd-checkbox': DemoCheckbox,

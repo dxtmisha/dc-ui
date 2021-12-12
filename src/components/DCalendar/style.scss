@@ -122,11 +122,11 @@
 @mixin calendarShape() {
   &.shape- {
     &basic {
-      --_cl__dy-shape: var(--shape-basic);
+      --_cl__dy-shape: var(--basic-radius);
     }
 
     &rounded {
-      --_cl__dy-shape: var(--radius-roundedType3);
+      --_cl__dy-shape: var(--radius-type3);
     }
 
     &pill {
@@ -241,13 +241,15 @@
   }
 
   #{$this}__name {
-    &.status-between.status-start::after {
+    &.status-between.status-start::after,
+    &.status-hover.status-start::after, {
       border-bottom-left-radius: var(--_cl__dy-shape);
       border-top-left-radius: var(--_cl__dy-shape);
       left: calc(var(--_cl__nm-padding) + var(--_cl__nm-margin));
     }
 
-    &.status-between.status-end::after {
+    &.status-between.status-end::after,
+    &.status-hover.status-end::after {
       border-bottom-right-radius: var(--_cl__dy-shape);
       border-top-right-radius: var(--_cl__dy-shape);
       right: calc(var(--_cl__nm-padding) + var(--_cl__nm-margin));

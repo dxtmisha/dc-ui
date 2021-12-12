@@ -20,6 +20,7 @@ import useScroll from '@/uses/useScroll'
 export default {
   name: 'DMotionScroll',
   props,
+  emits: ['on-scroll'],
   setup (props, context) {
     const id = `s--${getIdElement()}`
     const scroll = ref(undefined)
@@ -37,7 +38,7 @@ export default {
       }
     })
 
-    useMotion(
+    const { update } = useMotion(
       id,
       scroll,
       props,
@@ -51,7 +52,8 @@ export default {
     return {
       id,
       scroll,
-      classList
+      classList,
+      update
     }
   }
 }

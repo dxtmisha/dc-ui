@@ -3,9 +3,9 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-calendar-select
+    <d-calendar-multiple
       v-bind="binds"
-      id="id-calendar-select"
+      id="id-calendar-multiple"
       class="border"
       :value="binds.value || selected"
       :admin="true"
@@ -15,19 +15,19 @@
 </template>
 
 <script>
-import DCalendarSelect from '@/components/DCalendarSelect'
+import DCalendarMultiple from '@/components/DCalendarMultiple'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
-import { optionsCalendarSelect } from './options'
+import { optionsCalendarMultiple } from './options'
 
 export default {
-  name: 'DemoCalendarSelect',
+  name: 'DemoCalendarMultiple',
   components: {
-    DCalendarSelect,
+    DCalendarMultiple,
     InteractiveDemo
   },
   setup () {
-    const options = optionsCalendarSelect
+    const options = optionsCalendarMultiple
     const selected = ref(undefined)
 
     return {
