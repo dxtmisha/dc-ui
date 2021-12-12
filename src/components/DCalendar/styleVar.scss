@@ -1,6 +1,6 @@
 @mixin calendarVar() {
   --_cl-palette: var(--cl-palette, var(--background-overlay));
-  --_cl-status-palette: var(--cl-status-palette, var(--color-style-type1, var(--primary-type1)));
+  --_cl-status-palette: var(--cl-status-palette, var(--palette-type1, var(--primary-type1)));
   --_cl-text-palette: var(--cl-text-palette, var(--text-type1));
 
   --_cl-width: var(--cl-width, 328px);

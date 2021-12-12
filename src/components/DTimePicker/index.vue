@@ -267,7 +267,6 @@ export default {
       landscape: true
     }
     const bindActions = computed(() => {
-      console.log('propSwitchClock.value', propSwitchClock.value)
       return {
         class: 'd-time-picker__button',
         barManagement: [{

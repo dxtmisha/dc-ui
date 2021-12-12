@@ -1,6 +1,6 @@
 import {
   locales,
-  options,
+  options, palette,
   status,
   values
 } from '@/media/demo/options'
@@ -51,6 +51,7 @@ export const optionsTimePicker = {
   timePickerSwitchClock,
 
   options,
+  palette,
   locales,
   timePickerFormat
 }

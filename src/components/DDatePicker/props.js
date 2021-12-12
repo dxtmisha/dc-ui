@@ -1,5 +1,6 @@
 import { defaultInit } from '@/uses/useDefault'
 import { max, min } from '@/components/DCalendar/props'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-date-picker')
 export const props = {
@@ -16,6 +17,8 @@ export const props = {
   },
 
   // Options
+  palette,
+  color: String,
   locales: undefined,
   shape: undefined,
   adaptive: { default: defaultProps('adaptive', 'auto') },

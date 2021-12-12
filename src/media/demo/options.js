@@ -20,6 +20,7 @@ export const optionItem = { subtitle: 'Option: item' }
 export const optionList = { subtitle: 'Option: list' }
 export const optionMask = { subtitle: 'Option: mask' }
 export const optionMenu = { subtitle: 'Option: menu' }
+export const optionPicker = { subtitle: 'Option: picker' }
 export const optionPosition = { subtitle: 'Option: position' }
 export const optionSelect = { subtitle: 'Option: select' }
 export const optionSlider = { subtitle: 'Option: slider' }

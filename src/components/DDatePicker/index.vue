@@ -89,6 +89,7 @@ import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
 import useDateTime from '@/uses/useDateTime'
 import useWatch from '@/uses/useWatch'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DDatePicker',
@@ -122,6 +123,7 @@ export default {
       context
     )
 
+    const palette = useColor(props)
     const text = Translation.getByList([
       'Cancel',
       'Depart',
@@ -174,7 +176,8 @@ export default {
       return {
         'd-date-picker': true,
         [`adaptive-${props.adaptive}`]: props.adaptive,
-        'option-multiple': props.multiple
+        'option-multiple': props.multiple,
+        ...palette.value
       }
     })
 
