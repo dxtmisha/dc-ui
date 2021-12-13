@@ -1,15 +1,31 @@
-import { validator } from '@/uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
+import Translation from '@/classes/Translation'
 import { palette } from '@/uses/useColor'
 
-// const defaultProps = defaultInit('d-form')
+const defaultProps = defaultInit('d-form')
 export const props = {
   // Values
+  fields: [Array, Object],
+  values: Object,
   method: {
     type: String,
     default: 'post',
     validator: validator([
       'get',
       'post'
+    ])
+  },
+
+  // Actions
+  bar: {
+    type: [Array, Object],
+    default: defaultProps('bar', [
+      {
+        text: Translation.get('Save'),
+        appearance: 'contained',
+        value: 'save',
+        type: 'submit'
+      }
     ])
   },
 

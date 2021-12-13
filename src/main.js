@@ -1,3 +1,6 @@
+import './assets/tailwind.css'
+import './main.scss'
+
 import { createApp } from 'vue'
 import router from './router'
 import store from './store'
@@ -5,9 +8,6 @@ import store from './store'
 import Translation from '@/classes/Translation'
 import App from './App.vue'
 import dcUi from '@/dcUi'
-
-import './assets/tailwind.css'
-import './main.scss'
 
 Translation.init({
   'en-GB': [

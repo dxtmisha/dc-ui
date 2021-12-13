@@ -29,13 +29,14 @@
 
 @mixin fileVar() {
   --_if-blur: var(--if-blur, var(--blur-type1));
-  --_if-width: var(--if-width, 320px);
+  --_if-width: var(--if-width, 280px);
   --_if__vl-padding: var(--if__vl-padding, 8px);
 }
 
 @mixin fileText() {
   &__text {
     @include font('subtitle2');
+    --basic-text-opacity: var(--opacity-surface-medium);
     @content;
   }
 }

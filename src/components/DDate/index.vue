@@ -53,6 +53,7 @@ import usePicker from './usePicker'
 
 export default {
   name: 'DDate',
+  inheritAttrs: false,
   components: {
     DCarcassField,
     DDatePicker,

@@ -5,7 +5,12 @@
 @mixin initTypography() {
   *,
   *::after,
-  *::before {
+  *::before,
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
     animation-name: none;
     animation-duration: var(--transition-basic);
     animation-timing-function: linear;

@@ -52,6 +52,7 @@ import usePicker from './usePicker'
 
 export default {
   name: 'DTime',
+  inheritAttrs: false,
   components: {
     DCarcassField,
     DTimePicker,

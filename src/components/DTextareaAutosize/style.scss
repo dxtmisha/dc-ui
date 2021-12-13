@@ -1,6 +1,7 @@
 @mixin textareaAutosize() {
   font: inherit;
   max-width: 100%;
+  min-height: 128px;
   overflow: hidden;
   resize: none;
 }

@@ -7,7 +7,7 @@
     <d-form
       v-bind="binds"
       id="id-file"
-      name="interactive-demo"
+      :fields="fields"
       :admin="true"
       @on-submit="on"
     />
@@ -18,6 +18,7 @@
 import DForm from '@/components/DForm'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsForm } from './options'
+import form from '@/media/demo/list/form'
 
 export default {
   name: 'DemoForm',
@@ -27,7 +28,12 @@ export default {
   },
   setup () {
     const options = optionsForm
-    return { options }
+    const fields = form
+
+    return {
+      options,
+      fields
+    }
   },
   methods: {
     on (event) {

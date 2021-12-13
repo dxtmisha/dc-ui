@@ -16,17 +16,23 @@ export default function useCharacter (
     input.value.selectionStart = selection
   })
 
-  const character = useWatch([mask, value], data => {
-    data.value = []
+  const resetValue = value => {
+    const data = []
 
-    if (value.value) {
-      const chars = geo.value ? geo.value.setValue(value.value).toString() : value.value
+    if (value) {
+      const chars = geo.value ? geo.value.setValue(value).toString() : value
       chars.split('').forEach((char, selection) => {
         if (ifSpecialChar(charMask(selection))) {
-          data.value.push(char)
+          data.push(char)
         }
       })
     }
+
+    return data
+  }
+
+  const character = useWatch([mask, value], data => {
+    data.value = resetValue(value.value)
   })
   const standard = computed(() => {
     const value = []
@@ -81,6 +87,9 @@ export default function useCharacter (
   const setCharacter = (selection, char) => character.value.splice(selection, 0, char)
   const popCharacter = selection => character.value.splice(selection, 1)
 
+  const newValue = (value) => {
+    character.value = resetValue(value)
+  }
   const setValue = (selection, char) => {
     const wait = charMask(selection)
 
@@ -119,6 +128,7 @@ export default function useCharacter (
 
   return {
     standard,
+    newValue,
     setValue,
     pasteValue,
     popValue,

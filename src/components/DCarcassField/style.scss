@@ -73,6 +73,10 @@
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
     }
+
+    &:-webkit-autofill {
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   &__hidden {
@@ -91,6 +95,7 @@
     border-radius: inherit;
     display: flex;
     height: var(--_cf-half);
+    z-index: 2;
     @content;
 
     &::before,
@@ -157,6 +162,7 @@
     height: 0;
     transform: translateY(#{calc(-1 * var(--_cf-half))});
     width: 100%;
+    z-index: 2;
     @content;
   }
 

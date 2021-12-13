@@ -13,6 +13,7 @@
         @keydown="onKeydown"
         @paste.prevent="onPaste"
         @blur="onBlur"
+        @change="onChange"
       />
       <span ref="chars" class="d-mask__chars">
         <span
@@ -54,6 +55,7 @@ export default {
 
     const {
       standard,
+      newValue,
       setValue,
       pasteValue,
       popValue,
@@ -84,9 +86,11 @@ export default {
       onKeypress,
       onKeydown,
       onPaste,
-      onBlur
+      onBlur,
+      onChange
     } = useEvent(
       change,
+      newValue,
       setValue,
       popValue,
       pasteValue
@@ -122,7 +126,8 @@ export default {
       onKeypress,
       onKeydown,
       onPaste,
-      onBlur
+      onBlur,
+      onChange
     }
   }
 }

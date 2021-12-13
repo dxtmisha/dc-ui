@@ -1,5 +1,6 @@
 export default function useEvent (
   change,
+  newValue,
   setValue,
   popValue,
   pasteValue
@@ -48,11 +49,13 @@ export default function useEvent (
       change.value = false
     }
   }
+  const onChange = ({ target }) => newValue(target.value)
 
   return {
     onKeypress,
     onKeydown,
     onPaste,
-    onBlur
+    onBlur,
+    onChange
   }
 }
