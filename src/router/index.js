@@ -20,6 +20,7 @@ import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
 import DemoFile from '../views/DemoFile'
+import DemoForm from '../views/DemoForm'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../views/DemoInput'
@@ -68,6 +69,7 @@ export const routes = getRoutes({
   'd-dialog': DemoDialog,
   'd-drop': DemoDrop,
   'd-file': DemoFile,
+  'd-form': DemoForm,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,
   'd-input': DemoInput,

@@ -40,8 +40,8 @@ import useColor from '@/uses/useColor'
 export default {
   name: 'DAlert',
   components: {
-    DIcon,
-    DButton
+    DButton,
+    DIcon
   },
   props,
   setup (props, context) {

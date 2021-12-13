@@ -1,0 +1,7 @@
+@mixin form {
+
+}
+
+@mixin formInit {
+  @include form;
+}
