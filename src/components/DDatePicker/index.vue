@@ -14,7 +14,7 @@
           :icon-active="iconCalendar"
           :active="!propSwitchDate"
           appearance="text"
-          :shape="shape"
+          shape="pill"
           @click="onSwitch"
         />
       </div>

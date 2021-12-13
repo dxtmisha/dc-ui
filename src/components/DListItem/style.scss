@@ -68,7 +68,7 @@
   }
 
   &.value-trailing {
-    --_li__trailing-width: calc(24px + var(--_li-padding));
+    --_li__trailing-width: calc(24px + var(--_li-gap));
   }
 }
 
@@ -312,7 +312,7 @@
     @include afterAbsolute('top') {
       border-top-color: var(--basic-border);
       border-top-width: 1px;
-      right: calc((var(--_li-gap) + var(--_li__trailing-width, 0px)) * -1);
+      right: calc((var(--_li__trailing-width, 0px) + var(--_li-padding)) * -1);
       @content;
     }
   }
