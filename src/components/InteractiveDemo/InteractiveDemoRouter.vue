@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import router, { routes } from '@/router'
+import router from '@/router'
 import DButtonSelect from '@/components/DButtonSelect'
 
 export default {
@@ -22,14 +22,7 @@ export default {
   components: { DButtonSelect },
   computed: {
     routers () {
-      const routers = []
-
-      routes.forEach(item => routers.push({
-        text: item.name,
-        value: item.path
-      }))
-
-      return routers
+      return this.$menu()
     }
   },
   methods: {

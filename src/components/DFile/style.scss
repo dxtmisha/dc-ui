@@ -2,6 +2,7 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/media";
 @import "../../styles/position";
 @import "../../styles/options/optionBlur";
 @import "../../styles/options/optionShape";
@@ -72,6 +73,12 @@
       @include font('subtitle2');
       content: attr(data-text);
       opacity: var(--opacity-surface-medium);
+    }
+
+    @include mediaMinWidth() {
+      @include aspectRatio('1/1') {
+        height: var(--_if-width);
+      }
     }
   }
 
