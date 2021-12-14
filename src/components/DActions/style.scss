@@ -4,19 +4,34 @@
 
 @mixin actions {
   --_ac-gap: var(--ac-gap, 8px);
-  --_ac-height: var(--ac-height, 52px);
   --_ac-padding: var(--ac-padding, 8px);
+
+  --_ac-height: var(--ac-height, 52px);
+  --_ac--sm-height: var(--ac--sm-height, 44px);
+  --_ac--lr-height: var(--ac--lr-height, 60px);
 
   @include flexX;
   gap: var(--_ac-gap);
   min-height: var(--_ac-height);
-  padding: var(--_ac-padding);
+  padding: 0 var(--_ac-padding);
   max-width: 100%;
 }
 
 @mixin actionsSpacer {
   &__spacer {
     @include flexDynamic;
+  }
+}
+
+@mixin actionsSize {
+  &.size- {
+    &small {
+      --_ac-height: var(--_ac--sm-height);
+    }
+
+    &large {
+      --_ac-height: var(--_ac--lr-height);
+    }
   }
 }
 
@@ -34,8 +49,39 @@
   }
 }
 
+@mixin actionsAlign {
+  &.align-left.axis-y {
+    align-items: flex-start;
+  }
+
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.align-block {
+    justify-content: stretch;
+  }
+
+  &.align-block &__bar {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &.align-left &,
+  &.align-center &,
+  &.align-block & {
+    &__management,
+    &__spacer {
+      display: none;
+    }
+  }
+}
+
 @mixin actionsInit {
   @include actions;
   @include actionsSpacer;
+
+  @include actionsSize;
   @include actionsAxis;
+  @include actionsAlign;
 }

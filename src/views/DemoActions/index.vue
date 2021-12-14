@@ -8,6 +8,7 @@
       <d-actions
         v-bind="binds"
         id="id-actions"
+        class="border"
         :bar-management="barManagement"
         :admin="true"
       />

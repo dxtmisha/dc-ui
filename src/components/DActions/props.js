@@ -1,6 +1,7 @@
-import { validatorAxis } from '@/uses/useDefault'
+import { defaultInit, validator, validatorAxis, validatorSize } from '@/uses/useDefault'
 import Translation from '../../classes/Translation'
 
+const defaultProps = defaultInit('d-actions')
 export const props = {
   // Values
   bar: {
@@ -19,9 +20,23 @@ export const props = {
   barManagement: Array,
 
   // Options
+  size: {
+    type: String,
+    default: defaultProps('size'),
+    validator: validatorSize
+  },
   axis: {
     type: String,
     validator: validatorAxis
+  },
+  align: {
+    type: String,
+    validator: validator([
+      'center',
+      'left',
+      'right',
+      'block'
+    ])
   },
   attrsBar: Object,
   attrsBarManagement: Object

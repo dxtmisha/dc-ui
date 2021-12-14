@@ -34,8 +34,9 @@ export default {
 
       props.bar?.forEach(item => list.push({
         item,
-        class: 'window-close',
+        class: 'd-actions__bar window-close',
         appearance: 'text-color',
+        size: props.size,
         ...props.attrsBar,
         ...item
       }))
@@ -49,6 +50,7 @@ export default {
         item,
         class: 'd-actions__management',
         appearance: 'text',
+        size: props.size,
         shape: 'pill',
         ...props.attrsBarManagement,
         ...item
@@ -60,7 +62,9 @@ export default {
     const classList = computed(() => {
       return {
         'd-actions': true,
-        [`axis-${props.axis}`]: props.axis
+        [`size-${props.size}`]: props.size,
+        [`axis-${props.axis}`]: props.axis,
+        [`align-${props.align}`]: props.align
       }
     })
 
