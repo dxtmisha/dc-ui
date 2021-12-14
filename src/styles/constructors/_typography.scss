@@ -88,4 +88,8 @@
     overflow: hidden;
     vertical-align: bottom;
   }
+
+  .border, .\!border {
+    border-color: inherit;
+  }
 }

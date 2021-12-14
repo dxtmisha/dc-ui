@@ -3,6 +3,7 @@ import { getRoutes } from '@/dcUi'
 import DemoActions from '../views/DemoActions'
 import DemoAlert from '../views/DemoAlert'
 import DemoBadge from '../views/DemoBadge'
+import DemoBanner from '../views/DemoBanner'
 import DemoButton from '../views/DemoButton'
 import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
@@ -52,6 +53,7 @@ export const routes = getRoutes({
   's-basic': { subtitle: 'Basic' },
   'd-alert': DemoAlert,
   'd-badge': DemoBadge,
+  'd-banner': DemoBanner,
   'd-button': DemoButton,
   'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,

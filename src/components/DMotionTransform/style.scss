@@ -73,7 +73,7 @@
 
   &__context.status-window &__head,
   &__context.status-static:not(.adaptive-section) &__head {
-    transition: opacity 67ms linear 50ms;
+    transition: opacity 67ms linear 50ms, visibility 67ms linear 50ms;
   }
 
   &__context.status-window,
@@ -98,11 +98,12 @@
   &__context.status-window-open &__head,
   &__context.status-open:not(.adaptive-section) &__head {
     opacity: 0;
+    visibility: hidden;
   }
 
   &__context.status-window-open &__head,
   &__context.status-static.status-open:not(.adaptive-section) &__head {
-    transition: opacity 60ms linear 60ms;
+    transition: opacity 60ms linear 60ms, visibility 60ms linear 60ms;
   }
 }
 

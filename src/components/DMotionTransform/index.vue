@@ -20,7 +20,7 @@
           ref="body"
           class="d-motion-transform__body"
         >
-          <slot/>
+          <slot class-close="panel-close"/>
         </div>
       </div>
       <div

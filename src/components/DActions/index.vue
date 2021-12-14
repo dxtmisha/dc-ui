@@ -12,7 +12,7 @@
       v-for="item in propBar"
       v-bind="item"
       :key="item.value"
-      @onClick="onClick"
+      @on-click="onClick"
     />
     <slot name="bar"/>
   </div>

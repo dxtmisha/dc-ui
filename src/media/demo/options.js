@@ -167,6 +167,7 @@ export const step = {
     { value: 8 }
   ]
 }
+export const sticky = {}
 export const today = { default: true }
 export const top = {}
 export const vertical = {}

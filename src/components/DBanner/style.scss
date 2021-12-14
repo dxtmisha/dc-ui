@@ -1,0 +1,79 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+
+%flex {
+  @include flexX;
+  gap: 0 var(--_bn-gap);
+}
+%color-medium {
+  --basic-text-opacity: var(--opacity-surface-medium);
+}
+
+@mixin banner {
+  --_bn-gap: var(--bn-height, 16px);
+  --_bn-height: var(--bn-height, 52px);
+  --_bn-padding: var(--bn-padding, 16px);
+  --_bn-padding-bottom: var(--bn-padding-bottom, 8px);
+
+  --_bn__br-margin: var(--bn__br-margin, 36px);
+
+  border-bottom-width: var(--basic-border-width);
+
+  &--sticky {
+    background-color: varColor(--background-colorless);
+    position: sticky;
+    top: var(--basic-top);
+  }
+}
+
+@mixin bannerBody {
+  &__body {
+    @extend %flex;
+    flex-wrap: wrap;
+    max-width: var(--_bn-width, none);
+    margin: 0 auto;
+    padding-left: var(--_bn-padding);
+    padding-bottom: var(--_bn-padding-bottom);
+  }
+}
+
+@mixin bannerIcon {
+  &__icon {
+    @extend %color-medium;
+    min-width: var(--_ic-size);
+    @content;
+  }
+}
+
+@mixin bannerText {
+  &__text {
+    @include font('body2');
+    @extend %color-medium;
+    @extend %flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: var(--_bn-height);
+    padding: var(--_bn-padding) 0;
+    @content;
+  }
+}
+
+@mixin bannerBar {
+  &__bar {
+    --ac-height: 0;
+    flex-basis: max-content;
+    flex-grow: 1;
+    margin-left: calc(var(--_bn__br-margin) - var(--_bn-gap) - var(--_ac-padding, 0px));
+    @content;
+  }
+}
+
+@mixin bannerInit {
+  @include banner;
+  @include bannerBody;
+  @include bannerIcon;
+  @include bannerText;
+  @include bannerBar;
+}
