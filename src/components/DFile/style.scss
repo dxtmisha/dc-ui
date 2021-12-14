@@ -17,7 +17,7 @@
   position: relative;
 
   &__body {
-    border-color: varColor(--background-overlay, --opacity-scrim);
+    border-color: varColor(--background-outline, --opacity-outline);
     border-radius: inherit;
     border-width: 1px;
   }
@@ -55,7 +55,7 @@
   &__image {
     --ii-background-size: contain;
     @include aspectRatio('16/9') {
-      height: calc(var(--_if-width) / 4 * 3);
+      height: calc(var(--_if-width) / 16 * 9);
     }
     background-color: varColor(--background-overlay, --opacity-overlay);
     @include optionBlur(var(--_if-blur)) {
@@ -77,8 +77,8 @@
     }
 
     @include mediaMinWidth() {
-      @include aspectRatio('1/1') {
-        height: var(--_if-width);
+      @include aspectRatio('3/2') {
+        height: calc(var(--_if-width) / 3 * 2);
       }
     }
   }

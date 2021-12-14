@@ -71,6 +71,7 @@ export default {
       propValue,
       propCounter,
       checkValidity,
+      setChange,
       onSelect,
       onCancel,
       onCancelValue
@@ -111,6 +112,7 @@ export default {
       bindMenu,
       bindCarcassField,
       checkValidity,
+      setChange,
       onSelect,
       onPrevious,
       onNext,

@@ -87,9 +87,13 @@ export default {
       let type = 'on-click'
 
       if (
-        !props.readonly &&
-        !props.disabled
+        props.readonly ||
+        props.disabled ||
+        props.progress
       ) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
         if (
           props.iconReadonly &&
           event.target.closest('.bt-trailing')

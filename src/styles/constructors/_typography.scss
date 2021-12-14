@@ -77,6 +77,10 @@
   input,
   textarea {
     background-color: transparent;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: varColor(--basic-text, --basic-text-opacity);
+    }
   }
 
   img {

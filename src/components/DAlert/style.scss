@@ -120,10 +120,37 @@
   }
 }
 
+@mixin alertShow {
+  @keyframes __animate-alert--animation {
+    0% {
+      opacity: 0;
+      transform: scale(.92);
+    }
+
+    20% {
+      transform: scale(.92);
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &.option-show {
+    animation-duration: var(--transition-menu-expanding);
+    animation-name: __animate-alert--animation;
+  }
+}
+
 @mixin alertHide {
   &.status-hide {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scale(.96);
     visibility: hidden;
     @content;
   }
@@ -173,6 +200,7 @@
   @include alertShape;
   @include alertBorder;
   @include alertDense;
+  @include alertShow;
 
   @include alertHide;
 

@@ -40,12 +40,14 @@ export default [
       {
         name: 'birthday',
         text: 'Birthday',
+        icon: 'cake',
         component: 'd-date'
       },
       {
         class: 'basis-2',
         name: 'email',
         text: 'Email',
+        icon: 'alternate_email',
         helperMessage: 'Enter your email',
         type: 'email',
         autocomplete: 'email',
@@ -78,6 +80,7 @@ export default [
         class: 'basis-2',
         name: 'password',
         text: 'Password',
+        icon: 'password',
         type: 'password',
         autocomplete: 'new-password'
       }

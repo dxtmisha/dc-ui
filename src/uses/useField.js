@@ -62,6 +62,9 @@ export default function useField (
       ? value
       : value.length > 0 ? value : ''
   }
+  const setChange = () => {
+    change.value = true
+  }
   const cancel = () => {
     propValue.value = ''
   }
@@ -132,6 +135,7 @@ export default function useField (
     emit,
     emitFrame,
     set,
+    setChange,
     cancel,
     onEmit,
     onInput,

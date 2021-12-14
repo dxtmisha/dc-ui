@@ -40,6 +40,7 @@ export default {
       propValue,
       propCounter,
       checkValidity,
+      setChange,
       onInput,
       onChange
     } = useField(
@@ -70,6 +71,7 @@ export default {
       bindTextarea,
       bindCarcassField,
       checkValidity,
+      setChange,
       onInput,
       onChange
     }

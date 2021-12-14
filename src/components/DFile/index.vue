@@ -10,13 +10,6 @@
       :readonly="readonly"
       :disabled="disabled"
     >
-    <input
-      ref="files"
-      class="d-file__input"
-      :name="`${name}[file]`"
-      type="file"
-      multiple
-    >
     <div v-if="text" class="d-file__text">
       {{ text }}<span v-if="required" class="d-file__required"/>
     </div>
@@ -107,7 +100,6 @@ export default {
   props,
   setup (props, context) {
     const input = ref(undefined)
-    const files = ref(undefined)
     const drop = ref(undefined)
     const position = ref(undefined)
     const selection = ref(undefined)
@@ -122,7 +114,8 @@ export default {
     const {
       propValidationMessage,
       propValue,
-      checkValidity
+      checkValidity,
+      setChange
     } = useField(
       input,
       undefined,
@@ -131,6 +124,7 @@ export default {
     )
 
     const {
+      files,
       propFocus,
       list,
       json,
@@ -156,7 +150,8 @@ export default {
             title: Translation.get('Edit'),
             value: 'edit',
             disabled: propDisabled.value || !isOne.value || item.value?.thumbnail === props.iconFile,
-            shape: props.shape
+            shape: props.shape,
+            type: 'button'
           },
           {
             palette: 'error',
@@ -164,7 +159,8 @@ export default {
             title: Translation.get('Delete'),
             value: 'delete',
             disabled: propDisabled.value || !isSelected.value,
-            shape: props.shape
+            shape: props.shape,
+            type: 'button'
           },
           {
             icon: 'add',
@@ -174,7 +170,8 @@ export default {
               props.max &&
               props.max <= propValue.value?.length
             ),
-            shape: props.shape
+            shape: props.shape,
+            type: 'button'
           }
         ]
       }
@@ -242,7 +239,6 @@ export default {
 
     return {
       input,
-      files,
       drop,
       position,
       selection,
@@ -250,6 +246,8 @@ export default {
       translation,
       actions,
       propValidationMessage,
+      files,
+      propValue,
       propDisabled,
       list,
       json,
@@ -257,6 +255,8 @@ export default {
       isOne,
       classList,
       classItem,
+      checkValidity,
+      setChange,
       setSelected,
       onActions,
       onDrop,

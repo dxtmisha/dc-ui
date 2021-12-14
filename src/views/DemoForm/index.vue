@@ -10,6 +10,7 @@
       :fields="fields"
       :admin="true"
       @on-submit="on"
+      @on-validity="on"
     />
   </interactive-demo>
 </template>

@@ -43,36 +43,6 @@ export const fileValue = {
       text: 'image-06',
       value: 'image-06',
       thumbnail: require('@/assets/images/image-06.jpeg')
-    },
-    {
-      text: 'image-07',
-      value: 'image-07',
-      thumbnail: require('@/assets/images/image-07.jpeg')
-    },
-    {
-      text: 'image-08',
-      value: 'image-08',
-      thumbnail: require('@/assets/images/image-08.jpeg')
-    },
-    {
-      text: 'image-09',
-      value: 'image-09',
-      thumbnail: require('@/assets/images/image-09.jpeg')
-    },
-    {
-      text: 'image-10',
-      value: 'image-10',
-      thumbnail: require('@/assets/images/image-10.jpeg')
-    },
-    {
-      text: 'image-11',
-      value: 'image-11',
-      thumbnail: require('@/assets/images/image-11.jpeg')
-    },
-    {
-      text: 'image-12',
-      value: 'image-12',
-      thumbnail: require('@/assets/images/image-12.jpeg')
     }
   ]
 }

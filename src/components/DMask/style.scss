@@ -1,3 +1,4 @@
+@import "../../styles/font";
 @import "../../styles/position";
 
 @mixin mask() {
@@ -6,6 +7,7 @@
 
 @mixin maskShow() {
   &__view {
+    @include ellipsis;
     display: block;
     position: relative;
     width: 100%;
@@ -21,7 +23,7 @@
   }
 
   &__mask {
-    --basic-text-opacity: var(--opacity-scrim);
+    --basic-text-opacity: var(--ms__opacity, var(--opacity-scrim));
   }
 
   &__passed {
@@ -29,7 +31,7 @@
   }
 
   &__character {
-    --basic-text-opacity: var(--opacity-surface-high);
+    --basic-text-opacity: var(--ms__opacity, var(--opacity-surface-high));
 
     &.status-error {
       --basic-text: var(--error-type1);
@@ -50,7 +52,7 @@
 @mixin maskInput() {
   &__input {
     @include absoluteFull;
-    --basic-text-opacity: var(--opacity-surface-medium);
+    --basic-text-opacity: var(--ms__opacity, var(--opacity-surface-medium));
     text-align: inherit;
     width: 100%;
     z-index: 4;

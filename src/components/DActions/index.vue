@@ -8,13 +8,13 @@
       @on-click="onClick"
     />
     <span class="d-actions__spacer"/>
-    <slot name="bar"/>
     <d-button
       v-for="item in propBar"
       v-bind="item"
       :key="item.value"
       @onClick="onClick"
     />
+    <slot name="bar"/>
   </div>
 </template>
 

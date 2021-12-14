@@ -60,6 +60,7 @@ export default {
         [`shape-${props.shape}`]: props.shape,
         [`border-${props.border}`]: props.border,
         'option-dense': props.dense,
+        'option-show': props.animationShow,
         ...palette.value
       }
     })

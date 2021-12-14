@@ -37,8 +37,9 @@
   --_cf__pr-opacity: 1;
 }
 
-%status-disabled  {
+%status-disabled {
   --basic-text-opacity: var(--opacity-surface-disabled);
+  --ms__opacity: var(--opacity-surface-disabled);
   --_cf__tx-medium: var(--basic-text-opacity);
   --_cf-background-image: none;
   --_cf-border-opacity: var(--opacity-container-disabled);

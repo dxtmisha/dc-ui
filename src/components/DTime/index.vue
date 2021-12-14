@@ -67,6 +67,7 @@ export default {
       propValidationMessage,
       propValue,
       checkValidity,
+      setChange,
       onSelect,
       onCancel
     } = useField(
@@ -98,6 +99,7 @@ export default {
       bindPicker,
       bindCarcassField,
       checkValidity,
+      setChange,
       onSelect,
       onCancel
     }

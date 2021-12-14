@@ -1,0 +1,6 @@
+{
+  "error": "Spring Validation Message",
+  "validationMessage": {
+    "first-name": "Please introduce a text value for the field name."
+  }
+}

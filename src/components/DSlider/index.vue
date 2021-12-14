@@ -124,6 +124,7 @@ export default {
       textMax,
       textLabel,
       checkValidity,
+      setChange,
       onSelect,
       onChange
     } = useField(
@@ -174,6 +175,7 @@ export default {
       bindInput,
       classList,
       checkValidity,
+      setChange,
       onSelect,
       onChange,
       onInput,

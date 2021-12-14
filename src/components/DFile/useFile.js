@@ -97,6 +97,7 @@ export default function useFile (
   }
 
   return {
+    files,
     propSelected,
     propFocus,
     list,
