@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/uses/useDefault'
+import { defaultInit } from '@/uses/useDefault'
 import Translation from '@/classes/Translation'
 
 const defaultProps = defaultInit('d-banner')
@@ -15,13 +15,13 @@ export const props = {
   // Actions
   bar: {
     type: [Array, Object],
-    default: [
+    default: defaultProps('bar', [
       {
         class: 'panel-close',
         text: Translation.get('Dismiss'),
         value: 'close'
       }
-    ]
+    ])
   },
   axis: undefined,
 
@@ -36,6 +36,6 @@ export const props = {
   // Icon
   icon: undefined,
   iconBackground: {
-    default: defaultProps('iconBackground', 'true')
+    default: defaultProps('iconBackground', true)
   }
 }

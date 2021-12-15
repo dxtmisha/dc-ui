@@ -167,6 +167,14 @@ export const step = {
     { value: 8 }
   ]
 }
+export const timeout = {
+  list: [
+    { value: undefined },
+    { value: 2000 },
+    { value: 4000 },
+    { value: 8000 }
+  ]
+}
 export const sticky = {}
 export const today = { default: true }
 export const top = {}

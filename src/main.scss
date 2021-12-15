@@ -13,6 +13,10 @@
 @include init();
 @include initDark();
 
+#app {
+  padding-top: dimension(32);
+}
+
 header,
 main,
 footer {
@@ -27,7 +31,7 @@ header {
   border-radius: var(--basic-radius);
   box-shadow: var(--shadow-type4);
   gap: 8px;
-  margin: dimension(32) auto dimension(4);
+  margin: 0 auto dimension(4);
   padding: dimension(2) dimension(4);
   position: sticky;
   top: dimension(4);

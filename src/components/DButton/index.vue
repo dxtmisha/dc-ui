@@ -79,6 +79,7 @@ export default {
         [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
         'option-lowercase': props.lowercase,
         'option-dense': props.dense,
+        'option-ellipsis': props.ellipsis,
         ...palette.value
       }
     })

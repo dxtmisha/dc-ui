@@ -72,6 +72,10 @@ export const props = {
     default: defaultProps('lowercase')
   },
   dense: Boolean,
+  ellipsis: {
+    type: Boolean,
+    default: defaultProps('ellipsis', true)
+  },
   ripple: {
     type: Boolean,
     default: defaultProps('ripple', true)

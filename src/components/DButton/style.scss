@@ -76,10 +76,13 @@
 
 @mixin buttonText() {
   &__text {
-    @include ellipsis;
     @include flexDynamic;
     display: var(--_bt--ic-display, block);
     @content;
+  }
+
+  &.option-ellipsis &__text {
+    @include ellipsis;
   }
 }
 

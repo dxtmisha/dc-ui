@@ -41,6 +41,7 @@ import DemoSelect from '../views/DemoSelect'
 import DemoSelectValue from '../views/DemoSelectValue'
 import DemoSlider from '../views/DemoSlider'
 import DemoSliderPicker from '../views/DemoSliderPicker'
+import DemoSnackbar from '../views/DemoSnackbar'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../views/DemoTime'
@@ -62,6 +63,7 @@ export const routes = getRoutes({
   'd-list': DemoList,
   'd-progress': DemoProgress,
   'd-scrollbar': DemoScrollbar,
+  'd-snackbar': DemoSnackbar,
   'd-tooltip': DemoTooltip,
   'l-form': { line: true },
   's-form': { subtitle: 'Form' },

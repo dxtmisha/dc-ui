@@ -37,6 +37,7 @@ export default {
         class: 'd-actions__bar window-close',
         appearance: 'text-color',
         size: props.size,
+        ellipsis: false,
         ...props.attrsBar,
         ...item
       }))
@@ -52,6 +53,7 @@ export default {
         appearance: 'text',
         size: props.size,
         shape: 'pill',
+        ellipsis: false,
         ...props.attrsBarManagement,
         ...item
       }))
