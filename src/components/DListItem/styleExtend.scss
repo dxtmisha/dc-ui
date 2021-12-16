@@ -3,7 +3,7 @@
 @import "../../styles/font";
 
 @mixin mixinAdaptive() {
-  --_li-padding: 0;
+  --_li-padding: var(--_li--ic-padding);
   --_li--nr-height: var(--_li--nr--ic-height);
   --_li--ic-display: none;
   --_li__ic-padding: 0;

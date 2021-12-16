@@ -51,6 +51,7 @@ export const text = {
   default: true,
   message: 'Interactive demo'
 }
+export const textAction = { message: 'Action' }
 export const textLeading = { message: 'L' }
 export const textShort = {
   default: true,

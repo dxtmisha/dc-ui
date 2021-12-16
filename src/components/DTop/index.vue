@@ -46,8 +46,8 @@ export default {
         ...item,
         class: 'd-top__bar window-close',
         appearance: 'text',
-        size: 'small',
-        shape: props.shape,
+        size: 'medium',
+        shape: props.shape || (item.text || !item.icon ? undefined : 'pill'),
         adaptive: 'auto',
         lowercase: true,
         dense: true,
@@ -64,8 +64,7 @@ export default {
       [{ icon: props.iconClose }],
       {
         class: 'window-close',
-        value: 'cancel',
-        shape: 'pill'
+        value: 'cancel'
       }
     )[0])
 

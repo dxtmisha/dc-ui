@@ -43,7 +43,7 @@
 import DCarcassField from '@/components/DCarcassField'
 import DDatePicker from '@/components/DDatePicker'
 import DWindow from '@/components/DWindow'
-import { props } from '@/components/DDate/props'
+import { props } from './props'
 import { computed, ref } from 'vue'
 import GeoDate from '@/classes/GeoDate'
 import useAdmin from '@/uses/useAdmin'

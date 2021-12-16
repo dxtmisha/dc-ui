@@ -85,6 +85,7 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
+  iconTurn: Boolean,
   iconReadonly: Boolean,
   iconHide: undefined,
   iconAnimationShow: undefined,

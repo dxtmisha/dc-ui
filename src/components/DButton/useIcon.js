@@ -10,6 +10,7 @@ export default function useIcon (
       icon: props.icon,
       iconActive: props.iconActive,
       active: props.selected || props.active,
+      turn: props.iconTurn,
       disabled: props.disabled,
       hide: props.iconHide,
       size: 'small',

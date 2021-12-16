@@ -22,7 +22,7 @@ export const props = {
 
   // Options
   shape: String,
-  attrsButton: Object,
+  attrsList: Object,
 
   // Icon
   iconClose: {

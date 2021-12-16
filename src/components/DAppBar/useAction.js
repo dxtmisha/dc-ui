@@ -18,7 +18,8 @@ export default function useAction (
 
       EventControl.init(
         bar.value,
-        ({ propertyName }) => {
+        ({ propertyName, target }) => {
+          console.log('propertyName', propertyName, target)
           if (propertyName === 'opacity') {
             classHide.set(false)
             data.value = false

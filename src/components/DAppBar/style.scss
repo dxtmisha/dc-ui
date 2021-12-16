@@ -1,0 +1,123 @@
+@import "../../styles/color";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+@import "../../styles/padding";
+@import "../../styles/position";
+
+%padding-x {
+  @include paddingY(var(--_ab-padding))
+}
+
+@mixin appBar {
+  --_ab-palette-type1: var(--ab-palette-type1, var(--palette-type2, var(--primary-type1)));
+  --_ab-palette-type2: var(--ab-palette-type2, var(--palette-type1, var(--background-colorless)));
+  --_ab-palette-type3: var(--ab-palette-type3, var(--background-scrim));
+
+  --_ab-gap: var(--ab-gap, 32px);
+  --_ab-text-color: var(--ab-text-color, var(--text-type2));
+
+  --_ab-padding: var(--ab-padding, 8px);
+  --_ab--ds-padding: var(--ab--ds-padding, 12px);
+
+  --_ab-height: var(--ab-height, 56px);
+  --_ab--sm-height: var(--ab--sm-height, 48px);
+  --_ab--lr-height: var(--ab--lr-height, 64px);
+
+  --bt-palette-type1: var(--_ab-text-color);
+
+  --li-palette-type1: var(--_ab-text-color);
+  --li-gap: calc(var(--_ab-padding) / 2);
+  --li-text-color: var(--_ab-text-color);
+  --li--ic-padding: var(--_ab-padding);
+  --ls__li-padding: var(--_ab-padding);
+
+  @include fixedTop;
+  --basic-text: var(--_ab-text-color);
+  --basic-text-opacity: var(--opacity-primary-high);
+
+  @include mediaMinWidth {
+    --_ab-padding: var(--_ab--ds-padding);
+  }
+
+  &__spacer {
+    flex-grow: 1;
+  }
+}
+
+@mixin appBarBody {
+  &__body {
+    background-color: varColor(--_ab-palette-type1);
+    display: flex;
+    gap: var(--_ab-gap);
+    min-height: var(--_ab-height);
+    padding: 0 var(--_ab-padding);
+    transition-property: background-color;
+    @content;
+  }
+}
+
+@mixin appBarNavigation {
+  &__navigation {
+    @extend %flex-x;
+    --ii-font-size: 28px;
+    @content;
+  }
+}
+
+@mixin appBarTitle {
+  &__title {
+    @include font('headline6');
+    position: relative;
+    @content;
+  }
+
+  &__text {
+    @extend %flex-x;
+    @extend %padding-x;
+    height: 100%;
+  }
+
+  &__short {
+    @include absoluteFull;
+    @extend %flex-x;
+    @extend %padding-x;
+    opacity: 0;
+  }
+}
+
+@mixin appBarMenu {
+  &__menu.d-list {
+    display: none;
+
+    @include mediaMinWidth {
+      display: flex;
+    }
+  }
+}
+
+@mixin appBarAction {
+  &.status-action {
+    --basic-text: var(--text-inverse);
+    --bt-palette-type1: var(--text-inverse);
+    --_ab-palette-type1: var(--background-inverse);
+  }
+}
+
+@mixin appBarHide {
+  &.status-hide &__action {
+    opacity: 0;
+    transition-property: opacity;
+  }
+}
+
+@mixin appBarInit {
+  @include appBar;
+  @include appBarBody;
+  @include appBarNavigation;
+  @include appBarTitle;
+  @include appBarMenu;
+
+  @include appBarAction;
+  @include appBarHide;
+}

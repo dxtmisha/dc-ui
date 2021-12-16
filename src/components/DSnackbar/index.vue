@@ -28,7 +28,7 @@
 <script>
 import DActions from '@/components/DActions'
 import DIcon from '@/components/DIcon'
-import { props } from '@/components/DSnackbar/props'
+import { props } from './props'
 import { computed, nextTick, ref, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useClass from '@/uses/useClass'

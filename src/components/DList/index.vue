@@ -38,7 +38,7 @@
             v-bind="item.item"
             class="ls-menu window-static"
             :class="classList"
-            :icon-trailing="iconArrowRight"
+            :icon-trailing="axis === 'x' ? undefined : iconArrowRight"
             :focus="open || item.item.focus"
             :turn="open"
             :progress="progress"

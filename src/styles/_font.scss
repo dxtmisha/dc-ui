@@ -6,6 +6,11 @@
   text-transform: var(--font-#{$type}-transform, inherit);
 }
 
+@mixin colorPrimary($opacity: --opacity-primary-high) {
+  --basic-text: var(--text-type2);
+  --basic-text-opacity: var(#{$opacity});
+}
+
 @mixin clamp($clamp) {
   display: -webkit-box;
   -webkit-box-orient: vertical;

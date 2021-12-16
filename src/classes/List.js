@@ -10,6 +10,7 @@ export default class List {
   _key = 'value'
   _translation = []
   _group = {}
+  _addText = true
 
   _caching = {
     all: null,
@@ -21,12 +22,14 @@ export default class List {
     init = true,
     translation = [],
     text = 'text',
-    key = 'value'
+    key = 'value',
+    addText = true
   ) {
     this._init = init
+    this._translation = Array.isArray(translation) ? translation : []
     this._text = text
     this._key = key
-    this._translation = Array.isArray(translation) ? translation : []
+    this._addText = addText
 
     this.set(list)
   }
@@ -57,8 +60,11 @@ export default class List {
     if (typeof item === 'object') {
       data = {
         ...item,
-        value: item?.[this._key] || item?.value || value || undefined,
-        text: item?.[this._text] || item?.text || item?.value || ''
+        value: item?.[this._key] || item?.value || value || undefined
+      }
+
+      if (this._addText) {
+        data.text = item?.[this._text] || item?.text || item?.value || ''
       }
 
       if (item?.list) {
