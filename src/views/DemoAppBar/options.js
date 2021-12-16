@@ -26,7 +26,8 @@ export const appBarAppearance = {
   list: [
     { value: undefined },
     { value: 'contained' },
-    { value: 'translucency' }
+    { value: 'translucency' },
+    { value: 'transparent' }
   ]
 }
 

@@ -20,7 +20,8 @@ export default function useBar (props) {
       axis: 'x',
       tag: 'a',
       size: 'dynamic',
-      dense: true
+      dense: true,
+      iconAnimationShow: true
     }
   })
 

@@ -15,8 +15,8 @@
       <div class="d-app-bar__title">
         <span v-if="propAction && textAction" class="d-app-bar__text">{{ textAction }}</span>
         <template v-else>
-          <span v-if="text" class="d-app-bar__text">{{ text }}</span>
-          <span v-if="textShort" class="d-app-bar__short">{{ textShort }}</span>
+          <a v-if="text" class="d-app-bar__text a-static" :href="href">{{ text }}</a>
+          <a v-if="textShort" class="d-app-bar__short a-static" :href="href">{{ textShort }}</a>
         </template>
       </div>
       <template v-if="propAction">
@@ -52,10 +52,11 @@ import DButton from '@/components/DButton'
 import DList from '@/components/DList'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAction from '@/components/DAppBar/useAction'
+import useAction from './useAction'
 import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
 import useColor from '@/uses/useColor'
+import useScroll from './useScroll'
 
 export default {
   name: 'DAppBar',
@@ -75,16 +76,20 @@ export default {
     } = useBar(props)
     const { propAction } = useAction(app, props)
 
+    useScroll(app, props)
+
     const palette = useColor(props)
     const binds = computed(() => {
       return {
         class: {
           'd-app-bar': true,
+          'status-short': props.textShort,
           'status-action': propAction.value,
           [`appearance-${props.appearance}`]: props.appearance,
           [`scroll-${props.scroll}`]: props.scroll,
           [`size-${props.size}`]: props.size,
           [`shape-${props.shape}`]: props.shape,
+          'option-transform': props.transform,
           ...palette.value
         },
         style: {

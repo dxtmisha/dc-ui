@@ -26,10 +26,10 @@ footer {
 
 header {
   @include flexX;
-  @include index(4);
-  background: var(--background-type4);
+  @include index(3);
+  background: var(--background-type3);
   border-radius: var(--basic-radius);
-  box-shadow: var(--shadow-type4);
+  box-shadow: var(--shadow-type3);
   gap: 8px;
   margin: 0 auto dimension(4);
   padding: dimension(2) dimension(4);

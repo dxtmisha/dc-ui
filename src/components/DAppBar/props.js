@@ -7,6 +7,11 @@ export const props = {
   text: String,
   textAction: String,
   textShort: String,
+  href: String,
+  element: {
+    type: undefined,
+    default: defaultProps('element', window)
+  },
 
   // Actions
   bar: Array,
@@ -42,7 +47,8 @@ export const props = {
     default: defaultProps('appearance', 'contained'),
     validator: validator([
       'contained',
-      'translucency'
+      'translucency',
+      'transparent'
     ])
   },
   scroll: {
@@ -59,7 +65,10 @@ export const props = {
     type: String,
     default: null
   },
-  transform: Number,
+  transform: {
+    type: Number,
+    default: 0
+  },
   src: String,
   size: {
     type: String,

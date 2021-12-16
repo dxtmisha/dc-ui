@@ -1,40 +1,39 @@
 @import "../../styles/color";
+@import "../../styles/elevation";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
 @import "../../styles/padding";
 @import "../../styles/position";
+@import "../../styles/options/optionShape";
 
 %padding-x {
-  @include paddingY(var(--_ab-padding))
+  @include paddingY(var(--_ab-padding));
+}
+
+%max-height {
+  max-height: var(--_ab-height);
 }
 
 @mixin appBar {
   --_ab-palette-type1: var(--ab-palette-type1, var(--palette-type2, var(--primary-type1)));
   --_ab-palette-type2: var(--ab-palette-type2, var(--palette-type1, var(--background-colorless)));
-  --_ab-palette-type3: var(--ab-palette-type3, var(--background-scrim));
+  --_ab-palette-type3: var(--ab-palette-type3, transparent);
 
   --_ab-gap: var(--ab-gap, 32px);
-  --_ab-text-color: var(--ab-text-color, var(--text-type2));
+  --_ab-width: var(--ab-width, auto);
 
   --_ab-padding: var(--ab-padding, 8px);
   --_ab--ds-padding: var(--ab--ds-padding, 12px);
+  --_ab--sh-padding: var(--ab--sh-padding, #{4px 8px 0});
 
   --_ab-height: var(--ab-height, 56px);
   --_ab--sm-height: var(--ab--sm-height, 48px);
   --_ab--lr-height: var(--ab--lr-height, 64px);
 
-  /*
-  --bt-palette-type1: var(--_ab-text-color);
-
-  --li-palette-type1: var(--_ab-text-color);
-  --li-gap: calc(var(--_ab-padding) / 2);
-  --li-text-color: var(--_ab-text-color);
-  --li--ic-padding: var(--_ab-padding);
-  --ls__li-padding: var(--_ab-padding);
-*/
   @include fixedTop;
-  --basic-text: var(--_ab-text-color);
+  @include index(4);
+  --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
 
   @include mediaMinWidth {
@@ -49,11 +48,16 @@
 @mixin appBarBody {
   &__body {
     background-color: varColor(--_ab-palette-type1);
+    background-image: var(--_ab-background-image);
+    border-radius: inherit;
+    box-shadow: var(--shadow-type4);
     display: flex;
     gap: var(--_ab-gap);
+    margin: 0 auto;
+    max-width: var(--_ab-width);
     min-height: var(--_ab-height);
     padding: 0 var(--_ab-padding);
-    transition-property: background-color;
+    transition-property: background, box-shadow, border, color;
     @content;
   }
 }
@@ -61,6 +65,7 @@
 @mixin appBarNavigation {
   &__navigation {
     @extend %flex-x;
+    @extend %max-height;
     --ii-font-size: 28px;
     @content;
   }
@@ -85,11 +90,30 @@
     @extend %padding-x;
     opacity: 0;
   }
+
+  &.option-transform.status-short & {
+    &__text {
+      align-items: flex-end;
+      max-height: var(--_ab-height);
+      opacity: calc(1 - var(--_ab-percent));
+    }
+
+    &__short {
+      padding-top: calc(var(--_ab-transform) - var(--_ab-scroll) + var(--_ab-padding));
+      opacity: var(--_ab-percent);
+    }
+  }
+
+  &.option-transform &__title {
+    padding-top: calc(var(--_ab-transform) - var(--_ab-scroll));
+  }
 }
 
 @mixin appBarMenu {
   &__menu.d-list {
+    @extend %max-height;
     display: none;
+    @content;
 
     @include mediaMinWidth {
       display: flex;
@@ -97,11 +121,75 @@
   }
 }
 
+@mixin appBarBar {
+  &__bar {
+    @extend %max-height;
+    @content;
+  }
+}
+
 @mixin appBarAction {
+  &__action {
+    @extend %max-height;
+    @content;
+  }
+
   &.status-action {
     --basic-text: var(--text-inverse);
     --bt-palette-type1: var(--text-inverse);
     --_ab-palette-type1: var(--background-inverse);
+  }
+
+  &.status-action &__body {
+    background-image: none;
+  }
+}
+
+@mixin appBarDisappears {
+  &.scroll-disappears {
+    top: var(--_ab-top);
+  }
+}
+
+@mixin appBarElevation {
+  &.scroll-elevation:not(.status-sticky) &__body {
+    box-shadow: none;
+  }
+  &.scroll-elevation.appearance-transparent:not(.status-sticky) &__body {
+    --basic-text: var(--text-type1);
+    background-color: var(--_ab-palette-type3);
+  }
+}
+
+@mixin appBarSize() {
+  &.size- {
+    &small {
+      --_ab-height: var(--_ab--sm-height);
+    }
+
+    &large {
+      --_ab-height: var(--_ab--lr-height);
+    }
+  }
+}
+
+@mixin appBarShape() {
+  @include optionShape;
+
+  &.shape-basic,
+  &.shape-rounded,
+  &.shape-pill {
+    padding: var(--_ab--sh-padding);
+  }
+}
+
+@mixin appBarBorder {
+  &.scroll-border &__body {
+    box-shadow: none;
+  }
+
+  &.scroll-border.status-sticky &__body {
+    border-bottom-width: var(--basic-border-width);
   }
 }
 
@@ -118,7 +206,14 @@
   @include appBarNavigation;
   @include appBarTitle;
   @include appBarMenu;
-
+  @include appBarBar;
   @include appBarAction;
+
+  @include appBarDisappears;
+  @include appBarElevation;
+  @include appBarBorder;
+  @include appBarSize;
+  @include appBarShape;
+
   @include appBarHide;
 }

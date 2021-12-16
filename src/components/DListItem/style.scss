@@ -233,6 +233,9 @@
 
   &.adaptive-icon {
     @include mixinAdaptive;
+    @include mediaMinWidth {
+      --_li--ic-padding: var(--_li--ic--ds-padding);
+    }
     @content;
   }
 

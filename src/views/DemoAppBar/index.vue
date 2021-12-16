@@ -1,6 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
+    :sticky="false"
     v-slot:default="{ binds }"
   >
     <div class="demo-app-bar">
@@ -23,6 +24,7 @@ import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import action from '@/media/demo/list/action'
 import { optionsAppBar } from './options'
 import { alexanderPushkin } from '@/media/demo/data/text'
+import { onBeforeMount, onUnmounted } from 'vue'
 
 export default {
   name: 'DemoAppBar',
@@ -34,6 +36,9 @@ export default {
     const options = optionsAppBar
     const barAction = action
     const text = alexanderPushkin
+
+    onBeforeMount(() => document.body.classList.add('demo-app-bar__body'))
+    onUnmounted(() => document.body.classList.remove('demo-app-bar__body'))
 
     return {
       options,
@@ -47,5 +52,9 @@ export default {
 <style lang="scss">
 .demo-app-bar {
   width: 100%;
+
+  &__body header {
+    top: 4px;
+  }
 }
 </style>

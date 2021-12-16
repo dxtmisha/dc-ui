@@ -87,6 +87,7 @@
 
 @mixin listAxis() {
   &.axis-x {
+    --li-gap: var(--_ls--ax-gap);
     --li-padding: var(--_ls__li-padding);
     --_ls-padding: 0;
     display: flex;

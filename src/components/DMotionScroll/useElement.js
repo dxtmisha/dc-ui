@@ -27,7 +27,6 @@ export default function useElement (
   }
 
   watch(propElement, () => switchEvent())
-
   onMounted(switchEvent)
 
   return {
