@@ -24,6 +24,7 @@
   --_ab--sm-height: var(--ab--sm-height, 48px);
   --_ab--lr-height: var(--ab--lr-height, 64px);
 
+  /*
   --bt-palette-type1: var(--_ab-text-color);
 
   --li-palette-type1: var(--_ab-text-color);
@@ -31,7 +32,7 @@
   --li-text-color: var(--_ab-text-color);
   --li--ic-padding: var(--_ab-padding);
   --ls__li-padding: var(--_ab-padding);
-
+*/
   @include fixedTop;
   --basic-text: var(--_ab-text-color);
   --basic-text-opacity: var(--opacity-primary-high);
