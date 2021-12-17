@@ -8,7 +8,10 @@ export default function useEvent (
   context,
   propOpen
 ) {
-  const emit = () => context.emit('on-open', { open: !props.open })
+  const emit = target => context.emit('on-open', {
+    open: !props.open,
+    target
+  })
   const event = EventControl.init(document.body, ({ target }) => {
     const selector = getIdElement(content.value, '')
 
@@ -18,7 +21,7 @@ export default function useEvent (
         (props.autoClose && !target.closest(selector))
       )
     ) {
-      emit()
+      emit(target)
     }
   })
 
@@ -29,7 +32,7 @@ export default function useEvent (
       props.click &&
       !target.closest('.panel-static')
     ) {
-      emit()
+      emit(target)
     }
   }
 

@@ -31,6 +31,11 @@
   --_ab--sm-height: var(--ab--sm-height, 48px);
   --_ab--lr-height: var(--ab--lr-height, 64px);
 
+  --_ab__cn-padding: var(--ab__cn-padding, 16px);
+  --_ab__cn-top: var(--ab__cn-top, 8px);
+
+  --li-palette-select: var(--text-type2);
+
   @include fixedTop;
   @include index(4);
   --basic-text: var(--text-type2);
@@ -145,6 +150,25 @@
   }
 }
 
+@mixin appBarContent {
+  &__content {
+    --basic-text: var(--text-type1);
+    background: var(--background-type4);
+    border-radius: inherit;
+    box-shadow: var(--shadow-type4);
+    position: relative;
+    z-index: 4;
+  }
+
+  &.shape-basic &,
+  &.shape-rounded &,
+  &.shape-pill & {
+    &__content {
+      margin-top: var(--_ab__cn-top);
+    }
+  }
+}
+
 @mixin appBarDisappears {
   &.scroll-disappears {
     top: var(--_ab-top);
@@ -157,6 +181,7 @@
   }
   &.scroll-elevation.appearance-transparent:not(.status-sticky) &__body {
     --basic-text: var(--text-type1);
+    --li-palette-select: var(--text-type1);
     background-color: var(--_ab-palette-type3);
   }
 }
@@ -208,6 +233,7 @@
   @include appBarMenu;
   @include appBarBar;
   @include appBarAction;
+  @include appBarContent;
 
   @include appBarDisappears;
   @include appBarElevation;

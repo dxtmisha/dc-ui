@@ -43,7 +43,7 @@ import useScroll from '@/uses/useScroll'
 export default {
   name: 'DMotionTransform',
   props,
-  emits: ['on-open'],
+  emits: ['on-open', 'on-close'],
   setup (props, context) {
     const transform = ref(undefined)
     const content = ref(undefined)
@@ -62,6 +62,7 @@ export default {
     } = useClasses(
       transform,
       content,
+      context,
       propOpen
     )
 

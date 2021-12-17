@@ -94,13 +94,10 @@ export default {
     })
 
     const onClick = event => context.emit('on-click', event)
-    const onGroup = (value, open) => {
-      console.warn('value', value, open)
-      context.emit('on-group', {
-        value,
-        open
-      })
-    }
+    const onGroup = (value, open) => context.emit('on-group', {
+      value,
+      open
+    })
 
     useAdmin('d-list', context)
 

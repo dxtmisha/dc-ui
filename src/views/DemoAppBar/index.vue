@@ -11,9 +11,18 @@
           id="id-app-bar"
           :bar-action="barAction"
           :admin="true"
-        />
+        >
+          <template v-slot:find_friends>
+            <div class="p-2 border text-center panel-close cursor-default">Close</div>
+            <div class="p-4" v-html="text[1]"/>
+          </template>
+          <template v-slot:profile>
+            <div class="p-2 border text-center panel-close cursor-default">Close</div>
+            <div class="p-4" v-html="text[2]"/>
+          </template>
+        </d-app-bar>
       </teleport>
-      <div class="pt-4" v-html="text"/>
+      <div class="pt-4" v-html="text[0]"/>
     </div>
   </interactive-demo>
 </template>
@@ -23,7 +32,7 @@ import DAppBar from '@/components/DAppBar'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import action from '@/media/demo/list/action'
 import { optionsAppBar } from './options'
-import { alexanderPushkin } from '@/media/demo/data/text'
+import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
 import { onBeforeMount, onUnmounted } from 'vue'
 
 export default {
@@ -35,7 +44,7 @@ export default {
   setup () {
     const options = optionsAppBar
     const barAction = action
-    const text = alexanderPushkin
+    const text = [alexanderPushkin, textarea, leoTolstoy]
 
     onBeforeMount(() => document.body.classList.add('demo-app-bar__body'))
     onUnmounted(() => document.body.classList.remove('demo-app-bar__body'))

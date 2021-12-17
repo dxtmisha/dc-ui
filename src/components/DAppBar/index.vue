@@ -19,6 +19,12 @@
           <a v-if="textShort" class="d-app-bar__short a-static" :href="href">{{ textShort }}</a>
         </template>
       </div>
+      <slot
+        classTitle="d-app-bar__title"
+        classSpacer="d-app-bar__spacer"
+        classAction="d-app-bar__action"
+        classMenu="d-app-bar__menu"
+      />
       <template v-if="propAction">
         <div class="d-app-bar__spacer"/>
         <d-list
@@ -32,24 +38,40 @@
           v-bind="bindList"
           class="d-app-bar__menu"
           :list="propBarMenu"
-          :selected="selected"
+          :selected="propSelected"
+          @on-click="onClick"
         />
         <div class="d-app-bar__spacer"/>
         <d-list
           v-bind="bindList"
           class="d-app-bar__bar"
           :list="propBar"
-          :selected="selected"
+          :selected="propSelected"
+          @on-click="onClick"
         />
       </template>
     </div>
-    <div class="d-app-bar__content"></div>
+    <div v-if="contentShow" class="d-app-bar__content">
+      <d-motion-transform
+        :open="contentOpen"
+        @on-open="onOpen"
+        @on-close="onClose"
+      >
+        <template v-slot:head>
+          <slot name="head"/>
+        </template>
+        <template v-slot:default>
+          <slot :name="contentSelected"/>
+        </template>
+      </d-motion-transform>
+    </div>
   </div>
 </template>
 
 <script>
 import DButton from '@/components/DButton'
 import DList from '@/components/DList'
+import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAction from './useAction'
@@ -57,14 +79,17 @@ import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
 import useColor from '@/uses/useColor'
 import useScroll from './useScroll'
+import useSelected from './useSelected'
 
 export default {
   name: 'DAppBar',
   components: {
     DButton,
-    DList
+    DList,
+    DMotionTransform
   },
   props,
+  emits: ['on-click'],
   setup (props, context) {
     const app = ref(undefined)
 
@@ -74,6 +99,21 @@ export default {
       propBarAction,
       bindList
     } = useBar(props)
+
+    const {
+      propSelected,
+      contentSelected,
+      contentShow,
+      contentOpen,
+      onClick,
+      onOpen,
+      onClose
+    } = useSelected(
+      app,
+      props,
+      context
+    )
+
     const { propAction } = useAction(app, props)
 
     useScroll(app, props)
@@ -108,8 +148,15 @@ export default {
       propBarMenu,
       propBarAction,
       propAction,
+      propSelected,
+      contentSelected,
+      contentShow,
+      contentOpen,
       bindList,
-      binds
+      binds,
+      onClick,
+      onOpen,
+      onClose
     }
   }
 }

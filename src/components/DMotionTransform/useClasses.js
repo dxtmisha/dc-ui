@@ -4,6 +4,7 @@ import useClass from '@/uses/useClass'
 export default function useClasses (
   transform,
   content,
+  context,
   propOpen
 ) {
   const classStatic = useClass(content, 'status-static')
@@ -34,6 +35,10 @@ export default function useClasses (
   }, 'px')
 
   const reset = () => {
+    if (!propOpen.value) {
+      context.emit('on-close')
+    }
+
     styleTransform.reset(!propOpen.value)
     styleContent.reset()
   }
