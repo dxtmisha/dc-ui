@@ -111,7 +111,8 @@ export default {
     } = useSelected(
       app,
       props,
-      context
+      context,
+      [propBar, propBarMenu]
     )
 
     const { propAction } = useAction(app, props)

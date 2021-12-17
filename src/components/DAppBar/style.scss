@@ -5,6 +5,7 @@
 @import "../../styles/media";
 @import "../../styles/padding";
 @import "../../styles/position";
+@import "../../styles/options/optionBlur";
 @import "../../styles/options/optionShape";
 
 %padding-x {
@@ -36,6 +37,8 @@
 
   --li-palette-select: var(--text-type2);
 
+  --_ab-background-opacity: var(--opacity-primary-high);
+
   @include fixedTop;
   @include index(4);
   --basic-text: var(--text-type2);
@@ -52,7 +55,7 @@
 
 @mixin appBarBody {
   &__body {
-    background-color: varColor(--_ab-palette-type1);
+    background-color: varColor(--_ab-palette-type1, --_ab-background-opacity);
     background-image: var(--_ab-background-image);
     border-radius: inherit;
     box-shadow: var(--shadow-type4);
@@ -169,6 +172,18 @@
   }
 }
 
+@mixin appBarTranslucency {
+  &:not(.status-action).appearance-translucency {
+    --_ab-palette-type1: var(--_ab-palette-type2);
+    --_ab-background-opacity: var(--opacity-surface-medium);
+    @include optionBlur(var(--blur-type3)) {
+      --_ab-background-opacity: var(--opacity-primary-medium);
+    }
+    --basic-text: var(--text-type1);
+    --li-palette-select: var(--text-type1);
+  }
+}
+
 @mixin appBarDisappears {
   &.scroll-disappears {
     top: var(--_ab-top);
@@ -235,6 +250,7 @@
   @include appBarAction;
   @include appBarContent;
 
+  @include appBarTranslucency;
   @include appBarDisappears;
   @include appBarElevation;
   @include appBarBorder;
