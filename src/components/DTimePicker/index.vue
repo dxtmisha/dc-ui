@@ -250,22 +250,28 @@ export default {
       size: 'interactive-display',
       cancel: false
     }
-    const bindAmPm = {
-      class: 'd-time-picker__group',
-      list: [
-        {
-          text: text.AM,
-          value: 'am'
-        },
-        {
-          text: text.PM,
-          value: 'pm'
-        }
-      ],
-      appearance: 'outlined',
-      axis: 'y',
-      landscape: true
-    }
+    const bindAmPm = computed(() => {
+      const code = (Intl && 'DisplayNames' in Intl)
+        ? new Intl.DisplayNames(props.locales, { type: 'dateTimeField' }).of('dayPeriod').split('/')
+        : []
+
+      return {
+        class: 'd-time-picker__group',
+        list: [
+          {
+            text: code?.[0] || text.AM,
+            value: 'am'
+          },
+          {
+            text: code?.[1] || text.PM,
+            value: 'pm'
+          }
+        ],
+        appearance: 'outlined',
+        axis: 'y',
+        landscape: true
+      }
+    })
     const bindActions = computed(() => {
       return {
         class: 'd-time-picker__button',

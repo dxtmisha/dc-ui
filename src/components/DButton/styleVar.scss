@@ -1,5 +1,5 @@
 @mixin buttonVar() {
-  --_bt-palette-type1: var(--bt-palette-type1, var(--palette-type1, var(--background-overlay)));
+  --_bt-palette-type1: var(--bt-palette-type1, var(--palette-type1, var(--basic-text)));
   --_bt-palette-type2: var(--bt-palette-type2, var(--palette-type1, var(--primary-type1)));
   --_bt-palette-select: var(--bt-palette-select, var(--palette-type2, var(--primary-type2)));
   --_bt-palette-image: var(--bt-palette-image, var(--_bt-palette-type1));

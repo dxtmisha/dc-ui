@@ -189,7 +189,6 @@ export default {
       emit()
     }
     const onInput = event => {
-      console.log('event', event)
       if (event.validation) {
         if (props.multiple) {
           const valueIn = inputIn.value?.propValue

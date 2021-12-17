@@ -132,8 +132,14 @@ export default function useOpen (
     }
   }
 
-  const onTransition = ({ propertyName }) => {
-    if (propertyName === 'visibility') {
+  const onTransition = ({
+    target,
+    propertyName
+  }) => {
+    if (
+      target.classList.contains('d-window__body') &&
+      propertyName === 'visibility'
+    ) {
       open.value = false
     }
   }

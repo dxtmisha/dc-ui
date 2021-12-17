@@ -14,7 +14,7 @@
 }
 
 %background-filled {
-  --basic-text: var(--text-type2);
+  --_bt-basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
   --ic-palette: var(--_bt-palette-image);
 
@@ -52,7 +52,7 @@
 }
 
 %text-color {
-  --basic-text: var(--_bt-palette-type2);
+  --_bt-basic-text: var(--_bt-palette-type2);
   --_bt-palette-type1: var(--_bt-palette-type2);
 }
 

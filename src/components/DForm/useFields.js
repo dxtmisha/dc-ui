@@ -30,8 +30,6 @@ export default function useFields (props) {
   })
   const propFields = useWatch([fields, options], data => {
     data.value = read(fields.value)
-
-    console.log('read', data.value)
     items.value = {}
   })
 

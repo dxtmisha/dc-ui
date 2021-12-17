@@ -18,6 +18,7 @@
   --pr-palette: var(--basic-text);
   --rp-palette: var(--_bt-palette-image);
 
+  --_bt-basic-text: var(--basic-text);
   --_bt-background: var(--_bt-palette-type1);
   --_bt-border: var(--background-overlay);
   --_bt-border--before-opacity: 0;
@@ -45,6 +46,10 @@
     border-color: varColor(--_bt-palette-image, --_bt-border--before-opacity);
     transition-duration: var(--transition-large-expanding);
     transition-property: border-color;
+  }
+
+  &, & * {
+    color: varColor(--_bt-basic-text, --basic-text-opacity);
   }
 }
 
@@ -311,7 +316,7 @@
   &:disabled,
   &.status-disabled {
     @extend %border-before-none;
-    --basic-text: var(--text-type1);
+    --_bt-basic-text: var(--text-type1);
     --basic-text-opacity: var(--opacity-surface-disabled);
     --_bt-palette-type1: var(--disabled-type1);
     --_bt-palette-type2: var(--disabled-type1);

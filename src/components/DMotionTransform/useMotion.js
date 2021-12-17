@@ -60,8 +60,12 @@ export default function useMotion (
     })
   }
 
-  const update = () => {
+  const update = async () => {
     if (!!props.open !== propOpen.value) {
+      if (!propOpen.value) {
+        await nextTick()
+      }
+
       if (getComputedStyle(content.value).content === '"--WINDOW--"') {
         toggle()
       } else if (animation()) {
