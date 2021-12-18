@@ -57,7 +57,8 @@ export const props = {
       'auto-medium',
       'auto-large',
       'auto-extra',
-      'auto-desktop'
+      'auto-desktop',
+      'fixed'
     ])
   },
   navigationRail: undefined,

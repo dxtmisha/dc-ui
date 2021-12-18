@@ -219,16 +219,24 @@
   $this: &;
 
   @include mediaMaxList {
-    &.status-show {
-      --_nv-background-color: #{varColor(--background-scrim, --_nv-background-opacity)};
-      --_nv-transform: none;
-      transition-duration: var(--transition-medium-expanding);
-      visibility: visible;
-    }
+    @include mixinStatus($this);
+  }
 
-    &.status-show #{$this}__body {
-      transition-timing-function: var(--transition-cubic-80-00);
-    }
+  &.adaptive-fixed {
+    @include mixinStatus($this);
+  }
+}
+
+@mixin mixinStatus($this: &) {
+  &.status-show {
+    --_nv-background-color: #{varColor(--background-scrim, --_nv-background-opacity)};
+    --_nv-transform: none;
+    transition-duration: var(--transition-medium-expanding);
+    visibility: visible;
+  }
+
+  &.status-show #{$this}__body {
+    transition-timing-function: var(--transition-cubic-80-00);
   }
 }
 

@@ -31,7 +31,8 @@ export const navigationAdaptive = {
     { value: 'auto-medium' },
     { value: 'auto-large' },
     { value: 'auto-extra' },
-    { value: 'auto-desktop' }
+    { value: 'auto-desktop' },
+    { value: 'fixed' }
   ]
 }
 

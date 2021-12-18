@@ -66,7 +66,7 @@ export default {
     DMotionAxis
   },
   props,
-  emits: ['on-click', 'on-open', 'on-close'],
+  emits: ['on-click', 'on-close'],
   setup (props, context) {
     const navigation = ref(undefined)
     const body = ref(undefined)
