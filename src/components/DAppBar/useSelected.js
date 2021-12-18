@@ -9,6 +9,10 @@ export default function useSelected (
   context,
   menu
 ) {
+  const toClick = ref(() => {
+
+  })
+
   const hrefSelected = ref(undefined)
   const contentOld = ref(undefined)
   const contentSelected = ref(undefined)
@@ -55,13 +59,17 @@ export default function useSelected (
     return old < selected ? 'next' : 'back'
   })
 
-  const set = event => {
-    if (event.value in context.slots) {
+  const set = (event = undefined) => {
+    if (event?.value in context.slots) {
       contentOld.value = contentSelected.value
       contentSelected.value = contentSelected.value === event.value ? undefined : event.value
     } else {
       contentSelected.value = undefined
       context.emit('on-click', event)
+
+      if (event?.value) {
+        toClick.value(event)
+      }
     }
 
     if (contentSelected.value) {
@@ -106,6 +114,7 @@ export default function useSelected (
   updateHref()
 
   return {
+    toClick,
     propSelected,
     propSlots,
     contentSelected,

@@ -1,3 +1,4 @@
+import { appBarSrc } from '@/views/DemoAppBar/options'
 import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/views/DemoListItem/options'
 import { windowShape, windowWidth } from '@/views/DemoWindow/options'
@@ -5,14 +6,11 @@ import {
   back,
   iconBackground,
   navigationRail,
-  open,
   optionIcon,
   optionList,
   options,
-  palette,
   ripple,
-  shape,
-  status
+  shape
 } from '@/media/demo/options'
 
 export const navigationAppearance = {
@@ -24,16 +22,27 @@ export const navigationAppearance = {
   ]
 }
 
-export const optionsNavigation = {
-  status,
-  open,
+export const navigationAdaptive = {
+  value: 'adaptive',
+  list: [
+    { value: undefined },
+    { value: 'auto' },
+    { value: 'auto-small' },
+    { value: 'auto-medium' },
+    { value: 'auto-large' },
+    { value: 'auto-extra' },
+    { value: 'auto-desktop' }
+  ]
+}
 
+export const optionsNavigation = {
   options,
-  palette,
   navigationAppearance,
   windowWidth,
   windowShape,
+  navigationAdaptive,
   navigationRail,
+  appBarSrc,
   back,
 
   optionList,

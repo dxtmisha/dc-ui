@@ -1,7 +1,247 @@
-@mixin navigation {
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/media";
+@import "../../styles/position";
+@import "../../styles/options/optionBlur";
+@import "../../styles/options/optionShape";
 
+@mixin mixinNavigationRail {
+  --_nv--body-width: auto;
+}
+
+@mixin navigation {
+  --_nv-palette: var(--nv-palette, var(--palette-type1, var(--background-colorless)));
+
+  --_nv-background: var(--nv-background, var(--background-type8));
+  --_nv--ds-background: var(--nv--ds-background, var(--background-type4));
+
+  --_nv-shadow: var(--nv-shadow, var(--shadow-type8));
+  --_nv--ds-shadow: var(--nv--ds-shadow, var(--shadow-type4));
+
+  --_nv-width: var(--nv-width, 256px);
+
+  --_nv--sh-padding: var(--nv--sh-padding, 8px);
+
+  --_nv__it-top: var(--nv__it-top, 4px);
+
+  --_nv-background-color: transparent;
+  --_nv-background-opacity: var(--opacity-scrim);
+  --_nv-transform: translateX(#{calc(var(--_nv-width) * -1)});
+
+  --_nv--body-max: 56px;
+  --_nv--body-width: var(--_nv-width);
+
+  @include fixedFull();
+  @include index(8);
+  content: "--MOBILE--";
+  background-color: var(--_nv-background-color);
+  display: flex;
+  height: 100vh;
+  transition-duration: var(--transition-medium-collapsing);
+  transition-property: background-color, width, visibility;
+  visibility: hidden;
+  will-change: background-color, width, visibility;
+}
+
+@mixin navigationBody {
+  &__body {
+    background: var(--_nv-background-image, var(--_nv-background)) no-repeat;
+    background-size: cover;
+    box-shadow: var(--_nv-shadow);
+    height: 100%;
+    max-width: calc(100% - var(--_nv--body-max));
+    overflow: auto;
+    transform: var(--_nv-transform);
+    transition-duration: inherit;
+    transition-property: box-shadow, transform;
+    transition-timing-function: var(--transition-cubic-80-40);
+    width: var(--_nv--body-width);
+  }
+}
+
+@mixin navigationItem {
+  &__item {
+    &::before {
+      content: " ";
+      display: block;
+      height: var(--_nv__it-top);
+    }
+
+    @content;
+  }
+}
+
+@mixin navigationContent() {
+  &__content {
+    width: var(--_nv-width);
+    @content;
+  }
+}
+
+@mixin navigationTranslucency() {
+  &.appearance-translucency {
+    --_nv-background-opacity: var(--opacity-overlay);
+    @content;
+  }
+
+  &.appearance-translucency &__body {
+    background: varColor(--_nv-palette, --opacity-surface-medium);
+    @include optionBlur(var(--blur-type3)) {
+      background: varColor(--_nv-palette);
+    }
+  }
+}
+
+@mixin navigationShape() {
+  &.shape-basic &__body {
+    border-radius: var(--basic-radius);
+  }
+
+  &.shape-rounded &__body {
+    border-radius: var(--radius-type4);
+  }
+
+  &.shape-tile &__body {
+    border-radius: var(--radius-tile);
+  }
+
+  &.shape-basic,
+  &.shape-rounded {
+    padding: var(--_nv--sh-padding);
+  }
+}
+
+@mixin navigationAdaptive() {
+  $this: &;
+
+  @include mediaMinList {
+    --_nv-background-image: var(--_nv--ds-background);
+    --_nv-shadow: var(--_nv--ds-shadow);
+    --_nv--body-max: 0;
+
+    @include index(4);
+    background-color: transparent;
+    content: none;
+    display: block;
+    inset: auto;
+    position: relative;
+    transition-delay: 100ms;
+    width: 0;
+
+    #{$this}__body {
+      max-width: none;
+    }
+
+    &.status-desktop {
+      --_nv-transform: none;
+      transition-delay: 0s;
+      transition-duration: var(--transition-medium-expanding);
+      width: var(--_nv--ds-width, auto);
+      visibility: visible;
+    }
+
+    &.status-desktop #{$this}__body {
+      position: static;
+      transition-timing-function: var(--transition-cubic-80-00);
+    }
+
+    &.status-move #{$this}__body {
+      position: absolute;
+    }
+  }
+}
+
+@mixin navigationRail() {
+  $this: &;
+
+  @include mediaMaxWidth(small) {
+    &.navigation-rail-small,
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop {
+      @include mixinNavigationRail;
+    }
+  }
+
+  @include mediaMinMaxWidth(small, medium) {
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-medium,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop {
+      @include mixinNavigationRail;
+    }
+  }
+
+  @include mediaMinMaxWidth(medium, large) {
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-large,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail;
+    }
+  }
+
+  @include mediaMinMaxWidth(large, extra) {
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail;
+    }
+  }
+
+  @include mediaMinMaxWidth(extra, desktop) {
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-desktop {
+      @include mixinNavigationRail;
+    }
+  }
+
+  &.navigation-rail-always {
+    @include mixinNavigationRail;
+  }
+}
+
+@mixin navigationStatus() {
+  $this: &;
+
+  @include mediaMaxList {
+    &.status-show {
+      --_nv-background-color: #{varColor(--background-scrim, --_nv-background-opacity)};
+      --_nv-transform: none;
+      transition-duration: var(--transition-medium-expanding);
+      visibility: visible;
+    }
+
+    &.status-show #{$this}__body {
+      transition-timing-function: var(--transition-cubic-80-00);
+    }
+  }
 }
 
 @mixin navigationInit {
   @include navigation;
+  @include navigationBody;
+  @include navigationItem;
+  @include navigationContent;
+
+  @include navigationTranslucency;
+  @include navigationShape;
+  @include navigationAdaptive;
+  @include navigationRail;
+
+  @include navigationStatus;
 }

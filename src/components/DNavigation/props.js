@@ -1,5 +1,4 @@
 import { defaultInit, validator } from '@/uses/useDefault'
-import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-navigation')
 export const props = {
@@ -28,8 +27,6 @@ export const props = {
   selected: Boolean,
 
   // Options
-  palette,
-  color: String,
   appearance: {
     type: String,
     default: defaultProps('appearance', 'contained'),
@@ -51,7 +48,20 @@ export const props = {
       'tile'
     ])
   },
+  adaptive: {
+    type: String,
+    default: defaultProps('adaptive', 'auto'),
+    validator: validator([
+      'auto',
+      'auto-small',
+      'auto-medium',
+      'auto-large',
+      'auto-extra',
+      'auto-desktop'
+    ])
+  },
   navigationRail: undefined,
+  src: String,
   back: {
     type: Boolean,
     default: true
@@ -59,13 +69,13 @@ export const props = {
 
   // List
   listAppearance: {
-    default: defaultProps('listAppearance')
+    default: defaultProps('listAppearance', 'basic')
   },
   listSize: {
     default: defaultProps('listSize')
   },
   listShape: {
-    default: defaultProps('listShape')
+    default: defaultProps('listShape', 'basic')
   },
   ripple: undefined,
 

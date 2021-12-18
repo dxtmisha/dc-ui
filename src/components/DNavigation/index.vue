@@ -1,6 +1,14 @@
 <template>
-  <div :class="classList">
-    <div class="d-navigation__body">
+  <div
+    ref="navigation"
+    v-bind="binds"
+    @click="onClose"
+  >
+    <div
+      ref="body"
+      class="d-navigation__body"
+      :class="classScroll"
+    >
       <slot/>
       <d-motion-axis
         :selected="contentSelected || 'list'"
@@ -24,6 +32,7 @@
             <d-list-item
               v-bind="bindList"
               :text="item.text"
+              :navigation-rail="undefined"
               :icon="iconChevronLeft"
               @on-click="set"
             />
@@ -45,6 +54,8 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
+import useOpen from './useOpen'
+import useScroll from '@/uses/useScroll'
 import useSelected from '@/components/DAppBar/useSelected'
 
 export default {
@@ -55,8 +66,10 @@ export default {
     DMotionAxis
   },
   props,
+  emits: ['on-click', 'on-open', 'on-close'],
   setup (props, context) {
-    const app = ref(undefined)
+    const navigation = ref(undefined)
+    const body = ref(undefined)
 
     const {
       propList,
@@ -64,35 +77,64 @@ export default {
     } = useBar(props)
 
     const {
+      toClick,
       propSelected,
       propSlots,
       contentSelected,
       set
     } = useSelected(
-      app,
+      navigation,
       props,
       context,
       [propList]
     )
 
+    const {
+      show,
+      onClose
+    } = useOpen(
+      navigation,
+      body,
+      props,
+      context,
+      toClick,
+      set
+    )
+
     const directions = computed(() => contentSelected.value ? 'next' : 'back')
-    const classList = computed(() => {
+    const binds = computed(() => {
       return {
-        'd-navigation': true
+        class: {
+          'd-navigation': true,
+          [`appearance-${props.appearance}`]: props.appearance,
+          [`shape-${props.shape}`]: props.shape,
+          [`adaptive-${props.adaptive}`]: props.adaptive,
+          [`navigation-rail-${props.navigationRail}`]: props.navigationRail
+        },
+        style: {
+          '--_nv-width': props.width,
+          '--_nv-background-image': props.src ? `url(${props.src})` : null
+        }
       }
     })
+    const classScroll = useScroll()
 
     useAdmin('d-navigation', context)
 
     return {
+      navigation,
+      body,
       propList,
       propSelected,
       propSlots,
       contentSelected,
       directions,
       bindList,
-      classList,
-      set
+      binds,
+      classScroll,
+      set,
+      show,
+      onClose
     }
   }
 }

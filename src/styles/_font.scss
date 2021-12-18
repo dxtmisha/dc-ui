@@ -28,3 +28,7 @@
   touch-callout: none;
   user-select: none;
 }
+
+%ellipsis {
+  @include ellipsis;
+}

@@ -22,26 +22,29 @@ footer {
 
 header {
   @include flexX;
-  @include index(3);
-  background: var(--background-type3);
+  @include index(2);
+  background: var(--background-type2);
   border-radius: var(--basic-radius);
-  box-shadow: var(--shadow-type3);
+  box-shadow: var(--shadow-type2);
   gap: 8px;
   margin: 0 auto dimension(4);
   padding: dimension(2) dimension(4);
   position: sticky;
   top: dimension(4);
+  will-change: width;
 }
 
 main {
   --basic-top: 72px;
   margin: 0 auto;
+  will-change: width;
 }
 
 footer {
   --basic-text-opacity: var(--opacity-surface-medium);
   margin: dimension(4) auto dimension(16);
   text-align: right;
+  will-change: width;
 }
 
 .ui-sector {
@@ -50,5 +53,6 @@ footer {
   &__main {
     padding-top: dimension(32);
     flex-grow: 1;
+    will-change: width;
   }
 }

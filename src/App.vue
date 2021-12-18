@@ -12,9 +12,9 @@
       <main>
         <router-view/>
       </main>
+      <footer>&copy; 2021 dcode</footer>
     </div>
   </div>
-  <footer>&copy; 2021 dcode</footer>
 </template>
 
 <script>

@@ -103,7 +103,7 @@
 
 @mixin listItemTextShort() {
   &__text-short {
-    @include ellipsis;
+    @extend %ellipsis;
     display: var(--_li--ic-display, var(--_li--sh-display, none));
     @content;
   }

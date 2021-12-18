@@ -18,7 +18,7 @@ export default function useBar (props) {
     appearance: refs.listAppearance,
     size: refs.listSize,
     shape: refs.listShape,
-    adaptive: 'block',
+    adaptive: 'basic',
     navigationRail: refs.navigationRail,
     dense: false,
     border: false,
