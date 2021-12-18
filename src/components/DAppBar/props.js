@@ -33,6 +33,7 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
+  listContent: Object,
 
   // Status
   open: Boolean,

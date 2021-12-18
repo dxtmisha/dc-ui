@@ -8,6 +8,7 @@ export const props = {
     type: Boolean,
     default: true
   },
+  staticElement: undefined,
 
   // Options
   adaptive: {

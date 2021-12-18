@@ -4,7 +4,8 @@ export default [
     value: 'notifications'
   },
   {
-    icon: 'person',
-    value: 'profile'
+    icon: 'chat',
+    value: 'chat',
+    badge: 16
   }
 ]

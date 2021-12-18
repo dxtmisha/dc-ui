@@ -1,6 +1,5 @@
 import { computed, onUnmounted, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
-import getIdElement from '@/functions/getIdElement'
 import forEach from '@/functions/forEach'
 
 export default function useSelected (
@@ -17,7 +16,6 @@ export default function useSelected (
   const contentOld = ref(undefined)
   const contentSelected = ref(undefined)
   const contentShow = ref(false)
-  const contentOpen = computed(() => 'head' in context.slots || !!contentSelected.value)
 
   const getMenu = (listener = undefined) => {
     const data = []
@@ -34,12 +32,13 @@ export default function useSelected (
   }
 
   const propSelected = computed(() => contentSelected.value || props.selected || hrefSelected.value)
+  const propShow = computed(() => contentShow.value || 'head' in context.slots)
   const propSlots = computed(() => {
     const list = []
     const data = getMenu()
 
     forEach(context.slots, (item, index) => {
-      if (['default', 'list'].indexOf(index) === -1) {
+      if (['default', 'list', 'head'].indexOf(index) === -1) {
         list.push({
           index,
           text:
@@ -96,13 +95,8 @@ export default function useSelected (
 
   const event = EventControl.init(window, updateHref, ['popstate']).go()
 
-  const onOpen = ({
-    open,
-    target
-  }) => {
-    const id = getIdElement(app.value, '')
-
-    if (!open && !target.closest(id)) {
+  const onOpen = ({ open }) => {
+    if (!open) {
       contentSelected.value = undefined
     }
   }
@@ -116,10 +110,10 @@ export default function useSelected (
   return {
     toClick,
     propSelected,
+    propShow,
     propSlots,
     contentSelected,
     contentShow,
-    contentOpen,
     directions,
     set,
     onOpen,

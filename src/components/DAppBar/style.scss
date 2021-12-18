@@ -51,6 +51,11 @@
   &__spacer {
     flex-grow: 1;
   }
+
+  .d-list-item {
+    --bg-size: 20px;
+    --bg-shift: 12px;
+  }
 }
 
 @mixin appBarBody {

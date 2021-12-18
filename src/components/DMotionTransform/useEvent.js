@@ -18,7 +18,11 @@ export default function useEvent (
     if (
       propOpen.value && (
         target.closest(`${selector} .panel-close`) ||
-        (props.autoClose && !target.closest(selector))
+        (
+          props.autoClose &&
+          !target.closest(selector) &&
+          !(props.staticElement && target.closest(getIdElement(props.staticElement, '')))
+        )
       )
     ) {
       emit(target)

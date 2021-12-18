@@ -51,9 +51,10 @@
         />
       </template>
     </div>
-    <div v-if="contentShow" class="d-app-bar__content">
+    <div v-if="propShow" class="d-app-bar__content">
       <d-motion-transform
-        :open="contentOpen"
+        :open="!!contentSelected"
+        :static-element="app"
         @on-open="onOpen"
         @on-close="onClose"
       >
@@ -61,7 +62,18 @@
           <slot name="head"/>
         </template>
         <template v-slot:default>
-          <slot :name="contentSelected"/>
+          <d-motion-axis
+            :selected="contentSelected"
+            :transition="directions"
+          >
+            <template
+              v-for="item in propSlots"
+              :key="item.index"
+              v-slot:[item.index]
+            >
+              <slot :name="item.index" :set="set"/>
+            </template>
+          </d-motion-axis>
         </template>
       </d-motion-transform>
     </div>
@@ -71,6 +83,7 @@
 <script>
 import DButton from '@/components/DButton'
 import DList from '@/components/DList'
+import DMotionAxis from '@/components/DMotionAxis'
 import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'
 import { computed, ref } from 'vue'
@@ -86,6 +99,7 @@ export default {
   components: {
     DButton,
     DList,
+    DMotionAxis,
     DMotionTransform
   },
   props,
@@ -102,9 +116,10 @@ export default {
 
     const {
       propSelected,
+      propShow,
+      propSlots,
       contentSelected,
-      contentShow,
-      contentOpen,
+      directions,
       set,
       onOpen,
       onClose
@@ -150,9 +165,10 @@ export default {
       propBarAction,
       propAction,
       propSelected,
+      propShow,
+      propSlots,
       contentSelected,
-      contentShow,
-      contentOpen,
+      directions,
       bindList,
       binds,
       set,
