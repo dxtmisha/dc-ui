@@ -1,13 +1,11 @@
 @import "../../styles/color";
 @import "../../styles/elevation";
+@import "../../styles/font";
 @import "../../styles/media";
 @import "../../styles/position";
 @import "../../styles/options/optionBlur";
 @import "../../styles/options/optionShape";
-
-@mixin mixinNavigationRail {
-  --_nv--body-width: auto;
-}
+@import "styleExtend";
 
 @mixin navigation {
   --_nv-palette: var(--nv-palette, var(--palette-type1, var(--background-colorless)));
@@ -18,25 +16,31 @@
   --_nv-shadow: var(--nv-shadow, var(--shadow-type8));
   --_nv--ds-shadow: var(--nv--ds-shadow, var(--shadow-type4));
 
+  --_nv-height: var(--nv-height, 100%);
   --_nv-width: var(--nv-width, 256px);
 
   --_nv--sh-padding: var(--nv--sh-padding, 8px);
 
+  --_nv__tt-height: var(--nv__tt-height, 56px);
+  --_nv__tt-padding: var(--nv__tt-padding, #{8px 16px});
   --_nv__it-top: var(--nv__it-top, 4px);
 
   --_nv-background-color: transparent;
   --_nv-background-opacity: var(--opacity-scrim);
-  --_nv-transform: translateX(#{calc(var(--_nv-width) * -1)});
+  --_nv-transform: translateX(#{calc(var(--_nv-width) * var(--_nv-transform-directions))});
+  --_nv-transform-directions: -1;
 
-  --_nv--body-max: 56px;
-  --_nv--body-width: var(--_nv-width);
+  --_nv__body-max: 56px;
+  --_nv__body-width: var(--_nv-width);
+  --_nv__content-width: auto;
 
   @include fixedFull();
   @include index(8);
   content: "--MOBILE--";
   background-color: var(--_nv-background-color);
   display: flex;
-  height: 100vh;
+  height: var(--_nv-height);
+  overflow: hidden;
   transition-duration: var(--transition-medium-collapsing);
   transition-property: background-color, width, visibility;
   visibility: hidden;
@@ -49,13 +53,26 @@
     background-size: cover;
     box-shadow: var(--_nv-shadow);
     height: 100%;
-    max-width: calc(100% - var(--_nv--body-max));
-    overflow: auto;
+    max-width: calc(100% - var(--_nv__body-max));
+    overflow-x: hidden;
+    overflow-y: auto;
     transform: var(--_nv-transform);
     transition-duration: inherit;
     transition-property: box-shadow, transform;
     transition-timing-function: var(--transition-cubic-80-40);
-    width: var(--_nv--body-width);
+    width: var(--_nv__body-width);
+  }
+}
+
+@mixin navigationTitle {
+  &__title {
+    @include font('headline6');
+    align-items: center;
+    display: none;
+    justify-content: space-between;
+    height: var(--_nv__tt-height);
+    padding: var(--_nv__tt-padding);
+    @content;
   }
 }
 
@@ -73,7 +90,7 @@
 
 @mixin navigationContent() {
   &__content {
-    width: var(--_nv-width);
+    width: var(--_nv__content-width);
     @content;
   }
 }
@@ -114,10 +131,14 @@
 @mixin navigationAdaptive() {
   $this: &;
 
+  &.status-move &__body {
+    position: absolute;
+  }
+
   @include mediaMinList {
     --_nv-background-image: var(--_nv--ds-background);
     --_nv-shadow: var(--_nv--ds-shadow);
-    --_nv--body-max: 0;
+    --_nv__body-max: 0;
 
     @include index(4);
     background-color: transparent;
@@ -132,6 +153,10 @@
       max-width: none;
     }
 
+    #{$this}__title {
+      display: var(--_nv__tt-display, flex);
+    }
+
     &.status-desktop {
       --_nv-transform: none;
       transition-delay: 0s;
@@ -141,13 +166,20 @@
     }
 
     &.status-desktop #{$this}__body {
-      position: static;
       transition-timing-function: var(--transition-cubic-80-00);
     }
+  }
+}
 
-    &.status-move #{$this}__body {
-      position: absolute;
-    }
+@mixin navigationShow() {
+  $this: &;
+
+  @include mediaMaxList {
+    @include mixinShow($this);
+  }
+
+  &.adaptive-fixed {
+    @include mixinShow($this);
   }
 }
 
@@ -215,41 +247,24 @@
   }
 }
 
-@mixin navigationStatus() {
-  $this: &;
-
-  @include mediaMaxList {
-    @include mixinStatus($this);
-  }
-
-  &.adaptive-fixed {
-    @include mixinStatus($this);
-  }
-}
-
-@mixin mixinStatus($this: &) {
-  &.status-show {
-    --_nv-background-color: #{varColor(--background-scrim, --_nv-background-opacity)};
-    --_nv-transform: none;
-    transition-duration: var(--transition-medium-expanding);
-    visibility: visible;
-  }
-
-  &.status-show #{$this}__body {
-    transition-timing-function: var(--transition-cubic-80-00);
+@mixin navigationRight {
+  &.option-right {
+    --_nv-transform-directions: 1;
+    justify-content: flex-end;
   }
 }
 
 @mixin navigationInit {
   @include navigation;
   @include navigationBody;
+  @include navigationTitle;
   @include navigationItem;
   @include navigationContent;
 
   @include navigationTranslucency;
   @include navigationShape;
   @include navigationAdaptive;
+  @include navigationShow;
   @include navigationRail;
-
-  @include navigationStatus;
+  @include navigationRight;
 }

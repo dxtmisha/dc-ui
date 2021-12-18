@@ -2,7 +2,7 @@ export default [
   {
     html: `
 <div class="flex flex-col items-center justify-center pt-8 px-4 pb-12">
-    <div class="w-32 h-32 rounded-full" style="background-image: url(${require('@/assets/images/image-12.jpeg')})"></div>
+    <div class="w-32 h-32 rounded-full" style="background-image: url(${require('@/assets/images/image-10.jpeg')})"></div>
     <div class="font:headline6 pt-4">Loretta Kelley</div>
     <div class="font:body2 pt-1 opacity-60">+7 (902) 334-33-33</div>
 </div>

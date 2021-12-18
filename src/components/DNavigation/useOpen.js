@@ -38,8 +38,13 @@ export default function useOpen (
     }
   }
 
-  toClick.value = () => {
+  toClick.value = ({ value }) => {
     classShow.set(false)
+
+    if (value === 'close') {
+      classDesktop.set(false)
+    }
+
     context.emit('on-close')
   }
 

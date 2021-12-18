@@ -49,6 +49,7 @@ footer {
 
 .ui-sector {
   display: flex;
+  min-height: 100vh;
 
   &__main {
     padding-top: dimension(32);

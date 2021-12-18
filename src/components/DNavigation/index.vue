@@ -9,6 +9,18 @@
       class="d-navigation__body"
       :class="classScroll"
     >
+      <div v-if="title" class="d-navigation__title">
+        {{ title }}
+        <d-button
+          v-if="buttonClose"
+          value="close"
+          :icon="iconClose"
+          appearance="text"
+          size="small"
+          shape="pill"
+          @on-click="set"
+        />
+      </div>
       <slot/>
       <d-motion-axis
         :selected="contentSelected || 'list'"
@@ -28,7 +40,7 @@
           :key="item.index"
           v-slot:[item.index]
         >
-          <div v-if="back" class="d-navigation__item">
+          <div v-if="buttonBack" class="d-navigation__item">
             <d-list-item
               v-bind="bindList"
               :text="item.text"
@@ -47,6 +59,7 @@
 </template>
 
 <script>
+import DButton from '@/components/DButton'
 import DList from '@/components/DList'
 import DListItem from '@/components/DListItem'
 import DMotionAxis from '@/components/DMotionAxis'
@@ -61,6 +74,7 @@ import useSelected from '@/components/DAppBar/useSelected'
 export default {
   name: 'DNavigation',
   components: {
+    DButton,
     DList,
     DListItem,
     DMotionAxis
@@ -109,7 +123,8 @@ export default {
           [`appearance-${props.appearance}`]: props.appearance,
           [`shape-${props.shape}`]: props.shape,
           [`adaptive-${props.adaptive}`]: props.adaptive,
-          [`navigation-rail-${props.navigationRail}`]: props.navigationRail
+          [`navigation-rail-${props.navigationRail}`]: props.navigationRail,
+          'option-right': props.right
         },
         style: {
           '--_nv-width': props.width,

@@ -3,6 +3,7 @@ import { defaultInit, validator } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-navigation')
 export const props = {
   // Values
+  title: String,
   list: [Array, Object],
   listContent: Object,
   listInit: {
@@ -62,11 +63,13 @@ export const props = {
     ])
   },
   navigationRail: undefined,
+  right: Boolean,
   src: String,
-  back: {
+  buttonBack: {
     type: Boolean,
     default: true
   },
+  buttonClose: Boolean,
 
   // List
   listAppearance: {
@@ -84,6 +87,10 @@ export const props = {
   iconChevronLeft: {
     type: String,
     default: defaultProps('iconChevronLeft', 'chevron_left')
+  },
+  iconClose: {
+    type: String,
+    default: defaultProps('iconClose', 'close')
   },
   iconBackground: undefined
 }
