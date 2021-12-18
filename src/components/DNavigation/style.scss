@@ -1,0 +1,7 @@
+@mixin navigation {
+
+}
+
+@mixin navigationInit {
+  @include navigation;
+}

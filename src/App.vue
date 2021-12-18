@@ -1,14 +1,19 @@
 <template>
-  <header>
-    <span class="font:headline6 pr-4">dcode UI</span>
-    <interactive-demo-router/>
-    <div class="flex-grow"/>
-    <interactive-demo-theme/>
-    <interactive-demo-color/>
-  </header>
-  <main>
-    <router-view/>
-  </main>
+  <div class="ui-sector">
+    <nav/>
+    <div class="ui-sector__main">
+      <header>
+        <span class="font:headline6 pr-4">dcode UI</span>
+        <interactive-demo-router/>
+        <div class="flex-grow"/>
+        <interactive-demo-theme/>
+        <interactive-demo-color/>
+      </header>
+      <main>
+        <router-view/>
+      </main>
+    </div>
+  </div>
   <footer>&copy; 2021 dcode</footer>
 </template>
 

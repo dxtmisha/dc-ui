@@ -111,6 +111,7 @@ export const axis = {
 export const animationShow = {}
 export const arrow = {}
 export const autoClose = { default: true }
+export const back = { default: true }
 export const background = {}
 export const border = {}
 export const bottom = {}

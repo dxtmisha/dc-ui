@@ -1,7 +1,7 @@
 import { computed, onUnmounted, ref } from 'vue'
+import EventControl from '@/classes/EventControl'
 import getIdElement from '@/functions/getIdElement'
 import forEach from '@/functions/forEach'
-import EventControl from '@/classes/EventControl'
 
 export default function useSelected (
   app,
@@ -10,36 +10,54 @@ export default function useSelected (
   menu
 ) {
   const hrefSelected = ref(undefined)
+  const contentOld = ref(undefined)
   const contentSelected = ref(undefined)
   const contentShow = ref(false)
   const contentOpen = computed(() => 'head' in context.slots || !!contentSelected.value)
 
-  const propSelected = computed(() => contentSelected.value || props.selected || hrefSelected.value)
+  const getMenu = (listener = undefined) => {
+    const data = []
 
-  const updateHref = () => {
-    const url = [
-      location.hash,
-      location.pathname + location.hash,
-      location.href
-    ]
+    menu.forEach(list => forEach(list.value, item => {
+      if (listener) {
+        listener(item)
+      } else {
+        data.push(item)
+      }
+    }))
 
-    menu.forEach(list => {
-      forEach(list.value, item => {
-        if (item?.href) {
-          url.forEach(hash => {
-            if (hash.match(item.href)) {
-              hrefSelected.value = item?.value
-            }
-          })
-        }
-      })
-    })
+    return data
   }
 
-  const event = EventControl.init(window, updateHref, ['popstate']).go()
+  const propSelected = computed(() => contentSelected.value || props.selected || hrefSelected.value)
+  const propSlots = computed(() => {
+    const list = []
+    const data = getMenu()
 
-  const onClick = event => {
+    forEach(context.slots, (item, index) => {
+      if (['default', 'list'].indexOf(index) === -1) {
+        list.push({
+          index,
+          text:
+            props?.listContent?.[index] ||
+            data.find(item => item.value === index).text
+        })
+      }
+    })
+
+    return list
+  })
+  const directions = computed(() => {
+    const data = getMenu()
+    const old = data.findIndex(item => item.value === contentOld.value)
+    const selected = data.findIndex(item => item.value === contentSelected.value)
+
+    return old < selected ? 'next' : 'back'
+  })
+
+  const set = event => {
     if (event.value in context.slots) {
+      contentOld.value = contentSelected.value
       contentSelected.value = contentSelected.value === event.value ? undefined : event.value
     } else {
       contentSelected.value = undefined
@@ -50,6 +68,26 @@ export default function useSelected (
       contentShow.value = true
     }
   }
+  const updateHref = () => {
+    const url = [
+      location.hash,
+      location.pathname + location.hash,
+      location.href
+    ]
+
+    getMenu(item => {
+      if (item?.href) {
+        url.forEach(hash => {
+          if (hash.match(item.href)) {
+            hrefSelected.value = item?.value
+          }
+        })
+      }
+    })
+  }
+
+  const event = EventControl.init(window, updateHref, ['popstate']).go()
+
   const onOpen = ({
     open,
     target
@@ -69,10 +107,12 @@ export default function useSelected (
 
   return {
     propSelected,
+    propSlots,
     contentSelected,
     contentShow,
     contentOpen,
-    onClick,
+    directions,
+    set,
     onOpen,
     onClose
   }

@@ -98,22 +98,35 @@ export default {
     const palette = useColor(props)
     const hour = ref(undefined)
     const minute = ref(undefined)
-    const text = Translation.getByList([
-      'AM',
-      'Cancel',
-      'Hour',
-      'Minute',
-      'Ok',
-      'PM',
-      'Select Time'
-    ])
-    const textHour = computed(() => propSwitchClock ? undefined : text.Hour)
-    const textMinute = computed(() => propSwitchClock ? undefined : text.Minute)
+    const text = computed(() => {
+      const text = Translation.getByList([
+        'AM',
+        'Cancel',
+        'Hour',
+        'Minute',
+        'Ok',
+        'PM',
+        'Select Time'
+      ])
+
+      if (Intl && 'DisplayNames' in Intl) {
+        const display = new Intl.DisplayNames(props.locales, { type: 'dateTimeField' })
+        const code = display.of('dayPeriod').split('/')
+
+        text.AM = code[0]
+        text.PM = code[1]
+      }
+
+      return text
+    })
 
     const typeSelected = ref('hour')
     const propSwitchClock = useWatch(switchClock, data => {
       data.value = switchClock.value
     })
+
+    const textHour = computed(() => propSwitchClock.value ? undefined : text.value.Hour)
+    const textMinute = computed(() => propSwitchClock.value ? undefined : text.value.Minute)
 
     const
       {
@@ -251,19 +264,15 @@ export default {
       cancel: false
     }
     const bindAmPm = computed(() => {
-      const code = (Intl && 'DisplayNames' in Intl)
-        ? new Intl.DisplayNames(props.locales, { type: 'dateTimeField' }).of('dayPeriod').split('/')
-        : []
-
       return {
         class: 'd-time-picker__group',
         list: [
           {
-            text: code?.[0] || text.AM,
+            text: text.value.AM,
             value: 'am'
           },
           {
-            text: code?.[1] || text.PM,
+            text: text.value.PM,
             value: 'pm'
           }
         ],

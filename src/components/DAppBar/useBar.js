@@ -9,7 +9,7 @@ export default function useBar (props) {
     props.keyText,
     props.keyValue,
     false
-  ).getFirst()
+  ).get()
 
   const propBar = computed(() => getList(props.bar))
   const propBarMenu = computed(() => getList(props.barMenu))

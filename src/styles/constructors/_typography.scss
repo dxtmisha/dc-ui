@@ -58,6 +58,7 @@
   }
 
   a {
+    cursor: pointer;
     text-decoration: none;
 
     &:not(.a-static):hover {

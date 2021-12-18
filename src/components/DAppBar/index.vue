@@ -39,7 +39,7 @@
           class="d-app-bar__menu"
           :list="propBarMenu"
           :selected="propSelected"
-          @on-click="onClick"
+          @on-click="set"
         />
         <div class="d-app-bar__spacer"/>
         <d-list
@@ -47,7 +47,7 @@
           class="d-app-bar__bar"
           :list="propBar"
           :selected="propSelected"
-          @on-click="onClick"
+          @on-click="set"
         />
       </template>
     </div>
@@ -105,7 +105,7 @@ export default {
       contentSelected,
       contentShow,
       contentOpen,
-      onClick,
+      set,
       onOpen,
       onClose
     } = useSelected(
@@ -155,7 +155,7 @@ export default {
       contentOpen,
       bindList,
       binds,
-      onClick,
+      set,
       onOpen,
       onClose
     }
