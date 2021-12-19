@@ -36,7 +36,10 @@ export default function useSelected (
   }
 
   const onInput = (event) => {
-    if (props.listInit) {
+    if (
+      props.listInit &&
+      !props.readonly
+    ) {
       set(event.value)
       emit()
     } else {

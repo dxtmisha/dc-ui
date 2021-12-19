@@ -10,6 +10,7 @@ export const props = {
 
   // Status
   selected: Boolean,
+  readonly: Boolean,
   disabled: Boolean,
 
   // List

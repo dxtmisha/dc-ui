@@ -14,6 +14,7 @@ export default function useMenu (props, propList) {
     multiple: refs.multiple,
     maxlength: refs.maxlength,
     selected: refs.value,
+    readonly: refs.readonly,
     disabled: refs.disabled,
     palette: refs.palette,
     color: refs.color,

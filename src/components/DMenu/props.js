@@ -28,6 +28,7 @@ export const props = {
 
   // Status
   selected: undefined,
+  readonly: Boolean,
   disabled: Boolean,
 
   // Item

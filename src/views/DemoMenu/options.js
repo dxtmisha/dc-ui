@@ -10,6 +10,7 @@ import {
   optionItem,
   optionWindow,
   palette,
+  readonly,
   ripple,
   shape,
   status,
@@ -25,6 +26,7 @@ export const optionsMenu = {
 
   status,
   selected: { message: 'profile' },
+  readonly,
   disabled,
 
   optionsItem: optionItem,

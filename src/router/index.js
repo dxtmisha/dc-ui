@@ -12,6 +12,7 @@ import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
+import DemoCardMenu from '../views/DemoCardMenu'
 import DemoCheckbox from '../views/DemoCheckbox'
 import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
@@ -87,6 +88,7 @@ export const routes = getRoutes({
   'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
+  'd-card-menu': DemoCardMenu,
   'd-clock-face': DemoClockFace,
   'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
