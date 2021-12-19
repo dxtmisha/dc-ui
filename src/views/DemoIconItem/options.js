@@ -1,10 +1,4 @@
-import { disabled, hide, icon, status, values } from '@/media/demo/options'
+import useProps from '@/components/InteractiveDemo/useProps'
+import { props } from '@/components/DIconItem/props'
 
-export const optionsIconItem = {
-  values,
-  icon,
-
-  status,
-  disabled,
-  hide
-}
+export const optionsIconItem = useProps(props)

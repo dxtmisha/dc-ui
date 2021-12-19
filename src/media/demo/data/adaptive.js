@@ -1,4 +1,4 @@
-export const dataAdaptive = [
+export const adaptive = [
   { value: undefined },
   { value: 'auto' },
   { value: 'auto-small' },

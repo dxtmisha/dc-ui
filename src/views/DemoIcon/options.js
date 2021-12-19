@@ -1,20 +1,7 @@
-import {
-  active,
-  animationHide,
-  animationShow,
-  background,
-  disabled,
-  hide,
-  icon,
-  iconActive,
-  options,
-  status,
-  turn,
-  values
-} from '@/media/demo/options'
+import useProps from '@/components/InteractiveDemo/useProps'
+import { props } from '@/components/DIcon/props'
 
 export const iconSize = {
-  value: 'size',
   list: [
     { value: undefined },
     { value: 'dynamic' },
@@ -26,20 +13,6 @@ export const iconSize = {
   ]
 }
 
-export const optionsIcon = {
-  values,
-  icon,
-  iconActive,
-
-  status,
-  active,
-  turn,
-  disabled,
-  hide,
-
-  options,
-  iconSize,
-  animationHide,
-  animationShow,
-  background
-}
+export const optionsIcon = useProps(props, {
+  size: iconSize
+})

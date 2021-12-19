@@ -1,4 +1,4 @@
-export const dataPalette = [
+export const palette = [
   { value: undefined },
   {
     value: 'basic',

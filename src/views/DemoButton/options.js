@@ -1,36 +1,7 @@
-import {
-  active,
-  adaptive,
-  align,
-  dense,
-  disabled,
-  dragged,
-  icon,
-  iconActive,
-  iconAnimationShow,
-  iconBackground,
-  iconHide,
-  iconReadonly,
-  iconTrailing,
-  lowercase,
-  options,
-  optionIcon,
-  palette,
-  progress,
-  readonly,
-  ripple,
-  selected,
-  shape,
-  size,
-  status,
-  text,
-  turn,
-  values, hide, ellipsis
-} from '@/media/demo/options'
-import { badgeBadge } from '@/views/DemoBadge/options'
+import useProps from '@/components/InteractiveDemo/useProps'
+import { props } from '@/components/DButton/props'
 
 export const buttonAppearance = {
-  value: 'appearance',
   list: [
     { value: undefined },
     { value: 'text' },
@@ -46,39 +17,6 @@ export const buttonAppearance = {
   ]
 }
 
-export const optionsButton = {
-  values,
-  badgeBadge,
-  text,
-
-  status,
-  active,
-  selected,
-  turn,
-  dragged,
-  readonly,
-  disabled,
-  hide,
-  progress,
-
-  options,
-  palette,
-  buttonAppearance,
-  size,
-  shape,
-  align,
-  adaptive,
-  lowercase,
-  dense,
-  ellipsis,
-  ripple,
-
-  optionIcon,
-  icon,
-  iconActive,
-  iconTrailing,
-  iconReadonly,
-  iconHide,
-  iconAnimationShow,
-  iconBackground
-}
+export const optionsButton = useProps(props, {
+  appearance: buttonAppearance
+})

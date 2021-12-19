@@ -1,6 +1,7 @@
 import List from '@/classes/List'
-import forEach from '@/functions/forEach'
 import { ref } from 'vue'
+import forEach from '@/functions/forEach'
+import goFunction from '@/functions/goFunction'
 
 export const useOptions = function (options) {
   const valueOptions = ref([])
@@ -31,7 +32,8 @@ export const useOptions = function (options) {
         data.push({
           text: value.value || text,
           value: text,
-          ...value
+          ...value,
+          default: goFunction(value.default)
         })
       })
     }

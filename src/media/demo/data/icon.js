@@ -1,4 +1,4 @@
-export const dataIcon = [
+export const icon = [
   { value: undefined },
   { subtitle: 'Material icons' },
   {

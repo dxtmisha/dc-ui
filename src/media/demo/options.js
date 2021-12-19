@@ -1,9 +1,6 @@
-import { dataAdaptive } from '@/media/demo/data/adaptive'
 import { dataDelay } from '@/media/demo/data/delay'
-import { dataIcon } from '@/media/demo/data/icon'
 import { dataLocales } from '@/media/demo/data/locales'
 import { dataNavigationRail } from '@/media/demo/data/navigationRail'
-import { dataPalette } from '@/media/demo/data/palette'
 import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 import { dataMarks } from '@/media/demo/data/marks'
 
@@ -86,7 +83,7 @@ export const turn = {}
 export const visible = {}
 
 // Options
-export const adaptive = { list: dataAdaptive }
+export const adaptive = {}
 export const align = {
   list: [
     { value: undefined },
@@ -136,7 +133,7 @@ export const navigationRail = { list: dataNavigationRail }
 export const outputDay = { default: true }
 export const outputMonth = { default: true }
 export const outputWeek = { default: true }
-export const palette = { list: dataPalette }
+export const palette = {}
 export const pattern = { message: '[A-Z]{1}[a-z]{3,}' }
 export const persistent = {}
 export const placeholder = { message: 'Placeholder' }
@@ -188,18 +185,15 @@ export const visibleMask = { default: true }
 
 // Icon
 export const icon = {
-  default: 'lock_open',
-  list: dataIcon
+  default: 'lock_open'
 }
 export const iconActive = {
-  default: 'lock',
-  list: dataIcon
+  default: 'lock'
 }
 export const iconTrailing = {
-  default: 'arrow_drop_down',
-  list: dataIcon
+  default: 'arrow_drop_down'
 }
-export const thumbnail = { list: dataIcon }
+export const thumbnail = {}
 export const iconAnimationShow = {}
 export const iconBackground = {}
 export const iconHide = {}
