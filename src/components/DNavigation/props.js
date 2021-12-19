@@ -33,7 +33,8 @@ export const props = {
     default: defaultProps('appearance', 'contained'),
     validator: validator([
       'contained',
-      'translucency'
+      'translucency',
+      'transparent'
     ])
   },
   width: {

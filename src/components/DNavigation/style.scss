@@ -136,7 +136,7 @@
   }
 
   @include mediaMinList {
-    --_nv-background-image: var(--_nv--ds-background);
+    --_nv-background: var(--_nv--ds-background);
     --_nv-shadow: var(--_nv--ds-shadow);
     --_nv__body-max: 0;
 
@@ -148,6 +148,12 @@
     position: relative;
     transition-delay: 100ms;
     width: 0;
+
+    &.appearance-transparent {
+      --_nv-background: transparent;
+      --_nv-shadow: none;
+      z-index: auto;
+    }
 
     #{$this}__body {
       max-width: none;

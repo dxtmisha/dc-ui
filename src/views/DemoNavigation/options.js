@@ -1,4 +1,4 @@
-import { appBarSrc } from '@/views/DemoAppBar/options'
+import { appBarAppearance, appBarSrc } from '@/views/DemoAppBar/options'
 import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/views/DemoListItem/options'
 import { windowShape, windowWidth } from '@/views/DemoWindow/options'
@@ -15,15 +15,6 @@ import {
   title,
   values
 } from '@/media/demo/options'
-
-export const navigationAppearance = {
-  value: 'appearance',
-  list: [
-    { value: undefined },
-    { value: 'contained' },
-    { value: 'translucency' }
-  ]
-}
 
 export const navigationAdaptive = {
   value: 'adaptive',
@@ -44,7 +35,7 @@ export const optionsNavigation = {
   title,
 
   options,
-  navigationAppearance,
+  appBarAppearance,
   windowWidth,
   windowShape,
   navigationAdaptive,
