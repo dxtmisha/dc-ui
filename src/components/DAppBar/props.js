@@ -1,4 +1,3 @@
-import { palette } from '@/uses/useColor'
 import { defaultInit, validator, validatorShape, validatorSize } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-app-bar')
@@ -12,10 +11,15 @@ export const props = {
     type: undefined,
     default: defaultProps('element', window)
   },
+  navigation: {
+    type: Boolean,
+    default: true
+  },
 
   // Actions
   bar: Array,
   barMenu: Array,
+  barNavigation: Array,
   barAction: Array,
   barInit: {
     type: Boolean,
@@ -41,8 +45,6 @@ export const props = {
   selected: Boolean,
 
   // Options
-  palette,
-  color: String,
   appearance: {
     type: String,
     default: defaultProps('appearance', 'contained'),
@@ -82,6 +84,7 @@ export const props = {
     validator: validatorShape
   },
   attrsList: Object,
+  attrsMenu: Object,
 
   // Icon
   iconNavigation: {

@@ -44,6 +44,7 @@ export const mask = {
   ]
 }
 export const multiple = {}
+export const navigation = { default: true }
 export const prefix = { message: 'pr' }
 export const required = {}
 export const suffix = { message: 'sf' }

@@ -1,5 +1,6 @@
 <template>
   <interactive-demo
+    ref="interactive"
     :options="options"
     :sticky="false"
     v-slot:default="{ binds }"
@@ -11,6 +12,8 @@
           id="id-app-bar"
           :bar-action="barAction"
           :admin="true"
+          @on-click="on"
+          @on-action="on"
         >
           <template v-slot:find_friends>
             <div class="p-2 border text-center panel-close cursor-default">Close</div>
@@ -53,6 +56,12 @@ export default {
       options,
       barAction,
       text
+    }
+  },
+  methods: {
+    on (event) {
+      this.$refs.interactive.setData('action', false)
+      console.warn('event', event)
     }
   }
 }

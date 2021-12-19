@@ -1,13 +1,19 @@
-import {
-  action, open,
-  options, palette,
-  shape, size,
-  status,
-  text, textAction, textShort,
-  values
-} from '@/media/demo/options'
 import bar from '@/media/demo/list/bar'
 import barMenu from '@/media/demo/list/barMenu'
+import menu from '@/media/demo/list/menu'
+import {
+  action,
+  navigation,
+  open,
+  options,
+  shape,
+  size,
+  status,
+  text,
+  textAction,
+  textShort,
+  values
+} from '@/media/demo/options'
 
 export const appBarBar = {
   value: 'bar',
@@ -19,6 +25,12 @@ export const appBarBarMenu = {
   value: 'barMenu',
   default: true,
   message: barMenu
+}
+
+export const appBarBarNavigation = {
+  value: 'barNavigation',
+  default: true,
+  message: menu
 }
 
 export const appBarAppearance = {
@@ -88,16 +100,17 @@ export const optionsAppBar = {
   values,
   appBarBar,
   appBarBarMenu,
+  appBarBarNavigation,
   text,
   textAction,
   textShort,
+  navigation,
 
   status,
   open,
   action,
 
   options,
-  palette,
   appBarAppearance,
   appBarScroll,
   appBarTransform,
