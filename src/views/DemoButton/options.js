@@ -1,4 +1,5 @@
 import {
+  active,
   adaptive,
   align,
   dense,
@@ -24,7 +25,7 @@ import {
   status,
   text,
   turn,
-  values, active
+  values, hide, ellipsis
 } from '@/media/demo/options'
 import { badgeBadge } from '@/views/DemoBadge/options'
 
@@ -57,6 +58,7 @@ export const optionsButton = {
   dragged,
   readonly,
   disabled,
+  hide,
   progress,
 
   options,
@@ -68,6 +70,7 @@ export const optionsButton = {
   adaptive,
   lowercase,
   dense,
+  ellipsis,
   ripple,
 
   optionIcon,

@@ -15,7 +15,7 @@
   @include select-none;
 
   --bg-shift: var(--_bt-space);
-  --pr-palette: var(--basic-text);
+  --pr-palette: var(--_bt-basic-text);
   --rp-palette: var(--_bt-palette-image);
 
   --_bt-basic-text: var(--basic-text);
@@ -325,6 +325,16 @@
     --_bt-border-opacity: var(--_bt--ds-border-opacity, 0);
     box-shadow: var(--_bt--ds-shadow, none);
   }
+
+  &.status-readonly {
+    cursor: default;
+  }
+}
+
+@mixin buttonHide() {
+  &.status-hide {
+    display: none;
+  }
 }
 
 @mixin buttonInit() {
@@ -352,4 +362,5 @@
 
   @include buttonStatus;
   @include buttonDisabled;
+  @include buttonHide;
 }

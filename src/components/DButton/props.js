@@ -23,6 +23,7 @@ export const props = {
   dragged: Boolean,
   readonly: Boolean,
   disabled: Boolean,
+  hide: Boolean,
   progress: Boolean,
 
   // Options
@@ -85,7 +86,7 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
-  iconTurn: Boolean,
+  iconTurn: undefined,
   iconReadonly: Boolean,
   iconHide: undefined,
   iconAnimationShow: undefined,

@@ -72,6 +72,7 @@ export default {
         'status-dragged': props.dragged,
         'status-readonly': props.readonly,
         'status-disabled': props.disabled,
+        'status-hide': props.hide,
         [`appearance-${props.appearance}`]: props.appearance,
         [`size-${props.size}`]: props.size,
         [`shape-${props.shape}`]: props.shape,
