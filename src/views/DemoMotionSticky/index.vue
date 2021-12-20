@@ -12,10 +12,13 @@
       :admin="true"
     >
       <template v-slot:default="{ className }">
+        <h5 class="font:headline5 pb-6">Leo Tolstoy</h5>
         <div v-html="text[0]"/>
         <div class="demo-motion-sticky__top" :class="className">Interactive demo</div>
+        <h5 class="font:headline5 pb-6 pt-4">Alexander Pushkin</h5>
         <div v-html="text[1]"/>
         <div class="demo-motion-sticky__bottom" :class="className">Interactive demo</div>
+        <h5 class="font:headline5 pb-6 pt-4">Denis Davydov</h5>
         <div v-html="text[2]"/>
       </template>
     </d-motion-sticky>
@@ -23,10 +26,10 @@
 </template>
 
 <script>
-import DMotionSticky from '@/--components/DMotionSticky'
+import DMotionSticky from '@/components/DMotionSticky'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMotionSticky } from './options'
-import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
+import { alexanderPushkin, denisDavydov, leoTolstoy } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoMotionSticky',
@@ -36,7 +39,7 @@ export default {
   },
   setup () {
     const options = optionsMotionSticky
-    const text = [leoTolstoy, alexanderPushkin, textarea]
+    const text = [leoTolstoy, alexanderPushkin, denisDavydov]
 
     return {
       options,

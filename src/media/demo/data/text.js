@@ -115,6 +115,23 @@ export const leoTolstoy = `
     Gandhi[9] and Martin Luther King Jr.[10] He also became a dedicated advocate of Georgism, the economic philosophy
     of Henry George, which he incorporated into his writing, particularly Resurrection (1899).
 `
+export const denisDavydov = `
+    <p class="pb-4">Davydov stemmed from a family of Russian nobility with Tatar roots.[3] After gaining celebrity as
+    a guerrilla leader in the Russian Patriotic War, see his memoirs,[4] he became one of the most popular men in the
+    country. Young men of Pushkin's circle viewed him as a model romantic hero and the Decembrists prized his company
+    as well.
+    <p class="pb-4">He was high-spirited, healthy, virile, unromantic, and shallowish. He was great wits and fond of
+    fun, in life as well as in literature. His early and most popular verses are in a style of his own making, known
+    as the “hussar style.” In them he sings the praise of reckless valor, on the field of battle as well as before the
+    bottle. The diction in some is rather unconventional, and occasionally his words have to be replaced by dots, but
+    it is always full of spirit and great rhythmical go. His later poems are inspired by a late love for a very young
+    girl. They are passionately sentimental and as vivid and alive in diction and rhythmical. Alexander Pushkin had a
+    high opinion of his poetry and said that Davydov had showed him the way to be original[5]
+    <p class="pb-4">His poems were admired by Vissarion Belinsky for their organic quality and "Russianness".
+    <p class="pb-4">Davydov fought in the Russo-Iranian War of 1826-1828.[6]
+    <p class="pb-4">His grave, with his statue above it, is situated next to the exit door of the katholikon of the
+    Novodevichy Convent.
+`
 export const helper1 = 'Some important text'
 export const textarea = 'The HTML textarea element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.'
 export const quote1 = 'All the world is made of faith, and trust, and pixie dust.'
