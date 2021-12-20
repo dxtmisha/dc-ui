@@ -1,6 +1,6 @@
 import { computed, onMounted, watch } from 'vue'
 import EventControl from '@/classes/EventControl'
-import useClass from '@/--uses/useClass'
+import useClass from '@/uses/useClass'
 
 export default function useScrollBorder (
   scroll,

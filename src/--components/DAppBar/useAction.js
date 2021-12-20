@@ -1,6 +1,6 @@
 import { toRefs } from 'vue'
 import EventControl from '@/classes/EventControl'
-import useClass from '@/--uses/useClass'
+import useClass from '@/uses/useClass'
 import useWatch from '@/uses/useWatch'
 
 export default function useAction (

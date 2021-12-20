@@ -1,6 +1,6 @@
 import { onMounted, toRefs, watch } from 'vue'
 import EventControl from '@/classes/EventControl'
-import useClass from '@/--uses/useClass'
+import useClass from '@/uses/useClass'
 import useStyle from '@/--uses/useStyle'
 
 export default function useScroll (app, props) {

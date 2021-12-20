@@ -1,4 +1,5 @@
 import { alignment } from '@/media/demo/data/alignment'
+import { delay } from '@/media/demo/data/delay'
 import { outline } from '@/media/demo/data/outline'
 import { palette } from '@/media/demo/data/palette'
 import { shape } from '@/media/demo/data/shape'
@@ -8,10 +9,14 @@ import { type2i } from '@/media/demo/data/type'
 export const Options = {
   alignment: { list: alignment },
   animationHide: { list: type2i },
+  delay: { list: delay },
+  indeterminate: {},
+  max: {},
   outline: { list: outline },
   palette: { list: palette },
   shape: { list: shape },
   size: { list: size },
+  type: {},
 
   animationShow: {},
   background: {}

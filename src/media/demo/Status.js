@@ -2,5 +2,6 @@ export const Status = {
   active: {},
   disabled: {},
   hide: {},
-  turn: {}
+  turn: {},
+  visible: {}
 }

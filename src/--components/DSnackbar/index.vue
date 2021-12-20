@@ -31,7 +31,7 @@ import DIcon from '@/components/DIcon'
 import { props } from './props'
 import { computed, nextTick, ref, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useClass from '@/--uses/useClass'
+import useClass from '@/uses/useClass'
 import useColor from '@/uses/useColor'
 import useWatch from '@/uses/useWatch'
 

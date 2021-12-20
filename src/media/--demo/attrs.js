@@ -3,7 +3,7 @@ import { align } from '@/media/--demo/data/align'
 import { alignment } from '@/media/demo/data/alignment'
 import { appearanceButton } from '@/media/--demo/data/appearance'
 import { badge } from '@/media/demo/data/badge'
-import { delay } from '@/media/--demo/data/delay'
+import { delay } from '@/media/demo/data/delay'
 import { icon } from '@/media/demo/data/icon'
 import { indeterminateProgress } from '@/media/--demo/data/indeterminate'
 import { maxBadge, maxProgress } from '@/media/demo/data/max'
@@ -12,7 +12,7 @@ import { palette } from '@/media/demo/data/palette'
 import { shape } from '@/media/demo/data/shape'
 import { size, sizeIcon } from '@/media/demo/data/size'
 import { typeProgress } from '@/media/demo/data/type'
-import { valueProgress } from '@/media/--demo/data/value'
+import { valueProgress } from '@/media/demo/data/value'
 
 export const Values = {
   value: {},

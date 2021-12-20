@@ -2,6 +2,7 @@
   <component
     :is="tag"
     ref="progress"
+    class="d-progress"
     :class="classList"
     :style="styleList"
     :max="max"
@@ -42,7 +43,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-progress': true,
         [`type-${props.type}`]: props.type,
         [`indeterminate-${props.indeterminate}`]: props.indeterminate,
         'option-bottom': props.bottom
