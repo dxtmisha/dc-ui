@@ -51,7 +51,7 @@ import DemoTime from '../--views/DemoTime'
 import DemoTimePicker from '../--views/DemoTimePicker'
 import DemoTooltip from '../--views/DemoTooltip'
 import DemoTop from '../--views/DemoTop'
-import DemoWindow from '../--views/DemoWindow'
+import DemoWindow from '../views/DemoWindow'
 
 export const routes = getRoutes({
   's-basic': { subtitle: 'Basic' },

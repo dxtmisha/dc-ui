@@ -1,4 +1,4 @@
-import { windowShape, windowSize, windowWidth } from '@/--views/DemoWindow/options'
+// import { windowShape, windowSize, windowWidth } from '@/views/DemoWindow/options'
 import {
   autoClose,
   axis,
@@ -74,9 +74,9 @@ export const optionsDialog = {
   },
 
   optionWindow,
-  windowWidth,
-  windowSize,
-  windowShape,
+  // windowWidth,
+  // windowSize,
+  // windowShape,
   dialogAdaptive,
   autoClose: {
     ...autoClose,

@@ -5,3 +5,10 @@ export const shape = [
   { value: 'pill' },
   { value: 'tile' }
 ]
+
+export const shapeWindow = [
+  { value: undefined },
+  { value: 'basic' },
+  { value: 'rounded' },
+  { value: 'tile' }
+]

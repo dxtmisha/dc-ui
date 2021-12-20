@@ -1,7 +1,7 @@
 import { appBarAppearance, appBarSrc } from '@/--views/DemoAppBar/options'
-import { iconSize } from '@/views/DemoIcon/options'
+// import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/--views/DemoListItem/options'
-import { windowShape, windowWidth } from '@/--views/DemoWindow/options'
+// import { windowShape, windowWidth } from '@/views/DemoWindow/options'
 import {
   buttonBack,
   buttonClose,
@@ -36,8 +36,8 @@ export const optionsNavigation = {
 
   options,
   appBarAppearance,
-  windowWidth,
-  windowShape,
+  // windowWidth,
+  // windowShape,
   navigationAdaptive,
   navigationRail,
   appBarSrc,
@@ -51,7 +51,7 @@ export const optionsNavigation = {
     value: 'listAppearance'
   },
   listSize: {
-    ...iconSize,
+    // ...iconSize,
     value: 'listSize'
   },
   listShape: shape,

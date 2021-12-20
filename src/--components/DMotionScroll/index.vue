@@ -15,7 +15,7 @@ import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'
 import useElement from './useElement'
 import useMotion from './useMotion'
-import useScroll from '@/--uses/useScroll'
+import useScroll from '@/uses/useScroll'
 
 export default {
   name: 'DMotionScroll',

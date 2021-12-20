@@ -1,5 +1,5 @@
 import forEach from '@/functions/forEach'
-import useStyle from '@/--uses/useStyle'
+import useStyle from '@/uses/useStyle'
 
 export default function useStyleList (
   element,

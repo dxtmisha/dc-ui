@@ -1,4 +1,4 @@
-import { buttonAppearance } from '@/--views/DemoButton/options'
+// import { buttonAppearance } from '@/--views/DemoButton/options'
 import {
   cancel,
   disabled,
@@ -52,7 +52,7 @@ export const optionsSelectValue = {
 
   options,
   palette,
-  buttonAppearance,
+  // buttonAppearance,
   size,
   shape,
   cancel

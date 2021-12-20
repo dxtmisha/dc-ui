@@ -14,3 +14,10 @@ export const sizeIcon = [
   { value: 'large' },
   { value: 'rectangle' }
 ]
+
+export const sizeWindow = [
+  { value: undefined },
+  { value: 'basic' },
+  { value: 'fullscreen' },
+  { value: 'minimum' }
+]

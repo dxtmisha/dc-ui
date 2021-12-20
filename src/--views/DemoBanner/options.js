@@ -1,4 +1,4 @@
-import { windowWidth } from '@/--views/DemoWindow/options'
+// import { windowWidth } from '@/views/DemoWindow/options'
 import { helper1, quote1, quote2 } from '@/media/--demo/data/text'
 import {
   icon,
@@ -38,7 +38,7 @@ export const optionsBanner = {
   open: { default: true },
 
   options,
-  windowWidth,
+  // windowWidth,
   sticky,
 
   optionIcon,

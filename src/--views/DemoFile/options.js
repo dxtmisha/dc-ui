@@ -1,4 +1,4 @@
-import { iconSize } from '@/views/DemoIcon/options'
+// import { iconSize } from '@/views/DemoIcon/options'
 import {
   accept,
   disabled,
@@ -76,6 +76,6 @@ export const optionsFile = {
   options,
   palette,
   fileAdaptive,
-  iconSize,
+  // iconSize,
   shape
 }

@@ -1,4 +1,4 @@
-import { iconSize } from '@/views/DemoIcon/options'
+// import { iconSize } from '@/views/DemoIcon/options'
 import {
   hide,
   icon,
@@ -56,7 +56,7 @@ export const optionsAlert = {
   options,
   palette,
   alertAppearance,
-  iconSize,
+  // iconSize,
   shape,
   alertBorder,
   dense,

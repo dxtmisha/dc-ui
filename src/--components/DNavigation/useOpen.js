@@ -1,6 +1,6 @@
 import { onMounted, toRefs, watch } from 'vue'
 import useClass from '@/uses/useClass'
-import useStyle from '@/--uses/useStyle'
+import useStyle from '@/uses/useStyle'
 
 export default function useOpen (
   navigation,

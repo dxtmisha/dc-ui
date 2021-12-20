@@ -42,7 +42,7 @@
 <script>
 import DActions from '@/--components/DActions'
 import DScrollbar from '@/--components/DScrollbar'
-import DWindow from '@/--components/DWindow'
+import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
 import useAdmin from '@/uses/useAdmin'

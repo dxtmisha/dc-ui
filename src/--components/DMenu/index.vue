@@ -33,7 +33,7 @@
 
 <script>
 import DList from '@/--components/DList'
-import DWindow from '@/--components/DWindow'
+import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { readonly, toRefs } from 'vue'
 import useFocus from './useFocus'

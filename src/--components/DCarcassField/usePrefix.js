@@ -1,5 +1,5 @@
 import { nextTick, onMounted, toRefs, watch } from 'vue'
-import useStyle from '@/--uses/useStyle'
+import useStyle from '@/uses/useStyle'
 
 export default function usePrefix (field, props) {
   const {

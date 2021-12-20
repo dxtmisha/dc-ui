@@ -17,7 +17,7 @@ import {
   status,
   values
 } from '@/media/--demo/options'
-import { buttonAppearance } from '@/--views/DemoButton/options'
+// import { buttonAppearance } from '@/--views/DemoButton/options'
 
 export const optionsActions = {
   values,
@@ -34,7 +34,7 @@ export const optionsActions = {
 
   optionButton,
   palette,
-  buttonAppearance,
+  // buttonAppearance,
   size,
   shape,
   adaptive,

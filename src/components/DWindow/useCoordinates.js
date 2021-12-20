@@ -1,6 +1,6 @@
 import { nextTick, ref, watch } from 'vue'
 import frame from '@/functions/frame'
-import useStyle from '@/--uses/useStyle'
+import useStyle from '@/uses/useStyle'
 
 export const getInnerPosition = function (
   inValue,

@@ -1,4 +1,4 @@
-import { adaptive } from '@/media/--demo/data/adaptive'
+import { adaptive } from '@/media/demo/data/adaptive'
 import { align } from '@/media/--demo/data/align'
 import { alignment } from '@/media/demo/data/alignment'
 import { appearanceButton } from '@/media/--demo/data/appearance'

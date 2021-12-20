@@ -1,4 +1,4 @@
-import { windowIndent } from '@/--views/DemoWindow/options'
+// import { windowIndent } from '@/views/DemoWindow/options'
 import {
   arrow,
   delay,
@@ -32,7 +32,7 @@ export const optionsTooltip = {
   options,
   tooltipWidth,
   shape,
-  windowIndent,
+  // windowIndent,
   arrow,
   delay,
   top

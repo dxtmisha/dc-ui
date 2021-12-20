@@ -1,6 +1,6 @@
-import { iconSize } from '@/views/DemoIcon/options'
+// import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/--views/DemoListItem/options'
-import { windowAxis, windowIndent, windowWidth } from '@/--views/DemoWindow/options'
+// import { windowAxis, windowIndent, windowWidth } from '@/views/DemoWindow/options'
 import {
   ajax,
   cache,
@@ -32,12 +32,12 @@ export const optionsMenu = {
   optionsItem: optionItem,
   palette,
   listItemAppearance,
-  iconSize,
+  // iconSize,
   shape,
   ripple,
 
-  optionsWindow: optionWindow,
-  windowWidth,
-  windowAxis,
-  windowIndent
+  optionsWindow: optionWindow
+  // windowWidth,
+  // windowAxis,
+  // windowIndent
 }

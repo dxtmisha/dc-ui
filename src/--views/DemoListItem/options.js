@@ -1,5 +1,5 @@
-import { badgeBadge } from '@/views/DemoBadge/options'
-import { iconSize } from '@/views/DemoIcon/options'
+// import { badgeBadge } from '@/views/DemoBadge/options'
+// import { iconSize } from '@/views/DemoIcon/options'
 import {
   adaptive,
   backgroundColor,
@@ -53,7 +53,7 @@ export const optionsListItem = {
   prefix,
   suffix,
   description,
-  badgeBadge,
+  // badgeBadge,
   backgroundColor,
 
   status,
@@ -67,7 +67,7 @@ export const optionsListItem = {
   options,
   palette,
   listItemAppearance,
-  iconSize,
+  // iconSize,
   shape,
   adaptive,
   navigationRail,

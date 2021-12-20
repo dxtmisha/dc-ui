@@ -68,7 +68,7 @@ import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
 import useOpen from './useOpen'
-import useScroll from '@/--uses/useScroll'
+import useScroll from '@/uses/useScroll'
 import useSelected from '@/--components/DAppBar/useSelected'
 
 export default {
