@@ -49,7 +49,7 @@ import DemoTextarea from '../--views/DemoTextarea'
 import DemoTextareaAutosize from '../--views/DemoTextareaAutosize'
 import DemoTime from '../--views/DemoTime'
 import DemoTimePicker from '../--views/DemoTimePicker'
-import DemoTooltip from '../--views/DemoTooltip'
+import DemoTooltip from '../views/DemoTooltip'
 import DemoTop from '../--views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
 

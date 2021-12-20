@@ -1,3 +1,11 @@
+export const widthTooltip = [
+  { value: undefined },
+  { value: '0px' },
+  { value: '32px' },
+  { value: '48px' },
+  { value: '64px' }
+]
+
 export const widthWindow = [
   { value: undefined },
   { value: '0px' },

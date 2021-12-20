@@ -22,9 +22,9 @@
 import { props } from './props'
 import { computed, ref } from 'vue'
 import getIdElement from '@/functions/getIdElement'
+import useAdmin from '@/uses/useAdmin'
 import useEvent from './useEvent'
 import usePosition from './usePosition'
-import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DTooltip',

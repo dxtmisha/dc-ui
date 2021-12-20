@@ -1,4 +1,9 @@
 export const Values = {
   value: {},
-  dot: {}
+
+  dot: {},
+  text: {
+    default: true,
+    message: 'Interactive demo'
+  }
 }

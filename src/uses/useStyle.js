@@ -11,7 +11,7 @@ export default function useStyle (
   const item = { value }
   const update = () => {
     if (item.value === undefined) {
-      element.value?.style.removeProperty(name)
+      element.value?.style?.removeProperty(name)
     } else {
       let value
 
@@ -26,7 +26,7 @@ export default function useStyle (
         }
       }
 
-      element.value?.style.setProperty(name, value === undefined ? item.value : value)
+      element.value?.style?.setProperty(name, value === undefined ? item.value : value)
     }
   }
 

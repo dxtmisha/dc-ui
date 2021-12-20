@@ -25,6 +25,7 @@ export const Options = {
   type: {},
   width: {},
 
+  arrow: {},
   animationShow: {},
   autoClose: {},
   background: {},

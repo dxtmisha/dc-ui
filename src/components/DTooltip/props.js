@@ -30,6 +30,8 @@ export const props = {
     type: Number,
     default: defaultProps('delay', 40)
   },
+
+  // Position
   top: {
     type: Boolean,
     default: defaultProps('top')
