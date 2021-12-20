@@ -30,5 +30,6 @@ export const Options = {
   autoClose: {},
   background: {},
   border: {},
+  click: {},
   persistent: {}
 }

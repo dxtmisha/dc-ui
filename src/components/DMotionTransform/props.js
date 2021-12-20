@@ -2,13 +2,11 @@ import { defaultInit, validator } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-motion-transform')
 export const props = {
+  // Values
+  ignore: undefined,
+
   // Status
   open: Boolean,
-  click: {
-    type: Boolean,
-    default: true
-  },
-  staticElement: undefined,
 
   // Options
   adaptive: {
@@ -26,13 +24,19 @@ export const props = {
       'window'
     ])
   },
-  autoClose: {
-    type: Boolean,
-    default: true
-  },
   animationShow: {
     type: Boolean,
     default: defaultProps('animationShow', true)
   },
+  autoClose: {
+    type: Boolean,
+    default: true
+  },
+  click: {
+    type: Boolean,
+    default: true
+  },
+
+  // Position
   bottom: Boolean
 }

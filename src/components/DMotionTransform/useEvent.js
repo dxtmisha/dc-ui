@@ -21,7 +21,7 @@ export default function useEvent (
         (
           props.autoClose &&
           !target.closest(selector) &&
-          !(props.staticElement && target.closest(getIdElement(props.staticElement, '')))
+          !(props.ignore && target.closest(getIdElement(props.ignore, '')))
         )
       )
     ) {

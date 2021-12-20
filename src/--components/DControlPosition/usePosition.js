@@ -1,4 +1,4 @@
-import useStyleList from '@/--uses/useStyleList'
+import useStyleList from '@/uses/useStyleList'
 
 export default function usePosition (
   id,

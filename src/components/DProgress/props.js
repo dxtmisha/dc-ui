@@ -36,6 +36,8 @@ export const props = {
     type: [Number, String],
     default: defaultProps('delay', 400)
   },
+
+  // Position
   bottom: {
     type: Boolean,
     default: defaultProps('bottom')
