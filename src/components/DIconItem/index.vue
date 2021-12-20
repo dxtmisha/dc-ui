@@ -1,10 +1,5 @@
-<template lang="pug">
-span(
-  class="d-icon-item notranslate",
-  v-bind="binds",
-  translate="no",
-  v-text="text"
-)
+<template>
+  <span class="d-icon-item" v-bind="binds" v-text="text"/>
 </template>
 
 <script>
@@ -34,7 +29,8 @@ export default {
           'status-hide': props.hide,
           ...classIcon.value
         },
-        style: styleIcon.value
+        style: styleIcon.value,
+        translate: 'no'
       }
     })
 

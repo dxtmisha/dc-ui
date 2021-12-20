@@ -14,11 +14,9 @@ export default function useAdmin (
   ) {
     onBeforeMount(() => {
       mounted = new Date()
-      // console.info(`[${id}] ${name}: before mount`)
     })
     onBeforeUpdate(() => {
       updated = new Date()
-      // console.info(`[${id}] ${name}: before update`)
     })
 
     onMounted(() => console.info(`[${id}] ${name}: mounted (${new Date() - mounted})`, item?.value))

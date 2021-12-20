@@ -1,5 +1,5 @@
 import Translation from '@/classes/Translation'
-import { useTheme } from '@/uses/useTheme'
+import { useTheme } from '@/--uses/useTheme'
 import forEach from '@/functions/forEach'
 
 let menu
