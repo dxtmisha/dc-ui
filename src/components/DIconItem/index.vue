@@ -1,9 +1,10 @@
-<template>
-  <span
-    v-bind="binds"
-    translate="no"
-    v-text="text"
-  />
+<template lang="pug">
+span(
+  class="d-icon-item notranslate",
+  v-bind="binds",
+  translate="no",
+  v-text="text"
+)
 </template>
 
 <script>
@@ -28,7 +29,6 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          'd-icon-item notranslate': true,
           'status-image': image.value,
           'status-disabled': props.disabled,
           'status-hide': props.hide,
