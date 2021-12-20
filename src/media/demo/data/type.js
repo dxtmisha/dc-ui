@@ -4,6 +4,15 @@ export const type2i = [
   { value: 'type2' }
 ]
 
+export const typeMask = [
+  { value: undefined },
+  { value: 'text' },
+  { value: 'date' },
+  { value: 'datetime' },
+  { value: 'month' },
+  { value: 'time' }
+]
+
 export const typeProgress = [
   { value: undefined },
   { value: 'linear' },

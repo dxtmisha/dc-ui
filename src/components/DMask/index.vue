@@ -3,7 +3,7 @@
     <span class="d-mask__view">
       <input
         ref="input"
-        v-bind="attrsInput"
+        v-bind="inputAttrs"
         class="d-mask__input"
         :value="standard"
         type="text"
@@ -107,7 +107,7 @@ export default {
     const classList = computed(() => {
       return {
         'd-mask': true,
-        'status-character': isCharacter.value || props.visibleMask
+        'status-character': isCharacter.value || props.visible
       }
     })
 

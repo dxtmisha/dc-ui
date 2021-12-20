@@ -36,7 +36,7 @@
 
 <script>
 import DCarcassField from '@/--components/DCarcassField'
-import DMask from '@/--components/DMask'
+import DMask from '@/components/DMask'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'

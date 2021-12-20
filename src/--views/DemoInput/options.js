@@ -3,7 +3,7 @@ import {
   carcassFieldAppearance,
   carcassFieldSize
 } from '@/--views/DemoCarcassField/options'
-import { maskValue } from '@/--views/DemoMask/options'
+// import { maskValue } from '@/views/DemoMask/options'
 import {
   align, arrow, cancel, counter,
   disabled,
@@ -58,7 +58,7 @@ export const inputType = {
 
 export const optionsInput = {
   values,
-  maskValue,
+  // maskValue,
 
   status,
   selected,

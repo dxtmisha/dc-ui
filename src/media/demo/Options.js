@@ -3,6 +3,7 @@ import { alignment } from '@/media/demo/data/alignment'
 import { axis } from '@/media/demo/data/axis'
 import { delay } from '@/media/demo/data/delay'
 import { indent } from '@/media/demo/data/indent'
+import { locales } from '@/media/demo/data/locales'
 import { outline } from '@/media/demo/data/outline'
 import { palette } from '@/media/demo/data/palette'
 import { shape } from '@/media/demo/data/shape'
@@ -18,6 +19,7 @@ export const Options = {
   delay: { list: delay },
   indent: { list: indent },
   indeterminate: {},
+  locales: { list: locales },
   max: {},
   outline: { list: outline },
   palette: { list: palette },

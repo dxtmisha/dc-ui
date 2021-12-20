@@ -29,7 +29,7 @@ import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../--views/DemoInput'
 import DemoList from '../--views/DemoList'
 import DemoListItem from '../--views/DemoListItem'
-import DemoMask from '../--views/DemoMask'
+import DemoMask from '../views/DemoMask'
 import DemoMenu from '../--views/DemoMenu'
 import DemoMotionAxis from '../views/DemoMotionAxis'
 import DemoMotionScroll from '../views/DemoMotionScroll'
@@ -70,12 +70,13 @@ export const routes = getRoutes({
   's-interaction': { subtitle: 'Interaction' },
   'd-button': DemoButton,
   'l-form': { line: true },
-  's-form': { subtitle: 'Form' },
+  's-form': { subtitle: 'Form and Input' },
   'd-checkbox': DemoCheckbox,
   'd-date': DemoDate,
   'd-file': DemoFile,
   'd-form': DemoForm,
   'd-input': DemoInput,
+  'd-mask': DemoMask,
   'd-select': DemoSelect,
   'd-slider': DemoSlider,
   'd-textarea': DemoTextarea,
@@ -107,7 +108,6 @@ export const routes = getRoutes({
   'd-date-picker': DemoDatePicker,
   'd-drop': DemoDrop,
   'd-list-item': DemoListItem,
-  'd-mask': DemoMask,
   'd-menu': DemoMenu,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,
