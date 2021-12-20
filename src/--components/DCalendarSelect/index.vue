@@ -96,7 +96,7 @@
 import DCalendar from '@/--components/DCalendar'
 import DButton from '@/--components/DButton'
 import DMotionAxis from '@/--components/DMotionAxis'
-import DScrollbar from '@/--components/DScrollbar'
+import DScrollbar from '@/components/DScrollbar'
 import { props } from './props'
 import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import useAdmin from '@/uses/useAdmin'

@@ -29,5 +29,6 @@ export const Options = {
   animationShow: {},
   autoClose: {},
   background: {},
+  border: {},
   persistent: {}
 }
