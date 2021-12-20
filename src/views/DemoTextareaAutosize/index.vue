@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import { textarea } from '@/media/--demo/data/text'
+import { textarea } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoTextareaAutosize',

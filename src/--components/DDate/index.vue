@@ -48,7 +48,7 @@ import { computed, ref } from 'vue'
 import GeoDate from '@/classes/GeoDate'
 import useAdmin from '@/uses/useAdmin'
 import useCarcass from '@/--components/DTime/useCarcass'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 import usePicker from './usePicker'
 
 export default {

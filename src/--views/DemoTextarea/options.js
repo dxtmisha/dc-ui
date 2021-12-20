@@ -25,7 +25,7 @@ import {
   validationMessage,
   values
 } from '@/media/--demo/options'
-import { textarea } from '@/media/--demo/data/text'
+import { textarea } from '@/media/demo/data/text'
 
 export const textareaValue = {
   value: 'value',

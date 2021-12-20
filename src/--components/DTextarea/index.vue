@@ -16,12 +16,12 @@
 
 <script>
 import DCarcassField from '@/--components/DCarcassField'
-import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useCarcass from './useCarcass'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 import useTextarea from './useTextarea'
 
 export default {

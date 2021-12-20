@@ -1,6 +1,6 @@
 import { dataLocales } from '@/media/--demo/data/locales'
 import { dataNavigationRail } from '@/media/--demo/data/navigationRail'
-import { helper1, quote1, validation1 } from '@/media/--demo/data/text'
+import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 import { dataMarks } from '@/media/--demo/data/marks'
 
 // Subtitle

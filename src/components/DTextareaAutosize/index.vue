@@ -19,7 +19,7 @@
 import { props } from './props'
 import { onUpdated, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 import useResize from './useResize'
 
 export default {

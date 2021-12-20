@@ -26,7 +26,7 @@
 import DMotionSticky from '@/--components/DMotionSticky'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMotionSticky } from './options'
-import { alexanderPushkin, leoTolstoy, textarea } from '@/media/--demo/data/text'
+import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoMotionSticky',

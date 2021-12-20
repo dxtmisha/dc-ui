@@ -35,7 +35,7 @@ import DAppBar from '@/--components/DAppBar'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import action from '@/media/--demo/list/action'
 import { optionsAppBar } from './options'
-import { alexanderPushkin, leoTolstoy, textarea } from '@/media/--demo/data/text'
+import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
 import { onBeforeMount, onUnmounted } from 'vue'
 
 export default {

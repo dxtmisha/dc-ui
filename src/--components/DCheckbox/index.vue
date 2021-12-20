@@ -42,7 +42,7 @@ import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useColor from '@/uses/useColor'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 
 export default {
   name: 'DCheckbox',

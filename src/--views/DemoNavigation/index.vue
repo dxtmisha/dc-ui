@@ -34,7 +34,7 @@ import DNavigation from '@/--components/DNavigation'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsNavigation } from './options'
-import { leoTolstoy, textarea } from '@/media/--demo/data/text'
+import { leoTolstoy, textarea } from '@/media/demo/data/text'
 import menu from '@/media/--demo/list/menu'
 
 export default {

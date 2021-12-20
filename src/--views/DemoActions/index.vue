@@ -21,7 +21,7 @@ import DActions from '@/--components/DActions'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import action from '@/media/--demo/list/action'
 import { optionsActions } from './options'
-import { leoTolstoy } from '@/media/--demo/data/text'
+import { leoTolstoy } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoActions',

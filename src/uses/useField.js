@@ -1,5 +1,5 @@
 import { computed, ref, toRefs, watch } from 'vue'
-import useWatch from '../uses/useWatch'
+import useWatch from './useWatch'
 
 const EVENT_DEFAULT = 'on-input'
 

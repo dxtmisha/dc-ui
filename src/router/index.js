@@ -46,7 +46,7 @@ import DemoSlider from '../--views/DemoSlider'
 import DemoSliderPicker from '../--views/DemoSliderPicker'
 import DemoSnackbar from '../--views/DemoSnackbar'
 import DemoTextarea from '../--views/DemoTextarea'
-import DemoTextareaAutosize from '../--views/DemoTextareaAutosize'
+import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../--views/DemoTime'
 import DemoTimePicker from '../--views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
@@ -79,6 +79,7 @@ export const routes = getRoutes({
   'd-select': DemoSelect,
   'd-slider': DemoSlider,
   'd-textarea': DemoTextarea,
+  'd-textarea-autosize': DemoTextareaAutosize,
   'd-time': DemoTime,
   'l-icons': { line: true },
   's-icons': { subtitle: 'Icons' },
@@ -111,7 +112,6 @@ export const routes = getRoutes({
   'd-ripple': DemoRipple,
   'd-select-value': DemoSelectValue,
   'd-slider-picker': DemoSliderPicker,
-  'd-textarea-autosize': DemoTextareaAutosize,
   'd-time-picker': DemoTimePicker,
   'd-top': DemoTop,
   'd-window': DemoWindow

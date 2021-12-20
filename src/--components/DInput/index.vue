@@ -42,7 +42,7 @@ import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useArrow from './useArrow'
 import useCarcass from './useCarcass'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 import useInput from './useInput'
 
 export default {

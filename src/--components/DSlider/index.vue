@@ -96,7 +96,7 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
-import useField from '@/--uses/useField'
+import useField from '@/uses/useField'
 import useInput from './useInput'
 import useSlider from './useSlider'
 

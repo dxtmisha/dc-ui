@@ -19,7 +19,7 @@
 import DBanner from '@/--components/DBanner'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsBanner } from './options'
-import { leoTolstoy } from '@/media/--demo/data/text'
+import { leoTolstoy } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoBanner',

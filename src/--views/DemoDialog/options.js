@@ -16,7 +16,7 @@ import {
   values
 } from '@/media/--demo/options'
 import action from '@/media/--demo/list/action'
-import { quote2 } from '@/media/--demo/data/text'
+import { quote2 } from '@/media/demo/data/text'
 
 export const dialogImage = {
   value: 'image',
