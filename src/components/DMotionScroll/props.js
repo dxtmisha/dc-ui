@@ -1,5 +1,6 @@
 export const props = {
   // Values
+  element: undefined,
   page: String,
 
   // Options
@@ -7,6 +8,5 @@ export const props = {
     type: String,
     default: 'div'
   },
-  element: [HTMLElement, Object],
   scrollHide: Boolean
 }

@@ -32,7 +32,7 @@ import DemoListItem from '../--views/DemoListItem'
 import DemoMask from '../--views/DemoMask'
 import DemoMenu from '../--views/DemoMenu'
 import DemoMotionAxis from '../--views/DemoMotionAxis'
-import DemoMotionScroll from '../--views/DemoMotionScroll'
+import DemoMotionScroll from '../views/DemoMotionScroll'
 import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoNavigation from '../--views/DemoNavigation'
@@ -88,6 +88,8 @@ export const routes = getRoutes({
   'd-icon-item': DemoIconItem,
   'l-motion': { line: true },
   's-motion': { subtitle: 'Motion' },
+  'd-motion-scroll': DemoMotionScroll,
+  'd-motion-sticky': DemoMotionSticky,
   'd-motion-transform': DemoMotionTransform,
   'l-components': { line: true },
   's-components': { subtitle: 'Components' },
@@ -107,8 +109,6 @@ export const routes = getRoutes({
   'd-mask': DemoMask,
   'd-menu': DemoMenu,
   'd-motion-axis': DemoMotionAxis,
-  'd-motion-scroll': DemoMotionScroll,
-  'd-motion-sticky': DemoMotionSticky,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,

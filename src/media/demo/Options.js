@@ -31,5 +31,6 @@ export const Options = {
   background: {},
   border: {},
   click: {},
-  persistent: {}
+  persistent: {},
+  scrollHide: {}
 }
