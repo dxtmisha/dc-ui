@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/--uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
 import { palette } from '@/--uses/useColor'
 
 const defaultProps = defaultInit('d-slider')

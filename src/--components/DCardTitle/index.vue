@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import DIcon from '@/--components/DIcon'
+import DIcon from '@/components/DIcon'
 import { props } from './props'
 import useAdmin from '@/uses/useAdmin'
 

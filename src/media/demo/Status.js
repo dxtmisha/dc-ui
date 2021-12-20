@@ -1,4 +1,6 @@
 export const Status = {
+  active: {},
   disabled: {},
-  hide: {}
+  hide: {},
+  turn: {}
 }

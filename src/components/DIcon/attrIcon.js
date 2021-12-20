@@ -1,13 +1,13 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DButton/props'
+import { props } from '@/components/DIcon/props'
 
-export default function setupButton (
+export default function attrIcon (
   binds,
   items = {},
   attrs = {}
 ) {
   return useBinds(
-    'button',
+    'icon',
     props,
     binds,
     items,

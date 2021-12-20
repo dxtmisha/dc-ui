@@ -1,5 +1,5 @@
 import Geo from '../../classes/Geo'
-import { defaultInit, validator } from '@/--uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-mask')
 export const props = {

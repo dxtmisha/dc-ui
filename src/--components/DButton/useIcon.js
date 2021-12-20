@@ -1,5 +1,5 @@
 import { computed, toRefs } from 'vue'
-import setupIcon from '@/--components/DIcon/setupIcon'
+import attrIcon from '@/components/DIcon/attrIcon'
 
 export default function useIcon (
   props,
@@ -15,7 +15,7 @@ export default function useIcon (
 
   const size = 'small'
 
-  const bindIcon = setupIcon(
+  const bindIcon = attrIcon(
     props,
     {
       icon,
@@ -28,7 +28,7 @@ export default function useIcon (
     { class: 'd-button__icon bt-icon' }
   )
 
-  const bindTrailing = setupIcon(
+  const bindTrailing = attrIcon(
     props,
     {
       icon: iconTrailing,

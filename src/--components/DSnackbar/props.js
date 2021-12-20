@@ -1,4 +1,4 @@
-import { defaultInit, validatorAlign, validatorShape } from '@/--uses/useDefault'
+import { defaultInit, validatorAlign, validatorShape } from '@/uses/useDefault'
 import { palette } from '@/--uses/useColor'
 import Translation from '@/classes/Translation'
 

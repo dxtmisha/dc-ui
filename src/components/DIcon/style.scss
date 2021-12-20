@@ -2,14 +2,25 @@
 @import "../../styles/dimension";
 @import "../../styles/font";
 @import "../../styles/options/optionHide";
-@import "styleVar";
 
 %size-large-font {
   --_ic-font: var(--_ic--lg-font);
 }
 
 @mixin icon() {
-  @include iconVar;
+  --_ic-palette: var(--ic-palette, var(--palette-type1, var(--background-overlay)));
+
+  --_ic-radius: var(--ic-radius, var(--radius-pill));
+  --_ic--bg-opacity: var(--ic--bg-opacity, var(--opacity-overlay));
+
+  --_ic-font: var(--ic-font, 20px);
+  --_ic--lg-font: var(--ic--lg-font, var(--ic-font, 32px));
+
+  --_ic-size: var(--ic-size, 24px);
+  --_ic--md-size: var(--ic--md-size, var(--ic-size, 40px));
+  --_ic--lg-size: var(--ic--lg-size, var(--ic-size, 56px));
+  --_ic--rc-size: var(--ic--rc-size, var(--ic-size, 100px));
+
   @include select-none;
   @include squared(var(--_ic-size));
   border-radius: var(--_ic-radius);

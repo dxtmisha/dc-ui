@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorAxis, validatorSize } from '@/--uses/useDefault'
+import { defaultInit, validator, validatorAxis, validatorSize } from '@/uses/useDefault'
 import Translation from '../../classes/Translation'
 
 const defaultProps = defaultInit('d-actions')

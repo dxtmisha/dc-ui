@@ -2,7 +2,7 @@ import {
   defaultInit,
   validator,
   validatorShape
-} from '@/--uses/useDefault'
+} from '@/uses/useDefault'
 import Geo from '../../classes/Geo'
 import GeoDate from '../../classes/GeoDate'
 

@@ -1,5 +1,5 @@
 import { badgeBadge } from '@/--views/DemoBadge/options'
-import { iconSize } from '@/--views/DemoIcon/options'
+import { iconSize } from '@/views/DemoIcon/options'
 import {
   adaptive,
   backgroundColor,

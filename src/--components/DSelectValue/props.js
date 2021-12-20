@@ -1,4 +1,4 @@
-import { defaultInit } from '@/--uses/useDefault'
+import { defaultInit } from '@/uses/useDefault'
 import { palette } from '@/--uses/useColor'
 
 const defaultProps = defaultInit('d-select-value')

@@ -1,4 +1,4 @@
-import { iconSize } from '@/--views/DemoIcon/options'
+import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/--views/DemoListItem/options'
 import {
   adaptive,

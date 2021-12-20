@@ -1,4 +1,4 @@
-import { defaultInit } from '@/--uses/useDefault'
+import { defaultInit } from '@/uses/useDefault'
 import { max, min } from '@/--components/DCalendar/props'
 import { palette } from '@/--uses/useColor'
 

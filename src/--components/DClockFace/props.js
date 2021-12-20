@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorShape } from '@/--uses/useDefault'
+import { defaultInit, validator, validatorShape } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-clock-face')
 export const props = {

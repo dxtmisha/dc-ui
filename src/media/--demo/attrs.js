@@ -10,8 +10,8 @@ import { maxBadge, maxProgress } from '@/media/--demo/data/max'
 import { outline } from '@/media/--demo/data/outline'
 import { palette } from '@/media/--demo/data/palette'
 import { shape } from '@/media/--demo/data/shape'
-import { size, sizeIcon } from '@/media/--demo/data/size'
-import { typeProgress } from '@/media/--demo/data/type'
+import { size, sizeIcon } from '@/media/demo/data/size'
+import { typeProgress } from '@/media/demo/data/type'
 import { valueProgress } from '@/media/--demo/data/value'
 
 export const Values = {
