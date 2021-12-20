@@ -26,16 +26,16 @@
 </template>
 
 <script>
-import DBadge from '@/--components/DBadge'
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DProgress from '@/--components/DProgress'
 import DRipple from '@/--components/DRipple'
 import { props } from './props'
 import { computed } from 'vue'
-import setupBadge from '@/--components/DBadge/setupBadge'
+import setupBadge from '@/components/DBadge/setupBadge'
 import setupRipple from '@/--components/DRipple/setupRipple'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
 
 export default {

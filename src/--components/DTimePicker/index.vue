@@ -79,7 +79,7 @@ import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
 import useDateTime from '@/--uses/useDateTime'
 import useWatch from '@/uses/useWatch'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DTimePicker',

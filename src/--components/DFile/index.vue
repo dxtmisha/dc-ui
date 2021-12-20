@@ -82,7 +82,7 @@ import { computed, nextTick, ref } from 'vue'
 import Translation from '@/classes/Translation'
 import forEach from '@/functions/forEach'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useField from '@/--uses/useField'
 import useFile from './useFile'
 

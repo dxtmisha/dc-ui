@@ -1,5 +1,5 @@
 import { defaultInit, validator, validatorAdaptive, validatorShape } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-list-item')
 export const props = {

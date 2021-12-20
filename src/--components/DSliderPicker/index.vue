@@ -48,7 +48,7 @@ import { computed, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
 import useAdmin from '@/uses/useAdmin'
 import useClass from '@/--uses/useClass'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useMarks from './useMarks'
 
 export default {

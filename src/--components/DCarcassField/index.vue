@@ -100,7 +100,7 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import usePrefix from './usePrefix'
 
 export default {

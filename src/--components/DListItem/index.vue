@@ -56,15 +56,15 @@
 </template>
 
 <script>
-import DBadge from '@/--components/DBadge'
+import DBadge from '@/components/DBadge'
 import DIcon from '@/components/DIcon'
 import DProgress from '@/--components/DProgress'
 import DRipple from '@/--components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import setupBadge from '@/--components/DBadge/setupBadge'
+import setupBadge from '@/components/DBadge/setupBadge'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
 
 export default {

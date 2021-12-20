@@ -6,7 +6,7 @@ import {
   validatorShape,
   validatorSize
 } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-button')
 export const props = {

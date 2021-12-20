@@ -68,7 +68,7 @@ import DTime from '@/--components/DTime'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useFields from './useFields'
 import useValidity from './useValidity'
 

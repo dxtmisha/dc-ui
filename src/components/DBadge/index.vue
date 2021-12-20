@@ -1,5 +1,5 @@
 <template>
-  <span v-bind="binds">
+  <span class="d-badge" v-bind="binds">
     <template v-if="!dot">
       <d-icon-item
         v-if="icon"
@@ -16,24 +16,23 @@ import DIconItem from '@/components/DIconItem'
 import { props } from './props'
 import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DBadge',
   components: { DIconItem },
   props,
   setup (props, context) {
-    const palette = useColor(props)
     const text = computed(
       () => typeof props.badge === 'number' && props.badge > props.max ? `${props.max}+` : props.badge
     )
 
+    const palette = useColor(props)
     const binds = computed(() => {
       const size = props.dot ? 'dot' : props.size
 
       return {
         class: {
-          'd-badge': true,
           'status-hide': props.hide,
           'position-left': props.left,
           'position-bottom': props.bottom,

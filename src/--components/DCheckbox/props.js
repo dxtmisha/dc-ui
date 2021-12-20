@@ -1,5 +1,5 @@
 import { defaultInit, validator } from '@/uses/useDefault'
-import { palette } from '@/--uses/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-checkbox')
 export const props = {

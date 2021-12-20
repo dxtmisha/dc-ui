@@ -35,7 +35,7 @@ import DButton from '@/--components/DButton'
 import { props } from './props'
 import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DSelectValue',

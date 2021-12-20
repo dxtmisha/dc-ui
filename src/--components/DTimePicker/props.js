@@ -1,6 +1,6 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
-import { palette } from '@/--uses/useColor'
+import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-time-picker')
 export const props = {

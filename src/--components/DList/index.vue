@@ -60,7 +60,7 @@ import DListItem from '@/--components/DListItem'
 import { props } from './props'
 import { computed, defineAsyncComponent } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 import useItems from './useItems'
 
 export default {

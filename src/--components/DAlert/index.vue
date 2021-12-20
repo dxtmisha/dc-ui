@@ -35,7 +35,7 @@ import { props } from './props'
 import { computed, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useWatch from '@/uses/useWatch'
-import useColor from '@/--uses/useColor'
+import useColor from '@/uses/useColor'
 
 export default {
   name: 'DAlert',
