@@ -1,5 +1,5 @@
 import { onMounted, ref, toRefs, watch } from 'vue'
-import useClassByFocus from '@/--uses/useClassByFocus'
+import useClassByFocus from '@/uses/useClassByFocus'
 import useStyleList from '@/uses/useStyleList'
 
 export default function useGo (

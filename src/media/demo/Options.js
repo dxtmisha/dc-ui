@@ -7,6 +7,7 @@ import { outline } from '@/media/demo/data/outline'
 import { palette } from '@/media/demo/data/palette'
 import { shape } from '@/media/demo/data/shape'
 import { size } from '@/media/demo/data/size'
+import { transition } from '@/media/demo/data/transition'
 import { type2i } from '@/media/demo/data/type'
 
 export const Options = {
@@ -23,6 +24,7 @@ export const Options = {
   shape: { list: shape },
   size: { list: size },
   type: {},
+  transition: { list: transition },
   width: {},
 
   arrow: {},

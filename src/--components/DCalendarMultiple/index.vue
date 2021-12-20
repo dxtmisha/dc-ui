@@ -84,7 +84,7 @@
 <script>
 import DButton from '@/--components/DButton'
 import DCalendar from '@/--components/DCalendar'
-import DMotionAxis from '@/--components/DMotionAxis'
+import DMotionAxis from '@/components/DMotionAxis'
 import DMotionScroll from '@/components/DMotionScroll'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'

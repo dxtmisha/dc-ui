@@ -3,6 +3,7 @@ export const Status = {
   disabled: {},
   hide: {},
   open: {},
+  selected: {},
   turn: {},
   visible: {}
 }
