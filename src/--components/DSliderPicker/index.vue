@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import DRipple from '@/--components/DRipple'
+import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import EventControl from '@/classes/EventControl'

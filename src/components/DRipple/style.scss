@@ -1,9 +1,9 @@
+@import "../../styles/color";
 @import "../../styles/position";
-@import "../DRipple/styleVar";
 
 @mixin ripple() {
-  @include rippleVar;
-  @include rippleAnimate;
+  --_rp-palette: var(--rp-palette, var(--palette-type1, var(--primary-type1)));
+
   @extend %absolute-full;
   border-radius: inherit;
   overflow: hidden;
@@ -11,6 +11,18 @@
 }
 
 @mixin rippleItem() {
+  @keyframes __animate-ripple__item {
+    0% {
+      background-color: transparent;
+      clip-path: circle(000% at var(--_rp-x) var(--_rp-y));
+    }
+
+    100% {
+      background-color: varColor(--_rp-palette, --opacity-container-pressed);
+      clip-path: circle(150% at var(--_rp-x) var(--_rp-y));
+    }
+  }
+
   &__item {
     @extend %absolute-full;
     animation-duration: var(--transition-large-expanding);

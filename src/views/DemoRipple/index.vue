@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import DRipple from '@/--components/DRipple'
+import DRipple from '@/components/DRipple'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 
 export default {

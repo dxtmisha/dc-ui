@@ -38,7 +38,7 @@
 
 <script>
 import DIconItem from '@/components/DIconItem'
-import DRipple from '@/--components/DRipple'
+import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useColor from '@/uses/useColor'
