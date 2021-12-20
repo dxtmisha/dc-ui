@@ -9,7 +9,7 @@ export default function useProps (props, binds = {}, nones = []) {
     const data = {}
 
     forEach(values, (item, name) => {
-      const value = props[name] && 'default' in props[name] ? props[name].default : undefined
+      const value = props[name] && ('default' in props[name]) ? props[name].default : undefined
 
       if (name in binds) {
         add = true

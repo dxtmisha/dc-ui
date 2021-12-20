@@ -1,4 +1,4 @@
-export const dataDelay = [
+export const delay = [
   { value: undefined },
   {
     text: '0s',

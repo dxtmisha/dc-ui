@@ -10,9 +10,9 @@ export default function useClass (
   const item = { value }
   const update = () => element.value?.classList.toggle(name, item.value)
 
-  item.set = (value) => {
-    if (value !== item.value) {
-      item.value = value
+  item.set = value => {
+    if (item.value !== !!value) {
+      item.value = !!value
       update()
 
       if (action) {

@@ -1,6 +1,6 @@
 <template>
   <div :class="classList">
-    <slot name="barManagement"/>
+    <slot name="barManagement" className="d-actions__management"/>
     <d-button
       v-for="item in propBarManagement"
       v-bind="item"
@@ -14,7 +14,7 @@
       :key="item.value"
       @on-click="onClick"
     />
-    <slot name="bar"/>
+    <slot name="bar" className="d-actions__bar"/>
   </div>
 </template>
 

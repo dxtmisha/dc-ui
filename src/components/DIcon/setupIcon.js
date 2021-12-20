@@ -1,5 +1,5 @@
-import { props } from '@/components/DIcon/props'
 import useBinds from '@/uses/useBinds'
+import { props } from '@/components/DIcon/props'
 
 export default function setupIcon (
   binds,

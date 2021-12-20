@@ -17,7 +17,7 @@ export const props = {
       }
     ]
   },
-  barManagement: Array,
+  management: Array,
 
   // Options
   size: {
@@ -38,6 +38,7 @@ export const props = {
       'block'
     ])
   },
-  attrsBar: Object,
-  attrsBarManagement: Object
+
+  // Button
+  buttonAttrs: undefined
 }
