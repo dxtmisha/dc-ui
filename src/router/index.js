@@ -21,7 +21,7 @@ import DemoControlSelection from '../--views/DemoControlSelection'
 import DemoDate from '../--views/DemoDate'
 import DemoDatePicker from '../--views/DemoDatePicker'
 import DemoDialog from '../--views/DemoDialog'
-import DemoDrop from '../--views/DemoDrop'
+import DemoDrop from '../views/DemoDrop'
 import DemoFile from '../--views/DemoFile'
 import DemoForm from '../--views/DemoForm'
 import DemoIcon from '../views/DemoIcon'
@@ -73,6 +73,7 @@ export const routes = getRoutes({
   's-form': { subtitle: 'Form and Input' },
   'd-checkbox': DemoCheckbox,
   'd-date': DemoDate,
+  'd-drop': DemoDrop,
   'd-file': DemoFile,
   'd-form': DemoForm,
   'd-input': DemoInput,
@@ -106,7 +107,6 @@ export const routes = getRoutes({
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
   'd-date-picker': DemoDatePicker,
-  'd-drop': DemoDrop,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,
   'd-progress': DemoProgress,

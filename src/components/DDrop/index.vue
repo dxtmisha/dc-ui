@@ -21,18 +21,13 @@
 </template>
 
 <script>
+import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DDrop',
-  props: {
-    // Values
-    accept: String,
-
-    // Status
-    disabled: Boolean
-  },
+  props,
   emits: ['on-drop'],
   setup (props, context) {
     const input = ref(undefined)
