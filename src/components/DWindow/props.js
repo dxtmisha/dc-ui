@@ -64,5 +64,6 @@ export const props = {
     type: Boolean,
     default: true
   },
-  persistent: Boolean
+  persistent: Boolean,
+  inDom: Boolean
 }

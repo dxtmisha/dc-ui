@@ -4,8 +4,8 @@ import { palette } from '@/uses/useColor'
 const defaultProps = defaultInit('d-badge')
 export const props = {
   // Values
-  icon: String,
   badge: undefined,
+  icon: String,
   dot: Boolean,
 
   // Status

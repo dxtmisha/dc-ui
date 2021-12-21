@@ -22,6 +22,14 @@ export const Options = {
         value: 0
       },
       {
+        text: '40s',
+        value: 40
+      },
+      {
+        text: '160s',
+        value: 160
+      },
+      {
         text: '400s',
         value: 400
       },
@@ -212,6 +220,7 @@ export const Options = {
   background: {},
   border: {},
   click: {},
+  inDom: {},
   outputDay: {},
   outputMonth: {},
   outputWeek: {},

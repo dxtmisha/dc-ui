@@ -1,4 +1,4 @@
-import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
+// import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
 import { datePickerValue } from '@/--views/DemoDatePicker/options'
 import {
   carcassFieldAdaptive,
@@ -41,8 +41,8 @@ export const optionsDate = {
   optionInput,
   multiple,
   locales,
-  calendarMin,
-  calendarMax,
+  // calendarMin,
+  // calendarMax,
   required,
 
   optionField,
@@ -60,7 +60,7 @@ export const optionsDate = {
   optionPicker,
   pickerShape: shape,
   pickerAdaptive: {
-    ...calendarAdaptive,
+    // ...calendarAdaptive,
     value: 'pickerAdaptive'
   },
 

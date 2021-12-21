@@ -8,27 +8,29 @@
     :open="open"
   />
   <teleport to="body">
-    <div
-      v-if="open"
-      ref="modal"
-      v-bind="$attrs"
-      :class="classList"
-      :style="styleList"
-      :data-window-id="id"
-    >
+    <template v-if="inDom || open">
       <div
-        class="d-window__body"
-        :class="classScroll"
-        @transitionend="onTransition"
+        v-show="open"
+        ref="modal"
+        v-bind="$attrs"
+        :class="classList"
+        :style="styleList"
+        :data-window-id="id"
       >
-        <slot
-          name="window"
-          :toggle="toggle"
-          :on-click="onClick"
-          :on-contextmenu="onContextmenu"
-        />
+        <div
+          class="d-window__body"
+          :class="classScroll"
+          @transitionend="onTransition"
+        >
+          <slot
+            name="window"
+            :toggle="toggle"
+            :on-click="onClick"
+            :on-contextmenu="onContextmenu"
+          />
+        </div>
       </div>
-    </div>
+    </template>
   </teleport>
 </template>
 

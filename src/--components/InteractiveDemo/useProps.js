@@ -1,44 +1,54 @@
 import forEach from '@/functions/forEach'
 import attrs from '@/media/demo/attrs'
 
-const getDefault = (item, value) => value !== undefined && !item?.message ? value : item?.default
+let items
+
+const getDefault = (item, value) => [undefined, -1].indexOf(value) !== -1 || item?.message ? item?.default : value
+const getItems = () => {
+  if (items === undefined) {
+    items = {}
+
+    forEach(attrs, (values, group) => {
+      forEach(values, (item, name) => {
+        items[name] = {
+          group,
+          ...item
+        }
+      })
+    })
+  }
+
+  return items
+}
 
 export default function useProps (props, binds = {}, nones = []) {
-  let items = {}
+  const items = getItems()
+  const values = {}
 
-  forEach(attrs, (values, group) => {
-    let add
-    const data = {}
+  forEach(props, (item, index) => {
+    let value
+    if (index in binds) {
+      value = binds[index]
+    } else if (
+      index in items &&
+      nones.indexOf(index) === -1
+    ) {
+      value = items[index]
+    }
 
-    forEach(values, (item, name) => {
-      const value = props[name] && ('default' in props[name]) ? props[name].default : undefined
+    if (value) {
+      const group = items?.[index]?.group
 
-      if (name in binds) {
-        add = true
-        data[name] = {
-          ...binds[name],
-          default: getDefault(binds[name], value)
-        }
-      } else if (
-        (name in props) &&
-        (nones.indexOf(name) === -1)
-      ) {
-        add = true
-        data[name] = {
-          ...item,
-          default: getDefault(item, value)
-        }
+      if (!(group in values)) {
+        values[group] = { subtitle: group }
       }
-    })
 
-    if (add) {
-      items = {
-        ...items,
-        [group]: { subtitle: group },
-        ...data
+      values[index] = {
+        ...value,
+        default: getDefault(value, typeof item === 'object' && 'default' in item ? item.default : undefined)
       }
     }
   })
-
-  return items
+  console.log('values', values?.min?.default, props?.min?.default)
+  return values
 }
