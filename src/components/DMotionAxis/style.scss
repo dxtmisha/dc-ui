@@ -1,5 +1,7 @@
+@import "../../styles/dimension";
+
 @mixin motionAxis() {
-  --_ma-dimension: var(--ma-dimension, 120px);
+  --_ma-dimension: var(--ma-dimension, #{dimension(30)});
   --_ma-transition: 1;
 
   &.transition-back {

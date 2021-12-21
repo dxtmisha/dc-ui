@@ -122,7 +122,7 @@
   &.type-circular {
     @include absoluteFull();
     @include squared(var(--_pr--cr-size));
-    --_pr--cr-length: calc(2 * 3.1415926535 * 20px);
+    --_pr--cr-length: calc(2 * 3.1415926535 * #{dimension(5)});
     --_pr--cr-dasharray: calc(var(--_pr--cr-length) / var(--_pr__vl-max));
     margin: auto;
     max-height: 100%;

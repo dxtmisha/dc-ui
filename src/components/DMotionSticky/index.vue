@@ -45,10 +45,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "style";
-
-.d-motion-sticky {
-  @include motionStickyInit;
-}
-</style>
+<style lang="scss"></style>

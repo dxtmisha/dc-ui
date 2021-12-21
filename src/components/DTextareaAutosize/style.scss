@@ -1,7 +1,9 @@
+@import "../../styles/dimension";
+
 @mixin textareaAutosize() {
   font: inherit;
   max-width: 100%;
-  min-height: 128px;
+  min-height: #{dimension(20)};
   overflow: hidden;
   resize: none;
 }

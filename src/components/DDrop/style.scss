@@ -1,11 +1,12 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/elevation";
 
 @mixin drop() {
   @include index(1);
 
-  --_dr-padding: var(--dr-padding, 8px);
-  --_dr-width: var(--dr-width, 2px);
+  --_dr-padding: var(--dr-padding, #{dimension(2)});
+  --_dr-width: var(--dr-width, #{dimension(.5)});
 
   --_dr-border: var(--background-outline);
   --_dr-border-opacity: var(--opacity-outline);
@@ -31,7 +32,7 @@
 
 @mixin dropInput() {
   &__input {
-    width: 12px;
+    width: #{dimension(3)};
     visibility: hidden;
   }
 }

@@ -44,12 +44,12 @@
   --_tt-text-palette: var(--tt-text-palette, var(--text-type2));
 
   --_tt-radius: var(--tt-radius, var(--basic-radius));
-  --_tt-padding: var(--tt-padding, #{4px 16px});
+  --_tt-padding: var(--tt-padding, #{#{dimension(1)} #{dimension(4)}});
 
-  --_tt-height: var(--tt-height, 32px);
-  --_tt--ds-height: var(--tt--ds-height, 24px);
+  --_tt-height: var(--tt-height, #{dimension(8)});
+  --_tt--ds-height: var(--tt--ds-height, #{dimension(6)});
 
-  --_tt--ar-size: var(--tt--ar-size, 12px);
+  --_tt--ar-size: var(--tt--ar-size, #{dimension(3)});
 }
 
 @mixin tooltipArrow() {

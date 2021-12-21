@@ -13,13 +13,13 @@
   --_ic-radius: var(--ic-radius, var(--radius-pill));
   --_ic--bg-opacity: var(--ic--bg-opacity, var(--opacity-overlay));
 
-  --_ic-font: var(--ic-font, 20px);
-  --_ic--lg-font: var(--ic--lg-font, var(--ic-font, 32px));
+  --_ic-font: var(--ic-font, #{dimension(5)});
+  --_ic--lg-font: var(--ic--lg-font, var(--ic-font, #{dimension(8)}));
 
-  --_ic-size: var(--ic-size, 24px);
-  --_ic--md-size: var(--ic--md-size, var(--ic-size, 40px));
-  --_ic--lg-size: var(--ic--lg-size, var(--ic-size, 56px));
-  --_ic--rc-size: var(--ic--rc-size, var(--ic-size, 100px));
+  --_ic-size: var(--ic-size, #{dimension(6)});
+  --_ic--md-size: var(--ic--md-size, var(--ic-size, #{dimension(10)}));
+  --_ic--lg-size: var(--ic--lg-size, var(--ic-size, #{dimension(14)}));
+  --_ic--rc-size: var(--ic--rc-size, var(--ic-size, #{dimension(25)}));
 
   @include select-none;
   @include squared(var(--_ic-size));

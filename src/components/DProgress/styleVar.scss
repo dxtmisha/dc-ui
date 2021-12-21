@@ -1,11 +1,13 @@
+@import "../../styles/dimension";
+
 @mixin progressVar() {
   --_pr-palette: var(--pr-palette, var(--palette-type1, var(--primary-type1)));
 
   --_pr-duration: var(--pr-duration, 20s);
-  --_pr-height: var(--pr-height, 4px);
+  --_pr-height: var(--pr-height, #{dimension(1)});
 
-  --_pr--cr-padding: var(--pr--cr-padding, 4px);
-  --_pr--cr-size: var(--pr--cr-size, 48px);
+  --_pr--cr-padding: var(--pr--cr-padding, #{dimension(1)});
+  --_pr--cr-size: var(--pr--cr-size, #{dimension(12)});
 }
 
 @mixin progressAnimation() {

@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/elevation";
 @import "../../styles/media";
 @import "../../styles/position";
@@ -27,7 +28,7 @@
     border-radius: var(--_wn-radius);
     box-shadow: var(--shadow-type9);
     max-height: var(--_wn-height);
-    max-width: 640px;
+    max-width: dimension(160);
     opacity: 0;
     overflow-y: auto;
     transform: var(--_wn-transform);
