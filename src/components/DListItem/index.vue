@@ -6,9 +6,9 @@
     v-bind="binds"
     @click="onClick"
   >
-    <d-icon v-if="thumbnail" v-bind="bindThumbnail"/>
-    <d-icon v-else-if="icon" v-bind="bindIcon"/>
-    <d-icon v-if="iconTrailing" v-bind="bindTrailing"/>
+    <d-icon v-if="thumbnail" v-bind="bindThumbnail" class="d-list-item__icon li-thumbnail"/>
+    <d-icon v-else-if="icon" v-bind="bindIcon" class="d-list-item__icon li-icon"/>
+    <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-list-item__icon li-trailing"/>
     <div
       v-if="textShort"
       class="d-list-item__text-short"
@@ -33,17 +33,9 @@
       </template>
       <template v-else>{{ text }}</template>
     </div>
-    <d-badge
-      v-if="badge"
-      v-bind="bindBadge"
-      :hide="disabled"
-    />
-    <d-progress
-      v-if="progress && !disabled"
-      :visible="progress"
-      :bottom="true"
-    />
-    <d-ripple v-if="ripple && !disabled"/>
+    <d-badge v-if="badge" v-bind="bindBadge"/>
+    <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
+    <d-ripple v-if="isRipple"/>
     <slot
       class-name="d-list-item__text"
       :item="item"
@@ -63,6 +55,8 @@ import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import attrBadge from '@/components/DBadge/attrBadge'
+import attrProgress from '@/components/DProgress/attrProgress'
+import attrRipple from '@/components/DRipple/attrRipple'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
@@ -70,16 +64,16 @@ import useIcon from './useIcon'
 export default {
   name: 'DListItem',
   components: {
-    DProgress,
     DBadge,
     DIcon,
+    DProgress,
     DRipple
   },
   props,
   emits: ['on-click'],
   setup (props, context) {
     const main = ref(undefined)
-    const palette = useColor(props)
+
     const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
     const propText = computed(() => {
       return props.underline
@@ -90,6 +84,8 @@ export default {
         : props.text
     })
 
+    const isRipple = attrRipple(props)
+
     const {
       bindThumbnail,
       bindIcon,
@@ -97,6 +93,12 @@ export default {
     } = useIcon(props)
     const bindBadge = attrBadge(props)
 
+    const {
+      isProgress,
+      bindProgress
+    } = attrProgress(props)
+
+    const palette = useColor(props)
     const binds = computed(() => {
       return {
         class: {
@@ -132,11 +134,14 @@ export default {
 
     return {
       main,
+      isRipple,
+      isProgress,
       propText,
       bindThumbnail,
       bindIcon,
       bindTrailing,
       bindBadge,
+      bindProgress,
       binds,
       onClick
     }

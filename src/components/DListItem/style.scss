@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -73,7 +74,7 @@
   }
 
   &.value-trailing {
-    --_li__trailing-width: calc(24px + var(--_li-gap));
+    --_li__trailing-width: calc(#{dimension(6)} + var(--_li-gap));
   }
 }
 
@@ -319,7 +320,7 @@
   & + &:not(.shape-basic):not(.shape-rounded):not(.shape-pill).option-border &__text {
     @include afterAbsolute('top') {
       border-top-color: var(--basic-border);
-      border-top-width: 1px;
+      border-top-width: var(--basic-border-width);
       right: calc((var(--_li__trailing-width, 0px) + var(--_li-padding)) * -1);
       @content;
     }

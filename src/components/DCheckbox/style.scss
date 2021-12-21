@@ -186,7 +186,7 @@
   }
 
   &.type-radio .cb-icon {
-    @include circle(12px);
+    @include circle(dimension(3));
     background-color: varColor(--_cb-palette-type1);
     position: relative;
   }

@@ -3,8 +3,6 @@ import { computed } from 'vue'
 export default function useIcon (props) {
   const bindThumbnail = computed(() => {
     return {
-      class: 'd-list-item__icon li-thumbnail',
-      icon: props.thumbnail,
       iconActive: props.iconActive,
       active: props.selected,
       disabled: props.disabled,
@@ -15,7 +13,6 @@ export default function useIcon (props) {
   })
   const bindIcon = computed(() => {
     return {
-      class: 'd-list-item__icon li-icon',
       icon: props.icon,
       iconActive: props.iconActive,
       active: props.selected,
@@ -27,10 +24,7 @@ export default function useIcon (props) {
   })
   const bindTrailing = computed(() => {
     return {
-      class: {
-        'd-list-item__icon li-trailing': true,
-        'window-control-static': props.iconReadonly
-      },
+      class: { 'window-control-static': props.iconReadonly },
       icon: props.iconTrailing,
       turn: props.turn,
       disabled: props.disabled,

@@ -61,7 +61,7 @@
 <script>
 import DButton from '@/components/DButton'
 import DList from '@/--components/DList'
-import DListItem from '@/--components/DListItem'
+import DListItem from '@/components/DListItem'
 import DMotionAxis from '@/components/DMotionAxis'
 import { props } from './props'
 import { computed, ref } from 'vue'

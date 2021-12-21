@@ -12,7 +12,6 @@ export const props = {
   prefix: [Number, String],
   suffix: [Number, String],
   description: String,
-  badge: [Number, Object, String],
   backgroundColor: {
     type: String,
     default: null
@@ -93,6 +92,7 @@ export const props = {
   },
 
   // Icon
+  badge: [Number, Object, String],
   thumbnail: undefined,
   icon: undefined,
   iconActive: undefined,

@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import DListItem from '@/--components/DListItem'
+import DListItem from '@/components/DListItem'
 import { props } from './props'
 import { computed, defineAsyncComponent } from 'vue'
 import useAdmin from '@/uses/useAdmin'
