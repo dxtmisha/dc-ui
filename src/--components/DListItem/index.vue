@@ -62,7 +62,7 @@ import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import setupBadge from '@/components/DBadge/setupBadge'
+import attrBadge from '@/components/DBadge/attrBadge'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
@@ -95,7 +95,7 @@ export default {
       bindIcon,
       bindTrailing
     } = useIcon(props)
-    const { bindBadge } = setupBadge(props)
+    const bindBadge = attrBadge(props)
 
     const binds = computed(() => {
       return {

@@ -1,6 +1,7 @@
 import { Values } from '@/media/demo/Values'
 import { Status } from '@/media/demo/Status'
 import { Options } from '@/media/demo/Options'
+import { Button } from '@/media/demo/Button'
 import { Calendar } from '@/media/demo/Calendar'
 import { ClockFace } from '@/media/demo/ClockFace'
 import { ControlResize } from '@/media/demo/ControlResize'
@@ -17,6 +18,7 @@ export default {
   Values,
   Status,
   Options,
+  Button,
   Calendar,
   ClockFace,
   ControlResize,

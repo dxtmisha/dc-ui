@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DSnackbar from '@/--components/DSnackbar'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsSnackbar } from './options'

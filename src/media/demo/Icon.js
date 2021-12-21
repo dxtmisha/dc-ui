@@ -1,4 +1,5 @@
 import { icon } from '@/media/demo/data/icon'
+import { Options } from '@/media/demo/Options'
 
 export const Icon = {
   badge: {
@@ -27,6 +28,10 @@ export const Icon = {
     default: 'lock',
     list: icon
   },
+  iconAnimationShow: Options.animationShow,
+  iconBackground: {},
+  iconHide: {},
+  iconReadonly: {},
   iconSize: {
     list: [
       { value: undefined },
@@ -38,7 +43,9 @@ export const Icon = {
       { value: 'rectangle' }
     ]
   },
-
-  iconAnimationShow: {},
-  iconBackground: {}
+  iconTrailing: {
+    default: 'arrow_drop_down',
+    list: icon
+  },
+  iconTurn: {}
 }

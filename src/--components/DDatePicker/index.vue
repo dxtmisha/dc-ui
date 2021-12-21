@@ -77,7 +77,7 @@
 
 <script>
 import DActions from '@/--components/DActions'
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DCalendarMultiple from '@/--components/DCalendarMultiple'
 import DCalendarSelect from '@/--components/DCalendarSelect'
 import DInput from '@/--components/DInput'

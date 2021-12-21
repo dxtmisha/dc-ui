@@ -24,8 +24,7 @@ export default function useIcon (
       disabled,
       size,
       animationHide: computed(() => propAdaptive.value === 'icon' ? 'type1' : 'type2')
-    },
-    { class: 'd-button__icon bt-icon' }
+    }
   )
 
   const bindTrailing = attrIcon(
@@ -42,10 +41,7 @@ export default function useIcon (
     },
     {
       class: computed(() => {
-        return {
-          'd-button__icon bt-trailing': true,
-          'window-control-static': props.iconReadonly
-        }
+        return { 'window-control-static': props.iconReadonly }
       })
     }
   )

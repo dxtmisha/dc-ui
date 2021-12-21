@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DMenu from '@/--components/DMenu'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMenu } from './options'

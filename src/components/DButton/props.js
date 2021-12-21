@@ -14,7 +14,6 @@ export const props = {
   item: undefined,
   value: undefined,
   text: [Number, String],
-  badge: [Number, Object, String],
 
   // Status
   active: Boolean,
@@ -83,6 +82,7 @@ export const props = {
   },
 
   // Icon
+  badge: [Number, Object, String],
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,

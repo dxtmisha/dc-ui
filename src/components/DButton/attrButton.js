@@ -1,7 +1,7 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DButton/props'
+import { props } from '@/components/DButton/props'
 
-export default function setupButton (
+export default function attrButton (
   binds,
   items = {},
   attrs = {}

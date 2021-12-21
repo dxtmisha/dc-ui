@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DMenu from '@/--components/DMenu'
 import { props } from './props'
 import { computed, ref, watch } from 'vue'
 import isSelected from '@/functions/isSelected'
-import useObjectList from '@/--uses/useObjectList'
+import useObjectList from '@/uses/useObjectList'
 import useSelected from '@/--components/DMenu/useSelected'
 import useAdmin from '@/uses/useAdmin'
 

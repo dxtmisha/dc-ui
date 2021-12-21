@@ -1,13 +1,13 @@
 import { toRefs } from 'vue'
 import useWatch from '@/uses/useWatch'
 
-export default function setupBadge (props) {
+export default function attrBadge (props) {
   const {
     badge,
     disabled
   } = toRefs(props)
 
-  const bindBadge = useWatch(badge, data => {
+  return useWatch(badge, data => {
     data.value = undefined
 
     if (badge.value) {
@@ -18,6 +18,4 @@ export default function setupBadge (props) {
       }
     }
   })
-
-  return { bindBadge }
 }

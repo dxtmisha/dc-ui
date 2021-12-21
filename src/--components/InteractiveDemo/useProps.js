@@ -27,6 +27,7 @@ export default function useProps (props, binds = {}, nones = []) {
 
   forEach(props, (item, index) => {
     let value
+
     if (index in binds) {
       value = binds[index]
     } else if (
@@ -49,6 +50,6 @@ export default function useProps (props, binds = {}, nones = []) {
       }
     }
   })
-  console.log('values', values?.min?.default, props?.min?.default)
+
   return values
 }

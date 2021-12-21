@@ -6,21 +6,13 @@
     :data-value="value"
     @click="onClick"
   >
-    <d-progress
-      v-if="progress && !disabled"
-      :visible="progress"
-      type="circular"
-    />
-    <d-icon v-if="icon" v-bind="bindIcon"/>
-    <d-icon v-if="iconTrailing" v-bind="bindTrailing"/>
+    <d-progress v-if="isProgress" v-bind:="bindProgress" type="circular"/>
+    <d-icon v-if="icon" v-bind="bindIcon" class="d-button__icon bt-icon"/>
+    <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-button__icon bt-trailing"/>
     <span class="d-button__text">
       {{ text }}<slot/>
     </span>
-    <d-badge
-      v-if="badge"
-      v-bind="bindBadge"
-      :hide="disabled"
-    />
+    <d-badge v-if="badge" v-bind="bindBadge"/>
     <d-ripple v-if="isRipple"/>
   </component>
 </template>
@@ -32,8 +24,9 @@ import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed } from 'vue'
-import setupBadge from '@/components/DBadge/setupBadge'
-import setupRipple from '@/components/DRipple/setupRipple'
+import attrBadge from '@/components/DBadge/attrBadge'
+import attrProgress from '@/components/DProgress/attrProgress'
+import attrRipple from '@/components/DRipple/attrRipple'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
@@ -49,7 +42,6 @@ export default {
   props,
   emits: ['on-click', 'on-trailing'],
   setup (props, context) {
-    const palette = useColor(props)
     const propAdaptive = computed(() => {
       if (!(props.text || 'default' in context.slots)) {
         return 'icon'
@@ -60,14 +52,20 @@ export default {
       }
     })
 
-    const { isRipple } = setupRipple(props)
+    const isRipple = attrRipple(props)
 
     const {
       bindIcon,
       bindTrailing
     } = useIcon(props, propAdaptive)
-    const { bindBadge } = setupBadge(props)
+    const bindBadge = attrBadge(props)
 
+    const {
+      isProgress,
+      bindProgress
+    } = attrProgress(props)
+
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-button a-static': true,
@@ -120,9 +118,11 @@ export default {
 
     return {
       isRipple,
+      isProgress,
       bindIcon,
       bindTrailing,
       bindBadge,
+      bindProgress,
       classList,
       onClick
     }

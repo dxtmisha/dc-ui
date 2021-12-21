@@ -56,7 +56,7 @@
 <script>
 import DActions from '@/--components/DActions'
 import DAlert from '@/--components/DAlert'
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DCheckbox from '@/--components/DCheckbox'
 import DDate from '@/--components/DDate'
 import DFile from '@/--components/DFile'

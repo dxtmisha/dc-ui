@@ -4,6 +4,14 @@ import { type2i } from '@/media/demo/data/type'
 
 export const Options = {
   adaptive: { list: adaptive },
+  align: {
+    list: [
+      { value: undefined },
+      { value: 'center' },
+      { value: 'left' },
+      { value: 'right' }
+    ]
+  },
   alignment: {
     list: [
       { value: undefined },
@@ -13,7 +21,14 @@ export const Options = {
     ]
   },
   animationHide: { list: type2i },
+  animationShow: {},
+  arrow: {},
+  appearance: {},
+  autoClose: {},
   axis: { list: axis },
+  background: {},
+  border: {},
+  click: {},
   delay: {
     list: [
       { value: undefined },
@@ -47,6 +62,8 @@ export const Options = {
       }
     ]
   },
+  dense: {},
+  ellipsis: {},
   indent: {
     list: [
       { value: undefined },
@@ -73,6 +90,7 @@ export const Options = {
     ]
   },
   indeterminate: {},
+  inDom: {},
   locales: {
     list: [
       { value: undefined },
@@ -85,6 +103,7 @@ export const Options = {
       { value: 'ru-RU' }
     ]
   },
+  lowercase: {},
   max: {
     list: [
       { value: undefined },
@@ -147,6 +166,9 @@ export const Options = {
       }
     ]
   },
+  outputDay: {},
+  outputMonth: {},
+  outputWeek: {},
   palette: {
     list: [
       { value: undefined },
@@ -188,6 +210,9 @@ export const Options = {
       }
     ]
   },
+  persistent: {},
+  ripple: {},
+  scrollHide: {},
   shape: {
     list: [
       { value: undefined },
@@ -212,19 +237,6 @@ export const Options = {
       { value: 'back' }
     ]
   },
-  width: {},
-
-  arrow: {},
-  animationShow: {},
-  autoClose: {},
-  background: {},
-  border: {},
-  click: {},
-  inDom: {},
-  outputDay: {},
-  outputMonth: {},
-  outputWeek: {},
-  persistent: {},
-  scrollHide: {},
-  today: {}
+  today: {},
+  width: {}
 }

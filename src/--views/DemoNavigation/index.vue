@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DNavigation from '@/--components/DNavigation'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'

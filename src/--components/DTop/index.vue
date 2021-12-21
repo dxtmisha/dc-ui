@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAction from '@/--components/DAppBar/useAction'

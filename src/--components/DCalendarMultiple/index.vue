@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DCalendar from '@/components/DCalendar'
 import DMotionAxis from '@/components/DMotionAxis'
 import DMotionScroll from '@/components/DMotionScroll'

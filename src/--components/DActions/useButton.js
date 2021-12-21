@@ -1,11 +1,11 @@
 import { computed } from 'vue'
-import setupButton from '@/--components/DButton/setupButton'
+import attrButton from '@/components/DButton/attrButton'
 
 export default function useButton (props) {
   const bindBar = computed(() => {
     const list = []
 
-    props.bar?.forEach(item => list.push(setupButton(
+    props.bar?.forEach(item => list.push(attrButton(
       props,
       {
         appearance: 'text-color',

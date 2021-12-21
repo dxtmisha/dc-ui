@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import DButton from '@/--components/DButton'
+import DButton from '@/components/DButton'
 import DIcon from '@/components/DIcon'
 import { props } from './props'
 import { computed, toRefs } from 'vue'

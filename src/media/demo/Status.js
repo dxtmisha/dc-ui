@@ -5,8 +5,10 @@ export const Status = {
   disabledLeft: {},
   disabledRight: {},
   disabledTop: {},
+  dragged: {},
   hide: {},
   open: {},
+  readonly: {},
   selected: {},
   turn: {},
   visible: {}
