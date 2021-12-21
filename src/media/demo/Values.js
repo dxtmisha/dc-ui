@@ -12,6 +12,7 @@ export const Values = {
   dot: {},
   hour: { message: 15 },
   minute: { message: 35 },
+  multiple: {},
   second: { message: 45 },
   text: {
     default: true,

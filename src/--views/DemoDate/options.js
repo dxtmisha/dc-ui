@@ -1,4 +1,4 @@
-import { calendarAdaptive, calendarMax, calendarMin } from '@/--views/DemoCalendar/options'
+import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
 import { datePickerValue } from '@/--views/DemoDatePicker/options'
 import {
   carcassFieldAdaptive,

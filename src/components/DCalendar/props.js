@@ -30,8 +30,6 @@ export const props = {
   // Values
   value: String,
   multiple: Boolean,
-  min,
-  max,
 
   // Status
   selected: [Array, String],
@@ -60,6 +58,8 @@ export const props = {
       'desktop'
     ])
   },
+  min,
+  max,
   today: {
     type: Boolean,
     default: true

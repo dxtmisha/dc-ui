@@ -1,3 +1,12 @@
+export const valueCalendar = [
+  { value: undefined },
+  { value: '2020-01-01' },
+  { value: '2020-12-30' },
+  { value: '2020-11' },
+  { value: '2020-08-19 05:04' },
+  { value: '2020-99-99' }
+]
+
 export const valueControlResize = [
   { value: undefined },
   { value: [25, 25, 25, 25] },

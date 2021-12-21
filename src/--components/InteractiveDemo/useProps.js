@@ -1,6 +1,8 @@
 import forEach from '@/functions/forEach'
 import attrs from '@/media/demo/attrs'
 
+const getDefault = (item, value) => value !== undefined && !item?.message ? value : item?.default
+
 export default function useProps (props, binds = {}, nones = []) {
   let items = {}
 
@@ -15,7 +17,7 @@ export default function useProps (props, binds = {}, nones = []) {
         add = true
         data[name] = {
           ...binds[name],
-          default: value !== undefined ? value : binds[name]?.default
+          default: getDefault(binds[name], value)
         }
       } else if (
         (name in props) &&
@@ -24,7 +26,7 @@ export default function useProps (props, binds = {}, nones = []) {
         add = true
         data[name] = {
           ...item,
-          default: value !== undefined ? value : item?.default
+          default: getDefault(item, value)
         }
       }
     })

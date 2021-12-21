@@ -5,7 +5,7 @@ import {
   today,
   values
 } from '@/media/--demo/options'
-import { calendarAdaptive, calendarMax, calendarMin } from '@/--views/DemoCalendar/options'
+import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
 import GeoDate from '@/classes/GeoDate'
 
 export const optionsCalendarMultiple = {

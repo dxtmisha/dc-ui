@@ -15,6 +15,12 @@ export const adaptive = [
   { value: 'block' }
 ]
 
+export const adaptiveCalendar = [
+  ...basic,
+  { value: 'mobile' },
+  { value: 'desktop' }
+]
+
 export const adaptiveMotionTransform = [
   ...basic,
   { value: 'panel' },

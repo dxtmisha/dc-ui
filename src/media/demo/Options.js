@@ -38,6 +38,10 @@ export const Options = {
   background: {},
   border: {},
   click: {},
+  outputDay: {},
+  outputMonth: {},
+  outputWeek: {},
   persistent: {},
-  scrollHide: {}
+  scrollHide: {},
+  today: {}
 }

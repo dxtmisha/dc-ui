@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import DCalendar from '@/--components/DCalendar'
+import DCalendar from '@/components/DCalendar'
 import DButton from '@/--components/DButton'
 import DMotionAxis from '@/components/DMotionAxis'
 import DScrollbar from '@/components/DScrollbar'

@@ -1,5 +1,5 @@
 import { defaultInit } from '@/uses/useDefault'
-import { max, min } from '@/--components/DCalendar/props'
+import { max, min } from '@/components/DCalendar/props'
 
 const defaultProps = defaultInit('d-calendar-multiple')
 export const props = {
