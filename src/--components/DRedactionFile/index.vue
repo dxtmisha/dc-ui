@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import DControlResize from '@/--components/DControlResize'
+import DControlResize from '@/components/DControlResize'
 import DSlider from '@/--components/DSlider'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'

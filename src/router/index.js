@@ -16,8 +16,8 @@ import DemoCardMenu from '../--views/DemoCardMenu'
 import DemoCheckbox from '../--views/DemoCheckbox'
 import DemoClockFace from '../--views/DemoClockFace'
 import DemoControlPosition from '../--views/DemoControlPosition'
-import DemoControlResize from '../--views/DemoControlResize'
-import DemoControlSelection from '../--views/DemoControlSelection'
+import DemoControlResize from '../views/DemoControlResize'
+import DemoControlSelection from '../views/DemoControlSelection'
 import DemoDate from '../--views/DemoDate'
 import DemoDatePicker from '../--views/DemoDatePicker'
 import DemoDialog from '../--views/DemoDialog'
@@ -94,6 +94,10 @@ export const routes = getRoutes({
   'd-motion-scroll': DemoMotionScroll,
   'd-motion-sticky': DemoMotionSticky,
   'd-motion-transform': DemoMotionTransform,
+  'l-control': { line: true },
+  's-control': { subtitle: 'Control' },
+  'd-control-resize': DemoControlResize,
+  'd-control-selection': DemoControlSelection,
   'l-components': { line: true },
   's-components': { subtitle: 'Components' },
   'd-actions': DemoActions,
@@ -104,8 +108,6 @@ export const routes = getRoutes({
   'd-card-menu': DemoCardMenu,
   'd-clock-face': DemoClockFace,
   'd-control-position': DemoControlPosition,
-  'd-control-resize': DemoControlResize,
-  'd-control-selection': DemoControlSelection,
   'd-date-picker': DemoDatePicker,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,

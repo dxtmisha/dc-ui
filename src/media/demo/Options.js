@@ -4,6 +4,7 @@ import { axis } from '@/media/demo/data/axis'
 import { delay } from '@/media/demo/data/delay'
 import { indent } from '@/media/demo/data/indent'
 import { locales } from '@/media/demo/data/locales'
+import { min } from '@/media/demo/data/min'
 import { outline } from '@/media/demo/data/outline'
 import { palette } from '@/media/demo/data/palette'
 import { shape } from '@/media/demo/data/shape'
@@ -21,6 +22,7 @@ export const Options = {
   indeterminate: {},
   locales: { list: locales },
   max: {},
+  min: { list: min },
   outline: { list: outline },
   palette: { list: palette },
   shape: { list: shape },

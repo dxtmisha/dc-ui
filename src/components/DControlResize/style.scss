@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/position";
@@ -22,7 +23,7 @@
 @mixin controlResizeVar() {
   --_cr-palette-type1: var(--cr-palette-type1, var(--background-scrim));
   --_cr-palette-type2: var(--cr-palette-type2, var(--palette-type1, var(--primary-type1)));
-  --_cr-size: var(--cr-size, 8px);
+  --_cr-size: var(--cr-size, #{dimension(2)});
 }
 
 @mixin controlResizeMove {
@@ -124,7 +125,7 @@
 
     @include afterAbsolute() {
       border-color: varColor(--_cr-palette-type2, --opacity-surface-high);
-      border-width: 2px;
+      border-width: dimension(.5);
     }
   }
 }

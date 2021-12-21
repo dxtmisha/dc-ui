@@ -49,7 +49,7 @@
 import DControlPosition from '@/--components/DControlPosition'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsControlPosition } from './options'
-import DControlSelection from '@/--components/DControlSelection'
+import DControlSelection from '@/components/DControlSelection'
 
 export default {
   name: 'DemoControlPosition',

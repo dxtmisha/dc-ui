@@ -1,8 +1,8 @@
+import { ref } from 'vue'
 import EventControl from '@/classes/EventControl'
 import toggleArrayValue from '@/functions/toggleArrayValue'
 import useClass from '@/uses/useClass'
 import useStyleList from '@/uses/useStyleList'
-import { ref } from 'vue'
 
 export default function useSquare (
   selection,
@@ -79,6 +79,7 @@ export default function useSquare (
   }
   const onMousedown = event => {
     if (
+      !props.active &&
       !props.disabled &&
       !event.ctrlKey &&
       !event.shiftKey &&

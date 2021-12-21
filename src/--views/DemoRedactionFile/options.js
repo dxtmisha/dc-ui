@@ -1,4 +1,4 @@
-import { controlValue } from '@/--views/DemoControlResize/options'
+import { controlValue } from '@/views/DemoControlResize/options'
 import { disabled, status, text, values } from '@/media/--demo/options'
 
 export const redactionFileThumbnail = {

@@ -1,5 +1,5 @@
-import toggleArrayValue from '@/functions/toggleArrayValue'
 import { onMounted, watch } from 'vue'
+import toggleArrayValue from '@/functions/toggleArrayValue'
 
 export default function useItem (
   id,

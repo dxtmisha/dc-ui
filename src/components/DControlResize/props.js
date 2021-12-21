@@ -10,15 +10,17 @@ export const props = {
       return value.length === 4
     }
   },
-  min: {
-    type: Number,
-    default: defaultProps('min', 8)
-  },
 
   // Status
   disabled: Boolean,
   disabledTop: Boolean,
   disabledRight: Boolean,
   disabledBottom: Boolean,
-  disabledLeft: Boolean
+  disabledLeft: Boolean,
+
+  // Options
+  min: {
+    type: Number,
+    default: defaultProps('min', 8)
+  }
 }

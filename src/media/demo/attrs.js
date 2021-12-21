@@ -1,6 +1,7 @@
 import { Values } from '@/media/demo/Values'
 import { Status } from '@/media/demo/Status'
 import { Options } from '@/media/demo/Options'
+import { ControlResize } from '@/media/demo/ControlResize'
 import { Icon } from '@/media/demo/Icon'
 import { Mask } from '@/media/demo/Mask'
 import { MotionAxis } from '@/media/demo/MotionAxis'
@@ -14,6 +15,7 @@ export default {
   Values,
   Status,
   Options,
+  ControlResize,
   Icon,
   Mask,
   MotionAxis,
