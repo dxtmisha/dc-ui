@@ -9,7 +9,9 @@ export default function useSelected (
 ) {
   const { selected } = toRefs(props)
 
-  const ifValue = () => Array.isArray(propSelected.value) ? propSelected.value.length > 0 : propSelected.value
+  const ifValue = () => Array.isArray(propSelected.value)
+    ? propSelected.value.length > 0
+    : [undefined, null].indexOf(propSelected.value) === -1
 
   const propSelected = useWatch(selected, data => {
     data.value = props.selected

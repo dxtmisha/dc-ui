@@ -10,6 +10,9 @@ export const Values = {
   value: {},
 
   dot: {},
+  hour: { message: 15 },
+  minute: { message: 35 },
+  second: { message: 45 },
   text: {
     default: true,
     message: 'Interactive demo'

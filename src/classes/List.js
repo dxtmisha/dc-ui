@@ -60,7 +60,11 @@ export default class List {
     if (typeof item === 'object') {
       data = {
         ...item,
-        value: item?.[this._key] || item?.value || value || undefined
+        value: this._key in item
+          ? item[this._key]
+          : 'value' in item
+            ? item.value
+            : value || undefined
       }
 
       if (this._addText) {

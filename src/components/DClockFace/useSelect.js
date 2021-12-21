@@ -3,15 +3,15 @@ import useWatch from '@/uses/useWatch'
 
 export default function useSelect (props, context) {
   const {
-    select,
+    selected,
     type
   } = toRefs(props)
 
   const items = useWatch(type, data => {
     data.value = []
   }, [], [])
-  const propSelect = useWatch(select, data => {
-    data.value = select.value
+  const propSelect = useWatch(selected, data => {
+    data.value = selected.value
   })
 
   const rotate = computed(() => {

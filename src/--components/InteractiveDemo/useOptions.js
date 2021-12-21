@@ -29,11 +29,13 @@ export const useOptions = function (options) {
 
     if (options.value) {
       forEach(options.value, (value, text) => {
+        const valueDefault = goFunction(value.default)
+
         data.push({
           text: value.value || text,
           value: text,
           ...value,
-          default: goFunction(value.default)
+          default: valueDefault === -1 ? undefined : valueDefault
         })
       })
     }

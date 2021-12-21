@@ -1,0 +1,20 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+
+@mixin clockFaceVar() {
+  --_cf-palette-type1: var(--cf-palette-type1, var(--palette-type1, var(--primary-type1)));
+  --_cf-palette-type2: var(--cf-palette-type2, var(--secondary-type1));
+
+  --_cf-background: var(--cf-background, #{varColor(--background-scrim, --opacity-overlay)});
+  --_cf-padding: var(--cf-padding, #{dimension(1)});
+  --_cf-width: var(--cf-width, #{dimension(64)});
+
+  --_cf__vl-section: var(--cf__vl-section, #{dimension(1)});
+  --_cf__vl-width: var(--cf__vl-width, #{dimension(12)});
+  --_cf__vl--dot-width: var(--cf__vl--dot-width, #{dimension(1)});
+
+  --_cf__ar-height: var(--cf__ar-height, #{dimension(.5)});
+  --_cf__ar--hour-height: var(--cf__ar--hour-height, #{dimension(1.5)});
+  --_cf__ar--minute-height: var(--cf__ar--minute-height, #{dimension(1)});
+  --_cf__pn-height: var(--cf__pn-height, #{dimension(2)});
+}

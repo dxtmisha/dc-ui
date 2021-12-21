@@ -94,7 +94,7 @@ export default {
     })
 
     const onClick = item => {
-      if (props.select > -1) {
+      if (props.selected > -1) {
         propSelect.value = item.value
       }
     }

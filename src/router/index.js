@@ -14,7 +14,7 @@ import DemoCalendarSelect from '../--views/DemoCalendarSelect'
 import DemoCarcassField from '../--views/DemoCarcassField'
 import DemoCardMenu from '../--views/DemoCardMenu'
 import DemoCheckbox from '../--views/DemoCheckbox'
-import DemoClockFace from '../--views/DemoClockFace'
+import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
@@ -83,6 +83,9 @@ export const routes = getRoutes({
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-time': DemoTime,
+  'l-datetime': { line: true },
+  's-datetime': { subtitle: 'Date and Time' },
+  'd-clock-face': DemoClockFace,
   'l-icons': { line: true },
   's-icons': { subtitle: 'Icons' },
   'd-badge': DemoBadge,
@@ -107,7 +110,6 @@ export const routes = getRoutes({
   'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
   'd-card-menu': DemoCardMenu,
-  'd-clock-face': DemoClockFace,
   'd-date-picker': DemoDatePicker,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,

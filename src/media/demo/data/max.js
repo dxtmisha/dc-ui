@@ -1,3 +1,18 @@
+export const max = [
+  { value: undefined },
+  { value: 6 },
+  { value: 7 },
+  { value: 8 },
+  { value: 9 },
+  { value: 10 },
+  { value: 11 },
+  { value: 12 },
+  { value: 30 },
+  { value: 40 },
+  { value: 50 },
+  { value: 60 }
+]
+
 export const maxBadge = [
   { value: undefined },
   { value: 9 },

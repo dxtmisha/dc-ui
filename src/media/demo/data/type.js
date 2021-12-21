@@ -4,6 +4,14 @@ export const type2i = [
   { value: 'type2' }
 ]
 
+export const typeClockFace = [
+  { value: undefined },
+  { value: '12' },
+  { value: '24' },
+  { value: 'minute' },
+  { value: 'second' }
+]
+
 export const typeMask = [
   { value: undefined },
   { value: 'text' },

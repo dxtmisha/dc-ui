@@ -15,17 +15,9 @@ export const props = {
     type: Number,
     default: -1
   },
-  select: {
+  selected: {
     type: Number,
     default: -1
-  },
-  min: {
-    type: Number,
-    default: 0
-  },
-  max: {
-    type: Number,
-    default: 60
   },
 
   // Options
@@ -43,5 +35,13 @@ export const props = {
     type: String,
     default: defaultProps('shape', 'pill'),
     validator: validatorShape
+  },
+  min: {
+    type: Number,
+    default: 0
+  },
+  max: {
+    type: Number,
+    default: 60
   }
 }
