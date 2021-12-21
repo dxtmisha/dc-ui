@@ -2,7 +2,7 @@ import {
   carcassFieldAdaptive,
   carcassFieldAppearance,
   carcassFieldSize
-} from '@/--views/DemoCarcassField/options'
+} from '@/views/DemoCarcassField/options'
 // import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/--views/DemoListItem/options'
 // import { windowWidth } from '@/views/DemoWindow/options'

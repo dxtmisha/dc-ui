@@ -120,7 +120,6 @@ export default {
     const id = `cf--${getIdElement()}`
     const field = ref(undefined)
 
-    const palette = useColor(props)
     const counterMessage = computed(() => (props.counterValue || '0') + (props.maxlength ? ` / ${props.maxlength}` : ''))
 
     const ifMessage = computed(() => (props.helperMessage || props.validationMessage || props.counter) && !props.disabled)
@@ -133,6 +132,7 @@ export default {
         props.align !== 'center'
     })
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-carcass-field': true,

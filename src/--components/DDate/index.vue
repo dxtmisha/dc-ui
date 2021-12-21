@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import DCarcassField from '@/--components/DCarcassField'
+import DCarcassField from '@/components/DCarcassField'
 import DDatePicker from '@/--components/DDatePicker'
 import DWindow from '@/components/DWindow'
 import { props } from './props'

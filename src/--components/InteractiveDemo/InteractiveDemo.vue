@@ -1,7 +1,7 @@
 <template>
   <div class="interactive-demo">
     <div class="interactive-demo__show" :class="{ 'option-sticky': sticky }">
-      <slot :binds="valueData"/>
+      <slot :binds="valueData" :update="updateProps"/>
     </div>
     <interactive-demo-option
       :options="valueOptions"
@@ -16,6 +16,7 @@ import InteractiveDemoCode from './InteractiveDemoCode'
 import InteractiveDemoOption from './InteractiveDemoOption'
 import { toRefs } from 'vue'
 import { useOptions } from './useOptions'
+import forEach from '@/functions/forEach'
 
 export default {
   name: 'InteractiveDemo',
@@ -40,11 +41,14 @@ export default {
       setValue
     } = useOptions(options)
 
+    const updateProps = item => forEach(item.$props, (prop, index) => setData(index, prop))
+
     return {
       valueOptions,
       valueData,
       setData,
-      setValue
+      setValue,
+      updateProps
     }
   },
   methods: {

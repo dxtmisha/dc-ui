@@ -1,4 +1,8 @@
+import { helper1, validation1 } from '@/media/demo/data/text'
+
 export const Values = {
+  dot: {},
+  counterValue: { message: 128 },
   element: {
     list: [
       { value: undefined },
@@ -8,6 +12,8 @@ export const Values = {
       }
     ]
   },
+  helperMessage: { message: helper1 },
+  hour: { message: 15 },
   mask: {
     default: '**** ****',
     list: [
@@ -16,15 +22,15 @@ export const Values = {
       { value: '**** ****' }
     ]
   },
-  value: {},
-
-  dot: {},
-  hour: { message: 15 },
   minute: { message: 35 },
   multiple: {},
+  prefix: { message: 'pr' },
   second: { message: 45 },
+  suffix: { message: 'sf' },
   text: {
     default: true,
     message: 'Interactive demo'
-  }
+  },
+  value: {},
+  validationMessage: { message: validation1 }
 }

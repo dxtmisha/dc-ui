@@ -10,6 +10,8 @@ export const props = {
   helperMessage: String,
   validationMessage: String,
   counterValue: Number,
+
+  // Input
   maxlength: Number,
   required: Boolean,
 
@@ -86,16 +88,7 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
-  iconChevronLeft: {
-    type: String,
-    default: defaultProps('iconChevronLeft', 'chevron_left')
-  },
-  iconChevronRight: {
-    type: String,
-    default: defaultProps('iconChevronRight', 'chevron_right')
-  },
-  iconCancel: {
-    type: String,
-    default: defaultProps('iconCancel', 'cancel')
-  }
+  iconCancel: { default: defaultProps('iconCancel', 'cancel') },
+  iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },
+  iconChevronRight: { default: defaultProps('iconChevronRight', 'chevron_right') }
 }

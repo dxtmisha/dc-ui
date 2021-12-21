@@ -2,7 +2,7 @@ import {
   carcassFieldAdaptive,
   carcassFieldAppearance,
   carcassFieldSize
-} from '@/--views/DemoCarcassField/options'
+} from '@/views/DemoCarcassField/options'
 // import { maskValue } from '@/views/DemoMask/options'
 import {
   align, arrow, cancel, counter,

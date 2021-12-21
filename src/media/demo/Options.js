@@ -28,7 +28,9 @@ export const Options = {
   axis: { list: axis },
   background: {},
   border: {},
+  cancel: {},
   click: {},
+  counter: {},
   delay: {
     list: [
       { value: undefined },
