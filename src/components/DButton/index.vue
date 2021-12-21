@@ -51,6 +51,7 @@ export default {
         return 'basic'
       }
     })
+    const propShape = computed(() => props.shape || (propAdaptive.value === 'icon' ? 'pill' : undefined))
 
     const isRipple = attrRipple(props)
 
@@ -76,7 +77,7 @@ export default {
         'status-hide': props.hide,
         [`appearance-${props.appearance}`]: props.appearance,
         [`size-${props.size}`]: props.size,
-        [`shape-${props.shape}`]: props.shape,
+        [`shape-${propShape.value}`]: propShape.value,
         [`align-${props.align}`]: props.align,
         [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
         'option-lowercase': props.lowercase,

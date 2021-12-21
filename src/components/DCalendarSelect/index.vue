@@ -1,29 +1,17 @@
 <template>
-  <div :class="classList">
+  <div class="d-calendar-select" :class="classList">
     <div class="d-calendar-select__menu">
       <d-button
         v-bind="bindButton"
         :text="activeLocale"
         :icon-trailing="iconArrowDown"
         :turn="!!motionYears"
-        :dense="true"
-        :lowercase="true"
         @click="onActive"
       />
       <div class="d-calendar-select__space"/>
       <template v-if="!motionYears">
-        <d-button
-          v-bind="bindButton"
-          :icon="iconChevronLeft"
-          shape="pill"
-          @click="toPrevious"
-        />
-        <d-button
-          v-bind="bindButton"
-          :icon="iconChevronRight"
-          shape="pill"
-          @click="toNext"
-        />
+        <d-button v-bind="bindButton" :icon="iconChevronLeft" @click="toPrevious"/>
+        <d-button v-bind="bindButton" :icon="iconChevronRight" @click="toNext"/>
       </template>
     </div>
     <div v-if="active" class="d-calendar-select__calendar">
@@ -75,15 +63,9 @@
           v-slot:[item.slot]
         >
           <d-calendar
+            v-bind="bindCalendar"
             :value="item.value"
-            :multiple="multiple"
-            :min="min"
-            :max="max"
             :selected="propValue"
-            :locales="locales"
-            :shape="shape"
-            :adaptive="adaptive"
-            :today="today"
             @on-selected="onSelected"
           />
         </template>
@@ -93,27 +75,29 @@
 </template>
 
 <script>
-import DCalendar from '@/components/DCalendar'
 import DButton from '@/components/DButton'
+import DCalendar from '@/components/DCalendar'
 import DMotionAxis from '@/components/DMotionAxis'
 import DScrollbar from '@/components/DScrollbar'
 import { props } from './props'
 import { computed, onMounted, ref, toRefs, watch } from 'vue'
+import attrButton from '@/components/DButton/attrButton'
+import attrCalendar from '@/components/DCalendar/attrCalendar'
 import useAdmin from '@/uses/useAdmin'
 import useCalendar from './useCalendar'
 
 export default {
   name: 'DCalendarSelect',
   components: {
-    DScrollbar,
     DButton,
     DCalendar,
-    DMotionAxis
+    DMotionAxis,
+    DScrollbar
   },
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const { value } = toRefs(props)
+    const refs = toRefs(props)
 
     const motion = ref(undefined)
     const motionYears = ref(undefined)
@@ -142,24 +126,24 @@ export default {
       context
     )
 
-    const bindButton = computed(() => {
-      return {
-        appearance: 'text',
-        shape: props.shape,
-        size: 'small'
-      }
+    const bindCalendar = attrCalendar(props, refs)
+    const bindButton = attrButton(props, {}, {
+      appearance: 'text',
+      size: 'small',
+      dense: true,
+      lowercase: true,
+      ellipsis: true
     })
 
     const classList = computed(() => {
       return {
-        'd-calendar-select': true,
         [`adaptive-${props.adaptive}`]: props.adaptive,
         [`shape-${props.shape}`]: props.shape,
         'option-multiple': props.multiple
       }
     })
 
-    watch(value, toActive)
+    watch(refs.value, toActive)
     onMounted(toActive)
 
     useAdmin('d-calendar-select', context)
@@ -174,6 +158,7 @@ export default {
       listMonths,
       active,
       activeLocale,
+      bindCalendar,
       bindButton,
       classList,
       toPrevious,

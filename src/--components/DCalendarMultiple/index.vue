@@ -89,7 +89,7 @@ import DMotionScroll from '@/components/DMotionScroll'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useCalendar from '@/--components/DCalendarSelect/useCalendar'
+import useCalendar from '@/components/DCalendarSelect/useCalendar'
 import useDesktop from './useDesktop'
 import useScroll from '@/uses/useScroll'
 

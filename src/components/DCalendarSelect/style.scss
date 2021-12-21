@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -16,7 +17,7 @@
   &__menu {
     @include flexBetween;
     align-items: center;
-    gap: 4px;
+    gap: dimension(1);
     padding: var(--_cs-padding-x) var(--_cs-padding);
     @content;
   }
@@ -30,7 +31,7 @@
   &__list {
     align-content: flex-start;
     display: grid;
-    gap: 0 8px;
+    gap: 0 dimension(2);
     grid-template-columns: repeat(var(--_cs-columns), minmax(0, 1fr));
     height: var(--_cs__ls-height);
     padding: 0 var(--_cs__ls-padding);

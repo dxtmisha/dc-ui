@@ -1,0 +1,33 @@
+@import "../../styles/dimension";
+
+@mixin calendarSelectVar() {
+  --_cs-status-palette: var(--cs-status-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_cs-columns: var(--cs-columns, 3);
+  --_cs-padding: var(--cs-padding, #{dimension(4)});
+  --_cs-padding-x: var(--cs-padding-x, #{dimension(3)});
+
+  --_cs__cl-bottom: var(--cs__cl-bottom, #{dimension(2)});
+  --_cs__ls-height: var(--cs__ls-height, #{dimension(70)});
+  --_cs__ls-padding: var(--cs__ls-padding, #{dimension(6)});
+  --_cs__it-padding: var(--cs__it-padding, #{dimension(2)});
+
+  --_cs__bt-height: var(--cs__bt-height, #{dimension(9)});
+  --_cs__bt-shape: var(--cs__bt-shape, 1024px);
+  --_cs__bt-width: var(--cs__bt-width, #{dimension(18)});
+
+  --_cs-width: var(--cs-width, #{dimension(82)});
+  --_cs--ml-width: var(--cs--ml-width, #{dimension(90)});
+  --_cs__ls--ml-height: var(--cs__ls--ml-height, #{dimension(84)});
+
+  --_cs--ds-columns: var(--cs--ds-columns, 4);
+  --_cs--ds-width: var(--cs--ds-width, #{dimension(64)});
+  --_cs__mn-padding-rg: var(--cs__mn-padding-rg, #{dimension(2)});
+  --_cs__mn-padding-bt: var(--cs__mn-padding-bt, #{dimension(3)});
+  --_cs__ls--ds-height: var(--cs__ls--ds-height, #{dimension(56)});
+  --_cs__ls--ds-padding: var(--cs__ls--ds-padding, #{dimension(3)});
+  --_cs__it--ds-padding: var(--cs__it--ds-padding, #{dimension(.5)});
+  --_cs__bt--ds-height: var(--cs__bt--ds-height, #{dimension(7)});
+  --_cs__bt--ds-padding: var(--cs__bt--ds-padding, #{dimension(2)});
+  --_cs__bt--ds-width: var(--cs__bt--ds-width, #{dimension(13)});
+}

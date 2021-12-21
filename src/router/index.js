@@ -10,7 +10,7 @@ import DemoButtonGroup from '../--views/DemoButtonGroup'
 import DemoButtonSelect from '../--views/DemoButtonSelect'
 import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../--views/DemoCalendarMultiple'
-import DemoCalendarSelect from '../--views/DemoCalendarSelect'
+import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../--views/DemoCarcassField'
 import DemoCardMenu from '../--views/DemoCardMenu'
 import DemoCheckbox from '../--views/DemoCheckbox'
@@ -86,6 +86,7 @@ export const routes = getRoutes({
   'l-datetime': { line: true },
   's-datetime': { subtitle: 'Date and Time' },
   'd-calendar': DemoCalendar,
+  'd-calendar-select': DemoCalendarSelect,
   'd-clock-face': DemoClockFace,
   'l-icons': { line: true },
   's-icons': { subtitle: 'Icons' },
@@ -107,7 +108,6 @@ export const routes = getRoutes({
   's-components': { subtitle: 'Components' },
   'd-actions': DemoActions,
   'd-calendar-multiple': DemoCalendarMultiple,
-  'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
   'd-card-menu': DemoCardMenu,
   'd-date-picker': DemoDatePicker,

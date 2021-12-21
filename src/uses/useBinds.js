@@ -1,4 +1,4 @@
-import { isReadonly, readonly, toRefs } from 'vue'
+import { isReadonly, reactive, toRefs } from 'vue'
 import forEach from '@/functions/forEach'
 
 export default function useBinds (
@@ -9,7 +9,7 @@ export default function useBinds (
   attrs = {}
 ) {
   const refs = toRefs(binds)
-  const data = { ...(refs?.[`${code}Attrs`] || {}), ...(isReadonly(attrs) ? toRefs(attrs) : attrs) }
+  const data = { ...(binds?.[`${code}Attrs`] || {}), ...(isReadonly(attrs) ? toRefs(attrs) : attrs) }
 
   forEach(props, (item, index) => {
     const name = `${code}${index.replace(/^[a-z]/i, all => all.toUpperCase())}`
@@ -21,5 +21,5 @@ export default function useBinds (
     }
   })
 
-  return readonly(data)
+  return reactive(data)
 }
