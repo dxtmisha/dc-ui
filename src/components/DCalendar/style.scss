@@ -104,7 +104,7 @@
     @include afterAbsolute() {
       border-color: var(--_cl__dy-border, transparent);
       border-radius: inherit;
-      border-width: 1px;
+      border-width: var(--basic-border-width);
     }
   }
 
@@ -171,9 +171,9 @@
 
     &.status-hover::after {
       border-color: varColor(--_cl-text-palette, --opacity-container-focus);
-      border-bottom-width: 1px;
+      border-bottom-width: var(--basic-border-width);
       border-style: dashed;
-      border-top-width: 1px;
+      border-top-width: var(--basic-border-width);
     }
 
     &.status-between:first-child::after,

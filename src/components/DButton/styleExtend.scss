@@ -30,7 +30,7 @@
 
 %border-after {
   border-radius: inherit;
-  border-width: 1px;
+  border-width: var(--basic-border-width);
   content: " ";
   inset: 0;
   position: absolute;

@@ -44,7 +44,7 @@
   --_tt-text-palette: var(--tt-text-palette, var(--text-type2));
 
   --_tt-radius: var(--tt-radius, var(--basic-radius));
-  --_tt-padding: var(--tt-padding, #{#{dimension(1)} #{dimension(4)}});
+  --_tt-padding: var(--tt-padding, #{dimension(1) dimension(4)});
 
   --_tt-height: var(--tt-height, #{dimension(8)});
   --_tt--ds-height: var(--tt--ds-height, #{dimension(6)});

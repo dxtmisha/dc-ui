@@ -2,6 +2,7 @@ import { Options } from '@/media/demo/Options'
 
 export const Button = {
   buttonAlign: Options.align,
+  buttonShape: Options.shape,
   buttonAppearance: {
     list: [
       { value: undefined },

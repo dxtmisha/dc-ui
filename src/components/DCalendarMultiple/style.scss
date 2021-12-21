@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -14,16 +15,16 @@
 }
 
 @mixin calendarMultipleVar() {
-  --_cm__cl-height: var(--cm__cl-height, 392px);
+  --_cm__cl-height: var(--cm__cl-height, #{dimension(98)});
 
-  --_cm__tt-height: var(--cm__tt-height, 48px);
-  --_cm__tt-margin: var(--cm__tt-margin, #{4px 0 0});
-  --_cm__tt-padding: var(--cm__tt-padding, #{0 24px});
+  --_cm__tt-height: var(--cm__tt-height, #{dimension(12)});
+  --_cm__tt-margin: var(--cm__tt-margin, #{dimension(1) 0 0});
+  --_cm__tt-padding: var(--cm__tt-padding, #{0 dimension(8)});
 
-  --_cs__ds-height: var(--cs__ds-height, 224px);
-  --_cm__ds-padding: var(--cm__ds-padding, #{0 0 8px});
-  --_cm__mn-height: var(--cm__mn-height, 52px);
-  --_cm__mn-padding: var(--cm__mn-padding, #{0 16px});
+  --_cs__ds-height: var(--cs__ds-height, #{dimension(56)});
+  --_cm__ds-padding: var(--cm__ds-padding, #{0 0 dimension(2)});
+  --_cm__mn-height: var(--cm__mn-height, #{dimension(13)});
+  --_cm__mn-padding: var(--cm__mn-padding, #{0 dimension(4)});
 }
 
 @mixin calendarMultipleMobile() {
@@ -59,7 +60,7 @@
 @mixin calendarMultipleMenu() {
   &__menu {
     @include flexX;
-    gap: 4px;
+    gap: dimension(1);
     padding: var(--_cm__mn-padding);
     height: var(--_cm__mn-height);
     @content;
@@ -83,7 +84,7 @@
 
     & > *:nth-child(2) {
       @include afterAbsolute('left') {
-        border-left-width: 1px;
+        border-left-width: var(--basic-border-width);
       }
     }
   }

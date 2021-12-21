@@ -16,7 +16,11 @@ export const props = {
   today: undefined,
 
   // Button
+  buttonShape: undefined,
   buttonAttrs: undefined,
+
+  // Calendar
+  calendarAttrs: undefined,
 
   // Icon
   iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') },

@@ -4,7 +4,7 @@
   --_wn-height: var(--wn-height, calc(100vh - #{dimension(16)}));
   --_wn-radius: var(--wn-radius, var(--basic-radius));
 
-  --_wn-padding: var(--wn-padding, #{#{dimension(8)} #{dimension(4)}});
+  --_wn-padding: var(--wn-padding, #{dimension(8) dimension(4)});
   --_wn--md-padding: var(--wn--md-padding, #{dimension(6)});
 
   --_wn-transform: var(--wn-transform, #{scale(.8)});

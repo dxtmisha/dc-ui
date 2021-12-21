@@ -5,22 +5,23 @@ const defaultProps = defaultInit('d-calendar-multiple')
 export const props = {
   // Values
   value: undefined,
-  min,
-  max,
 
   // Options
   locales: undefined,
   shape: undefined,
   adaptive: { default: defaultProps('adaptive', 'auto') },
+  min,
+  max,
   today: undefined,
 
+  // Button
+  buttonShape: undefined,
+  buttonAttrs: undefined,
+
+  // Calendar
+  calendarAttrs: undefined,
+
   // Icon
-  iconChevronLeft: {
-    type: String,
-    default: defaultProps('iconChevronLeft', 'chevron_left')
-  },
-  iconChevronRight: {
-    type: String,
-    default: defaultProps('iconChevronRight', 'chevron_right')
-  }
+  iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },
+  iconChevronRight: { default: defaultProps('iconChevronRight', 'chevron_right') }
 }

@@ -9,7 +9,7 @@ import {
 } from '@/media/--demo/options'
 // import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
 import { optionsCalendarSelect } from '@/views/DemoCalendarSelect/options'
-import { optionsCalendarMultiple } from '@/--views/DemoCalendarMultiple/options'
+import { optionsCalendarMultiple } from '@/views/DemoCalendarMultiple/options'
 
 export const datePickerValue = {
   value: 'value',
