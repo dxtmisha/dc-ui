@@ -4,6 +4,7 @@ import { Options } from '@/media/demo/Options'
 import { Button } from '@/media/demo/Button'
 import { Calendar } from '@/media/demo/Calendar'
 import { CarcassField } from '@/media/demo/CarcassField'
+import { Checkbox } from '@/media/demo/Checkbox'
 import { ClockFace } from '@/media/demo/ClockFace'
 import { ControlResize } from '@/media/demo/ControlResize'
 import { Icon } from '@/media/demo/Icon'
@@ -23,6 +24,7 @@ export default {
   Button,
   Calendar,
   CarcassField,
+  Checkbox,
   ClockFace,
   ControlResize,
   Icon,

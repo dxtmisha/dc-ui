@@ -1,11 +1,6 @@
 // import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
 import { datePickerValue } from '@/--views/DemoDatePicker/options'
 import {
-  carcassFieldAdaptive,
-  carcassFieldAppearance,
-  carcassFieldSize
-} from '@/views/DemoCarcassField/options'
-import {
   align,
   cancel,
   disabled,
@@ -50,11 +45,8 @@ export const optionsDate = {
   helperMessage,
   validationMessage,
   palette,
-  carcassFieldAppearance,
-  carcassFieldSize,
   shape,
   align,
-  carcassFieldAdaptive,
   cancel,
 
   optionPicker,

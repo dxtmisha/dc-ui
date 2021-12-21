@@ -10,10 +10,14 @@ export const props = {
   text: String,
   helperMessage: String,
   validationMessage: String,
+
+  // Input
+  required: Boolean,
   on: {
     type: Object,
     default: {}
   },
+  inputAttrs: Object,
 
   // Status
   disabled: Boolean,
@@ -21,13 +25,6 @@ export const props = {
   // Options
   palette,
   color: String,
-  right: Boolean,
-  ripple: {
-    type: Boolean,
-    default: defaultProps('ripple', true)
-  },
-
-  // Input
   type: {
     type: String,
     default: 'checkbox',
@@ -37,12 +34,14 @@ export const props = {
       'switch'
     ])
   },
-  required: Boolean,
-  attrsInput: Object,
+  ripple: {
+    type: Boolean,
+    default: defaultProps('ripple', true)
+  },
+
+  // Position
+  right: Boolean,
 
   // Icon
-  iconCheck: {
-    type: String,
-    default: defaultProps('iconCheck', 'check')
-  }
+  iconCheck: { default: defaultProps('iconCheck', 'check') }
 }

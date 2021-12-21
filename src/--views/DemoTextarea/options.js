@@ -1,8 +1,4 @@
-import {
-  carcassFieldAdaptive,
-  carcassFieldAppearance,
-  carcassFieldSize
-} from '@/views/DemoCarcassField/options'
+
 import {
   counter,
   disabled,
@@ -52,10 +48,7 @@ export const optionsTextarea = {
   helperMessage,
   validationMessage,
   palette,
-  carcassFieldAppearance,
-  carcassFieldSize,
   shape,
-  carcassFieldAdaptive,
   counter,
 
   optionIcon,

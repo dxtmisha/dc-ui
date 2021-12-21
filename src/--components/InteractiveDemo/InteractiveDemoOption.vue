@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import DCheckbox from '@/--components/DCheckbox'
+import DCheckbox from '@/components/DCheckbox'
 import DButtonSelect from '@/--components/DButtonSelect'
 
 export default {

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DCheckbox from '@/--components/DCheckbox'
+import DCheckbox from '@/components/DCheckbox'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsCheckbox } from './options'
 

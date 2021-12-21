@@ -51,7 +51,7 @@
     @include afterAbsolute() {
       border-color: transparent;
       border-radius: inherit;
-      border-width: 1px;
+      border-width: var(--basic-border-width);
       transition-property: border-color;
     }
 

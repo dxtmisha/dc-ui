@@ -1,0 +1,14 @@
+@import "../../styles/dimension";
+
+@mixin checkboxVar() {
+  --_cb-palette-type1: var(--cb-palette-type1, var(--text-type1));
+  --_cb-palette-type2: var(--cb-palette-type2, var(--palette-type1, var(--primary-type1)));
+
+  --_cb-gap: var(--cb-gap, #{dimension(3)});
+
+  --_cb-size: var(--cb-size, #{dimension(10)});
+  --_cb__ic-size: var(--cb__ic-size, #{dimension(5)});
+
+  --_cb__sw-height: var(--cb__sw-height, #{dimension(3.5)});
+  --_cb__sw-width: var(--cb__sw-width, #{dimension(9)});
+}

@@ -1,8 +1,4 @@
-import {
-  carcassFieldAdaptive,
-  carcassFieldAppearance,
-  carcassFieldSize
-} from '@/views/DemoCarcassField/options'
+
 // import { iconSize } from '@/views/DemoIcon/options'
 import { listItemAppearance } from '@/--views/DemoListItem/options'
 // import { windowWidth } from '@/views/DemoWindow/options'
@@ -69,11 +65,11 @@ export const optionsSelect = {
   helperMessage,
   validationMessage,
   palette,
-  carcassFieldAppearance,
-  carcassFieldSize,
+  // carcassFieldAppearance,
+  // carcassFieldSize,
   shape,
   align,
-  carcassFieldAdaptive,
+  // carcassFieldAdaptive,
   arrow,
   counter,
   cancel,

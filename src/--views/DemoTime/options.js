@@ -1,8 +1,4 @@
-import {
-  carcassFieldAdaptive,
-  carcassFieldAppearance,
-  carcassFieldSize
-} from '@/views/DemoCarcassField/options'
+
 import { timePickerFormat, timePickerMax, timePickerMin } from '@/--views/DemoTimePicker/options'
 import {
   align,
@@ -47,11 +43,8 @@ export const optionsTime = {
   helperMessage,
   validationMessage,
   palette,
-  carcassFieldAppearance,
-  carcassFieldSize,
   shape,
   align,
-  carcassFieldAdaptive,
   cancel,
 
   optionIcon,
