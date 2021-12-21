@@ -5,15 +5,6 @@ export const axis = [
 ]
 
 export const axis3d = [
-  { value: undefined },
-  { value: 'x' },
-  { value: 'y' },
+  ...axis,
   { value: 'z' }
-]
-
-export const axisWindow = [
-  { value: undefined },
-  { value: 'x' },
-  { value: 'y' },
-  { value: 'on' }
 ]

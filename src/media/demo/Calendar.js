@@ -1,9 +1,14 @@
 import GeoDate from '@/classes/GeoDate'
-import { adaptiveCalendar } from '@/media/demo/data/adaptive'
-import { valueCalendar } from '@/media/demo/data/value'
+import { adaptiveBasic } from '@/media/demo/data/adaptive'
 
 export const Calendar = {
-  calendarAdaptive: { list: adaptiveCalendar },
+  calendarAdaptive: {
+    list: [
+      ...adaptiveBasic,
+      { value: 'mobile' },
+      { value: 'desktop' }
+    ]
+  },
   calendarMax: {
     message: (() => {
       const date = new GeoDate()
@@ -22,5 +27,14 @@ export const Calendar = {
       return date.toStandard()
     })()
   },
-  calendarValue: { list: valueCalendar }
+  calendarValue: {
+    list: [
+      { value: undefined },
+      { value: '2020-01-01' },
+      { value: '2020-12-30' },
+      { value: '2020-11' },
+      { value: '2020-08-19 05:04' },
+      { value: '2020-99-99' }
+    ]
+  }
 }

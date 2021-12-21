@@ -1,11 +1,24 @@
-import { badge } from '@/media/demo/data/badge'
 import { icon } from '@/media/demo/data/icon'
-import { maxBadge } from '@/media/demo/data/max'
-import { sizeIcon } from '@/media/demo/data/size'
 
 export const Icon = {
-  badge: { list: badge },
-  badgeMax: { list: maxBadge },
+  badge: {
+    list: [
+      { value: undefined },
+      { value: 8 },
+      { value: 32 },
+      { value: 128 },
+      { value: 'Demo' },
+      { value: 'Interactive demo' }
+    ]
+  },
+  badgeMax: {
+    list: [
+      { value: undefined },
+      { value: 9 },
+      { value: 99 },
+      { value: 999 }
+    ]
+  },
   icon: {
     default: 'lock_open',
     list: icon
@@ -14,7 +27,17 @@ export const Icon = {
     default: 'lock',
     list: icon
   },
-  iconSize: { list: sizeIcon },
+  iconSize: {
+    list: [
+      { value: undefined },
+      { value: 'dynamic' },
+      { value: 'compact' },
+      { value: 'small' },
+      { value: 'medium' },
+      { value: 'large' },
+      { value: 'rectangle' }
+    ]
+  },
 
   iconAnimationShow: {},
   iconBackground: {}

@@ -1,35 +1,209 @@
 import { adaptive } from '@/media/demo/data/adaptive'
-import { alignment } from '@/media/demo/data/alignment'
 import { axis } from '@/media/demo/data/axis'
-import { delay } from '@/media/demo/data/delay'
-import { indent } from '@/media/demo/data/indent'
-import { locales } from '@/media/demo/data/locales'
-import { max } from '@/media/demo/data/max'
-import { min } from '@/media/demo/data/min'
-import { outline } from '@/media/demo/data/outline'
-import { palette } from '@/media/demo/data/palette'
-import { shape } from '@/media/demo/data/shape'
-import { size } from '@/media/demo/data/size'
-import { transition } from '@/media/demo/data/transition'
 import { type2i } from '@/media/demo/data/type'
 
 export const Options = {
   adaptive: { list: adaptive },
-  alignment: { list: alignment },
+  alignment: {
+    list: [
+      { value: undefined },
+      { value: 'basic' },
+      { value: 'overlap' },
+      { value: 'static' }
+    ]
+  },
   animationHide: { list: type2i },
   axis: { list: axis },
-  delay: { list: delay },
-  indent: { list: indent },
+  delay: {
+    list: [
+      { value: undefined },
+      {
+        text: '0s',
+        value: 0
+      },
+      {
+        text: '400s',
+        value: 400
+      },
+      {
+        text: '800s',
+        value: 800
+      },
+      {
+        text: '1600s',
+        value: 1600
+      },
+      {
+        text: '3200s',
+        value: 3200
+      }
+    ]
+  },
+  indent: {
+    list: [
+      { value: undefined },
+      {
+        text: '0px',
+        value: 0
+      },
+      {
+        text: '4px',
+        value: 4
+      },
+      {
+        text: '8px',
+        value: 8
+      },
+      {
+        text: '16px',
+        value: 16
+      },
+      {
+        text: '32px',
+        value: 32
+      }
+    ]
+  },
   indeterminate: {},
-  locales: { list: locales },
-  max: { list: max },
-  min: { list: min },
-  outline: { list: outline },
-  palette: { list: palette },
-  shape: { list: shape },
-  size: { list: size },
+  locales: {
+    list: [
+      { value: undefined },
+      { value: 'en-US' },
+      { value: 'en-GB' },
+      { value: 'en-AU' },
+      { value: 'de-DE' },
+      { value: 'ko-KR' },
+      { value: 'he-IL' },
+      { value: 'ru-RU' }
+    ]
+  },
+  max: {
+    list: [
+      { value: undefined },
+      { value: 6 },
+      { value: 7 },
+      { value: 8 },
+      { value: 9 },
+      { value: 10 },
+      { value: 11 },
+      { value: 12 },
+      { value: 30 },
+      { value: 40 },
+      { value: 50 },
+      { value: 60 }
+    ]
+  },
+  min: {
+    list: [
+      { value: undefined },
+      {
+        text: '0',
+        value: 0
+      },
+      { value: 2 },
+      { value: 4 },
+      { value: 8 },
+      { value: 12 },
+      { value: 16 },
+      { value: 24 },
+      { value: 32 }
+    ]
+  },
+  outline: {
+    list: [
+      { value: undefined },
+      {
+        text: 'red',
+        value: '#F44336',
+        icon: '#F44336'
+      },
+      {
+        text: 'blue',
+        value: '#2196F3',
+        icon: '#2196F3'
+      },
+      {
+        text: 'green',
+        value: '#4CAF50',
+        icon: '#4CAF50'
+      },
+      {
+        text: 'yellow',
+        value: '#FFEB3B',
+        icon: '#FFEB3B'
+      },
+      {
+        text: 'gray',
+        value: '#9E9E9E',
+        icon: '#9E9E9E'
+      }
+    ]
+  },
+  palette: {
+    list: [
+      { value: undefined },
+      {
+        value: 'basic',
+        icon: '#607d8b'
+      },
+      {
+        value: 'primary',
+        icon: '#42a5f5'
+      },
+      {
+        value: 'secondary',
+        icon: '#3f51b5'
+      },
+      {
+        value: 'tertiary',
+        icon: '#3f51b5'
+      },
+      {
+        value: 'success',
+        icon: '#4caf50'
+      },
+      {
+        value: 'info',
+        icon: '#03a9f4'
+      },
+      {
+        value: 'warning',
+        icon: '#ffc107'
+      },
+      {
+        value: 'error',
+        icon: '#f44336'
+      },
+      {
+        value: 'disabled',
+        icon: '#9e9e9e'
+      }
+    ]
+  },
+  shape: {
+    list: [
+      { value: undefined },
+      { value: 'basic' },
+      { value: 'rounded' },
+      { value: 'pill' },
+      { value: 'tile' }
+    ]
+  },
+  size: {
+    list: [
+      { value: undefined },
+      { value: 'small' },
+      { value: 'medium' },
+      { value: 'large' }
+    ]
+  },
   type: {},
-  transition: { list: transition },
+  transition: {
+    list: [
+      { value: 'next' },
+      { value: 'back' }
+    ]
+  },
   width: {},
 
   arrow: {},

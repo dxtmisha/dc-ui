@@ -1,11 +1,20 @@
-import { element } from '@/media/demo/data/element'
-import { mask } from '@/media/demo/data/mask'
-
 export const Values = {
-  element: { list: element },
+  element: {
+    list: [
+      { value: undefined },
+      {
+        text: 'window',
+        value: window
+      }
+    ]
+  },
   mask: {
     default: '**** ****',
-    list: mask
+    list: [
+      { value: undefined },
+      { value: '+7 (***) ***-**-**' },
+      { value: '**** ****' }
+    ]
   },
   value: {},
 
