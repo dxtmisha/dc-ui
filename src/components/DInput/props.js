@@ -5,18 +5,42 @@ export const props = {
   // Values
   item: undefined,
   value: undefined,
+  mask: undefined,
   name: undefined,
+  text: undefined,
+  prefix: undefined,
+  suffix: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
+
+  // Input
+  autocomplete: {
+    type: String,
+    default: 'off'
+  },
+  autofocus: Boolean,
+  inputmode: String,
+  step: Number,
+  min: Number,
+  max: Number,
+  minlength: Number,
+  maxlength: Number,
+  pattern: String,
+  placeholder: String,
+  required: Boolean,
+  spellcheck: Boolean,
   on: {
     type: Object,
     default: {}
   },
+  inputAttrs: Object,
 
   // Status
   selected: Boolean,
   readonly: Boolean,
   disabled: Boolean,
 
-  // Input
+  // Options
   type: {
     type: String,
     validator: validator([
@@ -33,37 +57,6 @@ export const props = {
       'url'
     ])
   },
-  autocomplete: {
-    type: String,
-    default: 'off'
-  },
-  autofocus: Boolean,
-  inputmode: String,
-  step: Number,
-  min: Number,
-  max: Number,
-  minlength: Number,
-  maxlength: Number,
-  pattern: String,
-  placeholder: String,
-  required: Boolean,
-  spellcheck: Boolean,
-  attrsInput: Object,
-
-  // Mask
-  mask: undefined,
-  locales: undefined,
-  visibleMask: {
-    type: Boolean,
-    default: defaultProps('visibleMask', true)
-  },
-
-  // Field
-  text: undefined,
-  prefix: undefined,
-  suffix: undefined,
-  helperMessage: undefined,
-  validationMessage: undefined,
   palette: undefined,
   color: undefined,
   appearance: undefined,
@@ -73,10 +66,13 @@ export const props = {
   adaptive: undefined,
   arrow: undefined,
   counter: undefined,
-  cancel: {
-    type: Boolean,
-    default: defaultProps('cancel', true)
-  },
+  cancel: undefined,
+  ripple: undefined,
+
+  // Mask
+  maskLocales: undefined,
+  maskVisible: { default: defaultProps('visibleMask', true) },
+  maskAttrs: Object,
 
   // Icon
   icon: undefined,

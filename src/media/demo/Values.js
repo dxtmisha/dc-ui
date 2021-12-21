@@ -15,11 +15,10 @@ export const Values = {
   helperMessage: { message: helper1 },
   hour: { message: 15 },
   mask: {
-    default: '**** ****',
     list: [
       { value: undefined },
       { value: '+7 (***) ***-**-**' },
-      { value: '**** ****' }
+      { value: '**** **** **** ****' }
     ]
   },
   minute: { message: 35 },

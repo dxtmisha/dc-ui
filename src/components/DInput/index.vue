@@ -1,22 +1,17 @@
 <template>
   <d-carcass-field
     v-bind="bindCarcassField"
-    @on-previous="onPrevious"
-    @on-next="onNext"
+    @on-previous="onArrow('previous')"
+    @on-next="onArrow('next')"
     @on-cancel="onCancel"
   >
     <template v-slot:default="{ className }">
       <d-mask
         v-if="isMask"
+        v-bind="bindMask"
         ref="input"
         :class="className"
-        :mask="mask"
-        :value="value"
-        :type="type"
-        :locales="locales"
-        :visibleMask="visibleMask"
-        :on="on"
-        :attrsInput="bindInput"
+        :inputAttrs="bindInput"
         @on-input="onInput"
         @on-change="onChange"
       />
@@ -38,12 +33,12 @@
 import DCarcassField from '@/components/DCarcassField'
 import DMask from '@/components/DMask'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useArrow from './useArrow'
 import useCarcass from './useCarcass'
 import useField from '@/uses/useField'
 import useInput from './useInput'
+import useMask from './useMask'
 
 export default {
   name: 'DInput',
@@ -57,15 +52,14 @@ export default {
     const input = ref(undefined)
 
     const {
-      change,
       propValidationMessage,
       propValue,
       propCounter,
       checkValidity,
       setChange,
-      emitFrame,
       onEmit,
       onInput,
+      onSelect,
       onChange,
       onCancel
     } = useField(
@@ -75,58 +69,44 @@ export default {
       context
     )
 
-    const isMask = computed(() => !props.arrow &&
-      (
-        [
-          'date',
-          'datetime',
-          'month',
-          'time'
-        ].indexOf(props.type) !== -1 ||
-        ((props.type === 'text' || !props.type) && props.mask)
-      ))
-    const active = computed(() => !!propValue.value || !!props.placeholder || (isMask.value && props.visibleMask))
-    const filled = computed(() => !!propValue.value)
-
     const {
-      isPrevious,
-      isNext,
-      onPrevious,
-      onNext
-    } = useArrow(
+      isMask,
+      bindMask
+    } = useMask(props)
+
+    const bindInput = useInput(props)
+    const bindCarcassField = useCarcass(
       props,
+      isMask,
+      propValidationMessage,
       propValue,
-      change,
-      emitFrame
+      propCounter
     )
 
-    const { bindInput } = useInput(props)
-    const { bindCarcassField } = useCarcass(
-      props,
-      propValidationMessage,
-      propCounter,
-      active,
-      filled,
-      isPrevious,
-      isNext
-    )
+    const onArrow = type => {
+      onSelect({
+        value: type === 'previous'
+          ? parseFloat(propValue.value || props.max || '0') - (props.step || 1) || ''
+          : parseFloat(propValue.value || props.min || '0') + (props.step || 1) || ''
+      })
+    }
 
     useAdmin('d-input', context, input)
 
     return {
       input,
+      isMask,
       propValue,
       propValidationMessage,
-      isMask,
       bindInput,
+      bindMask,
       bindCarcassField,
       checkValidity,
       setChange,
       onEmit,
       onInput,
       onChange,
-      onPrevious,
-      onNext,
+      onArrow,
       onCancel
     }
   }

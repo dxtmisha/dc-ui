@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
 export default function useInput (props) {
-  const bindInput = computed(() => {
+  return computed(() => {
     return {
       name: props.name,
       readonly: props.readonly,
@@ -19,9 +19,7 @@ export default function useInput (props) {
       placeholder: props.placeholder,
       required: props.required,
       spellcheck: props.spellcheck,
-      ...props.attrsInput
+      ...props.inputAttrs
     }
   })
-
-  return { bindInput }
 }

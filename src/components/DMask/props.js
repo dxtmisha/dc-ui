@@ -5,7 +5,10 @@ const defaultProps = defaultInit('d-mask')
 export const props = {
   // Values
   value: String,
-  mask: String,
+  mask: {
+    type: String,
+    default: defaultProps('mask', '**** **** **** ****')
+  },
   match: {
     default: /[0-9]/
   },

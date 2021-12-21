@@ -1,4 +1,7 @@
+import { Options } from '@/media/demo/Options'
+
 export const Mask = {
+  maskLocales: Options.locales,
   maskType: {
     list: [
       { value: undefined },
@@ -20,5 +23,6 @@ export const Mask = {
       { value: '2000-01' },
       { value: '21:45' }
     ]
-  }
+  },
+  maskVisible: {}
 }
