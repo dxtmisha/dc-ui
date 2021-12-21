@@ -46,16 +46,16 @@
 </template>
 
 <script>
-import DControlPosition from '@/--components/DControlPosition'
+import DControlPosition from '@/components/DControlPosition'
+import DControlSelection from '@/components/DControlSelection'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsControlPosition } from './options'
-import DControlSelection from '@/components/DControlSelection'
 
 export default {
   name: 'DemoControlPosition',
   components: {
-    DControlSelection,
     DControlPosition,
+    DControlSelection,
     InteractiveDemo
   },
   setup () {

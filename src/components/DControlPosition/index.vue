@@ -16,27 +16,19 @@
 </template>
 
 <script>
+import { props } from './props'
 import { computed, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
 import getIdElement from '@/functions/getIdElement'
+import useAdmin from '@/uses/useAdmin'
 import useDrop from './useDrop'
 import usePosition from './usePosition'
 import useSelection from './useSelection'
 import useSquare from './useSquare'
-import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DControlPosition',
-  props: {
-    // Status
-    disabled: Boolean,
-
-    // Options
-    tag: {
-      type: String,
-      default: 'div'
-    }
-  },
+  props,
   emits: ['on-drop', 'on-position'],
   setup (props, context) {
     const id = `p--${getIdElement()}`

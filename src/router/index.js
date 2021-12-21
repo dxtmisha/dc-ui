@@ -15,7 +15,7 @@ import DemoCarcassField from '../--views/DemoCarcassField'
 import DemoCardMenu from '../--views/DemoCardMenu'
 import DemoCheckbox from '../--views/DemoCheckbox'
 import DemoClockFace from '../--views/DemoClockFace'
-import DemoControlPosition from '../--views/DemoControlPosition'
+import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
 import DemoDate from '../--views/DemoDate'
@@ -96,6 +96,7 @@ export const routes = getRoutes({
   'd-motion-transform': DemoMotionTransform,
   'l-control': { line: true },
   's-control': { subtitle: 'Control' },
+  'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
   'l-components': { line: true },
@@ -107,7 +108,6 @@ export const routes = getRoutes({
   'd-carcass-field': DemoCarcassField,
   'd-card-menu': DemoCardMenu,
   'd-clock-face': DemoClockFace,
-  'd-control-position': DemoControlPosition,
   'd-date-picker': DemoDatePicker,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,
