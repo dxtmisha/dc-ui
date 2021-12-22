@@ -48,7 +48,7 @@
     transition-property: border-color;
   }
 
-  &, & * {
+  &, & *:not(.d-badge) {
     color: varColor(--_bt-basic-text, --basic-text-opacity);
   }
 }

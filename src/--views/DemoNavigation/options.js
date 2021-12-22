@@ -1,6 +1,6 @@
 import { appBarAppearance, appBarSrc } from '@/--views/DemoAppBar/options'
 // import { iconSize } from '@/views/DemoIcon/options'
-import { listItemAppearance } from '@/--views/DemoListItem/options'
+// import { listItemAppearance } from '@/views/DemoListItem/options'
 // import { windowShape, windowWidth } from '@/views/DemoWindow/options'
 import {
   buttonBack,
@@ -47,7 +47,7 @@ export const optionsNavigation = {
 
   optionList,
   listAppearance: {
-    ...listItemAppearance,
+    // ...listItemAppearance,
     value: 'listAppearance'
   },
   listSize: {

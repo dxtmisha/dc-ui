@@ -3,12 +3,13 @@ import { Status } from '@/media/demo/Status'
 import { Options } from '@/media/demo/Options'
 import { Button } from '@/media/demo/Button'
 import { Calendar } from '@/media/demo/Calendar'
-import { CarcassField } from '@/media/demo/CarcassField'
 import { Checkbox } from '@/media/demo/Checkbox'
 import { ClockFace } from '@/media/demo/ClockFace'
 import { ControlResize } from '@/media/demo/ControlResize'
+import { Field } from '@/media/demo/Field'
 import { Icon } from '@/media/demo/Icon'
 import { Input } from '@/media/demo/Input'
+import { Item } from '@/media/demo/Item'
 import { Mask } from '@/media/demo/Mask'
 import { MotionAxis } from '@/media/demo/MotionAxis'
 import { MotionTransform } from '@/media/demo/MotionTransform'
@@ -23,12 +24,13 @@ export default {
   Options,
   Button,
   Calendar,
-  CarcassField,
+  CarcassField: Field,
   Checkbox,
   ClockFace,
   ControlResize,
   Icon,
   Input,
+  Item,
   Mask,
   MotionAxis,
   MotionTransform,

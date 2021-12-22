@@ -1,6 +1,4 @@
-import { Options } from '@/media/demo/Options'
-
-export const CarcassField = {
+export const Field = {
   carcassFieldAdaptive: {
     list: [
       { value: undefined },
@@ -8,7 +6,6 @@ export const CarcassField = {
       { value: 'block' }
     ]
   },
-  carcassFieldAlign: Options.align,
   carcassFieldAppearance: {
     list: [
       { value: undefined },
@@ -18,8 +15,6 @@ export const CarcassField = {
       { value: 'outlined' }
     ]
   },
-  carcassFieldArrow: Options.arrow,
-  carcassFieldShape: Options.shape,
   carcassFieldSize: {
     list: [
       { value: undefined },

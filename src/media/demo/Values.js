@@ -1,6 +1,36 @@
 import { helper1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
+  backgroundColor: {
+    list: [
+      { value: undefined },
+      {
+        text: 'red',
+        value: '244,67,54',
+        icon: '#F44336'
+      },
+      {
+        text: 'blue',
+        value: '33,150,243',
+        icon: '#2196F3'
+      },
+      {
+        text: 'green',
+        value: '76,175,80',
+        icon: '#4CAF50'
+      },
+      {
+        text: 'yellow',
+        value: '255,235,59',
+        icon: '#FFEB3B'
+      },
+      {
+        text: 'gray',
+        value: '158,158,158',
+        icon: '#9E9E9E'
+      }
+    ]
+  },
   dot: {},
   counterValue: { message: 128 },
   element: {
@@ -30,6 +60,11 @@ export const Values = {
     default: true,
     message: 'Interactive demo'
   },
+  textShort: {
+    default: true,
+    message: 'Demo'
+  },
+  underline: { message: 'demo' },
   value: {},
   validationMessage: { message: validation1 }
 }

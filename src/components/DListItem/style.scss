@@ -48,7 +48,7 @@
     }
   }
 
-  &, & * {
+  &, & *:not(.d-badge) {
     color: varColor(--_li-basic-text, --basic-text-opacity);
   }
 }

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 export default function useIcon (props) {
   const bindThumbnail = computed(() => {
     return {
+      icon: props.thumbnail,
       iconActive: props.iconActive,
       active: props.selected,
       disabled: props.disabled,

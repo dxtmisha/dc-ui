@@ -1,5 +1,5 @@
 // import { iconSize } from '@/views/DemoIcon/options'
-import { listItemAppearance } from '@/--views/DemoListItem/options'
+// import { listItemAppearance } from '@/views/DemoListItem/options'
 import {
   adaptive,
   axis,
@@ -33,7 +33,7 @@ export const optionsList = {
 
   optionsItem: optionItem,
   palette,
-  listItemAppearance,
+  // listItemAppearance,
   // iconSize,
   shape,
   adaptive,

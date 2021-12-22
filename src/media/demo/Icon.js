@@ -47,5 +47,6 @@ export const Icon = {
     default: 'arrow_drop_down',
     list: icon
   },
-  iconTurn: {}
+  iconTurn: {},
+  thumbnail: { list: icon }
 }

@@ -28,7 +28,7 @@ export const Options = {
   axis: { list: axis },
   background: {},
   border: {},
-  cancel: {},
+  cancel: { default: true },
   click: {},
   counter: {},
   delay: {
@@ -106,6 +106,24 @@ export const Options = {
     ]
   },
   lowercase: {},
+  navigationRail: {
+    list: [
+      { value: undefined },
+      { value: 'small' },
+      { value: 'medium' },
+      { value: 'medium-medium' },
+      { value: 'medium-large' },
+      { value: 'medium-extra' },
+      { value: 'medium-desktop' },
+      { value: 'large' },
+      { value: 'large-large' },
+      { value: 'large-extra' },
+      { value: 'large-desktop' },
+      { value: 'extra' },
+      { value: 'desktop' },
+      { value: 'always' }
+    ]
+  },
   outline: {
     list: [
       { value: undefined },
@@ -207,6 +225,6 @@ export const Options = {
       { value: 'back' }
     ]
   },
-  today: {},
+  today: { default: true },
   width: {}
 }
