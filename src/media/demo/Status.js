@@ -1,4 +1,5 @@
 export const Status = {
+  action: {},
   active: {},
   disabled: {},
   disabledBottom: {},

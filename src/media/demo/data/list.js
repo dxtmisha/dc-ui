@@ -1,3 +1,18 @@
+export const action = [
+  {
+    icon: 'content_cut',
+    value: 'cut'
+  },
+  {
+    icon: 'content_copy',
+    value: 'copy'
+  },
+  {
+    icon: 'content_paste',
+    value: 'paste'
+  }
+]
+
 export const menu = [
   {
     html: `

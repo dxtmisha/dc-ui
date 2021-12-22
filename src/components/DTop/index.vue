@@ -1,5 +1,5 @@
 <template>
-  <div ref="top" :class="classList">
+  <div ref="top" class="d-top" :class="classList">
     <d-button
       v-bind="propClose"
       @on-click="onClick"
@@ -30,6 +30,7 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import useAction from '@/--components/DAppBar/useAction'
 import useAdmin from '@/uses/useAdmin'
+import useBar from '@/components/DTop/useBar'
 
 export default {
   name: 'DTop',
@@ -38,43 +39,16 @@ export default {
   emits: ['on-click'],
   setup (props, context) {
     const top = ref(undefined)
-
-    const initBar = (list, extra = {}) => {
-      const bars = []
-
-      list?.forEach(item => bars.push({
-        ...item,
-        class: 'd-top__bar window-close',
-        appearance: 'text',
-        size: 'medium',
-        shape: props.shape || (item.text || !item.icon ? undefined : 'pill'),
-        adaptive: 'auto',
-        lowercase: true,
-        dense: true,
-        ...props.attrsButton,
-        ...extra
-      }))
-
-      return bars
-    }
-
-    const propBar = computed(() => initBar(props.bar))
-    const propBarAction = computed(() => initBar(props.barAction, { iconAnimationShow: true }))
-    const propClose = computed(() => initBar(
-      [{ icon: props.iconClose }],
-      {
-        class: 'window-close',
-        value: 'cancel'
-      }
-    )[0])
-
     const { propAction } = useAction(top, props)
 
+    const {
+      propBar,
+      propBarAction,
+      propClose
+    } = useBar(props)
+
     const classList = computed(() => {
-      return {
-        'd-top': true,
-        'status-action': propAction.value
-      }
+      return { 'status-action': propAction.value }
     })
 
     const onClick = event => context.emit('on-click', event)

@@ -11,23 +11,25 @@ export default function useAction (
   const classHide = useClass(bar, 'status-hide')
 
   const propAction = useWatch(action, data => {
-    if (props.action) {
-      data.value = true
-    } else {
-      classHide.set(true)
+    if (props.barAction) {
+      if (props.action) {
+        data.value = true
+      } else {
+        classHide.set(true)
 
-      EventControl.init(
-        bar.value,
-        ({ propertyName }) => {
-          if (propertyName === 'opacity') {
-            classHide.set(false)
-            data.value = false
-          }
-        },
-        ['transitionend']
-      ).goOnce()
+        EventControl.init(
+          bar.value,
+          ({ propertyName }) => {
+            if (propertyName === 'opacity') {
+              classHide.set(false)
+              data.value = false
+            }
+          },
+          ['transitionend']
+        ).goOnce()
+      }
     }
-  }, [], props.action)
+  }, [], props.barAction && props.action)
 
   return {
     propAction

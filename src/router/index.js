@@ -50,7 +50,7 @@ import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../--views/DemoTime'
 import DemoTimePicker from '../--views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
-import DemoTop from '../--views/DemoTop'
+import DemoTop from '../views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
 
 export const routes = getRoutes({
@@ -71,6 +71,7 @@ export const routes = getRoutes({
   'd-list': DemoList,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,
+  'd-top': DemoTop,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },
   'd-carcass-field': DemoCarcassField,
@@ -119,7 +120,6 @@ export const routes = getRoutes({
   'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,
   'd-time-picker': DemoTimePicker,
-  'd-top': DemoTop,
   'd-window': DemoWindow
 })
 

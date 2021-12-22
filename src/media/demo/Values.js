@@ -1,5 +1,5 @@
+import { action } from '@/media/demo/data/list'
 import { helper1, validation1 } from '@/media/demo/data/text'
-import { marks } from '@/media/--demo/options'
 
 export const Values = {
   ajax: { message: '/demo/request/menu.json' },
@@ -32,6 +32,10 @@ export const Values = {
         icon: '#9E9E9E'
       }
     ]
+  },
+  barAction: {
+    default: true,
+    message: action
   },
   cache: {},
   dot: {},
@@ -93,6 +97,10 @@ export const Values = {
   text: {
     default: true,
     message: 'Interactive demo'
+  },
+  textAction: {
+    default: true,
+    message: 'Action'
   },
   textShort: {
     default: true,

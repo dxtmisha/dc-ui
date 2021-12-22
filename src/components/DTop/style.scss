@@ -1,13 +1,14 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 
 @mixin top {
   --_tp-palette: var(--tp-palette, var(--palette-type1, var(--primary-type1)));
-  --_tp-gap: var(--tp-gap, 8px);
-  --_tp-height: var(--tp-height, 56px);
-  --_tp-padding: var(--tp-padding, 8px);
-  --_tp__tt-padding: var(--tp__tt-padding, 24px);
+  --_tp-gap: var(--tp-gap, #{dimension(2)});
+  --_tp-height: var(--tp-height, #{dimension(14)});
+  --_tp-padding: var(--tp-padding, #{dimension(2)});
+  --_tp__tt-padding: var(--tp__tt-padding, #{dimension(6)});
   @include flexX;
   --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
@@ -23,9 +24,7 @@
   &__title {
     @include clamp(2);
     @include font('headline6');
-    flex-basis: 1px;
-    flex-grow: 1;
-    flex-shrink: 1;
+    @include flexDynamic;
     padding-left: var(--_tp__tt-padding);
   }
 }
