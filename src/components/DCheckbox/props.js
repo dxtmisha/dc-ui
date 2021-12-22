@@ -17,7 +17,7 @@ export const props = {
     type: Object,
     default: {}
   },
-  inputAttrs: Object,
+  inputAttrs: undefined,
 
   // Status
   disabled: Boolean,

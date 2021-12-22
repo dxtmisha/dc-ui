@@ -41,7 +41,7 @@ export const props = {
   size: { default: defaultProps('size') },
   shape: { default: defaultProps('shape') },
   ripple: undefined,
-  itemAttrs: Object,
+  itemAttrs: undefined,
 
   // Window
   windowWidth: { default: defaultProps('windowWidth', '0px') },
@@ -49,5 +49,5 @@ export const props = {
   windowAxis: { default: defaultProps('windowAxis') },
   windowIndent: { default: defaultProps('windowIndent') },
   windowInDom: { default: defaultProps('windowInDom') },
-  windowAttrs: Object
+  windowAttrs: undefined
 }

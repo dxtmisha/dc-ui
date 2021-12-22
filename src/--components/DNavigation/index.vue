@@ -12,7 +12,7 @@
       <div v-if="title" class="d-navigation__title">
         {{ title }}
         <d-button
-          v-if="buttonClose"
+          v-if="close"
           value="close"
           :icon="iconClose"
           appearance="text"
@@ -40,7 +40,7 @@
           :key="item.index"
           v-slot:[item.index]
         >
-          <div v-if="buttonBack" class="d-navigation__item">
+          <div v-if="back" class="d-navigation__item">
             <d-list-item
               v-bind="bindList"
               :text="item.text"

@@ -79,3 +79,9 @@
     @extend %text-color;
   }
 }
+
+%chip-trailing {
+  .bt-trailing {
+    --basic-text-opacity: var(--opacity-surface-medium);
+  }
+}

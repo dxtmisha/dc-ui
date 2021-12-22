@@ -29,7 +29,7 @@ export const props = {
   ripple: undefined,
 
   // Menu
-  menuAttrs: Object,
+  menuAttrs: undefined,
 
   // Icon
   thumbnail: undefined,

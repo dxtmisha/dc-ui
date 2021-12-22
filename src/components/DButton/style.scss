@@ -186,6 +186,7 @@
     @extend %chip;
     @extend %chip-background;
     @extend %chip-selected;
+    @extend %chip-trailing;
     @content;
   }
 }
@@ -206,6 +207,7 @@
     @extend %chip;
     @extend %chip-background;
     @extend %chip-selected;
+    @extend %chip-trailing;
     @content;
   }
 }

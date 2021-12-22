@@ -3,9 +3,7 @@ import { defaultInit, validator } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-navigation')
 export const props = {
   // Values
-  title: String,
   list: [Array, Object],
-  listContent: Object,
   listInit: {
     type: Boolean,
     default: true
@@ -22,6 +20,8 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
+  title: String,
+  content: Object,
 
   // Status
   open: Boolean,
@@ -64,34 +64,27 @@ export const props = {
     ])
   },
   navigationRail: undefined,
-  right: Boolean,
   src: String,
-  buttonBack: {
+  back: {
     type: Boolean,
     default: true
   },
-  buttonClose: Boolean,
+  close: Boolean,
+
+  // Position
+  right: Boolean,
 
   // List
-  listAppearance: {
-    default: defaultProps('listAppearance', 'basic')
-  },
-  listSize: {
-    default: defaultProps('listSize')
-  },
-  listShape: {
-    default: defaultProps('listShape', 'basic')
-  },
-  ripple: undefined,
+  listAppearance: { default: defaultProps('listAppearance', 'basic') },
+  listSize: { default: defaultProps('listSize') },
+  listShape: { default: defaultProps('listShape', 'basic') },
+  listRipple: { default: defaultProps('listRipple') },
+  listMenuAttrs: { default: defaultProps('listMenuAttrs') },
+  listAttrs: undefined,
 
   // Icon
-  iconChevronLeft: {
-    type: String,
-    default: defaultProps('iconChevronLeft', 'chevron_left')
-  },
-  iconClose: {
-    type: String,
-    default: defaultProps('iconClose', 'close')
-  },
-  iconBackground: undefined
+  iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },
+  iconClose: { default: defaultProps('iconClose', 'close') },
+  iconBackground: undefined,
+  iconAttrs: undefined
 }

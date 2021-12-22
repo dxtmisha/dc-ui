@@ -33,7 +33,7 @@ export const props = {
     type: Object,
     default: {}
   },
-  inputAttrs: Object,
+  inputAttrs: undefined,
 
   // Status
   selected: Boolean,
@@ -72,7 +72,7 @@ export const props = {
   // Mask
   maskLocales: undefined,
   maskVisible: { default: defaultProps('maskVisible', true) },
-  maskAttrs: Object,
+  maskAttrs: undefined,
 
   // Icon
   icon: undefined,

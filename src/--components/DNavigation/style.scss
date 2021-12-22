@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/elevation";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -17,20 +18,20 @@
   --_nv--ds-shadow: var(--nv--ds-shadow, var(--shadow-type4));
 
   --_nv-height: var(--nv-height, 100%);
-  --_nv-width: var(--nv-width, 256px);
+  --_nv-width: var(--nv-width, #{dimension(64)});
 
-  --_nv--sh-padding: var(--nv--sh-padding, 8px);
+  --_nv--sh-padding: var(--nv--sh-padding, #{dimension(2)});
 
-  --_nv__tt-height: var(--nv__tt-height, 56px);
-  --_nv__tt-padding: var(--nv__tt-padding, #{8px 16px});
-  --_nv__it-top: var(--nv__it-top, 4px);
+  --_nv__tt-height: var(--nv__tt-height, #{dimension(14)});
+  --_nv__tt-padding: var(--nv__tt-padding, #{dimension(2) dimension(4)});
+  --_nv__it-top: var(--nv__it-top, #{dimension(1)});
 
   --_nv-background-color: transparent;
   --_nv-background-opacity: var(--opacity-scrim);
   --_nv-transform: translateX(#{calc(var(--_nv-width) * var(--_nv-transform-directions))});
   --_nv-transform-directions: -1;
 
-  --_nv__body-max: 56px;
+  --_nv__body-max: #{dimension(14)};
   --_nv__body-width: var(--_nv-width);
   --_nv__content-width: auto;
 
