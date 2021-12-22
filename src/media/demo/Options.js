@@ -106,6 +106,7 @@ export const Options = {
     ]
   },
   lowercase: {},
+  magnet: {},
   navigationRail: {
     list: [
       { value: undefined },
@@ -226,5 +227,6 @@ export const Options = {
     ]
   },
   today: { default: true },
-  width: {}
+  width: {},
+  vertical: {}
 }

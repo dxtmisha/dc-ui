@@ -91,7 +91,7 @@
 
 <script>
 import DIcon from '@/components/DIcon'
-import DSliderPicker from '@/--components/DSliderPicker'
+import DSliderPicker from '@/components/DSliderPicker'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'

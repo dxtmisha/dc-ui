@@ -9,7 +9,6 @@ export const props = {
     type: Boolean,
     default: true
   },
-  value: [Array, Number, String],
   translation: {
     type: Array,
     default: defaultProps('translation')
@@ -22,16 +21,13 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
+  value: undefined,
 
   // Status
   disabled: Boolean,
 
   // Input
   multiple: Boolean,
-  minimumDistance: {
-    type: Number,
-    default: 1
-  },
   step: {
     type: Number,
     default: 1
@@ -43,6 +39,10 @@ export const props = {
   max: {
     type: Number,
     default: 100
+  },
+  minimumDistance: {
+    type: Number,
+    default: 1
   },
 
   // Options

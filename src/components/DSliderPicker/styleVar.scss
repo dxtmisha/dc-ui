@@ -1,0 +1,29 @@
+@import "../../styles/dimension";
+
+@mixin sliderPickerVar() {
+  --_sl-palette: var(--sl-palette, var(--palette-type1, var(--primary-type1)));
+  --_sl-label-palette: var(--sl-label-palette, var(--text-type1));
+
+  --_sl-radius: var(--sl-radius, var(--basic-radius));
+  --_sl-height: var(--sl-height, #{dimension(1.5)});
+  --_sl-size: var(--sl-size, #{dimension(10)});
+  --_sl-width: var(--sl-width, #{dimension(70)});
+  --_sl__th-size: var(--sl__th-size, #{dimension(5)});
+
+  --_sl__mr-height: var(--sl__mr-height, #{dimension(1)});
+  --_sl__mr-width: var(--sl__mr-width, #{dimension(.5)});
+
+  --_sl__lb-padding: var(--sl__lb-padding, #{dimension(1) dimension(2)});
+  --_sl__lb--ar-size: var(--sl__lb--ar-size, #{dimension(2)});
+}
+
+@mixin sliderPickerVarDrop() {
+  --_sl--drop-height: var(--sl--drop-height, #{dimension(.5)});
+  --_sl--drop__th-size: var(--sl--drop__th-size, #{dimension(3)});
+
+  --_sl--drop__mr-height: var(--sl--drop__mr-height, #{dimension(.5)});
+  --_sl--drop__mr-width: var(--sl--drop__mr-width, #{dimension(.5)});
+
+  --_sl--drop__lb-line: var(--sl--drop__lb-line, #{dimension(4.5)});
+  --_sl--drop__lb-width: var(--sl--drop__lb-width, #{dimension(8)});
+}

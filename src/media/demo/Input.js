@@ -2,6 +2,8 @@ export const Input = {
   step: {
     list: [
       { value: undefined },
+      { value: 1 },
+      { value: 2 },
       { value: 4 },
       { value: 8 },
       { value: 16 },
@@ -21,7 +23,17 @@ export const Input = {
       { value: 30 },
       { value: 40 },
       { value: 50 },
-      { value: 60 }
+      { value: 60 },
+      { value: 100 }
+    ]
+  },
+  maxlength: {
+    list: [
+      { value: undefined },
+      { value: 8 },
+      { value: 16 },
+      { value: 128 },
+      { value: 1024 }
     ]
   },
   min: {
@@ -40,6 +52,7 @@ export const Input = {
       { value: 32 }
     ]
   },
+  minimumDistance: { message: 20 },
   minlength: {
     list: [
       { value: undefined },
@@ -47,15 +60,6 @@ export const Input = {
       { value: 8 },
       { value: 16 },
       { value: 128 }
-    ]
-  },
-  maxlength: {
-    list: [
-      { value: undefined },
-      { value: 8 },
-      { value: 16 },
-      { value: 128 },
-      { value: 1024 }
     ]
   },
   multiple: {},

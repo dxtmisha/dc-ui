@@ -9,7 +9,7 @@
       @keydown="onKeydown"
     >
       <span ref="minLabel" class="d-slider-picker__label"/>
-      <d-ripple v-if="ripple && this.appearance !== 'drop' && !disabled"/>
+      <d-ripple v-if="isRipple"/>
     </button>
     <button
       ref="max"
@@ -19,7 +19,7 @@
       @keydown="onKeydown"
     >
       <span ref="maxLabel" class="d-slider-picker__label"/>
-      <d-ripple v-if="ripple && this.appearance !== 'drop' && !disabled"/>
+      <d-ripple v-if="isRipple"/>
     </button>
     <div class="d-slider-picker__rail"/>
     <div class="d-slider-picker__track"/>
@@ -63,7 +63,8 @@ export default {
     const minLabel = ref(undefined)
     const maxLabel = ref(undefined)
 
-    const palette = useColor(props)
+    const isRipple = computed(() => props.ripple && props.appearance !== 'drop' && !props.disabled)
+
     const classBody = useClass(document.body, 'd-slider-picker__body')
     let old
 
@@ -86,6 +87,7 @@ export default {
       context
     )
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-slider-picker': true,
@@ -165,6 +167,7 @@ export default {
       max,
       minLabel,
       maxLabel,
+      isRipple,
       classList,
       propMarks,
       set,

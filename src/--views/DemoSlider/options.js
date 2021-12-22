@@ -1,4 +1,4 @@
-import { sliderPickerAppearance, sliderPickerValue } from '@/--views/DemoSliderPicker/options'
+// import { sliderPickerAppearance, sliderPickerValue } from '@/views/DemoSliderPicker/options'
 import {
   active,
   disabled,
@@ -33,7 +33,7 @@ import {
 export const optionsSlider = {
   values,
   marks,
-  sliderPickerValue,
+  // sliderPickerValue,
   text,
   textLeading,
   textTrailing,
@@ -57,7 +57,7 @@ export const optionsSlider = {
 
   optionSlider,
   palette,
-  sliderPickerAppearance,
+  // sliderPickerAppearance,
   vertical,
   magnet,
   ripple,
