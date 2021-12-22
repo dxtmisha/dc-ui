@@ -5,7 +5,12 @@
     v-slot:default="{ binds }"
   >
     <div class="demo-top">
-      <d-top v-bind="binds" id="id-top" :admin="true"/>
+      <d-top
+        v-bind="binds"
+        id="id-top"
+        :admin="true"
+        @on-click="on"
+      />
       <div class="pt-4" v-html="text"/>
     </div>
   </interactive-demo>
@@ -30,6 +35,11 @@ export default {
     return {
       options,
       text
+    }
+  },
+  methods: {
+    on (event) {
+      console.warn('event', event)
     }
   }
 }

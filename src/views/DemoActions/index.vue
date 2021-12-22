@@ -11,6 +11,7 @@
         class="border"
         :bar-management="barManagement"
         :admin="true"
+        @on-click="on"
       />
     </div>
   </interactive-demo>
@@ -38,6 +39,11 @@ export default {
       options,
       barManagement,
       text
+    }
+  },
+  methods: {
+    on (event) {
+      console.warn('event', event)
     }
   }
 }

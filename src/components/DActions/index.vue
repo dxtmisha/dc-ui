@@ -1,10 +1,11 @@
 <template>
-  <div :class="classList">
-    <slot name="barManagement" className="d-actions__management"/>
+  <div class="d-actions" :class="classList">
+    <slot name="barAction" className="d-actions__action"/>
     <d-button
-      v-for="item in propBarManagement"
+      v-for="item in propBarAction"
       v-bind="item"
       :key="item.value"
+      appearance="text"
       @on-click="onClick"
     />
     <span class="d-actions__spacer"/>
@@ -22,6 +23,8 @@
 import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed } from 'vue'
+import useBar from '@/components/DActions/useBar'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DActions',
@@ -29,52 +32,26 @@ export default {
   props,
   emits: ['on-click'],
   setup (props, context) {
-    const propBar = computed(() => {
-      const list = []
-
-      props.bar?.forEach(item => list.push({
-        item,
-        class: 'd-actions__bar window-close',
-        appearance: 'text-color',
-        size: props.size,
-        ellipsis: false,
-        ...props.attrsBar,
-        ...item
-      }))
-
-      return list
-    })
-    const propBarManagement = computed(() => {
-      const list = []
-
-      props.barManagement?.forEach(item => list.push({
-        item,
-        class: 'd-actions__management',
-        appearance: 'text',
-        size: props.size,
-        shape: 'pill',
-        ellipsis: false,
-        ...props.attrsBarManagement,
-        ...item
-      }))
-
-      return list
-    })
+    const {
+      propBar,
+      propBarAction
+    } = useBar(props)
 
     const classList = computed(() => {
       return {
-        'd-actions': true,
         [`size-${props.size}`]: props.size,
-        [`axis-${props.axis}`]: props.axis,
-        [`align-${props.align}`]: props.align
+        [`align-${props.align}`]: props.align,
+        [`axis-${props.axis}`]: props.axis
       }
     })
 
     const onClick = event => context.emit('on-click', event)
 
+    useAdmin('d-actions', context)
+
     return {
       propBar,
-      propBarManagement,
+      propBarAction,
       classList,
       onClick
     }

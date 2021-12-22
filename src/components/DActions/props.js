@@ -17,17 +17,13 @@ export const props = {
       }
     ]
   },
-  management: Array,
+  barAction: Array,
 
   // Options
   size: {
     type: String,
     default: defaultProps('size'),
     validator: validatorSize
-  },
-  axis: {
-    type: String,
-    validator: validatorAxis
   },
   align: {
     type: String,
@@ -38,7 +34,15 @@ export const props = {
       'block'
     ])
   },
+  axis: {
+    type: String,
+    validator: validatorAxis
+  },
 
   // Button
-  buttonAttrs: undefined
+  buttonAppearance: { default: defaultProps('buttonAppearance', 'text-color') },
+  buttonSize: { default: defaultProps('buttonSize', 'medium') },
+  buttonShape: { default: defaultProps('buttonShape') },
+  buttonAdaptive: { default: defaultProps('buttonAdaptive', 'basic') },
+  buttonAttrs: Object
 }

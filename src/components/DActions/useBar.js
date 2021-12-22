@@ -6,8 +6,7 @@ import useWatch from '@/uses/useWatch'
 export default function useBar (props) {
   const {
     bar,
-    barAction,
-    iconClose
+    barAction
   } = toRefs(props)
 
   const initBar = (list, extra = {}) => {
@@ -20,9 +19,8 @@ export default function useBar (props) {
         item
       },
       {
-        class: 'd-top__bar window-close',
-        lowercase: true,
-        dense: true,
+        class: 'd-actions__bar window-close',
+        ellipsis: false,
         ...extra
       }
     )))
@@ -34,19 +32,11 @@ export default function useBar (props) {
     data.value = initBar(bar.value)
   })
   const propBarAction = useWatch(barAction, data => {
-    data.value = initBar(barAction.value, { iconAnimationShow: true })
+    data.value = initBar(barAction.value, { class: 'd-actions__action' })
   })
-  const propClose = initBar(
-    [{ icon: iconClose }],
-    {
-      class: 'window-close',
-      value: 'cancel'
-    }
-  )[0]
 
   return {
     propBar,
-    propBarAction,
-    propClose
+    propBarAction
   }
 }

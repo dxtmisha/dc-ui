@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { getRoutes } from '@/dcUi'
-import DemoActions from '../--views/DemoActions'
+import DemoActions from '../views/DemoActions'
 import DemoAlert from '../--views/DemoAlert'
 import DemoAppBar from '../--views/DemoAppBar'
 import DemoBadge from '../views/DemoBadge'
@@ -67,6 +67,7 @@ export const routes = getRoutes({
   'd-tooltip': DemoTooltip,
   'l-interaction': { line: true },
   's-interaction': { subtitle: 'Interaction' },
+  'd-actions': DemoActions,
   'd-button': DemoButton,
   'd-list': DemoList,
   'd-list-item': DemoListItem,
@@ -113,7 +114,6 @@ export const routes = getRoutes({
   'd-control-selection': DemoControlSelection,
   'l-components': { line: true },
   's-components': { subtitle: 'Components' },
-  'd-actions': DemoActions,
   'd-card-menu': DemoCardMenu,
   'd-date-picker': DemoDatePicker,
   'd-progress': DemoProgress,

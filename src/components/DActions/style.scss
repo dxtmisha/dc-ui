@@ -1,19 +1,20 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 
 @mixin actions {
-  --_ac-gap: var(--ac-gap, 8px);
-  --_ac-padding: var(--ac-padding, 8px);
+  --_ac-gap: var(--ac-gap, #{dimension(2)});
+  --_ac-padding: var(--ac-padding, #{dimension(2)});
 
-  --_ac-height: var(--ac-height, 52px);
-  --_ac--sm-height: var(--ac--sm-height, 44px);
-  --_ac--lr-height: var(--ac--lr-height, 60px);
+  --_ac-height: var(--ac-height, #{dimension(13)});
+  --_ac--sm-height: var(--ac--sm-height, #{dimension(11)});
+  --_ac--lr-height: var(--ac--lr-height, #{dimension(15)});
 
   @include flexX;
   gap: var(--_ac-gap);
   min-height: var(--_ac-height);
-  padding: 0 var(--_ac-padding);
+  padding: dimension(1) var(--_ac-padding);
   max-width: 100%;
 }
 
@@ -42,7 +43,7 @@
   }
 
   &.axis-y & {
-    &__management,
+    &__action,
     &__spacer {
       display: none;
     }
@@ -52,6 +53,16 @@
 @mixin actionsAlign {
   &.align-left.axis-y {
     align-items: flex-start;
+  }
+
+  &.align-left & {
+    &__action {
+      order: 3;
+    }
+
+    &__spacer {
+      order: 2;
+    }
   }
 
   &.align-center {
@@ -67,10 +78,9 @@
     flex-shrink: 1;
   }
 
-  &.align-left &,
   &.align-center &,
   &.align-block & {
-    &__management,
+    &__action,
     &__spacer {
       display: none;
     }
