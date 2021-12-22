@@ -4,13 +4,15 @@ import { props } from '@/components/DCarcassField/props'
 export default function attrField (
   binds,
   items = {},
-  attrs = {}
+  attrs = {},
+  pointer = []
 ) {
   return useBinds(
     'field',
     props,
     binds,
     items,
-    attrs
+    attrs,
+    pointer
   )
 }

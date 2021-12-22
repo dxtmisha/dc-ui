@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DTextarea from '@/--components/DTextarea'
+import DTextarea from '@/components/DTextarea'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsTextarea } from './options'
 

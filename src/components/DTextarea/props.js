@@ -3,15 +3,9 @@ export const props = {
   item: undefined,
   value: undefined,
   name: undefined,
-  on: {
-    type: Object,
-    default: {}
-  },
-
-  // Status
-  selected: Boolean,
-  readonly: Boolean,
-  disabled: Boolean,
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: String,
 
   // Input
   autocomplete: {
@@ -25,12 +19,18 @@ export const props = {
   placeholder: String,
   required: Boolean,
   spellcheck: Boolean,
-  attrsInput: Object,
+  on: {
+    type: Object,
+    default: {}
+  },
+  inputAttrs: Object,
 
-  // Field
-  text: undefined,
-  helperMessage: undefined,
-  validationMessage: String,
+  // Status
+  selected: Boolean,
+  readonly: Boolean,
+  disabled: Boolean,
+
+  // Options
   palette: undefined,
   color: undefined,
   appearance: undefined,
@@ -41,5 +41,6 @@ export const props = {
 
   // Icon
   icon: undefined,
-  iconActive: undefined
+  iconActive: undefined,
+  iconTrailing: undefined
 }

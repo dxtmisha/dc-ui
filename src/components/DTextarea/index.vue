@@ -18,7 +18,7 @@
 import DCarcassField from '@/components/DCarcassField'
 import DTextareaAutosize from '@/components/DTextareaAutosize'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useCarcass from './useCarcass'
 import useField from '@/uses/useField'
@@ -50,16 +50,12 @@ export default {
       context
     )
 
-    const active = computed(() => !!propValue.value || !!props.placeholder)
-    const filled = computed(() => !!propValue.value)
-
-    const { bindTextarea } = useTextarea(props)
-    const { bindCarcassField } = useCarcass(
+    const bindTextarea = useTextarea(props)
+    const bindCarcassField = useCarcass(
       props,
       propValidationMessage,
-      propCounter,
-      active,
-      filled
+      propValue,
+      propCounter
     )
 
     useAdmin('d-textarea', context, input)

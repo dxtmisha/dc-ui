@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
 export default function useTextarea (props) {
-  const bindTextarea = computed(() => {
+  return computed(() => {
     return {
       name: props.name,
       readonly: props.readonly,
@@ -14,9 +14,7 @@ export default function useTextarea (props) {
       placeholder: props.placeholder,
       required: props.required,
       spellcheck: props.spellcheck,
-      ...props.attrsInput
+      ...props.inputAttrs
     }
   })
-
-  return { bindTextarea }
 }
