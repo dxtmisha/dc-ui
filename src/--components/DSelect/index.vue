@@ -41,7 +41,7 @@
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DMenu from '@/--components/DMenu'
+import DMenu from '@/components/DMenu'
 import DSelectValue from '@/--components/DSelectValue'
 import { props } from './props'
 import { computed, ref } from 'vue'

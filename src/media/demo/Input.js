@@ -58,6 +58,7 @@ export const Input = {
       { value: 1024 }
     ]
   },
+  multiple: {},
   placeholder: { message: 'placeholder' },
   required: {},
   inputType: {

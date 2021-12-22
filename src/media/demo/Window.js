@@ -1,5 +1,6 @@
 import { adaptiveBasic } from '@/media/demo/data/adaptive'
 import { axis } from '@/media/demo/data/axis'
+import { Options } from '@/media/demo/Options'
 
 export const Window = {
   windowAdaptive: {
@@ -17,6 +18,8 @@ export const Window = {
       { value: 'on' }
     ]
   },
+  windowIndent: Options.indent,
+  windowInDom: Options.inDom,
   windowShape: {
     list: [
       { value: undefined },

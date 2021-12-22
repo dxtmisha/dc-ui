@@ -71,7 +71,7 @@ export const props = {
 
   // Mask
   maskLocales: undefined,
-  maskVisible: { default: defaultProps('visibleMask', true) },
+  maskVisible: { default: defaultProps('maskVisible', true) },
   maskAttrs: Object,
 
   // Icon

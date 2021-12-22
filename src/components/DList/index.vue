@@ -67,7 +67,7 @@ export default {
   name: 'DList',
   components: {
     DListItem,
-    DMenu: defineAsyncComponent(() => import('@/--components/DMenu'))
+    DMenu: defineAsyncComponent(() => import('@/components/DMenu'))
   },
   props,
   emits: ['on-click', 'on-group'],

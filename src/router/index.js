@@ -30,7 +30,7 @@ import DemoInput from '../views/DemoInput'
 import DemoList from '../views/DemoList'
 import DemoListItem from '../views/DemoListItem'
 import DemoMask from '../views/DemoMask'
-import DemoMenu from '../--views/DemoMenu'
+import DemoMenu from '../views/DemoMenu'
 import DemoMotionAxis from '../views/DemoMotionAxis'
 import DemoMotionScroll from '../views/DemoMotionScroll'
 import DemoMotionSticky from '../views/DemoMotionSticky'
@@ -70,6 +70,7 @@ export const routes = getRoutes({
   'd-button': DemoButton,
   'd-list': DemoList,
   'd-list-item': DemoListItem,
+  'd-menu': DemoMenu,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },
   'd-carcass-field': DemoCarcassField,
@@ -112,7 +113,6 @@ export const routes = getRoutes({
   'd-actions': DemoActions,
   'd-card-menu': DemoCardMenu,
   'd-date-picker': DemoDatePicker,
-  'd-menu': DemoMenu,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,

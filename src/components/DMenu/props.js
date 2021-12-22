@@ -23,6 +23,8 @@ export const props = {
   ajax: String,
   request: Object,
   cache: Boolean,
+
+  // Input
   multiple: Boolean,
   maxlength: Number,
 
@@ -36,21 +38,16 @@ export const props = {
   color: undefined,
   tag: undefined,
   appearance: undefined,
-  size: {
-    type: String,
-    default: defaultProps('size')
-  },
-  shape: {
-    type: String,
-    default: defaultProps('shape')
-  },
+  size: { default: defaultProps('size') },
+  shape: { default: defaultProps('shape') },
   ripple: undefined,
+  itemAttrs: Object,
 
   // Window
-  width: {
-    type: String,
-    default: defaultProps('width', '0px')
-  },
-  axis: undefined,
-  indent: undefined
+  windowWidth: { default: defaultProps('windowWidth', '0px') },
+  windowShape: { default: defaultProps('windowShape') },
+  windowAxis: { default: defaultProps('windowAxis') },
+  windowIndent: { default: defaultProps('windowIndent') },
+  windowInDom: { default: defaultProps('windowInDom') },
+  windowAttrs: Object
 }

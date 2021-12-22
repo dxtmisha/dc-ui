@@ -39,6 +39,7 @@ export default function useProps (props, binds = {}, nones = []) {
 
     if (value) {
       const group = items?.[index]?.group
+      const typeDefault = (item === Boolean || item?.type === Boolean) ? false : undefined
 
       if (!(group in values)) {
         values[group] = { subtitle: group }
@@ -46,7 +47,7 @@ export default function useProps (props, binds = {}, nones = []) {
 
       values[index] = {
         ...value,
-        default: getDefault(value, typeof item === 'object' && 'default' in item ? item.default : undefined)
+        default: getDefault(value, typeof item === 'object' && 'default' in item ? item.default : typeDefault)
       }
     }
   })

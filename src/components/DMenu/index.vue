@@ -1,16 +1,5 @@
 <template>
-  <d-window
-    ref="window"
-    class="d-menu"
-    :before-opening="beforeOpening"
-    :opening="opening"
-    :disabled="disabled"
-    :width="width"
-    :axis="axis"
-    :indent="indent"
-    adaptive="auto"
-    :auto-close="!multiple"
-  >
+  <d-window ref="window" v-bind="bindWindow" class="d-menu">
     <template v-slot:control="binds">
       <slot
         v-bind="binds"
@@ -24,6 +13,7 @@
       <d-list
         ref="menu"
         v-bind="bindList"
+        class="d-menu__list"
         @on-click="onInput"
         @on-group="onGroup"
       />
@@ -35,12 +25,14 @@
 import DList from '@/components/DList'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
-import { readonly, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
+import attrList from '@/components/DList/attrList'
+import attrWindow from '@/components/DWindow/attrWindow'
+import useAdmin from '@/uses/useAdmin'
 import useFocus from './useFocus'
 import useObjectList from '@/uses/useObjectList'
 import useSelected from './useSelected'
 import useShifted from './useShifted'
-import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DMenu',
@@ -96,30 +88,33 @@ export default {
       onInput
     )
 
-    const bindList = readonly({
-      class: 'd-menu__list',
+    const bindList = attrList(props, {
+      ...refs,
       list: propList,
       underline: search,
       group: propGroup,
-      menu: {
+      focus,
+      selected: propSelected,
+      menuAttrs: {
         ...refs,
         list: undefined,
         listInit: undefined,
         ajax: undefined,
         selected: propSelected
-      },
-      focus,
-      selected: propSelected,
-      palette: refs.palette,
-      color: refs.color,
-      tag: refs.tag,
-      appearance: refs.appearance,
-      size: refs.size,
-      shape: refs.shape,
+      }
+    }, {
       adaptive: 'basic',
-      border: false,
-      ripple: refs.ripple
+      dense: true,
+      border: false
     })
+
+    const bindWindow = attrWindow(props, {
+      beforeOpening,
+      opening,
+      autoClose: computed(() => !props.multiple)
+    }, {
+      adaptive: 'auto'
+    }, ['disabled'])
 
     useAdmin('d-menu', context, menu)
 
@@ -131,6 +126,7 @@ export default {
       items,
       names,
       bindList,
+      bindWindow,
       previous,
       next,
       beforeOpening,

@@ -5,6 +5,8 @@ const defaultProps = defaultInit('d-calendar-select')
 export const props = {
   // Values
   value: undefined,
+
+  // Input
   multiple: undefined,
 
   // Options

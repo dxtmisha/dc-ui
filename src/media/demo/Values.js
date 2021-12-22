@@ -1,6 +1,7 @@
 import { helper1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
+  ajax: { message: '/demo/request/menu.json' },
   backgroundColor: {
     list: [
       { value: undefined },
@@ -31,6 +32,7 @@ export const Values = {
       }
     ]
   },
+  cache: {},
   dot: {},
   counterValue: { message: 128 },
   element: {
@@ -52,7 +54,6 @@ export const Values = {
     ]
   },
   minute: { message: 35 },
-  multiple: {},
   prefix: { message: 'pr' },
   second: { message: 45 },
   suffix: { message: 'sf' },

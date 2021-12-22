@@ -6,7 +6,8 @@ export default function useBinds (
   props,
   binds,
   items = {},
-  attrs = {}
+  attrs = {},
+  pointer = []
 ) {
   const refs = toRefs(binds)
   const data = { ...(binds?.[`${code}Attrs`] || {}), ...(isReadonly(attrs) ? toRefs(attrs) : attrs) }
@@ -18,6 +19,8 @@ export default function useBinds (
       data[index] = items[index]
     } else if (name in refs) {
       data[index] = refs[name]
+    } else if (pointer.indexOf(index) !== -1) {
+      data[index] = refs[index]
     }
   })
 
