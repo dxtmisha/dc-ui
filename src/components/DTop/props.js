@@ -1,4 +1,4 @@
-import { defaultInit } from '@/uses/useDefault'
+import { defaultInit, validatorSize } from '@/uses/useDefault'
 import Translation from '../../classes/Translation'
 
 const defaultProps = defaultInit('d-top')
@@ -19,6 +19,13 @@ export const props = {
 
   // Status
   action: Boolean,
+
+  // Options
+  size: {
+    type: String,
+    default: defaultProps('size'),
+    validator: validatorSize
+  },
 
   // Button
   buttonAppearance: { default: defaultProps('buttonAppearance', 'text') },

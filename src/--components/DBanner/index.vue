@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import DActions from '@/--components/DActions'
+import DActions from '@/components/DActions'
 import DIcon from '@/components/DIcon'
 import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'

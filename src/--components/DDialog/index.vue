@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import DActions from '@/--components/DActions'
+import DActions from '@/components/DActions'
 import DScrollbar from '@/components/DScrollbar'
 import DWindow from '@/components/DWindow'
 import { props } from './props'

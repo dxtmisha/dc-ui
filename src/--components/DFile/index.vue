@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import DActions from '@/--components/DActions'
+import DActions from '@/components/DActions'
 import DControlPosition from '@/components/DControlPosition'
 import DControlSelection from '@/components/DControlSelection'
 import DDrop from '@/components/DDrop'

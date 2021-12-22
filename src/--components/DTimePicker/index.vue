@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import DActions from '@/--components/DActions'
+import DActions from '@/components/DActions'
 import DButtonGroup from '@/--components/DButtonGroup'
 import DClockFace from '@/components/DClockFace'
 import DInput from '@/components/DInput'

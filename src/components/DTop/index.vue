@@ -48,7 +48,10 @@ export default {
     } = useBar(props)
 
     const classList = computed(() => {
-      return { 'status-action': propAction.value }
+      return {
+        'status-action': propAction.value,
+        [`size-${props.size}`]: props.size
+      }
     })
 
     const onClick = event => context.emit('on-click', event)

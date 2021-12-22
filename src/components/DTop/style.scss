@@ -6,9 +6,13 @@
 @mixin top {
   --_tp-palette: var(--tp-palette, var(--palette-type1, var(--primary-type1)));
   --_tp-gap: var(--tp-gap, #{dimension(2)});
-  --_tp-height: var(--tp-height, #{dimension(14)});
   --_tp-padding: var(--tp-padding, #{dimension(2)});
   --_tp__tt-padding: var(--tp__tt-padding, #{dimension(6)});
+
+  --_tp-height: var(--tp-height, #{dimension(14)});
+  --_tp--sm-height: var(--tp--sm-height, #{dimension(12)});
+  --_tp--lr-height: var(--tp--lr-height, #{dimension(16)});
+
   @include flexX;
   --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
@@ -26,6 +30,18 @@
     @include font('headline6');
     @include flexDynamic;
     padding-left: var(--_tp__tt-padding);
+  }
+}
+
+@mixin topSize() {
+  &.size- {
+    &small {
+      --_tp-height: var(--_tp--sm-height);
+    }
+
+    &large {
+      --_tp-height: var(--_tp--lr-height);
+    }
   }
 }
 
@@ -47,6 +63,8 @@
 @mixin topInit {
   @include top;
   @include topTitle;
+
+  @include topSize;
 
   @include topAction;
   @include topHide;

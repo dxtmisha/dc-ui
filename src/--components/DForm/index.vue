@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import DActions from '@/--components/DActions'
+import DActions from '@/components/DActions'
 import DAlert from '@/--components/DAlert'
 import DButton from '@/components/DButton'
 import DCheckbox from '@/components/DCheckbox'
