@@ -10,5 +10,6 @@ export const Item = {
       { value: 'contained-status' }
     ]
   },
+  itemFocus: { message: 'help_and_feedback' },
   itemSize: Icon.iconSize
 }

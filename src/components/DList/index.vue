@@ -72,7 +72,6 @@ export default {
   props,
   emits: ['on-click', 'on-group'],
   setup (props, context) {
-    const palette = useColor(props)
     const propAxis = computed(() => props.axis === 'x' ? 'y' : 'x')
     const propIndent = computed(() => props.axis === 'x' ? undefined : -4)
 
@@ -81,6 +80,7 @@ export default {
       propGroup
     } = useItems(props)
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-list': true,

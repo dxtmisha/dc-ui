@@ -27,7 +27,7 @@ import DemoForm from '../--views/DemoForm'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../views/DemoInput'
-import DemoList from '../--views/DemoList'
+import DemoList from '../views/DemoList'
 import DemoListItem from '../views/DemoListItem'
 import DemoMask from '../views/DemoMask'
 import DemoMenu from '../--views/DemoMenu'
@@ -61,7 +61,6 @@ export const routes = getRoutes({
   'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,
   'd-dialog': DemoDialog,
-  'd-list': DemoList,
   'd-navigation': DemoNavigation,
   'd-scrollbar': DemoScrollbar,
   'd-snackbar': DemoSnackbar,
@@ -69,6 +68,7 @@ export const routes = getRoutes({
   'l-interaction': { line: true },
   's-interaction': { subtitle: 'Interaction' },
   'd-button': DemoButton,
+  'd-list': DemoList,
   'd-list-item': DemoListItem,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },
@@ -92,7 +92,7 @@ export const routes = getRoutes({
   'd-calendar-select': DemoCalendarSelect,
   'd-clock-face': DemoClockFace,
   'l-icons': { line: true },
-  's-icons': { subtitle: 'Icons' },
+  's-icons': { subtitle: 'Icon' },
   'd-badge': DemoBadge,
   'd-icon': DemoIcon,
   'd-icon-item': DemoIconItem,

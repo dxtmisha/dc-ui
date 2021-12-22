@@ -1,31 +1,18 @@
-import { computed, reactive, readonly, ref, toRefs, watch } from 'vue'
+import { computed, readonly, ref, toRefs, watch } from 'vue'
 import isSelected from '@/functions/isSelected'
+import attrListItem from '@/components/DListItem/attrListItem'
 
 export default function useItems (props) {
   const refs = toRefs(props)
   const propGroup = ref({})
 
-  const getItem = item => reactive({
+  const getItem = item => attrListItem(props, {
+    ...refs,
+    item,
+    ...item,
     underline: ref(undefined),
     focus: ref(isSelected(item.value, props.focus)),
     selected: ref(isSelected(item.value, props.selected)),
-    palette: refs.palette,
-    color: refs.color,
-    tag: refs.tag,
-    appearance: refs.appearance,
-    size: refs.size,
-    shape: refs.shape,
-    adaptive: refs.adaptive,
-    navigationRail: refs.navigationRail,
-    dense: refs.dense,
-    border: refs.border,
-    ripple: refs.ripple,
-    icon: refs.icon,
-    iconActive: refs.iconActive,
-    iconAnimationShow: refs.iconAnimationShow,
-    iconBackground: refs.iconBackground,
-    item,
-    ...item,
     list: undefined,
     menu: undefined,
     menuProps: undefined
@@ -43,7 +30,7 @@ export default function useItems (props) {
   const getMenu = item => {
     if ('menu' in item) {
       return readonly({
-        ...props.menu,
+        ...props.menuAttrs,
         ...item?.menuProps,
         list: item.menu,
         listInit: false,

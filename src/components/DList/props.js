@@ -6,19 +6,12 @@ export const props = {
   list: Array,
   underline: String,
   group: Object,
-  menu: Object,
 
   // Status
   focus: undefined,
   selected: undefined,
 
   // Options
-  axis: {
-    type: String,
-    validator: validatorAxis
-  },
-
-  // Item
   palette: undefined,
   color: undefined,
   tag: undefined,
@@ -27,21 +20,23 @@ export const props = {
   shape: undefined,
   adaptive: undefined,
   navigationRail: undefined,
+  axis: {
+    type: String,
+    validator: validatorAxis
+  },
   dense: undefined,
   border: undefined,
   ripple: undefined,
 
+  // Menu
+  menuAttrs: Object,
+
   // Icon
+  thumbnail: undefined,
   icon: undefined,
   iconActive: undefined,
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
-  iconArrowRight: {
-    type: String,
-    default: defaultProps('iconArrowRight', 'arrow_right')
-  },
+  iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') },
+  iconArrowRight: { default: defaultProps('iconArrowRight', 'arrow_right') },
   iconAnimationShow: undefined,
   iconBackground: undefined
 }

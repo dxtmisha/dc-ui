@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import DList from '@/--components/DList'
+import DList from '@/components/DList'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { readonly, toRefs } from 'vue'

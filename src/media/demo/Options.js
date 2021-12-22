@@ -199,7 +199,7 @@ export const Options = {
     ]
   },
   persistent: {},
-  ripple: {},
+  ripple: { default: true },
   scrollHide: {},
   shape: {
     list: [

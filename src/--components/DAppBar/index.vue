@@ -117,7 +117,7 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DList from '@/--components/DList'
+import DList from '@/components/DList'
 import DMenu from '@/--components/DMenu'
 import DMotionAxis from '@/components/DMotionAxis'
 import DMotionTransform from '@/components/DMotionTransform'
