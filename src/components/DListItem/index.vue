@@ -53,7 +53,7 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import attrBadge from '@/components/DBadge/attrBadge'
 import attrProgress from '@/components/DProgress/attrProgress'
 import attrRipple from '@/components/DRipple/attrRipple'
@@ -72,8 +72,6 @@ export default {
   props,
   emits: ['on-click'],
   setup (props, context) {
-    const main = ref(undefined)
-
     const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
     const propText = computed(() => {
       return props.underline
@@ -130,10 +128,9 @@ export default {
       selected: !props.selected
     })
 
-    useAdmin('d-list-item', context, main)
+    useAdmin('d-list-item', context, props.text)
 
     return {
-      main,
       isRipple,
       isProgress,
       propText,

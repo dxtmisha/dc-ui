@@ -9,6 +9,8 @@
   @include flexX;
   border-radius: var(--basic-radius);
 
+  --_bg-gap: var(--bg-gap, #{dimension(2)});
+
   &.type-contained,
   &.type-fab {
     box-shadow: var(--shadow-type2);
@@ -28,6 +30,10 @@
     &:not(:active) {
       box-shadow: none;
     }
+  }
+
+  &.option-button-shape {
+    gap: var(--_bg-gap);
   }
 }
 
@@ -80,7 +86,11 @@
 }
 
 @mixin _buttonGroupAxisX($this) {
-  #{$this}__item {
+  #{$this}__item + #{$this}__item::after {
+    margin-left: -1px;
+  }
+
+  &:not(.option-button-shape) #{$this}__item {
     &:first-child {
       border-bottom-left-radius: inherit;
       border-top-left-radius: inherit;
@@ -90,10 +100,6 @@
       border-bottom-right-radius: inherit;
       border-top-right-radius: inherit;
     }
-  }
-
-  #{$this}__item + #{$this}__item::after {
-    margin-left: -1px;
   }
 }
 
@@ -102,7 +108,13 @@
 
   #{$this}__item {
     width: 100%;
+  }
 
+  #{$this}__item + #{$this}__item::after {
+    margin-top: -1px;
+  }
+
+  &:not(.option-button-shape) #{$this}__item {
     &:first-child {
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
@@ -112,10 +124,6 @@
       border-bottom-left-radius: inherit;
       border-bottom-right-radius: inherit;
     }
-  }
-
-  #{$this}__item + #{$this}__item::after {
-    margin-top: -1px;
   }
 }
 

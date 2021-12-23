@@ -93,6 +93,7 @@ export const Options = {
   },
   indeterminate: {},
   inDom: {},
+  landscape: {},
   locales: {
     list: [
       { value: undefined },

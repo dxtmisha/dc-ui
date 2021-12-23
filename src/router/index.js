@@ -6,7 +6,7 @@ import DemoAppBar from '../views/DemoAppBar'
 import DemoBadge from '../views/DemoBadge'
 import DemoBanner from '../views/DemoBanner'
 import DemoButton from '../views/DemoButton'
-import DemoButtonGroup from '../--views/DemoButtonGroup'
+import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../--views/DemoButtonSelect'
 import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
@@ -58,7 +58,6 @@ export const routes = getRoutes({
   'd-alert': DemoAlert,
   'd-app-bar': DemoAppBar,
   'd-banner': DemoBanner,
-  'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,
   'd-dialog': DemoDialog,
   'd-navigation': DemoNavigation,
@@ -69,6 +68,7 @@ export const routes = getRoutes({
   's-interaction': { subtitle: 'Interaction' },
   'd-actions': DemoActions,
   'd-button': DemoButton,
+  'd-button-group': DemoButtonGroup,
   'd-list': DemoList,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,

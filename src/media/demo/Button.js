@@ -4,7 +4,11 @@ import { Icon } from '@/media/demo/Icon'
 export const Button = {
   buttonAdaptive: Options.adaptive,
   buttonAlign: Options.align,
+  buttonDense: Options.dense,
   buttonIconBackground: Icon.iconBackground,
+  buttonLowercase: Options.lowercase,
+  buttonPalette: Options.palette,
+  buttonRipple: Options.ripple,
   buttonShape: Options.shape,
   buttonSize: Options.size,
   buttonAppearance: {
