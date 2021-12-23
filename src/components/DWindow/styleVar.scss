@@ -12,7 +12,7 @@
   --_wn--mr-transform: var(--wn--mr-transform, #{translateX(+#{dimension(16)})});
 
   --_wn-width: var(--wn-width, #{dimension(70)});
-  --_wn--md-width: var(--wn--md-width, #{dimension(140)});
+  --_wn--md-width: var(--wn-width, #{dimension(140)});
 }
 
 @mixin windowAnimation() {

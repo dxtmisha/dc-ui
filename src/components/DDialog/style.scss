@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -10,14 +11,14 @@
 
 @mixin dialogVar() {
   --_dl-palette: var(--dl-palette, var(--palette-type1, var(--primary-type1)));
-  --_dl-padding-y: var(--dl-padding-y, 24px);
-  --_dl-width: var(--dl-width, 560px);
+  --_dl-padding-y: var(--dl-padding-y, #{dimension(6)});
+  --_dl-width: var(--dl-width, #{dimension(140)});
 
-  --_dl__hd-height: var(--dl__hd-height, 64px);
+  --_dl__hd-height: var(--dl__hd-height, #{dimension(16)});
   --_dl__hd-image: var(--dl__hd-image, none);
 
-  --_dl--im__hd-height: var(--dl--im__hd-height, 194px);
-  --_dl--ln-width: var(--dl--ln-width, 160px);
+  --_dl--im__hd-height: var(--dl--im__hd-height, #{dimension(48.5)});
+  --_dl--ln-width: var(--dl--ln-width, #{dimension(40)});
 }
 
 @mixin dialogBody() {

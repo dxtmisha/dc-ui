@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import DDialog from '@/--components/DDialog'
+import DDialog from '@/components/DDialog'
 import DRedactionFile from '@/--components/DRedactionFile'
 
 export default {

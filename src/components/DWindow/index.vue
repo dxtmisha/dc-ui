@@ -90,7 +90,7 @@ export default {
       }
     })
     const styleList = computed(() => {
-      return { '--_wn-width': props.width }
+      return { '--wn-width': props.width }
     })
 
     const onClick = event => {

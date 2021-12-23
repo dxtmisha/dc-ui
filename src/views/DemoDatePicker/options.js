@@ -1,5 +1,5 @@
 import useProps from '@/--components/InteractiveDemo/useProps'
-import { props } from '@/--components/DDatePicker/props'
+import { props } from '@/components/DDatePicker/props'
 import { Calendar } from '@/media/demo/Calendar'
 
 export const optionsDatePicker = useProps(props, {

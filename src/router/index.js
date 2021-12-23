@@ -20,7 +20,7 @@ import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
 import DemoDate from '../--views/DemoDate'
 import DemoDatePicker from '../views/DemoDatePicker'
-import DemoDialog from '../--views/DemoDialog'
+import DemoDialog from '../views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
 import DemoFile from '../--views/DemoFile'
 import DemoForm from '../--views/DemoForm'
@@ -54,7 +54,7 @@ import DemoTop from '../views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
 
 export const routes = getRoutes({
-  's-basic': { subtitle: 'Basic' },
+  's-components': { subtitle: 'Components' },
   'd-alert': DemoAlert,
   'd-app-bar': DemoAppBar,
   'd-banner': DemoBanner,
@@ -114,7 +114,7 @@ export const routes = getRoutes({
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
   'l-components': { line: true },
-  's-components': { subtitle: 'Components' },
+  's-basic': { subtitle: 'Basic' },
   'd-card-menu': DemoCardMenu,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,

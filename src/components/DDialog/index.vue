@@ -1,38 +1,20 @@
 <template>
-  <d-window
-    ref="window"
-    v-bind="binds"
-    @on-open="onOpen"
-  >
+  <d-window ref="window" v-bind="bindWindow" @on-open="onOpen">
     <template v-slot:control="binds">
       <slot name="control" v-bind="binds"/>
     </template>
     <template v-slot:window>
-      <div class="d-dialog__body">
+      <div v-bind="$attrs" class="d-dialog__body">
         <div v-if="title" class="d-dialog__title">{{ title }}</div>
         <div v-else-if="'head' in $slots" class="d-dialog__head">
           <slot name="head"/>
         </div>
         <div class="d-dialog__main">
-          <d-scrollbar
-            class="d-dialog__context"
-            :border="border"
-          >
-            <div
-              v-if="text"
-              class="d-dialog__text"
-              v-html="text"
-            />
+          <d-scrollbar class="d-dialog__context" :border="border">
+            <div v-if="text" class="d-dialog__text" v-html="text"/>
             <slot v-else/>
           </d-scrollbar>
-          <d-actions
-            v-if="actions !== null"
-            v-bind="attrsActions"
-            :bar="actions"
-            :bar-management="actionsManagement"
-            :axis="axis"
-            @on-click="onClick"
-          />
+          <d-actions v-if="bar !== null" v-bind="bindActions" @on-click="onClick"/>
         </div>
       </div>
     </template>
@@ -45,10 +27,13 @@ import DScrollbar from '@/components/DScrollbar'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
+import attrActions from '@/components/DActions/attrActions'
+import attrWindow from '@/components/DWindow/attrWindow'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DDialog',
+  inheritAttrs: false,
   components: {
     DScrollbar,
     DActions,
@@ -57,7 +42,7 @@ export default {
   props,
   emits: ['on-click', 'on-open'],
   setup (props, context) {
-    const { open } = toRefs(props)
+    const refs = toRefs(props)
 
     const window = ref(undefined)
     const main = ref(undefined)
@@ -67,33 +52,28 @@ export default {
       window.value.toggle(props.open)
     }
 
-    const binds = computed(() => {
-      return {
-        class: {
+    const bindActions = attrActions(props, {}, {}, ['bar', 'barAction'])
+    const bindWindow = attrWindow(props, refs, {
+      class: computed(() => {
+        return {
           'd-dialog': true,
-          'option-image': props.image,
+          'option-image': props.src,
           'option-landscape': props.landscape,
           'option-dense': props.dense
-        },
-        style: {
-          '--_dl__hd-image': props.image && props.image !== true ? `url(${props.image})` : null,
+        }
+      }),
+      style: computed(() => {
+        return {
+          '--_dl__hd-image': props.src && props.src !== true ? `url(${props.src})` : null,
           '--_dl-width': props.width
-        },
-        disabled: props.disabled,
-        width: props.width,
-        size: props.size,
-        shape: props.shape,
-        adaptive: props.adaptive,
-        autoClose: props.autoClose,
-        persistent: props.persistent,
-        ...props.attrsWindow
-      }
+        }
+      })
     })
 
     const onOpen = event => context.emit('on-open', event)
     const onClick = event => context.emit('on-click', event)
 
-    watch(open, toggle)
+    watch(refs.open, toggle)
     onMounted(toggle)
 
     useAdmin('d-dialog', context)
@@ -101,7 +81,8 @@ export default {
     return {
       window,
       main,
-      binds,
+      bindActions,
+      bindWindow,
       onOpen,
       onClick
     }

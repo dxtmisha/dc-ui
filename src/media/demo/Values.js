@@ -119,6 +119,7 @@ export const Values = {
     default: true,
     message: 'Demo'
   },
+  title: { message: 'Interactive demo' },
   underline: { message: 'demo' },
   value: {},
   validationMessage: { message: validation1 }
