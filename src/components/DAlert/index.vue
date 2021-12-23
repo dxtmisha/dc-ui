@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="classList"
-    role="alert"
-  >
+  <div class="d-alert" :class="classList" role="alert">
     <div class="d-alert__icon">
       <d-icon
         v-if="icon"
@@ -34,8 +31,8 @@ import DIcon from '@/components/DIcon'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useWatch from '@/uses/useWatch'
 import useColor from '@/uses/useColor'
+import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DAlert',
@@ -47,14 +44,13 @@ export default {
   setup (props, context) {
     const { hide } = toRefs(props)
 
-    const palette = useColor(props)
     const propHide = useWatch(hide, data => {
       data.value = hide.value
     }, [], hide.value)
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
-        'd-alert': true,
         'status-hide': propHide.value,
         [`appearance-${props.appearance}`]: props.appearance,
         [`shape-${props.shape}`]: props.shape,

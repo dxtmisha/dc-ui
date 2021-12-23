@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { getRoutes } from '@/dcUi'
 import DemoActions from '../views/DemoActions'
-import DemoAlert from '../--views/DemoAlert'
+import DemoAlert from '../views/DemoAlert'
 import DemoAppBar from '../--views/DemoAppBar'
 import DemoBadge from '../views/DemoBadge'
 import DemoBanner from '../--views/DemoBanner'

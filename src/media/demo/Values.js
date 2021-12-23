@@ -1,5 +1,5 @@
 import { action } from '@/media/demo/data/list'
-import { helper1, validation1 } from '@/media/demo/data/text'
+import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
   ajax: { message: '/demo/request/menu.json' },
@@ -38,6 +38,7 @@ export const Values = {
     message: action
   },
   cache: {},
+  description: { message: quote1 },
   dot: {},
   counterValue: { message: 128 },
   element: {

@@ -44,5 +44,5 @@ export const props = {
   buttonSize: { default: defaultProps('buttonSize', 'medium') },
   buttonShape: { default: defaultProps('buttonShape') },
   buttonAdaptive: { default: defaultProps('buttonAdaptive', 'basic') },
-  buttonAttrs: Object
+  buttonAttrs: undefined
 }

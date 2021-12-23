@@ -52,15 +52,16 @@ export const props = {
       'left'
     ])
   },
-  dense: Boolean,
   animationShow: Boolean,
   cancel: Boolean,
+  dense: Boolean,
+
+  // Button
+  buttonAttrs: undefined,
 
   // Icon
   icon: undefined,
-  iconClose: {
-    type: String,
-    default: defaultProps('iconClose', 'close')
-  },
-  iconBackground: undefined
+  iconClose: { default: defaultProps('iconClose', 'close') },
+  iconBackground: undefined,
+  iconAttrs: undefined
 }
