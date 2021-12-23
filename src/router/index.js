@@ -19,7 +19,7 @@ import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
 import DemoDate from '../--views/DemoDate'
-import DemoDatePicker from '../--views/DemoDatePicker'
+import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../--views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
 import DemoFile from '../--views/DemoFile'
@@ -96,6 +96,7 @@ export const routes = getRoutes({
   'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,
   'd-clock-face': DemoClockFace,
+  'd-date-picker': DemoDatePicker,
   'l-icons': { line: true },
   's-icons': { subtitle: 'Icon' },
   'd-badge': DemoBadge,
@@ -115,7 +116,6 @@ export const routes = getRoutes({
   'l-components': { line: true },
   's-components': { subtitle: 'Components' },
   'd-card-menu': DemoCardMenu,
-  'd-date-picker': DemoDatePicker,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,

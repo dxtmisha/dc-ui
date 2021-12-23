@@ -6,6 +6,8 @@ const defaultProps = defaultInit('d-date-picker')
 export const props = {
   // Values
   value: undefined,
+
+  // Input
   multiple: undefined,
   min,
   max,
@@ -19,21 +21,21 @@ export const props = {
   // Options
   palette,
   color: String,
-  locales: undefined,
   shape: undefined,
   adaptive: { default: defaultProps('adaptive', 'auto') },
+  locales: undefined,
+
+  // Calendar
+  calendarAttrs: undefined,
+
+  // Actions
+  actionsAttrs: undefined,
+
+  // Top
+  topAttrs: undefined,
 
   // Icon
-  iconEdit: {
-    type: String,
-    default: defaultProps('iconEdit', 'edit')
-  },
-  iconCalendar: {
-    type: String,
-    default: defaultProps('iconCalendar', 'calendar_today')
-  },
-  iconCancel: {
-    type: String,
-    default: defaultProps('iconCancel', 'cancel')
-  }
+  iconCalendar: { default: defaultProps('iconCalendar', 'calendar_today') },
+  iconCancel: { default: defaultProps('iconCancel', 'cancel') },
+  iconEdit: { default: defaultProps('iconEdit', 'edit') }
 }

@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -12,23 +13,23 @@
 @mixin datePickerVar() {
   --_dp-palette: var(--dp-palette, var(--palette-type1, var(--primary-type1)));
 
-  --_dp-padding: var(--dp-padding, 24px);
-  --_dp-padding-y: var(--dp-padding-y, 8px);
-  --_dp-padding-top: var(--dp-padding-top, 16px);
-  --_dp-width: var(--dp-width, 328px);
-  --_dp--ds-width: var(--dp--ds-width, 256px);
+  --_dp-padding: var(--dp-padding, #{dimension(6)});
+  --_dp-padding-y: var(--dp-padding-y, #{dimension(2)});
+  --_dp-padding-top: var(--dp-padding-top, #{dimension(4)});
+  --_dp-width: var(--dp-width, #{dimension(82)});
+  --_dp--ds-width: var(--dp--ds-width, #{dimension(64)});
 
-  --_dp__mn-height: var(--dp__mn-height, 56px);
-  --_dp__mn-padding: var(--dp__mn-padding, 12px);
-  --_dp__sl-padding-top: var(--dp__sl-padding-top, 32px);
+  --_dp__mn-height: var(--dp__mn-height, #{dimension(14)});
+  --_dp__mn-padding: var(--dp__mn-padding, #{dimension(3)});
+  --_dp__sl-padding-top: var(--dp__sl-padding-top, #{dimension(8)});
 
-  --_dp--ml-width: var(--dp--ml-width, 360px);
-  --_dp--ds--ml-width: var(--dp--ds--ml-width, 513px);
+  --_dp--ml-width: var(--dp--ml-width, #{dimension(90)});
+  --_dp--ds--ml-width: var(--dp--ds--ml-width, #{dimension(128.25)});
 
-  --_dp--ln-padding: var(--dp--ln-padding, 16px);
-  --_dp--ln__hd-width: var(--dp--ln__hd-width, 160px);
-  --_dp--ln__mn-height: var(--dp--ln__mn-height, 48px);
-  --_dp--ln__mn-padding: var(--dp--ln__mn-padding, 4px);
+  --_dp--ln-padding: var(--dp--ln-padding, #{dimension(4)});
+  --_dp--ln__hd-width: var(--dp--ln__hd-width, #{dimension(40)});
+  --_dp--ln__mn-height: var(--dp--ln__mn-height, #{dimension(12)});
+  --_dp--ln__mn-padding: var(--dp--ln__mn-padding, #{dimension(1)});
 }
 
 @mixin datePickerHead() {
@@ -93,9 +94,7 @@
     padding: var(--_dp-padding-top) var(--_dp-padding);
 
     &__item {
-      flex-basis: 1px;
-      flex-grow: 1;
-      flex-shrink: 1;
+      @include flexDynamic;
     }
   }
 }

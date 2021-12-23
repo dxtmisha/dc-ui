@@ -1,5 +1,5 @@
 // import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
-import { datePickerValue } from '@/--views/DemoDatePicker/options'
+import { datePickerValue } from '@/views/DemoDatePicker/options'
 import {
   align,
   cancel,

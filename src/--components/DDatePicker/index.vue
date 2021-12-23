@@ -2,6 +2,7 @@
   <div :class="classList">
     <d-top
       v-if="multiple && propSwitchDate"
+      v-bind="topAttrs"
       class="d-date-picker__management"
       @on-click="onOk"
     />
@@ -14,7 +15,6 @@
           :icon-active="iconCalendar"
           :active="!propSwitchDate"
           appearance="text"
-          shape="pill"
           @click="onSwitch"
         />
       </div>
@@ -32,6 +32,7 @@
           <div class="d-date-picker__body">
             <component
               :is="multiple ? 'd-calendar-multiple' : 'd-calendar-select'"
+              v-bind="calendarAttrs"
               :value="propValue"
               :min="min"
               :max="max"
@@ -68,6 +69,7 @@
       </d-motion-transform>
       <d-actions
         v-if="!multiple || !propSwitchDate"
+        v-bind="actionsAttrs"
         class="d-date-picker__management"
         @onClick="onOk"
       />
@@ -87,9 +89,9 @@ import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
+import useColor from '@/uses/useColor'
 import useDateTime from '@/uses/useDateTime'
 import useWatch from '@/uses/useWatch'
-import useColor from '@/uses/useColor'
 
 export default {
   name: 'DDatePicker',
@@ -123,7 +125,6 @@ export default {
       context
     )
 
-    const palette = useColor(props)
     const text = Translation.getByList([
       'Cancel',
       'Depart',
@@ -167,11 +168,11 @@ export default {
         })
       }
     })
-
     const propSwitchDate = useWatch(switchDate, data => {
       data.value = switchDate.value
     })
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-date-picker': true,

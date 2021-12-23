@@ -15,6 +15,7 @@ export const Status = {
   open: {},
   readonly: {},
   selected: {},
+  switchDate: {},
   turn: {},
   visible: {}
 }
