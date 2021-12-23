@@ -1,14 +1,14 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/components/DIcon/props'
+import { props } from '@/components/DActions/props'
 
-export default function attrIcon (
+export default function attrActions (
   binds,
   items = {},
   attrs = {},
   pointer = []
 ) {
   return useBinds(
-    'icon',
+    'actions',
     props,
     binds,
     items,

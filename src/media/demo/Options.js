@@ -251,6 +251,7 @@ export const Options = {
       }
     ]
   },
+  sticky: {},
   type: {},
   transform: {
     list: [

@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
@@ -12,12 +13,12 @@
 }
 
 @mixin banner {
-  --_bn-gap: var(--bn-height, 16px);
-  --_bn-height: var(--bn-height, 52px);
-  --_bn-padding: var(--bn-padding, 16px);
-  --_bn-padding-bottom: var(--bn-padding-bottom, 8px);
+  --_bn-gap: var(--bn-height, #{dimension(4)});
+  --_bn-height: var(--bn-height, #{dimension(13)});
+  --_bn-padding: var(--bn-padding, #{dimension(4)});
+  --_bn-padding-bottom: var(--bn-padding-bottom, #{dimension(2)});
 
-  --_bn__br-margin: var(--bn__br-margin, 36px);
+  --_bn__br-margin: var(--bn__br-margin, #{dimension(9)});
 
   border-bottom-width: var(--basic-border-width);
 

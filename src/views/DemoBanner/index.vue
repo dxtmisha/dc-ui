@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import DBanner from '@/--components/DBanner'
+import DBanner from '@/components/DBanner'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsBanner } from './options'
-import { leoTolstoy } from '@/media/demo/data/text'
+import { alexanderPushkin } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoBanner',
@@ -29,7 +29,7 @@ export default {
   },
   setup () {
     const options = optionsBanner
-    const text = leoTolstoy
+    const text = alexanderPushkin
 
     return {
       options,

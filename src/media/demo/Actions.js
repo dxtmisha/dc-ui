@@ -1,3 +1,5 @@
+import { Options } from '@/media/demo/Options'
+
 export const Actions = {
   actionsAlign: {
     list: [
@@ -7,5 +9,7 @@ export const Actions = {
       { value: 'right' },
       { value: 'block' }
     ]
-  }
+  },
+  actionsAxis: Options.axis,
+  actionsSize: Options.size
 }

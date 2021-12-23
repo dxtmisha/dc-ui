@@ -4,15 +4,6 @@ import Translation from '@/classes/Translation'
 const defaultProps = defaultInit('d-banner')
 export const props = {
   // Values
-  text: String,
-
-  // Status
-  open: {
-    type: Boolean,
-    default: true
-  },
-
-  // Actions
   bar: {
     type: [Array, Object],
     default: defaultProps('bar', [
@@ -23,19 +14,30 @@ export const props = {
       }
     ])
   },
-  axis: undefined,
+  text: String,
+
+  // Status
+  open: {
+    type: Boolean,
+    default: true
+  },
 
   // Options
-  size: { default: defaultProps('size', 'medium') },
   width: {
     type: String,
     default: null
   },
   sticky: Boolean,
 
+  // Actions
+  actionsSize: { default: defaultProps('actionsSize') },
+  actionsAlign: { default: defaultProps('actionsAlign') },
+  actionsAxis: undefined,
+  actionsAttrs: undefined,
+
   // Icon
   icon: undefined,
-  iconBackground: {
-    default: defaultProps('iconBackground', true)
-  }
+  iconSize: { default: defaultProps('iconSize') },
+  iconBackground: { default: defaultProps('iconBackground', true) },
+  iconAttrs: undefined
 }

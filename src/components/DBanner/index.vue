@@ -2,9 +2,9 @@
   <d-motion-transform
     :class="classTransform"
     :open="propOpen"
-    :click="false"
     adaptive="panel"
     :auto-close="false"
+    :click="false"
     :bottom="true"
     @on-open="onOpen"
   >
@@ -12,22 +12,11 @@
       <div v-bind="binds">
         <div class="d-banner__body">
           <div class="d-banner__text">
-            <d-icon
-              v-if="icon"
-              class="d-banner__icon"
-              :icon="icon"
-              :size="size"
-              :background="iconBackground"
-            />
+            <d-icon v-if="icon" v-bind="bindIcon" class="d-banner__icon"/>
             <span v-html="text"/>
             <slot/>
           </div>
-          <d-actions
-            class="d-banner__bar"
-            :bar="bar"
-            :size="size"
-            :axis="axis"
-          />
+          <d-actions v-bind="bindActions" class="d-banner__bar"/>
         </div>
       </div>
     </template>
@@ -40,6 +29,8 @@ import DIcon from '@/components/DIcon'
 import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
+import attrActions from '@/components/DActions/attrActions'
+import attrIcon from '@/components/DIcon/attrIcon'
 import useWatch from '@/uses/useWatch'
 
 export default {
@@ -61,6 +52,8 @@ export default {
       propOpen.value = true
     }
 
+    const bindIcon = attrIcon(props, {}, {}, ['icon'])
+    const bindActions = attrActions(props, {}, {}, ['bar'])
     const binds = computed(() => {
       return {
         class: {
@@ -81,6 +74,8 @@ export default {
 
     return {
       propOpen,
+      bindIcon,
+      bindActions,
       binds,
       classTransform,
       toOpen,
