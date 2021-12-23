@@ -26,10 +26,12 @@ export const Options = {
   appearance: {},
   autoClose: {},
   axis: { list: axis },
+  back: {},
   background: {},
   border: {},
   cancel: { default: true },
   click: {},
+  close: {},
   counter: {},
   delay: {
     list: [

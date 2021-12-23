@@ -42,7 +42,7 @@ export default function useSelected (
         list.push({
           index,
           text:
-            props?.listContent?.[index] ||
+            props?.content?.[index] ||
             data.find(item => item.value === index).text
         })
       }

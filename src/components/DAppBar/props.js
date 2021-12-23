@@ -28,6 +28,7 @@ export const props = {
   textShort: String,
   textAction: String,
   href: String,
+  content: Object,
 
   // Status
   open: Boolean,

@@ -255,9 +255,14 @@
 }
 
 @mixin navigationRight {
+  &:not(.option-right) {
+    padding-right: var(--_nv--sh-padding);
+  }
+
   &.option-right {
     --_nv-transform-directions: 1;
     justify-content: flex-end;
+    padding-left: var(--_nv--sh-padding);
   }
 }
 

@@ -42,7 +42,7 @@ export default function useOpen (
     classShow.set(false)
 
     if (value === 'close') {
-      classDesktop.set(false)
+      show(false)
     }
 
     context.emit('on-close')

@@ -28,12 +28,7 @@
       >
         <template v-slot:list>
           <slot name="list"/>
-          <d-list
-            v-bind="bindList"
-            :list="propList"
-            :selected="propSelected"
-            @on-click="set"
-          />
+          <d-list v-bind="bindList" class="d-navigation__list" @on-click="set"/>
         </template>
         <template
           v-for="item in propSlots"
@@ -44,6 +39,7 @@
             <d-list-item
               v-bind="bindList"
               :text="item.text"
+              :selected="false"
               :navigation-rail="undefined"
               :icon="iconChevronLeft"
               @on-click="set"
@@ -67,6 +63,7 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
+import useList from './useList'
 import useOpen from './useOpen'
 import useScroll from '@/uses/useScroll'
 import useSelected from '@/components/DAppBar/useSelected'
@@ -85,10 +82,7 @@ export default {
     const navigation = ref(undefined)
     const body = ref(undefined)
 
-    const {
-      propList,
-      bindList
-    } = useBar(props)
+    const { propList } = useBar(props)
 
     const {
       toClick,
@@ -116,6 +110,12 @@ export default {
     )
 
     const directions = computed(() => contentSelected.value ? 'next' : 'back')
+
+    const bindList = useList(
+      props,
+      propList,
+      propSelected
+    )
     const binds = computed(() => {
       return {
         class: {

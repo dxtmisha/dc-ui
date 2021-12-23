@@ -1,5 +1,5 @@
 // import { calendarAdaptive, calendarMax, calendarMin } from '@/views/DemoCalendar/options'
-import { datePickerValue } from '@/views/DemoDatePicker/options'
+// import { datePickerValue } from '@/views/DemoDatePicker/options'
 import {
   align,
   cancel,
@@ -26,7 +26,7 @@ import {
 
 export const optionsDate = {
   values,
-  datePickerValue,
+  // datePickerValue,
 
   status,
   selected,
