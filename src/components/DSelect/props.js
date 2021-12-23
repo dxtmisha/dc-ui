@@ -7,12 +7,9 @@ export const props = {
   item: undefined,
   value: undefined,
   name: undefined,
-
-  // Status
-  selected: Boolean,
-  disabled: Boolean,
-
-  // List
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
   list: undefined,
   listInit: undefined,
   translation: {
@@ -30,9 +27,19 @@ export const props = {
   ajax: String,
   request: Object,
   cache: Boolean,
-  multiple: Boolean,
 
-  // Select
+  // Input
+  maxlength: Number,
+  multiple: Boolean,
+  required: Boolean,
+  inputAttrs: undefined,
+
+  // Status
+  selected: Boolean,
+  readonly: Boolean,
+  disabled: Boolean,
+
+  // Options
   type: {
     type: String,
     default: 'select',
@@ -46,14 +53,6 @@ export const props = {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
   },
-  maxlength: Number,
-  required: Boolean,
-  attrsSelect: Object,
-
-  // Field
-  text: undefined,
-  helperMessage: undefined,
-  validationMessage: undefined,
   palette: undefined,
   color: undefined,
   appearance: undefined,
@@ -63,25 +62,20 @@ export const props = {
   adaptive: undefined,
   arrow: undefined,
   counter: undefined,
-  cancel: {
-    type: Boolean,
-    default: defaultProps('cancel', true)
-  },
-
-  // Icon
-  icon: undefined,
-  iconActive: undefined,
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
+  cancel: undefined,
+  ripple: undefined,
+  fieldAttrs: undefined,
 
   // Menu
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWidth: {
-    type: String,
-    default: defaultProps('menuWidth', '280px')
-  }
+  menuWindowWidth: { default: defaultProps('menuWindowWidth', '280px') },
+  menuWindowInDom: { default: defaultProps('menuWindowInDom', true) },
+  menuAttrs: undefined,
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') }
 }

@@ -39,8 +39,8 @@ import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useButton from './useButton'
 import useField from '@/uses/useField'
-import useMenu from '@/--components/DSelect/useMenu'
-import useSelect from '@/--components/DSelect/useSelect'
+import useMenu from '@/components/DSelect/useMenu'
+import useSelect from '@/components/DSelect/useSelect'
 
 export default {
   name: 'DButtonSelect',
@@ -69,7 +69,7 @@ export default {
 
     const { propList } = useSelect(props)
 
-    const { bindMenu } = useMenu(props, propList)
+    const bindMenu = useMenu(props, propList)
     const { bindButton } = useButton(props, context)
 
     useAdmin('d-button-select', context)

@@ -25,8 +25,8 @@ export const props = {
   cache: Boolean,
 
   // Input
-  multiple: Boolean,
   maxlength: Number,
+  multiple: Boolean,
 
   // Status
   selected: undefined,

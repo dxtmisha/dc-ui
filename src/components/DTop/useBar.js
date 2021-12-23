@@ -15,11 +15,9 @@ export default function useBar (props) {
 
     forEach(list, item => bars.push(attrButton(
       props,
+      { item },
       {
         ...item,
-        item
-      },
-      {
         class: 'd-top__bar window-close',
         lowercase: true,
         dense: true,

@@ -68,6 +68,7 @@ export const props = {
   counter: undefined,
   cancel: undefined,
   ripple: undefined,
+  fieldAttrs: undefined,
 
   // Mask
   maskLocales: undefined,

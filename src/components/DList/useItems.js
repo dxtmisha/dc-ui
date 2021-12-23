@@ -8,8 +8,8 @@ export default function useItems (props) {
 
   const getItem = item => attrListItem(props, {
     ...refs,
-    item,
     ...item,
+    item,
     underline: ref(undefined),
     focus: ref(isSelected(item.value, props.focus)),
     selected: ref(isSelected(item.value, props.selected)),

@@ -1,7 +1,7 @@
 // import { buttonAppearance } from '@/views/DemoButton/options'
 // import { iconSize } from '@/views/DemoIcon/options'
 // import { listItemAppearance } from '@/views/DemoListItem/options'
-import { selectType } from '@/--views/DemoSelect/options'
+import { selectType } from '@/views/DemoSelect/options'
 // import { windowWidth } from '@/views/DemoWindow/options'
 import {
   adaptive,

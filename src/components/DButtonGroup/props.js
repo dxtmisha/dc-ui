@@ -22,8 +22,8 @@ export const props = {
   },
 
   // Input
-  multiple: Boolean,
   maxlength: Number,
+  multiple: Boolean,
 
   // Status
   selected: undefined,

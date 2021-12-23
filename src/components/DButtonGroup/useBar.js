@@ -29,11 +29,11 @@ export default function useBar (
   const attr = item => attrButton(
     props,
     {
-      ...item,
       item,
       selected: computed(() => isSelected(item?.value, propSelected.value))
     },
     {
+      ...item,
       class: 'd-button-group__item bg-item notranslate',
       tag: 'a',
       translate: 'no'

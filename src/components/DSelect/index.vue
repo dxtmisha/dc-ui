@@ -1,9 +1,5 @@
 <template>
-  <d-menu
-    ref="menu"
-    v-bind="bindMenu"
-    @on-input="onSelect"
-  >
+  <d-menu ref="menu" v-bind="bindMenu" @on-input="onSelect">
     <template v-slot:default="{ classList, onClick, open, items, progress }">
       <d-carcass-field
         v-bind="bindCarcassField"
@@ -17,7 +13,7 @@
         <template v-slot:default="{ className, classNameHidden }">
           <input
             ref="input"
-            v-bind="attrsSelect"
+            v-bind="inputAttrs"
             :class="classNameHidden"
             :name="name"
             :required="required"
@@ -92,8 +88,8 @@ export default {
       onNext
     } = useArrow(menu)
 
-    const { bindMenu } = useMenu(props, propList)
-    const { bindCarcassField } = useCarcass(
+    const bindMenu = useMenu(props, propList)
+    const bindCarcassField = useCarcass(
       props,
       context,
       propValidationMessage,
