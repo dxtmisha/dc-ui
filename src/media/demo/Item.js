@@ -1,4 +1,5 @@
 import { Icon } from '@/media/demo/Icon'
+import { Options } from '@/media/demo/Options'
 
 export const Item = {
   itemAppearance: {
@@ -11,5 +12,6 @@ export const Item = {
     ]
   },
   itemFocus: { message: 'help_and_feedback' },
+  itemShape: Options.shape,
   itemSize: Icon.iconSize
 }

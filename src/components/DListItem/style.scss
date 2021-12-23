@@ -23,7 +23,9 @@
   --_li-background-opacity: 0;
   --_li--hv-background-opacity: 0;
   --_li--sl-background-opacity: var(--opacity-container-selected);
-  --_li-margin-gap: calc(var(--_li-margin) / 2);
+
+  --_li-margin-gap-calc: var(--li-margin-gap-calc, 2);
+  --_li-margin-gap: var(--li-margin-gap, calc(var(--_li-margin) / var(--_li-margin-gap-calc)));
 
   --_li-image: var(--_li-palette-image);
   --_li--sl-image: var(--_li-palette-image);

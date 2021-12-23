@@ -24,5 +24,11 @@ export default function useBinds (
     }
   })
 
+  forEach(items, (item, index) => {
+    if (!(index in data)) {
+      data[index] = item
+    }
+  })
+
   return reactive(data)
 }

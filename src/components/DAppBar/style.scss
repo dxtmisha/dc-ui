@@ -1,4 +1,5 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/elevation";
 @import "../../styles/flex";
 @import "../../styles/font";
@@ -21,21 +22,23 @@
   --_ab-palette-type2: var(--ab-palette-type2, var(--palette-type1, var(--background-colorless)));
   --_ab-palette-type3: var(--ab-palette-type3, transparent);
 
-  --_ab-gap: var(--ab-gap, 32px);
+  --_ab-gap: var(--ab-gap, #{dimension(4)});
   --_ab-width: var(--ab-width, auto);
 
-  --_ab-padding: var(--ab-padding, 8px);
-  --_ab--ds-padding: var(--ab--ds-padding, 12px);
-  --_ab--sh-padding: var(--ab--sh-padding, #{4px 8px 0});
+  --_ab-padding: var(--ab-padding, #{dimension(2)});
+  --_ab--ds-padding: var(--ab--ds-padding, #{dimension(3)});
+  --_ab--sh-padding: var(--ab--sh-padding, #{dimension(1) dimension(2) 0});
 
-  --_ab-height: var(--ab-height, 56px);
-  --_ab--sm-height: var(--ab--sm-height, 48px);
-  --_ab--lr-height: var(--ab--lr-height, 64px);
+  --_ab-height: var(--ab-height, #{dimension(14)});
+  --_ab--sm-height: var(--ab--sm-height, #{dimension(12)});
+  --_ab--lr-height: var(--ab--lr-height, #{dimension(16)});
 
-  --_ab__cn-padding: var(--ab__cn-padding, 16px);
-  --_ab__cn-top: var(--ab__cn-top, 8px);
+  --_ab__cn-padding: var(--ab__cn-padding, #{dimension(4)});
+  --_ab__cn-top: var(--ab__cn-top, #{dimension(2)});
 
   --li-palette-select: var(--text-type2);
+  --li-margin-gap-calc: .5;
+  --li--sh-margin: #{dimension(1)};
 
   --_ab-background-opacity: var(--opacity-primary-high);
 
@@ -53,8 +56,8 @@
   }
 
   .d-list-item {
-    --bg-size: 20px;
-    --bg-shift: 12px;
+    --bg-size: #{dimension(5)};
+    --bg-shift: #{dimension(3)};
   }
 }
 
@@ -79,7 +82,7 @@
   &__navigation {
     @extend %flex-x;
     @extend %max-height;
-    --ii-font-size: 28px;
+    --ii-font-size: #{dimension(7)};
     @content;
   }
 }
@@ -231,10 +234,16 @@
 @mixin appBarBorder {
   &.scroll-border &__body {
     box-shadow: none;
+
+    @include afterAbsolute('bottom') {
+      background-color: var(--_ab--br-border, transparent);
+      height: var(--basic-border-width);
+      transition: inherit;
+    }
   }
 
   &.scroll-border.status-sticky &__body {
-    border-bottom-width: var(--basic-border-width);
+    --_ab--br-border: var(--basic-border);
   }
 }
 

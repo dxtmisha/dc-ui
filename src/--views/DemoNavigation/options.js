@@ -1,4 +1,4 @@
-import { appBarAppearance, appBarSrc } from '@/--views/DemoAppBar/options'
+// import { appBarAppearance, appBarSrc } from '@/views/DemoAppBar/options'
 // import { iconSize } from '@/views/DemoIcon/options'
 // import { listItemAppearance } from '@/views/DemoListItem/options'
 // import { windowShape, windowWidth } from '@/views/DemoWindow/options'
@@ -35,12 +35,12 @@ export const optionsNavigation = {
   title,
 
   options,
-  appBarAppearance,
+  // appBarAppearance,
   // windowWidth,
   // windowShape,
   navigationAdaptive,
   navigationRail,
-  appBarSrc,
+  // appBarSrc,
   right,
   buttonBack,
   buttonClose,

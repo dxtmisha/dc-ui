@@ -1,23 +1,15 @@
 <template>
-  <div ref="app" v-bind="binds">
+  <div ref="app" class="d-app-bar" v-bind="binds">
     <div class="d-app-bar__body">
-      <template v-if="attrsMenu || barNavigation">
-        <d-menu
-          v-bind="attrsMenu"
-          :list="barNavigation"
-          :selected="propSelected"
-        >
+      <template v-if="menuAjax || barNavigation">
+        <d-menu v-bind="bindMenu">
           <template v-slot:default="{ classList, open, progress, onClick }">
             <div class="d-app-bar__navigation">
               <d-button
+                v-bind="bindButton"
                 :class="classList"
-                :icon="iconNavigation"
-                :icon-active="iconClose"
                 :active="open || propAction"
                 :progress="progress"
-                appearance="text"
-                size="medium"
-                shape="pill"
                 :icon-turn="open || propAction"
                 @click="onNavigation($event, onClick)"
               />
@@ -26,17 +18,7 @@
         </d-menu>
       </template>
       <div v-else-if="navigation" class="d-app-bar__navigation">
-        <d-button
-          value="navigation"
-          :icon="iconNavigation"
-          :icon-active="iconClose"
-          :active="open || propAction"
-          appearance="text"
-          size="medium"
-          shape="pill"
-          :icon-turn="open || propAction"
-          @on-click="onNavigation($event, set)"
-        />
+        <d-button v-bind="bindButton" @on-click="onNavigation($event, set)"/>
       </div>
       <div v-if="isText" class="d-app-bar__title">
         <span v-if="propAction && textAction" class="d-app-bar__text">{{ textAction }}</span>
@@ -47,13 +29,11 @@
       </div>
       <template v-if="propAction">
         <div class="d-app-bar__spacer"/>
-        <keep-alive>
-          <d-list
-            v-bind="bindList"
-            class="d-app-bar__action"
-            :list="propBarAction"
-          />
-        </keep-alive>
+        <d-list
+          v-bind="bindList"
+          class="d-app-bar__action"
+          :list="propBarAction"
+        />
       </template>
       <template v-else>
         <slot
@@ -62,27 +42,21 @@
           classAction="d-app-bar__action"
           classMenu="d-app-bar__menu"
         />
-        <keep-alive>
-          <d-list
-            v-if="propBarMenu.length"
-            v-bind="bindList"
-            class="d-app-bar__menu"
-            :list="propBarMenu"
-            :selected="propSelected"
-            @on-click="set"
-          />
-        </keep-alive>
+        <d-list
+          v-if="propBarMenu.length"
+          v-bind="bindList"
+          class="d-app-bar__menu"
+          :list="propBarMenu"
+          @on-click="set"
+        />
         <template v-if="propBar.length">
           <div class="d-app-bar__spacer"/>
-          <keep-alive>
-            <d-list
-              v-bind="bindList"
-              class="d-app-bar__bar"
-              :list="propBar"
-              :selected="propSelected"
-              @on-click="set"
-            />
-          </keep-alive>
+          <d-list
+            v-bind="bindList"
+            class="d-app-bar__bar"
+            :list="propBar"
+            @on-click="set"
+          />
         </template>
       </template>
     </div>
@@ -126,6 +100,8 @@ import { computed, ref } from 'vue'
 import useAction from './useAction'
 import useAdmin from '@/uses/useAdmin'
 import useBar from './useBar'
+import useButton from './useButton'
+import useList from './useList'
 import useScroll from './useScroll'
 import useSelected from './useSelected'
 
@@ -143,11 +119,12 @@ export default {
   setup (props, context) {
     const app = ref(undefined)
 
+    const isText = computed(() => props.text || props.textShort || props.textAction)
+
     const {
       propBar,
       propBarMenu,
-      propBarAction,
-      bindList
+      propBarAction
     } = useBar(props)
 
     const {
@@ -168,14 +145,17 @@ export default {
 
     const { propAction } = useAction(app, props)
 
-    const isText = computed(() => props.text || props.textShort || props.textAction)
-
     useScroll(app, props)
 
+    const {
+      bindList,
+      bindMenu
+    } = useList(props, propSelected)
+
+    const bindButton = useButton(props, propAction)
     const binds = computed(() => {
       return {
         class: {
-          'd-app-bar': true,
           'status-short': props.textShort,
           'status-action': propAction.value,
           [`appearance-${props.appearance}`]: props.appearance,
@@ -209,12 +189,13 @@ export default {
       propBarMenu,
       propBarAction,
       propAction,
-      propSelected,
       propShow,
       propSlots,
       contentSelected,
       directions,
+      bindButton,
       bindList,
+      bindMenu,
       binds,
       set,
       onNavigation,

@@ -107,6 +107,7 @@ export const Options = {
   },
   lowercase: {},
   magnet: {},
+  navigation: {},
   navigationRail: {
     list: [
       { value: undefined },
@@ -201,6 +202,7 @@ export const Options = {
   },
   persistent: {},
   ripple: { default: true },
+  scroll: {},
   scrollHide: {},
   shape: {
     list: [
@@ -219,7 +221,50 @@ export const Options = {
       { value: 'large' }
     ]
   },
+  src: {
+    list: [
+      { value: undefined },
+      {
+        text: 'image 01',
+        icon: require('@/assets/images/thumbnails/image-01-icon.jpeg'),
+        value: require('@/assets/images/image-01.jpeg')
+      },
+      {
+        text: 'image 02',
+        icon: require('@/assets/images/thumbnails/image-02-icon.jpeg'),
+        value: require('@/assets/images/image-02.jpeg')
+      },
+      {
+        text: 'image 03',
+        icon: require('@/assets/images/thumbnails/image-03-icon.jpeg'),
+        value: require('@/assets/images/image-03.jpeg')
+      },
+      {
+        text: 'image 04',
+        icon: require('@/assets/images/thumbnails/image-04-icon.jpeg'),
+        value: require('@/assets/images/image-04.jpeg')
+      },
+      {
+        text: 'image 05',
+        icon: require('@/assets/images/thumbnails/image-05-icon.jpeg'),
+        value: require('@/assets/images/image-05.jpeg')
+      }
+    ]
+  },
   type: {},
+  transform: {
+    list: [
+      { value: undefined },
+      {
+        text: '0',
+        value: 0
+      },
+      { value: 32 },
+      { value: 64 },
+      { value: 128 },
+      { value: 256 }
+    ]
+  },
   transition: {
     list: [
       { value: 'next' },

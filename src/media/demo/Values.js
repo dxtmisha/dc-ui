@@ -1,4 +1,4 @@
-import { action } from '@/media/demo/data/list'
+import { action, bar, menu, menuSimplified } from '@/media/demo/data/list'
 import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
@@ -33,9 +33,21 @@ export const Values = {
       }
     ]
   },
+  bar: {
+    default: true,
+    message: bar
+  },
   barAction: {
     default: true,
     message: action
+  },
+  barMenu: {
+    default: true,
+    message: menuSimplified
+  },
+  barNavigation: {
+    default: true,
+    message: menu
   },
   cache: {},
   description: { message: quote1 },

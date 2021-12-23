@@ -28,7 +28,7 @@
 import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAction from '@/--components/DAppBar/useAction'
+import useAction from '@/components/DAppBar/useAction'
 import useAdmin from '@/uses/useAdmin'
 import useBar from '@/components/DTop/useBar'
 

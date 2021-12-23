@@ -13,6 +13,18 @@ export const action = [
   }
 ]
 
+export const bar = [
+  {
+    icon: 'notifications',
+    value: 'notifications'
+  },
+  {
+    icon: 'chat',
+    value: 'chat',
+    badge: 16
+  }
+]
+
 export const menu = [
   {
     html: `
@@ -157,5 +169,33 @@ export const menu = [
     text: 'Setting',
     value: 'setting',
     icon: 'settings'
+  }
+]
+
+export const menuSimplified = [
+  {
+    text: 'Home',
+    icon: 'home',
+    value: 'home',
+    href: '#home'
+  },
+  {
+    text: 'Find friends',
+    value: 'find_friends',
+    href: '#find_friends'
+  },
+  {
+    text: 'Messages',
+    value: 'messages',
+    menu: {
+      inbox: 'Inbox',
+      sent: 'Sent',
+      trash: 'Trash',
+      draft: 'Drafts'
+    }
+  },
+  {
+    text: 'Profile',
+    value: 'profile'
   }
 ]

@@ -1,5 +1,5 @@
-import List from '@/classes/List'
 import { computed } from 'vue'
+import List from '@/classes/List'
 
 export default function useBar (props) {
   const getList = list => new List(
@@ -15,20 +15,9 @@ export default function useBar (props) {
   const propBarMenu = computed(() => getList(props.barMenu))
   const propBarAction = computed(() => getList(props.barAction))
 
-  const bindList = computed(() => {
-    return {
-      axis: 'x',
-      tag: 'a',
-      size: 'dynamic',
-      dense: true,
-      iconAnimationShow: true
-    }
-  })
-
   return {
     propBar,
     propBarMenu,
-    propBarAction,
-    bindList
+    propBarAction
   }
 }

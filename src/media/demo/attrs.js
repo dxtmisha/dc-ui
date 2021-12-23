@@ -13,6 +13,7 @@ import { Icon } from '@/media/demo/Icon'
 import { Input } from '@/media/demo/Input'
 import { Item } from '@/media/demo/Item'
 import { Mask } from '@/media/demo/Mask'
+import { Menu } from '@/media/demo/Menu'
 import { MotionAxis } from '@/media/demo/MotionAxis'
 import { MotionTransform } from '@/media/demo/MotionTransform'
 import { Position } from '@/media/demo/Position'
@@ -36,6 +37,7 @@ export default {
   Input,
   Item,
   Mask,
+  Menu,
   MotionAxis,
   MotionTransform,
   Position,

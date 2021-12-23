@@ -10,7 +10,6 @@
         <d-app-bar
           v-bind="binds"
           id="id-app-bar"
-          :bar-action="barAction"
           :admin="true"
           @on-click="on"
           @on-action="on"
@@ -31,12 +30,11 @@
 </template>
 
 <script>
-import DAppBar from '@/--components/DAppBar'
+import DAppBar from '@/components/DAppBar'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
-import action from '@/media/--demo/list/action'
+import { onBeforeMount, onUnmounted } from 'vue'
 import { optionsAppBar } from './options'
 import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
-import { onBeforeMount, onUnmounted } from 'vue'
 
 export default {
   name: 'DemoAppBar',
@@ -46,7 +44,6 @@ export default {
   },
   setup () {
     const options = optionsAppBar
-    const barAction = action
     const text = [alexanderPushkin, textarea, leoTolstoy]
 
     onBeforeMount(() => document.body.classList.add('demo-app-bar__body'))
@@ -54,7 +51,6 @@ export default {
 
     return {
       options,
-      barAction,
       text
     }
   },
