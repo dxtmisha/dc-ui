@@ -22,7 +22,7 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
-import { computed, readonly, toRefs } from 'vue'
+import { computed } from 'vue'
 import attrBadge from '@/components/DBadge/attrBadge'
 import attrProgress from '@/components/DProgress/attrProgress'
 import attrRipple from '@/components/DRipple/attrRipple'
@@ -41,7 +41,6 @@ export default {
   props,
   emits: ['on-click', 'on-trailing'],
   setup (props, context) {
-    const { disabled } = toRefs(props)
     const propValue = computed(() => props.value || props.item?.value)
     const propAdaptive = computed(() => {
       if (!(props.text || 'default' in context.slots)) {
@@ -69,9 +68,9 @@ export default {
     const isRipple = attrRipple(props)
 
     const palette = useColor(props)
-    const binds = readonly({
-      class: computed(() => {
-        return {
+    const binds = computed(() => {
+      return {
+        class: {
           'd-button a-static': true,
           'status-selected': props.selected,
           'status-dragged': props.dragged,
@@ -87,10 +86,10 @@ export default {
           'option-dense': props.dense,
           'option-ellipsis': props.ellipsis,
           ...palette.value
-        }
-      }),
-      disabled,
-      'data-value': propValue
+        },
+        disabled: props.disabled,
+        'data-value': propValue.value
+      }
     })
 
     const onClick = event => {
@@ -119,7 +118,7 @@ export default {
       }
     }
 
-    useAdmin('d-button', context)
+    useAdmin('d-button', context, propValue)
 
     return {
       isRipple,

@@ -1,14 +1,14 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DWindow/props'
+import { props } from '@/components/DCarcassField/props'
 
-export default function attrWindow (
+export default function attrField (
   binds,
   items = {},
   attrs = {},
   pointer = []
 ) {
   return useBinds(
-    'window',
+    'field',
     props,
     binds,
     items,

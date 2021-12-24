@@ -1,5 +1,5 @@
 import { toRefs } from 'vue'
-import attrMenu from '@/--components/DMenu/attrMenu'
+import attrMenu from '@/components/DMenu/attrMenu'
 
 export default function useMenu (props, propList) {
   const refs = toRefs(props)

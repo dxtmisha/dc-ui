@@ -24,11 +24,11 @@
 <script>
 import DActions from '@/components/DActions'
 import DScrollbar from '@/--components/DScrollbar'
-import DWindow from '@/--components/DWindow'
+import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
 import attrActions from '@/--components/attrActions'
-import attrWindow from '@/--components/DWindow/attrWindow'
+import attrWindow from '@/--components/attrWindow'
 import useAdmin from '@/uses/useAdmin'
 
 export default {

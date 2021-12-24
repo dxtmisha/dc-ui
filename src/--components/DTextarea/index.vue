@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DCarcassField from '@/--components/DCarcassField'
+import DCarcassField from '@/components/DCarcassField'
 import DTextareaAutosize from '@/--components/DTextareaAutosize'
 import { props } from './props'
 import { ref } from 'vue'

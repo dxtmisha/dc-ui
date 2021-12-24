@@ -1,4 +1,4 @@
-import { isReactive, reactive, toRefs } from 'vue'
+import { reactive, toRefs } from 'vue'
 import forEach from '@/functions/forEach'
 
 export default function useAttrs ({
@@ -9,7 +9,7 @@ export default function useAttrs ({
   items = {},
   attrs = {}
 }) {
-  const refs = isReactive(original) ? toRefs(original) : original
+  const refs = toRefs(original)
   const data = { ...attrs, ...original?.[`${code}Attrs`] }
 
   forEach(props, (item, index) => {

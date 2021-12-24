@@ -90,5 +90,6 @@ export const props = {
   iconTrailing: undefined,
   iconCancel: { default: defaultProps('iconCancel', 'cancel') },
   iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },
-  iconChevronRight: { default: defaultProps('iconChevronRight', 'chevron_right') }
+  iconChevronRight: { default: defaultProps('iconChevronRight', 'chevron_right') },
+  iconAttrs: undefined
 }

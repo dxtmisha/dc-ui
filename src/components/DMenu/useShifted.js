@@ -7,10 +7,10 @@ export default function useShifted (
   beforeOpening,
   onInput
 ) {
-  const getItem = (focus, value, max = 24) => {
+  const getItem = (focus, direction, max = 24) => {
     const list = object.value.getAll()
     const length = list.length
-    let index = getKey(list, focus) + value
+    let index = getKey(list, focus) + direction
 
     if (index >= length) {
       index = 0
@@ -29,16 +29,16 @@ export default function useShifted (
         list[index]?.value === undefined
       )
     ) {
-      return getItem(list[index]?.value, value, max - 1)
+      return getItem(list[index]?.value, direction, max - 1)
     } else {
       return list[index]?.value
     }
   }
 
-  const shifted = async value => {
+  const shifted = async direction => {
     if (!props.multiple && !props.disabled) {
       await beforeOpening(true)
-      onInput({ value: getItem(selected.value, value) })
+      onInput({ value: getItem(selected.value, direction) })
     }
   }
 

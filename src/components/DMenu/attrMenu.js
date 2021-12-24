@@ -1,14 +1,14 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DCarcassField/props'
+import { props } from '@/components/DMenu/props'
 
-export default function attrField (
+export default function attrMenu (
   binds,
   items = {},
   attrs = {},
   pointer = []
 ) {
   return useBinds(
-    'field',
+    'menu',
     props,
     binds,
     items,

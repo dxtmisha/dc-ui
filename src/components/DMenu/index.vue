@@ -9,6 +9,7 @@
         :progress="progress"
       />
     </template>
+
     <template v-slot:window>
       <d-list
         ref="menu"
@@ -22,12 +23,12 @@
 </template>
 
 <script>
-import DList from '@/--components/DList'
-import DWindow from '@/--components/DWindow'
+import DList from '@/components/DList'
+import DWindow from '@/components/DWindow'
 import { props } from './props'
-import { computed, toRefs } from 'vue'
-import attrList from '@/--components/DList/attrList'
-import attrWindow from '@/--components/DWindow/attrWindow'
+import { computed } from 'vue'
+import attrItem from '@/components/DListItem/attrItem'
+import attrWindow from '@/components/DWindow/attrWindow'
 import useAdmin from '@/uses/useAdmin'
 import useFocus from './useFocus'
 import useObjectList from '@/uses/useObjectList'
@@ -43,8 +44,6 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const refs = toRefs(props)
-
     const {
       progress,
       object,
@@ -88,33 +87,33 @@ export default {
       onInput
     )
 
-    const bindList = attrList(props, {
-      ...refs,
-      list: propList,
-      underline: search,
-      group: propGroup,
-      focus,
-      selected: propSelected,
-      menuAttrs: {
-        ...refs,
-        list: undefined,
-        listInit: undefined,
-        ajax: undefined,
+    const bindList = attrItem({
+      props,
+      items: {
+        focus,
         selected: propSelected
+      },
+      attrs: {
+        list: propList,
+        underline: search,
+        group: propGroup,
+
+        adaptive: 'basic',
+        dense: true,
+        border: false,
+        menuAttrs: props
       }
-    }, {
-      adaptive: 'basic',
-      dense: true,
-      border: false
     })
 
-    const bindWindow = attrWindow(props, {
-      beforeOpening,
-      opening,
-      autoClose: computed(() => !props.multiple)
-    }, {
-      adaptive: 'auto'
-    }, ['disabled'])
+    const bindWindow = attrWindow({
+      props,
+      items: {
+        beforeOpening,
+        opening,
+        autoClose: computed(() => !props.multiple)
+      },
+      attrs: { adaptive: 'auto' }
+    })
 
     useAdmin('d-menu', context, menu)
 
@@ -122,16 +121,18 @@ export default {
       menu,
       window,
       progress,
+
       propSelected,
       items,
       names,
+
       bindList,
       bindWindow,
+
       previous,
       next,
-      beforeOpening,
-      opening,
       cancel,
+
       onInput,
       onGroup
     }

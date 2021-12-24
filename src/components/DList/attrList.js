@@ -1,19 +1,19 @@
 import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DButton/props'
+import { props as main } from '@/components/DList/props'
 
-export default function attrButton ({
+export default function attrItem ({
   props,
   pointer = [
-    'disabled',
     'palette',
     'color',
+    'navigationRail',
     'ripple'
   ],
   items = {},
   attrs = {}
 }) {
   return useAttrs({
-    code: 'button',
+    code: 'list',
     props: main,
     pointer,
     original: props,

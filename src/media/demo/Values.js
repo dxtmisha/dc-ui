@@ -7,6 +7,10 @@ export const Values = {
     list: [
       { value: undefined },
       {
+        text: 'true',
+        value: true
+      },
+      {
         text: 'red',
         value: '244,67,54',
         icon: '#F44336'

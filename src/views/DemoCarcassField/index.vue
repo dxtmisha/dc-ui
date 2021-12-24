@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import DCarcassField from '@/--components/DCarcassField'
+import DCarcassField from '@/components/DCarcassField'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsCarcassField } from './options'

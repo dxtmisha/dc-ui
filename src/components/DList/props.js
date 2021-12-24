@@ -32,11 +32,9 @@ export const props = {
   menuAttrs: undefined,
 
   // Icon
-  thumbnail: undefined,
-  icon: undefined,
-  iconActive: undefined,
   iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') },
   iconArrowRight: { default: defaultProps('iconArrowRight', 'arrow_right') },
   iconAnimationShow: undefined,
-  iconBackground: undefined
+  iconBackground: undefined,
+  iconAttrs: undefined
 }

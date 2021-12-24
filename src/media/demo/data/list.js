@@ -169,6 +169,11 @@ export const menu = [
     text: 'Setting',
     value: 'setting',
     icon: 'settings'
+  },
+  {
+    text: 'Interactive demo',
+    value: 'interactive-demo',
+    icon: 'show_chart'
   }
 ]
 

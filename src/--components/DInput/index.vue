@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import DCarcassField from '@/--components/DCarcassField'
+import DCarcassField from '@/components/DCarcassField'
 import DMask from '@/--components/DMask'
 import { props } from './props'
 import { ref } from 'vue'

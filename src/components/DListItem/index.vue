@@ -9,33 +9,24 @@
     <d-icon v-if="thumbnail" v-bind="bindThumbnail" class="d-list-item__icon li-thumbnail"/>
     <d-icon v-else-if="icon" v-bind="bindIcon" class="d-list-item__icon li-icon"/>
     <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-list-item__icon li-trailing"/>
-    <div
-      v-if="textShort"
-      class="d-list-item__text-short"
-    >
-      {{ textShort }}
-    </div>
-    <div
-      v-if="text"
-      class="d-list-item__text"
-    >
+
+    <div v-if="textShort" class="d-list-item__text-short">{{ textShort }}</div>
+    <div v-if="text" class="d-list-item__text">
       <template v-if="prefix || suffix || description || underline">
         <div class="d-list-item__title">
           <span v-if="prefix" class="d-list-item__prefix">{{ prefix }}</span>
           <span class="d-list-item__main" v-html="propText"/>
           <span v-if="suffix" class="d-list-item__suffix">{{ suffix }}</span>
         </div>
-        <div
-          v-if="description"
-          class="d-list-item__description"
-          v-html="description"
-        />
+        <div v-if="description" class="d-list-item__description" v-html="description"/>
       </template>
       <template v-else>{{ text }}</template>
     </div>
+
     <d-badge v-if="badge" v-bind="bindBadge"/>
     <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
     <d-ripple v-if="isRipple"/>
+
     <slot
       class-name="d-list-item__text"
       :item="item"
@@ -72,29 +63,29 @@ export default {
   props,
   emits: ['on-click'],
   setup (props, context) {
+    const propValue = computed(() => props.value || props.item?.value)
+    const propText = computed(() => props.underline
+      ? props.text.toString().replace(
+        new RegExp(`(${props.underline})`, 'ig'),
+        subtext => `<span class="d-list-item__underline">${subtext}</span>`
+      )
+      : props.text)
     const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
-    const propText = computed(() => {
-      return props.underline
-        ? props.text.toString().replace(
-          new RegExp(`(${props.underline})`, 'ig'),
-          subtext => `<span class="d-list-item__underline">${subtext}</span>`
-        )
-        : props.text
-    })
 
-    const isRipple = attrRipple(props)
+    const bindBadge = attrBadge(props)
 
     const {
       bindThumbnail,
       bindIcon,
       bindTrailing
     } = useIcon(props)
-    const bindBadge = attrBadge(props)
 
     const {
       isProgress,
       bindProgress
     } = attrProgress(props)
+
+    const isRipple = attrRipple(props)
 
     const palette = useColor(props)
     const binds = computed(() => {
@@ -117,29 +108,31 @@ export default {
           'option-border': props.border,
           ...palette.value
         },
-        style: { '--_li-background-color': props.backgroundColor },
-        'data-value': props.value
+        style: { '--_li-background-color': typeof props.backgroundColor === 'string' ? props.backgroundColor : null },
+        'data-value': propValue.value
       }
     })
 
     const onClick = () => context.emit('on-click', {
       item: props.item,
-      value: props.value || props.item?.value,
+      value: propValue.value,
       selected: !props.selected
     })
 
-    useAdmin('d-list-item', context, props.text)
+    useAdmin('d-list-item', context, propValue)
 
     return {
       isRipple,
       isProgress,
+
       propText,
+      bindBadge,
       bindThumbnail,
       bindIcon,
       bindTrailing,
-      bindBadge,
       bindProgress,
       binds,
+
       onClick
     }
   }

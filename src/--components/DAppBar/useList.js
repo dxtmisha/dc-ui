@@ -1,5 +1,5 @@
-import attrList from '@/--components/DList/attrList'
-import attrMenu from '@/--components/DMenu/attrMenu'
+import attrList from '@/--components/attrList'
+import attrMenu from '@/components/DMenu/attrMenu'
 import { toRefs } from 'vue'
 
 export default function useList (props, propSelected) {

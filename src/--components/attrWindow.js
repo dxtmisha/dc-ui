@@ -1,14 +1,14 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DMenu/props'
+import { props } from '@/components/DWindow/props'
 
-export default function attrMenu (
+export default function attrWindow (
   binds,
   items = {},
   attrs = {},
   pointer = []
 ) {
   return useBinds(
-    'menu',
+    'window',
     props,
     binds,
     items,

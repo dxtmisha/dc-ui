@@ -1,9 +1,6 @@
 <template>
-  <div ref="field" :class="classList">
-    <label
-      v-if="appearance === 'classic'"
-      class="d-carcass-field__label--classic"
-    >
+  <div ref="field" class="d-carcass-field" :class="classList">
+    <label v-if="appearance === 'classic'" class="d-carcass-field__label--classic">
       {{ text }}<span v-if="required" class="d-carcass-field__required"/>
     </label>
     <div class="d-carcass-field__body">
@@ -12,6 +9,7 @@
         class-name="d-carcass-field__input"
         class-name-hidden="d-carcass-field__hidden"
       />
+
       <div class="d-carcass-field__label">
         <div class="d-carcass-field__title">
           <label class="d-carcass-field__text">
@@ -19,69 +17,47 @@
           </label>
         </div>
       </div>
+
       <label class="d-carcass-field__scoreboard">
         <d-icon
           v-if="arrow"
+          v-bind="bindPrevious"
           class="d-carcass-field__icon window-control-static cf-icon"
-          :icon="iconChevronLeft"
-          :disabled="disabled || disabledPrevious"
-          size="small"
-          :background="true"
           @click.stop="onClick('on-previous')"
         >
-          <d-ripple v-if="ripple && !disabled && !disabledPrevious"/>
+          <d-ripple v-if="isRipple && !disabledPrevious"/>
         </d-icon>
-        <d-icon
-          v-else-if="icon"
-          class="d-carcass-field__icon cf-icon"
-          :icon="icon"
-          :icon-active="iconActive"
-          :active="selected"
-          :disabled="disabled"
-          size="small"
-        />
+        <d-icon v-else-if="icon" v-bind="bindIcon" class="d-carcass-field__icon cf-icon"/>
+
         <span v-if="prefix" ref="prefix" class="d-carcass-field__prefix cf-prefix">{{ prefix }}</span>
         <span class="d-carcass-field__space"/>
         <span v-if="suffix" ref="suffix" class="d-carcass-field__suffix cf-suffix">{{ suffix }}</span>
+
         <d-icon
           v-if="arrow"
+          v-bind="bindNext"
           class="d-carcass-field__icon window-control-static cf-trailing"
-          :icon="iconChevronRight"
-          :disabled="disabled || disabledNext"
-          size="small"
-          :background="true"
           @click.stop="onClick('on-next')"
         >
-          <d-ripple v-if="ripple && !disabled && !disabledNext"/>
+          <d-ripple v-if="isRipple && !disabledNext"/>
         </d-icon>
         <template v-else>
           <keep-alive>
             <d-icon
               v-if="ifCancel"
+              v-bind="bindCancel"
               class="d-carcass-field__icon window-control-static cf-cancel"
-              :icon="iconCancel"
-              :disabled="disabled"
-              size="small"
               @click.stop="onClick('on-cancel')"
             />
           </keep-alive>
-          <d-icon
-            v-if="iconTrailing"
-            class="d-carcass-field__icon cf-trailing"
-            :icon="iconTrailing"
-            :turn="turn"
-            :disabled="disabled"
-            size="small"
-          />
+          <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-carcass-field__icon cf-trailing"/>
         </template>
       </label>
+
       <div class="d-carcass-field__border"/>
-      <d-progress
-        v-if="progress && !disabled"
-        :visible="progress"
-        :bottom="true"
-      />
+      <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
     </div>
+
     <div v-if="ifMessage" class="d-carcass-field__message">
       <div class="d-carcass-field__info">
         <div v-if="validationMessage" class="d-carcass-field__validation">{{ validationMessage }}</div>
@@ -99,16 +75,19 @@ import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import getIdElement from '@/functions/getIdElement'
+import attrProgress from '@/components/DProgress/attrProgress'
+import attrRipple from '@/components/DRipple/attrRipple'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
+import useIcon from './useIcon'
 import usePrefix from './usePrefix'
 
 export default {
   name: 'DCarcassField',
   components: {
+    DIcon,
     DProgress,
-    DRipple,
-    DIcon
+    DRipple
   },
   props,
   emits: [
@@ -132,10 +111,24 @@ export default {
         props.align !== 'center'
     })
 
+    const {
+      bindIcon,
+      bindTrailing,
+      bindCancel,
+      bindPrevious,
+      bindNext
+    } = useIcon(props)
+
+    const {
+      isProgress,
+      bindProgress
+    } = attrProgress(props)
+
+    const isRipple = attrRipple(props)
+
     const palette = useColor(props)
     const classList = computed(() => {
       return {
-        'd-carcass-field': true,
         'view-icon': props.icon || props.arrow,
         'view-icon-cancel': ifCancel.value,
         'view-icon-trailing': props.iconTrailing || props.arrow,
@@ -183,10 +176,22 @@ export default {
     return {
       id,
       field,
-      counterMessage,
+
       ifMessage,
       ifCancel,
+      isProgress,
+      isRipple,
+
+      counterMessage,
+
+      bindIcon,
+      bindTrailing,
+      bindCancel,
+      bindPrevious,
+      bindNext,
+      bindProgress,
       classList,
+
       onClick
     }
   }

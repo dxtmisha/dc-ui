@@ -13,7 +13,7 @@ export const props = {
   suffix: [Number, String],
   description: String,
   backgroundColor: {
-    type: String,
+    type: [Boolean, String],
     default: null
   },
 
@@ -98,6 +98,7 @@ export const props = {
   iconActive: undefined,
   iconTrailing: undefined,
   iconReadonly: Boolean,
-  iconAnimationShow: Boolean,
-  iconBackground: Boolean
+  iconAnimationShow: undefined,
+  iconBackground: undefined,
+  iconAttrs: undefined
 }
