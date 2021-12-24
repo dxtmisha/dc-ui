@@ -1,18 +1,21 @@
-import useBinds from '@/uses/useBinds'
-import { props } from '@/components/DIcon/props'
+import useAttrs from '@/uses/useAttrs'
+import { props as main } from '@/components/DIcon/props'
 
-export default function attrIcon (
-  binds,
+export default function attrIcon ({
+  props,
   items = {},
-  attrs = {},
-  pointer = []
-) {
-  return useBinds(
-    'icon',
-    props,
-    binds,
+  attrs = {}
+}) {
+  return useAttrs({
+    code: 'icon',
+    pointer: [
+      'icon',
+      'iconActive',
+      'disabled'
+    ],
+    props: main,
+    original: props,
     items,
-    attrs,
-    pointer
-  )
+    attrs
+  })
 }

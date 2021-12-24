@@ -1,18 +1,24 @@
-import useBinds from '@/uses/useBinds'
-import { props } from '@/components/DButton/props'
+import useAttrs from '@/uses/useAttrs'
+import { props as main } from '@/components/DButton/props'
 
-export default function attrButton (
-  binds,
+export default function attrButton ({
+  props,
+  pointer = [],
   items = {},
-  attrs = {},
-  pointer = []
-) {
-  return useBinds(
-    'button',
-    props,
-    binds,
+  attrs = {}
+}) {
+  return useAttrs({
+    code: 'button',
+    props: main,
+    pointer: [
+      ...pointer,
+      'disabled',
+      'palette',
+      'color',
+      'ripple'
+    ],
+    original: props,
     items,
-    attrs,
-    pointer
-  )
+    attrs
+  })
 }

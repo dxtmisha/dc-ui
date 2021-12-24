@@ -1,18 +1,20 @@
-import useBinds from '@/uses/useBinds'
-import { props } from '@/components/DActions/props'
+import useAttrs from '@/uses/useAttrs'
+import { props as main } from '@/components/DActions/props'
 
-export default function attrActions (
-  binds,
+export default function attrActions ({
+  props,
   items = {},
-  attrs = {},
-  pointer = []
-) {
-  return useBinds(
-    'actions',
-    props,
-    binds,
+  attrs = {}
+}) {
+  return useAttrs({
+    code: 'actions',
+    props: main,
+    pointer: [
+      'bar',
+      'barAction'
+    ],
+    original: props,
     items,
-    attrs,
-    pointer
-  )
+    attrs
+  })
 }

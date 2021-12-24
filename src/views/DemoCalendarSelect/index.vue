@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DCalendarSelect from '@/components/DCalendarSelect'
+import DCalendarSelect from '@/--components/DCalendarSelect'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsCalendarSelect } from './options'

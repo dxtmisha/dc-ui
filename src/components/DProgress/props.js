@@ -8,6 +8,12 @@ export const props = {
     default: null
   },
 
+  // Input
+  max: {
+    type: Number,
+    default: 100
+  },
+
   // Status
   visible: Boolean,
 
@@ -27,10 +33,6 @@ export const props = {
       'type1',
       'type2'
     ])
-  },
-  max: {
-    type: Number,
-    default: 100
   },
   delay: {
     type: [Number, String],

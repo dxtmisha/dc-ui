@@ -1,10 +1,10 @@
 <template>
   <div class="d-actions" :class="classList">
-    <slot name="barAction" className="d-actions__action"/>
     <d-button
       v-for="item in propBarAction"
       v-bind="item"
       :key="item.value"
+      class="d-actions__action"
       appearance="text"
       @on-click="onClick"
     />
@@ -13,9 +13,10 @@
       v-for="item in propBar"
       v-bind="item"
       :key="item.value"
+      class="d-actions__bar window-close"
       @on-click="onClick"
     />
-    <slot name="bar" className="d-actions__bar"/>
+    <slot classSpacer="d-actions__spacer"/>
   </div>
 </template>
 
@@ -23,8 +24,8 @@
 import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed } from 'vue'
-import useBar from '@/components/DActions/useBar'
 import useAdmin from '@/uses/useAdmin'
+import useBar from './useBar'
 
 export default {
   name: 'DActions',

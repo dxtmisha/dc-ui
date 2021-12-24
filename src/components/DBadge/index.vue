@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "style";
+@import "src/components/DBadge/style";
 
 .d-badge {
   @include badgeInit;

@@ -9,32 +9,23 @@ export default function useBar (props) {
     barAction
   } = toRefs(props)
 
-  const initBar = (list, extra = {}) => {
+  const initBar = list => {
     const bars = []
 
-    forEach(list, item => bars.push(attrButton(
+    forEach(list, item => bars.push(attrButton({
       props,
-      {
-        ...item,
+      items: item,
+      attrs: {
         item,
         ellipsis: false
-      },
-      {
-        ...item,
-        class: 'd-actions__bar window-close',
-        ...extra
       }
-    )))
+    })))
 
     return bars
   }
 
-  const propBar = useWatch(bar, data => {
-    data.value = initBar(bar.value)
-  })
-  const propBarAction = useWatch(barAction, data => {
-    data.value = initBar(barAction.value, { class: 'd-actions__action' })
-  })
+  const propBar = useWatch(bar, () => initBar(bar.value), ['init'])
+  const propBarAction = useWatch(barAction, () => initBar(barAction.value), ['init'])
 
   return {
     propBar,

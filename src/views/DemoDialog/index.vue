@@ -26,7 +26,7 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DDialog from '@/components/DDialog'
+import DDialog from '@/--components/DDialog'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsDialog } from './options'
 import { alexanderPushkin } from '@/media/demo/data/text'

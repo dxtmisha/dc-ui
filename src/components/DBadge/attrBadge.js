@@ -1,21 +1,11 @@
-import { toRefs } from 'vue'
-import useWatch from '@/uses/useWatch'
+import { computed } from 'vue'
 
 export default function attrBadge (props) {
-  const {
-    badge,
-    disabled
-  } = toRefs(props)
-
-  return useWatch(badge, data => {
-    data.value = undefined
-
-    if (badge.value) {
-      const binds = typeof badge.value === 'object' ? badge.value : { badge: badge.value }
-      data.value = {
-        ...binds,
-        hide: disabled
-      }
+  return computed(() => {
+    const binds = typeof props.badge === 'object' ? props.badge : { badge: props.badge }
+    return {
+      ...binds,
+      hide: props.disabled
     }
   })
 }

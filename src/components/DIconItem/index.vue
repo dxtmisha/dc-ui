@@ -4,7 +4,7 @@
 
 <script>
 import { props } from './props'
-import { computed, toRefs } from 'vue'
+import { computed, readonly, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useIcon from './useIcon'
 
@@ -21,17 +21,17 @@ export default {
       image
     } = useIcon(icon)
 
-    const binds = computed(() => {
-      return {
-        class: {
+    const binds = readonly({
+      class: computed(() => {
+        return {
           'status-image': image.value,
           'status-disabled': props.disabled,
           'status-hide': props.hide,
           ...classIcon.value
-        },
-        style: styleIcon.value,
-        translate: 'no'
-      }
+        }
+      }),
+      style: styleIcon,
+      translate: 'no'
     })
 
     useAdmin('d-icon-item', context)

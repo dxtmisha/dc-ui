@@ -1,10 +1,9 @@
 <template>
   <component
-    :is="tag"
     ref="progress"
+    :is="tag"
+    v-bind="binds"
     class="d-progress"
-    :class="classList"
-    :style="styleList"
     :max="max"
     :value="value"
     viewBox="0 0 48 48"
@@ -22,7 +21,7 @@
 
 <script>
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useVisible from './useVisible'
 
@@ -40,30 +39,30 @@ export default {
         return 'div'
       }
     })
-
-    const classList = computed(() => {
-      return {
-        [`type-${props.type}`]: props.type,
-        [`indeterminate-${props.indeterminate}`]: props.indeterminate,
-        'option-bottom': props.bottom
-      }
+    const binds = readonly({
+      class: computed(() => {
+        return {
+          [`type-${props.type}`]: props.type,
+          [`indeterminate-${props.indeterminate}`]: props.indeterminate,
+          'option-bottom': props.bottom
+        }
+      }),
+      style: computed(() => {
+        return {
+          '--_pr__vl-value': props.value,
+          '--_pr__vl-max': props.max
+        }
+      })
     })
-    const styleList = computed(() => {
-      return {
-        '--_pr__vl-value': props.value,
-        '--_pr__vl-max': props.max
-      }
-    })
 
-    const { onAnimation } = useVisible(progress, props)
+    const onAnimation = useVisible(progress, props)
 
     useAdmin('d-progress', context)
 
     return {
       progress,
       tag,
-      classList,
-      styleList,
+      binds,
       onAnimation
     }
   }

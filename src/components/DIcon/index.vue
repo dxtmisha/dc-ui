@@ -19,7 +19,7 @@
 <script>
 import DIconItem from '@/components/DIconItem'
 import { props } from './props'
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
@@ -27,12 +27,8 @@ export default {
   components: { DIconItem },
   props,
   setup (props, context) {
-    const {
-      iconActive,
-      active
-    } = toRefs(props)
+    const isActive = computed(() => props.iconActive && props.active)
 
-    const isActive = computed(() => iconActive.value && active.value)
     const classList = computed(() => {
       return {
         'status-turn': props.turn,

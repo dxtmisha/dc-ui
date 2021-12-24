@@ -1,12 +1,11 @@
 <template>
   <component
     :is="tag"
-    :class="classList"
-    :disabled="disabled"
-    :data-value="value"
+    v-bind="binds"
+    class="d-button a-static"
     @click="onClick"
   >
-    <d-progress v-if="isProgress" v-bind:="bindProgress" type="circular"/>
+    <d-progress v-if="isProgress" v-bind="bindProgress" type="circular"/>
     <d-icon v-if="icon" v-bind="bindIcon" class="d-button__icon bt-icon"/>
     <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-button__icon bt-trailing"/>
     <span class="d-button__text">
@@ -23,7 +22,7 @@ import DIcon from '@/components/DIcon'
 import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
-import { computed } from 'vue'
+import { computed, readonly, toRefs } from 'vue'
 import attrBadge from '@/components/DBadge/attrBadge'
 import attrProgress from '@/components/DProgress/attrProgress'
 import attrRipple from '@/components/DRipple/attrRipple'
@@ -42,6 +41,8 @@ export default {
   props,
   emits: ['on-click', 'on-trailing'],
   setup (props, context) {
+    const { disabled } = toRefs(props)
+    const propValue = computed(() => props.value || props.item?.value)
     const propAdaptive = computed(() => {
       if (!(props.text || 'default' in context.slots)) {
         return 'icon'
@@ -53,38 +54,43 @@ export default {
     })
     const propShape = computed(() => props.shape || (propAdaptive.value === 'icon' ? 'pill' : undefined))
 
-    const isRipple = attrRipple(props)
+    const bindBadge = attrBadge(props)
 
     const {
       bindIcon,
       bindTrailing
     } = useIcon(props, propAdaptive)
-    const bindBadge = attrBadge(props)
 
     const {
       isProgress,
       bindProgress
     } = attrProgress(props)
 
+    const isRipple = attrRipple(props)
+
     const palette = useColor(props)
-    const classList = computed(() => {
-      return {
-        'd-button a-static': true,
-        'status-selected': props.selected,
-        'status-dragged': props.dragged,
-        'status-readonly': props.readonly,
-        'status-disabled': props.disabled,
-        'status-hide': props.hide,
-        [`appearance-${props.appearance}`]: props.appearance,
-        [`size-${props.size}`]: props.size,
-        [`shape-${propShape.value}`]: propShape.value,
-        [`align-${props.align}`]: props.align,
-        [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
-        'option-lowercase': props.lowercase,
-        'option-dense': props.dense,
-        'option-ellipsis': props.ellipsis,
-        ...palette.value
-      }
+    const binds = readonly({
+      class: computed(() => {
+        return {
+          'd-button a-static': true,
+          'status-selected': props.selected,
+          'status-dragged': props.dragged,
+          'status-readonly': props.readonly,
+          'status-disabled': props.disabled,
+          'status-hide': props.hide,
+          [`appearance-${props.appearance}`]: props.appearance,
+          [`size-${props.size}`]: props.size,
+          [`shape-${propShape.value}`]: propShape.value,
+          [`align-${props.align}`]: props.align,
+          [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
+          'option-lowercase': props.lowercase,
+          'option-dense': props.dense,
+          'option-ellipsis': props.ellipsis,
+          ...palette.value
+        }
+      }),
+      disabled,
+      'data-value': propValue
     })
 
     const onClick = event => {
@@ -102,15 +108,13 @@ export default {
           props.iconReadonly &&
           event.target.closest('.bt-trailing')
         ) {
-          event.preventDefault()
-          event.stopPropagation()
           type = 'on-trailing'
         }
 
         context.emit(type, {
           type,
           item: props.item,
-          value: props.value || props.item?.value
+          value: propValue.value
         })
       }
     }
@@ -120,11 +124,13 @@ export default {
     return {
       isRipple,
       isProgress,
+
+      bindBadge,
       bindIcon,
       bindTrailing,
-      bindBadge,
       bindProgress,
-      classList,
+      binds,
+
       onClick
     }
   }

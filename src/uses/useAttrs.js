@@ -3,27 +3,29 @@ import forEach from '@/functions/forEach'
 
 export default function useAttrs ({
   code,
-  original,
-  props = {},
+  props,
+  pointer = [],
+  original = {},
   items = {},
-  attrs = {},
-  pointer = []
+  attrs = {}
 }) {
-  const refs = isReactive(props) ? toRefs(props) : props
-  const data = { ...attrs, ...props?.[`${code}Attrs`] }
+  const refs = isReactive(original) ? toRefs(original) : original
+  const data = { ...attrs, ...original?.[`${code}Attrs`] }
 
-  forEach(original, (item, index) => {
-    const name = `${code}${index.replace(/^[a-z]/i, all => all.toUpperCase())}`
-
-    if (name in refs) {
-      data[index] = refs[name]
-    } else if (pointer.indexOf(index) !== -1) {
+  forEach(props, (item, index) => {
+    if (pointer.indexOf(index) !== -1) {
       data[index] = refs[index]
+    } else {
+      const name = `${code}${index.replace(/^[a-z]/i, all => all.toUpperCase())}`
+
+      if (name in refs) {
+        data[index] = refs[name]
+      }
     }
   })
 
   forEach(items, (item, index) => {
-    if (index in original || typeof item !== 'object') {
+    if (index in props || typeof item !== 'object') {
       data[index] = item
     }
   })

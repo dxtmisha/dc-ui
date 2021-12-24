@@ -1,5 +1,5 @@
 import useProps from '@/--components/InteractiveDemo/useProps'
-import { props } from '@/components/DAlert/props'
+import { props } from '@/--components/DAlert/props'
 import { Alert } from '@/media/demo/Alert'
 import { Icon } from '@/media/demo/Icon'
 

@@ -11,10 +11,8 @@ export default function useItem (ripple) {
     item.classList.add('d-ripple__item')
   })
 
-  const onMousedown = ({
+  return ({
     offsetX,
     offsetY
   }) => add(offsetX, offsetY)
-
-  return { onMousedown }
 }

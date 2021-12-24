@@ -1,5 +1,5 @@
 import useProps from '@/--components/InteractiveDemo/useProps'
-import { props } from '@/components/DSelect/props'
+import { props } from '@/--components/DSelect/props'
 
 export const optionsSelect = useProps(props, {
   type: {

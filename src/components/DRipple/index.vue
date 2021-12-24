@@ -1,9 +1,5 @@
 <template>
-  <div
-    ref="ripple"
-    class="d-ripple"
-    @mousedown="onMousedown"
-  />
+  <div ref="ripple" class="d-ripple" @mousedown="onMousedown"/>
 </template>
 
 <script>
@@ -15,7 +11,8 @@ export default {
   name: 'DRipple',
   setup (props, context) {
     const ripple = ref(undefined)
-    const { onMousedown } = useItem(ripple)
+
+    const onMousedown = useItem(ripple)
 
     useAdmin('d-ripple', context)
 

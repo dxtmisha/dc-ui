@@ -1,6 +1,11 @@
 import { onBeforeMount, onMounted, onUpdated, ref, watch } from 'vue'
 
 /**
+ * @param sources
+ * @param {Function} cb
+ * @param {Array, String} hook
+ * @param value
+ * @param {Boolean} deep
  * @returns {ref}
  */
 export default function useWatch (
@@ -10,8 +15,15 @@ export default function useWatch (
   value = undefined,
   deep = false
 ) {
-  const data = ref(value)
-  const update = () => cb(data, ...arguments)
+  const init = hook.indexOf('init') !== -1
+  const data = ref(init ? cb() : value)
+  const update = () => {
+    const read = cb(data, ...arguments)
+
+    if (init) {
+      data.value = read
+    }
+  }
 
   watch(sources, update, { deep })
 

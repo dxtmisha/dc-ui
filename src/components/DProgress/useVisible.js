@@ -1,13 +1,13 @@
-import { onMounted, toRefs, watch } from 'vue'
+import { toRefs } from 'vue'
 import useClass from '@/uses/useClass'
+import useWatch from '@/uses/useWatch'
 
 export default function useVisible (
   progress,
   props
 ) {
-  let timeout
-
   const { visible } = toRefs(props)
+  let timeout
 
   const classMove = useClass(progress, 'status-move')
   const classVisible = useClass(
@@ -17,7 +17,17 @@ export default function useVisible (
     value => classMove.set(!value)
   )
 
-  const onAnimation = ({ animationName }) => {
+  useWatch(visible, () => {
+    clearTimeout(timeout)
+
+    if (visible.value && props.delay) {
+      timeout = setTimeout(() => classVisible.set(true), props.delay)
+    } else {
+      classVisible.set(visible.value)
+    }
+  }, ['mounted'])
+
+  return ({ animationName }) => {
     if ([
       '__animate-linear--hidden',
       '__animate-circle--hidden'
@@ -25,14 +35,4 @@ export default function useVisible (
       classMove.set(false)
     }
   }
-
-  const update = () => {
-    clearTimeout(timeout)
-    timeout = setTimeout(() => classVisible.set(visible.value), visible.value ? props.delay : 0)
-  }
-
-  watch(visible, update)
-  onMounted(update)
-
-  return { onAnimation }
 }

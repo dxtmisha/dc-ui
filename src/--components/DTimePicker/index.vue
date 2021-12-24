@@ -69,10 +69,10 @@
 
 <script>
 import DActions from '@/components/DActions'
-import DButtonGroup from '@/components/DButtonGroup'
-import DClockFace from '@/components/DClockFace'
-import DInput from '@/components/DInput'
-import DMotionTransform from '@/components/DMotionTransform'
+import DButtonGroup from '@/--components/DButtonGroup'
+import DClockFace from '@/--components/DClockFace'
+import DInput from '@/--components/DInput'
+import DMotionTransform from '@/--components/DMotionTransform'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import Translation from '@/classes/Translation'

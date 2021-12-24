@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import DControlSelection from '@/components/DControlSelection'
+import DControlSelection from '@/--components/DControlSelection'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsControlSelection } from './options'
 

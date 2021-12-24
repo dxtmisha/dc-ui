@@ -33,14 +33,14 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
+import DMenu from '@/--components/DMenu'
 import { props } from './props'
 import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useButton from './useButton'
 import useField from '@/uses/useField'
-import useMenu from '@/components/DSelect/useMenu'
-import useSelect from '@/components/DSelect/useSelect'
+import useMenu from '@/--components/DSelect/useMenu'
+import useSelect from '@/--components/DSelect/useSelect'
 
 export default {
   name: 'DButtonSelect',

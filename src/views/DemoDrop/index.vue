@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import DDrop from '@/components/DDrop'
+import DDrop from '@/--components/DDrop'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsDrop } from './options'
 
