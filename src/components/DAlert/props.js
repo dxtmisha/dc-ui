@@ -25,18 +25,6 @@ export const props = {
       'shadow'
     ])
   },
-  size: {
-    type: String,
-    default: defaultProps('size'),
-    validator: validator([
-      'dynamic',
-      'compact',
-      'small',
-      'medium',
-      'large',
-      'rectangle'
-    ])
-  },
   shape: {
     type: String,
     default: defaultProps('shape'),
@@ -62,6 +50,7 @@ export const props = {
   // Icon
   icon: undefined,
   iconClose: { default: defaultProps('iconClose', 'close') },
+  iconSize: { default: defaultProps('iconSize') },
   iconBackground: undefined,
   iconAttrs: undefined
 }

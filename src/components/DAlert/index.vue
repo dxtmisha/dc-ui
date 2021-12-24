@@ -1,12 +1,7 @@
 <template>
   <div class="d-alert" :class="classList" role="alert">
     <div class="d-alert__icon">
-      <d-icon
-        v-if="icon"
-        :icon="icon"
-        :size="size"
-        :background="iconBackground"
-      />
+      <d-icon v-if="icon" v-bind="bindIcon"/>
     </div>
     <div class="d-alert__content">
       <div v-if="text" class="d-alert__text" v-html="text"/>
@@ -14,14 +9,7 @@
       <slot name="description"/>
     </div>
     <slot/>
-    <d-button
-      v-if="cancel"
-      :icon="iconClose"
-      size="small"
-      shape="pill"
-      appearance="text"
-      @click="onHide"
-    />
+    <d-button v-if="cancel" v-bind="bindButton" @click="onHide"/>
   </div>
 </template>
 
@@ -30,6 +18,8 @@ import DButton from '@/components/DButton'
 import DIcon from '@/components/DIcon'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
+import attrButton from '@/components/DButton/attrButton'
+import attrIcon from '@/components/DIcon/attrIcon'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useWatch from '@/uses/useWatch'
@@ -42,11 +32,22 @@ export default {
   },
   props,
   setup (props, context) {
-    const { hide } = toRefs(props)
+    const {
+      hide,
+      iconClose
+    } = toRefs(props)
 
-    const propHide = useWatch(hide, data => {
-      data.value = hide.value
-    }, [], hide.value)
+    const propHide = useWatch(hide, () => hide.value, ['init'])
+
+    const bindButton = attrButton({
+      props,
+      attrs: {
+        icon: iconClose,
+        appearance: 'text',
+        size: 'small'
+      }
+    })
+    const bindIcon = attrIcon({ props })
 
     const palette = useColor(props)
     const classList = computed(() => {
@@ -68,6 +69,8 @@ export default {
     useAdmin('d-alert', context)
 
     return {
+      bindButton,
+      bindIcon,
       classList,
       onHide
     }
