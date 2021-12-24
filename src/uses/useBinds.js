@@ -10,7 +10,7 @@ export default function useBinds (
   pointer = []
 ) {
   const refs = toRefs(binds)
-  const data = { ...(binds?.[`${code}Attrs`] || {}), ...attrs }
+  const data = { ...(binds?.[`${code}Attrs`] || {}) }
 
   forEach(props, (item, index) => {
     const name = `${code}${index.replace(/^[a-z]/i, all => all.toUpperCase())}`
@@ -21,6 +21,16 @@ export default function useBinds (
       data[index] = refs[name]
     } else if (pointer.indexOf(index) !== -1) {
       data[index] = refs[index]
+    }
+  })
+
+  forEach(attrs, (item, index) => {
+    if (
+      !(index in props) &&
+      !(index in data) &&
+      typeof item !== 'object'
+    ) {
+      data[index] = item
     }
   })
 

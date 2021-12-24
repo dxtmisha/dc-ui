@@ -14,11 +14,14 @@ export default function useBar (props) {
 
     forEach(list, item => bars.push(attrButton(
       props,
-      { item },
+      {
+        ...item,
+        item,
+        ellipsis: false
+      },
       {
         ...item,
         class: 'd-actions__bar window-close',
-        ellipsis: false,
         ...extra
       }
     )))

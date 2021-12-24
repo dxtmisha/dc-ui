@@ -12,11 +12,8 @@ export default function useItems (props) {
     item,
     underline: ref(undefined),
     focus: ref(isSelected(item.value, props.focus)),
-    selected: ref(isSelected(item.value, props.selected)),
-    list: undefined,
-    menu: undefined,
-    menuProps: undefined
-  })
+    selected: ref(isSelected(item.value, props.selected))
+  }, item)
   const getList = item => {
     if ('list' in item) {
       return readonly({
