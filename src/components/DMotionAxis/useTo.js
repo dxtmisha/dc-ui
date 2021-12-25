@@ -10,12 +10,8 @@ export default function useTo (
     transition
   } = toRefs(props)
 
-  const propAxis = useWatch(axis, data => {
-    data.value = axis.value
-  }, [], axis.value)
-  const propTransition = useWatch(transition, data => {
-    data.value = transition.value
-  }, [], transition.value)
+  const propAxis = useWatch(axis, () => axis.value, ['init'])
+  const propTransition = useWatch(transition, () => transition.value, ['init'])
 
   const toTop = selected => {
     propAxis.value = 'y'

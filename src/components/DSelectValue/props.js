@@ -5,6 +5,8 @@ const defaultProps = defaultInit('d-select-value')
 export const props = {
   // Values
   value: undefined,
+
+  // Input
   multiple: Boolean,
 
   // Status
@@ -19,7 +21,7 @@ export const props = {
   },
 
   // Button
-  buttonTag: undefined,
+  buttonTag: { default: defaultProps('buttonTag', 'span') },
   buttonAppearance: { default: defaultProps('buttonAppearance', 'chip') },
   buttonSize: { default: defaultProps('buttonSize', 'small') },
   buttonShape: { default: defaultProps('buttonShape', 'pill') },

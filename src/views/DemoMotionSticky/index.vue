@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import DMotionSticky from '@/--components/DMotionSticky'
+import DMotionSticky from '@/components/DMotionSticky'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMotionSticky } from './options'
 import { alexanderPushkin, denisDavydov, leoTolstoy } from '@/media/demo/data/text'

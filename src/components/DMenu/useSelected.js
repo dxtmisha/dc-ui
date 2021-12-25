@@ -13,9 +13,7 @@ export default function useSelected (
     ? propSelected.value.length > 0
     : [undefined, null].indexOf(propSelected.value) === -1
 
-  const propSelected = useWatch(selected, data => {
-    data.value = props.selected
-  }, [], props.selected)
+  const propSelected = useWatch(selected, () => props.selected, ['init'])
   const items = computed(() => ifValue() && object.value ? object.value.getSelected(propSelected.value) : undefined)
   const names = computed(() => ifValue() && object.value ? object.value.getNames(propSelected.value) : undefined)
 

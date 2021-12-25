@@ -105,7 +105,7 @@ export default function useMotion (
 
   onMounted(async () => {
     await nextTick()
-    update()
+    await update()
   })
 
   return {

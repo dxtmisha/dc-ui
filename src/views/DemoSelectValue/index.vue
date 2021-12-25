@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DSelectValue from '@/--components/DSelectValue'
+import DSelectValue from '@/components/DSelectValue'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsSelectValue } from './options'
 

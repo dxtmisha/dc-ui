@@ -57,6 +57,7 @@ export const props = {
       'url'
     ])
   },
+  locales: undefined,
   palette: undefined,
   color: undefined,
   appearance: undefined,
@@ -71,7 +72,6 @@ export const props = {
   fieldAttrs: undefined,
 
   // Mask
-  maskLocales: undefined,
   maskVisible: { default: defaultProps('maskVisible', true) },
   maskAttrs: undefined,
 

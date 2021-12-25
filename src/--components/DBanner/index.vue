@@ -26,7 +26,7 @@
 <script>
 import DActions from '@/components/DActions'
 import DIcon from '@/components/DIcon'
-import DMotionTransform from '@/--components/DMotionTransform'
+import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
 import attrActions from '@/--components/attrActions'

@@ -22,9 +22,8 @@
 import DButton from '@/components/DButton'
 import { props } from './props'
 import { computed } from 'vue'
-import attrButton from '@/--components/attrButton'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import attrButton from '@/components/DButton/attrButton'
 
 export default {
   name: 'DSelectValue',
@@ -35,25 +34,24 @@ export default {
     const propIcon = computed(() => props.cancel && !props.disabled ? props.iconCancel : undefined)
     const propValue = computed(() => !props.value
       ? undefined
-      : Array.isArray(props.value) ? props.value : [props.value])
+      : Array.isArray(props.value) ? props.value : [props.value]
+    )
 
-    const palette = useColor(props)
-    const classList = computed(() => {
-      return {
-        'option-multiple': props.multiple,
-        ...palette.value
+    const bindButton = attrButton({
+      props,
+      items: {
+        iconTrailing: propIcon
+      },
+      attrs: {
+        adaptive: 'basic',
+        lowercase: true,
+        iconReadonly: true
       }
     })
 
-    const bindButton = attrButton(props, {
-      iconTrailing: propIcon
-    }, {
-      tag: 'span',
-      adaptive: 'basic',
-      align: 'left',
-      lowercase: true,
-      iconReadonly: true
-    }, ['disabled'])
+    const classList = computed(() => {
+      return { 'option-multiple': props.multiple }
+    })
 
     const onClick = event => context.emit(event.type, event)
 
@@ -62,8 +60,10 @@ export default {
     return {
       propIcon,
       propValue,
+
       bindButton,
       classList,
+
       onClick
     }
   }

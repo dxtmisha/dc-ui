@@ -12,6 +12,8 @@ export const props = {
   match: {
     default: /[0-9]/
   },
+
+  // Input
   pattern: undefined,
   on: {
     type: Object,

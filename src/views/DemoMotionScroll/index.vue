@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import DMotionScroll from '@/--components/DMotionScroll'
+import DMotionScroll from '@/components/DMotionScroll'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { computed, ref } from 'vue'
 import { optionsMotionScroll } from '@/views/DemoMotionScroll/options'

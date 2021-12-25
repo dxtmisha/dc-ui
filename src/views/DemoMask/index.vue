@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DMask from '@/--components/DMask'
+import DMask from '@/components/DMask'
 import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
 import { optionsMask } from './options'
 

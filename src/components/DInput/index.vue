@@ -8,9 +8,10 @@
     <template v-slot:default="{ className }">
       <d-mask
         v-if="isMask"
-        v-bind="bindMask"
         ref="input"
+        v-bind="bindMask"
         :class="className"
+        :on="on"
         :inputAttrs="bindInput"
         @on-input="onInput"
         @on-change="onChange"
@@ -18,8 +19,8 @@
       <input
         v-else
         ref="input"
-        :class="className"
         v-bind="bindInput"
+        :class="className"
         v-model="propValue"
         v-on="on"
         @input="onEmit"
@@ -31,7 +32,7 @@
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DMask from '@/--components/DMask'
+import DMask from '@/components/DMask'
 import { props } from './props'
 import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
@@ -95,14 +96,18 @@ export default {
 
     return {
       input,
+
       isMask,
-      propValue,
+
       propValidationMessage,
-      bindInput,
+      propValue,
       bindMask,
+      bindInput,
       bindCarcassField,
+
       checkValidity,
       setChange,
+
       onEmit,
       onInput,
       onChange,

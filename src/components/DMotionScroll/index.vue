@@ -2,6 +2,7 @@
   <component
     ref="scroll"
     :is="tag"
+    class="d-motion-scroll"
     :class="classList"
   >
     <slot :className="id"/>
@@ -32,10 +33,7 @@ export default {
 
     const classScroll = useScroll()
     const classList = computed(() => {
-      return {
-        'd-motion-scroll': true,
-        ...(props.scrollHide ? classScroll.value : {})
-      }
+      return { ...(props.scrollHide ? classScroll.value : {}) }
     })
 
     const { update } = useMotion(

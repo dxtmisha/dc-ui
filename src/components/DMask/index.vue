@@ -117,12 +117,16 @@ export default {
       input,
       chars,
       standard,
+
       propPattern,
       propChars,
       validationMessage,
+
       classList,
+
       checkValidity,
       cancel,
+
       onKeypress,
       onKeydown,
       onPaste,

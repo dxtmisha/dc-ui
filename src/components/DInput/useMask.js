@@ -1,8 +1,7 @@
-import { computed, toRefs } from 'vue'
-import attrMask from '@/--components/DMask/attrMask'
+import { computed } from 'vue'
+import attrMask from '@/components/DMask/attrMask'
 
 export default function useMask (props) {
-  const refs = toRefs(props)
   const isMask = computed(() => !props.arrow &&
     (
       [
@@ -14,12 +13,7 @@ export default function useMask (props) {
       ((props.type === 'text' || !props.type) && props.mask)
     ))
 
-  const bindMask = attrMask(props, {
-    value: refs.value,
-    mask: refs.mask,
-    on: refs.on,
-    type: refs.type
-  })
+  const bindMask = attrMask({ props })
 
   return {
     isMask,

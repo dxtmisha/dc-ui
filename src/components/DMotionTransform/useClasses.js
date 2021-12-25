@@ -1,5 +1,5 @@
-import useStyleList from '@/uses/useStyleList'
 import useClass from '@/uses/useClass'
+import useStyleList from '@/uses/useStyleList'
 
 export default function useClasses (
   transform,

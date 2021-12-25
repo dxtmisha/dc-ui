@@ -1,5 +1,5 @@
 <template>
-  <div ref="axis" :class="classList">
+  <div ref="axis" class="d-motion-axis" :class="classList">
     <div
       v-for="(html, name) in this.$slots"
       :ref="(el) => { if (el) slides[name] = el }"
@@ -55,7 +55,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-motion-axis': true,
         [`axis-${propAxis.value}`]: propAxis.value,
         [`transition-${propTransition.value}`]: propTransition.value
       }

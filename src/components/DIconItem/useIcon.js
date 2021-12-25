@@ -74,7 +74,7 @@ export default function useIcon (icon) {
     }
   }
 
-  const image = useWatch(icon, async data => {
+  const image = useWatch(icon, async () => {
     updateType()
     updateText()
 
@@ -85,9 +85,11 @@ export default function useIcon (icon) {
       classIcon.value[name] = true
     }
 
-    data.value = icon.value instanceof File ? await getFileResult(icon.value) : icon.value
-    styleIcon.value = getStyleName(data.value)
-  })
+    const data = icon.value instanceof File ? await getFileResult(icon.value) : icon.value
+    styleIcon.value = getStyleName(data)
+
+    return data
+  }, ['init'])
 
   return {
     text,
