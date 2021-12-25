@@ -5,12 +5,12 @@
       class="d-calendar__head"
     >
       <div
-        v-for="item in listWeekday"
-        :key="item.value"
+        v-for="{text, value} in listWeekday"
+        :key="value"
         class="d-calendar__name cl-week"
-        :data-value="item.value"
+        :data-value="value"
       >
-        <div class="d-calendar__week">{{ item.text }}</div>
+        <div class="d-calendar__week">{{ text }}</div>
       </div>
     </div>
     <div
@@ -21,11 +21,11 @@
       <div
         v-for="item in list"
         :key="item.value"
-        class="d-calendar__name"
         :class="item.classList"
         :data-value="item.value"
-        @mouseover="onMouseover(item)"
+        class="d-calendar__name"
         @click="onClick(item)"
+        @mouseover="onMouseover(item)"
       >
         <div class="d-calendar__day">{{ item.name }}</div>
         <slot :name="`day:${item.value}`"/>
@@ -52,7 +52,7 @@ export default {
     let hoverUpdate = false
     const hover = useWatch(selected, data => {
       data.value = undefined
-    })
+    }, [])
 
     const {
       today,

@@ -1,5 +1,5 @@
 import { toRefs } from 'vue'
-import attrItem from '@/components/DList/attrList'
+import attrList from '@/components/DList/attrList'
 import attrMenu from '@/components/DMenu/attrMenu'
 
 export default function useList (props, propSelected) {
@@ -8,7 +8,7 @@ export default function useList (props, propSelected) {
     barInit
   } = toRefs(props)
 
-  const bindList = attrItem({
+  const bindList = attrList({
     props,
     items: { selected: propSelected },
     attrs: {

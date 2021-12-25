@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/--components/DCalendar/props'
+import { props } from '@/components/DCalendar/props'
 import { Calendar } from '@/media/demo/Calendar'
 
 export const optionsCalendar = useProps(

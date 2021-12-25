@@ -1,34 +1,24 @@
 <template>
-  <div
-    ref="calendar"
-    class="d-calendar-multiple"
-    :class="classList"
-  >
+  <div ref="calendar" :class="classList" class="d-calendar-multiple">
     <template v-if="active && desktop !== undefined">
-      <div
-        v-if="desktop"
-        class="d-calendar-multiple__desktop"
-      >
+      <div v-if="desktop" class="d-calendar-multiple__desktop">
         <div class="d-calendar-multiple__menu">
           <d-button v-bind="bindButton" :icon="iconChevronLeft" @click="toPrevious"/>
           <div class="d-calendar-multiple__name">{{ activeLocale }}</div>
           <div class="d-calendar-multiple__name">{{ activeNext }}</div>
           <d-button v-bind="bindButton" :icon="iconChevronRight" @click="toNext"/>
         </div>
+
         <d-motion-axis ref="motion">
-          <template
-            v-for="item in list"
-            :key="item.value"
-            v-slot:[item.slot]
-          >
+          <template v-for="{calendar, slot, value} in list" :key="value" v-slot:[slot]>
             <div class="d-calendar-multiple__calendars">
               <d-calendar
-                v-for="calendar in item.calendar"
-                :ref="calendar.value"
-                :key="calendar.value"
+                v-for="{item, value} in calendar"
                 v-bind="bindCalendar"
-                :value="calendar.item"
+                :key="value"
+                :ref="value"
                 :selected="propValue"
+                :value="item"
                 @on-selected="onSelected"
                 @on-hover="onHover"
               />
@@ -36,30 +26,32 @@
           </template>
         </d-motion-axis>
       </div>
+
       <div v-else-if="listMobile" class="d-calendar-multiple__mobile">
         <div class="d-calendar-multiple__week">
-          <d-calendar v-bind="bindCalendar" :value="undefined" :output-month="false"/>
+          <d-calendar v-bind="bindCalendar" :output-month="false" :value="undefined"/>
         </div>
+
         <d-motion-scroll
           ref="scroll"
-          class="d-calendar-multiple__calendar"
           :class="classScroll"
           :page="activeStandard"
+          class="d-calendar-multiple__calendar"
           @on-scroll="onScroll"
         >
           <template v-slot:default="{ className }">
             <div
-              v-for="item in listMobile"
-              :key="item.value"
+              v-for="{text, value} in listMobile"
+              :key="value"
               :class="className"
-              :data-page="item.value"
+              :data-page="value"
             >
-              <div class="d-calendar-multiple__title">{{ item.text }}</div>
+              <div class="d-calendar-multiple__title">{{ text }}</div>
               <d-calendar
                 v-bind="bindCalendar"
-                :value="item.value"
-                :selected="propValue"
                 :output-week="false"
+                :selected="propValue"
+                :value="value"
                 @on-selected="onSelected"
               />
             </div>
@@ -72,15 +64,15 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DCalendar from '@/--components/DCalendar'
+import DCalendar from '@/components/DCalendar'
 import DMotionAxis from '@/components/DMotionAxis'
 import DMotionScroll from '@/components/DMotionScroll'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'
-import attrCalendar from '@/--components/DCalendar/attrCalendar'
-import attrButton from '@/--components/attrButton'
+import attrCalendar from '@/components/DCalendar/attrCalendar'
 import useAdmin from '@/uses/useAdmin'
-import useCalendar from '@/--components/DCalendarSelect/useCalendar'
+import useButton from '@/components/DCalendarSelect/useButton'
+import useCalendar from '@/components/DCalendarSelect/useCalendar'
 import useDesktop from './useDesktop'
 import useScroll from '@/uses/useScroll'
 
@@ -127,21 +119,18 @@ export default {
       desktop
     )
 
-    const bindCalendar = attrCalendar(props, refs, {
-      multiple: true,
-      outputDay: false
-    })
-    const bindButton = attrButton(props, {}, {
-      appearance: 'text',
-      size: 'small',
-      dense: true,
-      lowercase: true,
-      ellipsis: true
+    const bindButton = useButton(props)
+    const bindCalendar = attrCalendar({
+      props,
+      attrs: {
+        multiple: true,
+        outputDay: false
+      }
     })
 
     const classScroll = useScroll()
     const classList = computed(() => {
-      return { [`adaptive-${props.adaptive}`]: props.adaptive }
+      return { [`adaptive-${props.calendarAdaptive}`]: props.calendarAdaptive }
     })
 
     const onHover = ({ item }) => [

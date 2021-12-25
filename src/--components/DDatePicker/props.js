@@ -1,6 +1,5 @@
 import { defaultInit } from '@/uses/useDefault'
-import { max, min } from '@/--components/DCalendar/props'
-import { palette } from '@/uses/useColor'
+import { max, min } from '@/components/DCalendar/props'
 
 const defaultProps = defaultInit('d-date-picker')
 export const props = {
@@ -8,9 +7,9 @@ export const props = {
   value: undefined,
 
   // Input
-  multiple: undefined,
   min,
   max,
+  multiple: undefined,
 
   // Status
   switchDate: {
@@ -19,17 +18,15 @@ export const props = {
   },
 
   // Options
-  palette,
-  color: String,
-  shape: undefined,
-  adaptive: { default: defaultProps('adaptive', 'auto') },
   locales: undefined,
-
-  // Calendar
-  calendarAttrs: undefined,
 
   // Actions
   actionsAttrs: undefined,
+
+  // Calendar
+  calendarShape: { default: defaultProps('calendarShape') },
+  calendarAdaptive: { default: defaultProps('calendarAdaptive', 'auto') },
+  calendarAttrs: undefined,
 
   // Top
   topAttrs: undefined,

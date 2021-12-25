@@ -1,5 +1,5 @@
 import useBinds from '@/uses/useBinds'
-import { props } from '@/--components/DCalendar/props'
+import { props } from '@/components/DCalendar/props'
 
 export default function attrCalendar (
   binds,

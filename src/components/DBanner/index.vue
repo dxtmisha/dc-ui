@@ -1,15 +1,15 @@
 <template>
   <d-motion-transform
+    :auto-close="false"
+    :bottom="true"
     :class="classTransform"
+    :click="false"
     :open="propOpen"
     adaptive="panel"
-    :auto-close="false"
-    :click="false"
-    :bottom="true"
     @on-open="onOpen"
   >
     <template v-slot:default>
-      <div v-bind="binds">
+      <div :style="styleList" class="d-banner">
         <div class="d-banner__body">
           <div class="d-banner__text">
             <d-icon v-if="icon" v-bind="bindIcon" class="d-banner__icon"/>
@@ -29,8 +29,8 @@ import DIcon from '@/components/DIcon'
 import DMotionTransform from '@/components/DMotionTransform'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
-import attrActions from '@/--components/attrActions'
-import attrIcon from '@/--components/--DIcon/attrIcon'
+import attrActions from '@/components/DActions/attrActions'
+import attrIcon from '@/components/DIcon/attrIcon'
 import useWatch from '@/uses/useWatch'
 
 export default {
@@ -44,28 +44,20 @@ export default {
   setup (props) {
     const { open } = toRefs(props)
 
-    const propOpen = useWatch(open, data => {
-      data.value = open.value
-    })
+    const propOpen = useWatch(open, () => open.value, ['init'])
 
     const toOpen = () => {
       propOpen.value = true
     }
 
-    const bindIcon = attrIcon(props, {}, {}, ['icon'])
-    const bindActions = attrActions(props, {}, {}, ['bar'])
-    const binds = computed(() => {
-      return {
-        class: {
-          'd-banner': true,
-          [`size-${props.size}`]: props.size,
-          'option-sticky': props.sticky
-        },
-        style: { '--_bn-width': props.width }
-      }
-    })
+    const bindIcon = attrIcon({ props })
+    const bindActions = attrActions({ props })
+
     const classTransform = computed(() => {
       return { 'd-banner--sticky': props.sticky }
+    })
+    const styleList = computed(() => {
+      return { '--_bn-width': props.width }
     })
 
     const onOpen = ({ open }) => {
@@ -76,8 +68,8 @@ export default {
       propOpen,
       bindIcon,
       bindActions,
-      binds,
       classTransform,
+      styleList,
       toOpen,
       onOpen
     }

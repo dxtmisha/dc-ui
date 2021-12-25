@@ -71,7 +71,6 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          'd-button a-static': true,
           'status-selected': props.selected,
           'status-dragged': props.dragged,
           'status-readonly': props.readonly,

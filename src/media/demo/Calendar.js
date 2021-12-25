@@ -1,5 +1,6 @@
 import GeoDate from '@/classes/GeoDate'
 import { adaptiveBasic } from '@/media/demo/data/adaptive'
+import { Options } from '@/media/demo/Options'
 
 export const Calendar = {
   calendarAdaptive: {
@@ -27,6 +28,7 @@ export const Calendar = {
       return date.toStandard()
     })()
   },
+  calendarShape: Options.shape,
   calendarValue: {
     list: [
       { value: undefined },

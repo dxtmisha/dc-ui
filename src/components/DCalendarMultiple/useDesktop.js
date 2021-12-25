@@ -2,7 +2,7 @@ import { onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
 import EventControl from '@/classes/EventControl'
 
 export default function useDesktop (calendar, props) {
-  const { adaptive } = toRefs(props)
+  const { calendarAdaptive } = toRefs(props)
 
   const desktop = ref(undefined)
   const updateDesktop = () => requestAnimationFrame(() => {
@@ -11,7 +11,7 @@ export default function useDesktop (calendar, props) {
 
   const event = EventControl.init(window, updateDesktop, ['resize']).go()
 
-  watch(adaptive, updateDesktop)
+  watch(calendarAdaptive, updateDesktop)
   onMounted(updateDesktop)
   onUnmounted(() => event.stop())
 

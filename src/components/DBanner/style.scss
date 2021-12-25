@@ -37,6 +37,7 @@
     margin: 0 auto;
     padding-left: var(--_bn-padding);
     padding-bottom: var(--_bn-padding-bottom);
+    @content;
   }
 }
 
@@ -66,7 +67,6 @@
     --ac-height: 0;
     flex-basis: max-content;
     flex-grow: 1;
-    margin-left: calc(var(--_bn__br-margin) - var(--_bn-gap) - var(--_ac-padding, 0px));
     @content;
   }
 }

@@ -1,19 +1,20 @@
 import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DList/props'
+import { props as main } from '@/components/DCalendar/props'
 
-export default function attrList ({
+export default function attrCalendar ({
   props,
   pointer = [
-    'palette',
-    'color',
-    'navigationRail',
-    'ripple'
+    'min',
+    'max',
+    'multiple',
+    'locales',
+    'today'
   ],
   items = {},
   attrs = {}
 }) {
   return useAttrs({
-    code: 'item',
+    code: 'calendar',
     props: main,
     pointer,
     original: props,

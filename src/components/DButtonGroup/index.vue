@@ -1,26 +1,25 @@
 <template>
-  <div class="d-button-group" :class="classList">
+  <div :class="classList" class="d-button-group">
     <slot/>
-    <template
-      v-for="item in bar"
-      :key="item.value"
-    >
+    <template v-for="{bind, menu, value} in bar" :key="value">
       <d-menu
-        v-if="item.menu"
-        v-bind="item.menu"
-        @on-input="onInput"
+        v-if="menu"
+        v-bind="menu"
         v-slot:default="{classList, onClick, progress}"
+        @on-input="onInput"
       >
         <d-button
-          v-bind="item.bind"
+          v-bind="bind"
           :class="classList"
           :progress="progress"
+          class="d-button-group__item bg-item notranslate"
           @click="onClick"
         />
       </d-menu>
       <d-button
         v-else
-        v-bind="item.bind"
+        v-bind="bind"
+        class="d-button-group__item bg-item notranslate"
         @on-click="onInput"
       />
     </template>
@@ -70,7 +69,7 @@ export default {
     const classList = computed(() => {
       return {
         'status-disabled': props.disabled,
-        [`appearance-${props.appearance}`]: props.appearance,
+        [`appearance-${props.buttonAppearance}`]: props.buttonAppearance,
         [`axis-${props.axis}`]: props.axis,
         [`shape-${props.shape}`]: props.shape,
         'option-landscape': props.landscape,

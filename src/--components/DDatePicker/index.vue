@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" class="d-date-picker">
     <d-top
       v-if="multiple && propSwitchDate"
       v-bind="topAttrs"
@@ -80,8 +80,8 @@
 <script>
 import DActions from '@/components/DActions'
 import DButton from '@/components/DButton'
-import DCalendarMultiple from '@/--components/DCalendarMultiple'
-import DCalendarSelect from '@/--components/DCalendarSelect'
+import DCalendarMultiple from '@/components/DCalendarMultiple'
+import DCalendarSelect from '@/components/DCalendarSelect'
 import DInput from '@/components/DInput'
 import DMotionTransform from '@/components/DMotionTransform'
 import DTop from '@/--components/DTop'
@@ -89,9 +89,8 @@ import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useDateTime from '@/uses/useDateTime'
 import useWatch from '@/uses/useWatch'
+import useValue from './useValue'
 
 export default {
   name: 'DDatePicker',
@@ -111,20 +110,6 @@ export default {
     const inputIn = ref(undefined)
     const inputOut = ref(undefined)
 
-    const {
-      propValue,
-      valueFocus,
-      valueSecondary,
-      objectFocus,
-      objectSecondary,
-      resetDate,
-      emit
-    } = useDateTime(
-      'date',
-      props,
-      context
-    )
-
     const text = Translation.getByList([
       'Cancel',
       'Depart',
@@ -137,90 +122,34 @@ export default {
       'Selected range',
       'Start'
     ])
-    const textValue = computed(() => {
-      if (props.multiple) {
-        const className = 'd-date-picker__null'
-        let start = `<span class="${className}">${text.Start}</span>`
-        let end = `<span class="${className}">${text.End}</span>`
-        let minus = `<span class="${className}">-</span>`
 
-        if (valueFocus.value) {
-          start = objectFocus.value.toLocaleString(undefined, {
-            month: 'short',
-            day: 'numeric'
-          })
-        }
+    const {
+      propValue,
+      valueFocus,
+      valueSecondary,
+      textValue,
+      onSelected,
+      onInput,
+      onOk
+    } = useValue(
+      inputIn,
+      inputOut,
+      props,
+      context,
+      text
+    )
 
-        if (valueSecondary.value) {
-          minus = '-'
-          end = objectSecondary.value.toLocaleString(undefined, {
-            month: 'short',
-            day: 'numeric'
-          })
-        }
+    const propSwitchDate = useWatch(switchDate, () => switchDate.value, ['init'])
 
-        return `${start} ${minus} ${end}`
-      } else {
-        return objectFocus.value.toLocaleString(undefined, {
-          month: 'short',
-          weekday: 'short',
-          day: 'numeric'
-        })
-      }
-    })
-    const propSwitchDate = useWatch(switchDate, data => {
-      data.value = switchDate.value
-    })
-
-    const palette = useColor(props)
     const classList = computed(() => {
       return {
-        'd-date-picker': true,
-        [`adaptive-${props.adaptive}`]: props.adaptive,
-        'option-multiple': props.multiple,
-        ...palette.value
+        [`adaptive-${props.calendarAdaptive}`]: props.calendarAdaptive,
+        'option-multiple': props.multiple
       }
     })
 
     const onSwitch = () => {
       propSwitchDate.value = !propSwitchDate.value
-    }
-    const onSelected = ({ value }) => {
-      propValue.value = value
-      emit()
-    }
-    const onInput = event => {
-      if (event.validation) {
-        if (props.multiple) {
-          const valueIn = inputIn.value?.propValue
-          const valueOut = inputOut.value?.propValue
-
-          if (
-            valueIn &&
-            valueOut
-          ) {
-            propValue.value = [valueIn, valueOut].sort()
-          } else if (valueIn) {
-            propValue.value = [valueIn]
-          } else {
-            propValue.value = undefined
-          }
-        } else {
-          propValue.value = inputIn.value.propValue
-        }
-        emit()
-      }
-    }
-    const onOk = ({ value }) => {
-      switch (value) {
-        case 'cancel':
-          resetDate()
-          emit()
-          break
-        case 'ok':
-          emit('on-change')
-          break
-      }
     }
 
     useAdmin('d-date-picker', context)

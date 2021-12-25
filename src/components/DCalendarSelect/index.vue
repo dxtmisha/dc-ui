@@ -1,10 +1,10 @@
 <template>
-  <div class="d-calendar-select" :class="classList">
+  <div :class="classList" class="d-calendar-select">
     <div class="d-calendar-select__menu">
       <d-button
         v-bind="bindButton"
-        :text="activeLocale"
         :icon-trailing="iconArrowDown"
+        :text="activeLocale"
         :turn="!!motionYears"
         @click="onActive"
       />
@@ -14,58 +14,46 @@
         <d-button v-bind="bindButton" :icon="iconChevronRight" @click="toNext"/>
       </template>
     </div>
+
     <div v-if="active" class="d-calendar-select__calendar">
       <d-motion-axis ref="motion">
         <template v-if="motionYears" v-slot:years>
-          <d-scrollbar
-            ref="years"
-            class="d-calendar-select__list cs-years"
-            :border="true"
-          >
+          <d-scrollbar ref="years" :border="true" class="d-calendar-select__list cs-years">
             <div
-              v-for="item in listYears"
+              v-for="{class: className, year} in listYears"
+              :key="year"
               class="d-calendar-select__item"
-              :key="item.year"
             >
               <button
-                :class="item.class"
-                :data-value="item.year"
-                @click="onSelectedYear(item.year)"
-              >
-                {{ item.year }}
-              </button>
+                :class="className"
+                :data-value="year"
+                @click="onSelectedYear(year)"
+                v-text="year"
+              />
             </div>
           </d-scrollbar>
         </template>
+
         <template v-if="motionYears" v-slot:months>
-          <d-scrollbar
-            class="d-calendar-select__list cs-month"
-            :border="true"
-          >
+          <d-scrollbar :border="true" class="d-calendar-select__list cs-month">
             <div
-              v-for="item in listMonths"
+              v-for="{class: className, text, value} in listMonths"
+              :key="value"
               class="d-calendar-select__item"
-              :key="item.value"
             >
               <button
-                :class="item.class"
-                :data-value="item.value"
-                @click="onSelectedMonth(item.value)"
-              >
-                {{ item.text }}
-              </button>
+                :class="className"
+                :data-value="value"
+                @click="onSelectedMonth(value)"
+                v-text="text"
+              />
             </div>
           </d-scrollbar>
         </template>
-        <template
-          v-for="item in list"
-          :key="item.value"
-          v-slot:[item.slot]
-        >
+        <template v-for="{slot, value} in list" :key="value" v-slot:[slot]>
           <d-calendar
             v-bind="bindCalendar"
-            :value="item.value"
-            :selected="propValue"
+            :value="value"
             @on-selected="onSelected"
           />
         </template>
@@ -76,14 +64,14 @@
 
 <script>
 import DButton from '@/components/DButton'
-import DCalendar from '@/--components/DCalendar'
+import DCalendar from '@/components/DCalendar'
 import DMotionAxis from '@/components/DMotionAxis'
 import DScrollbar from '@/--components/DScrollbar'
 import { props } from './props'
 import { computed, onMounted, ref, toRefs, watch } from 'vue'
-import attrButton from '@/--components/attrButton'
-import attrCalendar from '@/--components/DCalendar/attrCalendar'
+import attrCalendar from '@/components/DCalendar/attrCalendar'
 import useAdmin from '@/uses/useAdmin'
+import useButton from './useButton'
 import useCalendar from './useCalendar'
 
 export default {
@@ -126,19 +114,16 @@ export default {
       context
     )
 
-    const bindCalendar = attrCalendar(props, refs)
-    const bindButton = attrButton(props, {}, {
-      appearance: 'text',
-      size: 'small',
-      dense: true,
-      lowercase: true,
-      ellipsis: true
+    const bindButton = useButton(props)
+    const bindCalendar = attrCalendar({
+      props,
+      items: { selected: propValue }
     })
 
     const classList = computed(() => {
       return {
-        [`adaptive-${props.adaptive}`]: props.adaptive,
-        [`shape-${props.shape}`]: props.shape,
+        [`adaptive-${props.calendarAdaptive}`]: props.calendarAdaptive,
+        [`shape-${props.calendarShape}`]: props.calendarShape,
         'option-multiple': props.multiple
       }
     })
