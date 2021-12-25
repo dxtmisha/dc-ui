@@ -26,7 +26,7 @@ export default function useSelected (
     propSelected.value = setValues(
       propSelected.value,
       value,
-      props.multiple,
+      !!props.multiple,
       props.maxlength
     )
   }

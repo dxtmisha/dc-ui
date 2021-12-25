@@ -66,7 +66,7 @@ import useBar from './useBar'
 import useList from './useList'
 import useOpen from './useOpen'
 import useScroll from '@/uses/useScroll'
-import useSelected from '@/--components/DAppBar/useSelected'
+import useSelected from '@/components/DAppBar/useSelected'
 
 export default {
   name: 'DNavigation',

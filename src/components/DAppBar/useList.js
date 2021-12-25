@@ -1,6 +1,6 @@
-import attrList from '@/--components/attrList'
-import attrMenu from '@/--components/attrMenu'
 import { toRefs } from 'vue'
+import attrItem from '@/components/DList/attrList'
+import attrMenu from '@/components/DMenu/attrMenu'
 
 export default function useList (props, propSelected) {
   const {
@@ -8,35 +8,31 @@ export default function useList (props, propSelected) {
     barInit
   } = toRefs(props)
 
-  const bindList = attrList(
+  const bindList = attrItem({
     props,
-    { selected: propSelected },
-    {
+    items: { selected: propSelected },
+    attrs: {
       tag: 'a',
       appearance: 'basic',
+      size: 'dynamic',
       axis: 'x',
       dense: true,
       iconAnimationShow: true
     }
-  )
+  })
 
-  const bindMenu = attrMenu(
+  const bindMenu = attrMenu({
     props,
-    {
+    items: {
       list: barNavigation,
       listInit: barInit,
       selected: propSelected
     },
-    {
+    attrs: {
       readonly: true,
       tag: 'a'
-    },
-    [
-      'translation',
-      'keyText',
-      'keyValue'
-    ]
-  )
+    }
+  })
 
   return {
     bindList,

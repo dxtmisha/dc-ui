@@ -78,12 +78,14 @@ export const props = {
     type: Boolean,
     default: true
   },
+  ripple: { default: defaultProps('ripple', true) },
 
   // Button
   menuButton: undefined,
 
   // List
   itemShape: { default: defaultProps('itemShape', 'tile') },
+  itemAdaptive: { default: defaultProps('itemAdaptive') },
   itemAttrs: undefined,
 
   // Menu

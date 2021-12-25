@@ -1,16 +1,16 @@
 <template>
-  <div ref="app" class="d-app-bar" v-bind="binds">
+  <div ref="app" v-bind="binds" class="d-app-bar">
     <div class="d-app-bar__body">
       <template v-if="menuAjax || barNavigation">
-        <d-menu v-bind="bindMenu">
+        <d-menu v-bind="bindMenu" @on-input="set">
           <template v-slot:default="{ classList, open, progress, onClick }">
             <div class="d-app-bar__navigation">
               <d-button
                 v-bind="bindButton"
-                :class="classList"
                 :active="open || propAction"
-                :progress="progress"
+                :class="classList"
                 :icon-turn="open || propAction"
+                :progress="progress"
                 @click="onNavigation($event, onClick)"
               />
             </div>
@@ -20,6 +20,7 @@
       <div v-else-if="navigation" class="d-app-bar__navigation">
         <d-button v-bind="bindButton" @on-click="onNavigation($event, set)"/>
       </div>
+
       <div v-if="isText" class="d-app-bar__title">
         <span v-if="propAction && textAction" class="d-app-bar__text">{{ textAction }}</span>
         <template v-else>
@@ -27,43 +28,41 @@
           <a v-if="textShort" class="d-app-bar__short a-static" :href="href">{{ textShort }}</a>
         </template>
       </div>
+
       <template v-if="propAction">
         <div class="d-app-bar__spacer"/>
-        <d-list
-          v-bind="bindList"
-          class="d-app-bar__action"
-          :list="propBarAction"
-        />
+        <d-list v-bind="bindList" :list="propBarAction" class="d-app-bar__action"/>
       </template>
       <template v-else>
         <slot
-          classTitle="d-app-bar__title"
-          classSpacer="d-app-bar__spacer"
-          classAction="d-app-bar__action"
-          classMenu="d-app-bar__menu"
+          class-title="d-app-bar__title"
+          class-spacer="d-app-bar__spacer"
+          class-action="d-app-bar__action"
+          class-menu="d-app-bar__menu"
         />
         <d-list
           v-if="propBarMenu.length"
           v-bind="bindList"
-          class="d-app-bar__menu"
           :list="propBarMenu"
+          class="d-app-bar__menu"
           @on-click="set"
         />
         <template v-if="propBar.length">
           <div class="d-app-bar__spacer"/>
           <d-list
             v-bind="bindList"
-            class="d-app-bar__bar"
             :list="propBar"
+            class="d-app-bar__bar"
             @on-click="set"
           />
         </template>
       </template>
     </div>
+
     <div v-if="propShow" class="d-app-bar__content">
       <d-motion-transform
+        :ignore="app"
         :open="!!contentSelected"
-        :static-element="app"
         @on-open="onOpen"
         @on-close="onClose"
       >
@@ -71,15 +70,8 @@
           <slot name="head"/>
         </template>
         <template v-slot:default>
-          <d-motion-axis
-            :selected="contentSelected"
-            :transition="directions"
-          >
-            <template
-              v-for="item in propSlots"
-              :key="item.index"
-              v-slot:[item.index]
-            >
+          <d-motion-axis :selected="contentSelected" :transition="directions">
+            <template v-for="item in propSlots" :key="item.index" v-slot:[item.index]>
               <slot :name="item.index" :set="set"/>
             </template>
           </d-motion-axis>
@@ -143,7 +135,7 @@ export default {
       [propBar, propBarMenu]
     )
 
-    const { propAction } = useAction(app, props)
+    const propAction = useAction(app, props)
 
     useScroll(app, props)
 
@@ -184,19 +176,24 @@ export default {
 
     return {
       app,
+
       isText,
+
       propBar,
       propBarMenu,
       propBarAction,
       propAction,
       propShow,
       propSlots,
+
       contentSelected,
       directions,
+
       bindButton,
       bindList,
       bindMenu,
       binds,
+
       set,
       onNavigation,
       onOpen,

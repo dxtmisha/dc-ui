@@ -13,7 +13,10 @@ export default function useAttrs ({
   const data = { ...attrs, ...original?.[`${code}Attrs`] }
 
   forEach(props, (item, index) => {
-    if (pointer.indexOf(index) !== -1) {
+    if (
+      pointer.indexOf(index) !== -1 &&
+      (index in refs)
+    ) {
       data[index] = refs[index]
     } else {
       const name = `${code}${index.replace(/^[a-z]/i, all => all.toUpperCase())}`

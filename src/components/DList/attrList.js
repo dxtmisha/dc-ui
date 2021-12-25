@@ -13,7 +13,7 @@ export default function attrItem ({
   attrs = {}
 }) {
   return useAttrs({
-    code: 'list',
+    code: 'item',
     props: main,
     pointer,
     original: props,

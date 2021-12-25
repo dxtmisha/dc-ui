@@ -13,5 +13,6 @@ export const Item = {
   },
   itemFocus: { message: 'help_and_feedback' },
   itemShape: Options.shape,
-  itemSize: Icon.iconSize
+  itemSize: Icon.iconSize,
+  itemAdaptive: Options.adaptive
 }

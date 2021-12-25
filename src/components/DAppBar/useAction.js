@@ -3,14 +3,11 @@ import EventControl from '@/classes/EventControl'
 import useClass from '@/uses/useClass'
 import useWatch from '@/uses/useWatch'
 
-export default function useAction (
-  bar,
-  props
-) {
+export default function useAction (bar, props) {
   const { action } = toRefs(props)
   const classHide = useClass(bar, 'status-hide')
 
-  const propAction = useWatch(action, data => {
+  return useWatch(action, data => {
     if (props.barAction) {
       if (props.action) {
         data.value = true
@@ -30,8 +27,4 @@ export default function useAction (
       }
     }
   }, [], props.barAction && props.action)
-
-  return {
-    propAction
-  }
 }
