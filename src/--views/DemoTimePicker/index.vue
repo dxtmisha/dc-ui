@@ -17,7 +17,7 @@
 
 <script>
 import DTimePicker from '@/--components/DTimePicker'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTimePicker } from './options'
 
 export default {

@@ -16,7 +16,7 @@
 
 <script>
 import DCalendarMultiple from '@/--components/DCalendarMultiple'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsCalendarMultiple } from './options'
 

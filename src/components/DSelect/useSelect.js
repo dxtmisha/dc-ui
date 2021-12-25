@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import Geo from '@/classes/Geo'
 
 export default function useSelect (props) {
-  const propList = computed(() => {
+  return computed(() => {
     switch (props.type) {
       case 'month':
         return new Geo(props.locales).getListMonth()
@@ -12,6 +12,4 @@ export default function useSelect (props) {
         return props.list
     }
   })
-
-  return { propList }
 }

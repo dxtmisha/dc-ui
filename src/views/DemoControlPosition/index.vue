@@ -48,7 +48,7 @@
 <script>
 import DControlPosition from '@/--components/DControlPosition'
 import DControlSelection from '@/--components/DControlSelection'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsControlPosition } from './options'
 
 export default {

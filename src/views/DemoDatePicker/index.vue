@@ -15,7 +15,7 @@
 
 <script>
 import DDatePicker from '@/--components/DDatePicker'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsDatePicker } from './options'
 
 export default {

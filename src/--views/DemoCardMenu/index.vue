@@ -15,7 +15,7 @@
 
 <script>
 import DCardMenu from '@/--components/DCardMenu'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardMenu } from './options'
 import card from '@/media/--demo/list/card'
 

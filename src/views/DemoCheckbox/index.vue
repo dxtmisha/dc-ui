@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import DCheckbox from '@/--components/DCheckbox'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import DCheckbox from '@/components/DCheckbox'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCheckbox } from './options'
 
 export default {

@@ -31,7 +31,7 @@
 <script>
 import DButton from '@/components/DButton'
 import DNavigation from '@/--components/DNavigation'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsNavigation } from './options'
 import { menu } from '@/media/demo/data/list'

@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import DSelect from '@/--components/DSelect'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import DSelect from '@/components/DSelect'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSelect } from './options'
 import { menu } from '@/media/demo/data/list'
 

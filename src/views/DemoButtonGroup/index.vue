@@ -15,7 +15,7 @@
 
 <script>
 import DButtonGroup from '@/--components/DButtonGroup'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsActions } from './options'
 import { page } from '@/media/demo/data/list'
 

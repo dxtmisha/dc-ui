@@ -4,22 +4,20 @@
     v-bind="bindMenu"
     @on-input="onSelect"
   >
-    <template v-slot:default="{ classList, onClick, open, value, names, progress }">
+    <template v-slot:default="{ classList, onClick, open, names, progress }">
       <input
         ref="input"
-        v-bind="attrsSelect"
+        v-bind="inputAttrs"
+        v-model="propValue"
         :name="name"
         type="hidden"
-        v-model="propValue"
       >
       <d-button
         v-bind="bindButton"
-        class="d-button-select__button"
         :class="classList"
-        :value="value"
-        :text="undefined"
-        :turn="open"
         :progress="progress"
+        :turn="open"
+        class="d-button-select__button"
         @click="onClick"
       >
         <span class="d-button-select__body">
@@ -39,8 +37,7 @@ import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useButton from './useButton'
 import useField from '@/uses/useField'
-import useMenu from '@/--components/DSelect/useMenu'
-import useSelect from '@/--components/DSelect/useSelect'
+import useMenu from '@/components/DSelect/useMenu'
 
 export default {
   name: 'DButtonSelect',
@@ -67,21 +64,23 @@ export default {
       context
     )
 
-    const { propList } = useSelect(props)
-
-    const bindMenu = useMenu(props, propList)
-    const { bindButton } = useButton(props, context)
+    const bindMenu = useMenu(props, propValue)
+    const bindButton = useButton(props, context, propValue)
 
     useAdmin('d-button-select', context)
 
     return {
       input,
       menu,
+
       propValidationMessage,
       propValue,
+
       bindMenu,
       bindButton,
+
       checkValidity,
+
       onSelect
     }
   }

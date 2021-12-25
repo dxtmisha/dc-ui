@@ -17,7 +17,7 @@
 
 <script>
 import DForm from '@/--components/DForm'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsForm } from './options'
 import form from '@/media/--demo/list/form'
 

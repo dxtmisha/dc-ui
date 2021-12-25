@@ -15,7 +15,7 @@
 
 <script>
 import router from '@/router'
-import DButtonSelect from '@/--components/DButtonSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 
 export default {
   name: 'InteractiveDemoRouter',

@@ -29,7 +29,7 @@
 
 <script>
 import DMotionScroll from '@/components/DMotionScroll'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { computed, ref } from 'vue'
 import { optionsMotionScroll } from '@/views/DemoMotionScroll/options'
 import { alexanderPushkin, leoTolstoy } from '@/media/demo/data/text'

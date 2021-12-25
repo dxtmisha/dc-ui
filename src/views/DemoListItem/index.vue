@@ -17,7 +17,7 @@
 
 <script>
 import DListItem from '@/components/DListItem'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsListItem } from './options'
 
 export default {

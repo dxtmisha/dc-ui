@@ -17,7 +17,7 @@
 
 <script>
 import DBanner from '@/--components/DBanner'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsBanner } from './options'
 import { alexanderPushkin } from '@/media/demo/data/text'
 

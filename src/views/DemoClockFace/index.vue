@@ -15,7 +15,7 @@
 
 <script>
 import DClockFace from '@/--components/DClockFace'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsClockFace } from './options'
 
 export default {

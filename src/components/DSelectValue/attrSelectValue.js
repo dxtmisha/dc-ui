@@ -1,20 +1,10 @@
 import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DMenu/props'
+import { props as main } from './props'
 
-export default function attrMenu ({
+export default function attrSelectValue ({
   props,
   pointer = [
-    'list',
-    'listInit',
-    'translation',
-    'keyText',
-    'keyValue',
-    'ajax',
-    'request',
-    'cache',
-    'maxlength',
     'multiple',
-    'readonly',
     'disabled',
     'palette',
     'color',
@@ -24,7 +14,7 @@ export default function attrMenu ({
   attrs = {}
 }) {
   return useAttrs({
-    code: 'menu',
+    code: 'selectValue',
     props: main,
     pointer,
     original: props,

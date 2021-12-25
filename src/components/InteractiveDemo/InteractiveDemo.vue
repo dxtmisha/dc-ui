@@ -102,7 +102,7 @@ export default {
 
       &.option-sticky {
         position: sticky;
-        top: 0;
+        top: var(--basic-top);
       }
     }
   }

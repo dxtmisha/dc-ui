@@ -1,15 +1,13 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
 
-const defaultProps = defaultInit('d-select')
+const defaultProps = defaultInit('d-button-select')
 export const props = {
   // Values
   item: undefined,
   value: undefined,
   name: undefined,
   text: undefined,
-  helperMessage: undefined,
-  validationMessage: undefined,
   list: undefined,
   listInit: undefined,
   translation: {
@@ -31,7 +29,6 @@ export const props = {
   // Input
   maxlength: Number,
   multiple: Boolean,
-  required: Boolean,
   inputAttrs: undefined,
 
   // Status
@@ -39,7 +36,7 @@ export const props = {
   readonly: Boolean,
   disabled: Boolean,
 
-  // Options
+  // Select
   type: {
     type: String,
     default: 'select',
@@ -55,27 +52,32 @@ export const props = {
   },
   palette: undefined,
   color: undefined,
-  appearance: undefined,
-  size: undefined,
-  shape: undefined,
-  align: undefined,
-  adaptive: undefined,
-  arrow: undefined,
-  counter: undefined,
-  cancel: undefined,
-  ripple: undefined,
-  fieldAttrs: undefined,
+  tag: undefined,
+  appearance: { default: defaultProps('appearance', 'chip') },
+  size: { default: defaultProps('size') },
+  shape: { default: defaultProps('shape') },
+  align: { default: defaultProps('align', 'left') },
+  adaptive: { default: defaultProps('adaptive') },
+  lowercase: { default: defaultProps('lowercase') },
+  dense: { default: defaultProps('dense') },
+  ellipsis: { default: defaultProps('ellipsis') },
+  ripple: { default: defaultProps('ripple') },
+  buttonAttrs: undefined,
 
   // Menu
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWindowWidth: { default: defaultProps('menuWindowWidth', '280px') },
-  menuWindowInDom: { default: defaultProps('menuWindowInDom', true) },
+  menuWindowWidth: { default: defaultProps('menuWindowWidth', 'auto') },
+  menuWindowInDom: { default: defaultProps('menuWindowInDom') },
   menuAttrs: undefined,
 
   // Icon
   icon: undefined,
   iconActive: undefined,
-  iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') }
+  iconArrowDown: {
+    type: String,
+    default: defaultProps('iconArrowDown', 'arrow_drop_down')
+  },
+  iconBackground: undefined
 }

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import DButtonSelect from '@/--components/DButtonSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 import { props } from './props'
 import { reactive, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'

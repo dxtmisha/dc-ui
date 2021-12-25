@@ -15,7 +15,7 @@
 
 <script>
 import DTime from '@/--components/DTime'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTime } from './options'
 
 export default {

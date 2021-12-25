@@ -13,7 +13,7 @@
 
 <script>
 import DProgress from '@/components/DProgress'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsProgress } from './options'
 
 export default {

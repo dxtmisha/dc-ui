@@ -4,30 +4,28 @@
       <d-carcass-field
         v-bind="bindCarcassField"
         :focus="open"
-        :turn="open"
         :progress="progress"
-        @on-previous="onPrevious"
-        @on-next="onNext"
+        :turn="open"
+        @on-previous="onArrow('previous')"
+        @on-next="onArrow('next')"
         @on-cancel="onCancel"
       >
         <template v-slot:default="{ className, classNameHidden }">
           <input
             ref="input"
             v-bind="inputAttrs"
+            v-model="propValue"
             :class="classNameHidden"
             :name="name"
             :required="required"
             type="text"
-            v-model="propValue"
           >
           <d-select-value
+            v-bind="bindSelectValue"
             :class="`${classList} ${className}`"
             :value="items"
-            :multiple="multiple"
-            :disabled="disabled"
-            :palette="palette"
-            @on-trailing="onCancelValue"
             @click="onClick"
+            @on-trailing="onCancelValue"
           />
         </template>
       </d-carcass-field>
@@ -40,13 +38,12 @@ import DCarcassField from '@/components/DCarcassField'
 import DMenu from '@/components/DMenu'
 import DSelectValue from '@/components/DSelectValue'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
+import attrSelectValue from '@/components/DSelectValue/attrSelectValue'
 import useAdmin from '@/uses/useAdmin'
-import useArrow from './useArrow'
 import useCarcass from './useCarcass'
 import useField from '@/uses/useField'
 import useMenu from './useMenu'
-import useSelect from './useSelect'
 
 export default {
   name: 'DSelect',
@@ -78,40 +75,36 @@ export default {
       context
     )
 
-    const propCancel = computed(() => !props.multiple && props.cancel)
-    const filled = computed(() => !!propValue.value)
-
-    const { propList } = useSelect(props)
-
-    const {
-      onPrevious,
-      onNext
-    } = useArrow(menu)
-
-    const bindMenu = useMenu(props, propList)
+    const bindMenu = useMenu(props, propValue)
+    const bindSelectValue = attrSelectValue({ props })
     const bindCarcassField = useCarcass(
       props,
       context,
       propValidationMessage,
-      propCounter,
-      propCancel,
-      filled
+      propValue,
+      propCounter
     )
+
+    const onArrow = type => menu.value?.[type]()
 
     useAdmin('d-select', context, input)
 
     return {
       input,
       menu,
+
       propValidationMessage,
       propValue,
+
       bindMenu,
+      bindSelectValue,
       bindCarcassField,
+
       checkValidity,
       setChange,
+
       onSelect,
-      onPrevious,
-      onNext,
+      onArrow,
       onCancel,
       onCancelValue
     }

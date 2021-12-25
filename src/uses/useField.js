@@ -56,11 +56,13 @@ export default function useField (
   const emitFrame = (type = EVENT_DEFAULT) => requestAnimationFrame(() => emit(type))
 
   const set = event => {
-    const value = 'value' in event ? event.value : input.value?.propValue || input.value?.value || ''
+    if (!props?.readonly) {
+      const value = 'value' in event ? event.value : input.value?.propValue || input.value?.value || ''
 
-    propValue.value = !Array.isArray(value)
-      ? value
-      : value.length > 0 ? value : ''
+      propValue.value = !Array.isArray(value)
+        ? value
+        : value.length > 0 ? value : ''
+    }
   }
   const setChange = () => {
     change.value = true

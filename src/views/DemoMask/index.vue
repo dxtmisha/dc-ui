@@ -14,7 +14,7 @@
 
 <script>
 import DMask from '@/components/DMask'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsMask } from './options'
 
 export default {

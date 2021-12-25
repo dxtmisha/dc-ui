@@ -14,7 +14,7 @@
 
 <script>
 import DAlert from '@/components/DAlert'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsAlert } from './options'
 
 export default {

@@ -18,7 +18,7 @@
 
 <script>
 import DTop from '@/--components/DTop'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTop } from './options'
 import { leoTolstoy } from '@/media/demo/data/text'
 

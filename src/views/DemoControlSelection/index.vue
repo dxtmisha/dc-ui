@@ -28,7 +28,7 @@
 
 <script>
 import DControlSelection from '@/--components/DControlSelection'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsControlSelection } from './options'
 
 export default {

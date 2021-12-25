@@ -16,7 +16,7 @@
 
 <script>
 import DSlider from '@/--components/DSlider'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSlider } from './options'
 
 export default {

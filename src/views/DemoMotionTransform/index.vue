@@ -26,7 +26,7 @@
 
 <script>
 import DMotionTransform from '@/components/DMotionTransform'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsMotionTransform } from './options'
 import { quote2, leoTolstoy } from '@/media/demo/data/text'
 

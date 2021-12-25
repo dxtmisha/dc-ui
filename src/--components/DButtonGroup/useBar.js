@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import isSelected from '@/functions/isSelected'
 import attrButton from '@/--components/attrButton'
-import attrMenu from '@/components/DMenu/attrMenu'
+import attrMenu from '@/--components/attrMenu'
 import useWatch from '@/uses/useWatch'
 
 export default function useBar (

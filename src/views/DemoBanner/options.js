@@ -1,4 +1,4 @@
-import useProps from '@/--components/InteractiveDemo/useProps'
+import useProps from '@/components/InteractiveDemo/useProps'
 import { props } from '@/--components/DBanner/props'
 import { Window } from '@/media/demo/Window'
 import { quote1, quote2 } from '@/media/demo/data/text'

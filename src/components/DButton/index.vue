@@ -107,6 +107,8 @@ export default {
           props.iconReadonly &&
           event.target.closest('.bt-trailing')
         ) {
+          event.preventDefault()
+          event.stopPropagation()
           type = 'on-trailing'
         }
 

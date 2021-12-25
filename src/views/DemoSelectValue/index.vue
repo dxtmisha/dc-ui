@@ -14,7 +14,7 @@
 
 <script>
 import DSelectValue from '@/components/DSelectValue'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSelectValue } from './options'
 
 export default {

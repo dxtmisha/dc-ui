@@ -21,7 +21,7 @@
 <script>
 import DButton from '@/components/DButton'
 import DSnackbar from '@/--components/DSnackbar'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSnackbar } from './options'
 import { helper1, quote1, quote2 } from '@/media/demo/data/text'
 

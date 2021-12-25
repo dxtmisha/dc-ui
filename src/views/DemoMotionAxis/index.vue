@@ -28,7 +28,7 @@
 
 <script>
 import DMotionAxis from '@/components/DMotionAxis'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { computed, ref } from 'vue'
 import { optionsMotionAxis } from './options'
 

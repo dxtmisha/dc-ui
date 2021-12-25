@@ -1,4 +1,4 @@
-import useProps from '@/--components/InteractiveDemo/useProps'
+import useProps from '@/components/InteractiveDemo/useProps'
 import { props } from '@/components/DListItem/props'
 import { Icon } from '@/media/demo/Icon'
 import { Item } from '@/media/demo/Item'

@@ -1,16 +1,16 @@
 <template>
-  <label class="d-checkbox" :class="classList">
+  <label :class="classList" class="d-checkbox">
     <input :name="name" type="hidden" value="0">
     <input
       ref="input"
       v-bind="inputAttrs"
+      v-model="propValue"
+      :disabled="disabled"
+      :name="name"
+      :required="required"
+      :type="propType"
       class="d-checkbox__input"
       value="1"
-      :name="name"
-      :disabled="disabled"
-      :type="propType"
-      :required="required"
-      v-model="propValue"
       v-on="on"
       @input.prevent="onChecked"
     >
@@ -92,15 +92,19 @@ export default {
 
     return {
       input,
+
       ifText,
       isRipple,
-      propType,
-      propIcon,
+
       propValidationMessage,
       propValue,
+      propType,
+      propIcon,
       classList,
+
       checkValidity,
       setChange,
+
       onChecked
     }
   }

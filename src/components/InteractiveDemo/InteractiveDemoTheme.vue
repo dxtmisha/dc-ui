@@ -1,21 +1,21 @@
 <template>
   <d-button-select
-    :value="valueTheme"
-    name="theme"
-    :title="text.Theme"
-    :list="list"
-    appearance="text"
-    size="small"
-    adaptive="auto"
-    :lowercase="true"
     :icon="icon"
+    :list="list"
+    :lowercase="true"
+    :title="text.Theme"
+    :value="valueTheme"
+    adaptive="auto"
+    appearance="text"
     menu-size="compact"
+    name="theme"
+    size="small"
     @on-input="onInput"
   />
 </template>
 
 <script>
-import DButtonSelect from '@/--components/DButtonSelect'
+import DButtonSelect from '@/components/DButtonSelect'
 
 export default {
   name: 'InteractiveDemoTheme',

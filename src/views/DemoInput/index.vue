@@ -16,7 +16,7 @@
 
 <script>
 import DInput from '@/components/DInput'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsInput } from './options'
 
 export default {

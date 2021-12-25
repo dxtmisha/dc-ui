@@ -1,19 +1,15 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
 
-const defaultProps = defaultInit('d-button-select')
+const defaultProps = defaultInit('d-select')
 export const props = {
   // Values
   item: undefined,
   value: undefined,
   name: undefined,
-
-  // Status
-  selected: Boolean,
-  readonly: Boolean,
-  disabled: Boolean,
-
-  // List
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
   list: undefined,
   listInit: undefined,
   translation: {
@@ -31,9 +27,19 @@ export const props = {
   ajax: String,
   request: Object,
   cache: Boolean,
-  multiple: Boolean,
 
-  // Select
+  // Input
+  maxlength: Number,
+  multiple: Boolean,
+  required: Boolean,
+  inputAttrs: undefined,
+
+  // Status
+  selected: Boolean,
+  readonly: Boolean,
+  disabled: Boolean,
+
+  // Options
   type: {
     type: String,
     default: 'select',
@@ -47,43 +53,32 @@ export const props = {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
   },
-  maxlength: Number,
-  attrsSelect: Object,
-
-  // Button
-  text: undefined,
   palette: undefined,
   color: undefined,
-  tag: undefined,
-  appearance: {
-    type: String,
-    default: defaultProps('appearance', 'chip')
-  },
+  appearance: undefined,
   size: undefined,
   shape: undefined,
-  align: {
-    type: String,
-    default: defaultProps('align', 'left')
-  },
+  align: undefined,
   adaptive: undefined,
-  lowercase: undefined,
-  dense: undefined,
-
-  // Icon
-  icon: undefined,
-  iconActive: undefined,
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
-  iconBackground: undefined,
+  arrow: undefined,
+  counter: undefined,
+  cancel: undefined,
+  ripple: undefined,
+  fieldAttrs: undefined,
 
   // Menu
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWidth: {
-    type: String,
-    default: defaultProps('menuWidth', '0px')
-  }
+  menuWindowWidth: { default: defaultProps('menuWindowWidth', '280px') },
+  menuWindowInDom: { default: defaultProps('menuWindowInDom') },
+  menuAttrs: undefined,
+
+  // Select value
+  selectValueAttrs: undefined,
+
+  // Icon
+  icon: undefined,
+  iconActive: undefined,
+  iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') }
 }

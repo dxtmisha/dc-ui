@@ -17,7 +17,7 @@
 
 <script>
 import DFile from '@/--components/DFile'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsFile } from './options'
 
 export default {

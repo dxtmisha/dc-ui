@@ -15,7 +15,7 @@
 
 <script>
 import DDate from '@/--components/DDate'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsDate } from './options'
 
 export default {

@@ -6,19 +6,19 @@
     <d-button-select
       v-bind="binds"
       id="id-button-select"
-      name="interactive-demo"
-      :list="list"
       :admin="true"
+      :list="list"
+      name="interactive-demo"
       @on-input="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DButtonSelect from '@/--components/DButtonSelect'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import DButtonSelect from '@/components/DButtonSelect'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsButtonSelect } from './options'
-import menu from '@/media/--demo/list/menu'
+import { menu } from '@/media/demo/data/list'
 
 export default {
   name: 'DemoButtonSelect',

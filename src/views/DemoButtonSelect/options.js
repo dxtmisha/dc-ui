@@ -1,8 +1,10 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DSelect/props'
+import { props } from '@/components/DButtonSelect/props'
+import { Button } from '@/media/demo/Button'
 import { Icon } from '@/media/demo/Icon'
 
-export const optionsSelect = useProps(props, {
+export const optionsButtonSelect = useProps(props, {
+  appearance: Button.buttonAppearance,
   menuSize: Icon.iconSize,
   type: {
     list: [

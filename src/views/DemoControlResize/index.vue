@@ -11,7 +11,7 @@
 
 <script>
 import DControlResize from '@/--components/DControlResize'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsControlResize } from './options'
 
 export default {

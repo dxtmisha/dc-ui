@@ -31,7 +31,7 @@
 
 <script>
 import DAppBar from '@/--components/DAppBar'
-import InteractiveDemo from '@/--components/InteractiveDemo/InteractiveDemo'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { onBeforeMount, onUnmounted } from 'vue'
 import { optionsAppBar } from './options'
 import { alexanderPushkin, leoTolstoy, textarea } from '@/media/demo/data/text'
