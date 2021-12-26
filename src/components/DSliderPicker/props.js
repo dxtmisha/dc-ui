@@ -4,6 +4,7 @@ import { palette } from '@/uses/useColor'
 const defaultProps = defaultInit('d-slider')
 export const props = {
   // Values
+  value: undefined,
   marks: Array,
   marksInit: {
     type: Boolean,
@@ -21,13 +22,8 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
-  value: undefined,
-
-  // Status
-  disabled: Boolean,
 
   // Input
-  multiple: Boolean,
   step: {
     type: Number,
     default: 1
@@ -40,10 +36,14 @@ export const props = {
     type: Number,
     default: 100
   },
+  multiple: Boolean,
   minimumDistance: {
     type: Number,
     default: 1
   },
+
+  // Status
+  disabled: Boolean,
 
   // Options
   palette,

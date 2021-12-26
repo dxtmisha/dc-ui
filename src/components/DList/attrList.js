@@ -7,7 +7,8 @@ export default function attrList ({
     'palette',
     'color',
     'navigationRail',
-    'ripple'
+    'ripple',
+    'iconBackground'
   ],
   items = {},
   attrs = {}

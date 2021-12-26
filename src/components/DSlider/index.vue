@@ -1,87 +1,74 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" class="d-slider">
     <input
       ref="input"
       v-bind="bindInput"
-      class="d-slider__hidden"
       :name="name"
-      type="text"
       :value="propValue || ''"
+      class="d-slider__hidden"
+      type="text"
     />
+
     <label v-if="text" class="d-slider__label">
       {{ text }}<span v-if="required" class="d-slider__required"/>
       <span v-if="showLabel" class="d-slider__label__value">{{ textLabel }}</span>
     </label>
+
     <div class="d-slider__body">
       <d-icon
         v-if="icon"
-        class="d-slider__icon is-icon"
-        :icon="icon"
-        :icon-active="iconActive"
         :active="active"
         :disabled="disabled"
+        :icon="icon"
+        :icon-active="iconActive"
+        class="d-slider__icon is-icon"
       />
-      <span
-        v-if="textLeading"
-        class="d-slider__text is-min"
-        v-html="textLeading"
-      />
+      <span v-if="textLeading" class="d-slider__text is-min" v-html="textLeading"/>
 
       <template v-if="multiple">
         <input
-          v-if="showInput"
           ref="inputMin"
+          v-if="showInput"
           v-bind="bindInput"
           :placeholder="textMin"
           class="d-slider__input is-min"
           data-type="min"
-          @input="onInput"
-          @focus="onFocus"
           @blur="onBlur"
+          @focus="onFocus"
+          @input="onInput"
         />
-        <span
-          v-else-if="showValue"
-          class="d-slider__value is-min"
-          v-html="textMin || '0'"
-        />
+        <span v-else-if="showValue" class="d-slider__value is-min" v-html="textMin || '0'"/>
       </template>
       <d-slider-picker
         ref="slider"
         v-bind="bindSlider"
-        class="d-slider__slider is-min"
-        :value="value"
         :disabled="disabled"
+        :value="value"
+        class="d-slider__slider is-min"
         @on-input="onSelect"
         @on-change="onChange"
       />
       <input
-        v-if="showInput"
         ref="inputMax"
+        v-if="showInput"
         v-bind="bindInput"
         :placeholder="textMax || (multiple ? '100' : '0')"
         class="d-slider__input is-max"
         data-type="max"
-        @input="onInput"
-        @focus="onFocus"
         @blur="onBlur"
+        @focus="onFocus"
+        @input="onInput"
       />
-      <span
-        v-else-if="showValue"
-        class="d-slider__value is-max"
-        v-html="textMax || (multiple ? '100' : '0')"
-      />
-      <span
-        v-if="textTrailing"
-        class="d-slider__text is-max"
-        v-html="textTrailing"
-      />
+      <span v-else-if="showValue" class="d-slider__value is-max" v-html="textMax || (multiple ? '100' : '0')"/>
+      <span v-if="textTrailing" class="d-slider__text is-max" v-html="textTrailing"/>
       <d-icon
         v-if="iconTrailing"
-        class="d-slider__icon is-trailing"
-        :icon="iconTrailing"
         :disabled="disabled"
+        :icon="iconTrailing"
+        class="d-slider__icon is-trailing"
       />
     </div>
+
     <template v-if="!disabled">
       <div v-if="propValidationMessage" class="d-slider__validation">{{ propValidationMessage }}</div>
       <div v-else-if="helperMessage" class="d-slider__helper">{{ helperMessage }}</div>
@@ -91,14 +78,14 @@
 
 <script>
 import DIcon from '@/components/DIcon'
-import DSliderPicker from '@/--components/DSliderPicker'
+import DSliderPicker from '@/components/DSliderPicker'
 import { props } from './props'
 import { computed, ref } from 'vue'
+import attrSlider from '@/components/DSliderPicker/attrSlider'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useField from '@/uses/useField'
 import useInput from './useInput'
-import useSlider from './useSlider'
 
 export default {
   name: 'DSlider',
@@ -112,8 +99,6 @@ export default {
     const input = ref(undefined)
     const inputMin = ref(undefined)
     const slider = ref(undefined)
-
-    const palette = useColor(props)
 
     const {
       propValidationMessage,
@@ -134,9 +119,10 @@ export default {
       context
     )
 
-    const { bindSlider } = useSlider(props)
-    const { bindInput } = useInput(props)
+    const bindInput = useInput(props)
+    const bindSlider = attrSlider({ props })
 
+    const palette = useColor(props)
     const classList = computed(() => {
       return {
         'd-slider': true,
@@ -171,8 +157,8 @@ export default {
       textMin,
       textMax,
       textLabel,
-      bindSlider,
       bindInput,
+      bindSlider,
       classList,
       checkValidity,
       setChange,

@@ -2,6 +2,7 @@ import { Icon } from '@/media/demo/Icon'
 import { Options } from '@/media/demo/Options'
 
 export const Item = {
+  itemAdaptive: Options.adaptive,
   itemAppearance: {
     list: [
       { value: undefined },
@@ -12,7 +13,7 @@ export const Item = {
     ]
   },
   itemFocus: { message: 'help_and_feedback' },
+  itemRipple: Options.ripple,
   itemShape: Options.shape,
-  itemSize: Icon.iconSize,
-  itemAdaptive: Options.adaptive
+  itemSize: Icon.iconSize
 }

@@ -41,9 +41,9 @@ export default function useObjectList (props) {
     return true
   }
 
-  const onGroup = ({ group }) => {
-    propGroup.value = group
-    object.value.setGroup(group)
+  const onGroup = ({ value }) => {
+    propGroup.value = value
+    object.value.setGroup(value)
   }
 
   if (props.selected) {

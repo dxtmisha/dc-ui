@@ -1,22 +1,21 @@
-import attrList from '@/--components/attrList'
+import attrList from '@/components/DList/attrList'
 
 export default function useList (
   props,
   propList,
   propSelected
 ) {
-  return attrList(
+  return attrList({
     props,
-    {
+    items: {
       list: propList,
       selected: propSelected
     },
-    {
+    attrs: {
       tag: 'a',
       adaptive: 'basic',
       dense: true,
       iconAnimationShow: true
-    },
-    ['navigationRail', 'iconBackground']
-  )
+    }
+  })
 }

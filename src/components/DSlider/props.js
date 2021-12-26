@@ -1,21 +1,34 @@
 export const props = {
   // Values
-  marks: undefined,
   value: undefined,
-  translation: undefined,
-  keyText: undefined,
-  keyValue: undefined,
   name: undefined,
   text: String,
   textLeading: String,
   textTrailing: String,
   helperMessage: String,
   validationMessage: String,
+  marks: undefined,
+  translation: undefined,
+  keyText: undefined,
+  keyValue: undefined,
   treatment: Function,
+
+  // Input
+  step: undefined,
+  min: {
+    default: 0
+  },
+  max: {
+    default: 100
+  },
+  multiple: undefined,
+  minimumDistance: undefined,
+  required: Boolean,
   on: {
     type: Object,
     default: {}
   },
+  inputAttrs: undefined,
 
   // Status
   active: Boolean,
@@ -25,20 +38,7 @@ export const props = {
   showValue: Boolean,
   showLabel: Boolean,
   showInput: Boolean,
-  attrsButton: Object,
-
-  // Input
-  multiple: undefined,
-  minimumDistance: undefined,
-  step: undefined,
-  min: {
-    default: 0
-  },
-  max: {
-    default: 100
-  },
-  required: Boolean,
-  attrsInput: Object,
+  buttonAttrs: Object,
 
   // Slider
   palette: undefined,

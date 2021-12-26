@@ -1,5 +1,5 @@
 <template>
-  <div ref="slider" :class="classList">
+  <div ref="slider" :class="classList" class="d-slider-picker">
     <button
       v-if="multiple"
       ref="min"
@@ -25,12 +25,12 @@
     <div class="d-slider-picker__track"/>
     <div v-if="propMarks" class="d-slider-picker__marks">
       <span
-        v-for="item in propMarks"
-        :key="item.mark"
+        v-for="{mark, style, text, value} in propMarks"
+        :key="mark"
+        :data-text="text"
+        :data-value="value"
+        :style="style"
         class="d-slider-picker__mark"
-        :style="item.style"
-        :data-text="item.text"
-        :data-value="item.value"
       />
     </div>
     <div
@@ -90,7 +90,6 @@ export default {
     const palette = useColor(props)
     const classList = computed(() => {
       return {
-        'd-slider-picker': true,
         'status-disabled': props.disabled,
         [`appearance-${props.appearance}`]: props.appearance,
         'option-mark': propMarks.value,

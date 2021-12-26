@@ -3,6 +3,7 @@ import { defaultInit, validator } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-navigation')
 export const props = {
   // Values
+  title: String,
   list: [Array, Object],
   listInit: {
     type: Boolean,
@@ -20,7 +21,6 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
-  title: String,
   content: Object,
 
   // Status
@@ -75,12 +75,12 @@ export const props = {
   right: Boolean,
 
   // List
-  listAppearance: { default: defaultProps('listAppearance', 'basic') },
-  listSize: { default: defaultProps('listSize') },
-  listShape: { default: defaultProps('listShape', 'basic') },
-  listRipple: { default: defaultProps('listRipple') },
-  listMenuAttrs: { default: defaultProps('listMenuAttrs') },
-  listAttrs: undefined,
+  itemAppearance: { default: defaultProps('itemAppearance', 'basic') },
+  itemSize: { default: defaultProps('itemSize') },
+  itemShape: { default: defaultProps('itemShape', 'basic') },
+  itemRipple: { default: defaultProps('itemRipple') },
+  itemMenuAttrs: { default: defaultProps('itemMenuAttrs') },
+  itemAttrs: undefined,
 
   // Icon
   iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },

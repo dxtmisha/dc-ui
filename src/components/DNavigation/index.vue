@@ -2,43 +2,38 @@
   <div
     ref="navigation"
     v-bind="binds"
+    class="d-navigation"
     @click="onClose"
   >
-    <div
-      ref="body"
-      class="d-navigation__body"
-      :class="classScroll"
-    >
+    <div ref="body" :class="classScroll" class="d-navigation__body">
       <div v-if="title" class="d-navigation__title">
         {{ title }}
         <d-button
           v-if="close"
-          value="close"
           :icon="iconClose"
           appearance="text"
-          size="small"
           shape="pill"
+          size="small"
+          value="close"
           @on-click="set"
         />
       </div>
       <slot/>
-      <d-motion-axis
-        :selected="contentSelected || 'list'"
-        :transition="directions"
-      >
+      <d-motion-axis :selected="contentSelected || 'list'" :transition="directions">
         <template v-slot:list>
           <slot name="list"/>
           <d-list v-bind="bindList" class="d-navigation__list" @on-click="set"/>
         </template>
+
         <template
-          v-for="item in propSlots"
-          :key="item.index"
-          v-slot:[item.index]
+          v-for="{index, text} in propSlots"
+          :key="index"
+          v-slot:[index]
         >
           <div v-if="back" class="d-navigation__item">
             <d-list-item
               v-bind="bindList"
-              :text="item.text"
+              :text="text"
               :selected="false"
               :navigation-rail="undefined"
               :icon="iconChevronLeft"
@@ -46,7 +41,7 @@
             />
           </div>
           <div class="d-navigation__content">
-            <slot :name="item.index" :set="set"/>
+            <slot :name="index" :set="set"/>
           </div>
         </template>
       </d-motion-axis>
@@ -61,8 +56,8 @@ import DListItem from '@/components/DListItem'
 import DMotionAxis from '@/components/DMotionAxis'
 import { props } from './props'
 import { computed, ref } from 'vue'
+import List from '@/classes/List'
 import useAdmin from '@/uses/useAdmin'
-import useBar from './useBar'
 import useList from './useList'
 import useOpen from './useOpen'
 import useScroll from '@/uses/useScroll'
@@ -82,7 +77,13 @@ export default {
     const navigation = ref(undefined)
     const body = ref(undefined)
 
-    const { propList } = useBar(props)
+    const propList = computed(() => new List(
+      props.list,
+      props.listInit,
+      props.translation,
+      props.keyText,
+      props.keyValue
+    ).get())
 
     const {
       toClick,
@@ -119,7 +120,6 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          'd-navigation': true,
           [`appearance-${props.appearance}`]: props.appearance,
           [`shape-${props.shape}`]: props.shape,
           [`adaptive-${props.adaptive}`]: props.adaptive,
