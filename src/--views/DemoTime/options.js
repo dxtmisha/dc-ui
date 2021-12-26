@@ -1,5 +1,5 @@
 
-import { timePickerFormat, timePickerMax, timePickerMin } from '@/--views/DemoTimePicker/options'
+import { timePickerFormat, timePickerMax, timePickerMin } from '@/views/DemoTimePicker/options'
 import {
   align,
   cancel,

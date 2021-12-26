@@ -34,7 +34,7 @@
 
 @mixin calendarMultipleCalendar() {
   &__calendar {
-    height: var(--_cm__cl-height);
+    height: calc(var(--_cm__cl-height) - 48px);
     @content;
   }
 }

@@ -7,12 +7,8 @@ export default function useSelect (props, context) {
     type
   } = toRefs(props)
 
-  const items = useWatch(type, data => {
-    data.value = []
-  }, [], [])
-  const propSelect = useWatch(selected, data => {
-    data.value = selected.value
-  })
+  const items = useWatch(type, () => [], ['init'])
+  const propSelect = useWatch(selected, () => selected.value, ['init'])
 
   const rotate = computed(() => {
     let rotate = 360 / 60

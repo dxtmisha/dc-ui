@@ -6,67 +6,68 @@
       class="d-date-picker__management"
       @on-click="onOk"
     />
+
     <div class="d-date-picker__head">
       <div class="d-date-picker__title">{{ text[multiple ? 'Selected range' : 'Select date'] }}</div>
       <div class="d-date-picker__selected">
         <div class="d-date-picker__spacer" v-html="textValue"/>
         <d-button
+          :active="!propSwitchDate"
           :icon="iconEdit"
           :icon-active="iconCalendar"
-          :active="!propSwitchDate"
           appearance="text"
           @click="onSwitch"
         />
       </div>
     </div>
+
     <div class="d-date-picker__content">
       <d-motion-transform
         ref="motion"
-        :open="!propSwitchDate"
-        adaptive="panel"
         :animation-show="false"
         :auto-close="false"
         :bottom="true"
+        :open="!propSwitchDate"
+        adaptive="panel"
       >
         <template v-slot:head>
           <div class="d-date-picker__body">
             <component
               :is="multiple ? 'd-calendar-multiple' : 'd-calendar-select'"
-              v-bind="calendarAttrs"
+              v-bind="bindCalendar"
               :value="propValue"
-              :min="min"
-              :max="max"
-              :locales="locales"
-              :shape="shape"
-              :adaptive="adaptive"
               @on-input="onSelected"
             />
           </div>
         </template>
+
         <template v-slot:default>
           <div v-if="!propSwitchDate" class="d-date-picker__input">
             <d-input
               ref="inputIn"
-              class="d-date-picker__input__item"
-              type="date"
+              v-bind="inputAttrs"
+              :cancel="false"
               :text="text[multiple ? 'Depart' : 'Enter date']"
               :value="valueFocus"
-              :cancel="false"
+              class="d-date-picker__input__item"
+              type="date"
               @on-change="onInput"
             />
             <d-input
-              v-if="multiple"
               ref="inputOut"
-              class="d-date-picker__input__item"
-              type="date"
+              v-if="multiple"
+              v-bind="inputAttrs"
+              :cancel="false"
               :text="text.Return"
               :value="valueSecondary"
-              :cancel="false"
+              class="d-date-picker__input__item"
+              type="date"
               @on-change="onInput"
             />
           </div>
         </template>
       </d-motion-transform>
+
       <d-actions
         v-if="!multiple || !propSwitchDate"
         v-bind="actionsAttrs"
@@ -84,10 +85,11 @@ import DCalendarMultiple from '@/components/DCalendarMultiple'
 import DCalendarSelect from '@/components/DCalendarSelect'
 import DInput from '@/components/DInput'
 import DMotionTransform from '@/components/DMotionTransform'
-import DTop from '@/--components/DTop'
+import DTop from '@/components/DTop'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import Translation from '@/classes/Translation'
+import attrCalendarSelect from '@/components/DCalendarSelect/attrCalendarSelect'
 import useAdmin from '@/uses/useAdmin'
 import useWatch from '@/uses/useWatch'
 import useValue from './useValue'
@@ -96,10 +98,10 @@ export default {
   name: 'DDatePicker',
   components: {
     DActions,
-    DInput,
     DButton,
     DCalendarMultiple,
     DCalendarSelect,
+    DInput,
     DMotionTransform,
     DTop
   },
@@ -141,6 +143,7 @@ export default {
 
     const propSwitchDate = useWatch(switchDate, () => switchDate.value, ['init'])
 
+    const bindCalendar = attrCalendarSelect({ props })
     const classList = computed(() => {
       return {
         [`adaptive-${props.calendarAdaptive}`]: props.calendarAdaptive,
@@ -163,6 +166,7 @@ export default {
       text,
       textValue,
       propSwitchDate,
+      bindCalendar,
       classList,
       onSwitch,
       onSelected,

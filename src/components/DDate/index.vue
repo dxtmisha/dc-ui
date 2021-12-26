@@ -1,9 +1,9 @@
 <template>
   <d-window
-    :disabled="disabled || readonly"
-    width="auto"
-    size="minimum"
     :auto-close="false"
+    :disabled="disabled || readonly"
+    :size="multiple ? 'fullscreen' : 'minimum'"
+    width="auto"
   >
     <template v-slot:control="{ classList, onClick, open }">
       <d-carcass-field
@@ -15,41 +15,35 @@
         <template v-slot:default="{ className, classNameHidden }">
           <input
             ref="input"
-            v-bind="attrsInput"
+            v-bind="inputAttrs"
+            v-model="propValue"
             :class="classNameHidden"
             :name="name"
             :required="required"
             type="text"
-            v-model="propValue"
           >
-          <span
-            :class="`${classList} ${className}`"
-            @click="onClick"
-          >{{ output }}</span>
+          <span :class="`${classList} ${className}`" @click="onClick" v-text="output"/>
         </template>
       </d-carcass-field>
     </template>
+
     <template v-slot:window>
-      <d-date-picker
-        v-bind="bindPicker"
-        class="d-date"
-        @on-input="onSelect"
-      />
+      <d-date-picker v-bind="bindPicker" class="d-date" @on-input="onSelect"/>
     </template>
   </d-window>
 </template>
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DDatePicker from '@/--components/DDatePicker'
+import DDatePicker from '@/components/DDatePicker'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import GeoDate from '@/classes/GeoDate'
+import attrDatePicker from '@/components/DDatePicker/attrDatePicker'
 import useAdmin from '@/uses/useAdmin'
 import useCarcass from '@/--components/DTime/useCarcass'
 import useField from '@/uses/useField'
-import usePicker from './usePicker'
 
 export default {
   name: 'DDate',
@@ -79,8 +73,6 @@ export default {
     )
 
     const getGeo = value => new GeoDate(props.locales, value).setType('date').toString(undefined, 'auto')
-
-    const filled = computed(() => !!propValue.value)
     const output = computed(() => {
       if (propValue.value) {
         if (Array.isArray(propValue.value)) {
@@ -95,12 +87,12 @@ export default {
       }
     })
 
-    const { bindPicker } = usePicker(props)
-    const { bindCarcassField } = useCarcass(
+    const bindPicker = attrDatePicker({ props })
+    const bindCarcassField = useCarcass(
       props,
       context,
       propValidationMessage,
-      filled
+      propValue
     )
 
     useAdmin('d-date', context)

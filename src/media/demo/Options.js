@@ -68,6 +68,7 @@ export const Options = {
   },
   dense: {},
   ellipsis: {},
+  format: {},
   indent: {
     list: [
       { value: undefined },

@@ -1,23 +1,23 @@
 <template>
   <div ref="top" class="d-top" :class="classList">
-    <d-button
-      v-bind="propClose"
-      @on-click="onClick"
-    />
+    <d-button v-bind="propClose" class="window-close" @on-click="onClick"/>
     <div class="d-top__title" v-html="propAction ? textAction : text"/>
+
     <template v-if="propAction">
       <d-button
         v-for="item in propBarAction"
-        :key="item.value"
         v-bind="item"
+        :key="item.value"
+        class="d-top__bar window-close"
         @on-click="onClick"
       />
     </template>
     <template v-else>
       <d-button
         v-for="item in propBar"
-        :key="item.value"
         v-bind="item"
+        :key="item.value"
+        class="d-top__bar window-close"
         @on-click="onClick"
       />
     </template>
@@ -30,7 +30,7 @@ import { props } from './props'
 import { computed, ref } from 'vue'
 import useAction from '@/components/DAppBar/useAction'
 import useAdmin from '@/uses/useAdmin'
-import useBar from '@/--components/DTop/useBar'
+import useBar from './useBar'
 
 export default {
   name: 'DTop',
@@ -39,7 +39,7 @@ export default {
   emits: ['on-click'],
   setup (props, context) {
     const top = ref(undefined)
-    const { propAction } = useAction(top, props)
+    const propAction = useAction(top, props)
 
     const {
       propBar,

@@ -10,6 +10,7 @@ export const props = {
   min,
   max,
   multiple: undefined,
+  inputAttrs: undefined,
 
   // Status
   switchDate: {

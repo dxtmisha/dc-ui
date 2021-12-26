@@ -40,7 +40,7 @@
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DTimePicker from '@/--components/DTimePicker'
+import DTimePicker from '@/components/DTimePicker'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, ref } from 'vue'

@@ -45,7 +45,7 @@ export default class Translation {
 
     return this
   }
-  
+
   static getByList (list) {
     const data = {}
 

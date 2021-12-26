@@ -1,4 +1,4 @@
-import { computed } from 'vue/dist/vue'
+import { computed } from 'vue'
 import useDateTime from '@/uses/useDateTime'
 
 export default function useValue (

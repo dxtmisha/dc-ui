@@ -18,7 +18,7 @@ import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
-import DemoDate from '../--views/DemoDate'
+import DemoDate from '../views/DemoDate'
 import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
@@ -48,7 +48,7 @@ import DemoSnackbar from '../--views/DemoSnackbar'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../--views/DemoTime'
-import DemoTimePicker from '../--views/DemoTimePicker'
+import DemoTimePicker from '../views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
 import DemoTop from '../views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
@@ -97,6 +97,7 @@ export const routes = getRoutes({
   'd-calendar-select': DemoCalendarSelect,
   'd-clock-face': DemoClockFace,
   'd-date-picker': DemoDatePicker,
+  'd-time-picker': DemoTimePicker,
   'l-icons': { line: true },
   's-icons': { subtitle: 'Icon' },
   'd-badge': DemoBadge,
@@ -119,7 +120,6 @@ export const routes = getRoutes({
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,
-  'd-time-picker': DemoTimePicker,
   'd-window': DemoWindow
 })
 

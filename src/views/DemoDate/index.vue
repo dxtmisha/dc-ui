@@ -3,31 +3,29 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-time-picker
+    <d-date
       v-bind="binds"
-      id="id-time-picker"
-      class="border"
+      id="id-date"
       name="interactive-demo"
       :admin="true"
       @on-input="on"
-      @on-change="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DTimePicker from '@/--components/DTimePicker'
+import DDate from '@/components/DDate'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsTimePicker } from './options'
+import { optionsDate } from './options'
 
 export default {
-  name: 'DemoTimePicker',
+  name: 'DemoDate',
   components: {
-    DTimePicker,
+    DDate,
     InteractiveDemo
   },
   setup () {
-    const options = optionsTimePicker
+    const options = optionsDate
     return { options }
   },
   methods: {

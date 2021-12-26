@@ -1,11 +1,12 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Geo from '@/classes/Geo'
-import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-time-picker')
 export const props = {
   // Values
   value: String,
+
+  // Input
   min: {
     type: String,
     default: '00:00',
@@ -20,6 +21,7 @@ export const props = {
       return max.match(/^[0-9]{1,2}:[0-9]{1,2}$/)
     }
   },
+  inputAttrs: undefined,
 
   // Status
   switchClock: {
@@ -28,8 +30,6 @@ export const props = {
   },
 
   // Options
-  palette,
-  color: String,
   locales: {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
@@ -43,6 +43,9 @@ export const props = {
       '24'
     ])
   },
+
+  // Actions
+  actionsAttrs: undefined,
 
   // Icon
   iconSchedule: {
