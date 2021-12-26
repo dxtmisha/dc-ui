@@ -1,0 +1,40 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+
+@mixin cardMedia {
+  --_cm__ic-inset: var(--cm__ic-inset, #{dimension(3)});
+  --_cm__ic-size: var(--cm__ic-size, #{dimension(12)});
+
+  @include aspectRatio(172/97) {
+    height: 194px;
+  }
+  background-color: varColor(--background-overlay, --opacity-overlay);
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+@mixin cardMediaThumbnail {
+  &__thumbnail {
+    --basic-text-opacity: var(--opacity-surface-disabled);
+    --ii-font-size: var(--_cm__ic-size);
+    @content;
+  }
+}
+
+@mixin cardMediaIcon {
+  &__icon {
+    --basic-text: var(--text-type2);
+    --basic-text-opacity: var(--opacity-primary-high);
+    position: absolute;
+    right: var(--_cm__ic-inset);
+    top: var(--_cm__ic-inset);
+    @content;
+  }
+}
+
+@mixin cardMediaInit {
+  @include cardMedia;
+  @include cardMediaThumbnail;
+  @include cardMediaIcon;
+}

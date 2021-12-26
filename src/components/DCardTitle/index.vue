@@ -7,7 +7,7 @@
       class="d-card-title__icon"
     />
     <div class="d-card-title__title">
-      <div class="d-card-title__text" v-html="text"/>
+      <a :href="href" class="d-card-title__text" v-html="text"/>
       <div class="d-card-title__description" v-html="description"/>
     </div>
     <d-card-menu v-if="menu" v-bind="bindMenu" @on-click="onClick"/>
