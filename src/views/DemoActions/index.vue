@@ -20,8 +20,8 @@
 <script>
 import DActions from '@/components/DActions'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import action from '@/media/--demo/list/action'
 import { optionsActions } from './options'
+import { action } from '@/media/demo/data/list'
 import { leoTolstoy } from '@/media/demo/data/text'
 
 export default {

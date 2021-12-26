@@ -19,7 +19,7 @@
 import DForm from '@/components/DForm'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsForm } from './options'
-import form from '@/media/--demo/list/form'
+import form from '@/media/demo/data/form'
 
 export default {
   name: 'DemoForm',

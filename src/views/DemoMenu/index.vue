@@ -39,7 +39,7 @@ import DButton from '@/components/DButton'
 import DMenu from '@/components/DMenu'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsMenu } from './options'
-import menu from '@/media/--demo/list/menu'
+import { menu } from '@/media/demo/data/list'
 
 export default {
   name: 'DemoMenu',

@@ -30,7 +30,7 @@
 
 <script>
 import DButtonSelect from '@/components/DButtonSelect'
-import color from '@/media/--demo/list/color'
+import color from '@/media/demo/data/color'
 
 export default {
   name: 'InteractiveDemoColor',
