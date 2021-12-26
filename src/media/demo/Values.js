@@ -1,4 +1,4 @@
-import { action, bar, menu, menuSimplified } from '@/media/demo/data/list'
+import { action, bar, menu, menuMin, menuSimplified } from '@/media/demo/data/list'
 import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
@@ -107,6 +107,7 @@ export const Values = {
       { value: '**** **** **** ****' }
     ]
   },
+  menu: { message: menuMin },
   minute: { message: 35 },
   prefix: { message: 'pr' },
   second: { message: 45 },

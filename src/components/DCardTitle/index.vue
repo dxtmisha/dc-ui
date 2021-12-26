@@ -2,33 +2,47 @@
   <div class="d-card-title">
     <d-icon
       v-if="icon"
-      class="d-card-title__icon"
-      :icon="icon"
-      :icon-active="iconActive"
+      v-bind="bindIcon"
       :active="active"
-      size="medium"
-      :background="iconBackground"
+      class="d-card-title__icon"
     />
     <div class="d-card-title__title">
       <div class="d-card-title__text" v-html="text"/>
       <div class="d-card-title__description" v-html="description"/>
     </div>
+    <d-card-menu v-if="menu" v-bind="bindMenu" @on-click="onClick"/>
     <slot/>
   </div>
 </template>
 
 <script>
+import DCardMenu from '@/components/DCardMenu'
 import DIcon from '@/components/DIcon'
 import { props } from './props'
+import { computed } from 'vue'
+import attrIcon from '@/components/DIcon/attrIcon'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DCardTitle',
-  components: { DIcon },
+  components: {
+    DCardMenu,
+    DIcon
+  },
   props,
+  emits: ['on-click'],
   setup (props, context) {
+    const bindIcon = attrIcon({ props })
+    const bindMenu = computed(() => Array.isArray(props.menu) ? { list: props.menu } : props.menu)
+
+    const onClick = event => context.emit('on-click', event)
+
     useAdmin('d-card-title', context)
-    return {}
+    return {
+      bindIcon,
+      bindMenu,
+      onClick
+    }
   }
 }
 </script>

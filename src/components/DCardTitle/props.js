@@ -5,6 +5,7 @@ export const props = {
   // Values
   text: String,
   description: String,
+  menu: [Array, Object],
 
   // Status
   active: Boolean,
@@ -12,8 +13,6 @@ export const props = {
   // Icon
   icon: undefined,
   iconActive: undefined,
-  iconBackground: {
-    type: Boolean,
-    default: defaultProps('iconBackground', true)
-  }
+  iconSize: { default: defaultProps('iconSize', 'medium') },
+  iconBackground: { default: defaultProps('iconBackground', true) }
 }

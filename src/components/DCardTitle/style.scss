@@ -5,6 +5,7 @@
   --_ct-gap: var(--ct-gap, 16px);
 
   @include flexX;
+  gap: 0 var(--_ct-gap);
 }
 
 @mixin cardTitleTitle {

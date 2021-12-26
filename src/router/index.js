@@ -13,6 +13,7 @@ import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
 import DemoCardMenu from '../views/DemoCardMenu'
+import DemoCardTitle from '../views/DemoCardTitle'
 import DemoCheckbox from '../views/DemoCheckbox'
 import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
@@ -76,6 +77,7 @@ export const routes = getRoutes({
   'l-card': { line: true },
   's-card': { subtitle: 'Card' },
   'd-card-menu': DemoCardMenu,
+  'd-card-title': DemoCardTitle,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },
   'd-carcass-field': DemoCarcassField,
