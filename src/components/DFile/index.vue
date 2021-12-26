@@ -1,14 +1,15 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" class="d-file">
     <input
       ref="input"
-      class="d-file__input"
-      :name="`${name}[list]`"
-      :value="json"
-      type="text"
-      :required="required"
-      :readonly="readonly"
+      v-bind="inputAttrs"
       :disabled="disabled"
+      :name="`${name}[list]`"
+      :readonly="readonly"
+      :required="required"
+      :value="json"
+      class="d-file__input"
+      type="text"
     >
     <div v-if="text" class="d-file__text">
       {{ text }}<span v-if="required" class="d-file__required"/>
@@ -29,23 +30,23 @@
       </div>
       <d-control-position
         ref="position"
-        :disabled="propDisabled"
         v-slot:default="position"
+        :disabled="propDisabled"
         @on-position="onPosition"
       >
         <d-control-selection
           ref="selection"
-          class="d-file__list"
-          :disabled="propDisabled"
           v-slot:default="selection"
+          :disabled="readonly"
+          class="d-file__list"
           @on-selected="setSelected"
         >
           <d-list-item
             v-for="item in list"
             v-bind="item"
             :key="item.value"
-            :class="classItem(position, selection)"
             :border="true"
+            :class="classItem(position, selection)"
             :size="size"
             @click="selection.onClick"
           />
@@ -74,7 +75,7 @@ import DActions from '@/components/DActions'
 import DControlPosition from '@/components/DControlPosition'
 import DControlSelection from '@/components/DControlSelection'
 import DDrop from '@/components/DDrop'
-import DFileEdit from '@/--components/DFile/DFileEdit'
+import DFileEdit from '@/components/DFile/DFileEdit'
 import DIconItem from '@/components/DIconItem'
 import DListItem from '@/components/DListItem'
 import { props } from './props'
@@ -179,7 +180,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-file': true,
         'status-focus': item.value,
         'status-readonly': props.readonly,
         'status-disabled': props.disabled,

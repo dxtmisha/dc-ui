@@ -10,30 +10,29 @@ export const props = {
   text: String,
   helperMessage: String,
   validationMessage: String,
-  on: {
-    type: Object,
-    default: {}
-  },
-
-  // Status
-  selected: Boolean,
-  readonly: Boolean,
-  disabled: Boolean,
 
   // Input
   accept: String,
   max: Number,
   required: Boolean,
-  attrsInput: Object,
+  on: {
+    type: Object,
+    default: {}
+  },
+  inputAttrs: Object,
+
+  // Status
+  readonly: Boolean,
+  disabled: Boolean,
 
   // Options
   palette,
   color: String,
   adaptive: {
     type: String,
-    default: 'full',
+    default: 'basic',
     validator: validator([
-      'full',
+      'basic',
       'block'
     ])
   },

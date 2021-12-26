@@ -2,6 +2,7 @@
   <div
     ref="snackbar"
     :class="classList"
+    class="d-snackbar"
     @transitionend="onTransition"
   >
     <div class="d-snackbar__body">
@@ -104,7 +105,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-snackbar': true,
         [`shape-${props.shape}`]: props.shape,
         [`align-${props.align}`]: props.align,
         ...palette.value

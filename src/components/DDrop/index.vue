@@ -1,6 +1,7 @@
 <template>
   <label
     :class="classList"
+    class="d-drop"
     @dragover.prevent.stop="onDragover"
     @dragenter.prevent.stop="onDragenter"
     @dragleave.prevent.stop="onDragleave"
@@ -37,7 +38,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-drop': true,
         'status-enter': enter.value && !props.disabled,
         'status-disabled': props.disabled
       }

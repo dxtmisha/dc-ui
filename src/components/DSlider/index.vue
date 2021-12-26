@@ -125,7 +125,6 @@ export default {
     const palette = useColor(props)
     const classList = computed(() => {
       return {
-        'd-slider': true,
         'option-vertical': props.vertical,
         ...palette.value
       }

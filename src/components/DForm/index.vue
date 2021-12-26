@@ -1,24 +1,24 @@
 <template>
   <form
     ref="form"
-    :class="classList"
     :method="method"
     autocomplete="off"
+    class="d-form"
     novalidate
     @submit.prevent.stop="onSubmit"
   >
     <div class="d-form__fields">
       <div
-        v-for="section in propFields"
-        v-bind="section?.binds"
-        :key="section.section"
+        v-for="{binds, class: className, fields, section, text} in propFields"
+        v-bind="binds"
+        :key="section"
+        :class="className"
         class="d-form__section"
-        :class="section?.class"
       >
-        <div v-if="section?.text" class="d-form__title" v-html="section.text"/>
-        <template v-if="section?.fields">
+        <div v-if="text" class="d-form__title" v-html="text"/>
+        <template v-if="fields">
           <template
-            v-for="item in section.fields"
+            v-for="item in (fields)"
             :key="item.name"
           >
             <div v-if="item?.html" class="d-form__html" v-html="item.html"/>
@@ -41,7 +41,7 @@
     </div>
     <d-alert v-if="alert.description" v-bind="alert"/>
     <d-actions :bar="bar">
-      <template v-slot:bar>
+      <template v-slot:default>
         <d-button
           v-bind="submit"
           :readonly="readonly"
@@ -59,7 +59,7 @@ import DAlert from '@/components/DAlert'
 import DButton from '@/components/DButton'
 import DCheckbox from '@/components/DCheckbox'
 import DDate from '@/components/DDate'
-import DFile from '@/--components/DFile'
+import DFile from '@/components/DFile'
 import DInput from '@/components/DInput'
 import DSelect from '@/components/DSelect'
 import DSlider from '@/components/DSlider'
@@ -68,7 +68,6 @@ import DTime from '@/components/DTime'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
 import useFields from './useFields'
 import useValidity from './useValidity'
 
@@ -114,7 +113,6 @@ export default {
       context
     )
 
-    const palette = useColor(props)
     const alert = computed(() => {
       return {
         description: error.value || success.value,
@@ -161,13 +159,6 @@ export default {
       }
     }
 
-    const classList = computed(() => {
-      return {
-        'd-form': true,
-        ...palette.value
-      }
-    })
-
     useAdmin('d-form', context)
 
     return {
@@ -177,7 +168,6 @@ export default {
       propProgress,
       propValues,
       alert,
-      classList,
       update,
       onSubmit
     }

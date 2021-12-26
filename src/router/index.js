@@ -22,8 +22,8 @@ import DemoDate from '../views/DemoDate'
 import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
-import DemoFile from '../--views/DemoFile'
-import DemoForm from '../--views/DemoForm'
+import DemoFile from '../views/DemoFile'
+import DemoForm from '../views/DemoForm'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoInput from '../views/DemoInput'
@@ -37,7 +37,7 @@ import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoNavigation from '../views/DemoNavigation'
 import DemoProgress from '../views/DemoProgress'
-import DemoRedactionFile from '../--views/DemoRedactionFile'
+import DemoRedactionFile from '../media/demo/DemoRedactionFile'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
@@ -114,11 +114,11 @@ export const routes = getRoutes({
   'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
   'd-control-selection': DemoControlSelection,
+  'd-redaction-file': DemoRedactionFile,
   'l-components': { line: true },
   's-basic': { subtitle: 'Basic' },
   'd-card-menu': DemoCardMenu,
   'd-progress': DemoProgress,
-  'd-redaction-file': DemoRedactionFile,
   'd-ripple': DemoRipple,
   'd-window': DemoWindow
 })

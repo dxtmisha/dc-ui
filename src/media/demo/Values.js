@@ -126,5 +126,6 @@ export const Values = {
   title: { message: 'Interactive demo' },
   underline: { message: 'demo' },
   value: {},
+  values: {},
   validationMessage: { message: validation1 }
 }

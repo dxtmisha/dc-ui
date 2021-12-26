@@ -1,36 +1,36 @@
 <template>
   <div
     v-if="propThumbnail"
-    class="d-redaction-file"
     :style="styleList"
+    class="d-redaction-file"
   >
     <img
       ref="image"
-      class="d-redaction-file__image"
       :alt="text"
       :src="propThumbnail"
+      class="d-redaction-file__image"
       draggable="false"
       @load="onLoad"
     />
     <d-control-resize
-      :value="propValue"
       :disabled="disabled"
+      :value="propValue"
       @on-resize="onResize"
     />
     <template v-if="load">
       <div class="d-redaction-file__slider rf-bottom">
         <d-slider
-          :value="sliderBottom"
           :disabled="disabled"
           :multiple="true"
+          :value="sliderBottom"
           @on-input="onSlider($event, 'bottom')"
         />
       </div>
       <div class="d-redaction-file__slider rf-right">
         <d-slider
-          :value="sliderRight"
           :disabled="disabled"
           :multiple="true"
+          :value="sliderRight"
           :vertical="true"
           @on-input="onSlider($event, 'right')"
         />
@@ -45,8 +45,8 @@ import DSlider from '@/components/DSlider'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import getFileResult from '@/functions/getFileResult'
-import useWatch from '@/uses/useWatch'
 import useAdmin from '@/uses/useAdmin'
+import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DRedactionFile',

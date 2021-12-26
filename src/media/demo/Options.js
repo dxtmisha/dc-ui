@@ -140,6 +140,7 @@ export const Options = {
       { value: 'always' }
     ]
   },
+  options: {},
   outline: {
     list: [
       { value: undefined },

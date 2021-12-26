@@ -1,9 +1,9 @@
 <template>
   <d-dialog
-    :title="file?.text"
+    :dense="true"
     :open="open"
     :persistent="true"
-    :dense="true"
+    :title="file?.text"
     @on-click="onClick"
   >
     <d-redaction-file
@@ -17,7 +17,7 @@
 
 <script>
 import DDialog from '@/components/DDialog'
-import DRedactionFile from '@/--components/DRedactionFile'
+import DRedactionFile from '@/components/DRedactionFile'
 
 export default {
   name: 'DFileEdit',

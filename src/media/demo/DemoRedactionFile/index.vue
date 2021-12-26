@@ -1,40 +1,31 @@
 <template>
   <interactive-demo
     :options="options"
-    :sticky="false"
     v-slot:default="{ binds }"
   >
-    <d-form
+    <d-redaction-file
       v-bind="binds"
-      id="id-file"
-      :fields="fields"
+      id="id-redaction-file"
       :admin="true"
-      @on-submit="on"
-      @on-validity="on"
+      @on-resize="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DForm from '@/--components/DForm'
+import DRedactionFile from '@/components/DRedactionFile'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsForm } from './options'
-import form from '@/media/--demo/list/form'
+import { optionsRedactionFile } from './options'
 
 export default {
-  name: 'DemoForm',
+  name: 'DemoRedactionFile',
   components: {
-    DForm,
+    DRedactionFile,
     InteractiveDemo
   },
   setup () {
-    const options = optionsForm
-    const fields = form
-
-    return {
-      options,
-      fields
-    }
+    const options = optionsRedactionFile
+    return { options }
   },
   methods: {
     on (event) {

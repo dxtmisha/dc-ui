@@ -1,6 +1,5 @@
 import { defaultInit, validator } from '@/uses/useDefault'
 import Translation from '@/classes/Translation'
-import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-form')
 export const props = {
@@ -39,8 +38,6 @@ export const props = {
   progress: Boolean,
 
   // Options
-  palette,
-  color: String,
   options: {
     type: Object,
     default: defaultProps('options')
