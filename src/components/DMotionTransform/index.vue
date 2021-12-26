@@ -7,6 +7,7 @@
       <div
         ref="content"
         :class="classList"
+        class="d-motion-transform__context"
         @transitionend="onTransitionend"
       >
         <div
@@ -98,7 +99,6 @@ export default {
     const classScroll = useScroll()
     const classList = computed(() => {
       return {
-        'd-motion-transform__context': true,
         [`adaptive-${props.adaptive}`]: props.adaptive,
         'option-bottom': props.bottom,
         'status-window': teleport.value,

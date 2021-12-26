@@ -4,6 +4,7 @@
     :is="tag"
     v-if="!hide"
     v-bind="binds"
+    class="d-list-item a-static"
     @click="onClick"
   >
     <d-icon v-if="thumbnail" v-bind="bindThumbnail" class="d-list-item__icon li-thumbnail"/>
@@ -91,7 +92,6 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          'd-list-item a-static': true,
           'value-thumbnail': props.thumbnail,
           'value-icon': props.icon,
           'value-trailing': props.iconTrailing,

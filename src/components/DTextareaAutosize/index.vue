@@ -2,13 +2,13 @@
   <textarea
     ref="input"
     v-bind="$attrs"
-    class="d-textarea-autosize"
-    :name="name"
     v-model="propValue"
-    v-on="on"
+    :name="name"
+    class="d-textarea-autosize"
+    @change="onChange"
     @focus="reSize"
     @input="onEmit"
-    @change="onChange"
+    v-on="on"
   />
   <div v-once
        ref="clone"

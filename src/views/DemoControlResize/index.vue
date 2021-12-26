@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DControlResize from '@/--components/DControlResize'
+import DControlResize from '@/components/DControlResize'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsControlResize } from './options'
 

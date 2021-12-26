@@ -3,8 +3,8 @@
     <template v-slot:default="{ className }">
       <d-textarea-autosize
         ref="input"
-        :class="className"
         v-bind="bindTextarea"
+        :class="className"
         :value="value"
         v-on="on"
         @on-input="onInput"
@@ -16,7 +16,7 @@
 
 <script>
 import DCarcassField from '@/components/DCarcassField'
-import DTextareaAutosize from '@/--components/DTextareaAutosize'
+import DTextareaAutosize from '@/components/DTextareaAutosize'
 import { props } from './props'
 import { ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'

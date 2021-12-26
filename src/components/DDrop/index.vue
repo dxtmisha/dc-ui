@@ -9,13 +9,13 @@
     <slot/>
     <input
       ref="input"
-      class="d-drop__input"
-      :disabled="disabled"
-      type="file"
-      multiple
       :accept="accept"
-      @click="onFocus"
+      :disabled="disabled"
+      class="d-drop__input"
+      multiple
+      type="file"
       @change="onChange"
+      @click="onFocus"
     />
   </label>
 </template>

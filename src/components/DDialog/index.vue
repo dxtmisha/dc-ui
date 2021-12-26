@@ -1,14 +1,21 @@
 <template>
-  <d-window ref="window" v-bind="bindWindow" @on-open="onOpen">
+  <d-window
+    ref="window"
+    v-bind="bindWindow"
+    class="d-dialog"
+    @on-open="onOpen"
+  >
     <template v-slot:control="binds">
       <slot name="control" v-bind="binds"/>
     </template>
+
     <template v-slot:window>
       <div v-bind="$attrs" class="d-dialog__body">
         <div v-if="title" class="d-dialog__title">{{ title }}</div>
         <div v-else-if="'head' in $slots" class="d-dialog__head">
           <slot name="head"/>
         </div>
+
         <div class="d-dialog__main">
           <d-scrollbar class="d-dialog__context" :border="border">
             <div v-if="text" class="d-dialog__text" v-html="text"/>
@@ -23,13 +30,13 @@
 
 <script>
 import DActions from '@/components/DActions'
-import DScrollbar from '@/--components/DScrollbar'
+import DScrollbar from '@/components/DScrollbar'
 import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
-import attrActions from '@/--components/attrActions'
-import attrWindow from '@/--components/attrWindow'
 import useAdmin from '@/uses/useAdmin'
+import attrActions from '@/components/DActions/attrActions'
+import attrWindow from '@/components/DWindow/attrWindow'
 
 export default {
   name: 'DDialog',
@@ -42,7 +49,7 @@ export default {
   props,
   emits: ['on-click', 'on-open'],
   setup (props, context) {
-    const refs = toRefs(props)
+    const { open } = toRefs(props)
 
     const window = ref(undefined)
     const main = ref(undefined)
@@ -52,28 +59,30 @@ export default {
       window.value.toggle(props.open)
     }
 
-    const bindActions = attrActions(props, {}, {}, ['bar', 'barAction'])
-    const bindWindow = attrWindow(props, refs, {
-      class: computed(() => {
-        return {
-          'd-dialog': true,
-          'option-image': props.src,
-          'option-landscape': props.landscape,
-          'option-dense': props.dense
-        }
-      }),
-      style: computed(() => {
-        return {
-          '--_dl__hd-image': props.src && props.src !== true ? `url(${props.src})` : null,
-          '--_dl-width': props.width
-        }
-      })
+    const bindActions = attrActions({ props })
+    const bindWindow = attrWindow({
+      props,
+      attrs: {
+        class: computed(() => {
+          return {
+            'option-image': props.src,
+            'option-landscape': props.landscape,
+            'option-dense': props.dense
+          }
+        }),
+        style: computed(() => {
+          return {
+            '--_dl__hd-image': props.src && props.src !== true ? `url(${props.src})` : null,
+            '--_dl-width': props.windowWidth
+          }
+        })
+      }
     })
 
     const onOpen = event => context.emit('on-open', event)
     const onClick = event => context.emit('on-click', event)
 
-    watch(refs.open, toggle)
+    watch(open, toggle)
     onMounted(toggle)
 
     useAdmin('d-dialog', context)

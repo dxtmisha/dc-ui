@@ -1,9 +1,9 @@
 <template>
   <d-window
-    :disabled="disabled || readonly"
-    width="auto"
-    size="minimum"
     :auto-close="false"
+    :disabled="disabled || readonly"
+    size="minimum"
+    width="auto"
   >
     <template v-slot:control="{ classList, onClick, open }">
       <d-carcass-field
@@ -15,25 +15,20 @@
         <template v-slot:default="{ className, classNameHidden }">
           <input
             ref="input"
-            v-bind="attrsInput"
+            v-bind="inputAttrs"
+            v-model="propValue"
             :class="classNameHidden"
             :name="name"
             :required="required"
             type="text"
-            v-model="propValue"
           >
-          <span
-            :class="`${classList} ${className}`"
-            @click="onClick"
-          >{{ output }}</span>
+          <span :class="`${classList} ${className}`" @click="onClick" v-text="output"/>
         </template>
       </d-carcass-field>
     </template>
+
     <template v-slot:window>
-      <d-time-picker
-        v-bind="bindPicker"
-        @on-input="onSelect"
-      />
+      <d-time-picker v-bind="bindPicker" @on-input="onSelect"/>
     </template>
   </d-window>
 </template>
@@ -45,10 +40,10 @@ import DWindow from '@/components/DWindow'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import GeoDate from '@/classes/GeoDate'
+import attrTimePicker from '@/components/DTimePicker/attrTimePicker'
 import useAdmin from '@/uses/useAdmin'
 import useCarcass from './useCarcass'
 import useField from '@/uses/useField'
-import usePicker from './usePicker'
 
 export default {
   name: 'DTime',
@@ -78,15 +73,14 @@ export default {
     )
 
     const geo = computed(() => new GeoDate(props.locales, propValue.value).setType('time'))
-    const filled = computed(() => !!propValue.value)
     const output = computed(() => propValue.value ? geo.value.toString(undefined, 'auto') : undefined)
 
-    const { bindPicker } = usePicker(props)
-    const { bindCarcassField } = useCarcass(
+    const bindPicker = attrTimePicker({ props })
+    const bindCarcassField = useCarcass(
       props,
       context,
       propValidationMessage,
-      filled
+      propValue
     )
 
     useAdmin('d-time', context)

@@ -7,24 +7,11 @@ export const props = {
   text: String,
 
   // Status
-  open: { type: Boolean },
+  open: Boolean,
   disabled: Boolean,
 
   // Options
-  width: { default: defaultProps('width', null) },
-  size: undefined,
-  shape: undefined,
-  adaptive: {
-    default: defaultProps('adaptive', 'modal'),
-    validator: validator([
-      'modal',
-      'modal-left',
-      'modal-right'
-    ])
-  },
   src: [Boolean, String],
-  autoClose: { default: false },
-  persistent: { default: defaultProps('persistent') },
   landscape: {
     type: Boolean,
     default: defaultProps('landscape')
@@ -34,7 +21,6 @@ export const props = {
     type: Boolean,
     default: true
   },
-  inDom: undefined,
 
   // Actions
   bar: Array,
@@ -45,5 +31,19 @@ export const props = {
   actionsAttrs: undefined,
 
   // Window
+  windowWidth: { default: defaultProps('windowWidth', null) },
+  windowSize: { default: defaultProps('windowSize') },
+  windowShape: { default: defaultProps('windowShape') },
+  windowAdaptive: {
+    default: defaultProps('windowAdaptive', 'modal'),
+    validator: validator([
+      'modal',
+      'modal-left',
+      'modal-right'
+    ])
+  },
+  windowAutoClose: { default: defaultProps('windowAutoClose', false) },
+  windowPersistent: { default: defaultProps('windowPersistent') },
+  windowInDom: { default: defaultProps('windowInDom') },
   windowAttrs: undefined
 }

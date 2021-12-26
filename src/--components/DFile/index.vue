@@ -71,9 +71,9 @@
 
 <script>
 import DActions from '@/components/DActions'
-import DControlPosition from '@/--components/DControlPosition'
-import DControlSelection from '@/--components/DControlSelection'
-import DDrop from '@/--components/DDrop'
+import DControlPosition from '@/components/DControlPosition'
+import DControlSelection from '@/components/DControlSelection'
+import DDrop from '@/components/DDrop'
 import DFileEdit from '@/--components/DFile/DFileEdit'
 import DIconItem from '@/components/DIconItem'
 import DListItem from '@/components/DListItem'

@@ -6,28 +6,28 @@ export const props = {
   item: undefined,
   value: undefined,
   name: undefined,
+  text: undefined,
+  helperMessage: undefined,
+  validationMessage: undefined,
+
+  // Input
+  min: undefined,
+  max: undefined,
+  required: Boolean,
   on: {
     type: Object,
     default: {}
   },
+  inputAttrs: Object,
 
   // Status
   selected: Boolean,
   readonly: Boolean,
   disabled: Boolean,
 
-  // Input
+  // Field
   locales: undefined,
   format: undefined,
-  min: undefined,
-  max: undefined,
-  required: Boolean,
-  attrsInput: Object,
-
-  // Field
-  text: undefined,
-  helperMessage: undefined,
-  validationMessage: undefined,
   palette: undefined,
   color: undefined,
   appearance: undefined,
@@ -35,10 +35,12 @@ export const props = {
   shape: undefined,
   align: undefined,
   adaptive: undefined,
-  cancel: {
-    type: Boolean,
-    default: defaultProps('cancel', true)
-  },
+  cancel: undefined,
+  ripple: undefined,
+  fieldAttrs: undefined,
+
+  // Picker
+  pickerAttrs: undefined,
 
   // Icon
   icon: undefined,

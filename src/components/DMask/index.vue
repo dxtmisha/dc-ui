@@ -1,5 +1,5 @@
 <template>
-  <label :class="classList">
+  <label :class="classList" class="d-mask">
     <span class="d-mask__view">
       <input
         ref="input"
@@ -105,10 +105,7 @@ export default {
 
     const isCharacter = computed(() => !!standard.value)
     const classList = computed(() => {
-      return {
-        'd-mask': true,
-        'status-character': isCharacter.value || props.visible
-      }
+      return { 'status-character': isCharacter.value || props.visible }
     })
 
     useAdmin('d-mask', context)

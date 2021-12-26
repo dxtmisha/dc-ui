@@ -8,16 +8,16 @@
       <div class="d-snackbar__text">
         <d-icon
           v-if="icon"
-          class="d-snackbar__icon"
           :icon="icon"
+          class="d-snackbar__icon"
           size="small"
         />
         <span v-html="text"/>
         <slot/>
       </div>
       <d-actions
-        class="d-snackbar__bar"
         :bar="action"
+        class="d-snackbar__bar"
         size="small"
         @on-click="onClick"
       />

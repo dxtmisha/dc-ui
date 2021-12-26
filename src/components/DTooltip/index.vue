@@ -8,9 +8,10 @@
   />
   <teleport to="body">
     <div
-      v-if="isShow"
       ref="tooltip"
+      v-if="isShow"
       v-bind="binds"
+      class="d-tooltip"
     >
       {{ text }}
       <slot/>
@@ -59,7 +60,6 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          'd-tooltip': true,
           [`shape-${props.shape}`]: props.shape,
           'option-arrow': props.arrow
         },

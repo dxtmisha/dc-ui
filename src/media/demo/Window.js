@@ -12,6 +12,7 @@ export const Window = {
       { value: 'modal-right' }
     ]
   },
+  windowAutoClose: Options.autoClose,
   windowAxis: {
     list: [
       ...axis,
@@ -20,6 +21,7 @@ export const Window = {
   },
   windowIndent: Options.indent,
   windowInDom: Options.inDom,
+  windowPersistent: Options.persistent,
   windowShape: {
     list: [
       { value: undefined },

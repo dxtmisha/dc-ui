@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList">
+  <div :class="classList" class="d-calendar">
     <div
       v-if="outputWeek"
       class="d-calendar__head"
@@ -80,7 +80,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-calendar': true,
         [`adaptive-${props.adaptive}`]: props.adaptive,
         [`shape-${props.shape}`]: props.shape,
         'option-multiple': props.multiple,

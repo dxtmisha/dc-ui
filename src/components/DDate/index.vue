@@ -42,7 +42,7 @@ import { computed, ref } from 'vue'
 import GeoDate from '@/classes/GeoDate'
 import attrDatePicker from '@/components/DDatePicker/attrDatePicker'
 import useAdmin from '@/uses/useAdmin'
-import useCarcass from '@/--components/DTime/useCarcass'
+import useCarcass from '@/components/DTime/useCarcass'
 import useField from '@/uses/useField'
 
 export default {

@@ -2,6 +2,7 @@
   <div
     ref="resize"
     :class="classList"
+    class="d-control-resize"
     @mousedown="onMousedown"
   >
     <div v-once class="d-control-resize__left">
@@ -104,7 +105,6 @@ export default {
 
     const classList = computed(() => {
       return {
-        'd-control-resize': true,
         'status-disabled': props.disabled,
         'status-disabled-top': props.disabled || props.disabledTop,
         'status-disabled-right': props.disabled || props.disabledRight,

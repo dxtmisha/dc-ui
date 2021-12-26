@@ -96,6 +96,16 @@ export const Options = {
   },
   indeterminate: {},
   inDom: {},
+  interspace: {
+    list: [
+      { value: undefined },
+      { value: 0 },
+      { value: 160 },
+      { value: 240 },
+      { value: 320 },
+      { value: 400 }
+    ]
+  },
   landscape: {},
   locales: {
     list: [
@@ -256,6 +266,15 @@ export const Options = {
     ]
   },
   sticky: {},
+  timeout: {
+    list: [
+      { value: undefined },
+      { value: 0 },
+      { value: 2000 },
+      { value: 4000 },
+      { value: 8000 }
+    ]
+  },
   type: {},
   transform: {
     list: [

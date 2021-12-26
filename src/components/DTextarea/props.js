@@ -38,6 +38,7 @@ export const props = {
   shape: undefined,
   adaptive: undefined,
   counter: undefined,
+  fieldAttrs: undefined,
 
   // Icon
   icon: undefined,

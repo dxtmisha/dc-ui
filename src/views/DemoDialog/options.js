@@ -1,16 +1,13 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/--components/DDialog/props'
-import { Window } from '@/media/demo/Window'
+import { props } from '@/components/DDialog/props'
 
 export const optionsDialog = useProps(props, {
-  adaptive: {
+  windowAdaptive: {
     list: [
       { value: undefined },
       { value: 'modal' },
       { value: 'modal-left' },
       { value: 'modal-right' }
     ]
-  },
-  size: Window.windowSize,
-  width: Window.windowWidth
+  }
 }, ['bar', 'barAction'])
