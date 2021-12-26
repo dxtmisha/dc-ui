@@ -21,24 +21,28 @@ export const props = {
   request: Object,
   cache: Boolean,
 
-  // Status
-  selected: Boolean,
-
   // Options
-  size: undefined,
-  shape: {
-    default: defaultProps('shape', 'pill')
+  ripple: {
+    type: Boolean,
+    default: defaultProps('ripple', true)
   },
 
-  // Icon
-  iconMore: {
-    type: String,
-    default: defaultProps('iconMore', 'more_vert')
-  },
+  // Button
+  buttonAppearance: { default: defaultProps('buttonAppearance', 'text') },
+  buttonSize: { default: defaultProps('buttonSize', 'small') },
+  buttonShape: undefined,
+  buttonAttrs: undefined,
 
   // Menu
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWidth: undefined
+  menuWindowWidth: undefined,
+  menuAttrs: undefined,
+
+  // Icon
+  iconMore: {
+    type: String,
+    default: defaultProps('iconMore', 'more_vert')
+  }
 }

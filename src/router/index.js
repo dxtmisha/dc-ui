@@ -12,7 +12,7 @@ import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
-import DemoCardMenu from '../--views/DemoCardMenu'
+import DemoCardMenu from '../views/DemoCardMenu'
 import DemoCheckbox from '../views/DemoCheckbox'
 import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
@@ -37,7 +37,7 @@ import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoNavigation from '../views/DemoNavigation'
 import DemoProgress from '../views/DemoProgress'
-import DemoRedactionFile from '../media/demo/DemoRedactionFile'
+import DemoRedactionFile from '../views/DemoRedactionFile'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
@@ -73,6 +73,9 @@ export const routes = getRoutes({
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,
   'd-top': DemoTop,
+  'l-card': { line: true },
+  's-card': { subtitle: 'Card' },
+  'd-card-menu': DemoCardMenu,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },
   'd-carcass-field': DemoCarcassField,
@@ -117,7 +120,6 @@ export const routes = getRoutes({
   'd-redaction-file': DemoRedactionFile,
   'l-components': { line: true },
   's-basic': { subtitle: 'Basic' },
-  'd-card-menu': DemoCardMenu,
   'd-progress': DemoProgress,
   'd-ripple': DemoRipple,
   'd-window': DemoWindow

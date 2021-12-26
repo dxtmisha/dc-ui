@@ -177,6 +177,32 @@ export const menu = [
   }
 ]
 
+export const menuMin = [
+  {
+    text: 'Home',
+    value: 'home',
+    icon: 'home',
+    href: '#home'
+  },
+  {
+    text: 'Find friends',
+    value: 'find_friends',
+    icon: 'people',
+    href: '#find_friends'
+  },
+  {
+    text: 'Notifications',
+    value: 'notifications',
+    icon: 'notifications',
+    href: '#notifications'
+  },
+  {
+    text: 'Profile',
+    value: 'profile',
+    icon: 'account_circle'
+  }
+]
+
 export const menuSimplified = [
   {
     text: 'Home',

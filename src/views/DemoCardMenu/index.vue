@@ -6,18 +6,18 @@
     <d-card-menu
       v-bind="binds"
       id="id-card-menu"
-      :list="list"
       :admin="true"
+      :list="list"
       @on-click="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DCardMenu from '@/--components/DCardMenu'
+import DCardMenu from '@/components/DCardMenu'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardMenu } from './options'
-import card from '@/media/--demo/list/card'
+import { menuMin } from '@/media/demo/data/list'
 
 export default {
   name: 'DemoCardMenu',
@@ -27,7 +27,7 @@ export default {
   },
   setup () {
     const options = optionsCardMenu
-    const list = card
+    const list = menuMin
 
     return {
       options,

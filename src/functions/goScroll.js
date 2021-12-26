@@ -1,4 +1,4 @@
-const INDENT = 48
+const INDENT = 128
 
 export default function goScroll (item, selector = '.d-window__body') {
   const list = item?.closest(selector)
