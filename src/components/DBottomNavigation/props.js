@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/uses/useDefault'
+import { defaultInit, validator, validatorAdaptive } from '@/uses/useDefault'
 import { palette } from '@/uses/useColor'
 
 const defaultProps = defaultInit('d-bottom-navigation')
@@ -39,6 +39,11 @@ export const props = {
     ])
   },
   shape: { default: defaultProps('shape', 'tile') },
+  adaptive: {
+    type: String,
+    default: defaultProps('shape', 'basic'),
+    validator: validatorAdaptive
+  },
   scroll: {
     type: String,
     default: defaultProps('scroll', 'bottom'),

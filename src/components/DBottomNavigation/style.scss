@@ -8,9 +8,11 @@
   --_bv-palette-type1: var(--bv-palette-type1, var(--background-type8));
   --_bv-palette-type2: var(--bv-palette-type2, var(--palette-type1, var(--primary-type1)));
   --_bv-height: var(--bv-height, 56px);
+  --_bv--ic-height: var(--bv--ic-height, 40px);
   --_bv-width: var(--bv-width, 512px);
 
   --li--nr-height: var(--_bv-height);
+  --li--nr--ic-height: var(--_bv--ic-height);
 
   @include index(6);
   bottom: 0;
