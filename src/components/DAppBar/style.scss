@@ -183,7 +183,7 @@
 @mixin appBarTranslucency {
   &:not(.status-action).appearance-translucency {
     --_ab-palette-type1: var(--_ab-palette-type2);
-    --_ab-background-opacity: var(--opacity-surface-medium);
+    --_ab-background-opacity: 0;
     @include optionBlur(var(--blur-type3)) {
       --_ab-background-opacity: var(--opacity-primary-medium);
     }

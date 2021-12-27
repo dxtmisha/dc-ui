@@ -5,6 +5,7 @@ import DemoAlert from '../views/DemoAlert'
 import DemoAppBar from '../views/DemoAppBar'
 import DemoBadge from '../views/DemoBadge'
 import DemoBanner from '../views/DemoBanner'
+import DemoBottomNavigation from '../views/DemoBottomNavigation'
 import DemoButton from '../views/DemoButton'
 import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
@@ -62,6 +63,7 @@ export const routes = getRoutes({
   'd-alert': DemoAlert,
   'd-app-bar': DemoAppBar,
   'd-banner': DemoBanner,
+  'd-bottom-navigation': DemoBottomNavigation,
   'd-dialog': DemoDialog,
   'd-navigation': DemoNavigation,
   'd-scrollbar': DemoScrollbar,

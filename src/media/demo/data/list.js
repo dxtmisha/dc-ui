@@ -25,6 +25,33 @@ export const bar = [
   }
 ]
 
+export const bottomNavigation = [
+  {
+    text: 'Favorites',
+    icon: 'favorite',
+    value: 'favorites',
+    href: '#favorites'
+  },
+  {
+    text: 'Music',
+    icon: 'music_note',
+    value: 'music',
+    href: '#music'
+  },
+  {
+    text: 'Places',
+    icon: 'place',
+    value: 'places',
+    href: '#places'
+  },
+  {
+    text: 'News',
+    icon: 'newspaper',
+    value: 'news',
+    href: '#news'
+  }
+]
+
 export const menu = [
   {
     html: `

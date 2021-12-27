@@ -103,7 +103,7 @@
   }
 
   &.appearance-translucency &__body {
-    background: varColor(--_nv-palette, --opacity-surface-medium);
+    background: transparent;
     @include optionBlur(var(--blur-type3)) {
       background: varColor(--_nv-palette);
     }

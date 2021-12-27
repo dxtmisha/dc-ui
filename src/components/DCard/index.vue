@@ -5,7 +5,11 @@
       <d-card-title v-if="title" v-bind="bindTitle"/>
       <d-card-text v-if="text" :text="text" :title="textTitle"/>
     </div>
-    <d-actions v-if="bar || barAction" v-bind="bindActions"/>
+    <d-actions
+      v-if="bar || barAction"
+      v-bind="bindActions"
+      @on-click="onClick"
+    />
   </div>
 </template>
 
@@ -30,6 +34,7 @@ export default {
     DCardTitle
   },
   props,
+  emits: ['on-click'],
   setup (props, context) {
     const bindTitle = attrTitle({ props })
     const bindMedia = attrMedia({ props })
@@ -51,13 +56,16 @@ export default {
       }
     })
 
+    const onClick = event => context.emit('on-click', event)
+
     useAdmin('d-card', context)
 
     return {
       bindTitle,
       bindMedia,
       bindActions,
-      binds
+      binds,
+      onClick
     }
   }
 }

@@ -41,6 +41,7 @@ export const Options = {
   cancel: { default: true },
   click: {},
   close: {},
+  colored: {},
   counter: {},
   delay: {
     list: [
