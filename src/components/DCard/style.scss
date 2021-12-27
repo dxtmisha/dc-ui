@@ -1,0 +1,58 @@
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/media";
+@import "../../styles/options/optionShape";
+
+@mixin mixinAppearance {
+  --_cr-background: transparent;
+  --_cr-border-width: var(--basic-border-width);
+  --_cr-shadow: none;
+}
+
+@mixin card {
+  --_cr-background: var(--cr-background, #{varColor(--background-type1)});
+  --_cr-border-width: var(--cr-border-width, 0px);
+  --_cr-radius: var(--cr-radius, var(--basic-radius));
+  --_cr-shadow: var(--cr-shadow, var(--shadow-type1));
+
+  background-color: var(--_cr-background);
+  border-radius: var(--_cr-radius);
+  border-width: var(--_cr-border-width);
+  box-shadow: var(--_cr-shadow);
+  overflow: hidden;
+}
+
+@mixin cardAppearance {
+  @include mediaMinList(medium, '&.appearance-auto') {
+    @include mixinAppearance;
+    @content;
+  }
+
+  &.appearance-outlined {
+    @include mixinAppearance;
+    @content;
+  }
+}
+
+@mixin cardShape {
+  @include optionShape;
+}
+
+@mixin cardLandscape {
+  &.option-landscape &__body {
+    display: flex;
+  }
+
+  &.option-right &__body {
+    flex-direction: row-reverse;
+  }
+}
+
+@mixin cardInit {
+  @include card;
+
+  @include cardAppearance;
+  @include cardShape;
+  @include cardLandscape;
+}

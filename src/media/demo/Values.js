@@ -124,6 +124,7 @@ export const Values = {
     default: true,
     message: 'Demo'
   },
+  textTitle: { message: 'Interactive demo' },
   title: { message: 'Interactive demo' },
   underline: { message: 'demo' },
   value: {},

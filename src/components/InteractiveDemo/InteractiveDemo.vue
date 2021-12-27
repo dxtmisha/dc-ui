@@ -1,7 +1,7 @@
 <template>
   <div class="interactive-demo">
     <div class="interactive-demo__show" :class="{ 'option-sticky': sticky }">
-      <slot :binds="valueData" :update="updateProps"/>
+      <slot :binds="valueData" :on="on" :update="updateProps"/>
     </div>
     <interactive-demo-option
       :options="valueOptions"
@@ -57,6 +57,9 @@ export default {
       value
     }) {
       this.setValue(item, value)
+    },
+    on (event) {
+      console.warn('event', event)
     }
   }
 }

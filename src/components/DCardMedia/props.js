@@ -8,6 +8,12 @@ export const props = {
   // Status
   active: Boolean,
 
+  // Options
+  aspectRatio: {
+    type: String,
+    default: defaultProps('aspectRatio')
+  },
+
   // Icon
   thumbnail: [File, String],
   iconCheck: { default: defaultProps('iconCheck', 'check_circle') }

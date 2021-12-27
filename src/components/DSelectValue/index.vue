@@ -6,9 +6,10 @@
           v-for="item in propValue"
           v-bind="bindButton"
           :key="item.value"
-          class="d-select-value__item it-item"
+          :href="item?.href"
           :item="item"
           :text="item.text"
+          class="d-select-value__item it-item"
           @on-click="onClick"
           @on-trailing="onClick"
         />

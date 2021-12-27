@@ -1,19 +1,71 @@
 <template>
-  <div></div>
+  <div v-bind="binds" class="d-card">
+    <div class="d-card__body">
+      <d-card-media v-if="thumbnail" v-bind="bindMedia"/>
+      <d-card-title v-if="title" v-bind="bindTitle"/>
+      <d-card-text v-if="text" :text="text" :title="textTitle"/>
+    </div>
+    <d-actions v-if="bar || barAction" v-bind="bindActions"/>
+  </div>
 </template>
 
 <script>
+import DActions from '@/components/DActions'
+import DCardMedia from '@/components/DCardMedia'
+import DCardText from '@/components/DCardText'
+import DCardTitle from '@/components/DCardTitle'
 import { props } from './props'
+import { computed } from 'vue'
+import attrActions from '@/components/DActions/attrActions'
+import attrMedia from '@/components/DCardMedia/attrMedia'
+import attrTitle from '@/components/DCardTitle/attrTitle'
+import useAdmin from '@/uses/useAdmin'
 
 export default {
   name: 'DCard',
+  components: {
+    DActions,
+    DCardMedia,
+    DCardText,
+    DCardTitle
+  },
   props,
   setup (props, context) {
-    return {}
+    const bindTitle = attrTitle({ props })
+    const bindMedia = attrMedia({ props })
+    const bindActions = attrActions({ props })
+
+    const binds = computed(() => {
+      return {
+        class: {
+          'status-active': props.active,
+          'status-dragged': props.dragged,
+          'status-hide': props.hide,
+          [`appearance-${props.appearance}`]: props.appearance,
+          [`shape-${props.shape}`]: props.shape,
+          'option-landscape': props.landscape,
+          'option-right': props.right
+        },
+        style: { '--cr-background': props.backgroundColor }
+      }
+    })
+
+    useAdmin('d-card', context)
+
+    return {
+      bindTitle,
+      bindMedia,
+      bindActions,
+      binds
+    }
   }
 }
 </script>
 
 <style lang="scss">
+@import "style";
 
+.d-card {
+  @include cardInit;
+}
 </style>

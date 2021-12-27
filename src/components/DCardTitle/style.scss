@@ -8,6 +8,10 @@
   @include flexX;
   gap: 0 var(--_ct-gap);
   padding: var(--_ct-padding);
+
+  & + .d-card-text {
+    padding-top: 0;
+  }
 }
 
 @mixin cardTitleTitle {

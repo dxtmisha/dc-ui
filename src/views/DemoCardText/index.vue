@@ -3,35 +3,29 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-card-title
+    <d-card-text
       v-bind="binds"
-      id="id-card-title"
+      id="id-card-text"
       :admin="true"
       class="border"
-      @on-click="on"
     />
   </interactive-demo>
 </template>
 
 <script>
-import DCardTitle from '@/components/DCardTitle'
+import DCardText from '@/components/DCardText'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsCardMenu } from './options'
+import { optionsCardText } from './options'
 
 export default {
-  name: 'DemoCardTitle',
+  name: 'DemoCardText',
   components: {
-    DCardTitle,
+    DCardText,
     InteractiveDemo
   },
   setup () {
-    const options = optionsCardMenu
+    const options = optionsCardText
     return { options }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
-    }
   }
 }
 </script>

@@ -3,10 +3,10 @@ import { defaultInit } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-card-title')
 export const props = {
   // Values
-  href: String,
-  text: String,
+  title: String,
   description: String,
   menu: [Array, Object],
+  href: String,
 
   // Status
   active: Boolean,

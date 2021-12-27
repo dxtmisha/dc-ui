@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" class="d-card-media">
+  <a :href="href" :style="styleList" class="d-card-media">
     <d-icon-item :icon="thumbnail" class="d-card-media__thumbnail"/>
     <d-icon
       :active="active"
@@ -15,6 +15,7 @@ import { props } from '@/components/DCardMedia/props'
 import DIconItem from '@/components/DIconItem'
 import DIcon from '@/components/DIcon'
 import useAdmin from '@/uses/useAdmin'
+import { computed } from 'vue'
 
 export default {
   name: 'DCardMedia',
@@ -24,7 +25,15 @@ export default {
   },
   props,
   setup (props, context) {
+    const styleList = computed(() => {
+      return { '--cm__ic-aspect': props.aspectRatio || null }
+    })
+
     useAdmin('d-card-media', context)
+
+    return {
+      styleList
+    }
   }
 }
 </script>

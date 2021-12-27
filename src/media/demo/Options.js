@@ -24,6 +24,15 @@ export const Options = {
   animationShow: {},
   arrow: {},
   appearance: {},
+  aspectRatio: {
+    list: [
+      { value: undefined },
+      { value: '1/1' },
+      { value: '3/2' },
+      { value: '4/3' },
+      { value: '16/9' }
+    ]
+  },
   autoClose: {},
   axis: { list: axis },
   back: {},
