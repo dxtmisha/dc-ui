@@ -5,22 +5,28 @@
 @import "../../styles/options/optionShape";
 
 @mixin mixinAppearance {
-  --_cr-background: transparent;
+  --_cr-background-opacity: transparent;
   --_cr-border-width: var(--basic-border-width);
   --_cr-shadow: none;
 }
 
 @mixin card {
-  --_cr-background: var(--cr-background, #{varColor(--background-type1)});
+  --_cr-background: var(--cr-background, #{0,0,0});
   --_cr-border-width: var(--cr-border-width, 0px);
   --_cr-radius: var(--cr-radius, var(--basic-radius));
   --_cr-shadow: var(--cr-shadow, var(--shadow-type1));
 
-  background-color: var(--_cr-background);
+  --_cr-background-opacity: var(--background-type1);
+
+  background: var(--_cr-background-opacity);
   border-radius: var(--_cr-radius);
   border-width: var(--_cr-border-width);
   box-shadow: var(--_cr-shadow);
   overflow: hidden;
+
+  &.option-background {
+    background: varColor(--_cr-background, --opacity-overlay, true);
+  }
 }
 
 @mixin cardAppearance {

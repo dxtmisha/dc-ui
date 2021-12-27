@@ -44,7 +44,8 @@ export default {
           [`appearance-${props.appearance}`]: props.appearance,
           [`shape-${props.shape}`]: props.shape,
           'option-landscape': props.landscape,
-          'option-right': props.right
+          'option-right': props.right,
+          'option-background': props.backgroundColor
         },
         style: { '--cr-background': props.backgroundColor }
       }
