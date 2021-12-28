@@ -24,6 +24,15 @@
   --_li--hv-background-opacity: 0;
   --_li--sl-background-opacity: var(--opacity-container-selected);
 
+  --_li-gap-left: var(--_li-gap);
+  --_li-gap-right: 0px;
+
+  --_li-squeeze-left: var(--_li-squeeze);
+  --_li-squeeze-right: 0px;
+
+  --_li__ic-padding-left: var(--_li__ic-padding);
+  --_li__ic-padding-right: 0px;
+
   --_li-margin-gap-calc: var(--li-margin-gap-calc, 2);
   --_li-margin-gap: var(--li-margin-gap, calc(var(--_li-margin) / var(--_li-margin-gap-calc)));
 
@@ -57,7 +66,8 @@
 
 @mixin listItemIcon() {
   &__icon.li-thumbnail {
-    margin-left: var(--_bt-squeeze);
+    margin-left: var(--_li-squeeze-left);
+    margin-right: var(--_li-squeeze-right);
   }
 
   &__icon.li-trailing {
@@ -68,7 +78,8 @@
   }
 
   &__icon.li-icon ~ &__text {
-    margin-left: var(--_li__ic-padding);
+    margin-left: var(--_li__ic-padding-left);
+    margin-right: var(--_li__ic-padding-right);
   }
 
   &__icon.li-thumbnail ~ &__text {
@@ -82,11 +93,11 @@
 
 @mixin listItemText() {
   &__text {
-    @extend %flex-dynamic;
     align-content: center;
     align-items: center;
     align-self: stretch;
     display: var(--_li--ic-display, flex);
+    flex-direction: inherit;
     flex-wrap: wrap;
     padding: var(--_li-padding-y) 0;
     position: relative;
@@ -99,8 +110,11 @@
     flex-basis: 100%;
   }
 
-  &__main {
-    @extend %flex-dynamic;
+  &:not(.align-center) & {
+    &__text,
+    &__main {
+      @extend %flex-dynamic;
+    }
   }
 }
 
@@ -198,7 +212,7 @@
   }
 
   &.size-rectangle:not(.shape-basic):not(.shape-rounded):not(.shape-pill) {
-    --_bt-squeeze: calc(var(--_li-padding) * -1);
+    --_li-squeeze: calc(var(--_li-padding) * -1);
   }
 }
 
@@ -213,7 +227,7 @@
   }
 
   &.shape-pill:not(.size-rectangle) {
-    --_bt-squeeze: calc(var(--_li-padding-y) - var(--_li-padding));
+    --_li-squeeze: calc(var(--_li-padding-y) - var(--_li-padding));
   }
 
   &.shape-pill:not(.size-rectangle) &__icon.li-thumbnail {
@@ -224,7 +238,28 @@
   }
 
   &.shape-pill.size-rectangle {
-    --_bt-squeeze: calc((var(--_li-height) - (var(--_li-padding-y) * 2)) / 2 - var(--_li-padding));
+    --_li-squeeze: calc((var(--_li-height) - (var(--_li-padding-y) * 2)) / 2 - var(--_li-padding));
+  }
+}
+
+@mixin listItemAlign() {
+  &.align-center {
+    --_li__ic-padding: var(--_li-gap);
+
+    justify-content: center;
+  }
+
+  &.align-right {
+    --_li-gap-left: 0px;
+    --_li-gap-right: var(--_li-gap);
+
+    --_li-squeeze-left: 0px;
+    --_li-squeeze-right: var(--_li-squeeze);
+
+    --_li__ic-padding-left: 0px;
+    --_li__ic-padding-right: var(--_li__ic-padding);
+
+    flex-direction: row-reverse;
   }
 }
 
@@ -385,6 +420,7 @@
 
   @include listItemSize;
   @include listItemShape;
+  @include listItemAlign;
   @include listItemAdaptive;
   @include listItemNavigationRail;
   @include listItemBackground;

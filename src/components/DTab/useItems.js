@@ -1,11 +1,19 @@
-import useWatch from '@/uses/useWatch'
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
+import List from '@/classes/List'
 import forEach from '@/functions/forEach'
 import attrItem from '@/components/DListItem/attrItem'
+import useWatch from '@/uses/useWatch'
 
 export default function useItems (props) {
-  const { list } = toRefs(props)
-  return useWatch(list, () => forEach(list.value, item => attrItem({
+  const propList = computed(() => new List(
+    props.list,
+    props.listInit,
+    props.translation,
+    props.keyText,
+    props.keyValue
+  ).get())
+
+  return useWatch(propList, () => forEach(propList.value, item => attrItem({
     props,
     items: {
       ...item,
@@ -15,8 +23,7 @@ export default function useItems (props) {
       selected: computed(() => props.selected === item.value),
       appearance: 'basic',
       size: 'compact',
-      adaptive: 'basic',
-      navigationRail: 'extra',
+      align: 'center',
       dense: true
     }
   })), ['init'])

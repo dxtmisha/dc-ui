@@ -65,5 +65,6 @@
 }
 
 %icon-margin-left {
-  margin-left: var(--_li-gap);
+  margin-left: var(--_li-gap-left);
+  margin-right: var(--_li-gap-right);
 }

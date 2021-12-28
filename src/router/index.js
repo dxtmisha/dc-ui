@@ -50,6 +50,7 @@ import DemoSelectValue from '../views/DemoSelectValue'
 import DemoSlider from '../views/DemoSlider'
 import DemoSliderPicker from '../views/DemoSliderPicker'
 import DemoSnackbar from '../views/DemoSnackbar'
+import DemoTab from '../views/DemoTab'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../views/DemoTime'
@@ -68,6 +69,7 @@ export const routes = getRoutes({
   'd-navigation': DemoNavigation,
   'd-scrollbar': DemoScrollbar,
   'd-snackbar': DemoSnackbar,
+  'd-tab': DemoTab,
   'd-tooltip': DemoTooltip,
   'l-interaction': { line: true },
   's-interaction': { subtitle: 'Interaction' },

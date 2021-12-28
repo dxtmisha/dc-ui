@@ -1,0 +1,30 @@
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/font";
+
+@mixin tab {
+  --_tb-gap: var(--tb-gap, #{dimension(2)});
+  --_tb-height: var(--tb-height, #{dimension(12)});
+
+  --li-gap: var(--_tb-gap);
+  --li--cm-height: var(--_tb-height);
+  --li--nr--ic-height: var(--_tb-height);
+  --li__ic-padding: 0px;
+
+  @include flexX;
+}
+
+@mixin tabItem {
+  &__item.d-list-item {
+    @include flexDynamic;
+    @include font('button');
+    aspect-ratio: auto;
+
+    @content;
+  }
+}
+
+@mixin tabInit {
+  @include tab;
+  @include tabItem;
+}

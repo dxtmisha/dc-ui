@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { props } from '@/components/DCardMedia/props'
+import { props } from './props'
 import DIconItem from '@/components/DIconItem'
 import DIcon from '@/components/DIcon'
 import useAdmin from '@/uses/useAdmin'

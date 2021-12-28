@@ -102,6 +102,7 @@ export default {
           [`appearance-${props.appearance}`]: props.appearance,
           [`size-${props.size}`]: props.size,
           [`shape-${props.shape}`]: props.shape,
+          [`align-${props.align}`]: props.align,
           [`adaptive-${propAdaptive.value}`]: propAdaptive.value,
           [`navigation-rail-${props.navigationRail}`]: props.navigationRail,
           'option-dense': props.dense,
