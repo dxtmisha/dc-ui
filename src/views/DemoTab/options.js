@@ -6,8 +6,7 @@ export const optionsTab = useProps(props, {
     list: [
       { value: undefined },
       { value: 'basic' },
-      { value: 'contained' },
-      { value: 'translucency' }
+      { value: 'contained' }
     ]
   }
 }, ['selected'])

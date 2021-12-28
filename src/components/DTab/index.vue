@@ -1,5 +1,5 @@
 <template>
-  <div v-bind="binds" class="d-tab">
+  <div ref="tab" :class="classList" class="d-tab">
     <d-list-item
       v-for="item in bindItems"
       v-bind="item"
@@ -13,8 +13,9 @@
 <script>
 import DListItem from '@/components/DListItem'
 import { props } from './props'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
+import useIndicator from './useIndicator'
 import useItems from './useItems'
 
 export default {
@@ -23,26 +24,39 @@ export default {
   props,
   emit: ['on-click'],
   setup (props, context) {
-    const bindItems = useItems(props)
+    const tab = ref(undefined)
 
-    const binds = computed(() => {
+    const propSelected = useIndicator(tab, props)
+    const bindItems = useItems(props, propSelected)
+
+    const getDirection = value => {
+      const oldIndex = bindItems.value.findIndex(item => item.value === props.selected)
+      const newIndex = bindItems.value.findIndex(item => item.value === value)
+
+      return oldIndex < newIndex ? 'next' : 'back'
+    }
+
+    const classList = computed(() => {
       return {
-        class: {
-          [`appearance-${props.appearance}`]: props.appearance,
-          [`shape-${props.shape}`]: props.shape
-        }
+        [`appearance-${props.appearance}`]: props.appearance,
+        [`shape-${props.shape}`]: props.shape,
+        'option-dynamic': props.dynamic
       }
     })
 
     const onClick = event => {
-      context.emit('on-click', event)
+      context.emit('on-click', {
+        ...event,
+        direction: getDirection(event.value)
+      })
     }
 
     useAdmin('d-tab', context)
 
     return {
+      tab,
       bindItems,
-      binds,
+      classList,
       onClick
     }
   }

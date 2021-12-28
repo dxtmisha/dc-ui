@@ -12,7 +12,7 @@
 }
 
 @mixin mixinNavigationRail($this: &) {
-  --_li-padding: #{dimension(1)};
+  --_li-padding: var(--_li--nr-padding);
   --_li__ic-padding: 0;
 
   --_li-height: var(--_li--nr-height);
@@ -26,6 +26,7 @@
   @include flexY;
   @include squared(var(--_li--nr-height));
   justify-content: center;
+  gap: dimension(1) 0;
 
   #{$this}__text,
   #{$this}__main {

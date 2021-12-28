@@ -15,7 +15,7 @@
 <script>
 import DListItem from '@/components/DListItem'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useItems from '../DTab/useItems'
@@ -27,8 +27,10 @@ export default {
   props,
   emit: ['on-click'],
   setup (props, context) {
+    const { selected } = toRefs(props)
+
     const app = ref(undefined)
-    const bindItems = useItems(props)
+    const bindItems = useItems(props, selected)
 
     useScroll(app, props)
 

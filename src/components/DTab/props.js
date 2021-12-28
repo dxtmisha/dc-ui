@@ -30,19 +30,17 @@ export const props = {
     default: defaultProps('appearance', 'contained'),
     validator: validator([
       'basic',
-      'contained',
-      'translucency'
+      'contained'
     ])
   },
-  shape: { default: defaultProps('shape', 'tile') },
   adaptive: {
     type: String,
-    default: defaultProps('shape', 'basic'),
+    default: defaultProps('adaptive', 'basic'),
     validator: validatorAdaptive
   },
   navigationRail: {
     type: String,
-    default: defaultProps('shape', 'always'),
+    default: defaultProps('navigationRail'),
     validator: validator([
       'small',
       'medium',
@@ -58,6 +56,10 @@ export const props = {
       'desktop',
       'always'
     ])
+  },
+  dynamic: {
+    type: Boolean,
+    default: defaultProps('dynamic', true)
   },
   ripple: undefined,
   itemAttrs: undefined,
