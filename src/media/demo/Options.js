@@ -118,6 +118,16 @@ export const Options = {
       { value: 400 }
     ]
   },
+  gap: {
+    list: [
+      { value: undefined },
+      { value: '0px' },
+      { value: '4px' },
+      { value: '8px' },
+      { value: '12px' },
+      { value: '16px' }
+    ]
+  },
   landscape: {},
   locales: {
     list: [

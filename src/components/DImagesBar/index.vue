@@ -21,7 +21,7 @@
 <script>
 import DButton from '@/components/DButton'
 import { props } from './props'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 
 export default {
@@ -30,10 +30,16 @@ export default {
   props,
   emits: ['on-click'],
   setup (props, context) {
+    const barSize = inject('barSize', undefined)
+    const barDisplay = inject('barDisplay', undefined)
+
     const classList = computed(() => {
+      const size = barSize.value || props.size
+      const display = barDisplay.value || props.display
+
       return {
-        [`size-${props.size}`]: props.size,
-        [`display-${props.display}`]: props.display
+        [`size-${size}`]: size,
+        [`display-${display}`]: display
       }
     })
 

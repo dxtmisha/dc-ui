@@ -1,7 +1,55 @@
-@mixin images {
+@import "../../styles/dimension";
 
+@mixin images {
+  --_im-columns: var(--im-columns, auto-fit);
+  --_im-gap: var(--im-gap, #{dimension(1)});
+  --_im-size: var(--im-size, #{dimension(40)});
+
+  display: grid;
+  gap: var(--_im-gap);
+  grid-template-columns: repeat(var(--_im-columns), minmax(#{var(--_im-size)}, 1fr));
+  grid-template-rows: auto;
+
+}
+
+@mixin imagesQuilted {
+  &.appearance-quilted {
+    grid-auto-flow: dense;
+  }
+
+  &.appearance-quilted &-item {
+    &.emphasize-2,
+    &.emphasize-4 {
+      grid-column: auto / span 2;
+    }
+
+    &.emphasize-4 {
+      grid-row: auto / span 2;
+    }
+  }
+
+  &.appearance-quilted &-item.emphasize-2 &-item__body {
+    @include aspectRatio('2/1');
+  }
+}
+
+@mixin imagesWoven {
+  &.appearance-woven &-item {
+    align-self: center;
+  }
+
+  &.appearance-woven &-item:not(.option-turn):nth-child(odd) &-item__body {
+    @include aspectRatio('38/52');
+  }
+
+  &.appearance-woven &-item.option-turn:nth-child(even) &-item__body {
+    @include aspectRatio('38/52');
+  }
 }
 
 @mixin imagesInit {
   @include images;
+
+  @include imagesQuilted;
+  @include imagesWoven;
 }

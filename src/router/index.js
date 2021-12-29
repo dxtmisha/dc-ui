@@ -31,6 +31,7 @@ import DemoFile from '../views/DemoFile'
 import DemoForm from '../views/DemoForm'
 import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
+import DemoImages from '../views/DemoImages'
 import DemoImagesBar from '../views/DemoImagesBar'
 import DemoInput from '../views/DemoInput'
 import DemoList from '../views/DemoList'
@@ -91,6 +92,7 @@ export const routes = getRoutes({
   'd-card-title': DemoCardTitle,
   'l-images': { line: true },
   's-images': { subtitle: 'Images' },
+  'd-images': DemoImages,
   'd-images-bar': DemoImagesBar,
   'l-form': { line: true },
   's-form': { subtitle: 'Form and Input' },

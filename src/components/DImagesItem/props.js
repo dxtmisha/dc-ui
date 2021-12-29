@@ -1,4 +1,11 @@
-import { defaultInit } from '@/uses/useDefault'
+export const props = {
+  // Values
+  item: undefined,
+  value: undefined,
+  src: String,
+  title: undefined,
+  text: undefined,
 
-const defaultProps = defaultInit('d-images-item')
-export const props = {}
+  // Options
+  emphasize: Number
+}

@@ -1,7 +1,26 @@
-@mixin imagesItem {
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
 
+@mixin imagesItem {
+  --_it-src: var(--it-src, none);
+
+  @include flexDynamic;
+  flex-basis: var(--_im-size);
+  position: relative;
+  width: auto;
+}
+
+@mixin imagesItemBody {
+  &__body {
+    @include squared(100%);
+    background-color: varColor(--background-overlay, --opacity-overlay);
+    background-image: var(--_it-src);
+    display: block;
+  }
 }
 
 @mixin imagesItemInit {
   @include imagesItem;
+  @include imagesItemBody;
 }

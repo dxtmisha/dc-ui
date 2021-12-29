@@ -68,6 +68,7 @@ export const Values = {
   },
   helperMessage: { message: helper1 },
   hour: { message: 15 },
+  list: {},
   marks: {
     message: [
       { value: 0 },

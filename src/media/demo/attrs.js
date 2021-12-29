@@ -3,6 +3,7 @@ import { Status } from '@/media/demo/Status'
 import { Options } from '@/media/demo/Options'
 import { Actions } from '@/media/demo/Actions'
 import { Alert } from '@/media/demo/Alert'
+import { Bar } from '@/media/demo/Bar'
 import { Button } from '@/media/demo/Button'
 import { Calendar } from '@/media/demo/Calendar'
 import { Checkbox } from '@/media/demo/Checkbox'
@@ -27,6 +28,7 @@ export default {
   Options,
   Actions,
   Alert,
+  Bar,
   Button,
   Calendar,
   CarcassField: Field,

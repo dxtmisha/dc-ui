@@ -14,8 +14,6 @@ export default function useItems (props, propSelected) {
   ).get())
 
   return useWatch(propList, () => {
-    console.log('propList')
-
     return forEach(propList.value, item => attrItem({
       props,
       items: {
