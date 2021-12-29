@@ -1,0 +1,7 @@
+@mixin imagesItem {
+
+}
+
+@mixin imagesItemInit {
+  @include imagesItem;
+}
