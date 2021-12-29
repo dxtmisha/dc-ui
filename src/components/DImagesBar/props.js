@@ -1,4 +1,4 @@
-import { defaultInit, validator } from '@/uses/useDefault'
+import { defaultInit, validator, validatorSize } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-images-bar')
 export const props = {
@@ -9,6 +9,11 @@ export const props = {
   text: String,
 
   // Options
+  size: {
+    type: String,
+    default: defaultProps('size'),
+    validator: validatorSize
+  },
   display: {
     type: String,
     default: defaultProps('display', 'below'),

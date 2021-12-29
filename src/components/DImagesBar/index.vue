@@ -32,6 +32,7 @@ export default {
   setup (props, context) {
     const classList = computed(() => {
       return {
+        [`size-${props.size}`]: props.size,
         [`display-${props.display}`]: props.display
       }
     })
