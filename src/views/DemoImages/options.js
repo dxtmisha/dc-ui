@@ -110,10 +110,16 @@ export const optionsImages = useProps(props, {
         text: 'Image 21',
         src: require('@/assets/images/image-21.jpg'),
         value: 'image-21'
-      },
-      { value: 'image-22' },
-      { value: 'image-23' },
-      { value: 'image-24' }
+      }
+    ]
+  },
+  size: {
+    list: [
+      { value: undefined },
+      { value: '64px' },
+      { value: '128px' },
+      { value: '192px' },
+      { value: '256px' }
     ]
   }
 })

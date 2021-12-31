@@ -15,7 +15,7 @@ import { props } from './props'
 import { computed, provide, ref, toRefs } from 'vue'
 import List from '@/classes/List'
 import useAdmin from '@/uses/useAdmin'
-import useWoven from '@/components/DImages/useWoven'
+import useAppearance from './useAppearance'
 
 export default {
   name: 'DImages',
@@ -37,19 +37,23 @@ export default {
       false
     ).get())
 
-    provide('barSize', barSize)
-    provide('barDisplay', barDisplay)
-
-    useWoven(
+    const {
+      even,
+      update
+    } = useAppearance(
       images,
       props,
       propList
     )
 
+    provide('barSize', barSize)
+    provide('barDisplay', barDisplay)
+
     const binds = computed(() => {
       return {
         class: {
-          [`appearance-${props.appearance}`]: props.appearance
+          [`appearance-${props.appearance}`]: props.appearance,
+          'option-even': even.value
         },
         style: {
           '--im-size': props.size,
@@ -63,7 +67,8 @@ export default {
     return {
       images,
       propList,
-      binds
+      binds,
+      update
     }
   }
 }

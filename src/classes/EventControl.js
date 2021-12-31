@@ -46,6 +46,10 @@ export default class EventControl {
     return this
   }
 
+  getListener () {
+    return this._listener
+  }
+
   setListener (listener) {
     if (typeof listener === 'function') {
       this._listener = event => {

@@ -14,12 +14,12 @@
 </template>
 
 <script>
+import DImagesBar from '@/components/DImagesBar'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
-import useWatch from '@/uses/useWatch'
 import createImage from '@/functions/createImage'
 import useAdmin from '@/uses/useAdmin'
-import DImagesBar from '@/components/DImagesBar'
+import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DImagesItem',
@@ -29,6 +29,7 @@ export default {
   setup (props, context) {
     const { src } = toRefs(props)
 
+    const height = ref(undefined)
     const width = ref(undefined)
 
     const propSrc = useWatch(src, async data => {
@@ -36,9 +37,11 @@ export default {
 
       if (image) {
         data.value = `url('${image.src}')`
-        width.value = image.width * 10 / image.height + 'px'
+        height.value = Math.floor(image.height * 10 / image.width)
+        width.value = Math.floor(image.width * 10 / image.height)
       } else {
         data.value = null
+        height.value = null
         width.value = null
       }
     })
@@ -50,9 +53,12 @@ export default {
         },
         style: {
           '--it-src': propSrc.value,
+          '--it-height': height.value,
           '--it-width': width.value
         },
-        'data-value': props.value
+        'data-value': props.value,
+        'data-height': height.value,
+        'data-width': width.value
       }
     })
 
