@@ -54,6 +54,7 @@ export const Values = {
     message: menu
   },
   cache: {},
+  count: {},
   description: { message: quote1 },
   dot: {},
   counterValue: { message: 128 },
@@ -111,6 +112,16 @@ export const Values = {
   menu: { message: menuMin },
   minute: { message: 35 },
   prefix: { message: 'pr' },
+  rows: {
+    default: 25,
+    list: [
+      { value: undefined },
+      { value: 25 },
+      { value: 50 },
+      { value: 75 },
+      { value: 100 }
+    ]
+  },
   second: { message: 45 },
   suffix: { message: 'sf' },
   text: {

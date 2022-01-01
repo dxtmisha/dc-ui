@@ -1,6 +1,8 @@
 {
+  "[item] of [count]": "[item] of [count]",
   "Add": "Add",
   "AM": "AM",
+  "Back": "Back",
   "Cancel": "Cancel",
   "Delete": "Delete",
   "Depart": "Depart",
@@ -9,14 +11,19 @@
   "Edit": "Edit",
   "End": "End",
   "Enter date": "Enter date",
+  "First": "First",
   "Hour": "Hour",
+  "Last": "Last",
   "Minute": "Minute",
+  "Next": "Next",
   "Return": "Return",
+  "Rows per page": "Rows per page",
   "Ok": "Ok",
   "PM": "PM",
   "Save": "Save",
   "Select date": "Select date",
   "Selected range": "Selected range",
   "Select Time": "Select Time",
+  "Show more": "Show more",
   "Start": "Start"
 }

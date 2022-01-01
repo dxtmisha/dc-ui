@@ -272,6 +272,7 @@
 
 @mixin buttonDense() {
   &.option-dense {
+    --_bt-min-width: var(--_bt-height);
     --_bt-padding: var(--_bt--dn-padding);
     @content;
   }

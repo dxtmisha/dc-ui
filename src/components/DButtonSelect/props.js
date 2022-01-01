@@ -75,9 +75,6 @@ export const props = {
   // Icon
   icon: undefined,
   iconActive: undefined,
-  iconArrowDown: {
-    type: String,
-    default: defaultProps('iconArrowDown', 'arrow_drop_down')
-  },
+  iconArrowDown: { default: defaultProps('iconArrowDown', 'arrow_drop_down') },
   iconBackground: undefined
 }

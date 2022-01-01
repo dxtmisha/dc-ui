@@ -43,6 +43,7 @@ import DemoMotionScroll from '../views/DemoMotionScroll'
 import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoNavigation from '../views/DemoNavigation'
+import DemoPagination from '../views/DemoPagination'
 import DemoProgress from '../views/DemoProgress'
 import DemoRedactionFile from '../views/DemoRedactionFile'
 import DemoRipple from '../views/DemoRipple'
@@ -71,7 +72,6 @@ export const routes = getRoutes({
   'd-navigation': DemoNavigation,
   'd-scrollbar': DemoScrollbar,
   'd-snackbar': DemoSnackbar,
-  'd-tab': DemoTab,
   'd-tooltip': DemoTooltip,
   'l-interaction': { line: true },
   's-interaction': { subtitle: 'Interaction' },
@@ -82,6 +82,7 @@ export const routes = getRoutes({
   'd-list': DemoList,
   'd-list-item': DemoListItem,
   'd-menu': DemoMenu,
+  'd-tab': DemoTab,
   'd-top': DemoTop,
   'l-card': { line: true },
   's-card': { subtitle: 'Card' },
@@ -90,6 +91,9 @@ export const routes = getRoutes({
   'd-card-menu': DemoCardMenu,
   'd-card-text': DemoCardText,
   'd-card-title': DemoCardTitle,
+  'l-data': { line: true },
+  's-data': { subtitle: 'Data and Table' },
+  'd-pagination': DemoPagination,
   'l-images': { line: true },
   's-images': { subtitle: 'Images' },
   'd-images': DemoImages,

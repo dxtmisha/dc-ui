@@ -129,6 +129,7 @@ export const Options = {
     ]
   },
   landscape: {},
+  length: {},
   locales: {
     list: [
       { value: undefined },
@@ -250,6 +251,9 @@ export const Options = {
       { value: 'tile' }
     ]
   },
+  showText: {},
+  showInfo: {},
+  showMore: {},
   size: {
     list: [
       { value: undefined },
