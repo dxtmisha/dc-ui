@@ -1,40 +1,48 @@
 <template>
   <interactive-demo
     :options="options"
+    :sticky="false"
     v-slot:default="{ binds, on }"
   >
-    <div class="demo-table border">
-      <d-table
-        v-bind="binds"
-        id="id-table"
-        :admin="true"
-        @on-input="on"
-        @on-sort="on"
-      >
-        <template v-slot:status="{ item }">
-          <d-button
-            :text="item.status"
-            :color="item.color"
-            appearance="chip-color"
-          />
-        </template>
-        <template v-slot:name="{ item }">
-          <a :href="`#id-${item.id}`">{{ item.name }}</a>
-          <span class="demo-table__id">{{ item.id }}</span>
-        </template>
-        <template v-slot:policy="{ item }">
-          <b>{{ item.policy }}</b>
-        </template>
-      </d-table>
+    <div>
+      <div class="demo-table border">
+        <d-table
+          v-bind="binds"
+          id="id-table"
+          :admin="true"
+          @on-input="on"
+          @on-sort="on"
+        >
+          <template v-slot:status="{ item }">
+            <template v-if="binds.size === 'small'">{{ item.status }}</template>
+            <d-button
+              v-else
+              :text="item.status"
+              :color="item.color"
+              :readonly="true"
+              appearance="chip-color"
+            />
+          </template>
+          <template v-slot:name="{ item }">
+            <a :href="`#id-${item.id}`">{{ item.name }}</a>
+            <span v-if="binds.size !== 'small'" class="demo-table__id">{{ item.id }}</span>
+          </template>
+          <template v-slot:policy="{ item }">
+            <b>{{ item.policy }}</b>
+          </template>
+        </d-table>
+      </div>
+      <div class="pt-8" v-html="text"/>
     </div>
   </interactive-demo>
 </template>
 
 <script>
+import DButton from '@/components/DButton'
 import DTable from '@/components/DTable'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTable } from './options'
-import DButton from '@/components/DButton'
+import { leoTolstoy } from '@/media/demo/data/text'
 
 export default {
   name: 'DemoTable',
@@ -45,7 +53,12 @@ export default {
   },
   setup () {
     const options = optionsTable
-    return { options }
+    const text = leoTolstoy
+
+    return {
+      options,
+      text
+    }
   }
 }
 </script>

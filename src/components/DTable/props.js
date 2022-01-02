@@ -1,4 +1,4 @@
-import { defaultInit, validatorAlign, validatorShape, validatorSize } from '@/uses/useDefault'
+import { defaultInit, validatorAlign, validatorSize } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-table')
 export const props = {
@@ -34,15 +34,14 @@ export const props = {
     default: defaultProps('size'),
     validator: validatorSize
   },
-  shape: {
-    type: String,
-    default: defaultProps('shape'),
-    validator: validatorShape
-  },
   align: {
     type: String,
     default: defaultProps('align', 'left'),
     validator: validatorAlign
+  },
+  sticky: {
+    type: Boolean,
+    default: defaultProps('sticky', true)
   },
   dense: Boolean,
 

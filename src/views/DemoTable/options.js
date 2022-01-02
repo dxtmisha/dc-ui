@@ -9,6 +9,6 @@ export const optionsTable = useProps(props, {
   },
   items: {
     default: true,
-    message: tableItems()
+    message: tableItems(12)
   }
 })

@@ -52,7 +52,6 @@
     min-height: 100vh;
   }
 
-  a:not(.a-static),
   b {
     font-weight: 500;
   }
@@ -61,8 +60,12 @@
     cursor: pointer;
     text-decoration: none;
 
-    &:not(.a-static):hover {
-      text-decoration: underline;
+    &:not(.a-static) {
+      --basic-text: var(--primary-type1);
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

@@ -317,11 +317,6 @@ export const page = [
 
 export const tableHeaders = [
   {
-    text: 'Status',
-    value: 'status',
-    sort: true
-  },
-  {
     text: 'Name',
     value: 'name',
     sort: true
@@ -329,17 +324,18 @@ export const tableHeaders = [
   {
     text: 'Policy',
     value: 'policy',
-    align: 'right'
+    align: 'right',
+    sort: true
+  },
+  {
+    text: 'Status',
+    value: 'status',
+    sort: true
   },
   {
     text: 'City',
     value: 'city',
     sort: true
-  },
-  {
-    text: 'Age',
-    value: 'age',
-    align: 'right'
   }
 ]
 
@@ -375,16 +371,16 @@ export const tableItems = (count = 215) => {
     'Larry Henderson',
     'Gregory Hill',
     'Michael Williams',
-    'Потапов Андрей Артемьевич',
-    'Тихомирова Ярослава Ивановна',
-    'Галкина Злата Артёмовна',
-    'Жданов Дмитрий Михайлович',
-    'Сомов Андрей Александрович',
-    'Федотов Кирилл Алексеевич',
-    'Савельев Мирон Маркович',
-    'Королев Александр Арсентьевич',
-    'Ермолов Александр Ильич',
-    'Боброва Любовь Леонидовна'
+    'Потапов Андрей',
+    'Тихомирова Ярослава',
+    'Галкина Злата',
+    'Жданов Дмитрий',
+    'Сомов Андрей',
+    'Федотов Кирилл',
+    'Савельев Мирон',
+    'Королев Александр',
+    'Ермолов Александр',
+    'Боброва Любовь'
   ]
   const city = [
     'New York',

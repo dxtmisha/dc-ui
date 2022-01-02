@@ -14,7 +14,23 @@ export default function useList (props, context) {
   const propSort = useWatch(sort, () => sort.value, ['init'])
   const propDest = useWatch(dest, () => dest.value ? -1 : 1, ['init'])
 
-  const propHeaders = computed(() => new List(props.headers, props.headersInit, props.translation, props.keyText, props.keyValue).get())
+  const propHeaders = computed(() => {
+    const list = new List(
+      props.headers,
+      props.headersInit,
+      props.translation,
+      props.keyText,
+      props.keyValue
+    ).get()
+
+    list.forEach(item => {
+      if (!('align' in item)) {
+        item.align = props.align
+      }
+    })
+
+    return list
+  })
 
   const propItems = computed(() => {
     checkboxItems.value = {}
@@ -26,7 +42,13 @@ export default function useList (props, context) {
         if (collator) {
           return propDest.value * collator.compare(a[propSort.value], b[propSort.value])
         } else {
-          return propDest.value * (a[propSort.value] > b[propSort.value] ? 1 : a[propSort.value] < b[propSort.value] ? -1 : 0)
+          return propDest.value * (
+            a[propSort.value] > b[propSort.value]
+              ? 1
+              : a[propSort.value] < b[propSort.value]
+                ? -1
+                : 0
+          )
         }
       })
     } else {

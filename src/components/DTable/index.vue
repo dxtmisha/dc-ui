@@ -1,7 +1,7 @@
 <template>
-  <table class="d-table">
+  <table :class="classList" class="d-table">
     <tr class="d-table__headers">
-      <th v-if="checkbox">
+      <th v-if="checkbox" class="d-table__checkbox">
         <d-checkbox
           :ref="el => setCheckbox('all', el)"
           name="all"
@@ -9,22 +9,25 @@
         />
       </th>
       <th
-        v-for="header in propHeaders"
-        :key="header.value"
-        v-bind="header.attrs"
+        v-for="{align, attrs, sort, text, value} in propHeaders"
+        :key="value"
+        v-bind="attrs"
         class="d-table__header"
-        :align="header.align || align"
-        :data-value="header.value"
+        :align="align"
+        :data-value="value"
       >
-        {{ header.text }}
-        <d-button
-          v-if="header.sort"
-          v-bind="bindButton"
-          :class="{'status-sort': propSort === header.value}"
-          :value="header.value"
-          :icon-turn="propSort === header.value && propDest === -1"
-          @on-click="onSort"
-        />
+        <div class="d-table__header__item">
+          <span class="d-table__header__text">{{ text }}</span>
+          <d-button
+            v-if="sort"
+            v-bind="bindButton"
+            class="d-table__header__sort"
+            :class="{'status-sort': propSort === value}"
+            :value="value"
+            :icon-turn="propSort === value && propDest === -1"
+            @on-click="onSort"
+          />
+        </div>
       </th>
     </tr>
     <tr
@@ -32,7 +35,7 @@
       :key="key"
       class="d-table__items"
     >
-      <td v-if="checkbox">
+      <td v-if="checkbox" class="d-table__checkbox">
         <d-checkbox
           :ref="el => setCheckbox(key, el, item)"
           :name="`item-${key}`"
@@ -40,16 +43,16 @@
         />
       </td>
       <td
-        v-for="header in propHeaders"
-        :key="header.value"
-        v-bind="header.attrs"
+        v-for="{align, attrs, value} in propHeaders"
+        :key="value"
+        v-bind="attrs"
         class="d-table__item"
-        :align="header.align || align"
+        :align="align"
       >
-        <template v-if="header.value in $slots">
-          <slot :name="header.value" :item="item"/>
+        <template v-if="value in $slots">
+          <slot :name="value" :item="item"/>
         </template>
-        <template v-else>{{ item[header.value] }}</template>
+        <template v-else>{{ item[value] }}</template>
       </td>
     </tr>
   </table>
@@ -62,6 +65,7 @@ import { props } from './props'
 import attrButton from '@/components/DButton/attrButton'
 import useAdmin from '@/uses/useAdmin'
 import useList from './useList'
+import { computed } from 'vue'
 
 export default {
   name: 'DTable',
@@ -96,6 +100,14 @@ export default {
       }
     })
 
+    const classList = computed(() => {
+      return {
+        [`size-${props.size}`]: props.size,
+        'option-sticky': props.sticky,
+        'option-dense': props.dense
+      }
+    })
+
     useAdmin('d-table', context)
 
     return {
@@ -105,6 +117,7 @@ export default {
       propHeaders,
       propItems,
       bindButton,
+      classList,
       setCheckbox,
       onCheckbox,
       onSort
