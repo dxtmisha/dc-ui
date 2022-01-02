@@ -67,6 +67,7 @@ export default {
       propValidationMessage,
       propValue,
       checkValidity,
+      setValue,
       setChange,
       onChecked
     } = useField(
@@ -103,6 +104,7 @@ export default {
       classList,
 
       checkValidity,
+      setValue,
       setChange,
 
       onChecked

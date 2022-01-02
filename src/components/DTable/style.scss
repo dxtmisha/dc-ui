@@ -1,0 +1,7 @@
+@mixin table {
+
+}
+
+@mixin tableInit {
+  @include table;
+}

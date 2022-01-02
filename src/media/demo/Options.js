@@ -39,6 +39,7 @@ export const Options = {
   background: {},
   border: {},
   cancel: { default: true },
+  checkbox: {},
   click: {},
   close: {},
   colored: {},

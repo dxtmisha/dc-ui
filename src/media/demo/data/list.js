@@ -1,3 +1,5 @@
+import getRandom from '@/functions/getRandom'
+
 export const action = [
   {
     icon: 'content_cut',
@@ -312,3 +314,104 @@ export const page = [
     readonly: true
   }
 ]
+
+export const tableHeaders = [
+  {
+    text: 'Status',
+    value: 'status',
+    sort: true
+  },
+  {
+    text: 'Name',
+    value: 'name',
+    sort: true
+  },
+  {
+    text: 'Policy',
+    value: 'policy',
+    align: 'right'
+  },
+  {
+    text: 'City',
+    value: 'city',
+    sort: true
+  },
+  {
+    text: 'Age',
+    value: 'age',
+    align: 'right'
+  }
+]
+
+export const tableItems = (count = 215) => {
+  const items = []
+  const status = [
+    'Approved',
+    'Awaiting Approval',
+    'Rejected',
+    'Early Stages'
+  ]
+  const colors = [
+    'material-green',
+    'material-amber',
+    'material-red',
+    'material-blue'
+  ]
+  const names = [
+    'Renee Jenkins',
+    'Andrea Harvey',
+    'Carl Jenkins',
+    'Joyce Hall',
+    'Walter Estrada',
+    'Benjamin Brown',
+    'Jamie Robinson',
+    'Dean Munoz',
+    'Hazel Pope',
+    'Mary Barber',
+    'Nina Hopkins',
+    'Sally Harvey',
+    'Dwight McCoy',
+    'Jessica Gomez',
+    'Larry Henderson',
+    'Gregory Hill',
+    'Michael Williams',
+    'Потапов Андрей Артемьевич',
+    'Тихомирова Ярослава Ивановна',
+    'Галкина Злата Артёмовна',
+    'Жданов Дмитрий Михайлович',
+    'Сомов Андрей Александрович',
+    'Федотов Кирилл Алексеевич',
+    'Савельев Мирон Маркович',
+    'Королев Александр Арсентьевич',
+    'Ермолов Александр Ильич',
+    'Боброва Любовь Леонидовна'
+  ]
+  const city = [
+    'New York',
+    'Los Angeles',
+    'Chicago',
+    'Houston',
+    'Phoenix',
+    'Philadelphia',
+    'San Antonio',
+    'San Diego',
+    'Dallas',
+    'San Jose'
+  ]
+
+  for (let i = 0; i < count; i++) {
+    const itemStatus = getRandom(0, 3)
+
+    items.push({
+      status: status[itemStatus],
+      color: colors[itemStatus],
+      name: names[getRandom(0, names.length - 1)],
+      id: 10000 + i,
+      policy: `$${getRandom(10, 99)}00.00`,
+      city: city[getRandom(0, city.length - 1)],
+      age: getRandom(18, 64)
+    })
+  }
+
+  return items
+}

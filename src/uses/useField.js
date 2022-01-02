@@ -58,11 +58,13 @@ export default function useField (
   const set = event => {
     if (!props?.readonly) {
       const value = 'value' in event ? event.value : input.value?.propValue || input.value?.value || ''
-
-      propValue.value = !Array.isArray(value)
-        ? value
-        : value.length > 0 ? value : ''
+      setValue(value)
     }
+  }
+  const setValue = value => {
+    propValue.value = !Array.isArray(value)
+      ? value
+      : value.length > 0 ? value : ''
   }
   const setChange = () => {
     change.value = true
@@ -137,6 +139,7 @@ export default function useField (
     emit,
     emitFrame,
     set,
+    setValue,
     setChange,
     cancel,
     onEmit,
