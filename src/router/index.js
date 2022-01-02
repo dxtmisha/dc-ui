@@ -55,6 +55,7 @@ import DemoSliderPicker from '../views/DemoSliderPicker'
 import DemoSnackbar from '../views/DemoSnackbar'
 import DemoTab from '../views/DemoTab'
 import DemoTable from '../views/DemoTable'
+import DemoTablePicker from '../views/DemoTablePicker'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../views/DemoTime'
@@ -96,6 +97,7 @@ export const routes = getRoutes({
   's-data': { subtitle: 'Data and Table' },
   'd-pagination': DemoPagination,
   'd-table': DemoTable,
+  'd-table-picker': DemoTablePicker,
   'l-images': { line: true },
   's-images': { subtitle: 'Images' },
   'd-images': DemoImages,

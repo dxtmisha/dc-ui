@@ -2,11 +2,13 @@
   <table :class="classList" class="d-table">
     <tr class="d-table__headers">
       <th v-if="checkbox" class="d-table__checkbox">
-        <d-checkbox
-          :ref="el => setCheckbox('all', el)"
-          name="all"
-          @on-input="onCheckbox"
-        />
+        <div class="d-table__header__item">
+          <d-checkbox
+            :ref="el => setCheckbox('all', el)"
+            name="all"
+            @on-input="onCheckbox"
+          />
+        </div>
       </th>
       <th
         v-for="{align, attrs, sort, text, value} in propHeaders"
@@ -36,11 +38,13 @@
       class="d-table__items"
     >
       <td v-if="checkbox" class="d-table__checkbox">
-        <d-checkbox
-          :ref="el => setCheckbox(key, el, item)"
-          :name="`item-${key}`"
-          @on-input="onCheckbox"
-        />
+        <div class="d-table__header__item">
+          <d-checkbox
+            :ref="el => setCheckbox(key, el, item)"
+            :name="`item-${key}`"
+            @on-input="onCheckbox"
+          />
+        </div>
       </td>
       <td
         v-for="{align, attrs, value} in propHeaders"

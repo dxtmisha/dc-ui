@@ -402,7 +402,7 @@ export const tableItems = (count = 215) => {
       status: status[itemStatus],
       color: colors[itemStatus],
       name: names[getRandom(0, names.length - 1)],
-      id: 10000 + i,
+      id: 10001 + i,
       policy: `$${getRandom(10, 99)}00.00`,
       city: city[getRandom(0, city.length - 1)],
       age: getRandom(18, 64)

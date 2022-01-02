@@ -6,6 +6,10 @@
   border-bottom-width: var(--basic-border-width);
 }
 
+%font {
+  @include font('body2');
+}
+
 %padding {
   padding: var(--_tl-padding);
 }
@@ -20,6 +24,7 @@
   --_tl--dn-padding: var(--tl--dn-padding, #{2px 8px});
 
   background: var(--background-type1);
+  border-radius: inherit;
   width: 100%;
 }
 
@@ -32,6 +37,7 @@
 
 @mixin tableHeader {
   &__header {
+    @extend %font;
     @extend %padding;
     height: calc(var(--_tl-height) + 4px);
     @content;
@@ -84,13 +90,14 @@
     }
 
     &:hover {
-      background-color: varColor(--background-scrim, --opacity-container-hover);
+      background-color: varColor(--background-outline, --opacity-container-hover);
     }
   }
 }
 
 @mixin tableItem {
   &__item {
+    @extend %font;
     @extend %padding;
     height: var(--_tl-height);
     @content;

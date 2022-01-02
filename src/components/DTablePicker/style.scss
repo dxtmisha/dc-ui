@@ -1,0 +1,32 @@
+@mixin tablePicker {
+  --_tc-radius: var(--tc-radius, var(--basic-radius));
+  border-width: var(--basic-border-width);
+  border-radius: var(--_tc-radius);
+}
+
+@mixin tablePickerPagination {
+  &__pagination {
+    border-top-width: var(--basic-border-width);
+  }
+}
+
+@mixin tablePickerShape {
+  &.shape-basic {
+    border-radius: var(--basic-radius);
+  }
+
+  &.shape-rounded {
+    border-radius: var(--radius-type4);
+  }
+
+  &.shape-tile {
+    border-radius: var(--radius-tile);
+  }
+}
+
+@mixin tablePickerInit {
+  @include tablePicker;
+  @include tablePickerPagination;
+
+  @include tablePickerShape;
+}

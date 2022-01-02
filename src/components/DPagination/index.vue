@@ -16,6 +16,7 @@
           :list="menu"
           :selected="rows"
           :readonly="true"
+          @on-input="onRows"
         >
           <d-button
             v-bind="bindButton"
@@ -63,7 +64,7 @@ export default {
     DMenu
   },
   props,
-  emits: ['on-click'],
+  emits: ['on-click', 'on-rows'],
   setup (props, context) {
     const text = Translation.getByList(['Rows per page'])
 
@@ -91,6 +92,7 @@ export default {
     } = usePagination(props, bindButton)
 
     const onClick = event => context.emit('on-click', event)
+    const onRows = event => context.emit('on-rows', event)
 
     useAdmin('d-pagination', context)
 
@@ -105,7 +107,8 @@ export default {
       last,
       pagination,
       bindButton,
-      onClick
+      onClick,
+      onRows
     }
   }
 }
