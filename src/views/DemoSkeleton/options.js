@@ -9,4 +9,4 @@ export const optionsSkeleton = useProps(props, {
       { value: 'wave' }
     ]
   }
-})
+}, ['progress'])

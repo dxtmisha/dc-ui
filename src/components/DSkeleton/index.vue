@@ -12,10 +12,10 @@
 <script>
 import { props } from './props'
 import { computed, nextTick, ref, toRefs } from 'vue'
+import forEach from '@/functions/forEach'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useWatch from '@/uses/useWatch'
-import forEach from '@/functions/forEach'
 
 export default {
   name: 'DSkeleton',
@@ -27,7 +27,10 @@ export default {
     const update = value => {
       forEach({
         'skeleton-text': props.itemText,
-        'skeleton-background': props.itemBackground
+        'skeleton-secondary': props.itemSecondary,
+        'skeleton-tertiary': props.itemTertiary,
+        'skeleton-background': props.itemBackground,
+        'skeleton-border': props.itemBorder
       }, (selector, className) => {
         skeleton.value.querySelectorAll(selector)?.forEach(item => item.classList.toggle(className, value))
       })

@@ -24,6 +24,13 @@
   box-shadow: var(--_cr-shadow);
   overflow: hidden;
 
+  display: flex;
+  flex-flow: column;
+
+  &__body {
+    @include flexDynamic;
+  }
+
   &.option-background {
     background: varColor(--_cr-background, --opacity-overlay, true);
   }

@@ -421,8 +421,7 @@ export const tableCards = (count = 3) => {
     'Christopher Hill',
     'Sherry Wolfe',
     'Jessie Lee',
-    'Андрианов Илья Матвеевич',
-    'Филиппов Анатолий Дамирович'
+    'Андрианов Илья Матвеевич'
   ]
   const descriptions = [
     'Ceteros assentior omittantur cum ad',

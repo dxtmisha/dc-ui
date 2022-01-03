@@ -4,8 +4,11 @@ import { defaultInit, validator } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-skeleton')
 export const props = {
   // Values
-  itemBackground: String,
   itemText: String,
+  itemSecondary: String,
+  itemTertiary: String,
+  itemBackground: String,
+  itemBorder: String,
 
   // Status
   progress: Boolean,

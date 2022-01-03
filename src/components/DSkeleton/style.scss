@@ -1,24 +1,107 @@
+@import "styleAnimation";
+
+%animation {
+  animation-direction: var(--_sk-direction);
+  animation-duration: var(--_sk-duration);
+  animation-iteration-count: infinite;
+  animation-name: var(--_sk-animation);
+  animation-timing-function: linear;
+  background-color: varColor(--_sk-palette, --_sk-opacity);
+  background-image: var(--_sk-at2-gradient, none);
+  background-size: 2000% 100%;
+  border-color: varColor(--_sk-palette, --_sk-border-opacity);
+  color: transparent;
+}
+
 @mixin skeleton {
+  --_sk-palette: var(--sk-palette-type1, var(--palette-type1, var(--background-overlay)));
+
+  --_sk-animation: __animate-skeleton--type-1;
+  --_sk-opacity: 0;
+  --_sk-border-opacity: 0;
+  --_sk-direction: alternate;
+  --_sk-duration: 1.6s;
+
+  @include skeletonAnimationType1;
+  @include skeletonAnimationType2;
+
   &.status-progress {
     ::after,
     ::before {
       display: none;
     }
 
-    :not(.skeleton-background):not(.skeleton-text) {
+    *:not(.skeleton-text):not(.skeleton-secondary):not(.skeleton-tertiary):not(.skeleton-background):not(.skeleton-border) {
       background: transparent !important;
-      border-color: transparent !important;;
-      color: transparent !important;;
+      border-color: transparent !important;
+      color: transparent !important;
     }
   }
 }
 
-@mixin skeletonBackground {
-  .skeleton-background {
+@mixin skeletonText {
+  &.status-progress .skeleton-text {
+    @extend %animation;
+    --_sk-opacity: .36;
+    --_sk-opacity-start: .08;
+    @content;
+  }
+}
 
+@mixin skeletonSecondary {
+  &.status-progress .skeleton-secondary {
+    @extend %animation;
+    --_sk-opacity: .28;
+    --_sk-opacity-start: .08;
+    @content;
+  }
+}
+
+@mixin skeletonTertiary {
+  &.status-progress .skeleton-tertiary {
+    @extend %animation;
+    --_sk-opacity: .12;
+    --_sk-opacity-start: .04;
+
+    @content;
+  }
+}
+
+@mixin skeletonBackground {
+  &.status-progress .skeleton-background {
+    @extend %animation;
+    --_sk-opacity: .04;
+    --_sk-opacity-start: .02;
+    @content;
+  }
+}
+
+@mixin skeletonBorder {
+  &.status-progress .skeleton-border {
+    background: transparent !important;
+    color: transparent !important;
+    @content;
+  }
+}
+
+@mixin skeletonWave {
+  &.appearance-wave {
+    --_sk-direction: normal;
+    --_sk-duration: 24s;
+    --_sk-at2-color: rgba(var(--_sk-palette), .12), transparent;
+    --_sk-at2-gradient: linear-gradient(-45deg, var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color), var(--_sk-at2-color));
+    --_sk-animation: __animate-skeleton--type-2;
   }
 }
 
 @mixin skeletonInit {
   @include skeleton;
+
+  @include skeletonText;
+  @include skeletonSecondary;
+  @include skeletonTertiary;
+  @include skeletonBackground;
+  @include skeletonBorder;
+
+  @include skeletonWave;
 }
