@@ -1,0 +1,13 @@
+$backgroundBasic: rgba(255, 255, 255, 1);
+$backgroundM3Baseline: (
+        'type0': #{rgba(var(--primary-type3), 1)},
+        'type1': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.05), rgba(var(--primary-type1), 0.05)), $backgroundBasic},
+        'type2': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.08), rgba(var(--primary-type1), 0.08)), $backgroundBasic},
+        'type3': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.11), rgba(var(--primary-type1), 0.11)), $backgroundBasic},
+        'type4': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.12), rgba(var(--primary-type1), 0.12)), $backgroundBasic},
+        'type5': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
+        'type6': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
+        'type7': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
+        'type8': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
+        'type9': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic}
+);

@@ -34,7 +34,12 @@ export default {
             text: 'Material 2: dark',
             icon: 'dark_mode'
           },
-          'm2-line': { line: true }
+          'm3-line': { line: true },
+          m3: { subtitle: 'Material 3' },
+          'm3-baseline': {
+            text: 'Material 3: baseline',
+            icon: 'light_mode'
+          }
         }
       }
     }
