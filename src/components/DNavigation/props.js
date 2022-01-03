@@ -73,6 +73,7 @@ export const props = {
 
   // Position
   right: Boolean,
+  bottom: Boolean,
 
   // List
   itemAppearance: { default: defaultProps('itemAppearance', 'basic') },

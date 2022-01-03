@@ -46,6 +46,10 @@
   transition-property: background-color, width, visibility;
   visibility: hidden;
   will-change: background-color, width, visibility;
+
+  &:not(.option-right):not(.option-bottom) {
+    padding-right: var(--_nv--sh-padding);
+  }
 }
 
 @mixin navigationBody {
@@ -255,14 +259,24 @@
 }
 
 @mixin navigationRight {
-  &:not(.option-right) {
-    padding-right: var(--_nv--sh-padding);
-  }
-
   &.option-right {
     --_nv-transform-directions: 1;
     justify-content: flex-end;
     padding-left: var(--_nv--sh-padding);
+  }
+}
+
+@mixin navigationBottom {
+  &.option-bottom {
+    --_nv-transform: translateY(var(--_nv-width));
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  &.option-bottom &__body {
+    max-height: calc(100vh - 128px);
+    max-width: 640px;
+    width: 100%;
   }
 }
 
@@ -279,4 +293,5 @@
   @include navigationShow;
   @include navigationRail;
   @include navigationRight;
+  @include navigationBottom;
 }

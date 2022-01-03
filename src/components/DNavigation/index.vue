@@ -124,7 +124,8 @@ export default {
           [`shape-${props.shape}`]: props.shape,
           [`adaptive-${props.adaptive}`]: props.adaptive,
           [`navigation-rail-${props.navigationRail}`]: props.navigationRail,
-          'option-right': props.right
+          'option-right': props.right,
+          'option-bottom': props.bottom
         },
         style: {
           '--_nv-width': props.width,
