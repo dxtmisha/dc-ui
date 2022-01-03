@@ -50,6 +50,7 @@ import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
 import DemoSelectValue from '../views/DemoSelectValue'
+import DemoSkeleton from '../views/DemoSkeleton'
 import DemoSlider from '../views/DemoSlider'
 import DemoSliderPicker from '../views/DemoSliderPicker'
 import DemoSnackbar from '../views/DemoSnackbar'
@@ -116,6 +117,7 @@ export const routes = getRoutes({
   'd-scrollbar': DemoScrollbar,
   'd-select': DemoSelect,
   'd-select-value': DemoSelectValue,
+  'd-skeleton': DemoSkeleton,
   'd-slider': DemoSlider,
   'd-slider-picker': DemoSliderPicker,
   'd-snackbar': DemoSnackbar,

@@ -1,0 +1,24 @@
+@mixin skeleton {
+  &.status-progress {
+    ::after,
+    ::before {
+      display: none;
+    }
+
+    :not(.skeleton-background):not(.skeleton-text) {
+      background: transparent !important;
+      border-color: transparent !important;;
+      color: transparent !important;;
+    }
+  }
+}
+
+@mixin skeletonBackground {
+  .skeleton-background {
+
+  }
+}
+
+@mixin skeletonInit {
+  @include skeleton;
+}

@@ -11,9 +11,6 @@
       :bar="bar"
       :bar-action="barAction"
     />
-    <div>
-
-    </div>
   </interactive-demo>
 </template>
 

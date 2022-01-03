@@ -411,3 +411,61 @@ export const tableItems = (count = 215) => {
 
   return items
 }
+
+export const tableCards = (count = 3) => {
+  const items = []
+  const names = [
+    'Renee Jenkins',
+    'Andrea Harvey',
+    'Carl Jenkins',
+    'Christopher Hill',
+    'Sherry Wolfe',
+    'Jessie Lee',
+    'Андрианов Илья Матвеевич',
+    'Филиппов Анатолий Дамирович'
+  ]
+  const descriptions = [
+    'Ceteros assentior omittantur cum ad',
+    'Tation delenit percipitur at vix',
+    'Per cu iracundia splendide',
+    'Sale liber et vel',
+    'Ceteros assentior omittantur cum ad'
+  ]
+  const images = [
+    require('@/assets/images/image-01.jpeg'),
+    require('@/assets/images/image-02.jpeg'),
+    require('@/assets/images/image-03.jpeg'),
+    require('@/assets/images/image-04.jpeg'),
+    require('@/assets/images/image-05.jpeg'),
+    require('@/assets/images/image-06.jpeg'),
+    require('@/assets/images/image-07.jpeg'),
+    require('@/assets/images/image-08.jpeg'),
+    require('@/assets/images/image-09.jpeg'),
+    require('@/assets/images/image-11.jpeg')
+  ]
+  const texts = [
+    'Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.',
+    'Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.',
+    'Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.',
+    'Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.',
+    'Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.',
+    'Solum vituperata definitiones te vis, vis alia falli doming ea.',
+    'Vix paulo sanctus scripserit ex, te iriure insolens voluptatum qui.'
+  ]
+
+  for (let i = 0; i < count; i++) {
+    items.push({
+      title: names[getRandom(0, names.length - 1)],
+      description: descriptions[getRandom(0, 4)],
+      text: texts[getRandom(0, texts.length - 1)],
+      bar: [{ text: 'Order now' }],
+      barAction: [
+        { icon: 'favorite' },
+        { icon: 'share' }
+      ],
+      thumbnail: images[getRandom(0, images.length - 1)]
+    })
+  }
+
+  return items
+}
