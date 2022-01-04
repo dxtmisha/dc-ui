@@ -7,6 +7,7 @@
 @import "./components/DButton";
 @import "./components/DCard";
 @import "./components/DCardTitle";
+@import "./components/DWindow";
 @import "background";
 @import "font";
 @import "shade";
@@ -29,6 +30,7 @@
     @include m3ButtonInit;
     @include m3CardInit;
     @include m3CardTitleInit;
+    @include m3Window;
   }
 
   body.theme\:m3-baseline {

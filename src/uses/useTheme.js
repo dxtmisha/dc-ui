@@ -1,4 +1,6 @@
 import { ref } from 'vue'
+import optionsMedia from '../media/options.json'
+import addArrayValue from '@/functions/addArrayValue'
 
 const DC_THEME = '__dcUi-theme'
 const DC_THEME_COLOR = '__dcUi-theme-color'
@@ -16,7 +18,7 @@ export const setTheme = (name) => {
 export const getColor = (type) => localStorage.getItem(`${DC_THEME_COLOR}--${type}`)
 export const setColor = (type, name) => localStorage.setItem(`${DC_THEME_COLOR}--${type}`, name)
 
-export const useTheme = (themeDefault) => {
+export const useTheme = (themeDefault, options = {}) => {
   const get = () => getTheme(themeDefault)
   const set = (theme) => {
     updateClass(theme)
@@ -25,6 +27,7 @@ export const useTheme = (themeDefault) => {
   const updateClass = (name = get()) => {
     document.body.classList.remove(`theme:${get()}`)
     document.body.classList.add(`theme:${name}`)
+    window.__DUI_GLOBAL = addArrayValue(options, optionsMedia?.[name])
   }
 
   const updateColor = (type, name = undefined) => {

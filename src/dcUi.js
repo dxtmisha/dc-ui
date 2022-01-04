@@ -35,9 +35,7 @@ export const getRoutes = function (list) {
 
 export default {
   install (app, options) {
-    window.__DUI_GLOBAL = options?.options || {}
-
-    app.config.globalProperties.$theme = useTheme(options?.theme)
+    app.config.globalProperties.$theme = useTheme(options?.theme, options?.options)
     app.config.globalProperties.$translate = Translation
     app.config.globalProperties.$menu = () => menu
   }

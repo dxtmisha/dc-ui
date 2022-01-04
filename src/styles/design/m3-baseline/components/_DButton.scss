@@ -17,13 +17,21 @@
   --bt-padding: #{dimension(6)};
   --bt--ch-padding: #{dimension(4)};
 
-  .d-button.appearance-fab {
-    --bt-radius-icon: var(--bt--fb-radius);
+  .d-button {
+    &.appearance-contained {
+      --_bt-shadow: var(--shadow-type1);
+      --_bt--hv-shadow: var(--shadow-type1);
+      --_bt--ac-shadow: var(--shadow-type2);
+    }
 
-    &.size-large {
-      --ic-font: #{dimension(7)};
-      --ic-size: #{dimension(9)};
-      --bt--fb-radius: var(--radius-type6);
+    &.appearance-fab {
+      --bt-radius-icon: var(--bt--fb-radius);
+
+      &.size-large {
+        --ic-font: #{dimension(7)};
+        --ic-size: #{dimension(9)};
+        --bt--fb-radius: var(--radius-type6);
+      }
     }
   }
 }

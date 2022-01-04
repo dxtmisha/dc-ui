@@ -1,0 +1,13 @@
+@mixin m3Window() {
+  .d-window {
+    &.adaptive-modal,
+    &.adaptive-modal-left,
+    &.adaptive-modal-right {
+      --wn-radius: var(--radius-type6);
+    }
+  }
+}
+
+@mixin m3WindowInit() {
+  @include m3Window;
+}
