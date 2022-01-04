@@ -51,7 +51,7 @@ export default {
         return 'basic'
       }
     })
-    const propShape = computed(() => props.shape || (propAdaptive.value === 'icon' ? 'pill' : undefined))
+    const propShape = computed(() => props.shape || (propAdaptive.value === 'icon' ? 'icon' : undefined))
 
     const bindBadge = attrBadge(props)
 

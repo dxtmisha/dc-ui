@@ -3,12 +3,14 @@
 @mixin buttonVar() {
   --_bt-palette-type1: var(--bt-palette-type1, var(--palette-type1, var(--basic-text)));
   --_bt-palette-type2: var(--bt-palette-type2, var(--palette-type1, var(--primary-type1)));
+  --_bt-palette-type3: var(--bt-palette-type3, var(--palette-type3, var(--primary-type3)));
   --_bt-palette-select: var(--bt-palette-select, var(--palette-type2, var(--primary-type2)));
   --_bt-palette-image: var(--bt-palette-image, var(--_bt-palette-type1));
 
   --_bt-gap: var(--bt-gap, #{dimension(2)});
   --_bt-min-width: var(--bt-min-width, #{dimension(16)});
   --_bt-radius: var(--bt-radius, var(--basic-radius));
+  --_bt-radius-icon: var(--bt-radius-icon, var(--radius-pill));
   --_bt-space: var(--bt-space, #{dimension(1)});
   --_bt-squeeze: var(--bt-squeeze, #{dimension(2)});
 

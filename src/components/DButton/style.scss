@@ -149,6 +149,17 @@
   }
 }
 
+@mixin buttonFilled() {
+  &.appearance-filled {
+    @extend %background-disabled;
+    @extend %background-filled;
+    @extend %border-before-none;
+    --_bt--hv-shadow: var(--shadow-type1);
+    --_bt--ac-shadow: var(--shadow-type1);
+    @content;
+  }
+}
+
 @mixin buttonContained() {
   &.appearance-contained {
     @extend %background-disabled;
@@ -157,6 +168,20 @@
     --_bt-shadow: var(--shadow-type2);
     --_bt--hv-shadow: var(--shadow-type2);
     --_bt--ac-shadow: var(--shadow-type6);
+    @content;
+  }
+}
+
+@mixin buttonElevated() {
+  &.appearance-elevated {
+    @extend %background-disabled;
+    @extend %text-color;
+    @extend %border-before-none;
+    --_bt-background: var(--_bt-palette-type3);
+    --_bt-background-opacity: var(--opacity-primary-high);
+    --_bt-shadow: var(--shadow-type1);
+    --_bt--hv-shadow: var(--shadow-type2);
+    --_bt--ac-shadow: var(--shadow-type2);
     @content;
   }
 }
@@ -226,6 +251,10 @@
 
 @mixin buttonShape() {
   @include optionShape;
+
+  &.shape-icon {
+    border-radius: var(--_bt-radius-icon);
+  }
 
   &.shape-pill &__icon {
     --ic-size: calc(var(--_bt-height) - (var(--_bt-space) * 2));
@@ -319,7 +348,7 @@
   &:disabled,
   &.status-disabled {
     @extend %border-before-none;
-    --_bt-basic-text: var(--text-type1);
+    --_bt-basic-text: var(--disabled-type1);
     --basic-text-opacity: var(--opacity-surface-disabled);
     --_bt-palette-type1: var(--disabled-type1);
     --_bt-palette-type2: var(--disabled-type1);
@@ -350,7 +379,9 @@
   @include buttonOutlined;
   @include buttonOutlinedColor;
   @include buttonOutlinedContained;
+  @include buttonFilled;
   @include buttonContained;
+  @include buttonElevated;
   @include buttonFab;
   @include buttonChip;
   @include buttonChipColor;

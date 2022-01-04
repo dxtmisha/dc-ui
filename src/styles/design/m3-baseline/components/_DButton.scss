@@ -1,0 +1,33 @@
+@import "../../../dimension";
+
+@mixin m3Button() {
+  --bt-radius: var(--radius-pill);
+  --bt-radius-icon: var(--_bt-radius);
+  --bt--fb-radius: var(--radius-type4);
+  --bt--ch-radius: var(--radius-type3);
+
+  --bt-height: #{dimension(10)};
+  --bt--sm-height: #{dimension(9)};
+  --bt--lg-height: #{dimension(12)};
+
+  --bt--fb-height: #{dimension(14)};
+  --bt--fb--sm-height: #{dimension(12)};
+  --bt--fb--lg-height: #{dimension(24)};
+
+  --bt-padding: #{dimension(6)};
+  --bt--ch-padding: #{dimension(4)};
+
+  .d-button.appearance-fab {
+    --bt-radius-icon: var(--bt--fb-radius);
+
+    &.size-large {
+      --ic-font: #{dimension(7)};
+      --ic-size: #{dimension(9)};
+      --bt--fb-radius: var(--radius-type5);
+    }
+  }
+}
+
+@mixin m3ButtonInit() {
+  @include m3Button;
+}
