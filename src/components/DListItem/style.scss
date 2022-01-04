@@ -263,18 +263,26 @@
   }
 }
 
-@mixin listItemAdaptive() {
+@mixin listItemAdaptiveInit() {
   @include mediaMaxList {
+    @content;
+  }
+
+  &.adaptive-icon {
+    @content;
+  }
+}
+
+@mixin listItemAdaptive() {
+  @include listItemAdaptiveInit {
     @include mixinAdaptive;
     @content;
   }
 
   &.adaptive-icon {
-    @include mixinAdaptive;
     @include mediaMinWidth {
       --_li--ic-padding: var(--_li--ic--ds-padding);
     }
-    @content;
   }
 
   &.adaptive-block {
@@ -282,7 +290,7 @@
   }
 }
 
-@mixin listItemNavigationRail() {
+@mixin listItemNavigationRailInit() {
   $this: &;
 
   @include mediaMaxWidth(small) {
@@ -291,7 +299,7 @@
     &.navigation-rail-large,
     &.navigation-rail-extra,
     &.navigation-rail-desktop {
-      @include mixinNavigationRail($this);
+      @content;
     }
   }
 
@@ -304,7 +312,7 @@
     &.navigation-rail-medium-large,
     &.navigation-rail-medium-extra,
     &.navigation-rail-medium-desktop {
-      @include mixinNavigationRail($this);
+      @content;
     }
   }
 
@@ -318,7 +326,7 @@
     &.navigation-rail-large-large,
     &.navigation-rail-large-extra,
     &.navigation-rail-large-desktop {
-      @include mixinNavigationRail($this);
+      @content;
     }
   }
 
@@ -329,7 +337,7 @@
     &.navigation-rail-medium-desktop,
     &.navigation-rail-large-extra,
     &.navigation-rail-large-desktop {
-      @include mixinNavigationRail($this);
+      @content;
     }
   }
 
@@ -337,12 +345,21 @@
     &.navigation-rail-desktop,
     &.navigation-rail-medium-desktop,
     &.navigation-rail-large-desktop {
-      @include mixinNavigationRail($this);
+      @content;
     }
   }
 
   &.navigation-rail-always {
+    @content;
+  }
+}
+
+@mixin listItemNavigationRail() {
+  $this: &;
+
+  @include listItemNavigationRailInit {
     @include mixinNavigationRail($this);
+    @content;
   }
 }
 

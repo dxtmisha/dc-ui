@@ -7,6 +7,7 @@
 @import "components/d-actions";
 @import "components/d-button";
 @import "components/d-card";
+@import "components/d-list-item";
 @import "components/d-window";
 @import "background";
 @import "font";
@@ -30,6 +31,7 @@
     @include m3ActionsInit;
     @include m3ButtonInit;
     @include m3CardInit;
+    @include m3ListInit;
     @include m3WindowInit;
   }
 

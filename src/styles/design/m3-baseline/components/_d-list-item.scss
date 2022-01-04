@@ -1,0 +1,45 @@
+@import "../../../dimension";
+@import "../../../font";
+@import "../../../padding";
+@import "../../../../components/DListItem/style";
+
+@mixin m3ListItem() {
+  --li__ic-padding: #{dimension(4)};
+  --li--nr-height: 80px;
+  --li--nr--ic-height: 80px;
+
+  .d-list-item {
+    --_li--m3__ic-size: var(--li--m3__ic-size, 56px);
+    --_li--m3__ic-height: var(--li--m3__ic-height, 32px);
+
+    &:not(.size-compact) {
+      @include font('body1');
+    }
+
+    @include listItemAdaptiveInit {
+      --_li--m3__ic-height: var(--_li--m3__ic-size);
+    }
+
+    @include listItemNavigationRailInit {
+      @include font('caption');
+      @include paddingY(#{dimension(1)});
+      --_li-height: var(--_li--m3__ic-size);
+      aspect-ratio: auto;
+      flex-basis: var(--_li--m3__ic-size);
+
+      .d-icon {
+        --ic-palette: var(--primary-type3);
+        --ic--bg-opacity: var(--opacity-surface-high);
+        --ic-size: var(--_li--m3__ic-size);
+        background-color: rgba(var(--_ic-palette), var(--_ic--bg-opacity));
+        aspect-ratio: auto;
+        flex-basis: var(--_li--m3__ic-height);
+        height: var(--_li--m3__ic-height);
+      }
+    }
+  }
+}
+
+@mixin m3ListInit() {
+  @include m3ListItem;
+}

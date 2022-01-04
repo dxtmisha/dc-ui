@@ -61,6 +61,7 @@ export const props = {
   // Actions
   actionsSize: { default: defaultProps('actionsSize') },
   actionsAlign: { default: defaultProps('actionsAlign', 'left') },
+  actionsButtonAppearance: { default: defaultProps('actionsButtonAppearance') },
   actionsAttrs: undefined,
 
   // Media
