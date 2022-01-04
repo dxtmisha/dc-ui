@@ -1,0 +1,26 @@
+@import "../../../color";
+@import "../../../font";
+
+@mixin m3Card() {
+  --cr-radius: var(--radius-type4);
+
+  .d-card {
+    border-color: #{varColor(--background-outline, --opacity-surface-medium)};
+
+    &-title {
+      &__text {
+        @include font('subtitle1');
+      }
+
+      .d-icon {
+        --basic-text: var(--text-type2);
+        --ic-palette: var(--palette-type1, var(--primary-type1));
+        --ic--bg-opacity: 1;
+      }
+    }
+  }
+}
+
+@mixin m3CardInit() {
+  @include m3Card;
+}

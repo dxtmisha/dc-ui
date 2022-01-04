@@ -39,6 +39,10 @@ export default {
           'm3-baseline': {
             text: 'Material 3: baseline',
             icon: 'light_mode'
+          },
+          'm3-dark': {
+            text: 'Material 3: dark',
+            icon: 'dark_mode'
           }
         }
       }

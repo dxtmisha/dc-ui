@@ -1,0 +1,13 @@
+@import "../../../dimension";
+
+@mixin m3Actions() {
+  --ac-padding: #{dimension(4)};
+
+  --ac-height: #{dimension(18)};
+  --ac--sm-height: #{dimension(16)};
+  --ac--lr-height: #{dimension(20)};
+}
+
+@mixin m3ActionsInit() {
+  @include m3Actions;
+}

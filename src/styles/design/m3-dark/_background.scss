@@ -1,6 +1,6 @@
-$backgroundBasic: rgba(255, 255, 255, 1);
-$backgroundM3Baseline: (
-        'type0': #{rgba(var(--primary-type3), 1)},
+$backgroundBasic: #121212;
+$backgroundM3Dark: (
+        'type0': #{$backgroundBasic},
         'type1': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.05), rgba(var(--primary-type1), 0.05)), $backgroundBasic},
         'type2': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.08), rgba(var(--primary-type1), 0.08)), $backgroundBasic},
         'type3': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.11), rgba(var(--primary-type1), 0.11)), $backgroundBasic},
@@ -10,5 +10,9 @@ $backgroundM3Baseline: (
         'type7': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
         'type8': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
         'type9': #{linear-gradient(0deg, rgba(var(--primary-type1), 0.14), rgba(var(--primary-type1), 0.14)), $backgroundBasic},
+        'overlay': '255, 255, 255',
         'outline': var(--primary-type4),
+        'colorless': '18, 18, 18',
+        'shaded': '255, 255, 255',
+        'inverse': '255, 255, 255'
 );

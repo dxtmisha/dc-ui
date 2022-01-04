@@ -1,7 +1,0 @@
-@mixin m3Card() {
-  --cr-radius: var(--radius-type4);
-}
-
-@mixin m3CardInit() {
-  @include m3Card;
-}

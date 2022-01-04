@@ -1,6 +1,7 @@
 @import "./styles/design/m2-baseline/init";
 @import "./styles/design/m2-dark/init";
 @import "./styles/design/m3-baseline/init";
+@import "./styles/design/m3-dark/init";
 @import "./styles/elevation";
 @import "./styles/flex";
 
@@ -14,6 +15,7 @@
 @include init();
 @include initDark();
 @include initM3Baseline();
+@include initM3Dark();
 
 header,
 main,
