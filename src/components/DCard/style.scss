@@ -54,6 +54,9 @@
 
 @mixin cardLandscape {
   &.option-landscape &__body {
+    --cm__ic-aspect: 1/1;
+    --cm__ic-height: 80px;
+    --cm__ic-width: 80px;
     display: flex;
   }
 

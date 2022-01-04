@@ -5,6 +5,8 @@
 @import "../../constructors/constructor";
 @import "../../constructors/font";
 @import "./components/DButton";
+@import "./components/DCard";
+@import "./components/DCardTitle";
 @import "background";
 @import "font";
 @import "shade";
@@ -25,6 +27,8 @@
     @include initFonts($fontM3Baseline);
 
     @include m3ButtonInit;
+    @include m3CardInit;
+    @include m3CardTitleInit;
   }
 
   body.theme\:m3-baseline {

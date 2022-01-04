@@ -6,6 +6,7 @@
   --_cm__ic-inset: var(--cm__ic-inset, #{dimension(3)});
   --_cm__ic-height: var(--cm__ic-height, 194px);
   --_cm__ic-size: var(--cm__ic-size, #{dimension(12)});
+  --_cm__ic-width: var(--cm__ic-width, 100%);
 
   @include aspectRatio(var(--_cm__ic-aspect)) {
     height: var(--_cm__ic-height);
@@ -14,7 +15,7 @@
   background-color: varColor(--background-overlay, --opacity-overlay);
   display: block;
   position: relative;
-  width: 100%;
+  width: var(--_cm__ic-width);
 }
 
 @mixin cardMediaThumbnail {

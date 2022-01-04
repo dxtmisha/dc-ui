@@ -3,7 +3,7 @@
 @mixin m3Button() {
   --bt-radius: var(--radius-pill);
   --bt-radius-icon: var(--_bt-radius);
-  --bt--fb-radius: var(--radius-type4);
+  --bt--fb-radius: var(--radius-type5);
   --bt--ch-radius: var(--radius-type3);
 
   --bt-height: #{dimension(10)};
@@ -23,7 +23,7 @@
     &.size-large {
       --ic-font: #{dimension(7)};
       --ic-size: #{dimension(9)};
-      --bt--fb-radius: var(--radius-type5);
+      --bt--fb-radius: var(--radius-type6);
     }
   }
 }
