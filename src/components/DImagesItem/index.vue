@@ -1,7 +1,8 @@
 <template>
   <div v-bind="binds" class="d-images-item a-static">
-    <a v-bind="$attrs" class="d-images-item__body">
+    <a :style="styleBody" class="d-images-item__body">
       <slot/>
+      <d-icon :icon="iconCheck" class="d-images-item__icon"/>
     </a>
     <d-images-bar
       v-if="text || title"
@@ -9,11 +10,13 @@
       :value="value"
       :title="title"
       :text="text"
+      :selected="selected"
     />
   </div>
 </template>
 
 <script>
+import DIcon from '@/components/DIcon'
 import DImagesBar from '@/components/DImagesBar'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
@@ -23,8 +26,10 @@ import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DImagesItem',
-  inheritAttrs: false,
-  components: { DImagesBar },
+  components: {
+    DIcon,
+    DImagesBar
+  },
   props,
   setup (props, context) {
     const { src } = toRefs(props)
@@ -49,10 +54,10 @@ export default {
     const binds = computed(() => {
       return {
         class: {
-          [`emphasize-${props.emphasize}`]: props.emphasize
+          [`emphasize-${props.emphasize}`]: props.emphasize,
+          'status-selected': props.selected
         },
         style: {
-          '--it-src': propSrc.value,
           '--it-height': height.value,
           '--it-width': width.value
         },
@@ -61,11 +66,15 @@ export default {
         'data-width': width.value
       }
     })
+    const styleBody = computed(() => {
+      return { 'background-image': propSrc.value }
+    })
 
     useAdmin('d-images-item', context)
 
     return {
-      binds
+      binds,
+      styleBody
     }
   }
 }

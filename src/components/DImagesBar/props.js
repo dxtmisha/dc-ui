@@ -8,6 +8,9 @@ export const props = {
   title: String,
   text: String,
 
+  // Status
+  selected: Boolean,
+
   // Options
   size: {
     type: String,

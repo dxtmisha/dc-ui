@@ -31,8 +31,10 @@ export default function useFile (
     object().getAll().forEach(item => list.push({
       ...item,
       item,
-      description: getCoordinator(item.coordinator),
-      thumbnail: item.thumbnail || props.iconFile
+      title: item.text,
+      text: getCoordinator(item.coordinator),
+      thumbnail: item.thumbnail || props.iconFile,
+      src: item.thumbnail || props.iconFile
     }))
 
     return list

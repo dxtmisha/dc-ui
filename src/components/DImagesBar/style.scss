@@ -5,6 +5,7 @@
 @import "../../styles/position";
 
 @mixin imagesBar {
+  --_ib-palette-type1: var(--ib-palette-type1, var(--palette-type1, var(--primary-type1)));
   --_ib-padding: var(--ib-padding, #{dimension(1) 0});
   --_ib--ab-padding: var(--ib--ab-padding, #{dimension(1) dimension(3)});
 
@@ -55,10 +56,23 @@
   }
 }
 
+@mixin imagesBarSelected {
+  &.status-selected {
+    --basic-text: var(--_ib-palette-type1);
+
+    &.display-above {
+      --basic-text: var(--text-type2);
+      background-color: varColor(--_ib-palette-type1, --opacity-scrim);
+    }
+  }
+}
+
 @mixin imagesBarInit {
   @include imagesBar;
   @include imagesBarContext;
 
   @include imagesBarSize;
   @include imagesBarDisplay;
+
+  @include imagesBarSelected;
 }

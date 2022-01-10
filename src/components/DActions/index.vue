@@ -2,10 +2,10 @@
   <div class="d-actions" :class="classList">
     <d-button
       v-for="item in propBarAction"
-      v-bind="item"
       :key="item.value"
-      class="d-actions__action"
       appearance="text"
+      v-bind="item"
+      class="d-actions__action"
       @on-click="onClick"
     />
     <span class="d-actions__spacer"/>

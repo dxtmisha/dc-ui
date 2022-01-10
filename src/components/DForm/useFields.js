@@ -14,20 +14,26 @@ export default function useFields (props) {
   const files = ref({})
   const items = ref({})
 
-  const read = fields => forEach(fields, item => {
-    if (typeof item === 'object') {
-      if (item?.name) {
-        return {
-          ...options.value,
-          ...item
+  const read = fields => {
+    const data = {}
+
+    forEach(fields, (item, key) => {
+      if (typeof item === 'object') {
+        if (item?.name) {
+          data[key] = {
+            ...options.value,
+            ...item
+          }
+        } else {
+          data[key] = read(item)
         }
       } else {
-        return read(item)
+        data[key] = item
       }
-    } else {
-      return item
-    }
-  })
+    })
+
+    return data
+  }
   const propFields = useWatch([fields, options], data => {
     data.value = read(fields.value)
     items.value = {}

@@ -1,7 +1,7 @@
 @import "../../styles/dimension";
 
 @mixin images {
-  --_im-columns: var(--im-columns, auto-fit);
+  --_im-columns: var(--im-columns, auto-fill);
   --_im-gap: var(--im-gap, #{dimension(1)});
   --_im-size: var(--im-size, #{dimension(40)});
 

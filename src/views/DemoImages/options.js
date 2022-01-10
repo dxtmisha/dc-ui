@@ -113,6 +113,23 @@ export const optionsImages = useProps(props, {
       }
     ]
   },
+  selected: {
+    list: [
+      { value: undefined },
+      { value: 'image-01' },
+      { value: 'image-02' },
+      { value: 'image-03' },
+      { value: 'image-04' },
+      { value: 'image-05' },
+      {
+        value: [
+          'image-06',
+          'image-07',
+          'image-15'
+        ]
+      }
+    ]
+  },
   size: {
     list: [
       { value: undefined },

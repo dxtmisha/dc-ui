@@ -4,6 +4,7 @@
     :open="open"
     :persistent="true"
     :title="file?.text"
+    window-width="1366px"
     @on-click="onClick"
   >
     <d-redaction-file
