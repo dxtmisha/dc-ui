@@ -1,25 +1,24 @@
 <template>
-  <span class="d-icon-item" v-bind="binds" v-text="text"/>
+  <span v-bind="binds" class="d-icon-item" v-text="text"/>
 </template>
 
 <script>
 import { props } from './props'
-import { computed, readonly, toRefs } from 'vue'
+import { computed, readonly } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useIcon from './useIcon'
 
 export default {
   name: 'DIconItem',
   props,
+  emits: ['on-load'],
   setup (props, context) {
-    const { icon } = toRefs(props)
-
     const {
       text,
       classIcon,
       styleIcon,
       image
-    } = useIcon(icon)
+    } = useIcon(props, context)
 
     const binds = readonly({
       class: computed(() => {

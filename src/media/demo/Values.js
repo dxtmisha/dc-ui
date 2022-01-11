@@ -54,6 +54,15 @@ export const Values = {
     message: menu
   },
   cache: {},
+  coordinator: {
+    list: [
+      { value: undefined },
+      { value: [10, 10, 10, 10] },
+      { value: [25, 25, 25, 25] },
+      { value: [25, 50, 50, 25] },
+      { value: [0, 0, 0, 50] }
+    ]
+  },
   count: {},
   description: { message: quote1 },
   dot: {},
@@ -143,5 +152,38 @@ export const Values = {
   underline: { message: 'demo' },
   value: {},
   values: {},
-  validationMessage: { message: validation1 }
+  validationMessage: { message: validation1 },
+  x: {
+    list: [
+      { value: undefined },
+      { value: '0%' },
+      { value: '25%' },
+      { value: '50%' },
+      { value: '75%' },
+      { value: '100%' }
+    ]
+  },
+  y: {
+    list: [
+      { value: undefined },
+      { value: '0%' },
+      { value: '25%' },
+      { value: '50%' },
+      { value: '75%' },
+      { value: '100%' }
+    ]
+  },
+  zoom: {
+    list: [
+      { value: undefined },
+      { value: 'contain' },
+      { value: 'cover' },
+      { value: '50%' },
+      { value: '75%' },
+      { value: '100%' },
+      { value: '150%' },
+      { value: '200%' },
+      { value: '250%' }
+    ]
+  }
 }

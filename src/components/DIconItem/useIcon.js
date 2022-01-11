@@ -1,9 +1,17 @@
-import { ref } from 'vue'
-import getFileResult from '@/functions/getFileResult'
+import { ref, toRefs } from 'vue'
+import createImage from '@/functions/createImage'
 import useWatch from '@/uses/useWatch'
 
-export default function useIcon (icon) {
+export default function useIcon (props, context) {
   let type
+
+  const {
+    icon,
+    coordinator,
+    zoom,
+    x,
+    y
+  } = toRefs(props)
 
   const text = ref(undefined)
   const classIcon = ref({})
@@ -24,13 +32,34 @@ export default function useIcon (icon) {
         return undefined
     }
   }
-  const getStyleName = (image) => {
+  const getStyleByImage = image => {
+    let zoom = props.zoom
+    let x = props.x
+    let y = props.y
+
+    if (props.coordinator) {
+      const height = 100 - props.coordinator?.[2] - props.coordinator?.[0]
+      const width = 100 - props.coordinator?.[1] - props.coordinator?.[3]
+
+      zoom = image.height < image.width ? `auto ${100 / height * 100}%` : `${100 / width * 100}% auto`
+      x = props.coordinator?.[3] + (width / 2) + '%'
+      y = props.coordinator?.[0] + (height / 2) + '%'
+    }
+
+    return {
+      'background-image': `url(${image.src})`,
+      'background-size': zoom,
+      'background-position-x': x,
+      'background-position-y': y
+    }
+  }
+  const getStyleName = image => {
     let style
 
     if (image) {
       switch (type) {
         case 'image':
-          style = { 'background-image': `url(${image})` }
+          style = getStyleByImage(image)
           break
         case 'color':
           style = { 'background-color': image }
@@ -74,22 +103,42 @@ export default function useIcon (icon) {
     }
   }
 
-  const image = useWatch(icon, async () => {
-    updateType()
-    updateText()
+  const image = useWatch(
+    [
+      icon,
+      coordinator,
+      zoom,
+      x,
+      y
+    ],
+    async () => {
+      updateType()
+      updateText()
 
-    const name = getClassName()
-    classIcon.value = { [`type-${type}`]: type }
+      const name = getClassName()
+      let data
 
-    if (name) {
-      classIcon.value[name] = true
-    }
+      classIcon.value = { [`type-${type}`]: type }
 
-    const data = icon.value instanceof File ? await getFileResult(icon.value) : icon.value
-    styleIcon.value = getStyleName(data)
+      if (name) {
+        classIcon.value[name] = true
+      }
 
-    return data
-  }, ['init'])
+      if (type === 'image') {
+        const image = await createImage(icon.value)
+
+        context.emit('on-load', image)
+
+        data = image
+        styleIcon.value = getStyleName(data)
+      } else {
+        styleIcon.value = getStyleName(icon.value)
+      }
+
+      return data
+    },
+    ['init']
+  )
 
   return {
     text,

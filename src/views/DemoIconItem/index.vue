@@ -1,5 +1,5 @@
 <template>
-  <interactive-demo :options="options" v-slot:default="{ binds }">
+  <interactive-demo :options="options" v-slot:default="{ binds, on }">
     <div class="demo-icon-item">
       <div class="demo-icon-item__item">
         <d-icon-item
@@ -7,9 +7,10 @@
           v-bind="binds"
           :icon="file || binds.icon"
           :admin="true"
+          @on-load="on"
         />
       </div>
-      <div class="demo-icon-item__input">
+      <div class="demo-icon-item__input pt-4">
         <input type="file" @input="onInput">
       </div>
     </div>
@@ -55,8 +56,8 @@ export default {
   gap: dimension(4);
 
   &__item {
-    @include font('headline4');
-    @include squared(64px);
+    @include font('headline2');
+    @include squared(256px);
     border-width: var(--basic-border-width);
     position: relative;
   }
