@@ -21,6 +21,9 @@ export const props = {
     default: defaultProps('keyValue', 'value')
   },
 
+  // Status
+  selected: [Array, String],
+
   // Options
   appearance: {
     type: String,

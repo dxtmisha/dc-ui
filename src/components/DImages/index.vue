@@ -14,8 +14,11 @@ import DImagesItem from '@/components/DImagesItem'
 import { props } from './props'
 import { computed, provide, ref, toRefs } from 'vue'
 import List from '@/classes/List'
+import forEach from '@/functions/forEach'
+import isSelected from '@/functions/isSelected'
 import useAdmin from '@/uses/useAdmin'
 import useAppearance from './useAppearance'
+import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DImages',
@@ -28,7 +31,7 @@ export default {
     } = toRefs(props)
 
     const images = ref(undefined)
-    const propList = computed(() => new List(
+    const propObject = computed(() => new List(
       props.list,
       props.listInit,
       props.translation,
@@ -36,6 +39,12 @@ export default {
       props.keyValue,
       false
     ).get())
+    const propList = useWatch(propObject, () => forEach(propObject.value, item => {
+      return {
+        ...item,
+        selected: computed(() => isSelected(item?.value, props.selected))
+      }
+    }), ['init'])
 
     const {
       even,

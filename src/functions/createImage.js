@@ -1,3 +1,5 @@
+import getFileResult from '@/functions/getFileResult'
+
 export default function createImage (src) {
   return new Promise(resolve => {
     if (src) {
@@ -9,11 +11,13 @@ export default function createImage (src) {
           image,
           height: image.naturalHeight,
           width: image.naturalWidth,
-          src
+          src: image.src
         })
       }
 
-      image.src = src
+      (async () => {
+        image.src = src instanceof File ? await getFileResult(src) : src
+      })()
     } else {
       resolve(undefined)
     }

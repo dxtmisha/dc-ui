@@ -12,7 +12,7 @@
   --cp__it-display: none;
   --cs__it-display: none;
 
-  @include width(var(--_if-width));
+  @include width(100%);
   border-radius: var(--basic-radius);
   position: relative;
 
@@ -29,6 +29,7 @@
 
 @mixin fileVar() {
   --_if-blur: var(--if-blur, var(--blur-type1));
+  --_if-height: var(--if-height, 160px);
   --_if-width: var(--if-width, 280px);
   --_if__vl-padding: var(--if__vl-padding, 8px);
 }
@@ -54,32 +55,20 @@
 @mixin fileImage() {
   &__image {
     --ii-background-size: contain;
-    @include aspectRatio('16/9') {
-      height: calc(var(--_if-width) / 16 * 9);
-    }
-    background-color: varColor(--background-overlay, --opacity-overlay);
-    @include optionBlur(var(--_if-blur)) {
-      background-color: varColor(--background-colorless, --opacity-surface-high);
-    }
+    min-height: var(--_if-height);
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     font-size: 32px;
-    top: var(--basic-top);
+    position: relative;
     width: 100%;
     z-index: 2;
     @content;
 
-    @include afterAbsolute('full', sticky) {
+    @include afterAbsolute('full') {
       @include flexCenter;
       @include font('subtitle2');
       content: attr(data-text);
       opacity: var(--opacity-surface-medium);
-    }
-
-    @include mediaMinWidth() {
-      @include aspectRatio('3/2') {
-        height: calc(var(--_if-width) / 3 * 2);
-      }
     }
   }
 
@@ -110,14 +99,8 @@
 
 @mixin fileActions() {
   &__actions {
-    background-color: varColor(--background-colorless, --opacity-container-pressed);
-    @include optionBlur(var(--_if-blur)) {
-      background-color: varColor(--background-colorless, --opacity-surface-high);
-    }
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    bottom: var(--basic-bottom);
-    position: sticky;
     z-index: 4;
   }
 }
@@ -125,7 +108,8 @@
 @mixin fileList() {
   &__list {
     border-color: varColor(--background-overlay, --opacity-border);
-    padding: 0;
+    min-height: var(--_if-height);
+    padding: var(--_if__vl-padding);
     @content;
   }
 }

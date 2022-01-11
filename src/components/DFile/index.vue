@@ -16,11 +16,10 @@
     </div>
     <div class="d-file__body">
       <div
-        v-if="!readonly"
+        v-show="!readonly && list.length < 1"
         class="d-file__image"
         :data-text="translation['Drag and drop files here']"
       >
-        <d-icon-item :icon="item?.thumbnail"/>
         <d-drop
           ref="drop"
           :accept="accept"
@@ -29,6 +28,7 @@
         />
       </div>
       <d-control-position
+        v-show="list.length > 0"
         ref="position"
         v-slot:default="position"
         :disabled="propDisabled"
@@ -41,15 +41,19 @@
           class="d-file__list"
           @on-selected="setSelected"
         >
-          <d-list-item
-            v-for="item in list"
-            v-bind="item"
-            :key="item.value"
-            :border="true"
-            :class="classItem(position, selection)"
-            :size="size"
-            @click="selection.onClick"
-          />
+          <d-images
+            appearance="standard"
+            size="200px"
+            bar-display="above"
+          >
+            <d-images-item
+              v-for="item in list"
+              :key="item.value"
+              v-bind="item"
+              :class="classItem(position, selection)"
+              @click="selection.onClick"
+            />
+          </d-images>
         </d-control-selection>
       </d-control-position>
       <div v-if="propValidationMessage" class="d-file__validation">{{ propValidationMessage }}</div>
@@ -76,8 +80,8 @@ import DControlPosition from '@/components/DControlPosition'
 import DControlSelection from '@/components/DControlSelection'
 import DDrop from '@/components/DDrop'
 import DFileEdit from '@/components/DFile/DFileEdit'
-import DIconItem from '@/components/DIconItem'
-import DListItem from '@/components/DListItem'
+import DImages from '@/components/DImages'
+import DImagesItem from '@/components/DImagesItem'
 import { props } from './props'
 import { computed, nextTick, ref } from 'vue'
 import Translation from '@/classes/Translation'
@@ -95,8 +99,8 @@ export default {
     DControlSelection,
     DDrop,
     DFileEdit,
-    DIconItem,
-    DListItem
+    DImagesItem,
+    DImages
   },
   props,
   setup (props, context) {
@@ -147,7 +151,22 @@ export default {
       return {
         bar: [
           {
+            icon: 'add',
+            appearance: 'outlined-color',
+            text: Translation.get('Add'),
+            value: 'add',
+            disabled: propDisabled.value || (
+              props.max &&
+              props.max <= propValue.value?.length
+            ),
+            shape: props.shape,
+            type: 'button'
+          }
+        ],
+        barAction: [
+          {
             icon: 'edit',
+            appearance: 'text',
             title: Translation.get('Edit'),
             value: 'edit',
             disabled: propDisabled.value || !isOne.value || item.value?.thumbnail === props.iconFile,
@@ -156,21 +175,11 @@ export default {
           },
           {
             palette: 'error',
+            appearance: 'text-color',
             icon: 'delete',
             title: Translation.get('Delete'),
             value: 'delete',
             disabled: propDisabled.value || !isSelected.value,
-            shape: props.shape,
-            type: 'button'
-          },
-          {
-            icon: 'add',
-            text: Translation.get('Add'),
-            value: 'add',
-            disabled: propDisabled.value || (
-              props.max &&
-              props.max <= propValue.value?.length
-            ),
             shape: props.shape,
             type: 'button'
           }
@@ -235,6 +244,7 @@ export default {
       propValue.value = position.value.toNewPosition(propValue.value, event)
     }
 
+    setChange()
     useAdmin('d-file', context)
 
     return {
