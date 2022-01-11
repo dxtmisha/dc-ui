@@ -10,7 +10,7 @@ export default {
   name: 'DAvatar',
   props,
   setup (props, context) {
-    useAdmin('d-avatar')
+    useAdmin('d-avatar', context)
     return {}
   }
 }
