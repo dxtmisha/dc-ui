@@ -5,9 +5,13 @@ export const props = {
   // Values
   item: undefined,
   value: undefined,
-  src: [Object, String],
   title: undefined,
   text: undefined,
+  src: [Object, String],
+  coordinator: undefined,
+  zoom: undefined,
+  x: undefined,
+  y: undefined,
 
   // Status
   selected: Boolean,

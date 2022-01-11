@@ -2,6 +2,14 @@
   <div v-bind="binds" class="d-images-item a-static">
     <a :style="styleBody" class="d-images-item__body">
       <slot/>
+      <d-icon-item
+        :icon="src"
+        :coordinator="coordinator"
+        :zoom="zoom"
+        :x="x"
+        :y="y"
+        @on-load="onLoad"
+      />
       <d-icon :icon="iconCheck" class="d-images-item__icon"/>
     </a>
     <d-images-bar
@@ -17,39 +25,23 @@
 
 <script>
 import DIcon from '@/components/DIcon'
+import DIconItem from '@/components/DIconItem'
 import DImagesBar from '@/components/DImagesBar'
 import { props } from './props'
-import { computed, ref, toRefs } from 'vue'
-import createImage from '@/functions/createImage'
+import { computed, ref } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useWatch from '@/uses/useWatch'
 
 export default {
   name: 'DImagesItem',
   components: {
+    DIconItem,
     DIcon,
     DImagesBar
   },
   props,
   setup (props, context) {
-    const { src } = toRefs(props)
-
     const height = ref(undefined)
     const width = ref(undefined)
-
-    const propSrc = useWatch(src, async data => {
-      const image = await createImage(src.value)
-
-      if (image) {
-        data.value = `url('${image.src}')`
-        height.value = Math.floor(image.height * 10 / image.width)
-        width.value = Math.floor(image.width * 10 / image.height)
-      } else {
-        data.value = null
-        height.value = null
-        width.value = null
-      }
-    })
 
     const binds = computed(() => {
       return {
@@ -67,14 +59,20 @@ export default {
       }
     })
     const styleBody = computed(() => {
-      return { 'background-image': propSrc.value }
+      return {}
     })
+
+    const onLoad = event => {
+      height.value = Math.floor(event.height * 10 / event.width)
+      width.value = Math.floor(event.width * 10 / event.height)
+    }
 
     useAdmin('d-images-item', context)
 
     return {
       binds,
-      styleBody
+      styleBody,
+      onLoad
     }
   }
 }
