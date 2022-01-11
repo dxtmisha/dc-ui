@@ -1,6 +1,13 @@
 <template>
   <a :href="href" :style="styleList" class="d-card-media">
-    <d-icon-item :icon="thumbnail" class="d-card-media__thumbnail"/>
+    <d-icon-item
+      :icon="thumbnail"
+      :coordinator="coordinator"
+      :zoom="zoom"
+      :x="x"
+      :y="y"
+      class="d-card-media__thumbnail"
+    />
     <d-icon
       :active="active"
       :iconActive="iconCheck"

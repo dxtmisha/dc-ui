@@ -4,6 +4,10 @@ const defaultProps = defaultInit('d-card-media')
 export const props = {
   // Values
   href: String,
+  coordinator: undefined,
+  zoom: undefined,
+  x: undefined,
+  y: undefined,
 
   // Status
   active: Boolean,

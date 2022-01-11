@@ -11,8 +11,9 @@
     <span class="d-actions__spacer"/>
     <d-button
       v-for="item in propBar"
-      v-bind="item"
       :key="item.value"
+      appearance="text-color"
+      v-bind="item"
       class="d-actions__bar window-close"
       @on-click="onClick"
     />

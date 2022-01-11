@@ -1,7 +1,9 @@
 <template>
   <div v-bind="binds" class="d-card">
     <div class="d-card__body">
-      <d-card-media v-if="thumbnail" v-bind="bindMedia"/>
+      <d-card-media
+        v-if="thumbnail"
+        v-bind="bindMedia"/>
       <d-card-title v-if="title" v-bind="bindTitle"/>
       <d-card-text v-if="text" :text="text" :title="textTitle"/>
     </div>

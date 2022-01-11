@@ -65,6 +65,10 @@ export const props = {
   actionsAttrs: undefined,
 
   // Media
+  mediaCoordinator: undefined,
+  mediaZoom: undefined,
+  mediaX: undefined,
+  mediaY: undefined,
   mediaAttrs: undefined,
 
   // Text

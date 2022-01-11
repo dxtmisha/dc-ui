@@ -40,7 +40,6 @@ export const props = {
   },
 
   // Button
-  buttonAppearance: { default: defaultProps('buttonAppearance', 'text-color') },
   buttonSize: { default: defaultProps('buttonSize', 'medium') },
   buttonShape: { default: defaultProps('buttonShape') },
   buttonAdaptive: { default: defaultProps('buttonAdaptive', 'basic') },

@@ -30,6 +30,7 @@
 @mixin fileVar() {
   --_if-blur: var(--if-blur, var(--blur-type1));
   --_if-height: var(--if-height, 160px);
+  --_if-padding: var(--if-padding, 16px);
   --_if-width: var(--if-width, 280px);
   --_if__vl-padding: var(--if__vl-padding, 8px);
 }
@@ -84,7 +85,7 @@
     @include font('caption');
     align-items: flex-start;
     display: flex;
-    padding: var(--_if__vl-padding);
+    padding: var(--_if__vl-padding) var(--_if-padding);
     @content;
   }
 
@@ -109,7 +110,7 @@
   &__list {
     border-color: varColor(--background-overlay, --opacity-border);
     min-height: var(--_if-height);
-    padding: var(--_if__vl-padding);
+    padding: var(--_if-padding) var(--_if-padding) 0;
     @content;
   }
 }
