@@ -24,6 +24,9 @@ export default {
     const { progress } = toRefs(props)
     const skeleton = ref(undefined)
 
+    let time
+    const propProgress = ref(undefined)
+
     const update = value => {
       forEach({
         'skeleton-text': props.itemText,
@@ -37,15 +40,25 @@ export default {
     }
 
     useWatch(progress, async () => {
+      clearTimeout(time)
+
       await nextTick()
       update(progress.value)
+
+      if (progress.value && props.delay) {
+        setTimeout(() => {
+          propProgress.value = true
+        }, props.delay)
+      } else {
+        propProgress.value = progress.value
+      }
     }, ['mounted'])
 
     const palette = useColor(props)
     const classList = computed(() => {
       return {
         [`appearance-${props.appearance}`]: props.appearance,
-        'status-progress': props.progress,
+        'status-progress': propProgress.value,
         ...palette.value
       }
     })

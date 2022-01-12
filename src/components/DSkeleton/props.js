@@ -27,5 +27,9 @@ export const props = {
       'basic',
       'wave'
     ])
+  },
+  delay: {
+    type: Number,
+    default: defaultProps('delay', 400)
   }
 }
