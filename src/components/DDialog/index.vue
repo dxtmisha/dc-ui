@@ -54,8 +54,8 @@ export default {
     const window = ref(undefined)
     const main = ref(undefined)
 
-    const toggle = () => {
-      nextTick()
+    const toggle = async () => {
+      await nextTick()
       window.value.toggle(props.open)
     }
 

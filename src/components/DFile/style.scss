@@ -109,6 +109,7 @@
 @mixin fileList() {
   &__list {
     border-color: varColor(--background-overlay, --opacity-border);
+    font-size: 48px;
     min-height: var(--_if-height);
     padding: var(--_if-padding) var(--_if-padding) 0;
     @content;

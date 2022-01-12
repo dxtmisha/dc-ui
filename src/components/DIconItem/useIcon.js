@@ -1,4 +1,4 @@
-import { ref, toRefs } from 'vue'
+import { ref, toRefs, watch } from 'vue'
 import createImage from '@/functions/createImage'
 import useWatch from '@/uses/useWatch'
 
@@ -33,7 +33,7 @@ export default function useIcon (props, context) {
     }
   }
   const getStyleByImage = image => {
-    let zoom = props.zoom
+    let zoom
     let x = props.x
     let y = props.y
 
@@ -44,6 +44,8 @@ export default function useIcon (props, context) {
       zoom = image.height < image.width ? `auto ${100 / height * 100}%` : `${100 / width * 100}% auto`
       x = props.coordinator?.[3] + (width / 2) + '%'
       y = props.coordinator?.[0] + (height / 2) + '%'
+    } else {
+      zoom = image.height < image.width ? `auto ${props.zoom}` : `${props.zoom} auto`
     }
 
     return {
@@ -103,42 +105,41 @@ export default function useIcon (props, context) {
     }
   }
 
-  const image = useWatch(
-    [
-      icon,
-      coordinator,
-      zoom,
-      x,
-      y
-    ],
-    async () => {
-      updateType()
-      updateText()
+  const image = useWatch(icon, async data => {
+    updateType()
+    updateText()
 
-      const name = getClassName()
-      let data
+    const name = getClassName()
 
-      classIcon.value = { [`type-${type}`]: type }
+    classIcon.value = { [`type-${type}`]: type }
 
-      if (name) {
-        classIcon.value[name] = true
-      }
+    if (name) {
+      classIcon.value[name] = true
+    }
 
-      if (type === 'image') {
-        const image = await createImage(icon.value)
+    if (type === 'image') {
+      const image = await createImage(icon.value)
 
-        context.emit('on-load', image)
+      context.emit('on-load', image)
 
-        data = image
-        styleIcon.value = getStyleName(data)
-      } else {
-        styleIcon.value = getStyleName(icon.value)
-      }
+      data.value = image
+      styleIcon.value = getStyleName(image)
+    } else {
+      data.value = undefined
+      styleIcon.value = getStyleName(icon.value)
+    }
+  })
 
-      return data
-    },
-    ['init']
-  )
+  watch([
+    coordinator,
+    zoom,
+    x,
+    y
+  ], async () => {
+    if (image.value) {
+      styleIcon.value = getStyleName(image.value)
+    }
+  })
 
   return {
     text,

@@ -119,6 +119,7 @@ export const Options = {
       { value: 400 }
     ]
   },
+  height: {},
   gap: {
     list: [
       { value: undefined },

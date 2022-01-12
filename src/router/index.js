@@ -3,6 +3,7 @@ import { getRoutes } from '@/dcUi'
 import DemoActions from '../views/DemoActions'
 import DemoAlert from '../views/DemoAlert'
 import DemoAppBar from '../views/DemoAppBar'
+import DemoAvatar from '../views/DemoAvatar'
 import DemoBadge from '../views/DemoBadge'
 import DemoBanner from '../views/DemoBanner'
 import DemoBottomNavigation from '../views/DemoBottomNavigation'
@@ -70,6 +71,7 @@ export const routes = getRoutes({
   'd-actions': DemoActions,
   'd-alert': DemoAlert,
   'd-app-bar': DemoAppBar,
+  'd-avatar': DemoAvatar,
   'd-badge': DemoBadge,
   'd-banner': DemoBanner,
   'd-bottom-navigation': DemoBottomNavigation,

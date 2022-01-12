@@ -197,7 +197,7 @@ export default function useMarks (
       return mark
     }
   }
-  const toDo = (type, x = 0) => styleSlider.set({ [type]: x })
+  const toDo = (type, x = 0) => styleSlider.set({ [type]: x < 0 ? 0 : x })
   const toText = () => {
     if (minLabel.value) {
       minLabel.value.innerText = getText(markMin.value)
