@@ -4,6 +4,7 @@
     :style="styleList"
     class="d-redaction-file"
   >
+    <d-icon-item :icon="propThumbnail"/>
     <img
       ref="image"
       :alt="text"
@@ -41,6 +42,7 @@
 
 <script>
 import DControlResize from '@/components/DControlResize'
+import DIconItem from '@/components/DIconItem'
 import DSlider from '@/components/DSlider'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
@@ -52,6 +54,7 @@ export default {
   name: 'DRedactionFile',
   components: {
     DControlResize,
+    DIconItem,
     DSlider
   },
   props,
@@ -91,7 +94,6 @@ export default {
 
     const styleList = computed(() => {
       return {
-        'background-image': `url(${propThumbnail.value})`,
         '--_rf-aspect': `${naturalWidth.value}/${naturalHeight.value}`,
         '--_rf-height': `${naturalHeight.value}px`
       }

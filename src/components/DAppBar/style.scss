@@ -64,7 +64,6 @@
 @mixin appBarBody {
   &__body {
     background-color: varColor(--_ab-palette-type1, --_ab-background-opacity);
-    background-image: var(--_ab-background-image);
     border-radius: inherit;
     box-shadow: var(--shadow-type4);
     display: flex;

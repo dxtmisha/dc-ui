@@ -5,7 +5,7 @@
     class="d-navigation"
     @click="onClose"
   >
-    <div ref="body" :class="classScroll" class="d-navigation__body">
+    <div ref="body" :class="classScroll" :style="styleScroll" class="d-navigation__body">
       <div v-if="title" class="d-navigation__title">
         {{ title }}
         <d-button
@@ -127,13 +127,13 @@ export default {
           'option-right': props.right,
           'option-bottom': props.bottom
         },
-        style: {
-          '--_nv-width': props.width,
-          '--_nv-background-image': props.src ? `url(${props.src})` : null
-        }
+        style: { '--_nv-width': props.width }
       }
     })
     const classScroll = useScroll()
+    const styleScroll = computed(() => {
+      return { 'background-image': props.src ? `url(${props.src})` : null }
+    })
 
     useAdmin('d-navigation', context)
 
@@ -148,6 +148,7 @@ export default {
       bindList,
       binds,
       classScroll,
+      styleScroll,
       set,
       show,
       onClose

@@ -1,6 +1,6 @@
 <template>
   <div ref="app" v-bind="binds" class="d-app-bar">
-    <div class="d-app-bar__body">
+    <div :style="styleBody" class="d-app-bar__body">
       <template v-if="menuAjax || barNavigation">
         <d-menu v-bind="bindMenu" @on-input="set">
           <template v-slot:default="{ classList, open, progress, onClick }">
@@ -158,10 +158,12 @@ export default {
         },
         style: {
           '--_ab-width': props.width,
-          '--_ab-transform': props.transform ? `${props.transform}px` : null,
-          '--_ab-background-image': props.src ? `url(${props.src})` : null
+          '--_ab-transform': props.transform ? `${props.transform}px` : null
         }
       }
+    })
+    const styleBody = computed(() => {
+      return { 'background-image': props.src ? `url(${props.src})` : null }
     })
 
     const onNavigation = (event, on) => {
@@ -193,6 +195,7 @@ export default {
       bindList,
       bindMenu,
       binds,
+      styleBody,
 
       set,
       onNavigation,
