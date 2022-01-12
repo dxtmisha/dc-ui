@@ -3,7 +3,7 @@
     <nav/>
     <div class="ui-sector__main">
       <header>
-        <span class="font:headline6 pr-4">dcode UI</span>
+        <span class="font:headline6 pr-4">dc-UI</span>
         <interactive-demo-router/>
         <div class="flex-grow"/>
         <interactive-demo-theme/>
@@ -12,7 +12,7 @@
       <main>
         <router-view/>
       </main>
-      <footer>&copy; 2021 dcode</footer>
+      <footer>&copy; 2021 - 2022 dcode</footer>
     </div>
   </div>
 </template>

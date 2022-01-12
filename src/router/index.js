@@ -65,8 +65,10 @@ import DemoTimePicker from '../views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
 import DemoTop from '../views/DemoTop'
 import DemoWindow from '../views/DemoWindow'
+import HomeView from '../views/HomeView'
 
 export const routes = getRoutes({
+  '': HomeView,
   's-components': { subtitle: 'Components' },
   'd-actions': DemoActions,
   'd-alert': DemoAlert,

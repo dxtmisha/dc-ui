@@ -23,7 +23,7 @@
     </div>
     <div v-if="!readonly" class="d-avatar__slider">
       <d-slider-picker
-        :disabled="disabled"
+        :disabled="disabled || !propValue.file"
         :max="maxZoom"
         :min="100"
         :value="propValue.zoom"
