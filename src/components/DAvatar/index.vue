@@ -1,5 +1,6 @@
 <template>
   <div v-bind="binds" class="d-avatar">
+    <input :name="name" :value="json" type="hidden">
     <input ref="file" type="file" accept="image/*" @input="onInput">
     <div
       ref="image"
@@ -17,7 +18,7 @@
         :icon="iconImage"
         appearance="chip-color"
         class="d-avatar__button"
-        @click="onFile"
+        @click.prevent="onFile"
       />
     </div>
     <div v-if="!readonly" class="d-avatar__slider">
@@ -69,9 +70,11 @@ export default {
         ...value.value
       }
     }, ['init'], undefined, true)
+    const json = computed(() => JSON.stringify(propValue.value))
 
     const {
       propValidationMessage,
+      setChange,
       checkValidity,
       emit,
       onMousedown
@@ -127,10 +130,12 @@ export default {
       image,
       file,
       files,
+      json,
       propValidationMessage,
       propValue,
       binds,
       bindIcon,
+      setChange,
       checkValidity,
       onMousedown,
       onLoad,

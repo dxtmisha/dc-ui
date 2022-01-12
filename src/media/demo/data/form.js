@@ -5,10 +5,14 @@ export default [
     section: 'profile',
     fields: [
       {
+        name: 'avatar',
+        text: 'Avatar',
+        component: 'd-avatar'
+      },
+      {
         html: `
-<div class="flex flex-col items-center justify-center pt-8 px-4 pb-4">
-    <div class="w-32 h-32 rounded-full" style="background-image: url(${require('@/assets/images/image-10.jpeg')})"></div>
-    <div class="font:headline6 pt-4">Loretta Kelley</div>
+<div class="flex flex-col items-center justify-center pt-2 px-4 pb-2">
+    <div class="font:headline6">Loretta Kelley</div>
     <div class="font:body2 pt-1 opacity-60">+7 (902) 334-33-33</div>
 </div>
 `

@@ -32,6 +32,7 @@ export default function usePosition (
         : newY
   }
 
+  const setChange = () => undefined
   const checkValidity = () => true
   const emit = () => {
     context.emit('on-input', {
@@ -93,6 +94,7 @@ export default function usePosition (
 
   return {
     propValidationMessage,
+    setChange,
     checkValidity,
     emit,
     onMousedown

@@ -25,6 +25,7 @@
     @include rectangle(var(--_av-width), var(--_av-height));
     background-color: varColor(--background-overlay, --opacity-overlay);
     border-radius: var(--_av-radius);
+    margin: 0 auto;
     position: relative;
     @content;
   }
@@ -41,7 +42,9 @@
 @mixin avatarSlider {
   &__slider {
     @include flexX;
+    @include width(var(--_av-width));
     gap: 8px;
+    margin: 0 auto;
     padding: var(--_av__sl-padding);
     @content;
   }

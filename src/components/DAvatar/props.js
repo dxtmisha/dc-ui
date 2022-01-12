@@ -3,6 +3,7 @@ import { defaultInit, validatorShape } from '@/uses/useDefault'
 const defaultProps = defaultInit('d-avatar')
 export const props = {
   // Values
+  name: String,
   value: Object,
   maxZoom: {
     type: Number,

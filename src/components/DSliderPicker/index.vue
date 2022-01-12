@@ -4,9 +4,10 @@
       v-if="multiple"
       ref="min"
       class="d-slider-picker__thumb sl-min"
-      @mousedown="onMousedown"
-      @touchstart="onMousedown"
+      type="button"
       @keydown="onKeydown"
+      @mousedown.prevent.stop="onMousedown"
+      @touchstart.prevent.stop="onMousedown"
     >
       <span ref="minLabel" class="d-slider-picker__label"/>
       <d-ripple v-if="isRipple"/>
@@ -14,9 +15,10 @@
     <button
       ref="max"
       class="d-slider-picker__thumb sl-max"
-      @mousedown="onMousedown"
-      @touchstart="onMousedown"
+      type="button"
       @keydown="onKeydown"
+      @mousedown.prevent.stop="onMousedown"
+      @touchstart.prevent.stop="onMousedown"
     >
       <span ref="maxLabel" class="d-slider-picker__label"/>
       <d-ripple v-if="isRipple"/>
