@@ -2,7 +2,26 @@
   @each $type, $types in $object {
     @if $types {
       @each $name, $value in $types {
-        --#{$type}-#{$name}: #{$value};
+        $code: --#{$type}-#{$name};
+        #{$code}: #{$value};
+
+        @if $type == 'text' {
+          .text\:#{$name} {
+            --basic-text: var(#{$code});
+          }
+        } @else if $type == 'opacity' {
+          .opacity\:#{$name} {
+            --basic-text-opacity: var(#{$code});
+          }
+        } @else if $type == 'radius' {
+          .radius\:#{$name} {
+            border-radius: var(#{$code});
+          }
+        } @else if $type == 'shadow' {
+          .shadow\:#{$name} {
+            box-shadow: var(#{$code});
+          }
+        }
       }
     }
   }

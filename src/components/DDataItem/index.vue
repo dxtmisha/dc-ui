@@ -1,0 +1,83 @@
+<template>
+  <div v-bind="binds" class="d-data-item">
+    <div class="d-data-item__icon">
+      <d-icon v-if="icon" v-bind="bindIcon"/>
+    </div>
+    <div class="d-data-item__body">
+      <div class="d-data-item__text">
+        <template v-if="'text' in $slots">
+          <slot :item="item" :text="propText" name="text"/>
+        </template>
+        <template v-else><span v-html="propText"/></template>
+      </div>
+      <div v-for="parameter in parameters" :key="parameter" class="d-data-item__parameter">
+        <template v-if="parameter in $slots">
+          <slot :name="parameter" :item="item"/>
+        </template>
+        <template v-else>{{ item[parameter] }}</template>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import DIcon from '@/components/DIcon'
+import { props } from './props'
+import { computed } from 'vue'
+import useAdmin from '@/uses/useAdmin'
+import useIcon from './useIcon'
+
+export default {
+  name: 'DDataItem',
+  components: { DIcon },
+  props,
+  setup (props, context) {
+    const propText = computed(() => {
+      const text = props.item?.name || props.item?.text || props.text
+
+      return props.underline
+        ? text.toString().replace(
+          new RegExp(`(${props.underline})`, 'ig'),
+          subtext => `<span class="d-data-item__underline">${subtext}</span>`
+        )
+        : text
+    })
+
+    const bindIcon = useIcon(props)
+    const binds = computed(() => {
+      return {
+        class: {
+          'value-background': props.backgroundColor,
+          'status-selected': props.selected,
+          [`appearance-${props.appearance}`]: props.appearance,
+          [`size-${props.size}`]: props.size,
+          [`shape-${props.shape}`]: props.shape,
+          [`adaptive-${props.adaptive}`]: props.adaptive,
+          'option-dense': props.dense,
+          'option-border': props.border
+        },
+        style: {
+          '--di-background-color': typeof props.backgroundColor === 'string' ? props.backgroundColor : null,
+          '--di__tx-column': props.column
+        }
+      }
+    })
+
+    useAdmin('d-data-item', context)
+
+    return {
+      propText,
+      bindIcon,
+      binds
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import "style";
+
+.d-data-item {
+  @include dataItemInit;
+}
+</style>
