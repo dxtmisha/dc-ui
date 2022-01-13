@@ -32,6 +32,7 @@
   gap: var(--_di-gap);
   min-height: var(--_di-height);
   padding-left: var(--_di-padding-x);
+  position: relative;
 }
 
 @mixin dataItemIcon {

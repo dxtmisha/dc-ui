@@ -17,19 +17,25 @@
         <template v-else>{{ item[parameter] }}</template>
       </div>
     </div>
+    <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
   </div>
 </template>
 
 <script>
 import DIcon from '@/components/DIcon'
+import DProgress from '@/components/DProgress'
 import { props } from './props'
 import { computed } from 'vue'
+import attrProgress from '@/components/DProgress/attrProgress'
 import useAdmin from '@/uses/useAdmin'
 import useIcon from './useIcon'
 
 export default {
   name: 'DDataItem',
-  components: { DIcon },
+  components: {
+    DIcon,
+    DProgress
+  },
   props,
   setup (props, context) {
     const propText = computed(() => {
@@ -42,6 +48,11 @@ export default {
         )
         : text
     })
+
+    const {
+      isProgress,
+      bindProgress
+    } = attrProgress(props)
 
     const bindIcon = useIcon(props)
     const binds = computed(() => {
@@ -67,7 +78,9 @@ export default {
 
     return {
       propText,
+      isProgress,
       bindIcon,
+      bindProgress,
       binds
     }
   }
