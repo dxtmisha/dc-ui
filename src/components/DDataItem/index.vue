@@ -1,7 +1,7 @@
 <template>
-  <div v-bind="binds" class="d-data-item">
+  <div v-bind="binds" class="d-data-item" :data-value="value">
     <div class="d-data-item__icon">
-      <d-icon v-if="icon" v-bind="bindIcon"/>
+      <d-icon v-if="bindIcon.icon" v-bind="bindIcon"/>
     </div>
     <div class="d-data-item__body">
       <div class="d-data-item__text">

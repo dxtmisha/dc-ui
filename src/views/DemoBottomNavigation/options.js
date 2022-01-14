@@ -1,21 +1,8 @@
 import useProps from '@/components/InteractiveDemo/useProps'
 import { props } from '@/components/DBottomNavigation/props'
+import { BottomNavigation } from '@/media/demo/BottomNavigation'
 
 export const optionsBottomNavigation = useProps(props, {
-  appearance: {
-    list: [
-      { value: undefined },
-      { value: 'basic' },
-      { value: 'contained' },
-      { value: 'translucency' }
-    ]
-  },
-  scroll: {
-    list: [
-      { value: undefined },
-      { value: 'bottom' },
-      { value: 'disappears' },
-      { value: 'border' }
-    ]
-  }
+  appearance: BottomNavigation.bottomNavigationAppearance,
+  scroll: BottomNavigation.bottomNavigationScroll
 }, ['selected'])

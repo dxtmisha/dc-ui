@@ -1,4 +1,4 @@
-import { toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import attrIcon from '@/components/DIcon/attrIcon'
 
 export default function useIcon (props) {
@@ -10,6 +10,7 @@ export default function useIcon (props) {
   return attrIcon({
     props,
     items: {
+      icon: computed(() => props.item?.icon || props.icon),
       active: selected,
       size: size
     }

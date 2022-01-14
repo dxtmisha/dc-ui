@@ -1,0 +1,54 @@
+<template>
+  <interactive-demo
+    :options="options"
+    v-slot:default="{ binds }"
+  >
+    <div class="demo-data">
+      <d-data
+        id="id-data"
+        v-bind="binds"
+        :admin="true"
+        :items="items"
+        :parameters="parameters"
+      >
+        <template v-slot:text="{ item }">
+          <div>{{ item.name }}</div>
+          <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
+        </template>
+      </d-data>
+    </div>
+  </interactive-demo>
+</template>
+
+<script>
+import DData from '@/components/DData'
+import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
+import { optionsData } from './options'
+import { tableItems } from '@/media/demo/data/list'
+
+export default {
+  name: 'DemoData',
+  components: {
+    DData,
+    InteractiveDemo
+  },
+  setup () {
+    const options = optionsData
+    const items = tableItems(16)
+    const parameters = ['city', 'policy']
+
+    return {
+      options,
+      items,
+      parameters
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.demo-data {
+  border-width: var(--basic-border-width);
+  width: 100%;
+}
+</style>

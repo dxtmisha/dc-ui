@@ -85,6 +85,7 @@ export default {
         icon: 'table_rows',
         name: 'Data and Table',
         list: [
+          'd-data',
           'd-data-item',
           'd-pagination',
           'd-table',

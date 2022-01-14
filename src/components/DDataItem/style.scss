@@ -2,6 +2,7 @@
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
+@import "../../styles/padding";
 @import "../../styles/options/optionShape";
 
 @mixin dataItem {
@@ -38,6 +39,7 @@
 @mixin dataItemIcon {
   &__icon {
     @include flexCenter;
+    @include paddingY(var(--_di-padding-y));
   }
 }
 

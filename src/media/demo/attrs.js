@@ -20,6 +20,7 @@ import { MotionTransform } from '@/media/demo/MotionTransform'
 import { Position } from '@/media/demo/Position'
 import { Progress } from '@/media/demo/Progress'
 import { Tooltip } from '@/media/demo/Tooltip'
+import { Time } from '@/media/demo/Time'
 import { Window } from '@/media/demo/Window'
 
 export default {
@@ -45,5 +46,6 @@ export default {
   Position,
   Progress,
   Tooltip,
+  Time,
   Window
 }

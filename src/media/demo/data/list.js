@@ -394,15 +394,37 @@ export const tableItems = (count = 215) => {
     'Dallas',
     'San Jose'
   ]
+  const icons = [
+    'lock_open',
+    'lock',
+    'arrow_drop_down',
+    'search',
+    'home',
+    'delete',
+    require('@/assets/images/thumbnails/image-01-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-02-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-03-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-04-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-05-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-06-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-07-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-08-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-09-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-10-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-11-icon.jpeg'),
+    require('@/assets/images/thumbnails/image-12-icon.jpeg')
+  ]
 
   for (let i = 0; i < count; i++) {
     const itemStatus = getRandom(0, 3)
 
     items.push({
+      icon: icons[getRandom(0, icons.length - 1)],
       status: status[itemStatus],
       color: colors[itemStatus],
       name: names[getRandom(0, names.length - 1)],
       id: 10001 + i,
+      value: 10001 + i,
       policy: `$${getRandom(10, 99)}00.00`,
       city: city[getRandom(0, city.length - 1)],
       age: getRandom(18, 64)
