@@ -6,6 +6,13 @@ import { Icon } from '@/media/demo/Icon'
 export const optionsData = useProps(props, {
   adaptive: DataItem.dataItemAdaptive,
   appearance: DataItem.dataItemAppearance,
+  headers: {
+    message: {
+      name: 'Name',
+      city: 'City',
+      policy: 'Policy'
+    }
+  },
   size: Icon.iconSize,
   selected: {
     list: [

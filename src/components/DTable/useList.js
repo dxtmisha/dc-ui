@@ -1,8 +1,7 @@
 import { computed, ref, toRefs } from 'vue'
 import Geo from '@/classes/Geo'
-import List from '@/classes/List'
-import useWatch from '@/uses/useWatch'
 import forEach from '@/functions/forEach'
+import useWatch from '@/uses/useWatch'
 
 export default function useList (props, context) {
   const {
@@ -13,24 +12,6 @@ export default function useList (props, context) {
   const checkboxItems = ref({})
   const propSort = useWatch(sort, () => sort.value, ['init'])
   const propDest = useWatch(dest, () => dest.value ? -1 : 1, ['init'])
-
-  const propHeaders = computed(() => {
-    const list = new List(
-      props.headers,
-      props.headersInit,
-      props.translation,
-      props.keyText,
-      props.keyValue
-    ).get()
-
-    list.forEach(item => {
-      if (!('align' in item)) {
-        item.align = props.align
-      }
-    })
-
-    return list
-  })
 
   const propItems = computed(() => {
     checkboxItems.value = {}
@@ -100,7 +81,6 @@ export default function useList (props, context) {
     checkboxItems,
     propSort,
     propDest,
-    propHeaders,
     propItems,
     setCheckbox,
     onCheckbox,

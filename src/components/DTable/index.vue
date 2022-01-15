@@ -70,6 +70,7 @@ import attrButton from '@/components/DButton/attrButton'
 import useAdmin from '@/uses/useAdmin'
 import useList from './useList'
 import { computed } from 'vue'
+import useHeaders from '@/components/DTable/useHeaders'
 
 export default {
   name: 'DTable',
@@ -80,11 +81,11 @@ export default {
   props,
   emits: ['on-input', 'on-sort'],
   setup (props, context) {
+    const propHeaders = useHeaders(props)
     const {
       checkboxItems,
       propSort,
       propDest,
-      propHeaders,
       propItems,
       setCheckbox,
       onCheckbox,

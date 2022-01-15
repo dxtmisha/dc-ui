@@ -4,7 +4,7 @@ import isSelected from '@/functions/isSelected'
 import attrDataItem from '@/components/DDataItem/attrDataItem'
 import useWatch from '@/uses/useWatch'
 
-export default function useItems (props) {
+export default function useItems (props, propParameters) {
   const {
     items,
     underline
@@ -12,6 +12,7 @@ export default function useItems (props) {
 
   const getItem = item => attrDataItem({
     props,
+    items: { parameters: propParameters },
     attrs: {
       item,
       value: item?.value,

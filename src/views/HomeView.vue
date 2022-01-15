@@ -87,6 +87,7 @@ export default {
         list: [
           'd-data',
           'd-data-item',
+          'd-data-picker',
           'd-pagination',
           'd-table',
           'd-table-picker'

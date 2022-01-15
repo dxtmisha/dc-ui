@@ -10,12 +10,14 @@
         </template>
         <template v-else><span v-html="propText"/></template>
       </div>
-      <div v-for="parameter in parameters" :key="parameter" class="d-data-item__parameter">
-        <template v-if="parameter in $slots">
-          <slot :name="parameter" :item="item"/>
-        </template>
-        <template v-else>{{ item[parameter] }}</template>
-      </div>
+      <template v-for="parameter in parameters" :key="parameter">
+        <div class="d-data-item__parameter">
+          <template v-if="parameter in $slots">
+            <slot :name="parameter" :item="item"/>
+          </template>
+          <template v-else>{{ item[parameter] }}</template>
+        </div>
+      </template>
     </div>
     <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
   </div>

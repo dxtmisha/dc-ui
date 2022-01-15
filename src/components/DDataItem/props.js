@@ -38,7 +38,8 @@ export const props = {
       'small',
       'medium',
       'large',
-      'rectangle'
+      'rectangle',
+      'header'
     ])
   },
   shape: {

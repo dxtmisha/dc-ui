@@ -339,7 +339,7 @@ export const tableHeaders = [
   }
 ]
 
-export const tableItems = (count = 215) => {
+export const tableItems = (count = 128 * 2) => {
   const items = []
   const status = [
     'Approved',

@@ -6,5 +6,10 @@ import { Icon } from '@/media/demo/Icon'
 export const optionsDataItem = useProps(props, {
   adaptive: DataItem.dataItemAdaptive,
   appearance: DataItem.dataItemAppearance,
-  size: Icon.iconSize
+  size: {
+    list: [
+      ...Icon.iconSize.list,
+      { value: 'header' }
+    ]
+  }
 }, ['value'])
