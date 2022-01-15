@@ -9,9 +9,12 @@ export default function useObjectList (props) {
     selected
   } = toRefs(props)
 
+  let page = 1
+
   const progress = ref(false)
   const buffer = useWatch(ajax ? [list, ajax] : list, data => {
     data.value = undefined
+    page = 1
   })
   const object = computed(() => {
     return props.list instanceof List
@@ -27,18 +30,49 @@ export default function useObjectList (props) {
 
   const propList = computed(() => object.value.get())
   const propGroup = ref(props.group || {})
+  const propMax = ref(undefined)
+
+  const getAjax = async () => {
+    const response = await (await fetch(
+      props.ajax.toString().replace(':page', page),
+      props.request || {}
+    )).json()
+
+    if ('page' in response && 'data' in response) {
+      propMax.value = response.page
+      return response.data
+    } else {
+      propMax.value = response?.length
+      return response
+    }
+  }
 
   const beforeOpening = async open => {
     if (open && props.ajax) {
       if (buffer.value === undefined || !props.cache) {
         progress.value = true
 
-        buffer.value = await (await fetch(props.ajax, props.request || {})).json()
+        buffer.value = await getAjax()
         progress.value = false
       }
     }
 
     return true
+  }
+
+  const next = async () => {
+    if (propMax.value && propMax.value !== buffer.value?.length) {
+      progress.value = true
+      page++
+
+      const response = await getAjax()
+      buffer.value = [...buffer.value, ...response]
+
+      progress.value = false
+      return propMax.value !== buffer.value?.length
+    } else {
+      return false
+    }
   }
 
   const onGroup = ({ value }) => {
@@ -57,7 +91,9 @@ export default function useObjectList (props) {
     object,
     propList,
     propGroup,
+    propMax,
     beforeOpening,
+    next,
     onGroup
   }
 }
