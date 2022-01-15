@@ -1,38 +1,38 @@
 <template>
   <div class="d-list" :class="classList">
     <template
-      v-for="item in propList"
-      :key="item.value"
+      v-for="{html, item, line, list, menu, space, subtitle, value} in propList"
+      :key="value"
     >
-      <div v-if="item.html" class="d-list__html window-static" v-html="item.html"/>
-      <div v-else-if="item.subtitle" class="d-list__subtitle window-static" v-text="item.subtitle"/>
-      <div v-else-if="item.line" class="d-list__line window-static"/>
-      <div v-else-if="item.space" class="d-list__space window-static"/>
+      <div v-if="html" class="d-list__html window-static" v-html="html"/>
+      <div v-else-if="subtitle" class="d-list__subtitle window-static" v-text="subtitle"/>
+      <div v-else-if="line" class="d-list__line window-static"/>
+      <div v-else-if="space" class="d-list__space window-static"/>
 
-      <div v-else-if="item.list" class="d-list__group" :class="item.list.class">
+      <div v-else-if="list" class="d-list__group" :class="list.class">
         <d-list-item
-          v-bind="item.item"
+          v-bind="item"
           class="window-static"
           :icon-trailing="iconArrowDown"
-          :turn="item.list.open"
-          @on-click="item.list.on"
+          :turn="list.open"
+          @on-click="list.on"
         />
         <d-list
-          v-if="item.list.open"
-          v-bind="item.list.props"
-          :list="item.list.list"
+          v-if="list.open"
+          v-bind="list.props"
+          :list="list.list"
           @on-click="onClick"
         />
       </div>
 
-      <d-menu v-else-if="item.menu" v-bind="item.menu" @on-input="onClick">
+      <d-menu v-else-if="menu" v-bind="menu" @on-input="onClick">
         <template v-slot:default="{ classList, onClick, open, progress }">
           <d-list-item
-            v-bind="item.item"
+            v-bind="item"
             class="ls-menu window-static"
             :class="classList"
             :icon-trailing="iconMenu"
-            :focus="open || item.item.focus"
+            :focus="open || item.focus"
             :turn="open"
             :progress="progress"
             @click="onClick"
@@ -40,7 +40,7 @@
         </template>
       </d-menu>
 
-      <d-list-item v-else v-bind="item.item" @on-click="onClick"/>
+      <d-list-item v-else v-bind="item" @on-click="onClick"/>
     </template>
   </div>
 </template>
