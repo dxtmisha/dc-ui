@@ -138,6 +138,7 @@ export default {
         name: 'Motion',
         list: [
           'd-motion-axis',
+          'd-motion-cell',
           'd-motion-scroll',
           'd-motion-sticky',
           'd-motion-transform'
