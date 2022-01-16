@@ -2,17 +2,21 @@
 @import "../../styles/padding";
 
 @mixin dataPicker {
+  --_dc__dd-basis: var(--dc__dd-basis, 280px);
+
   position: relative;
 }
 
 @mixin dataPickerBody {
   &__body {
+    display: flex;
   }
 }
 
 @mixin dataPickerData {
   &__data {
-    @include paddingY(1)
+    @include paddingY(1);
+    @extend %flex-dynamic;
   }
 }
 
@@ -24,8 +28,22 @@
 
 @mixin dataPickerInfo {
   &__info {
-    @extend %flex-dynamic;
+    flex-basis: 0;
     content: none;
+  }
+}
+
+@mixin dataPickerSelected {
+  &.status-selected & {
+    &__data {
+      flex-basis: var(--_dc__dd-basis);
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &__info {
+      @extend %flex-dynamic;
+    }
   }
 }
 
@@ -35,4 +53,6 @@
   @include dataPickerData;
   @include dataPickerPagination;
   @include dataPickerInfo;
+
+  @include dataPickerSelected;
 }

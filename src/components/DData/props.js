@@ -26,6 +26,7 @@ export const props = {
 
   // Status
   selected: [Array, Number, String],
+  open: [Array, Number, String],
 
   // Options
   palette: undefined,

@@ -10,7 +10,7 @@
   @extend %flex-x;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: var(--_pg-gap);
+  gap: var(--_pg-gap) var(--_pg-gap);
   min-height: var(--_pg-height);
   padding: var(--_pg-padding);
 

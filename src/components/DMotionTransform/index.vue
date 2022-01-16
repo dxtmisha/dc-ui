@@ -19,6 +19,7 @@
         </div>
         <div
           ref="body"
+          v-if="open || propOpen || propShow"
           class="d-motion-transform__body"
         >
           <slot class-close="panel-close"/>
@@ -52,6 +53,7 @@ export default {
     const body = ref(undefined)
 
     const propOpen = ref(false)
+    const propShow = ref(false)
 
     const {
       classStatic,
@@ -64,7 +66,8 @@ export default {
       transform,
       content,
       context,
-      propOpen
+      propOpen,
+      propShow
     )
 
     const {
@@ -87,6 +90,7 @@ export default {
       body,
       props,
       propOpen,
+      propShow,
       classStatic,
       classOpen,
       classWindowOpen,
@@ -115,6 +119,8 @@ export default {
       head,
       body,
       teleport,
+      propOpen,
+      propShow,
       classList,
       onClick,
       onTransitionend

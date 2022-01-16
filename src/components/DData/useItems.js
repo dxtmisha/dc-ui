@@ -24,7 +24,8 @@ export default function useItems (
       item,
       value: item?.value,
       underline,
-      selected: computed(() => isSelected(item?.value, props.selected))
+      selected: computed(() => isSelected(item?.value, props.selected)),
+      open: computed(() => isSelected(item?.value, props.open))
     }
   })
 

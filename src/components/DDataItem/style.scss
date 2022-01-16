@@ -142,7 +142,7 @@
 }
 
 @mixin dataItemBorder {
-  &.option-border + & &__body {
+  &__transform:not(.status-open) + &__transform &.option-border &__body {
     border-top-width: var(--basic-border-width);
   }
 }

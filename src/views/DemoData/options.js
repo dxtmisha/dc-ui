@@ -14,6 +14,16 @@ export const optionsData = useProps(props, {
       policy: 'Policy'
     }
   },
+  open: {
+    list: [
+      { value: undefined },
+      { value: 10001 },
+      { value: 10002 },
+      { value: 10003 },
+      { value: 10004 },
+      { value: [10005, 10006, 10007] }
+    ]
+  },
   size: Icon.iconSize,
   selected: {
     list: [

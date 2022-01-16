@@ -15,17 +15,29 @@
           <div>{{ item.name }}</div>
           <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
         </template>
+        <template v-slot:body="{ item }">
+          <div class="font:headline6">{{ item.name }}</div>
+          <div class="font:body1 opacity:surface-medium">{{ item.id }}</div>
+        </template>
       </d-data-item>
       <d-data-item v-bind="binds" :item="items[1]" :parameters="parameters">
         <template v-slot:text="{ item }">
           <div>{{ item.name }}</div>
           <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
         </template>
+        <template v-slot:body="{ item }">
+          <div class="font:headline6">{{ item.name }}</div>
+          <div class="font:body1 opacity:surface-medium">{{ item.id }}</div>
+        </template>
       </d-data-item>
       <d-data-item v-bind="binds" :item="items[2]" :parameters="parameters">
         <template v-slot:text="{ item }">
           <div>{{ item.name }}</div>
           <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
+        </template>
+        <template v-slot:body="{ item }">
+          <div class="font:headline6">{{ item.name }}</div>
+          <div class="font:body1 opacity:surface-medium">{{ item.id }}</div>
         </template>
       </d-data-item>
     </div>

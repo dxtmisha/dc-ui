@@ -1,14 +1,15 @@
 <template>
-  <div class="d-data-picker">
+  <div :class="classList" class="d-data-picker">
     <d-progress :visible="progress"/>
-    <div class="d-data-picker__body">
+    <d-motion-cell class="d-data-picker__body">
       <d-skeleton
         :delay="0"
         :item-secondary="skeletonItemSecondary"
         :item-text="skeletonItemText"
         :progress="progress && !propItemsByPage.length"
+        class="d-data-picker__data"
       >
-        <d-data v-bind="bindData" :selected="selected" class="d-data-picker__data">
+        <d-data v-bind="bindData" :selected="selected">
           <template
             v-for="(html, name) in $slots"
             :key="name"
@@ -23,7 +24,7 @@
           <slot name="item" :item="selectedItem"/>
         </template>
       </d-motion-transform>
-    </div>
+    </d-motion-cell>
     <d-pagination
       class="d-data-picker__pagination"
       v-bind="bindPagination"
@@ -47,10 +48,12 @@ import useObjectList from '@/uses/useObjectList'
 import usePagination from '@/components/DTablePicker/usePagination'
 import useRows from '@/components/DTablePicker/useRows'
 import DMotionTransform from '@/components/DMotionTransform'
+import DMotionCell from '@/components/DMotionCell'
 
 export default {
   name: 'DDataPicker',
   components: {
+    DMotionCell,
     DMotionTransform,
     DData,
     DPagination,
@@ -94,7 +97,9 @@ export default {
     )
 
     const classList = computed(() => {
-
+      return {
+        'status-selected': selected.value
+      }
     })
 
     const onClick = item => {
@@ -127,6 +132,7 @@ export default {
       propItemsByPage,
       bindData,
       bindPagination,
+      classList,
       onPage,
       onMore,
       onRows,

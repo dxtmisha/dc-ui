@@ -31,6 +31,7 @@ export default function useMotion (
   body,
   props,
   propOpen,
+  propShow,
   classStatic,
   classOpen,
   classWindowOpen,
@@ -62,6 +63,8 @@ export default function useMotion (
 
   const update = async () => {
     if (!!props.open !== propOpen.value) {
+      propShow.value = true
+
       if (!propOpen.value) {
         await nextTick()
       }

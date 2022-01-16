@@ -16,6 +16,7 @@ export const props = {
 
   // Status
   selected: Boolean,
+  open: Boolean,
   progress: Boolean,
 
   // Options
@@ -71,6 +72,7 @@ export const props = {
     type: Boolean,
     default: defaultProps('border', true)
   },
+  transformAttrs: { default: defaultProps('transformAttrs') },
 
   // Icon
   icon: undefined,
