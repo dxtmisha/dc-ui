@@ -67,5 +67,15 @@ export const props = {
     type: Boolean,
     default: defaultProps('sticky', true)
   },
-  dense: Boolean
+  dense: Boolean,
+
+  // Pagination
+  showInfo: {
+    type: Boolean,
+    default: defaultProps('showInfo', true)
+  },
+  showMore: {
+    type: Boolean,
+    default: defaultProps('showMore', false)
+  }
 }

@@ -4,6 +4,7 @@
       v-if="headers"
       :adaptive="adaptive"
       :border="true"
+      :class="classHeaders"
       :item="propHeaders"
       :parameters="propParameters"
       class="d-data__headers"
@@ -30,11 +31,11 @@
 <script>
 import DDataItem from '@/components/DDataItem'
 import { props } from '@/components/DData/props'
+import { computed } from 'vue'
+import forEach from '@/functions/forEach'
 import useAdmin from '@/uses/useAdmin'
 import useItems from './useItems'
 import useHeaders from './useHeaders'
-import { computed } from 'vue'
-import forEach from '@/functions/forEach'
 
 export default {
   name: 'DData',
@@ -50,7 +51,7 @@ export default {
             parameters.push(index)
           }
         })
-        console.log('parameters', parameters)
+
         return parameters
       } else {
         return props.parameters
@@ -59,15 +60,26 @@ export default {
 
     const propList = useItems(props, propParameters)
 
+    const classHeaders = computed(() => {
+      return { 'option-sticky': props.sticky }
+    })
+
     useAdmin('d-data', context)
 
     return {
       propHeaders,
       propParameters,
-      propList
+      propList,
+      classHeaders
     }
   }
 }
 </script>
 
-<style lang="scss"/>
+<style lang="scss">
+@import "style";
+
+.d-data {
+  @include dataInit;
+}
+</style>

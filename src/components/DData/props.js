@@ -34,6 +34,10 @@ export const props = {
   size: undefined,
   shape: undefined,
   adaptive: undefined,
+  sticky: {
+    type: Boolean,
+    default: defaultProps('sticky', true)
+  },
   dense: undefined,
   column: undefined,
   border: undefined,
