@@ -39,7 +39,6 @@
 @mixin paginationNavigation {
   &__navigation {
     @extend %flex-x;
-    @extend %flex-dynamic;
     gap: inherit;
     justify-content: flex-end;
     @content;

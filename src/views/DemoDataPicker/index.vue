@@ -1,15 +1,15 @@
 <template>
   <interactive-demo
-    :options="options"
-    v-slot:default="{ binds }"
+      :options="options"
+      v-slot:default="{ binds }"
   >
     <div class="demo-data-picker">
       <d-data-picker
-        id="id-data-picker"
-        v-bind="binds"
-        :admin="true"
-        :items="items"
-        :parameters="parameters"
+          id="id-data-picker"
+          :admin="true"
+          :list="list"
+          :parameters="parameters"
+          v-bind="binds"
       >
         <template v-slot:text="{ item }">
           <div>{{ item.name }}</div>
@@ -34,12 +34,12 @@ export default {
   },
   setup () {
     const options = optionsDataPicker
-    const items = tableItems()
+    const list = tableItems()
     const parameters = ['city', 'policy']
 
     return {
       options,
-      items,
+      list,
       parameters
     }
   }

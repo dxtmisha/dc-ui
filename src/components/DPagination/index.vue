@@ -5,7 +5,7 @@
       v-bind="more"
       class="d-pagination__more"
       :shape="undefined"
-      @on-click="onClick"
+      @on-click="onMore"
     />
     <div class="d-pagination__spacer"/>
     <template v-if="menu">
@@ -64,7 +64,7 @@ export default {
     DMenu
   },
   props,
-  emits: ['on-click', 'on-rows'],
+  emits: ['on-click', 'on-more', 'on-rows'],
   setup (props, context) {
     const text = Translation.getByList(['Rows per page'])
 
@@ -92,6 +92,7 @@ export default {
     } = usePagination(props, bindButton)
 
     const onClick = event => context.emit('on-click', event)
+    const onMore = event => context.emit('on-more', event)
     const onRows = event => context.emit('on-rows', event)
 
     useAdmin('d-pagination', context)
@@ -108,6 +109,7 @@ export default {
       pagination,
       bindButton,
       onClick,
+      onMore,
       onRows
     }
   }

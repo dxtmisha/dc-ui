@@ -21,6 +21,10 @@ export const props = {
     default: defaultProps('keyValue', 'value')
   },
   items: [Array, Object],
+  page: {
+    type: Number,
+    default: 1
+  },
   sort: String,
   dest: Boolean,
   rows: {

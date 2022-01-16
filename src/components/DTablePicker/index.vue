@@ -28,13 +28,15 @@
     </d-table>
     <d-pagination
       class="d-table-picker__pagination"
-      :value="page"
+      :value="propPage"
       :count="count"
       :rows="propRows"
       :menu="menu"
       :length="0"
       :show-info="true"
+      :show-more="true"
       @on-click="onPage"
+      @on-more="onMore"
       @on-rows="onRows"
     />
   </div>
@@ -44,10 +46,11 @@
 import DPagination from '@/components/DPagination'
 import DTable from '@/components/DTable'
 import { props } from './props'
-import { computed, ref, toRefs } from 'vue'
+import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
+import useHeaders from '@/components/DTable/useHeaders'
 import useList from '@/components/DTable/useList'
-import useWatch from '@/uses/useWatch'
+import useRows from '@/components/DTablePicker/useRows'
 
 export default {
   name: 'DTablePicker',
@@ -58,31 +61,25 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const { rows } = toRefs(props)
-
+    const propHeaders = useHeaders(props)
     const {
       propSort,
       propDest,
-      propHeaders,
       propItems,
       onSort
     } = useList(props, context)
 
-    const page = ref(1)
     const count = computed(() => propItems.value.length)
-    const propRows = useWatch(rows, () => rows.value, ['init'])
-    const propItemsByPage = computed(() => {
-      const start = (page.value - 1) * propRows.value
-      return propItems.value.slice(start, start + propRows.value)
-    })
+    const {
+      propPage,
+      propRows,
+      propItemsByPage,
+      onPage,
+      onMore,
+      onRows
+    } = useRows(props, propItems)
 
     const onCheckbox = event => context.emit('on-input', event)
-    const onPage = ({ value }) => {
-      page.value = value
-    }
-    const onRows = ({ value }) => {
-      propRows.value = value
-    }
 
     const classList = computed(() => {
       return {
@@ -93,7 +90,7 @@ export default {
     useAdmin('d-table-picker', context)
 
     return {
-      page,
+      propPage,
       count,
       propSort,
       propDest,
@@ -103,6 +100,7 @@ export default {
       onSort,
       onCheckbox,
       onPage,
+      onMore,
       onRows,
       classList
     }

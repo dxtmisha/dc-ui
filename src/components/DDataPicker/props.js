@@ -27,5 +27,19 @@ export const props = {
   },
   ajax: String,
   request: Object,
-  cache: Boolean
+  cache: Boolean,
+  rows: {
+    type: Number,
+    default: defaultProps('rows', 15)
+  },
+  menu: {
+    type: Array,
+    default: defaultProps('menu', [
+      { value: 15 },
+      { value: 25 },
+      { value: 50 },
+      { value: 75 },
+      { value: 100 }
+    ])
+  },
 }

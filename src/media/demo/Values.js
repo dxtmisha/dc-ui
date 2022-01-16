@@ -122,6 +122,15 @@ export const Values = {
   },
   menu: { message: menuMin },
   minute: { message: 35 },
+  page: {
+    list: [
+      { value: undefined },
+      { value: 1 },
+      { value: 2 },
+      { value: 4 },
+      { value: 8 }
+    ]
+  },
   prefix: { message: 'pr' },
   rows: {
     default: 25,

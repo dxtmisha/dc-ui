@@ -1,0 +1,325 @@
+{
+  "count": 512,
+  "data": [
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Andrea Harvey",
+      "id": 10001,
+      "value": 10001,
+      "policy": "$6000.00",
+      "city": "Los Angeles",
+      "age": 57
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Mary Barber",
+      "id": 10002,
+      "value": 10002,
+      "policy": "$8400.00",
+      "city": "New York",
+      "age": 42
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Сомов Андрей",
+      "id": 10003,
+      "value": 10003,
+      "policy": "$7900.00",
+      "city": "San Antonio",
+      "age": 57
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Королев Александр",
+      "id": 10004,
+      "value": 10004,
+      "policy": "$2700.00",
+      "city": "Houston",
+      "age": 57
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Жданов Дмитрий",
+      "id": 10005,
+      "value": 10005,
+      "policy": "$7100.00",
+      "city": "San Antonio",
+      "age": 48
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Andrea Harvey",
+      "id": 10006,
+      "value": 10006,
+      "policy": "$2400.00",
+      "city": "San Antonio",
+      "age": 31
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Dwight McCoy",
+      "id": 10007,
+      "value": 10007,
+      "policy": "$8300.00",
+      "city": "San Antonio",
+      "age": 47
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Sally Harvey",
+      "id": 10008,
+      "value": 10008,
+      "policy": "$8400.00",
+      "city": "Chicago",
+      "age": 29
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Боброва Любовь",
+      "id": 10009,
+      "value": 10009,
+      "policy": "$7300.00",
+      "city": "Philadelphia",
+      "age": 50
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Sally Harvey",
+      "id": 10010,
+      "value": 10010,
+      "policy": "$7500.00",
+      "city": "Chicago",
+      "age": 49
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Renee Jenkins",
+      "id": 10011,
+      "value": 10011,
+      "policy": "$5400.00",
+      "city": "Houston",
+      "age": 18
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Сомов Андрей",
+      "id": 10012,
+      "value": 10012,
+      "policy": "$8200.00",
+      "city": "San Diego",
+      "age": 53
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Joyce Hall",
+      "id": 10013,
+      "value": 10013,
+      "policy": "$7700.00",
+      "city": "Los Angeles",
+      "age": 64
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Benjamin Brown",
+      "id": 10014,
+      "value": 10014,
+      "policy": "$6800.00",
+      "city": "Philadelphia",
+      "age": 46
+    },
+    {
+      "status": "Awaiting Approval",
+      "color": "material-amber",
+      "name": "Тихомирова Ярослава",
+      "id": 10015,
+      "value": 10015,
+      "policy": "$6400.00",
+      "city": "Chicago",
+      "age": 38
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Боброва Любовь",
+      "id": 10016,
+      "value": 10016,
+      "policy": "$6900.00",
+      "city": "San Antonio",
+      "age": 24
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Michael Williams",
+      "id": 10017,
+      "value": 10017,
+      "policy": "$8400.00",
+      "city": "Chicago",
+      "age": 43
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Renee Jenkins",
+      "id": 10018,
+      "value": 10018,
+      "policy": "$5100.00",
+      "city": "San Jose",
+      "age": 31
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Jamie Robinson",
+      "id": 10019,
+      "value": 10019,
+      "policy": "$5400.00",
+      "city": "San Jose",
+      "age": 22
+    },
+    {
+      "status": "Awaiting Approval",
+      "color": "material-amber",
+      "name": "Dean Munoz",
+      "id": 10020,
+      "value": 10020,
+      "policy": "$2100.00",
+      "city": "Chicago",
+      "age": 47
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Benjamin Brown",
+      "id": 10021,
+      "value": 10021,
+      "policy": "$1000.00",
+      "city": "Houston",
+      "age": 27
+    },
+    {
+      "status": "Awaiting Approval",
+      "color": "material-amber",
+      "name": "Michael Williams",
+      "id": 10022,
+      "value": 10022,
+      "policy": "$3700.00",
+      "city": "Los Angeles",
+      "age": 52
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Joyce Hall",
+      "id": 10023,
+      "value": 10023,
+      "policy": "$9200.00",
+      "city": "San Jose",
+      "age": 49
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Walter Estrada",
+      "id": 10024,
+      "value": 10024,
+      "policy": "$8800.00",
+      "city": "New York",
+      "age": 36
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Walter Estrada",
+      "id": 10025,
+      "value": 10025,
+      "policy": "$2000.00",
+      "city": "Dallas",
+      "age": 57
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Hazel Pope",
+      "id": 10026,
+      "value": 10026,
+      "policy": "$2600.00",
+      "city": "San Jose",
+      "age": 19
+    },
+    {
+      "status": "Approved",
+      "color": "material-green",
+      "name": "Gregory Hill",
+      "id": 10027,
+      "value": 10027,
+      "policy": "$6400.00",
+      "city": "Phoenix",
+      "age": 26
+    },
+    {
+      "status": "Awaiting Approval",
+      "color": "material-amber",
+      "name": "Королев Александр",
+      "id": 10028,
+      "value": 10028,
+      "policy": "$9300.00",
+      "city": "Dallas",
+      "age": 61
+    },
+    {
+      "status": "Rejected",
+      "color": "material-red",
+      "name": "Mary Barber",
+      "id": 10029,
+      "value": 10029,
+      "policy": "$6500.00",
+      "city": "Phoenix",
+      "age": 51
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Савельев Мирон",
+      "id": 10030,
+      "value": 10030,
+      "policy": "$8400.00",
+      "city": "San Jose",
+      "age": 33
+    },
+    {
+      "status": "Awaiting Approval",
+      "color": "material-amber",
+      "name": "Gregory Hill",
+      "id": 10031,
+      "value": 10031,
+      "policy": "$4100.00",
+      "city": "Phoenix",
+      "age": 51
+    },
+    {
+      "status": "Early Stages",
+      "color": "material-blue",
+      "name": "Галкина Злата",
+      "id": 10032,
+      "value": 10032,
+      "policy": "$4700.00",
+      "city": "Phoenix",
+      "age": 55
+    }
+  ]
+}

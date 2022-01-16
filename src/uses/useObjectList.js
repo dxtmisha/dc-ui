@@ -12,6 +12,7 @@ export default function useObjectList (props) {
   let page = 1
 
   const progress = ref(false)
+  const count = ref(undefined)
   const buffer = useWatch(ajax ? [list, ajax] : list, data => {
     data.value = undefined
     page = 1
@@ -30,7 +31,7 @@ export default function useObjectList (props) {
 
   const propList = computed(() => object.value.get())
   const propGroup = ref(props.group || {})
-  const propMax = ref(undefined)
+  const propMax = computed(() => count.value || propList.value.length)
 
   const getAjax = async () => {
     const response = await (await fetch(
@@ -38,11 +39,11 @@ export default function useObjectList (props) {
       props.request || {}
     )).json()
 
-    if ('page' in response && 'data' in response) {
-      propMax.value = response.page
+    if ('data' in response) {
+      count.value = response?.count || count.value
       return response.data
     } else {
-      propMax.value = response?.length
+      count.value = undefined
       return response
     }
   }
@@ -61,15 +62,15 @@ export default function useObjectList (props) {
   }
 
   const next = async () => {
-    if (propMax.value && propMax.value !== buffer.value?.length) {
+    if (count.value && count.value !== propList.value.length) {
       progress.value = true
       page++
 
       const response = await getAjax()
-      buffer.value = [...buffer.value, ...response]
 
+      buffer.value = [...buffer.value, ...response]
       progress.value = false
-      return propMax.value !== buffer.value?.length
+      return count.value !== propList.value.length
     } else {
       return false
     }

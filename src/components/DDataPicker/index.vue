@@ -4,7 +4,17 @@
       <d-data>
 
       </d-data>
-      <d-pagination/>
+      <d-pagination
+        class="d-data-picker__pagination"
+        :value="page"
+        :count="propMax"
+        :rows="propRows"
+        :menu="menu"
+        :length="0"
+        :show-info="true"
+        @on-click="onPage"
+        @on-rows="onRows"
+      />
     </div>
     <d-motion-transform>
 
@@ -18,6 +28,8 @@ import DMotionTransform from '@/components/DMotionTransform'
 import DPagination from '@/components/DPagination'
 import { props } from './props'
 import useAdmin from '@/uses/useAdmin'
+import useObjectList from '@/uses/useObjectList'
+import useRows from '@/components/DTablePicker/useRows'
 
 export default {
   name: 'DDataPicker',
@@ -28,9 +40,34 @@ export default {
   },
   props,
   setup (props, context) {
+    const {
+      progress,
+      object,
+      propList,
+      propGroup,
+      propMax,
+      beforeOpening,
+      next,
+      onGroup
+    } = useObjectList(props)
+
+    const {
+      page,
+      propRows,
+      propItemsByPage,
+      onPage,
+      onRows
+    } = useRows(props, propList)
+
     useAdmin('d-data-picker', context)
 
-    return {}
+    return {
+      page,
+      propMax,
+      propRows,
+      onPage,
+      onRows
+    }
   }
 }
 </script>
