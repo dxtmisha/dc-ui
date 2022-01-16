@@ -25,7 +25,7 @@ export const props = {
   parameters: Array,
 
   // Status
-  selected: [Array, String],
+  selected: [Array, Number, String],
 
   // Options
   palette: undefined,

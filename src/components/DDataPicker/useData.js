@@ -1,8 +1,26 @@
+import { computed } from 'vue'
 import attrData from '@/components/DData/attrData'
 
 export default function useData (props, items) {
   return attrData({
     props,
-    items: { items }
+    items: {
+      items: computed(() => {
+        if (items.value?.length) {
+          return items.value
+        } else {
+          return [
+            {
+              icon: ' ',
+              name: 'The loading of tables.'
+            },
+            {
+              icon: ' ',
+              name: 'The loading of tables.'
+            }
+          ]
+        }
+      })
+    }
   })
 }

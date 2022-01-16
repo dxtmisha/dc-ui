@@ -4,6 +4,7 @@ import { DataItem } from '@/media/demo/DataItem'
 import { Icon } from '@/media/demo/Icon'
 
 export const optionsDataPicker = useProps(props, {
+  ajax: { message: '/demo/request/data.json' },
   adaptive: DataItem.dataItemAdaptive,
   appearance: DataItem.dataItemAppearance,
   headers: {

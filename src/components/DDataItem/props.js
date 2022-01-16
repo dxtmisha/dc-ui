@@ -31,7 +31,7 @@ export const props = {
   },
   size: {
     type: String,
-    default: defaultProps('size'),
+    default: defaultProps('size', 'medium'),
     validator: validator([
       'dynamic',
       'compact',
@@ -49,6 +49,7 @@ export const props = {
   },
   adaptive: {
     type: String,
+    default: defaultProps('adaptive', 'auto'),
     validator: validator([
       'auto',
       'auto-small',
@@ -68,12 +69,12 @@ export const props = {
   },
   border: {
     type: Boolean,
-    default: defaultProps('border')
+    default: defaultProps('border', true)
   },
 
   // Icon
   icon: undefined,
   iconActive: undefined,
-  iconBackground: undefined,
+  iconBackground: { default: defaultProps('iconBackground', true) },
   iconAttrs: undefined
 }

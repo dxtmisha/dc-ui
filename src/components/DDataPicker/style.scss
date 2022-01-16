@@ -1,7 +1,38 @@
-@mixin dataPicker {
+@import "../../styles/flex";
+@import "../../styles/padding";
 
+@mixin dataPicker {
+  position: relative;
+}
+
+@mixin dataPickerBody {
+  &__body {
+  }
+}
+
+@mixin dataPickerData {
+  &__data {
+    @include paddingY(1)
+  }
+}
+
+@mixin dataPickerPagination {
+  &__pagination {
+    border-top-width: var(--basic-border-width);
+  }
+}
+
+@mixin dataPickerInfo {
+  &__info {
+    @extend %flex-dynamic;
+    content: none;
+  }
 }
 
 @mixin dataPickerInit {
   @include dataPicker;
+  @include dataPickerBody;
+  @include dataPickerData;
+  @include dataPickerPagination;
+  @include dataPickerInfo;
 }

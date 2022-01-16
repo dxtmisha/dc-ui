@@ -37,7 +37,7 @@ export default {
     DTable
   },
   props,
-  emits: ['on-input'],
+  emits: ['on-input', 'on-page'],
   setup (props, context) {
     const {
       propSort,
@@ -53,7 +53,7 @@ export default {
       onPage,
       onMore,
       onRows
-    } = useRows(props, propItems)
+    } = useRows(props, propItems, context)
 
     const count = computed(() => propItems.value.length)
 

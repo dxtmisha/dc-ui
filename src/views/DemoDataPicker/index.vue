@@ -1,7 +1,8 @@
 <template>
   <interactive-demo
       :options="options"
-      v-slot:default="{ binds }"
+      :sticky="false"
+      v-slot:default="{ binds, on }"
   >
     <div class="demo-data-picker">
       <d-data-picker
@@ -10,10 +11,16 @@
           :list="list"
           :parameters="parameters"
           v-bind="binds"
+          @on-click="on"
       >
-        <template v-slot:text="{ item }">
-          <div>{{ item.name }}</div>
-          <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
+        <template v-slot:text="{ item, on }">
+          <div><a @click="on">{{ item.name }}</a></div>
+          <div class="font:body2 opacity:surface-medium"><span>{{ item.id }}</span></div>
+        </template>
+        <template v-slot:item="{ item }">
+          <template v-if="item">
+            {{ item.name }}
+          </template>
         </template>
       </d-data-picker>
     </div>

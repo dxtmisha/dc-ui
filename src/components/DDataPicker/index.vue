@@ -1,80 +1,136 @@
 <template>
   <div class="d-data-picker">
-    <div>
-      <d-data v-bind="bindData">
-
-      </d-data>
-      <d-pagination
-        class="d-data-picker__pagination"
-        v-bind="bindPagination"
-        @on-click="onPage"
-        @on-more="onMore"
-        @on-rows="onRows"
-      />
+    <d-progress :visible="progress"/>
+    <div class="d-data-picker__body">
+      <d-skeleton
+        :delay="0"
+        :item-secondary="skeletonItemSecondary"
+        :item-text="skeletonItemText"
+        :progress="progress && !propItemsByPage.length"
+      >
+        <d-data v-bind="bindData" :selected="selected" class="d-data-picker__data">
+          <template
+            v-for="(html, name) in $slots"
+            :key="name"
+            v-slot:[name]="{ item }"
+          >
+            <slot :name="name" :item="item" :on="() => onClick(item)"/>
+          </template>
+        </d-data>
+      </d-skeleton>
+      <d-motion-transform :open="!!selected" class="d-data-picker__info">
+        <template v-slot:default>
+          <slot name="item" :item="selectedItem"/>
+        </template>
+      </d-motion-transform>
     </div>
-    <d-motion-transform>
-
-    </d-motion-transform>
+    <d-pagination
+      class="d-data-picker__pagination"
+      v-bind="bindPagination"
+      @on-click="onPage"
+      @on-more="onMore"
+      @on-rows="onRows"
+    />
   </div>
 </template>
 
 <script>
 import DData from '@/components/DData'
-import DMotionTransform from '@/components/DMotionTransform'
 import DPagination from '@/components/DPagination'
+import DProgress from '@/components/DProgress'
+import DSkeleton from '@/components/DSkeleton'
 import { props } from './props'
+import { computed, ref, toRefs, watch } from 'vue'
 import useAdmin from '@/uses/useAdmin'
 import useData from './useData'
 import useObjectList from '@/uses/useObjectList'
-import useRows from '@/components/DTablePicker/useRows'
 import usePagination from '@/components/DTablePicker/usePagination'
+import useRows from '@/components/DTablePicker/useRows'
+import DMotionTransform from '@/components/DMotionTransform'
 
 export default {
   name: 'DDataPicker',
   components: {
-    DData,
     DMotionTransform,
-    DPagination
+    DData,
+    DPagination,
+    DProgress,
+    DSkeleton
   },
   props,
+  emits: ['on-click', 'on-page'],
   setup (props, context) {
     const {
+      list,
+      ajax
+    } = toRefs(props)
+
+    const selected = ref(undefined)
+    const selectedItem = ref(undefined)
+
+    const {
       progress,
-      object,
       propList,
-      propGroup,
       propMax,
       beforeOpening,
-      next,
-      onGroup
+      next
     } = useObjectList(props)
 
     const {
-      page,
+      propPage,
       propRows,
       propItemsByPage,
       onPage,
       onMore,
       onRows
-    } = useRows(props, propList)
+    } = useRows(props, propList, context)
 
     const bindData = useData(props, propItemsByPage)
     const bindPagination = usePagination(
       props,
-      page,
+      propPage,
       propMax,
       propRows
     )
 
+    const classList = computed(() => {
+
+    })
+
+    const onClick = item => {
+      if (!props.disabled) {
+        if (item.value === selected.value) {
+          selected.value = undefined
+          selectedItem.value = undefined
+        } else {
+          selected.value = item.value
+          selectedItem.value = item
+        }
+      }
+
+      context.emit('on-click', { item })
+    }
+
+    watch([ajax, list], () => beforeOpening(true))
+    watch(propItemsByPage, async () => {
+      if (propItemsByPage.value.length < propRows.value) {
+        await next()
+      }
+    })
+
     useAdmin('d-data-picker', context)
 
     return {
+      progress,
+      selected,
+      selectedItem,
       propItemsByPage,
       bindData,
       bindPagination,
       onPage,
       onMore,
-      onRows
+      onRows,
+      onClick
     }
   }
 }

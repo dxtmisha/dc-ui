@@ -57,6 +57,7 @@ export const props = {
   paginationMenu: {
     default: defaultProps('paginationMenu', [
       { value: 10 },
+      { value: 15 },
       { value: 25 },
       { value: 50 },
       { value: 75 },
@@ -70,5 +71,9 @@ export const props = {
 
   // Icon
   iconBackground: undefined,
-  iconAttrs: undefined
+  iconAttrs: undefined,
+
+  // Skeleton
+  skeletonItemText: { default: defaultProps('skeletonItemText', '.d-icon, .d-data-item__text > *') },
+  skeletonItemSecondary: { default: defaultProps('skeletonItemSecondary') }
 }
