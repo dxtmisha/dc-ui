@@ -8,11 +8,6 @@ export const props = {
     type: Boolean,
     default: true
   },
-  list: undefined,
-  listInit: {
-    type: Boolean,
-    default: true
-  },
   translation: {
     type: Array,
     default: defaultProps('translation')
@@ -25,21 +20,55 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
+  list: undefined,
+  listInit: {
+    type: Boolean,
+    default: true
+  },
   ajax: String,
   request: Object,
   cache: Boolean,
+  underline: undefined,
+  page: {
+    type: Number,
+    default: 1
+  },
   rows: {
     type: Number,
     default: defaultProps('rows', 15)
   },
-  menu: {
-    type: Array,
-    default: defaultProps('menu', [
-      { value: 15 },
+
+  // Status
+  disabled: Boolean,
+
+  // Options
+  palette: undefined,
+  color: undefined,
+  appearance: undefined,
+  size: undefined,
+  shape: undefined,
+  adaptive: undefined,
+  sticky: undefined,
+  dense: undefined,
+  column: undefined,
+  border: undefined,
+
+  // Pagination
+  paginationMenu: {
+    default: defaultProps('paginationMenu', [
+      { value: 10 },
       { value: 25 },
       { value: 50 },
       { value: 75 },
       { value: 100 }
     ])
   },
+  paginationLength: { default: defaultProps('paginationLength') },
+  paginationShowInfo: { default: defaultProps('paginationShowInfo', true) },
+  paginationShowMore: { default: defaultProps('paginationShowMore', true) },
+  paginationAttrs: undefined,
+
+  // Icon
+  iconBackground: undefined,
+  iconAttrs: undefined
 }

@@ -34,7 +34,7 @@
     </tr>
     <tr
       v-for="(item, key) in propItems"
-      :key="key"
+      :key="item?.id || key"
       class="d-table__items"
     >
       <td v-if="checkbox" class="d-table__checkbox">
@@ -66,11 +66,11 @@
 import DButton from '@/components/DButton'
 import DCheckbox from '@/components/DCheckbox'
 import { props } from './props'
+import { computed } from 'vue'
 import attrButton from '@/components/DButton/attrButton'
 import useAdmin from '@/uses/useAdmin'
+import useHeaders from './useHeaders'
 import useList from './useList'
-import { computed } from 'vue'
-import useHeaders from '@/components/DTable/useHeaders'
 
 export default {
   name: 'DTable',

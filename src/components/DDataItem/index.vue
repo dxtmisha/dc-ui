@@ -66,6 +66,7 @@ export default {
           [`size-${props.size}`]: props.size,
           [`shape-${props.shape}`]: props.shape,
           [`adaptive-${props.adaptive}`]: props.adaptive,
+          'option-header': props.header,
           'option-dense': props.dense,
           'option-border': props.border
         },

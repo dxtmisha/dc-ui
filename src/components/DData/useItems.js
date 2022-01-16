@@ -4,15 +4,22 @@ import isSelected from '@/functions/isSelected'
 import attrDataItem from '@/components/DDataItem/attrDataItem'
 import useWatch from '@/uses/useWatch'
 
-export default function useItems (props, propParameters) {
+export default function useItems (
+  props,
+  propHeaders,
+  propParameters
+) {
   const {
     items,
     underline
   } = toRefs(props)
 
-  const getItem = item => attrDataItem({
+  const getItem = (item, attrs = {}) => attrDataItem({
     props,
-    items: { parameters: propParameters },
+    items: {
+      parameters: propParameters,
+      ...attrs
+    },
     attrs: {
       item,
       value: item?.value,
@@ -21,5 +28,17 @@ export default function useItems (props, propParameters) {
     }
   })
 
-  return useWatch(items, () => forEach(items.value, item => getItem(item)), ['init'])
+  const propList = useWatch(items, () => forEach(items.value, item => getItem(item)), ['init'])
+  const bindHeaders = getItem(propHeaders, {
+    border: true,
+    class: computed(() => {
+      return { 'option-sticky': props.sticky }
+    }),
+    header: true
+  })
+
+  return {
+    propList,
+    bindHeaders
+  }
 }

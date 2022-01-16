@@ -60,6 +60,7 @@ export const props = {
       'minimum'
     ])
   },
+  header: Boolean,
   dense: Boolean,
   column: {
     type: Number,

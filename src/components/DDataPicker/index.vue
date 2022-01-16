@@ -1,18 +1,14 @@
 <template>
   <div class="d-data-picker">
     <div>
-      <d-data>
+      <d-data v-bind="bindData">
 
       </d-data>
       <d-pagination
         class="d-data-picker__pagination"
-        :value="page"
-        :count="propMax"
-        :rows="propRows"
-        :menu="menu"
-        :length="0"
-        :show-info="true"
+        v-bind="bindPagination"
         @on-click="onPage"
+        @on-more="onMore"
         @on-rows="onRows"
       />
     </div>
@@ -28,8 +24,10 @@ import DMotionTransform from '@/components/DMotionTransform'
 import DPagination from '@/components/DPagination'
 import { props } from './props'
 import useAdmin from '@/uses/useAdmin'
+import useData from './useData'
 import useObjectList from '@/uses/useObjectList'
 import useRows from '@/components/DTablePicker/useRows'
+import usePagination from '@/components/DTablePicker/usePagination'
 
 export default {
   name: 'DDataPicker',
@@ -56,16 +54,26 @@ export default {
       propRows,
       propItemsByPage,
       onPage,
+      onMore,
       onRows
     } = useRows(props, propList)
+
+    const bindData = useData(props, propItemsByPage)
+    const bindPagination = usePagination(
+      props,
+      page,
+      propMax,
+      propRows
+    )
 
     useAdmin('d-data-picker', context)
 
     return {
-      page,
-      propMax,
-      propRows,
+      propItemsByPage,
+      bindData,
+      bindPagination,
       onPage,
+      onMore,
       onRows
     }
   }

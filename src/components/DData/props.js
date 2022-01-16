@@ -36,7 +36,7 @@ export const props = {
   adaptive: undefined,
   sticky: {
     type: Boolean,
-    default: defaultProps('sticky', true)
+    default: defaultProps('sticky', false)
   },
   dense: undefined,
   column: undefined,

@@ -1,16 +1,6 @@
 <template>
   <div v-if="propList" class="d-data">
-    <d-data-item
-      v-if="headers"
-      :adaptive="adaptive"
-      :border="true"
-      :class="classHeaders"
-      :item="propHeaders"
-      :parameters="propParameters"
-      class="d-data__headers"
-      icon=" "
-      size="header"
-    />
+    <d-data-item v-if="headers" v-bind="bindHeaders" class="d-data__headers"/>
     <d-data-item
       v-for="item in propList"
       :key="item.value"
@@ -47,7 +37,7 @@ export default {
       if (props.headers) {
         const parameters = []
         forEach(propHeaders.value, (item, index) => {
-          if (['name', 'text'].indexOf(index) === -1) {
+          if (['icon', 'name', 'text'].indexOf(index) === -1) {
             parameters.push(index)
           }
         })
@@ -58,11 +48,14 @@ export default {
       }
     })
 
-    const propList = useItems(props, propParameters)
-
-    const classHeaders = computed(() => {
-      return { 'option-sticky': props.sticky }
-    })
+    const {
+      propList,
+      bindHeaders
+    } = useItems(
+      props,
+      propHeaders,
+      propParameters
+    )
 
     useAdmin('d-data', context)
 
@@ -70,7 +63,7 @@ export default {
       propHeaders,
       propParameters,
       propList,
-      classHeaders
+      bindHeaders
     }
   }
 }

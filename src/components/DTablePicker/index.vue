@@ -1,23 +1,6 @@
 <template>
   <div :class="classList" class="d-table-picker">
-    <d-table
-      :headers="propHeaders"
-      :headers-init="false"
-      :translation="translation"
-      :keyText="keyText"
-      :keyValue="keyValue"
-      :items="propItemsByPage"
-      :sort="propSort"
-      :dest="propDest !== 1"
-      :readonly="true"
-      :checkbox="checkbox"
-      :size="size"
-      :align="align"
-      :sticky="sticky"
-      :dense="dense"
-      @on-sort="onSort"
-      @on-input="onCheckbox"
-    >
+    <d-table v-bind="bindTable" @on-sort="onSort" @on-input="onCheckbox">
       <template
         v-for="(html, name) in $slots"
         :key="name"
@@ -28,13 +11,7 @@
     </d-table>
     <d-pagination
       class="d-table-picker__pagination"
-      :value="propPage"
-      :count="count"
-      :rows="propRows"
-      :menu="menu"
-      :length="0"
-      :show-info="showInfo"
-      :show-more="showMore"
+      v-bind="bindPagination"
       @on-click="onPage"
       @on-more="onMore"
       @on-rows="onRows"
@@ -48,9 +25,10 @@ import DTable from '@/components/DTable'
 import { props } from './props'
 import { computed } from 'vue'
 import useAdmin from '@/uses/useAdmin'
-import useHeaders from '@/components/DTable/useHeaders'
 import useList from '@/components/DTable/useList'
-import useRows from '@/components/DTablePicker/useRows'
+import usePagination from './usePagination'
+import useRows from './useRows'
+import useTable from './useTable'
 
 export default {
   name: 'DTablePicker',
@@ -61,7 +39,6 @@ export default {
   props,
   emits: ['on-input'],
   setup (props, context) {
-    const propHeaders = useHeaders(props)
     const {
       propSort,
       propDest,
@@ -69,7 +46,6 @@ export default {
       onSort
     } = useList(props, context)
 
-    const count = computed(() => propItems.value.length)
     const {
       propPage,
       propRows,
@@ -79,24 +55,33 @@ export default {
       onRows
     } = useRows(props, propItems)
 
-    const onCheckbox = event => context.emit('on-input', event)
+    const count = computed(() => propItems.value.length)
+
+    const bindTable = useTable(
+      props,
+      propItemsByPage,
+      propSort,
+      propDest
+    )
+
+    const bindPagination = usePagination(
+      props,
+      propPage,
+      count,
+      propRows
+    )
 
     const classList = computed(() => {
-      return {
-        [`shape-${props.shape}`]: props.shape
-      }
+      return { [`shape-${props.shape}`]: props.shape }
     })
+
+    const onCheckbox = event => context.emit('on-input', event)
 
     useAdmin('d-table-picker', context)
 
     return {
-      propPage,
-      count,
-      propSort,
-      propDest,
-      propHeaders,
-      propRows,
-      propItemsByPage,
+      bindTable,
+      bindPagination,
       onSort,
       onCheckbox,
       onPage,

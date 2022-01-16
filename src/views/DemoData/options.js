@@ -8,6 +8,7 @@ export const optionsData = useProps(props, {
   appearance: DataItem.dataItemAppearance,
   headers: {
     message: {
+      icon: ' ',
       name: 'Name',
       city: 'City',
       policy: 'Policy'

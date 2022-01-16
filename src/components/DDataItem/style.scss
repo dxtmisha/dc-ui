@@ -72,21 +72,37 @@
     --_di-height: 0;
   }
 
-  &.size-compact,
-  &.size-header {
+  &.size-compact {
     @include font('body2');
     --_di-height: var(--_di--sm-height);
   }
 
-  &.size-header {
+  &.size-small {
+    --_di-height: var(--_di--sm-height);
+  }
+
+  &.size-large,
+  &.size-rectangle {
+    --_di-height: var(--_di--lr-height);
+  }
+}
+
+@mixin dataItemHeader {
+  &.option-header {
+    @include font('body2');
     --basic-text-opacity: var(--opacity-surface-medium);
+    --_di-height: var(--_di--sm-height);
 
     &:hover {
       background-image: none;
     }
+
+    .d-icon {
+      aspect-ratio: auto;
+    }
   }
 
-  &.size-header & {
+  &.option-header & {
     &__body {
       display: grid;
     }
@@ -98,15 +114,6 @@
     &__parameter {
       display: var(--_di--display, block);
     }
-  }
-
-  &.size-small {
-    --_di-height: var(--_di--sm-height);
-  }
-
-  &.size-large,
-  &.size-rectangle {
-    --_di-height: var(--_di--lr-height);
   }
 }
 
@@ -135,7 +142,7 @@
 }
 
 @mixin dataItemAppearance {
-  &.appearance-color:not(.size-header) {
+  &.appearance-color:not(.option-header) {
     &:hover {
       --basic-text: var(--_di-palette-type2);
       background-image: varColor(--_di-palette-type2, --opacity-container-hover, true);
@@ -175,6 +182,7 @@
 
   @include dataItemBackground;
   @include dataItemSize;
+  @include dataItemHeader;
   @include dataItemDense;
   @include dataItemBorder;
 

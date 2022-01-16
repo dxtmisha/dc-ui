@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorAlign, validatorSize } from '@/uses/useDefault'
+import { defaultInit, validator } from '@/uses/useDefault'
 
 const defaultProps = defaultInit('d-table-picker')
 export const props = {
@@ -21,34 +21,20 @@ export const props = {
     default: defaultProps('keyValue', 'value')
   },
   items: [Array, Object],
+  sort: String,
+  dest: Boolean,
   page: {
     type: Number,
     default: 1
   },
-  sort: String,
-  dest: Boolean,
   rows: {
     type: Number,
     default: defaultProps('rows', 10)
   },
-  menu: {
-    type: Array,
-    default: defaultProps('menu', [
-      { value: 10 },
-      { value: 25 },
-      { value: 50 },
-      { value: 75 },
-      { value: 100 }
-    ])
-  },
 
   // Options
-  checkbox: Boolean,
-  size: {
-    type: String,
-    default: defaultProps('size'),
-    validator: validatorSize
-  },
+  checkbox: { default: defaultProps('checkbox') },
+  size: { default: defaultProps('size') },
   shape: {
     type: String,
     default: defaultProps('shape'),
@@ -58,24 +44,22 @@ export const props = {
       'tile'
     ])
   },
-  align: {
-    type: String,
-    default: defaultProps('align', 'left'),
-    validator: validatorAlign
-  },
-  sticky: {
-    type: Boolean,
-    default: defaultProps('sticky', true)
-  },
+  align: { default: defaultProps('align') },
+  sticky: { default: defaultProps('sticky') },
   dense: Boolean,
 
   // Pagination
-  showInfo: {
-    type: Boolean,
-    default: defaultProps('showInfo', true)
+  paginationMenu: {
+    default: defaultProps('paginationMenu', [
+      { value: 10 },
+      { value: 25 },
+      { value: 50 },
+      { value: 75 },
+      { value: 100 }
+    ])
   },
-  showMore: {
-    type: Boolean,
-    default: defaultProps('showMore', false)
-  }
+  paginationLength: { default: defaultProps('paginationLength') },
+  paginationShowInfo: { default: defaultProps('paginationShowInfo', true) },
+  paginationShowMore: { default: defaultProps('paginationShowMore') },
+  paginationAttrs: undefined
 }

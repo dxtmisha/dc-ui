@@ -28,7 +28,10 @@ export const props = {
   readonly: Boolean,
 
   // Options
-  checkbox: Boolean,
+  checkbox: {
+    type: Boolean,
+    default: defaultProps('checkbox')
+  },
   size: {
     type: String,
     default: defaultProps('size'),
