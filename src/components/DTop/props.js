@@ -1,4 +1,4 @@
-import { defaultInit, validatorSize } from '@/uses/useDefault'
+import { defaultInit, validator, validatorSize } from '@/uses/useDefault'
 import Translation from '../../classes/Translation'
 
 const defaultProps = defaultInit('d-top')
@@ -21,6 +21,15 @@ export const props = {
   action: Boolean,
 
   // Options
+  appearance: {
+    type: String,
+    default: defaultProps('appearance', 'contained'),
+    validator: validator([
+      'contained',
+      'translucency',
+      'transparent'
+    ])
+  },
   size: {
     type: String,
     default: defaultProps('size'),

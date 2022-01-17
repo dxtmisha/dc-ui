@@ -9,14 +9,12 @@
 
 @mixin dataPickerBody {
   &__body {
-    display: flex;
   }
 }
 
 @mixin dataPickerData {
   &__data {
     @include paddingY(1);
-    @extend %flex-dynamic;
   }
 }
 
@@ -28,21 +26,15 @@
 
 @mixin dataPickerInfo {
   &__info {
-    flex-basis: 0;
-    content: none;
   }
 }
 
 @mixin dataPickerSelected {
   &.status-selected & {
     &__data {
-      flex-basis: var(--_dc__dd-basis);
-      flex-grow: 0;
-      flex-shrink: 0;
     }
 
     &__info {
-      @extend %flex-dynamic;
     }
   }
 }

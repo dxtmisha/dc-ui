@@ -83,11 +83,13 @@ export default function useObjectList (props) {
     object.value.setGroup(value)
   }
 
-  if (props.selected) {
-    beforeOpening(true).then()
-  }
+  if (selected) {
+    if (selected.value) {
+      beforeOpening(true).then()
+    }
 
-  watch(selected, async () => beforeOpening(true))
+    watch(selected, async () => beforeOpening(true))
+  }
 
   return {
     progress,

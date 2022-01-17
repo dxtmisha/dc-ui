@@ -73,10 +73,12 @@ export const props = {
     default: defaultProps('border', true)
   },
   transformAttrs: { default: defaultProps('transformAttrs') },
+  topAttrs: { default: defaultProps('topAttrs') },
 
   // Icon
   icon: undefined,
   iconActive: undefined,
   iconBackground: { default: defaultProps('iconBackground', true) },
+  iconArrowBack: { default: defaultProps('iconArrowBack', 'arrow_back') },
   iconAttrs: undefined
 }

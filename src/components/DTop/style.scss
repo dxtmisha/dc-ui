@@ -2,6 +2,7 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/options/optionBlur";
 
 @mixin top {
   --_tp-palette: var(--tp-palette, var(--palette-type1, var(--primary-type1)));
@@ -30,6 +31,25 @@
     @include font('headline6');
     @include flexDynamic;
     padding-left: var(--_tp__tt-padding);
+  }
+}
+
+@mixin topAppearance() {
+  &.appearance- {
+    &translucency,
+    &transparent {
+      --basic-text: var(--text-type1);
+      --basic-text-opacity: var(--opacity-surface-high);
+      background: transparent;
+    }
+
+    &translucency {
+      @include optionBlur(var(--blur-type3)) {
+        --basic-text: var(--text-type2);
+        --basic-text-opacity: var(--opacity-primary-high);
+        background: varColor(--_tp-palette);
+      }
+    }
   }
 }
 
@@ -64,6 +84,7 @@
   @include top;
   @include topTitle;
 
+  @include topAppearance;
   @include topSize;
 
   @include topAction;

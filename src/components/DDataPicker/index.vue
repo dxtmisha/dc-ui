@@ -1,30 +1,32 @@
 <template>
   <div :class="classList" class="d-data-picker">
     <d-progress :visible="progress"/>
-    <d-motion-cell class="d-data-picker__body">
-      <d-skeleton
-        :delay="0"
-        :item-secondary="skeletonItemSecondary"
-        :item-text="skeletonItemText"
-        :progress="progress && !propItemsByPage.length"
-        class="d-data-picker__data"
+    <d-skeleton
+      :delay="0"
+      :item-secondary="skeletonItemSecondary"
+      :item-text="skeletonItemText"
+      :progress="progress && !propItemsByPage.length"
+      class="d-data-picker__data"
+    >
+      <d-data
+        :open="open"
+        :selected="selected"
+        v-bind="bindData"
+        @on-open="onClose"
       >
-        <d-data v-bind="bindData" :selected="selected">
-          <template
-            v-for="(html, name) in $slots"
-            :key="name"
-            v-slot:[name]="{ item }"
-          >
-            <slot :name="name" :item="item" :on="() => onClick(item)"/>
-          </template>
-        </d-data>
-      </d-skeleton>
-      <d-motion-transform :open="!!selected" class="d-data-picker__info">
-        <template v-slot:default>
-          <slot name="item" :item="selectedItem"/>
+        <template
+          v-for="(html, name) in $slots"
+          :key="name"
+          v-slot:[name]="{ item }"
+        >
+          <slot
+            :name="name"
+            :item="item"
+            :on="() => onClick(item)"
+          />
         </template>
-      </d-motion-transform>
-    </d-motion-cell>
+      </d-data>
+    </d-skeleton>
     <d-pagination
       class="d-data-picker__pagination"
       v-bind="bindPagination"
@@ -47,14 +49,10 @@ import useData from './useData'
 import useObjectList from '@/uses/useObjectList'
 import usePagination from '@/components/DTablePicker/usePagination'
 import useRows from '@/components/DTablePicker/useRows'
-import DMotionTransform from '@/components/DMotionTransform'
-import DMotionCell from '@/components/DMotionCell'
 
 export default {
   name: 'DDataPicker',
   components: {
-    DMotionCell,
-    DMotionTransform,
     DData,
     DPagination,
     DProgress,
@@ -70,6 +68,7 @@ export default {
 
     const selected = ref(undefined)
     const selectedItem = ref(undefined)
+    const open = computed(() => selected.value && 'body' in context.slots ? selected.value : undefined)
 
     const {
       progress,
@@ -113,7 +112,14 @@ export default {
         }
       }
 
-      context.emit('on-click', { item })
+      context.emit('on-click', { item: selectedItem.value })
+    }
+    const onClose = ({ open }) => {
+      if (!open) {
+        selected.value = undefined
+        selectedItem.value = undefined
+        context.emit('on-click', { item: undefined })
+      }
     }
 
     watch([ajax, list], () => beforeOpening(true))
@@ -129,6 +135,7 @@ export default {
       progress,
       selected,
       selectedItem,
+      open,
       propItemsByPage,
       bindData,
       bindPagination,
@@ -136,7 +143,8 @@ export default {
       onPage,
       onMore,
       onRows,
-      onClick
+      onClick,
+      onClose
     }
   }
 }

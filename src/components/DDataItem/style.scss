@@ -78,6 +78,17 @@
   }
 }
 
+@mixin dataItemTop {
+  &__top {
+    position: sticky;
+    top: 0;
+
+    @include mediaMinList {
+      display: none;
+    }
+  }
+}
+
 @mixin dataItemBackground {
   &.value-background {
     background-color: varColor(--_di-background-color, --opacity-overlay);
@@ -180,6 +191,8 @@
 }
 
 @mixin dataItemAdaptive {
+  $this: &;
+
   @include mediaMaxList {
     --_di__bd-bottom: 8px;
     --_di__bd-type: block;
@@ -197,6 +210,7 @@
   @include dataItemBody;
   @include dataItemText;
   @include dataItemParameter;
+  @include dataItemTop;
 
   @include dataItemBackground;
   @include dataItemSize;

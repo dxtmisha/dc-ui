@@ -32,9 +32,6 @@ export default function useItems (
   const propList = useWatch(items, () => forEach(items.value, item => getItem(item)), ['init'])
   const bindHeaders = getItem(propHeaders, {
     border: true,
-    class: computed(() => {
-      return { 'option-sticky': props.sticky }
-    }),
     header: true
   })
 

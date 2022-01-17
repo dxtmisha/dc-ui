@@ -1,9 +1,15 @@
 @mixin data {
-  &__headers.option-sticky {
-    background: var(--background-type1);
-    position: sticky;
-    top: var(--basic-top);
-    z-index: 4;
+  &__headers {
+    .d-data-item__body {
+      border-bottom-width: var(--basic-border-width);
+    }
+
+    &.option-sticky {
+      background: var(--background-type1);
+      position: sticky;
+      top: var(--basic-top);
+      z-index: 4;
+    }
   }
 }
 

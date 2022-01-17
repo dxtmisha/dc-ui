@@ -1,11 +1,14 @@
 <template>
   <div v-if="propList" class="d-data">
-    <d-data-item v-if="headers" v-bind="bindHeaders" class="d-data__headers"/>
+    <div v-if="headers" :class="classHeaders" class="d-data__headers">
+      <d-data-item v-bind="bindHeaders"/>
+    </div>
     <d-data-item
       v-for="item in propList"
       :key="item.value"
       v-bind="item"
       icon=" "
+      @on-open="onOpen"
     >
       <template
         v-for="(html, name) in $slots"
@@ -31,6 +34,7 @@ export default {
   name: 'DData',
   components: { DDataItem },
   props,
+  emits: ['on-open'],
   setup (props, context) {
     const propHeaders = useHeaders(props)
     const propParameters = computed(() => {
@@ -57,13 +61,21 @@ export default {
       propParameters
     )
 
+    const classHeaders = computed(() => {
+      return { 'option-sticky': props.sticky }
+    })
+
+    const onOpen = event => context.emit('on-open', event)
+
     useAdmin('d-data', context)
 
     return {
       propHeaders,
       propParameters,
       propList,
-      bindHeaders
+      bindHeaders,
+      classHeaders,
+      onOpen
     }
   }
 }

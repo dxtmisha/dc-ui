@@ -2,7 +2,6 @@
   <div ref="top" class="d-top" :class="classList">
     <d-button v-bind="propClose" class="window-close" @on-click="onClick"/>
     <div class="d-top__title" v-html="propAction ? textAction : text"/>
-
     <template v-if="propAction">
       <d-button
         v-for="item in propBarAction"
@@ -50,6 +49,7 @@ export default {
     const classList = computed(() => {
       return {
         'status-action': propAction.value,
+        [`appearance-${props.appearance}`]: props.appearance,
         [`size-${props.size}`]: props.size
       }
     })

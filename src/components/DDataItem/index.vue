@@ -1,12 +1,14 @@
 <template>
   <d-motion-transform
+    :adaptive="propAdaptive"
     :class="classTransform"
     :open="open"
     class="d-data-item__transform"
     v-bind="transformAttrs"
+    @on-open="onOpen"
   >
     <template v-slot:head>
-      <div v-bind="binds" class="d-data-item" :data-value="value">
+      <div v-bind="binds" class="d-data-item panel-static" :data-value="value">
         <div class="d-data-item__icon">
           <d-icon v-if="bindIcon.icon" v-bind="bindIcon"/>
         </div>
@@ -30,6 +32,15 @@
       </div>
     </template>
     <template v-slot:default>
+      <d-top
+        :bar="[]"
+        :class="classTop"
+        :iconClose="iconArrowBack"
+        appearance="transparent"
+        class="d-data-item__top"
+        v-bind="topAttrs"
+        @on-click="onTop"
+      />
       <slot name="body" :item="item"/>
     </template>
   </d-motion-transform>
@@ -37,23 +48,27 @@
 
 <script>
 import DIcon from '@/components/DIcon'
+import DMotionTransform from '@/components/DMotionTransform'
 import DProgress from '@/components/DProgress'
+import DTop from '@/components/DTop'
 import { props } from './props'
 import { computed } from 'vue'
 import attrProgress from '@/components/DProgress/attrProgress'
 import useAdmin from '@/uses/useAdmin'
+import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
-import DMotionTransform from '@/components/DMotionTransform'
 
 export default {
   name: 'DDataItem',
   inheritAttrs: false,
   components: {
-    DMotionTransform,
+    DTop,
     DIcon,
+    DMotionTransform,
     DProgress
   },
   props,
+  emits: ['on-open', 'on-top'],
   setup (props, context) {
     const propText = computed(() => {
       const text = props.item?.name || props.item?.text || props.text
@@ -65,12 +80,22 @@ export default {
         )
         : text
     })
+    const propAdaptive = computed(() => {
+      switch (props.adaptive) {
+        case 'basic':
+        case 'minimum':
+          return 'panel'
+        default:
+          return props.adaptive
+      }
+    })
 
     const {
       isProgress,
       bindProgress
     } = attrProgress(props)
 
+    const palette = useColor(props)
     const bindIcon = useIcon(props)
     const binds = computed(() => {
       return {
@@ -84,6 +109,7 @@ export default {
           'option-header': props.header,
           'option-dense': props.dense,
           'option-border': props.border,
+          ...palette.value,
           ...context?.attrs?.class
         },
         style: {
@@ -95,16 +121,32 @@ export default {
     const classTransform = computed(() => {
       return { 'status-open': props.open }
     })
+    const classTop = computed(() => {
+      return { [`adaptive-${props.adaptive}`]: props.adaptive }
+    })
+
+    const onOpen = event => context.emit('on-open', event)
+    const onTop = event => {
+      if (event.value === 'cancel') {
+        context.emit('on-open', { open: !props.open })
+      } else {
+        context.emit('on-top', event)
+      }
+    }
 
     useAdmin('d-data-item', context)
 
     return {
       propText,
+      propAdaptive,
       isProgress,
       bindIcon,
       bindProgress,
       binds,
-      classTransform
+      classTransform,
+      classTop,
+      onOpen,
+      onTop
     }
   }
 }
