@@ -76,6 +76,30 @@ export const Values = {
       }
     ]
   },
+  filters: {
+    list: [
+      { value: undefined },
+      {
+        text: 'id',
+        value: { id: '<10030' }
+      },
+      {
+        text: 'name',
+        value: { name: '~Злата|Hill|Gomez' }
+      },
+      {
+        text: 'city',
+        value: { city: ['San Antonio', 'Chicago'] }
+      },
+      {
+        text: 'name + city',
+        value: {
+          name: '~Злата|Hill|Gomez',
+          city: ['San Antonio', 'Chicago']
+        }
+      }
+    ]
+  },
   headers: {},
   helperMessage: { message: helper1 },
   hour: { message: 15 },
@@ -158,7 +182,7 @@ export const Values = {
   },
   textTitle: { message: 'Interactive demo' },
   title: { message: 'Interactive demo' },
-  underline: { message: 'demo' },
+  underline: { message: 'demo|Williams|Munoz|Андрей' },
   value: {},
   values: {},
   validationMessage: { message: validation1 },

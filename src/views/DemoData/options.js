@@ -35,4 +35,4 @@ export const optionsData = useProps(props, {
       { value: [10005, 10006, 10007] }
     ]
   }
-}, ['items', 'value', 'underline', ''])
+}, ['items', 'value'])

@@ -1,32 +1,28 @@
 <template>
   <div :class="classList" class="d-data-picker">
     <d-progress :visible="progress"/>
-    <d-skeleton
-      :delay="0"
-      :item-secondary="skeletonItemSecondary"
-      :item-text="skeletonItemText"
-      :progress="progress && !propItemsByPage.length"
+    <d-data
+      v-if="bindData.items"
+      :open="open"
+      :selected="selected"
       class="d-data-picker__data"
+      v-bind="bindData"
+      @on-open="onClose"
     >
-      <d-data
-        :open="open"
-        :selected="selected"
-        v-bind="bindData"
-        @on-open="onClose"
+      <template
+        v-for="(html, name) in $slots"
+        :key="name"
+        v-slot:[name]="{ item, text }"
       >
-        <template
-          v-for="(html, name) in $slots"
-          :key="name"
-          v-slot:[name]="{ item }"
-        >
-          <slot
-            :name="name"
-            :item="item"
-            :on="() => onClick(item)"
-          />
-        </template>
-      </d-data>
-    </d-skeleton>
+        <slot
+          :item="item"
+          :name="name"
+          :on="() => onClick(item)"
+          :text="text"
+        />
+      </template>
+    </d-data>
+    <div v-else class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
     <d-pagination
       class="d-data-picker__pagination"
       v-bind="bindPagination"
@@ -41,11 +37,12 @@
 import DData from '@/components/DData'
 import DPagination from '@/components/DPagination'
 import DProgress from '@/components/DProgress'
-import DSkeleton from '@/components/DSkeleton'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'
+import Translation from '@/classes/Translation'
 import useAdmin from '@/uses/useAdmin'
 import useData from './useData'
+import useFilters from './useFilters'
 import useObjectList from '@/uses/useObjectList'
 import usePagination from '@/components/DTablePicker/usePagination'
 import useRows from '@/components/DTablePicker/useRows'
@@ -55,8 +52,7 @@ export default {
   components: {
     DData,
     DPagination,
-    DProgress,
-    DSkeleton
+    DProgress
   },
   props,
   emits: ['on-click', 'on-page'],
@@ -65,6 +61,10 @@ export default {
       list,
       ajax
     } = toRefs(props)
+
+    const text = Translation.getByList([
+      'Your search did not match any documents.'
+    ])
 
     const selected = ref(undefined)
     const selectedItem = ref(undefined)
@@ -79,19 +79,24 @@ export default {
     } = useObjectList(props)
 
     const {
+      propFilters,
+      propFiltersMax
+    } = useFilters(props, propList, propMax)
+
+    const {
       propPage,
       propRows,
       propItemsByPage,
       onPage,
       onMore,
       onRows
-    } = useRows(props, propList, context)
+    } = useRows(props, propFilters, context)
 
     const bindData = useData(props, propItemsByPage)
     const bindPagination = usePagination(
       props,
       propPage,
-      propMax,
+      propFiltersMax,
       propRows
     )
 
@@ -132,6 +137,7 @@ export default {
     useAdmin('d-data-picker', context)
 
     return {
+      text,
       progress,
       selected,
       selectedItem,

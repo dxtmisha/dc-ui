@@ -12,8 +12,8 @@
         :items="items"
         :parameters="parameters"
       >
-        <template v-slot:text="{ item }">
-          <div>{{ item.name }}</div>
+        <template v-slot:text="{ item, text }">
+          <div v-html="text"/>
           <div class="font:body2 opacity:surface-medium">{{ item.id }}</div>
         </template>
         <template v-slot:body="{ item }">

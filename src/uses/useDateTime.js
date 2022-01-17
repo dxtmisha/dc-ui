@@ -102,7 +102,6 @@ export default function useDateTime (
     propValue.value = objectFocus.value.toStandard()
   }
   const resetDate = () => {
-    console.log('propValue.value = propOld.value', propValue.value, propOld.value)
     propValue.value = propOld.value
   }
   const emit = (type = 'on-input') => context.emit(type, {

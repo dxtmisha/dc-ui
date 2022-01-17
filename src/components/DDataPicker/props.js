@@ -29,6 +29,7 @@ export const props = {
   request: Object,
   cache: Boolean,
   underline: undefined,
+  filters: [Object, Function],
   page: {
     type: Number,
     default: 1
@@ -71,9 +72,5 @@ export const props = {
 
   // Icon
   iconBackground: undefined,
-  iconAttrs: undefined,
-
-  // Skeleton
-  skeletonItemText: { default: defaultProps('skeletonItemText', '.d-icon, .d-data-item__text > *') },
-  skeletonItemSecondary: { default: defaultProps('skeletonItemSecondary') }
+  iconAttrs: undefined
 }

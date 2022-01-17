@@ -62,8 +62,6 @@ export default function useObjectList (props) {
   }
 
   const next = async () => {
-    console.log('count.value', count.value, propList.value.length)
-
     if (count.value && count.value !== propList.value.length) {
       progress.value = true
       page++

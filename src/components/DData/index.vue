@@ -13,9 +13,9 @@
       <template
         v-for="(html, name) in $slots"
         :key="name"
-        v-slot:[name]="{ item }"
+        v-slot:[name]="{ item, text }"
       >
-        <slot :name="name" :item="item"/>
+        <slot :name="name" :item="item" :text="text"/>
       </template>
     </d-data-item>
   </div>

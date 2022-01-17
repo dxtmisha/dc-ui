@@ -9,16 +9,7 @@ export default function useData (props, items) {
         if (items.value?.length) {
           return items.value
         } else {
-          return [
-            {
-              icon: ' ',
-              name: 'The loading of tables.'
-            },
-            {
-              icon: ' ',
-              name: 'The loading of tables.'
-            }
-          ]
+          return undefined
         }
       })
     }

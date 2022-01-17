@@ -89,6 +89,12 @@
   }
 }
 
+@mixin dataItemUnderline {
+  &__underline {
+    background-color: varColor(--warning-type1, --opacity-scrim);
+  }
+}
+
 @mixin dataItemBackground {
   &.value-background {
     background-color: varColor(--_di-background-color, --opacity-overlay);
@@ -211,6 +217,7 @@
   @include dataItemText;
   @include dataItemParameter;
   @include dataItemTop;
+  @include dataItemUnderline;
 
   @include dataItemBackground;
   @include dataItemSize;

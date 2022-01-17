@@ -1,4 +1,5 @@
 @import "../../styles/flex";
+@import "../../styles/font";
 @import "../../styles/padding";
 
 @mixin dataPicker {
@@ -29,13 +30,12 @@
   }
 }
 
-@mixin dataPickerSelected {
-  &.status-selected & {
-    &__data {
-    }
-
-    &__info {
-    }
+@mixin dataPickerNone {
+  &__none {
+    @include font('body2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+    padding: 16px 0;
+    text-align: center;
   }
 }
 
@@ -45,6 +45,5 @@
   @include dataPickerData;
   @include dataPickerPagination;
   @include dataPickerInfo;
-
-  @include dataPickerSelected;
+  @include dataPickerNone;
 }

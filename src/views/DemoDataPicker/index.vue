@@ -13,8 +13,8 @@
         v-bind="binds"
         @on-click="on"
       >
-        <template v-slot:text="{ item, on }">
-          <div><a @click="on">{{ item.name }}</a></div>
+        <template v-slot:text="{ item, on, text }">
+          <div><a @click="on" v-html="text"/></div>
           <div class="font:body2 opacity:surface-medium"><span>{{ item.id }}</span></div>
         </template>
         <template v-slot:body="{ item, on }">
