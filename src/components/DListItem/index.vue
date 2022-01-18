@@ -46,6 +46,7 @@ import DProgress from '@/components/DProgress'
 import DRipple from '@/components/DRipple'
 import { props } from './props'
 import { computed } from 'vue'
+import getExp from '@/functions/getExp'
 import attrBadge from '@/components/DBadge/attrBadge'
 import attrProgress from '@/components/DProgress/attrProgress'
 import attrRipple from '@/components/DRipple/attrRipple'
@@ -67,7 +68,7 @@ export default {
     const propValue = computed(() => props.value || props.item?.value)
     const propText = computed(() => props.underline
       ? props.text.toString().replace(
-        new RegExp(`(${props.underline})`, 'ig'),
+        getExp(props.underline, '(:value)'),
         subtext => `<span class="d-list-item__underline">${subtext}</span>`
       )
       : props.text)

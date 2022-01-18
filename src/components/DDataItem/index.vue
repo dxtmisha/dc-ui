@@ -58,6 +58,7 @@ import attrProgress from '@/components/DProgress/attrProgress'
 import useAdmin from '@/uses/useAdmin'
 import useColor from '@/uses/useColor'
 import useIcon from './useIcon'
+import getExp from '@/functions/getExp'
 
 export default {
   name: 'DDataItem',
@@ -76,7 +77,7 @@ export default {
 
       return props.underline
         ? text.toString().replace(
-          new RegExp(`(${props.underline})`, 'ig'),
+          getExp(props.underline, '(:value)'),
           subtext => `<span class="d-data-item__underline">${subtext}</span>`
         )
         : text

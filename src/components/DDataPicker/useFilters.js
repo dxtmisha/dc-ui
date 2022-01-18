@@ -1,6 +1,7 @@
 import useWatch from '@/uses/useWatch'
 import { computed, toRefs } from 'vue'
 import forEach from '@/functions/forEach'
+import getExp from '@/functions/getExp'
 import isSelected from '@/functions/isSelected'
 
 export default function useFilters (props, list, max) {
@@ -23,7 +24,7 @@ export default function useFilters (props, list, max) {
           filter.replace(/^(~|<|<=|=|>=|>|!)([\s\S]+)/ig, (all, code, value) => {
             switch (code) {
               case '~':
-                good = item[index].match(new RegExp(value, 'ig'))
+                good = item[index].match(getExp(value))
                 break
               case '<':
                 good = item[index] < value

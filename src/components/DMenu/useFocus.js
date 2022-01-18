@@ -1,5 +1,6 @@
 import { nextTick, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
+import getExp from '@/functions/getExp'
 import getKey from '@/functions/getKey'
 import goScroll from '@/functions/goScroll'
 
@@ -36,13 +37,14 @@ export default function useFocus (
     const list = getList()
 
     search.value = resetSearch ? search.value + key : key
+    const exp = getExp(search.value, '^:value')
 
     clearTimeout(resetSearch)
     resetSearch = setTimeout(() => {
       resetSearch = undefined
     }, 2000)
 
-    focusKey = list.findIndex(item => item.text.match(new RegExp(`^${search.value}`, 'ig')))
+    focusKey = list.findIndex(item => item.text.match(exp))
     focus.value = list?.[focusKey]?.value
     goScroll(elementFocus())
   }
