@@ -8,7 +8,7 @@ export default function usePosition (
   context,
   size
 ) {
-  let x, y, unitX, unitY, valueX, valueY
+  let x, y, unitX, unitY, valueX, valueY, edit
 
   const propValidationMessage = ref(undefined)
 
@@ -67,6 +67,7 @@ export default function usePosition (
       valueY = propValue.value.y
       unitX = differenceX !== 0 ? (100 / (rect.width * differenceX / showX)) : 0
       unitY = differenceY !== 0 ? (100 / (rect.height * differenceY / showY)) : 0
+      edit = false
 
       EventControl.init(document.body, onMousemove, [
         'mousemove',
@@ -86,8 +87,12 @@ export default function usePosition (
       (!event?.buttons && !('touches' in event) && !('targetTouches' in event))
     ) {
       event.$event.stop()
-      emit()
+
+      if (edit) {
+        emit()
+      }
     } else {
+      edit = true
       setMove(isX(event), isY(event))
     }
   }

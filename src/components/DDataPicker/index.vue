@@ -1,27 +1,31 @@
 <template>
   <div :class="classList" class="d-data-picker">
     <d-progress :visible="progress"/>
-    <d-data
-      v-if="bindData.items"
-      :open="open"
-      :selected="selected"
-      class="d-data-picker__data"
-      v-bind="bindData"
-      @on-open="onClose"
-    >
-      <template
-        v-for="(html, name) in $slots"
-        :key="name"
-        v-slot:[name]="{ item, text }"
-      >
-        <slot
-          :item="item"
-          :name="name"
-          :on="() => onClick(item)"
-          :text="text"
-        />
+    <d-control-position v-if="bindData.items" @on-position="onPosition">
+      <template v-slot:default="{ className }">
+        <d-data
+          :open="open"
+          :selected="selected"
+          :position-class="className"
+          class="d-data-picker__data"
+          v-bind="bindData"
+          @on-open="onClose"
+        >
+          <template
+            v-for="(html, name) in $slots"
+            :key="name"
+            v-slot:[name]="{ item, text }"
+          >
+            <slot
+              :item="item"
+              :name="name"
+              :on="() => onClick(item)"
+              :text="text"
+            />
+          </template>
+        </d-data>
       </template>
-    </d-data>
+    </d-control-position>
     <div v-else class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
     <d-pagination
       class="d-data-picker__pagination"
@@ -46,16 +50,18 @@ import useFilters from './useFilters'
 import useObjectList from '@/uses/useObjectList'
 import usePagination from '@/components/DTablePicker/usePagination'
 import useRows from '@/components/DTablePicker/useRows'
+import DControlPosition from '@/components/DControlPosition'
 
 export default {
   name: 'DDataPicker',
   components: {
+    DControlPosition,
     DData,
     DPagination,
     DProgress
   },
   props,
-  emits: ['on-click', 'on-page'],
+  emits: ['on-click', 'on-page', 'on-position'],
   setup (props, context) {
     const {
       list,
@@ -126,6 +132,7 @@ export default {
         context.emit('on-click', { item: undefined })
       }
     }
+    const onPosition = event => context.emit('on-position', event)
 
     watch([ajax, list], () => beforeOpening(true))
     watch(propItemsByPage, async () => {
@@ -150,7 +157,8 @@ export default {
       onMore,
       onRows,
       onClick,
-      onClose
+      onClose,
+      onPosition
     }
   }
 }

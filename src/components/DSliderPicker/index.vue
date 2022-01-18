@@ -17,8 +17,8 @@
       class="d-slider-picker__thumb sl-max"
       type="button"
       @keydown="onKeydown"
-      @mousedown.prevent.stop="onMousedown"
-      @touchstart.prevent.stop="onMousedown"
+      @mousedown="onMousedown"
+      @touchstart="onMousedown"
     >
       <span ref="maxLabel" class="d-slider-picker__label"/>
       <d-ripple v-if="isRipple"/>

@@ -1,7 +1,7 @@
 @import "../../styles/dimension";
 
 @mixin windowVar() {
-  --_wn-height: var(--wn-height, calc(100vh - #{dimension(16)}));
+  --_wn-height: var(--wn-height, calc(100vh - #{dimension(48)}));
   --_wn-radius: var(--wn-radius, var(--basic-radius));
 
   --_wn-padding: var(--wn-padding, #{dimension(8) dimension(4)});

@@ -1,24 +1,15 @@
 <template>
   <div v-bind="binds" class="d-avatar">
     <input :name="name" :value="json" type="hidden">
-    <input ref="file" type="file" accept="image/*" @input="onInput">
     <div
       ref="image"
       class="d-avatar__image"
-      @mousedown="onMousedown"
-      @touchstart="onMousedown"
+      @mousedown.prevent.stop="onMousedown"
+      @touchstart.prevent.stop="onMousedown"
     >
       <d-icon-item
         v-bind="bindIcon"
         @on-load="onLoad"
-      />
-      <d-button
-        v-if="!readonly"
-        :disabled="disabled"
-        :icon="iconImage"
-        appearance="chip-color"
-        class="d-avatar__button"
-        @click.prevent="onFile"
       />
     </div>
     <div v-if="!readonly" class="d-avatar__slider">
@@ -28,7 +19,19 @@
         :min="100"
         :value="propValue.zoom"
         @on-input="onZoom"
+        @on-change="onZoomChange"
       />
+      <d-button
+        v-if="!readonly"
+        :disabled="disabled"
+        :icon="iconImage"
+        adaptive="icon"
+        appearance="text-color"
+        class="d-avatar__button"
+        tag="label"
+      >
+        <input ref="file" type="file" accept="image/*" @input="onInput">
+      </d-button>
     </div>
   </div>
 </template>
@@ -115,6 +118,7 @@ export default {
     const onZoom = ({ value }) => {
       propValue.value.zoom = value
     }
+    const onZoomChange = () => emit()
     const onFile = () => file.value.click()
     const onInput = event => {
       propValue.value.file = event.target.files?.[0]
@@ -140,6 +144,7 @@ export default {
       onMousedown,
       onLoad,
       onZoom,
+      onZoomChange,
       onFile,
       onInput
     }

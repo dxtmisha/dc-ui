@@ -1,7 +1,7 @@
 import { computed, nextTick, ref } from 'vue'
 import useDateTime from '@/uses/useDateTime'
 
-const QUANTITY = 3
+const QUANTITY = 8
 
 export default function useCalendar (
   motion,

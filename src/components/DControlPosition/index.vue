@@ -19,6 +19,8 @@
 import { props } from './props'
 import { computed, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
+import getClientX from '@/functions/getClientX'
+import getClientY from '@/functions/getClientY'
 import getIdElement from '@/functions/getIdElement'
 import useAdmin from '@/uses/useAdmin'
 import useDrop from './useDrop'
@@ -143,8 +145,8 @@ export default {
       const item = getClick(event.target)
 
       if (
-        ['mouseup', 'contextmenu'].indexOf(event.type) !== -1 ||
-        !event?.buttons ||
+        ['mouseup', 'contextmenu', 'touchend', 'touchcancel'].indexOf(event.type) !== -1 ||
+        (!event?.buttons && !('touches' in event) && !('targetTouches' in event)) ||
         (!itemActive.value && (!item || item !== focus))
       ) {
         event.$event.stop()
@@ -156,8 +158,13 @@ export default {
           stop()
         }
       } else if (itemActive.value) {
+        event.stopPropagation()
+
+        const clientX = getClientX(event)
+        const clientY = getClientY(event)
+
         const rect = position.value.getBoundingClientRect()
-        const points = document.elementsFromPoint(event.clientX, event.clientY)
+        const points = document.elementsFromPoint(clientX, clientY)
         const find = findItem(points)
 
         if (find) {
@@ -169,11 +176,14 @@ export default {
           resetDrop()
         }
 
-        toDo(event.clientX - rect.left, event.clientY - rect.top)
+        toDo(clientX - rect.left, clientY - rect.top)
       }
     }
     const onMousedown = event => {
       if (!props.disabled) {
+        event.preventDefault()
+        event.stopPropagation()
+
         const item = getClick(event.target)
 
         if (item) {
@@ -183,11 +193,23 @@ export default {
           timeout = setTimeout(() => {
             timeout = undefined
 
-            go(item, event.clientX, event.clientY)
+            go(
+              item,
+              getClientX(event),
+              getClientY(event)
+            )
+
             goSelection()
           }, 640)
 
-          EventControl.init(document.body, onMousemove, ['mousemove', 'mouseup', 'contextmenu'])
+          EventControl.init(document.body, onMousemove, [
+            'mousemove',
+            'mouseup',
+            'contextmenu',
+            'touchmove',
+            'touchend',
+            'touchcancel'
+          ])
             .setDomElement(position.value)
             .go()
         }

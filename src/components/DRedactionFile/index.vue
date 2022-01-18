@@ -18,32 +18,12 @@
       :value="propValue"
       @on-resize="onResize"
     />
-    <template v-if="load">
-      <div class="d-redaction-file__slider rf-bottom">
-        <d-slider
-          :disabled="disabled"
-          :multiple="true"
-          :value="sliderBottom"
-          @on-input="onSlider($event, 'bottom')"
-        />
-      </div>
-      <div class="d-redaction-file__slider rf-right">
-        <d-slider
-          :disabled="disabled"
-          :multiple="true"
-          :value="sliderRight"
-          :vertical="true"
-          @on-input="onSlider($event, 'right')"
-        />
-      </div>
-    </template>
   </div>
 </template>
 
 <script>
 import DControlResize from '@/components/DControlResize'
 import DIconItem from '@/components/DIconItem'
-import DSlider from '@/components/DSlider'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import getFileResult from '@/functions/getFileResult'
@@ -54,8 +34,7 @@ export default {
   name: 'DRedactionFile',
   components: {
     DControlResize,
-    DIconItem,
-    DSlider
+    DIconItem
   },
   props,
   emits: ['on-resize'],
@@ -83,15 +62,6 @@ export default {
       }
     })
 
-    const sliderBottom = computed(() => [
-      parseInt(propValue.value?.[3]) || 0,
-      100 - (parseInt(propValue.value?.[1]) || 0)
-    ])
-    const sliderRight = computed(() => [
-      parseInt(propValue.value?.[2]) || 0,
-      100 - (parseInt(propValue.value?.[0]) || 0)
-    ])
-
     const styleList = computed(() => {
       return {
         '--_rf-aspect': `${naturalWidth.value}/${naturalHeight.value}`,
@@ -108,23 +78,6 @@ export default {
       propValue.value = event.coordinator
       context.emit('on-resize', event)
     }
-    const onSlider = (event, type) => {
-      const coordinator = Array.isArray(propValue.value) ? [...propValue.value] : [0, 0, 0, 0]
-
-      switch (type) {
-        case 'bottom':
-          coordinator[3] = event.value?.[0]
-          coordinator[1] = 100 - event.value?.[1]
-          break
-        case 'right':
-          coordinator[2] = event.value?.[0]
-          coordinator[0] = 100 - event.value?.[1]
-          break
-      }
-
-      propValue.value = coordinator
-      context.emit('on-resize', { coordinator })
-    }
 
     useAdmin('d-redaction-file', context)
 
@@ -132,12 +85,9 @@ export default {
       propValue,
       propThumbnail,
       load,
-      sliderBottom,
-      sliderRight,
       styleList,
       onLoad,
-      onResize,
-      onSlider
+      onResize
     }
   }
 }

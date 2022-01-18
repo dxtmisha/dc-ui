@@ -1,4 +1,4 @@
-import { nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 import EventControl from '@/classes/EventControl'
 import useClass from '@/uses/useClass'
 
@@ -21,6 +21,7 @@ export default function useOpen (
   watchPosition,
   context
 ) {
+  const classBody = useClass(ref(document.body), 'd-window__block')
   const classShow = useClass(modal, 'status-show')
   const classHide = useClass(modal, 'status-hide')
   const classPersistent = useClass(
@@ -62,6 +63,7 @@ export default function useOpen (
 
     if (!props.beforeOpening || await props.beforeOpening(toOpen)) {
       if (toOpen) {
+        classBody.set(true)
         classHide.set(false)
         open.value = toOpen
 
@@ -77,6 +79,7 @@ export default function useOpen (
       } else {
         classHide.set(true)
         classShow.set(false)
+        classBody.set(false)
         eventBody.stop()
 
         emitOpening(toOpen)

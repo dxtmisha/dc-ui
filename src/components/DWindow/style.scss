@@ -20,6 +20,10 @@
   padding: var(--_wn-padding);
   transition-duration: var(--transition-menu-collapsing);
   transition-property: background-color;
+
+  &__block {
+    overflow: hidden;
+  }
 }
 
 @mixin windowBody() {

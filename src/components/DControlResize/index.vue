@@ -4,6 +4,7 @@
     :class="classList"
     class="d-control-resize"
     @mousedown="onMousedown"
+    @touchstart="onMousedown"
   >
     <div v-once class="d-control-resize__left">
       <div class="d-control-resize__move cr-left-top" data-value="left-top"/>
@@ -122,12 +123,17 @@ export default {
     }
 
     const onMousemove = event => {
-      if (event.type === 'mouseup' || !event?.buttons) {
+      if (
+        ['mouseup', 'contextmenu', 'touchend', 'touchcancel'].indexOf(event.type) !== -1 ||
+        (!event?.buttons && !('touches' in event) && !('targetTouches' in event))
+      ) {
         event.$event.stop()
         classBody.set(false)
       } else {
-        const x = 100 / rect.width * (event.clientX - client.x)
-        const y = 100 / rect.height * (event.clientY - client.y)
+        event.stopPropagation()
+
+        const x = 100 / rect.width * ((event?.targetTouches?.[0].clientX || event?.clientX) - client.x)
+        const y = 100 / rect.height * ((event?.targetTouches?.[0].clientY || event?.clientY) - client.y)
 
         switch (type) {
           case 'top':
@@ -170,14 +176,24 @@ export default {
     const onMousedown = event => {
       type = event.target?.dataset?.value
       if (type && !props.disabled) {
+        event.preventDefault()
+        event.stopPropagation()
+
         classBody.set(true)
         rect = resize.value.getBoundingClientRect()
         old = [...propValue.value]
 
-        client.x = event.clientX
-        client.y = event.clientY
+        client.x = event?.targetTouches?.[0].clientX || event?.clientX
+        client.y = event?.targetTouches?.[0].clientY || event?.clientY
 
-        EventControl.init(document.body, onMousemove, ['mousemove', 'mouseup'])
+        EventControl.init(document.body, onMousemove, [
+          'mousemove',
+          'mouseup',
+          'contextmenu',
+          'touchmove',
+          'touchend',
+          'touchcancel'
+        ])
           .setDomElement(resize.value)
           .go()
       }

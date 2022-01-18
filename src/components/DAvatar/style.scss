@@ -8,7 +8,8 @@
   --_av-height: var(--av-height, 200px);
   --_av-width: var(--av-width, 200px);
 
-  --_av__sl-padding: var(--av__sl-padding, #{4px 16px});
+  --_av__sl-padding-x: var(--av__sl-padding-x, 4px);
+  --_av__sl-padding-y: var(--av__sl-padding-y, 16px);
 
   --sl-width: 100%;
 
@@ -33,8 +34,6 @@
 
 @mixin avatarButton {
   &__button {
-    @include absoluteBottom(8px);
-    margin: 0 auto;
     @content;
   }
 }
@@ -45,7 +44,7 @@
     @include width(var(--_av-width));
     gap: 8px;
     margin: 0 auto;
-    padding: var(--_av__sl-padding);
+    padding: var(--_av__sl-padding-y) var(--_av__sl-padding-x);
     @content;
   }
 }

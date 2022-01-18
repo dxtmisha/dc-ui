@@ -45,5 +45,8 @@ export const props = {
 
   // Icon
   iconBackground: undefined,
-  iconAttrs: undefined
+  iconAttrs: undefined,
+
+  // Position
+  positionClass: String
 }

@@ -10,6 +10,7 @@ export default function useMotion (
 ) {
   let top = -1
   let distance = 0
+  let time
 
   const propPage = ref(props.page)
   const propItem = computed(() => document.querySelector(`.${id}[data-page="${propPage.value}"]`))
@@ -24,7 +25,7 @@ export default function useMotion (
     if (
       propPage.value &&
       propItem.value &&
-      ((top >= 0 && propElement.value.scrollTop === top) || start)
+      (top >= 0 || start)
     ) {
       propElement.value.scrollTop = propItem.value.offsetTop + distance + propElement.value.scrollTop - top
       top = -1
@@ -44,19 +45,23 @@ export default function useMotion (
     } else if (top < 0) {
       top = 0
     } else if (top < 1) {
-      let focus
+      clearTimeout(time)
 
-      const central = propElement.value.scrollTop + propElement.value.clientHeight / 2
+      time = setTimeout(() => {
+        let focus
 
-      scroll.value.querySelectorAll(`.${id}`).forEach(item => {
-        if (item.offsetTop < central) {
-          focus = item.dataset.page
+        const central = propElement.value.scrollTop + propElement.value.clientHeight / 2
+
+        scroll.value.querySelectorAll(`.${id}`).forEach(item => {
+          if (item.offsetTop < central) {
+            focus = item.dataset.page
+          }
+        })
+
+        if (focus) {
+          propPage.value = focus
         }
-      })
-
-      if (focus) {
-        propPage.value = focus
-      }
+      }, 256)
     }
   }
 

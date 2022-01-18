@@ -14,11 +14,14 @@ export default function useText (props, propSwitchClock) {
     ])
 
     if (Intl && 'DisplayNames' in Intl) {
-      const display = new Intl.DisplayNames(props.locales, { type: 'dateTimeField' })
-      const code = display.of('dayPeriod').split('/')
+      try {
+        const display = new Intl.DisplayNames(props.locales, { type: 'dateTimeField' })
+        const code = display.of('dayPeriod').split('/')
 
-      text.AM = code[0]
-      text.PM = code[1]
+        text.AM = code[0]
+        text.PM = code[1]
+      } catch (e) {
+      }
     }
 
     return text

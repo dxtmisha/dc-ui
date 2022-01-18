@@ -11,6 +11,7 @@
 
 @mixin controlPositionItem() {
   &__item {
+    @include select-none;
     cursor: default;
     position: relative;
 

@@ -2,8 +2,9 @@
   <d-motion-transform
     :adaptive="propAdaptive"
     :class="classTransform"
+    :data-value="item?.value"
     :open="open"
-    class="d-data-item__transform"
+    class="d-data-item__transform cp-click cp-position"
     v-bind="transformAttrs"
     @on-open="onOpen"
   >
@@ -119,7 +120,10 @@ export default {
       }
     })
     const classTransform = computed(() => {
-      return { 'status-open': props.open }
+      return {
+        [props.positionClass]: props.positionClass,
+        'status-open': props.open
+      }
     })
     const classTop = computed(() => {
       return { [`adaptive-${props.adaptive}`]: props.adaptive }

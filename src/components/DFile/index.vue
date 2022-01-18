@@ -43,7 +43,7 @@
         >
           <d-images
             appearance="standard"
-            size="200px"
+            size="128px"
             bar-display="above"
           >
             <d-images-item

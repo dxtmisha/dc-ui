@@ -80,5 +80,8 @@ export const props = {
   iconActive: undefined,
   iconBackground: { default: defaultProps('iconBackground', true) },
   iconArrowBack: { default: defaultProps('iconArrowBack', 'arrow_back') },
-  iconAttrs: undefined
+  iconAttrs: undefined,
+
+  // Position
+  positionClass: String
 }

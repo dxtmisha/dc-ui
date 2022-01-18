@@ -6,8 +6,9 @@
     <d-data-item
       v-for="item in propList"
       :key="item.value"
-      v-bind="item"
+      :position-class="positionClass"
       icon=" "
+      v-bind="item"
       @on-open="onOpen"
     >
       <template
@@ -23,7 +24,7 @@
 
 <script>
 import DDataItem from '@/components/DDataItem'
-import { props } from '@/components/DData/props'
+import { props } from './props'
 import { computed } from 'vue'
 import forEach from '@/functions/forEach'
 import useAdmin from '@/uses/useAdmin'

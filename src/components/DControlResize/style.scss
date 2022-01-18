@@ -6,6 +6,7 @@
 
 @mixin controlResize {
   @include controlResizeVar;
+  @include ellipsis;
   --_cr-disabled: #{varColor(--disabled-type1, --opacity-surface-disabled)};
   display: flex;
   position: absolute;

@@ -87,7 +87,7 @@ import DInput from '@/components/DInput'
 import DMotionTransform from '@/components/DMotionTransform'
 import DTop from '@/components/DTop'
 import { props } from './props'
-import { computed, ref, toRefs } from 'vue'
+import { computed, nextTick, ref, toRefs } from 'vue'
 import Translation from '@/classes/Translation'
 import attrCalendarSelect from '@/components/DCalendarSelect/attrCalendarSelect'
 import useAdmin from '@/uses/useAdmin'
@@ -151,8 +151,13 @@ export default {
       }
     })
 
-    const onSwitch = () => {
+    const onSwitch = async () => {
       propSwitchDate.value = !propSwitchDate.value
+
+      if (!propSwitchDate.value) {
+        await nextTick()
+        requestAnimationFrame(() => (inputIn.value?.input?.input || inputIn.value?.input).focus())
+      }
     }
 
     useAdmin('d-date-picker', context)

@@ -1,5 +1,5 @@
 <template>
-  <span v-bind="binds" class="d-icon-item" v-text="text"/>
+  <span v-bind="binds" translate="no" class="d-icon-item notranslate" v-text="text"/>
 </template>
 
 <script>
@@ -29,8 +29,7 @@ export default {
           ...classIcon.value
         }
       }),
-      style: styleIcon,
-      translate: 'no'
+      style: styleIcon
     })
 
     useAdmin('d-icon-item', context)
