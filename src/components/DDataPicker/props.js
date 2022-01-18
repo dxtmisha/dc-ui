@@ -25,7 +25,7 @@ export const props = {
     type: Boolean,
     default: true
   },
-  ajax: String,
+  ajax: [Function, String],
   request: Object,
   cache: Boolean,
   underline: undefined,

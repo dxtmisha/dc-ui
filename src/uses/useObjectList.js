@@ -50,15 +50,24 @@ export default function useObjectList (props) {
 
   const beforeOpening = async open => {
     if (open && props.ajax) {
-      if (buffer.value === undefined || !props.cache) {
+      if (
+        typeof props.ajax === 'function' ||
+        buffer.value === undefined ||
+        !props.cache
+      ) {
         progress.value = true
 
-        buffer.value = await getAjax()
+        buffer.value = typeof props.ajax === 'function'
+          ? await props.ajax()
+          : await getAjax()
+
         progress.value = false
       }
-    }
 
-    return true
+      return buffer.value?.length > 0
+    } else {
+      return true
+    }
   }
 
   const next = async () => {

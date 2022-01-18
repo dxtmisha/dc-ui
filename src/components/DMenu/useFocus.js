@@ -50,7 +50,10 @@ export default function useFocus (
   }
 
   const eventBody = EventControl.init(document.body, async event => {
-    if (!querySelector('.ls-menu .status-turn')) {
+    if (
+      ['INPUT', 'TEXTAREA'].indexOf(event.target.nodeName) === -1 &&
+      !querySelector('.ls-menu .status-turn')
+    ) {
       if (event.type === 'keypress') {
         setSearch(event.key)
       } else {

@@ -24,7 +24,7 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
-  ajax: String,
+  ajax: undefined,
   request: Object,
   cache: Boolean,
 
