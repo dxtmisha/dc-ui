@@ -115,12 +115,6 @@ export default {
       }
     })
 
-    const onClick = () => context.emit('on-click', {
-      item: props.item,
-      value: propValue.value,
-      selected: !props.selected
-    })
-
     useAdmin('d-list-item', context, propValue)
 
     return {
@@ -128,14 +122,26 @@ export default {
       isProgress,
 
       propText,
+      propValue,
       bindBadge,
       bindThumbnail,
       bindIcon,
       bindTrailing,
       bindProgress,
-      binds,
-
-      onClick
+      binds
+    }
+  },
+  methods: {
+    onClick () {
+      if (this.to && this?.$router) {
+        this.$router.push(this.to)
+      } else {
+        this.$emit('on-click', {
+          item: this.item,
+          value: this.propValue,
+          selected: !this.selected
+        })
+      }
     }
   }
 }

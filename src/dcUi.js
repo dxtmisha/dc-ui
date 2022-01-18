@@ -25,7 +25,8 @@ export const getRoutes = function (list) {
       })
       menu.push({
         text: name,
-        value: path
+        value: path,
+        to: path
       })
     }
   })

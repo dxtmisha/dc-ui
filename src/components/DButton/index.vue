@@ -91,47 +91,51 @@ export default {
       }
     })
 
-    const onClick = event => {
-      let type = 'on-click'
-
-      if (
-        props.readonly ||
-        props.disabled ||
-        props.progress
-      ) {
-        event.preventDefault()
-        event.stopPropagation()
-      } else {
-        if (
-          props.iconReadonly &&
-          event.target.closest('.bt-trailing')
-        ) {
-          event.preventDefault()
-          event.stopPropagation()
-          type = 'on-trailing'
-        }
-
-        context.emit(type, {
-          type,
-          item: props.item,
-          value: propValue.value
-        })
-      }
-    }
-
     useAdmin('d-button', context, propValue)
 
     return {
       isRipple,
       isProgress,
 
+      propValue,
+
       bindBadge,
       bindIcon,
       bindTrailing,
       bindProgress,
-      binds,
+      binds
+    }
+  },
+  methods: {
+    onClick (event) {
+      let type = 'on-click'
 
-      onClick
+      if (
+        this.readonly ||
+        this.disabled ||
+        this.progress
+      ) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+        if (
+          this.iconReadonly &&
+          event.target.closest('.bt-trailing')
+        ) {
+          event.preventDefault()
+          event.stopPropagation()
+          type = 'on-trailing'
+        } else if (this.to && this?.$router) {
+          this.$router.push(this.to)
+          return
+        }
+
+        this.$emit(type, {
+          type,
+          item: this.item,
+          value: this.propValue
+        })
+      }
     }
   }
 }

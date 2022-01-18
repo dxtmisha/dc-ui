@@ -14,6 +14,7 @@ export const props = {
   item: undefined,
   value: undefined,
   text: [Number, String],
+  to: String,
 
   // Status
   active: Boolean,

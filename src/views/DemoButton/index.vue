@@ -1,12 +1,13 @@
 <template>
   <interactive-demo
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-button
       v-bind="binds"
       id="id-button"
       :admin="true"
+      @on-click="on"
     />
   </interactive-demo>
 </template>

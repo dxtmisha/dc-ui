@@ -16,6 +16,7 @@ export const props = {
     type: [Boolean, String],
     default: null
   },
+  to: String,
 
   // Status
   focus: Boolean,
