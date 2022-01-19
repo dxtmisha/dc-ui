@@ -43,7 +43,7 @@ import {
   useWatch,
 
   install
-} from '@/install'
+} from './install'
 
 import DActions from './components/DActions'
 import DAlert from './components/DAlert'
