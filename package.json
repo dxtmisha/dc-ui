@@ -11,14 +11,7 @@
     "ui",
     "vue"
   ],
-  "main": "src/index.js",
-  "bin": {
-    "classes": "src/classes",
-    "components": "src/components",
-    "functions": "src/functions",
-    "uses": "src/uses",
-    "install": "src/install.js"
-  },
+  "main": "src/",
   "repository": {
     "type": "git",
     "url": "https://github.com/dxtmisha/dc-ui.git"

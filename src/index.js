@@ -1,47 +1,49 @@
-import { useTheme } from './uses/useTheme'
+import {
+  EventControl,
+  Geo,
+  GeoDate,
+  List,
+  Translation,
 
-import EventControl from './classes/EventControl'
-import Geo from './classes/Geo'
-import GeoDate from './classes/GeoDate'
-import List from './classes/List'
-import Translation from './classes/Translation'
+  addArrayValue,
+  createElement,
+  createImage,
+  forEach,
+  frame,
+  getClientX,
+  getClientY,
+  getColumn,
+  getExp,
+  getFileResult,
+  getIdElement,
+  getKey,
+  getObjectValues,
+  getRandom,
+  goFunction,
+  goScroll,
+  isImage,
+  isSelected,
+  setValues,
+  toggleArrayValue,
+  toKebabCase,
 
-import addArrayValue from './functions/addArrayValue'
-import createElement from './functions/createElement'
-import createImage from './functions/createImage'
-import forEach from './functions/forEach'
-import frame from './functions/frame'
-import getClientX from './functions/getClientX'
-import getClientY from './functions/getClientY'
-import getColumn from './functions/getColumn'
-import getExp from './functions/getExp'
-import getFileResult from './functions/getFileResult'
-import getIdElement from './functions/getIdElement'
-import getKey from './functions/getKey'
-import getObjectValues from './functions/getObjectValues'
-import getRandom from './functions/getRandom'
-import goFunction from './functions/goFunction'
-import goScroll from './functions/goScroll'
-import isImage from './functions/isImage'
-import isSelected from './functions/isSelected'
-import setValues from './functions/setValues'
-import toggleArrayValue from './functions/toggleArrayValue'
-import toKebabCase from './functions/toKebabCase'
+  useAdmin,
+  useAttrs,
+  useBinds,
+  useClass,
+  useClassByFocus,
+  useColor,
+  useDateTime,
+  useField,
+  useObjectList,
+  useScroll,
+  useScrollBorder,
+  useStyle,
+  useStyleList,
+  useWatch,
 
-import useAdmin from './uses/useAdmin'
-import useAttrs from './uses/useAttrs'
-import useBinds from './uses/useBinds'
-import useClass from './uses/useClass'
-import useClassByFocus from './uses/useClassByFocus'
-import useColor from './uses/useColor'
-import useDateTime from './uses/useDateTime'
-import useField from './uses/useField'
-import useObjectList from './uses/useObjectList'
-import useScroll from './uses/useScroll'
-import useScrollBorder from './uses/useScrollBorder'
-import useStyle from './uses/useStyle'
-import useStyleList from './uses/useStyleList'
-import useWatch from './uses/useWatch'
+  install
+} from '@/install'
 
 import DActions from './components/DActions'
 import DAlert from './components/DAlert'
@@ -156,83 +158,82 @@ export {
   useScrollBorder,
   useStyle,
   useStyleList,
-  useWatch,
-
-  DActions,
-  DAlert,
-  DAppBar,
-  DAvatar,
-  DBadge,
-  DBanner,
-  DBottomNavigation,
-  DButton,
-  DButtonGroup,
-  DButtonSelect,
-  DCalendar,
-  DCalendarMultiple,
-  DCalendarSelect,
-  DCarcassField,
-  DCard,
-  DCardMedia,
-  DCardMenu,
-  DCardText,
-  DCardTitle,
-  DCheckbox,
-  DClockFace,
-  DControlPosition,
-  DControlResize,
-  DControlSelection,
-  DData,
-  DDataItem,
-  DDataPicker,
-  DDate,
-  DDatePicker,
-  DDialog,
-  DDrop,
-  DFile,
-  DForm,
-  DIcon,
-  DIconItem,
-  DImages,
-  DImagesBar,
-  DImagesItem,
-  DInput,
-  DList,
-  DListItem,
-  DMask,
-  DMenu,
-  DMotionAxis,
-  DMotionCell,
-  DMotionScroll,
-  DMotionSticky,
-  DMotionTransform,
-  DNavigation,
-  DPagination,
-  DProgress,
-  DRedactionFile,
-  DRipple,
-  DScrollbar,
-  DSelect,
-  DSelectValue,
-  DSkeleton,
-  DSlider,
-  DSliderPicker,
-  DSnackbar,
-  DTab,
-  DTable,
-  DTablePicker,
-  DTextarea,
-  DTextareaAutosize,
-  DTime,
-  DTimePicker,
-  DTooltip,
-  DTop,
-  DWindow
+  useWatch
 }
 
 export default {
   install (app, options) {
-    app.config.globalProperties.$theme = useTheme(options?.theme, options?.options)
-    app.config.globalProperties.$translate = Translation
+    install.install(app, options)
+
+    app.component('d-actions', DActions)
+    app.component('d-alert', DAlert)
+    app.component('d-app-bar', DAppBar)
+    app.component('d-avatar', DAvatar)
+    app.component('d-badge', DBadge)
+    app.component('d-banner', DBanner)
+    app.component('d-bottom-navigation', DBottomNavigation)
+    app.component('d-button', DButton)
+    app.component('d-button-group', DButtonGroup)
+    app.component('d-button-select', DButtonSelect)
+    app.component('d-calendar', DCalendar)
+    app.component('d-calendar-multiple', DCalendarMultiple)
+    app.component('d-calendar-select', DCalendarSelect)
+    app.component('d-carcass-field', DCarcassField)
+    app.component('d-card', DCard)
+    app.component('d-card-media', DCardMedia)
+    app.component('d-card-menu', DCardMenu)
+    app.component('d-card-text', DCardText)
+    app.component('d-card-title', DCardTitle)
+    app.component('d-checkbox', DCheckbox)
+    app.component('d-clock-face', DClockFace)
+    app.component('d-control-position', DControlPosition)
+    app.component('d-control-resize', DControlResize)
+    app.component('d-control-selection', DControlSelection)
+    app.component('d-data', DData)
+    app.component('d-data-item', DDataItem)
+    app.component('d-data-picker', DDataPicker)
+    app.component('d-date', DDate)
+    app.component('d-date-picker', DDatePicker)
+    app.component('d-dialog', DDialog)
+    app.component('d-drop', DDrop)
+    app.component('d-file', DFile)
+    app.component('d-form', DForm)
+    app.component('d-icon', DIcon)
+    app.component('d-icon-item', DIconItem)
+    app.component('d-images', DImages)
+    app.component('d-images-bar', DImagesBar)
+    app.component('d-images-item', DImagesItem)
+    app.component('d-input', DInput)
+    app.component('d-list', DList)
+    app.component('d-list-item', DListItem)
+    app.component('d-mask', DMask)
+    app.component('d-menu', DMenu)
+    app.component('d-motion-axis', DMotionAxis)
+    app.component('d-motion-cell', DMotionCell)
+    app.component('d-motion-scroll', DMotionScroll)
+    app.component('d-motion-sticky', DMotionSticky)
+    app.component('d-motion-transform', DMotionTransform)
+    app.component('d-navigation', DNavigation)
+    app.component('d-pagination', DPagination)
+    app.component('d-progress', DProgress)
+    app.component('d-redaction-file', DRedactionFile)
+    app.component('d-ripple', DRipple)
+    app.component('d-scrollbar', DScrollbar)
+    app.component('d-select', DSelect)
+    app.component('d-select-value', DSelectValue)
+    app.component('d-skeleton', DSkeleton)
+    app.component('d-slider', DSlider)
+    app.component('d-slider-picker', DSliderPicker)
+    app.component('d-snackbar', DSnackbar)
+    app.component('d-tab', DTab)
+    app.component('d-table', DTable)
+    app.component('d-table-picker', DTablePicker)
+    app.component('d-textarea', DTextarea)
+    app.component('d-textarea-autosize', DTextareaAutosize)
+    app.component('d-time', DTime)
+    app.component('d-time-picker', DTimePicker)
+    app.component('d-tooltip', DTooltip)
+    app.component('d-top', DTop)
+    app.component('d-window', DWindow)
   }
 }
