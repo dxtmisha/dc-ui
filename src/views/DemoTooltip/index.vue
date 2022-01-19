@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DTooltip from '@/components/DTooltip'
+import DButton from '../../../components/DButton'
+import DTooltip from '../../../components/DTooltip'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTooltip } from './options'
 

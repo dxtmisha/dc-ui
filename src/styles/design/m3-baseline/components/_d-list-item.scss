@@ -1,7 +1,7 @@
 @import "../../../dimension";
 @import "../../../font";
 @import "../../../padding";
-@import "../../../../components/DListItem/style";
+@import "../../../../../components/DListItem/style";
 
 @mixin m3ListItem() {
   --li__ic-padding: #{dimension(4)};

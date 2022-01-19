@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import DMotionAxis from '@/components/DMotionAxis'
-import DTab from '@/components/DTab'
+import DMotionAxis from '../../../components/DMotionAxis'
+import DTab from '../../../components/DTab'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
 import { optionsTab } from './options'

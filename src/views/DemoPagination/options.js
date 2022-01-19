@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DPagination/props'
+import { props } from '../../../components/DPagination/props'
 
 export const optionsPagination = useProps(props, {
   count: {

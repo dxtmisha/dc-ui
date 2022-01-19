@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import DControlPosition from '@/components/DControlPosition'
-import DControlSelection from '@/components/DControlSelection'
+import DControlPosition from '../../../components/DControlPosition'
+import DControlSelection from '../../../components/DControlSelection'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsControlPosition } from './options'
 

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DCardTitle from '@/components/DCardTitle'
+import DCardTitle from '../../../components/DCardTitle'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardMenu } from './options'
 

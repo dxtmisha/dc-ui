@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import DImages from '@/components/DImages'
+import DImages from '../../../components/DImages'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsImages } from './options'
 

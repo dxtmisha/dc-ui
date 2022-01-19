@@ -1,0 +1,93 @@
+@import "../../src/styles/dimension";
+
+@mixin images {
+  --_im-columns: var(--im-columns, auto-fill);
+  --_im-gap: var(--im-gap, #{dimension(1)});
+  --_im-size: var(--im-size, #{dimension(40)});
+
+  --_im-min: calc((var(--_im-size) - (var(--_im-gap) * 9)) / 10);
+
+  display: grid;
+  gap: var(--_im-gap);
+  grid-template-columns: repeat(var(--_im-columns), minmax(#{var(--_im-size)}, 1fr));
+  grid-template-rows: auto;
+
+}
+
+@mixin imagesQuilted {
+  &.appearance-quilted {
+    grid-auto-flow: dense;
+  }
+
+  &.appearance-quilted &-item {
+    &.emphasize-2,
+    &.emphasize-4 {
+      grid-column: auto / span 2;
+    }
+
+    &.emphasize-4 {
+      grid-row: auto / span 2;
+    }
+  }
+
+  &.appearance-quilted &-item.emphasize-2 &-item__body {
+    @include aspectRatio('2/1');
+  }
+}
+
+@mixin imagesWoven {
+  &.appearance-woven &-item {
+    align-self: center;
+  }
+
+  &.appearance-woven:not(.option-even) &-item:nth-child(even) &-item__body,
+  &.appearance-woven.option-even &-item:not(.option-turn):nth-child(odd) &-item__body,
+  &.appearance-woven.option-even &-item.option-turn:nth-child(even) &-item__body {
+    @include aspectRatio('38/52');
+  }
+}
+
+@mixin imagesMasonryHorizontal {
+  &.appearance-masonry-horizontal {
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fit, minmax(var(--_im-min), 1fr));
+  }
+
+  &.appearance-masonry-horizontal &-item {
+    grid-column: auto / span calc(var(--it-width, 1) + var(--it-grow, 0));
+  }
+
+  &.appearance-masonry-horizontal &-item__body {
+    aspect-ratio: auto;
+    min-height: var(--_im-size);
+  }
+}
+
+@mixin imagesMasonryVertical {
+  &.appearance-masonry-vertical {
+    grid-auto-flow: dense;
+    grid-template-rows: var(--_im-min);
+    grid-auto-rows: var(--_im-min);
+  }
+
+  &.appearance-masonry-vertical &-item {
+    --_it-height: var(--it-height, 1);
+    --_it-height-min: calc((var(--_it-height) * var(--_im-min)) + (var(--_im-gap) * (var(--_it-height) - 1)));
+    min-height: var(--_it-height-min);
+    grid-row: auto / span var(--it-grow, var(--_it-height));
+  }
+
+  &.appearance-masonry-vertical &-item__body {
+    aspect-ratio: auto;
+    min-height: var(--_it-height-min);
+  }
+}
+
+@mixin imagesInit {
+  @include images;
+
+  @include imagesQuilted;
+  @include imagesWoven;
+  @include imagesMasonryHorizontal;
+  @include imagesMasonryVertical;
+}

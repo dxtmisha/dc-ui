@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DTable/props'
+import { props } from '../../../components/DTable/props'
 import { tableHeaders, tableItems } from '@/media/demo/data/list'
 
 export const optionsTable = useProps(props, {

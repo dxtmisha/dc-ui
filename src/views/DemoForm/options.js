@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DForm/props'
+import { props } from '../../../components/DForm/props'
 
 export const optionsForm = useProps(props, {
   ajax: {

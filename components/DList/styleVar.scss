@@ -1,0 +1,25 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+
+@mixin listVar() {
+  --_ls-palette: var(--ls-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_ls-padding: var(--ls-padding, #{dimension(2) 0});
+  --_ls__li-padding: var(--ls__li-padding, #{dimension(3)});
+  --_ls__st-padding: var(--ls__st-padding, #{dimension(1) dimension(4)});
+  --_ls--ds__st-padding: var(--ls--ds__st-padding, #{dimension(1) dimension(6)});
+
+  --_ls__ln-margin: var(--ls__ln-margin, #{dimension(2) 0});
+
+  --_ls__sp-height: var(--ls__sp-height, #{dimension(8)});
+  --_ls--ad__sp-height: var(--ls--ad__sp-height, #{dimension(6)});
+  --_ls__sp-width: var(--ls__sp-width, #{dimension(6)});
+
+  --_ls__gr-background: var(--ls__gr-background, #{varColor(--_ls-palette)});
+  --_ls__gr-padding: var(--ls__gr-padding, #{dimension(1)});
+  --_ls__gr-width: var(--ls__gr-width, #{dimension(1)});
+  --_ls__gr--op-background: var(--ls__gr--op-background, #{varColor(--background-overlay, --opacity-overlay)});
+  --_ls__gr--op-font-weight: var(--ls__gr--op-font-weight, 500);
+
+  --_ls--ax-gap: var(--ls--ax-gap, #{dimension(2)});
+}

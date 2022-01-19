@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DCardMedia from '@/components/DCardMedia'
+import DCardMedia from '../../../components/DCardMedia'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardTitle } from './options'
 

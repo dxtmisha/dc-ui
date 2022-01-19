@@ -1,0 +1,24 @@
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+
+@mixin cardText {
+  --_cx-padding: var(--cx-padding, 16px);
+  --_cx__tt-padding: var(--cx__tt-padding, 4px);
+
+  @include font('body2');
+  --basic-text-opacity: var(--opacity-surface-medium);
+  padding: var(--_cx-padding);
+}
+
+@mixin cardTextTitle {
+  &__title {
+    --basic-text-opacity: var(--opacity-surface-high);
+    padding-bottom: var(--_cx__tt-padding);
+    @content;
+  }
+}
+
+@mixin cardTextInit {
+  @include cardText;
+  @include cardTextTitle;
+}

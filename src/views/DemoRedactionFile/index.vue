@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DRedactionFile from '@/components/DRedactionFile'
+import DRedactionFile from '../../../components/DRedactionFile'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsRedactionFile } from './options'
 

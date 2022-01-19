@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import InteractiveDemoColor from '@/components/InteractiveDemo/InteractiveDemoColor'
-import InteractiveDemoRouter from '@/components/InteractiveDemo/InteractiveDemoRouter'
-import InteractiveDemoTheme from '@/components/InteractiveDemo/InteractiveDemoTheme'
+import InteractiveDemoColor from '@/./components/InteractiveDemo/InteractiveDemoColor'
+import InteractiveDemoRouter from '@/./components/InteractiveDemo/InteractiveDemoRouter'
+import InteractiveDemoTheme from '@/./components/InteractiveDemo/InteractiveDemoTheme'
 
 export default {
   name: 'App',

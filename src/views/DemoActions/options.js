@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DActions/props'
+import { props } from '../../../components/DActions/props'
 import { Actions } from '@/media/demo/Actions'
 
 export const optionsActions = useProps(props, {

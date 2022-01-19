@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DTab/props'
+import { props } from '../../../components/DTab/props'
 
 export const optionsTab = useProps(props, {
   appearance: {

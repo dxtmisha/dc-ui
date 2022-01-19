@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DProgress/props'
+import { props } from '../../../components/DProgress/props'
 import { Progress } from '@/media/demo/Progress'
 
 export const optionsProgress = useProps(props, {

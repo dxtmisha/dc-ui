@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DDialog/props'
+import { props } from '../../../components/DDialog/props'
 
 export const optionsDialog = useProps(props, {
   windowAdaptive: {

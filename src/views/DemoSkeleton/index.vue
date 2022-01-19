@@ -29,13 +29,13 @@
 </template>
 
 <script>
-import DCard from '@/components/DCard'
-import DSkeleton from '@/components/DSkeleton'
+import DCard from '../../../components/DCard'
+import DSkeleton from '../../../components/DSkeleton'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsSkeleton } from './options'
 import { ref } from 'vue'
 import { tableCards } from '@/media/demo/data/list'
-import DButton from '@/components/DButton'
+import DButton from '../../../components/DButton'
 
 export default {
   name: 'DemoSkeleton',

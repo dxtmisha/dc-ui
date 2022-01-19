@@ -1,0 +1,78 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/position";
+
+@mixin imagesBar {
+  --_ib-palette-type1: var(--ib-palette-type1, var(--palette-type1, var(--primary-type1)));
+  --_ib-padding: var(--ib-padding, #{dimension(1) 0});
+  --_ib--ab-padding: var(--ib--ab-padding, #{dimension(1) dimension(3)});
+
+  --_ib-height: var(--ib-height, #{dimension(12)});
+  --_ib--sm-height: var(--ib--sm-height, #{dimension(10)});
+  --_ib--lr-height: var(--ib--lr-height, #{dimension(14)});
+
+  @include flexX;
+  min-height: var(--_ib-height);
+  padding: var(--_ib-padding);
+}
+
+@mixin imagesBarContext {
+  &__context {
+    @include flexDynamic;
+    @include font('subtitle1');
+    @content;
+  }
+
+  &__text {
+    @include font('subtitle2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+  }
+}
+
+@mixin imagesBarSize {
+  &.size-small {
+    --_ib-height: var(--_ib--sm-height);
+  }
+
+  &.size-large {
+    --_ib-height: var(--_ib--lr-height);
+  }
+}
+
+@mixin imagesBarDisplay {
+  &.display-above {
+    @include absoluteBottom;
+    --basic-text: var(--text-type2);
+    --basic-text-opacity: var(--opacity-primary-high);
+    --_ib-padding: var(--_ib--ab-padding);
+    background-color: varColor(--background-scrim, --opacity-scrim);
+    @content;
+  }
+
+  &.display-above &__text {
+    --basic-text-opacity: var(--opacity-primary-medium);
+  }
+}
+
+@mixin imagesBarSelected {
+  &.status-selected {
+    --basic-text: var(--_ib-palette-type1);
+
+    &.display-above {
+      --basic-text: var(--text-type2);
+      background-color: varColor(--_ib-palette-type1, --opacity-scrim);
+    }
+  }
+}
+
+@mixin imagesBarInit {
+  @include imagesBar;
+  @include imagesBarContext;
+
+  @include imagesBarSize;
+  @include imagesBarDisplay;
+
+  @include imagesBarSelected;
+}

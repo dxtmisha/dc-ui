@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import DImagesBar from '@/components/DImagesBar'
+import DImagesBar from '../../../components/DImagesBar'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsImagesBar } from './options'
 

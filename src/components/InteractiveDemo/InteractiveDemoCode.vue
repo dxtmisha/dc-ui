@@ -4,8 +4,8 @@
 
 <script>
 import { computed, toRefs } from 'vue'
-import forEach from './../../functions/forEach'
-import toKebabCase from './../../functions/toKebabCase'
+import forEach from '../../../functions/forEach'
+import toKebabCase from '../../../functions/toKebabCase'
 
 export default {
   name: 'InteractiveDemoCode',

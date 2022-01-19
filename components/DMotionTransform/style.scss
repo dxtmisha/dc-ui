@@ -1,0 +1,175 @@
+@import "../../src/styles/dimension";
+@import "../../src/styles/elevation";
+@import "../../src/styles/media";
+@import "../../src/styles/position";
+@import "../../src/styles/options/optionBackground";
+
+@mixin motionTransform() {
+  content: "--ANIMATION--";
+  height: var(--_mt-height, auto);
+  width: var(--_mt-width, auto);
+}
+
+@mixin motionTransformContext() {
+  &__context {
+    background-color: transparent;
+    box-shadow: none;
+    content: "--WINDOW--";
+    height: var(--_mt__cn-height, auto);
+    position: relative;
+    transition-duration: var(--transition-large-collapsing);
+    transition-property: background-color, box-shadow, height, transform;
+    transition-timing-function: var(--transition-cubic-80-40);
+    @content;
+
+    &.status-window {
+      @include fixedFull;
+      @include index(9, -1);
+      background: var(--background-type1);
+      overflow-x: hidden;
+      overflow-y: auto;
+      transform: scale(var(--_mt__cn-scale, 1));
+      transform-origin: var(--_mt__cn-left, 0) var(--_mt__cn-top, 0);
+
+      &-open {
+        @include shadow(9);
+        height: 100%;
+        transform: none;
+        transition-duration: var(--transition-large-expanding);
+      }
+    }
+
+    &.status-open {
+      height: var(--_mt__bd-height, auto);
+      overflow: hidden;
+    }
+
+    &.status-static {
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin motionTransformType() {
+  &__context {
+    @include mediaMinList(medium, '&.adaptive-auto') {
+      content: none;
+    }
+
+    &.adaptive-panel,
+    &.adaptive-section {
+      content: none;
+    }
+  }
+}
+
+@mixin motionTransformHead() {
+  $this: &;
+
+  &__head {
+    opacity: 1;
+    @content;
+  }
+
+  &__context.status-window &__head,
+  &__context.status-static:not(.adaptive-section) &__head {
+    transition: opacity 67ms linear 50ms, visibility 67ms linear 50ms;
+  }
+
+  &__context.status-window,
+  &__context.status-static:not(.adaptive-section),
+  &__context.status-open:not(.adaptive-section) {
+    #{$this}__head {
+      @include absoluteTop;
+    }
+
+    &.option-bottom #{$this}__head {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &__context.status-window &__head {
+    transform: scale(var(--_mt__hd-scale, 1));
+    transform-origin: left top;
+    width: var(--_mt__hd-width, auto);
+  }
+
+  &__context.status-window-open &__head,
+  &__context.status-open:not(.adaptive-section) &__head {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__context.status-window-open &__head,
+  &__context.status-static.status-open:not(.adaptive-section) &__head {
+    transition: opacity 60ms linear 60ms, visibility 60ms linear 60ms;
+  }
+}
+
+@mixin motionTransformBody() {
+  &__body {
+    @include absoluteTop();
+    display: none;
+    opacity: 0;
+    transition: opacity 67ms linear 50ms;
+    @content;
+  }
+
+  &__context.option-bottom &__body {
+    top: auto;
+    bottom: 0;
+  }
+
+  &__context.status-window &__body,
+  &__context.status-open &__body,
+  &__context.status-static &__body {
+    display: block;
+  }
+
+  &__context.status-window &__body,
+  &__context.status-open:not(.status-static) &__body,
+  &__context.status-static:not(.option-bottom) &__body {
+    position: static;
+  }
+
+  &__context.status-window-open &__body,
+  &__context.status-open &__body {
+    opacity: 1;
+    transition: opacity 60ms linear 60ms;
+  }
+}
+
+@mixin motionTransformClose() {
+  &__close {
+    display: none;
+    left: dimension(4);
+    position: fixed;
+    top: dimension(2);
+    @content;
+
+    .pl-close {
+      cursor: pointer;
+    }
+  }
+
+  &__context.status-window &__close {
+    display: block;
+  }
+}
+
+@mixin motionTransformBackground() {
+  &__background {
+    @include optionBackground;
+  }
+}
+
+@mixin motionTransformInit() {
+  @include motionTransform;
+  @include motionTransformContext;
+  @include motionTransformType;
+  @include motionTransformHead;
+  @include motionTransformBody;
+  @include motionTransformClose;
+  @include motionTransformBackground;
+}

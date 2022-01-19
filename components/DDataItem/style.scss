@@ -1,0 +1,232 @@
+@import "../../src/styles/color";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/media";
+@import "../../src/styles/padding";
+@import "../../src/styles/options/optionShape";
+
+%min-height {
+  box-sizing: content-box;
+  min-height: var(--_di-height);
+}
+
+@mixin dataItem {
+  --_di-palette-type1: var(--di-palette-type1, var(--palette-type1, var(--basic-text)));
+  --_di-palette-type2: var(--di-palette-type2, var(--palette-type1, var(--primary-type1)));
+  --_di-palette-select: var(--di-palette-select, var(--palette-type2, var(--primary-type2)));
+
+  --_di-background-color: var(--di-background-color, var(--_di-palette-type2));
+  --_di--sh-margin: var(--di--sh-margin, #{2px 4px});
+  --_di-width: var(--di-width, 56px);
+
+  --_di-gap: var(--di-gap, 24px);
+  --_di__bd-gap: var(--di__bd-gapgap, 16px);
+
+  --_di-padding-x: var(--di-padding-x, 16px);
+  --_di-padding-y: var(--di-padding-y, 8px);
+  --_di--dn-padding-x: var(--di--dn-padding-x, 8px);
+  --_di--dn-padding-y: var(--di--dn-padding-y, 4px);
+
+  --_di-height: var(--di-height, #{dimension(8)});
+  --_di--cm-height: var(--di--cm-height, #{dimension(6)});
+  --_di--md-height: var(--di--md-height, #{dimension(12)});
+  --_di--lr-height: var(--di--lr-height, #{dimension(16)});
+
+  --_di__tx-column: var(--di__tx-column, 3);
+  --_di__bd-type: grid;
+  --_di__bd-bottom: 0;
+
+  align-items: flex-start;
+  display: flex;
+  gap: var(--_di-gap);
+  min-height: var(--_di-height);
+  padding-left: var(--_di-padding-x);
+  position: relative;
+}
+
+@mixin dataItemIcon {
+  &__icon {
+    @include flexCenter;
+    @include paddingY(var(--_di-padding-y));
+    @extend %min-height;
+  }
+}
+
+@mixin dataItemBody {
+  &__body {
+    @extend %min-height;
+    align-items: center;
+    display: var(--_di__bd-type);
+    flex-grow: 1;
+    gap: var(--_di__bd-gap);
+    grid-template-columns: repeat(auto-fit, minmax(#{var(--_di-width)}, 1fr));
+    grid-template-rows: auto;
+    padding: var(--_di-padding-y) var(--_di-padding-x) var(--_di-padding-y) 0;
+  }
+}
+
+@mixin dataItemText {
+  &__text {
+    grid-column: auto / span var(--_di__tx-column);
+    padding-bottom: var(--_di__bd-bottom);
+  }
+}
+
+@mixin dataItemParameter {
+  &__parameter {
+    @include font('body2');
+  }
+}
+
+@mixin dataItemTop {
+  &__top {
+    position: sticky;
+    top: 0;
+
+    @include mediaMinList {
+      display: none;
+    }
+  }
+}
+
+@mixin dataItemUnderline {
+  &__underline {
+    background-color: varColor(--warning-type1, --opacity-scrim);
+  }
+}
+
+@mixin dataItemBackground {
+  &.value-background {
+    background-color: varColor(--_di-background-color, --opacity-overlay);
+  }
+}
+
+@mixin dataItemSize {
+  &.size-dynamic {
+    --_di-height: 0;
+  }
+
+  &.size-compact {
+    @include font('body2');
+    --_di-height: var(--_di--cm-height);
+  }
+
+  &.size-medium {
+    --_di-height: var(--_di--md-height);
+  }
+
+  &.size-large,
+  &.size-rectangle {
+    --_di-height: var(--_di--lr-height);
+  }
+}
+
+@mixin dataItemHeader {
+  &.option-header {
+    @include font('body2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+    --_di-height: var(--_di--sm-height);
+
+    &:hover {
+      background-image: none;
+    }
+
+    .d-icon {
+      aspect-ratio: auto;
+    }
+  }
+
+  &.option-header & {
+    &__body {
+      display: grid;
+    }
+
+    &__text {
+      padding-bottom: 0;
+    }
+
+    &__parameter {
+      display: var(--_di--display, block);
+    }
+  }
+}
+
+@mixin dataItemDense {
+  &.option-dense {
+    --_di-padding-x: var(--_di--dn-padding-x);
+    --_di-padding-y: var(--_di--dn-padding-y);
+  }
+}
+
+@mixin dataItemBorder {
+  &__transform:not(.status-open) + &__transform &.option-border &__body {
+    border-top-width: var(--basic-border-width);
+  }
+}
+
+@mixin dataItemStatus {
+  &:hover {
+    background-image: varColor(--_di-palette-type1, --opacity-container-hover, true);
+  }
+
+  &.status-selected {
+    --basic-text: var(--_di-palette-select);
+    background-color: varColor(--_di-palette-select, --opacity-container-selected);
+  }
+}
+
+@mixin dataItemAppearance {
+  &.appearance-color:not(.option-header) {
+    &:hover {
+      --basic-text: var(--_di-palette-type2);
+      background-image: varColor(--_di-palette-type2, --opacity-container-hover, true);
+    }
+  }
+}
+
+@mixin dataItemShape {
+  @include optionShape;
+
+  &.shape- {
+    &basic,
+    &rounded,
+    &pill {
+      margin: var(--_di--sh-margin);
+    }
+  }
+}
+
+@mixin dataItemAdaptive {
+  $this: &;
+
+  @include mediaMaxList {
+    --_di__bd-bottom: 8px;
+    --_di__bd-type: block;
+    --_di--display: none;
+  }
+
+  &.adaptive-minimum &__parameter {
+    display: none;
+  }
+}
+
+@mixin dataItemInit {
+  @include dataItem;
+  @include dataItemIcon;
+  @include dataItemBody;
+  @include dataItemText;
+  @include dataItemParameter;
+  @include dataItemTop;
+  @include dataItemUnderline;
+
+  @include dataItemBackground;
+  @include dataItemSize;
+  @include dataItemHeader;
+  @include dataItemDense;
+  @include dataItemBorder;
+
+  @include dataItemStatus;
+  @include dataItemAppearance;
+  @include dataItemShape;
+  @include dataItemAdaptive;
+}

@@ -1,0 +1,197 @@
+@import "../../src/styles/font";
+@import "../../src/styles/media";
+@import "../../src/styles/position";
+@import "styleExtend";
+@import "styleVar";
+
+@mixin list() {
+  @include listVar;
+  padding: var(--_ls-padding);
+  width: auto;
+
+  &-item:not(.value-thumbnail):not(.value-icon) {
+    display: var(--_ls__ad-display, flex);
+  }
+}
+
+@mixin listHtml() {
+  &__html {
+    display: var(--_ls__ad-display, block);
+  }
+}
+
+@mixin listSubtitle() {
+  &__subtitle {
+    @include font('body2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+    display: var(--_ls__ad-display, block);
+    padding: var(--_ls__st-padding);
+    @content;
+  }
+
+  @include mediaMinWidth() {
+    &:not(.option-dense) &__subtitle {
+      --_ls__st-padding: var(--_ls--ds__st-padding);
+    }
+  }
+}
+
+@mixin listLine() {
+  &__line {
+    height: var(--basic-border-width);
+    background-color: var(--basic-border);
+    margin: var(--_ls__ln-margin);
+    @content;
+  }
+}
+
+@mixin listSpace() {
+  &__space {
+    height: var(--_ls__sp-height);
+    @content;
+  }
+}
+
+@mixin listGroup() {
+  &__group {
+    padding: var(--_ls__gr-padding) 0;
+    transition-property: background-color;
+    @content;
+
+    @include afterAbsolute('left') {
+      background-color: var(--_ls__gr-background);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition-property: transform;
+      width: var(--_ls__gr-width);
+    }
+
+    > .d-list {
+      --_ls-padding: 0px;
+      padding-left: var(--_ls__gr-width);
+    }
+
+    &.status-open {
+      background-color: var(--_ls__gr--op-background);
+
+      &::after {
+        transform: none;
+      }
+
+      > .window-static {
+        font-weight: var(--_ls__gr--op-font-weight);
+      }
+    }
+  }
+}
+
+@mixin listAxis() {
+  &.axis-x {
+    --li-gap: var(--_ls--ax-gap);
+    --li-padding: var(--_ls__li-padding);
+    --_ls-padding: 0;
+    display: flex;
+    width: auto;
+    @content;
+  }
+
+  &.axis-x & {
+    &__space {
+      height: auto;
+      width: var(--_ls__sp-width);
+    }
+
+    &__group,
+    &__subtitle,
+    &__line {
+      display: none;
+    }
+  }
+}
+
+@mixin listNavigationRail() {
+  @include mediaMaxWidth(small) {
+    &.navigation-rail-small,
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop {
+      @include mixinAdaptive;
+    }
+  }
+
+  @include mediaMinMaxWidth(small, medium) {
+    &.navigation-rail-medium,
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-medium,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop {
+      @include mixinAdaptive;
+    }
+  }
+
+  @include mediaMinMaxWidth(medium, large) {
+    &.navigation-rail-large,
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-large,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-large,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinAdaptive;
+    }
+  }
+
+  @include mediaMinMaxWidth(large, extra) {
+    &.navigation-rail-extra,
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-extra,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-extra,
+    &.navigation-rail-large-desktop {
+      @include mixinAdaptive;
+    }
+  }
+
+  @include mediaMinMaxWidth(extra, desktop) {
+    &.navigation-rail-desktop,
+    &.navigation-rail-medium-desktop,
+    &.navigation-rail-large-desktop {
+      @include mixinAdaptive;
+    }
+  }
+
+  &.navigation-rail-always {
+    @extend %mixin-adaptive;
+  }
+}
+
+@mixin listAdaptive() {
+  $this: &;
+
+  @include mediaMaxList {
+    @include mixinAdaptive;
+  }
+
+  &.adaptive-icon {
+    @extend %mixin-adaptive;
+  }
+}
+
+@mixin listInit() {
+  @include list;
+  @include listHtml;
+  @include listSubtitle;
+  @include listLine;
+  @include listSpace;
+  @include listGroup;
+
+  @include listAxis;
+  @include listNavigationRail;
+  @include listAdaptive;
+}

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DTime from '@/components/DTime'
+import DTime from '../../../components/DTime'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTime } from './options'
 

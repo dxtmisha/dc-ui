@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DCardText from '@/components/DCardText'
+import DCardText from '../../../components/DCardText'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardText } from './options'
 

@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import DButtonSelect from './../DButtonSelect'
-import color from './../../media/demo/data/color'
+import DButtonSelect from '../../../components/DButtonSelect'
+import color from '@/media/demo/data/color'
 
 export default {
   name: 'InteractiveDemoColor',

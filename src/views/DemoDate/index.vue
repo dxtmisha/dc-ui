@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DDate from '@/components/DDate'
+import DDate from '../../../components/DDate'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsDate } from './options'
 

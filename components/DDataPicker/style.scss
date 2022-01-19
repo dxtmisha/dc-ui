@@ -1,0 +1,49 @@
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/padding";
+
+@mixin dataPicker {
+  --_dc__dd-basis: var(--dc__dd-basis, 280px);
+
+  position: relative;
+}
+
+@mixin dataPickerBody {
+  &__body {
+  }
+}
+
+@mixin dataPickerData {
+  &__data {
+    @include paddingY(1);
+  }
+}
+
+@mixin dataPickerPagination {
+  &__pagination {
+    border-top-width: var(--basic-border-width);
+  }
+}
+
+@mixin dataPickerInfo {
+  &__info {
+  }
+}
+
+@mixin dataPickerNone {
+  &__none {
+    @include font('body2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+    padding: 16px 0;
+    text-align: center;
+  }
+}
+
+@mixin dataPickerInit {
+  @include dataPicker;
+  @include dataPickerBody;
+  @include dataPickerData;
+  @include dataPickerPagination;
+  @include dataPickerInfo;
+  @include dataPickerNone;
+}

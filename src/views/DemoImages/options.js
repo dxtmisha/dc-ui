@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DImages/props'
+import { props } from '../../../components/DImages/props'
 
 export const optionsImages = useProps(props, {
   appearance: {

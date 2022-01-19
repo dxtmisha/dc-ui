@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMotionCell from '@/components/DMotionCell'
+import DButton from '../../../components/DButton'
+import DMotionCell from '../../../components/DMotionCell'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
-import getRandom from '@/functions/getRandom'
+import getRandom from '../../../functions/getRandom'
 import { optionsMotionCell } from './options'
 
 export default {

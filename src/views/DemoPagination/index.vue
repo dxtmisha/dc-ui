@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DPagination from '@/components/DPagination'
+import DPagination from '../../../components/DPagination'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsPagination } from './options'
 import { ref } from 'vue'

@@ -1,0 +1,29 @@
+@import "../../src/styles/dimension";
+
+@mixin carcassFieldVar() {
+  --_cf-palette-type1: var(--cf-palette-type1, var(--background-overlay));
+  --_cf-palette-type2: var(--cf-palette-type2, var(--palette-type1, var(--primary-type1)));
+
+  --_cf-padding: var(--cf-padding, #{dimension(3)});
+  --_cf-space: var(--cf-space, #{dimension(1)});
+  --_cf-width: var(--cf-width, #{dimension(70)});
+
+  --_cf-border: var(--cf-border, var(--background-outline));
+  --_cf-border-opacity: var(--cf-border-opacity, var(--opacity-outline));
+  --_cf-border-width: var(--cf-border-width, var(--basic-border-width));
+  --_cf--fc-border-width: var(--cf--fc-border-width, #{dimension(.5)});
+  --_cf--fl-border-width: var(--cf--fl-border-width, var(--basic-border-width));
+  --_cf--fl--fc-border-width: var(--cf--fl--fc-border-width, #{dimension(.5)});
+
+  --_cf-height: var(--cf-height, #{dimension(14)});
+  --_cf--dn-height: var(--cf--dn-height, #{dimension(10)});
+  --_cf--sm-height: var(--cf--sm-height, #{dimension(12)});
+  --_cf--lg-height: var(--cf--lg-height, #{dimension(16)});
+  --_cf__tx-height: var(--cf__tx-height, #{dimension(6)});
+  --_cf--ds-height: var(--cf--ds-height, #{dimension(20)});
+
+  --_cf--ds-font: var(--cf--ds-font, #{dimension(14)});
+
+  --_cf__ic-height: var(--cf__ic-height, #{dimension(6)});
+  --_cf__ic--ar-height: var(--cf__ic--ar-height, #{dimension(8)});
+}

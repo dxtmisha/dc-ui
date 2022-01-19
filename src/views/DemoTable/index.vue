@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DTable from '@/components/DTable'
+import DButton from '../../../components/DButton'
+import DTable from '../../../components/DTable'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTable } from './options'
 import { leoTolstoy } from '@/media/demo/data/text'

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
+import DIcon from '../../components/DIcon'
 
 export default {
   name: 'HomeView',

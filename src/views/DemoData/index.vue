@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import DData from '@/components/DData'
+import DData from '../../../components/DData'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsData } from './options'
 import { tableItems } from '@/media/demo/data/list'

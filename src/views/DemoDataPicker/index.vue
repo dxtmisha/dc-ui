@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import DDataPicker from '@/components/DDataPicker'
+import DDataPicker from '../../../components/DDataPicker'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsDataPicker } from './options'
 import { tableItems } from '@/media/demo/data/list'

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import DAvatar from '@/components/DAvatar'
+import DAvatar from '../../../components/DAvatar'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsAvatar } from './options'
 

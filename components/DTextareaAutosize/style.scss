@@ -1,0 +1,25 @@
+@import "../../src/styles/dimension";
+
+@mixin textareaAutosize() {
+  font: inherit;
+  max-width: 100%;
+  min-height: #{dimension(20)};
+  overflow: hidden;
+  resize: none;
+}
+
+@mixin textareaAutosizeClone() {
+  &__clone {
+    font: inherit;
+    position: absolute;
+    width: inherit;
+    white-space: pre-wrap;
+    visibility: hidden;
+    @content;
+  }
+}
+
+@mixin textareaAutosizeInit() {
+  @include textareaAutosize;
+  @include textareaAutosizeClone;
+}

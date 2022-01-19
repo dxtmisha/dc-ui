@@ -1,0 +1,63 @@
+@import "../../src/styles/color";
+
+%background {
+  background-color: var(--_cf-background);
+  background-image: var(--_cf-background-image);
+}
+
+%border {
+  border-color: varColor(--_cf-border, --_cf-border-opacity);
+}
+
+%border-top {
+  @extend %border;
+  border-top-width: var(--_cf-border-width);
+}
+
+%border-focus-opacity {
+  --_cf-border-opacity: var(--opacity-primary-high);
+}
+
+%border-focus-width {
+  --_cf-border-width: var(--_cf--fc-border-width);
+}
+
+%text-medium-opacity {
+  --basic-text-opacity: var(--_cf__tx-medium);
+}
+
+%status-focus {
+  --basic-text: var(--_cf-palette-type2);
+  --_cf__tx-medium: var(--opacity-surface-high);
+  --_cf-border: var(--_cf-palette-type2);
+}
+
+%status-focus-text {
+  --_cf__tx-opacity: 0;
+  --_cf__pr-opacity: 1;
+}
+
+%status-disabled {
+  --basic-text-opacity: var(--opacity-surface-disabled);
+  --ms__opacity: var(--opacity-surface-disabled);
+  --_cf__tx-medium: var(--basic-text-opacity);
+  --_cf-background-image: none;
+  --_cf-border-opacity: var(--opacity-container-disabled);
+}
+
+%filled-shift {
+  --_cf-shift: calc(var(--_cf__tx-height) / 3);
+}
+
+%filled-focus {
+  --_cf-shift: calc(var(--_cf__tx-height) / 2);
+  --_cf__tx-opacity: 1;
+  --_cf__tx-scale: .875;
+}
+
+%outlined-focus {
+  --_cf-shift: calc(var(--_cf-height) / 2);
+  --_cf__tx-opacity: 1;
+  --_cf__tx-translate-x: 0px;
+  font-size: 14px;
+}

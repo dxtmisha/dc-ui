@@ -1,0 +1,54 @@
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+
+@mixin pagination {
+  --_pg-gap: var(--pg-gap, 4px);
+  --_pg-height: var(--pg-height, 56px);
+  --_pg-padding: var(--pg-padding, #{8px 8px});
+
+  @include font('body2');
+  @extend %flex-x;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: var(--_pg-gap) var(--_pg-gap);
+  min-height: var(--_pg-height);
+  padding: var(--_pg-padding);
+
+  &__spacer {
+    @extend %flex-dynamic;
+  }
+}
+
+@mixin paginationMenu {
+  &__menu {
+    padding: 0 4px;
+    @content;
+
+    .d-button {
+      --_bt-basic-text: var(--text-type1);
+    }
+  }
+}
+
+@mixin paginationInfo {
+  &__info {
+    padding: 0 32px;
+    @content;
+  }
+}
+
+@mixin paginationNavigation {
+  &__navigation {
+    @extend %flex-x;
+    gap: inherit;
+    justify-content: flex-end;
+    @content;
+  }
+}
+
+@mixin paginationInit {
+  @include pagination;
+  @include paginationMenu;
+  @include paginationInfo;
+  @include paginationNavigation;
+}

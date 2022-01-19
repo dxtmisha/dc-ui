@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DCard from '@/components/DCard'
+import DCard from '../../../components/DCard'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCard } from './options'
 

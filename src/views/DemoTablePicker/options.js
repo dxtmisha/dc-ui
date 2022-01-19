@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DTablePicker/props'
+import { props } from '../../../components/DTablePicker/props'
 import { tableHeaders, tableItems } from '@/media/demo/data/list'
 import { Window } from '@/media/demo/Window'
 

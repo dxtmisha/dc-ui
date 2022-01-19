@@ -1,0 +1,32 @@
+@import "../../src/styles/dimension";
+
+@mixin windowVar() {
+  --_wn-height: var(--wn-height, calc(100vh - #{dimension(48)}));
+  --_wn-radius: var(--wn-radius, var(--basic-radius));
+
+  --_wn-padding: var(--wn-padding, #{dimension(8) dimension(4)});
+  --_wn--md-padding: var(--wn--md-padding, #{dimension(6)});
+
+  --_wn-transform: var(--wn-transform, #{scale(.8)});
+  --_wn--ml-transform: var(--wn--ml-transform, #{translateX(-#{dimension(16)})});
+  --_wn--mr-transform: var(--wn--mr-transform, #{translateX(+#{dimension(16)})});
+
+  --_wn-width: var(--wn-width, #{dimension(70)});
+  --_wn--md-width: var(--wn-width, #{dimension(140)});
+}
+
+@mixin windowAnimation() {
+  @keyframes __animate-window--persistent {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.02);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}

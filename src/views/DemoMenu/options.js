@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DMenu/props'
+import { props } from '../../../components/DMenu/props'
 import { Icon } from '@/media/demo/Icon'
 import { Item } from '@/media/demo/Item'
 

@@ -1,0 +1,133 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/font";
+@import "../../src/styles/options/optionHide";
+
+%size-large-font {
+  --_ic-font: var(--_ic--lg-font);
+}
+
+@mixin icon() {
+  --_ic-palette: var(--ic-palette, var(--palette-type1, var(--background-overlay)));
+
+  --_ic-radius: var(--ic-radius, var(--radius-pill));
+  --_ic--bg-opacity: var(--ic--bg-opacity, var(--opacity-overlay));
+
+  --_ic-font: var(--ic-font, #{dimension(5)});
+  --_ic--lg-font: var(--ic--lg-font, var(--ic-font, #{dimension(8)}));
+
+  --_ic-size: var(--ic-size, #{dimension(6)});
+  --_ic--md-size: var(--ic--md-size, var(--ic-size, #{dimension(10)}));
+  --_ic--lg-size: var(--ic--lg-size, var(--ic-size, #{dimension(14)}));
+  --_ic--rc-size: var(--ic--rc-size, var(--ic-size, #{dimension(25)}));
+
+  @include select-none;
+  @include squared(var(--_ic-size));
+  border-radius: var(--_ic-radius);
+  display: inline-block;
+  font-size: var(--_ic-font);
+  min-width: var(--_ic-size);
+  overflow: hidden;
+  position: relative;
+  transition-duration: var(--transition-menu-expanding);
+  transition-property: opacity, transform;
+
+  @include optionHide;
+}
+
+@mixin iconSize() {
+  &.size- {
+    &medium {
+      --_ic-size: var(--_ic--md-size);
+    }
+
+    &large {
+      @extend %size-large-font;
+      --_ic-radius: var(--ic-radius, var(--basic-radius));
+      --_ic-size: var(--_ic--lg-size);
+    }
+
+    &rectangle {
+      @extend %size-large-font;
+      --_ic-radius: var(--ic-radius, 0px);
+      --_ic-size: var(--_ic--rc-size);
+
+      @include aspectRatio(#{25/14}) {
+        height: calc(var(--_ic--rc-size) / 25 * 14);
+      }
+    }
+  }
+}
+
+@mixin iconHideType2() {
+  &.animation-type2 {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path var(--transition-basic) var(--transition-cubic-80-00) var(--transition-flash),
+    margin var(--transition-basic) linear,
+    transform var(--transition-menu-expanding) linear;
+    @content;
+
+    &.status-hide {
+      clip-path: inset(0 100% 0 0);
+      margin: 0 calc(var(--_ic-size) * -1) 0 0 !important;
+      opacity: 1;
+      transform: none;
+      transition: clip-path var(--transition-basic) var(--transition-cubic-00-40),
+      margin var(--transition-basic) var(--transition-cubic-00-40),
+      transform var(--transition-menu-expanding) linear;
+    }
+  }
+}
+
+@mixin iconAnimation() {
+  @keyframes __animate-icon--animation {
+    0% {
+      opacity: 0;
+      transform: scale(.6);
+    }
+
+    20% {
+      transform: scale(.6);
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &.option-animation {
+    animation-duration: var(--transition-menu-expanding);
+    animation-name: __animate-icon--animation;
+    @content;
+  }
+}
+
+@mixin iconBackground() {
+  &.option-background {
+    background-color: varColor(--_ic-palette, --_ic--bg-opacity);
+    @content;
+  }
+}
+
+@mixin iconTurn() {
+  &.status-turn {
+    transform: rotate(180deg);
+    @content;
+  }
+}
+
+@mixin iconInit() {
+  @include icon;
+
+  @include iconSize;
+  @include iconHideType2;
+  @include iconAnimation;
+  @include iconBackground;
+
+  @include iconTurn;
+}

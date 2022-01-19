@@ -1,0 +1,130 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/media";
+@import "../../src/styles/position";
+
+%text-medium {
+  @include font('subtitle2');
+  --basic-text-opacity: var(--opacity-surface-medium);
+}
+
+@mixin calendarMultiple() {
+  @include calendarMultipleVar;
+}
+
+@mixin calendarMultipleVar() {
+  --_cm__cl-height: var(--cm__cl-height, #{dimension(98)});
+
+  --_cm__tt-height: var(--cm__tt-height, #{dimension(12)});
+  --_cm__tt-margin: var(--cm__tt-margin, #{dimension(1) 0 0});
+  --_cm__tt-padding: var(--cm__tt-padding, #{0 dimension(8)});
+
+  --_cs__ds-height: var(--cs__ds-height, #{dimension(56)});
+  --_cm__ds-padding: var(--cm__ds-padding, #{0 0 dimension(2)});
+  --_cm__mn-height: var(--cm__mn-height, #{dimension(13)});
+  --_cm__mn-padding: var(--cm__mn-padding, #{0 dimension(4)});
+}
+
+@mixin calendarMultipleMobile() {
+  &__mobile {
+  }
+}
+
+@mixin calendarMultipleCalendar() {
+  &__calendar {
+    height: calc(var(--_cm__cl-height) - 48px);
+    @content;
+  }
+}
+
+@mixin calendarMultipleTitle() {
+  &__title {
+    @include flexX;
+    @extend %text-medium;
+    height: var(--_cm__tt-height);
+    margin: var(--_cm__tt-margin);
+    padding: var(--_cm__tt-padding);
+    @content;
+  }
+}
+
+@mixin calendarMultipleDesktop() {
+  &__desktop {
+    display: none;
+    padding: var(--_cm__ds-padding);
+  }
+}
+
+@mixin calendarMultipleMenu() {
+  &__menu {
+    @include flexX;
+    gap: dimension(1);
+    padding: var(--_cm__mn-padding);
+    height: var(--_cm__mn-height);
+    @content;
+  }
+
+  &__menu &__border {
+    height: 100%;
+  }
+
+  &__name {
+    @include flexDynamic;
+    @extend %text-medium;
+    text-align: center;
+  }
+}
+
+@mixin calendarMultipleCalendars() {
+  &__calendars {
+    display: flex;
+    @content;
+
+    & > *:nth-child(2) {
+      @include afterAbsolute('left') {
+        border-left-width: var(--basic-border-width);
+      }
+    }
+  }
+}
+
+@mixin calendarMultipleAdaptive() {
+  $this: &;
+
+  @include mediaMinList {
+    @include _calendarMultipleAdaptiveDesktop($this);
+  }
+
+  &.adaptive-desktop {
+    @include _calendarMultipleAdaptiveDesktop($this);
+  }
+}
+
+@mixin _calendarMultipleAdaptiveDesktop($this: &) {
+  content: "--DESKTOP--";
+
+  #{$this}__mobile {
+    display: none;
+  }
+
+  #{$this}__desktop {
+    display: block;
+  }
+
+  #{$this}__calendars {
+    min-height: var(--_cs__ds-height);
+  }
+}
+
+@mixin calendarMultipleInit() {
+  @include calendarMultiple;
+  @include calendarMultipleMobile;
+  @include calendarMultipleCalendar;
+  @include calendarMultipleTitle;
+  @include calendarMultipleDesktop;
+  @include calendarMultipleMenu;
+  @include calendarMultipleCalendars;
+  @include calendarMultipleAdaptive;
+}

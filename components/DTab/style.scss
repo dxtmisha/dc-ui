@@ -1,0 +1,88 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/elevation";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/position";
+
+@mixin tab {
+  --_tb-palette-type1: var(--tb-palette-type1, var(--palette-type1, var(--primary-type1)));
+  --_tb-gap: var(--tb-gap, #{dimension(2)});
+  --_tb-padding: var(--tb-padding, #{dimension(4)});
+  --_tb-height: var(--tb-height, #{dimension(12)});
+  --_tb__indicator: var(--tb__indicator, var(--_tb-palette-type1));
+  --_tb__in-height: var(--tb__in-height, #{dimension(.5)});
+
+  --li-gap: var(--_tb-gap);
+  --li--cm-height: var(--_tb-height);
+  --li--nr--ic-height: var(--_tb-height);
+  --li__ic-padding: 0px;
+
+  @include flexX;
+  position: relative;
+}
+
+@mixin tabItem {
+  &__item.d-list-item {
+    @include font('button');
+    aspect-ratio: auto;
+    width: auto;
+
+    @content;
+
+    &::before {
+      background-color: varColor(--_tb__indicator);
+      bottom: 0;
+      content: " ";
+      height: var(--_tb__in-height);
+      left: var(--tb__in-left);
+      opacity: 0;
+      position: absolute;
+      transition-duration: var(--transition-medium-expanding);
+      transition-property: none;
+      transition-timing-function: var(--transition-cubic-80-40);
+      width: var(--tb__in-width);
+    }
+
+    &.status-selected::before {
+      left: 0;
+      opacity: 1;
+      transition-property: left, width;
+      width: 100%;
+      will-change: left, width;
+    }
+  }
+
+  &:not(.option-dynamic) {
+    --li--nr-padding: var(--_tb-padding);
+  }
+
+  &.option-dynamic &__item.d-list-item {
+    @include flexDynamic;
+  }
+}
+
+@mixin tabContained {
+  &.appearance-contained {
+    @include index(4);
+    --basic-text: var(--text-type2);
+    --basic-text-opacity: var(--opacity-primary-medium);
+    --_tb__indicator: var(--basic-text);
+    background-color: varColor(--_tb-palette-type1);
+    box-shadow: var(--shadow-type4);
+  }
+
+  &.appearance-contained &__item.d-list-item {
+    --li-palette-select: var(--basic-text);
+
+    &.status-selected {
+      --basic-text-opacity: var(--opacity-primary-high);
+    }
+  }
+}
+
+@mixin tabInit {
+  @include tab;
+  @include tabItem;
+  @include tabContained;
+}

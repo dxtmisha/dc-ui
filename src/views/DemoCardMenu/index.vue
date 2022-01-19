@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import DCardMenu from '@/components/DCardMenu'
+import DCardMenu from '../../../components/DCardMenu'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsCardMenu } from './options'
 import { menuMin } from '@/media/demo/data/list'

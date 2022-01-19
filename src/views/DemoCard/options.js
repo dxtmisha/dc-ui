@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DCard/props'
+import { props } from '../../../components/DCard/props'
 import { Card } from '@/media/demo/Card'
 import { Window } from '@/media/demo/Window'
 

@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import DList from '@/components/DList'
+import DList from '../../../components/DList'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { ref } from 'vue'
-import List from '@/classes/List'
+import List from '../../../classes/List'
 import { optionsList } from './options'
 import { menu } from '@/media/demo/data/list'
 

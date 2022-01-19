@@ -1,0 +1,169 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/media";
+@import "styleVar";
+
+@mixin calendarSelect() {
+  @include calendarSelectVar;
+  height: var(--_cs-height);
+  max-width: 100%;
+  overflow: hidden;
+  width: var(--_cs-width);
+}
+
+@mixin calendarSelectMenu() {
+  &__menu {
+    @include flexBetween;
+    align-items: center;
+    gap: dimension(1);
+    padding: var(--_cs-padding-x) var(--_cs-padding);
+    @content;
+  }
+
+  &__space {
+    flex-grow: 2;
+  }
+}
+
+@mixin calendarSelectList() {
+  &__list {
+    align-content: flex-start;
+    display: grid;
+    gap: 0 dimension(2);
+    grid-template-columns: repeat(var(--_cs-columns), minmax(0, 1fr));
+    height: var(--_cs__ls-height);
+    padding: 0 var(--_cs__ls-padding);
+    @content;
+
+    &.status-border-top {
+      border-top-color: transparent;
+    }
+  }
+}
+
+@mixin calendarSelectItem() {
+  &__item {
+    @include flexCenter;
+    padding: var(--_cs__it-padding) 0;
+    @content;
+
+    button {
+      border-radius: var(--_cs__bt-shape);
+      cursor: pointer;
+      height: var(--_cs__bt-height);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      width: var(--_cs__bt-width);
+
+      &:hover {
+        background-color: varColor(--_cs-status-palette, --opacity-container-hover);
+      }
+
+      &:active {
+        background-color: varColor(--_cs-status-palette, --opacity-container-dragged);
+      }
+
+      &.status-selected {
+        --basic-text: var(--text-type2);
+        --basic-text-opacity: var(--opacity-primary-high);
+        background-color: varColor(--_cs-status-palette);
+      }
+    }
+  }
+}
+
+@mixin calendarSelectCalendar() {
+  &__calendar {
+    height: var(--_cs__ls-height);
+    margin-bottom: var(--_cs__cl-bottom);
+    overflow: hidden;
+  }
+}
+
+@mixin calendarSelectShape() {
+  &.shape- {
+    &basic {
+      --_cs__bt-shape: var(--basic-radius);
+    }
+
+    &rounded {
+      --_cs__bt-shape: var(--radius-type3);
+    }
+
+    &pill {
+      --_cs__bt-shape: 1024px;
+    }
+
+    &tile {
+      --_cs__bt-shape: 0;
+    }
+  }
+}
+
+@mixin calendarSelectMultiple() {
+  &.option-multiple {
+    --_cs-width: var(--_cs--ml-width);
+    --_cs__ls-height: var(--_cs__ls--ml-height);
+  }
+}
+
+@mixin calendarSelectAdaptive() {
+  $this: &;
+
+  @include mediaMinList {
+    @include _calendarSelectAdaptiveDesktop($this);
+  }
+
+  @include mediaMaxWidth(minimum) {
+    @include _calendarSelectAdaptiveDesktop($this);
+  }
+
+  &.adaptive-desktop {
+    @include _calendarSelectAdaptiveDesktop($this);
+  }
+}
+
+@mixin _calendarSelectAdaptiveDesktop($this: &) {
+  --_cs-columns: var(--_cs--ds-columns);
+  --_cs-width: var(--_cs--ds-width);
+  --_cs__ls-height: var(--_cs__ls--ds-height);
+  --_cs__ls-padding: var(--_cs__ls--ds-padding);
+  --_cs__it-padding: var(--_cs__it--ds-padding);
+  --_cs__bt-height: var(--_cs__bt--ds-height);
+  --_cs__bt-width: var(--_cs__bt--ds-width);
+
+  #{$this}__menu {
+    padding-right: var(--_cs__mn-padding-rg);
+    padding-bottom: var(--_cs__mn-padding-bt);
+  }
+
+  #{$this}__list {
+    gap: 0;
+    margin-right: var(--_cs__cl-bottom);
+    padding-right: calc(var(--_cs__ls-padding) - var(--_cs__cl-bottom));
+
+    &.status-border-top {
+      border-bottom-color: transparent;
+    }
+  }
+
+  #{$this}__item {
+    button {
+      @include font('body2')
+    }
+  }
+}
+
+@mixin calendarSelectInit() {
+  @include calendarSelect;
+  @include calendarSelectMenu;
+  @include calendarSelectList;
+  @include calendarSelectItem;
+  @include calendarSelectCalendar;
+  @include calendarSelectShape;
+  @include calendarSelectMultiple;
+  @include calendarSelectAdaptive;
+}

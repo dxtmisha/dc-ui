@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import DDataItem from '@/components/DDataItem'
+import DDataItem from '../../../components/DDataItem'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsDataItem } from './options'
 import { tableItems } from '@/media/demo/data/list'

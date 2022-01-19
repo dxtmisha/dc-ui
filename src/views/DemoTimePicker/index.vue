@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import DTimePicker from '@/components/DTimePicker'
+import DTimePicker from '../../../components/DTimePicker'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTimePicker } from './options'
 

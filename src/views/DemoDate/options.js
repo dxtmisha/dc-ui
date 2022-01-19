@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DDate/props'
+import { props } from '../../../components/DDate/props'
 import { Calendar } from '@/media/demo/Calendar'
 import { Field } from '@/media/demo/Field'
 

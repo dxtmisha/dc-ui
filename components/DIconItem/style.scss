@@ -1,0 +1,95 @@
+@import "../../src/styles/flex";
+@import "../../src/styles/position";
+@import "../../src/styles/options/optionHide";
+
+%display {
+  display: flex;
+}
+
+%font-size {
+  font-size: var(--_ii-font-size);
+}
+
+@mixin iconItem() {
+  @include iconItemVar;
+  @include absoluteFull;
+  @include flexCenter;
+  @extend %font-size;
+  background-size: var(--_ii-background-size);
+  border-radius: inherit;
+  transform: none;
+  transition-duration: var(--transition-menu-expanding);
+  transition-property: opacity, transform;
+
+  @include optionHide();
+}
+
+@mixin iconItemVar() {
+  --_ii-background-size: var(--ii-background-size, cover);
+  --_ii-font-size: var(--ii-font-size, inherit);
+}
+
+@mixin iconItemMaterial() {
+  &.material-icons {
+    @extend %display;
+    @extend %font-size;
+    @content;
+
+    &.type- {
+      &outlined {
+        font-family: 'Material Icons Outlined', sans-serif;
+      }
+
+      &round {
+        font-family: 'Material Icons Round', sans-serif;
+      }
+
+      &sharp {
+        font-family: 'Material Icons Sharp', sans-serif;
+      }
+
+      &two-tone {
+        font-family: 'Material Icons Two Tone', sans-serif;
+      }
+    }
+  }
+}
+
+@mixin iconItemLineAwesome() {
+  &.la,
+  &.lab,
+  &.lad,
+  &.lal,
+  &.lar,
+  &.las {
+    @extend %display;
+
+    &::before {
+      color: inherit;
+    }
+
+    @content;
+  }
+}
+
+@mixin iconItemDisabled() {
+  &:not(.status-hide).status-disabled {
+    --basic-text-opacity: var(--opacity-surface-disabled);
+    @content;
+
+    &.type- {
+      &color,
+      &image {
+        filter: grayscale(1);
+        opacity: var(--opacity-surface-disabled);
+      }
+    }
+  }
+}
+
+@mixin iconItemInit() {
+  @include iconItem;
+  @include iconItemMaterial;
+  @include iconItemLineAwesome;
+  @include iconItemDisabled;
+}

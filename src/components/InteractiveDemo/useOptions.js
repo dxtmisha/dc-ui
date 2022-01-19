@@ -1,7 +1,7 @@
-import List from './../../classes/List'
+import List from '../../../classes/List'
 import { ref } from 'vue'
-import forEach from './../../functions/forEach'
-import goFunction from './../../functions/goFunction'
+import forEach from '../../../functions/forEach'
+import goFunction from '../../../functions/goFunction'
 
 export const useOptions = function (options) {
   const valueOptions = ref([])

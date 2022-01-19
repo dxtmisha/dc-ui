@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DNavigation/props'
+import { props } from '../../../components/DNavigation/props'
 import { AppBar } from '@/media/demo/AppBar'
 import { Window } from '@/media/demo/Window'
 

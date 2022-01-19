@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DTablePicker from '@/components/DTablePicker'
+import DButton from '../../../components/DButton'
+import DTablePicker from '../../../components/DTablePicker'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsTablePicker } from './options'
 

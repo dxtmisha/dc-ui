@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DTimePicker/props'
+import { props } from '../../../components/DTimePicker/props'
 
 export const optionsTimePicker = useProps(props, {
   format: {

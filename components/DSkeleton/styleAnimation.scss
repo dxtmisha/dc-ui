@@ -1,0 +1,29 @@
+@import "../../src/styles/color";
+
+@mixin skeletonAnimationType1 {
+  @keyframes __animate-skeleton--type-1 {
+    0% {
+      background-color: varColor(--_sk-palette, --_sk-opacity-start);
+    }
+
+    60% {
+      background-color: varColor(--_sk-palette, --_sk-opacity);
+    }
+
+    100% {
+      background-color: varColor(--_sk-palette, --_sk-opacity);
+    }
+  }
+}
+
+@mixin skeletonAnimationType2 {
+  @keyframes __animate-skeleton--type-2 {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: 100% 0;
+    }
+  }
+}

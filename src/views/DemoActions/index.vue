@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
+import DActions from '../../../components/DActions'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsActions } from './options'
 import { action } from '@/media/demo/data/list'

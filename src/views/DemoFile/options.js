@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DFile/props'
+import { props } from '../../../components/DFile/props'
 import { Field } from '@/media/demo/Field'
 
 export const optionsFile = useProps(props, {

@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DDataPicker/props'
+import { props } from '../../../components/DDataPicker/props'
 import { DataItem } from '@/media/demo/DataItem'
 import { Icon } from '@/media/demo/Icon'
 

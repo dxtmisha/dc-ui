@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import DAppBar from '@/components/DAppBar'
+import DAppBar from '../../../components/DAppBar'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { onBeforeMount, onUnmounted } from 'vue'
 import { optionsAppBar } from './options'

@@ -1,4 +1,4 @@
-import getRandom from '@/functions/getRandom'
+import getRandom from '../../../../functions/getRandom'
 
 export const action = [
   {

@@ -1,0 +1,28 @@
+@import "../../src/styles/dimension";
+@import "../../src/styles/flex";
+
+@mixin selectValue() {
+  --_sv-margin: var(--sv-margin, #{dimension(.5)});
+}
+
+@mixin selectValueBody() {
+  &__body {
+    @include flexX;
+    flex-wrap: wrap;
+    margin: calc(var(--_sv-margin) * -1);
+    @content;
+  }
+}
+
+@mixin selectValueItem() {
+  &__item {
+    margin: var(--_sv-margin);
+    @content;
+  }
+}
+
+@mixin selectValueInit() {
+  @include selectValue;
+  @include selectValueBody;
+  @include selectValueItem;
+}

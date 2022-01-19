@@ -16,7 +16,7 @@ import InteractiveDemoCode from './InteractiveDemoCode'
 import InteractiveDemoOption from './InteractiveDemoOption'
 import { toRefs } from 'vue'
 import { useOptions } from './useOptions'
-import forEach from './../../functions/forEach'
+import forEach from '../../../functions/forEach'
 
 export default {
   name: 'InteractiveDemo',

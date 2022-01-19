@@ -1,5 +1,5 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '@/components/DRedactionFile/props'
+import { props } from '../../../components/DRedactionFile/props'
 import { ControlResize } from '@/media/demo/ControlResize'
 import { Options } from '@/media/demo/Options'
 

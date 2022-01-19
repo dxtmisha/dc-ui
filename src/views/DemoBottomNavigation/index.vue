@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import DBottomNavigation from '@/components/DBottomNavigation'
+import DBottomNavigation from '../../../components/DBottomNavigation'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
 import { optionsBottomNavigation } from './options'
 import { bottomNavigation } from '@/media/demo/data/list'

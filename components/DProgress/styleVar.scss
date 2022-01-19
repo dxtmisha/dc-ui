@@ -1,0 +1,148 @@
+@import "../../src/styles/dimension";
+
+@mixin progressVar() {
+  --_pr-palette: var(--pr-palette, var(--palette-type1, var(--primary-type1)));
+
+  --_pr-duration: var(--pr-duration, 20s);
+  --_pr-height: var(--pr-height, #{dimension(1)});
+
+  --_pr--cr-padding: var(--pr--cr-padding, #{dimension(1)});
+  --_pr--cr-size: var(--pr--cr-size, #{dimension(12)});
+}
+
+@mixin progressAnimation() {
+  @keyframes __animate-linear--hidden {
+    0% {
+      transform: scaleY(1);
+    }
+
+    100% {
+      transform: scaleY(0);
+    }
+  }
+
+  @keyframes __animate-linear--visible {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes __animate-linear--type1 {
+    0% {
+      right: 100%;
+    }
+
+    5% {
+      right: 60%;
+    }
+
+    50% {
+      right: 10%;
+    }
+
+    100% {
+      right: 5%;
+    }
+  }
+
+  @keyframes __animate-linear--type2 {
+    0% {
+      left: -35%;
+      right: 100%;
+    }
+
+    60% {
+      left: 100%;
+      right: -90%;
+    }
+
+    100% {
+      left: 100%;
+      right: -90%;
+    }
+  }
+
+  @keyframes __animate-linear--type2__short {
+    0% {
+      left: -200%;
+      right: 100%;
+    }
+
+    60% {
+      left: 107%;
+      right: -8%;
+    }
+
+    100% {
+      left: 107%;
+      right: -8%;
+    }
+  }
+
+  @keyframes __animate-circle--hidden {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes __animate-circle--visible {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes __animate-circle--type1 {
+    0% {
+      stroke-dasharray: 1.256637061435917 125.66370614359173;
+    }
+
+    5% {
+      stroke-dasharray: 50.265482457436692 125.66370614359173;
+    }
+
+    50% {
+      stroke-dasharray: 113.09733552923253 125.66370614359173;
+    }
+
+    100% {
+      stroke-dasharray: 125.66370614359173 125.66370614359173;
+    }
+  }
+
+  @keyframes __animate-circle--type2 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes __animate-circle--type2__circle {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+}

@@ -1,0 +1,266 @@
+@import "../../src/styles/color";
+@import "../../src/styles/dimension";
+@import "../../src/styles/flex";
+@import "../../src/styles/font";
+@import "../../src/styles/position";
+@import "styleExtend";
+@import "styleVar";
+
+@mixin checkbox() {
+  @include checkboxVar;
+  @include flexX;
+  @include select-none;
+  display: inline-flex;
+  gap: 0 var(--_cb-gap);
+}
+
+@mixin checkboxInput() {
+  &__input {
+    position: absolute;
+    visibility: hidden;
+    @content;
+  }
+}
+
+@mixin checkboxText() {
+  &__text {
+    @content;
+
+    > * {
+      display: block;
+    }
+  }
+}
+
+@mixin checkboxRequired() {
+  &__required {
+    --basic-text: var(--error-type1);
+    @content;
+  }
+}
+
+@mixin checkboxItem() {
+  &__item {
+    @include circle(var(--_cb-size));
+    @include flexCenter;
+    @extend %ripple;
+    --basic-text: var(--text-type2);
+    --basic-text-opacity: var(--opacity-primary-high);
+    @content;
+
+    @include afterAbsolute() {
+      border-color: transparent;
+      border-radius: inherit;
+      border-width: var(--basic-border-width);
+      transition-property: border-color;
+    }
+
+    &:hover {
+      background-color: varColor(--_cb-palette-type1, --opacity-container-hover);
+    }
+  }
+
+  input:active + &__item {
+    background-color: varColor(--_cb-palette-type1, --opacity-container-dragged);
+
+    &::after {
+      border-color: varColor(--_cb-palette-type1, --opacity-surface-disabled);
+      transition-duration: 0s;
+    }
+  }
+}
+
+@mixin checkboxIcon() {
+  &__icon {
+    @include squared(var(--_cb__ic-size));
+    background-color: transparent;
+    border-color: varColor(--_cb-palette-type1, --opacity-surface-medium);
+    border-radius: dimension(1);
+    border-width: dimension(.5);
+    position: relative;
+    transition-property: background-color;
+    @content;
+
+    > * {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+}
+
+@mixin checkboxMessage() {
+  &__message {
+    @include font('caption');
+    --basic-text-opacity: var(--opacity-surface-medium);
+    @content;
+
+    &.cb-validation {
+      --basic-text: var(--error-type1);
+    }
+  }
+}
+
+@mixin checkboxRight() {
+  &.option-right {
+    @content;
+
+    & > * {
+      order: 2;
+    }
+  }
+
+  &.option-right &__text {
+    order: 1;
+  }
+}
+
+@mixin checkboxChecked() {
+  &__input:checked ~ * {
+    --_cb-palette-type1: var(--_cb-palette-type2);
+    @content;
+  }
+
+  &__input:checked + &__item &__icon {
+    background-color: varColor(--_cb-palette-type1);
+
+    > * {
+      clip-path: inset(0 0 0 0);
+      transition-property: clip-path, opacity, transform;
+    }
+  }
+}
+
+@mixin checkboxError() {
+  &.status-error &__input:not(:disabled) ~ * {
+    --_cb-palette-type1: var(--error-type1);
+    @content;
+  }
+
+  &.status-error &__input:not(:disabled) ~ &__text {
+    --basic-text: var(--error-type1);
+  }
+}
+
+@mixin checkboxDisabled() {
+  &__input:disabled ~ * {
+    --_cb-palette-type1: var(--disabled-type1);
+  }
+
+  &__input:disabled ~ &__item {
+    background-color: transparent;
+
+    &::after {
+      border-color: transparent;
+    }
+  }
+
+  &__input:disabled ~ &__text {
+    --basic-text: var(--_cb-palette-type1);
+    --basic-text-opacity: var(--opacity-surface-disabled);
+  }
+
+  &__input:disabled ~ &__text &__message {
+    display: none;
+  }
+}
+
+@mixin checkboxRadio() {
+  &.type-radio &__icon {
+    @include flexCenter;
+    border-radius: 100%;
+    @content;
+
+    > * {
+      clip-path: inset(0 0 0 0);
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+
+  &.type-radio &__input:checked ~ &__item &__icon {
+    background-color: transparent;
+
+    > * {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &.type-radio .cb-icon {
+    @include circle(dimension(3));
+    background-color: varColor(--_cb-palette-type1);
+    position: relative;
+  }
+}
+
+@mixin checkboxSwitch() {
+  &__switch {
+    @include flexX;
+    @extend %ripple;
+    background-color: varColor(--_cb-palette-type1, --opacity-scrim);
+    border-radius: 64px;
+    height: var(--_cb__sw-height);
+    transition-property: background-color;
+    width: var(--_cb__sw-width);
+    @content;
+  }
+}
+
+@mixin checkboxCircle() {
+  &__circle {
+    @include circle(var(--_cb-size));
+    @include flexCenter;
+    --_cb__sw-shift: calc((var(--_cb__sw-height) - var(--_cb-size)) / 2);
+    --_cb__sw-checked: calc(var(--_cb__sw-width) - var(--_cb-size));
+    background-color: transparent;
+    position: relative;
+    transform: translateX(var(--_cb__sw-shift));
+    transition-property: transform;
+    @content;
+
+    &::after {
+      @include squared(var(--_cb__ic-size));
+      background-color: varColor(--text-type2);
+      background-image: varColor(--text-type3, --opacity-primary-disabled, true);
+      border-radius: inherit;
+      box-shadow: var(--shadow-type1);
+      content: " ";
+      transition-property: background-color;
+    }
+
+    &:hover {
+      background-color: varColor(--_cb-palette-type1, --opacity-container-hover);
+    }
+  }
+
+  &__input:active ~ &__switch &__circle {
+    background-color: varColor(--_cb-palette-type1, --opacity-container-dragged);
+  }
+
+  &__input:checked ~ &__switch &__circle {
+    transform: translateX(#{calc(var(--_cb__sw-checked) - var(--_cb__sw-shift))});
+
+    &::after {
+      background-color: varColor(--_cb-palette-type1);
+      background-image: none;
+    }
+  }
+}
+
+@mixin checkboxInit() {
+  @include checkbox;
+  @include checkboxInput;
+  @include checkboxText;
+  @include checkboxRequired;
+  @include checkboxItem;
+  @include checkboxIcon;
+  @include checkboxMessage;
+  @include checkboxRight;
+
+  @include checkboxChecked;
+  @include checkboxError;
+  @include checkboxDisabled;
+
+  @include checkboxRadio;
+  @include checkboxSwitch;
+  @include checkboxCircle;
+}

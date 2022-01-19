@@ -1,6 +1,6 @@
-import Translation from './classes/Translation'
-import { useTheme } from './uses/useTheme'
-import forEach from './functions/forEach'
+import Translation from '../classes/Translation'
+import forEach from '../functions/forEach'
+import useTheme from '../uses/useTheme'
 
 let menu
 

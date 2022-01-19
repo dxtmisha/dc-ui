@@ -1,4 +1,4 @@
-import GeoDate from '@/classes/GeoDate'
+import GeoDate from '../../../classes/GeoDate'
 import { adaptiveBasic } from '@/media/demo/data/adaptive'
 import { Options } from '@/media/demo/Options'
 
