@@ -1,5 +1,5 @@
-import Translation from '@/classes/Translation'
-import { useTheme } from '@/uses/useTheme'
+import Translation from './../classes/Translation'
+import { useTheme } from './useTheme'
 
 export default {
   install (app, options) {
