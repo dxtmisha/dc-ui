@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin windowVar() {
   --_wn-height: var(--wn-height, calc(100vh - #{dimension(48)}));

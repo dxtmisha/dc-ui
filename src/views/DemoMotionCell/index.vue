@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/color";
+@import "../../../styles/color";
 
 .demo-cell {
   &__item {

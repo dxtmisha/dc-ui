@@ -84,9 +84,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/color";
-@import "../../styles/dimension";
-@import "../../styles/flex";
+@import "../../../styles/color";
+@import "../../../styles/dimension";
+@import "../../../styles/flex";
 
 .demo-control-position {
   display: flex;

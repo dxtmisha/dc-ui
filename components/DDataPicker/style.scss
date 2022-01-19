@@ -1,6 +1,6 @@
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
-@import "../../src/styles/padding";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/padding";
 
 @mixin dataPicker {
   --_dc__dd-basis: var(--dc__dd-basis, 280px);

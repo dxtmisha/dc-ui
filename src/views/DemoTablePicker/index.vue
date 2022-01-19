@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/font";
+@import "../../../styles/font";
 
 .demo-table {
   width: 100%;

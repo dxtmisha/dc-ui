@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
+@import "../../../styles/dimension";
 
 .demo-control-resize {
   @include aspectRatio('16/9');

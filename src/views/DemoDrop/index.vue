@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
+@import "../../../styles/dimension";
 
 .demo-drop {
   @include squared(100%);

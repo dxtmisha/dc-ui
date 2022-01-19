@@ -1,8 +1,8 @@
-@import "../../src/styles/color";
-@import "../../src/styles/dimension";
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
-@import "../../src/styles/options/optionBlur";
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/options/optionBlur";
 
 @mixin top {
   --_tp-palette: var(--tp-palette, var(--palette-type1, var(--primary-type1)));

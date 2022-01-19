@@ -1,4 +1,4 @@
-@import "../../../dimension";
+@import "../../../styles/dimension";
 
 @mixin m3Actions() {
   --ac-padding: #{dimension(4)};

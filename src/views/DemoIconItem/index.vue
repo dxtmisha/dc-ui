@@ -47,9 +47,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
-@import "../../styles/flex";
-@import "../../styles/font";
+@import "../../../styles/dimension";
+@import "../../../styles/flex";
+@import "../../../styles/font";
 
 .demo-icon-item {
   @include flexY;

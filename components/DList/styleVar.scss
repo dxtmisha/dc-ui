@@ -1,5 +1,5 @@
-@import "../../src/styles/color";
-@import "../../src/styles/dimension";
+@import "../../styles/color";
+@import "../../styles/dimension";
 
 @mixin listVar() {
   --_ls-palette: var(--ls-palette, var(--palette-type1, var(--primary-type1)));

@@ -1,6 +1,6 @@
-@import "../../src/styles/dimension";
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
+@import "../../styles/dimension";
+@import "../../styles/flex";
+@import "../../styles/font";
 
 @mixin mixinAdaptive() {
   --_li-padding: var(--_li--ic-padding);

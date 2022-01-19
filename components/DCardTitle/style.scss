@@ -1,5 +1,5 @@
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
+@import "../../styles/flex";
+@import "../../styles/font";
 
 @mixin cardTitle {
   --_ct-gap: var(--ct-gap, 16px);

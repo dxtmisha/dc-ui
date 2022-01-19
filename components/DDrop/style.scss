@@ -1,6 +1,6 @@
-@import "../../src/styles/color";
-@import "../../src/styles/dimension";
-@import "../../src/styles/elevation";
+@import "../../styles/color";
+@import "../../styles/dimension";
+@import "../../styles/elevation";
 
 @mixin drop() {
   @include index(1);

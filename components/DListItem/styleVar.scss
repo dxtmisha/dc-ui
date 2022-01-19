@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin listItemVar() {
   --_li-palette-type1: var(--li-palette-type1, var(--palette-type1, var(--basic-text)));

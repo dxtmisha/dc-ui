@@ -1,9 +1,9 @@
-@import "../../src/styles/color";
-@import "../../src/styles/elevation";
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
-@import "../../src/styles/position";
-@import "../../src/styles/options/optionBlur";
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/position";
+@import "../../styles/options/optionBlur";
 
 @mixin snackbar {
   --_sn-palette: var(--sn-palette, var(--palette-type2, var(--background-inverse)));

@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin checkboxVar() {
   --_cb-palette-type1: var(--cb-palette-type1, var(--text-type1));

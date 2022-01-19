@@ -1,5 +1,5 @@
-@import "../../../color";
-@import "../../../font";
+@import "../../../styles/color";
+@import "../../../styles/font";
 
 @mixin m3Card() {
   --cr-radius: var(--radius-type4);

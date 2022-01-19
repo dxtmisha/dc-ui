@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin buttonVar() {
   --_bt-palette-type1: var(--bt-palette-type1, var(--palette-type1, var(--basic-text)));

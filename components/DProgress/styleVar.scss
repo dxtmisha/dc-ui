@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin progressVar() {
   --_pr-palette: var(--pr-palette, var(--palette-type1, var(--primary-type1)));

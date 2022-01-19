@@ -1,4 +1,4 @@
-@import "../font";
+@import "../styles/font";
 
 @mixin initFonts($fonts) {
   @each $name, $font in $fonts {

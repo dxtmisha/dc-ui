@@ -50,10 +50,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/color";
-@import "../../styles/dimension";
-@import "../../styles/elevation";
-@import "../../styles/font";
+@import "../../../styles/color";
+@import "../../../styles/dimension";
+@import "../../../styles/elevation";
+@import "../../../styles/font";
 
 .demo-motion-sticky {
   position: relative;

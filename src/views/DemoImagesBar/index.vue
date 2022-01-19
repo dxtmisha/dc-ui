@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
+@import "../../../styles/dimension";
 
 .demo-images-bar {
   @include squared(100%);

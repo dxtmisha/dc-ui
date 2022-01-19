@@ -1,5 +1,5 @@
-@import "../../src/styles/color";
-@import "../../src/styles/dimension";
+@import "../../styles/color";
+@import "../../styles/dimension";
 
 @mixin cardMedia {
   --_cm__ic-aspect: var(--cm__ic-aspect, 172/97);

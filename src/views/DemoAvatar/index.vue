@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/flex";
+@import "../../../styles/flex";
 
 .demo-badge {
   @include flexY;

@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin carcassFieldVar() {
   --_cf-palette-type1: var(--cf-palette-type1, var(--background-overlay));

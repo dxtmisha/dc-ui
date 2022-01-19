@@ -1,6 +1,6 @@
-@import "../color";
-@import "../dimension";
-@import "../font";
+@import "../styles/color";
+@import "../styles/dimension";
+@import "../styles/font";
 
 @mixin initTypography() {
   *,

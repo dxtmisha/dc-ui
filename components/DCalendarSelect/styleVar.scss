@@ -1,4 +1,4 @@
-@import "../../src/styles/dimension";
+@import "../../styles/dimension";
 
 @mixin calendarSelectVar() {
   --_cs-status-palette: var(--cs-status-palette, var(--palette-type1, var(--primary-type1)));

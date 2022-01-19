@@ -1,8 +1,8 @@
-@import "../../src/styles/dimension";
-@import "../../src/styles/elevation";
-@import "../../src/styles/media";
-@import "../../src/styles/position";
-@import "../../src/styles/options/optionBackground";
+@import "../../styles/dimension";
+@import "../../styles/elevation";
+@import "../../styles/media";
+@import "../../styles/position";
+@import "../../styles/options/optionBackground";
 
 @mixin motionTransform() {
   content: "--ANIMATION--";

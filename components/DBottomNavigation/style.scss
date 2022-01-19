@@ -1,8 +1,8 @@
-@import "../../src/styles/color";
-@import "../../src/styles/elevation";
-@import "../../src/styles/flex";
-@import "../../src/styles/position";
-@import "../../src/styles/options/optionBlur";
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/flex";
+@import "../../styles/position";
+@import "../../styles/options/optionBlur";
 
 @mixin bottomNavigation {
   --_bv-palette-type1: var(--bv-palette-type1, var(--background-type8));

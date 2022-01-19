@@ -1,6 +1,6 @@
-@import "../../src/styles/color";
-@import "../../src/styles/elevation";
-@import "../../src/styles/font";
+@import "../../styles/color";
+@import "../../styles/elevation";
+@import "../../styles/font";
 
 @mixin controlPosition {
   --_cp-palette: var(--cp-palette, var(--color-palette, var(--primary-type1)));

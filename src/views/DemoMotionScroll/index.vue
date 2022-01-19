@@ -76,8 +76,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
-@import "../../styles/media";
+@import "../../../styles/dimension";
+@import "../../../styles/media";
 
 .demo-motion-scroll {
   height: dimension(112);

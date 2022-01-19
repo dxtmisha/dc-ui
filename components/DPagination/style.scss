@@ -1,5 +1,5 @@
-@import "../../src/styles/flex";
-@import "../../src/styles/font";
+@import "../../styles/flex";
+@import "../../styles/font";
 
 @mixin pagination {
   --_pg-gap: var(--pg-gap, 4px);

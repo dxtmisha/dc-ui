@@ -66,10 +66,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
-@import "../../styles/flex";
-@import "../../styles/font";
-@import "../../styles/media";
+@import "../../../styles/dimension";
+@import "../../../styles/flex";
+@import "../../../styles/font";
+@import "../../../styles/media";
 
 %id-padding {
   padding: dimension(2) dimension(4);

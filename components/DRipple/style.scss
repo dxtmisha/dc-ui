@@ -1,5 +1,5 @@
-@import "../../src/styles/color";
-@import "../../src/styles/position";
+@import "../../styles/color";
+@import "../../styles/position";
 
 @mixin ripple() {
   --_rp-palette: var(--rp-palette, var(--palette-type1, var(--primary-type1)));

@@ -1,5 +1,5 @@
-@import "../../src/styles/color";
-@import "../../src/styles/dimension";
+@import "../../styles/color";
+@import "../../styles/dimension";
 
 @mixin clockFaceVar() {
   --_cf-palette-type1: var(--cf-palette-type1, var(--palette-type1, var(--primary-type1)));

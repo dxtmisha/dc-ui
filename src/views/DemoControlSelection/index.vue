@@ -63,8 +63,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../styles/dimension";
-@import "../../styles/flex";
+@import "../../../styles/dimension";
+@import "../../../styles/flex";
 
 .demo-control-selection {
   display: flex;
