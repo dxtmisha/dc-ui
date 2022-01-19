@@ -3,6 +3,7 @@
   "version": "0.77.5",
   "description": "UI based on Material Design",
   "author": "Duong Xuan Tung (dxtmisha)",
+  "email": "dxtmisha@gmail.com",
   "license": "Apache-2.0",
   "keywords": [
     "material",
@@ -11,6 +12,17 @@
     "vue"
   ],
   "main": "src/index.js",
+  "bin": {
+    "classes": "src/classes",
+    "components": "src/components",
+    "functions": "src/functions",
+    "uses": "src/uses",
+    "install": "src/install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dxtmisha/dc-ui.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
