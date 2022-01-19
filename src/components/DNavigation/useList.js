@@ -1,4 +1,4 @@
-import attrList from '@/components/DList/attrList'
+import attrList from './../DList/attrList'
 
 export default function useList (
   props,

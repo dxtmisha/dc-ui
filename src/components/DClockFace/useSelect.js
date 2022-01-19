@@ -1,5 +1,5 @@
 import { computed, toRefs } from 'vue'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default function useSelect (props, context) {
   const {

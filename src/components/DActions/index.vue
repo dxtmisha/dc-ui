@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
+import DButton from './../DButton'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useBar from './useBar'
 
 export default {

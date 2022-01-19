@@ -34,16 +34,16 @@
 </template>
 
 <script>
-import DCarcassField from '@/components/DCarcassField'
-import DDatePicker from '@/components/DDatePicker'
-import DWindow from '@/components/DWindow'
+import DCarcassField from './../DCarcassField'
+import DDatePicker from './../DDatePicker'
+import DWindow from './../DWindow'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import GeoDate from '@/classes/GeoDate'
-import attrDatePicker from '@/components/DDatePicker/attrDatePicker'
-import useAdmin from '@/uses/useAdmin'
-import useCarcass from '@/components/DTime/useCarcass'
-import useField from '@/uses/useField'
+import GeoDate from './../../classes/GeoDate'
+import attrDatePicker from './../DDatePicker/attrDatePicker'
+import useAdmin from './../../uses/useAdmin'
+import useCarcass from './../DTime/useCarcass'
+import useField from './../../uses/useField'
 
 export default {
   name: 'DDate',

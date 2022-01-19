@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorAdaptive } from '@/uses/useDefault'
+import { defaultInit, validator, validatorAdaptive } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-tab')
 export const props = {

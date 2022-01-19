@@ -63,12 +63,12 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DCheckbox from '@/components/DCheckbox'
+import DButton from './../DButton'
+import DCheckbox from './../DCheckbox'
 import { props } from './props'
 import { computed } from 'vue'
-import attrButton from '@/components/DButton/attrButton'
-import useAdmin from '@/uses/useAdmin'
+import attrButton from './../DButton/attrButton'
+import useAdmin from './../../uses/useAdmin'
 import useHeaders from './useHeaders'
 import useList from './useList'
 

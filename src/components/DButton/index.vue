@@ -17,17 +17,17 @@
 </template>
 
 <script>
-import DBadge from '@/components/DBadge'
-import DIcon from '@/components/DIcon'
-import DProgress from '@/components/DProgress'
-import DRipple from '@/components/DRipple'
+import DBadge from './../DBadge'
+import DIcon from './../DIcon'
+import DProgress from './../DProgress'
+import DRipple from './../DRipple'
 import { props } from './props'
 import { computed } from 'vue'
-import attrBadge from '@/components/DBadge/attrBadge'
-import attrProgress from '@/components/DProgress/attrProgress'
-import attrRipple from '@/components/DRipple/attrRipple'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import attrBadge from './../DBadge/attrBadge'
+import attrProgress from './../DProgress/attrProgress'
+import attrRipple from './../DRipple/attrRipple'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 import useIcon from './useIcon'
 
 export default {

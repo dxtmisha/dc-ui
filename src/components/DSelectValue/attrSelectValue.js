@@ -1,4 +1,4 @@
-import useAttrs from '@/uses/useAttrs'
+import useAttrs from './../../uses/useAttrs'
 import { props as main } from './props'
 
 export default function attrSelectValue ({

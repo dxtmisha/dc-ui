@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
+import DButton from './../DButton'
+import DMenu from './../DMenu'
 import { props } from './props'
 import { toRefs } from 'vue'
-import attrMenu from '@/components/DMenu/attrMenu'
-import attrButton from '@/components/DButton/attrButton'
-import useAdmin from '@/uses/useAdmin'
+import attrMenu from './../DMenu/attrMenu'
+import attrButton from './../DButton/attrButton'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DCardMenu',

@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
+import DIconItem from './../DIconItem'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 
 export default {
   name: 'DBadge',

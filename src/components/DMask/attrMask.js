@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DMask/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DMask/props'
 
 export default function attrMask ({
   props,

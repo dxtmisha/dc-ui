@@ -79,19 +79,19 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DButton from '@/components/DButton'
-import DCalendarMultiple from '@/components/DCalendarMultiple'
-import DCalendarSelect from '@/components/DCalendarSelect'
-import DInput from '@/components/DInput'
-import DMotionTransform from '@/components/DMotionTransform'
-import DTop from '@/components/DTop'
+import DActions from './../DActions'
+import DButton from './../DButton'
+import DCalendarMultiple from './../DCalendarMultiple'
+import DCalendarSelect from './../DCalendarSelect'
+import DInput from './../DInput'
+import DMotionTransform from './../DMotionTransform'
+import DTop from './../DTop'
 import { props } from './props'
 import { computed, nextTick, ref, toRefs } from 'vue'
-import Translation from '@/classes/Translation'
-import attrCalendarSelect from '@/components/DCalendarSelect/attrCalendarSelect'
-import useAdmin from '@/uses/useAdmin'
-import useWatch from '@/uses/useWatch'
+import Translation from './../../classes/Translation'
+import attrCalendarSelect from './../DCalendarSelect/attrCalendarSelect'
+import useAdmin from './../../uses/useAdmin'
+import useWatch from './../../uses/useWatch'
 import useValue from './useValue'
 
 export default {

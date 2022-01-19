@@ -23,15 +23,15 @@
 </template>
 
 <script>
-import DList from '@/components/DList'
-import DWindow from '@/components/DWindow'
+import DList from './../DList'
+import DWindow from './../DWindow'
 import { props } from './props'
 import { computed } from 'vue'
-import attrItem from '@/components/DListItem/attrItem'
-import attrWindow from '@/components/DWindow/attrWindow'
-import useAdmin from '@/uses/useAdmin'
+import attrItem from './../DListItem/attrItem'
+import attrWindow from './../DWindow/attrWindow'
+import useAdmin from './../../uses/useAdmin'
 import useFocus from './useFocus'
-import useObjectList from '@/uses/useObjectList'
+import useObjectList from './../../uses/useObjectList'
 import useSelected from './useSelected'
 import useShifted from './useShifted'
 

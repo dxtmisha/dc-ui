@@ -1,4 +1,4 @@
-import forEach from '@/functions/forEach'
+import forEach from './../../functions/forEach'
 
 export default function useSelection (
   id,

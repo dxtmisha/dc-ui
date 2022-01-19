@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import DListItem from '@/components/DListItem'
+import DListItem from './../DListItem'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 import useItems from '../DTab/useItems'
 import useScroll from './useScroll'
 

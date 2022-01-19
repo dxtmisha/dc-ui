@@ -1,5 +1,5 @@
-import { palette } from '@/uses/useColor'
-import { defaultInit, validator } from '@/uses/useDefault'
+import { palette } from './../../uses/useColor'
+import { defaultInit, validator } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-skeleton')
 export const props = {

@@ -10,15 +10,15 @@
 </template>
 
 <script>
-import DImagesItem from '@/components/DImagesItem'
+import DImagesItem from './../DImagesItem'
 import { props } from './props'
 import { computed, provide, ref, toRefs } from 'vue'
-import List from '@/classes/List'
-import forEach from '@/functions/forEach'
-import isSelected from '@/functions/isSelected'
-import useAdmin from '@/uses/useAdmin'
+import List from './../../classes/List'
+import forEach from './../../functions/forEach'
+import isSelected from './../../functions/isSelected'
+import useAdmin from './../../uses/useAdmin'
 import useAppearance from './useAppearance'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DImages',

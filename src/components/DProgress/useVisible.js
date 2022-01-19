@@ -1,6 +1,6 @@
 import { toRefs } from 'vue'
-import useClass from '@/uses/useClass'
-import useWatch from '@/uses/useWatch'
+import useClass from './../../uses/useClass'
+import useWatch from './../../uses/useWatch'
 
 export default function useVisible (
   progress,

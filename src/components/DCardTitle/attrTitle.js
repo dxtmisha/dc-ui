@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DCardTitle/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DCardTitle/props'
 
 export default function attrTitle ({
   props,

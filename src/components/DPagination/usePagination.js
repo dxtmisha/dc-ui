@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import Translation from '@/classes/Translation'
+import Translation from './../../classes/Translation'
 
 export default function usePagination (props, bindButton) {
   const maxPage = computed(() => Math.ceil(props.count / props.rows))

@@ -1,5 +1,5 @@
 import { toRefs } from 'vue'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default function useIndicator (tab, props) {
   const { selected } = toRefs(props)

@@ -1,7 +1,7 @@
 import { computed, ref, toRefs } from 'vue'
-import Geo from '@/classes/Geo'
-import forEach from '@/functions/forEach'
-import useWatch from '@/uses/useWatch'
+import Geo from './../../classes/Geo'
+import forEach from './../../functions/forEach'
+import useWatch from './../../uses/useWatch'
 
 export default function useList (props, context) {
   const {

@@ -1,6 +1,6 @@
 import { onBeforeUnmount } from 'vue'
-import EventControl from '@/classes/EventControl'
-import getIdElement from '@/functions/getIdElement'
+import EventControl from './../../classes/EventControl'
+import getIdElement from './../../functions/getIdElement'
 
 export default function useEvent (
   content,

@@ -1,5 +1,5 @@
-import attrTable from '@/components/DTable/attrTable'
-import useHeaders from '@/components/DTable/useHeaders'
+import attrTable from './../DTable/attrTable'
+import useHeaders from './../DTable/useHeaders'
 import { computed } from 'vue'
 
 export default function useTable (

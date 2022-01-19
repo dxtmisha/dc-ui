@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DPagination/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DPagination/props'
 
 export default function attrPagination ({
   props,

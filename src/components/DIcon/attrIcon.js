@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DIcon/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DIcon/props'
 
 export default function attrIcon ({
   props,

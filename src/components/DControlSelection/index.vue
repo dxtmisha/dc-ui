@@ -17,11 +17,11 @@
 <script>
 import { props } from './props'
 import { ref, toRefs } from 'vue'
-import getIdElement from '@/functions/getIdElement'
-import useAdmin from '@/uses/useAdmin'
+import getIdElement from './../../functions/getIdElement'
+import useAdmin from './../../uses/useAdmin'
 import useItem from './useItem'
 import useSquare from './useSquare'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DControlSelection',

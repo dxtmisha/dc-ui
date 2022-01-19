@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import DListItem from '@/components/DListItem'
+import DListItem from './../DListItem'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useIndicator from './useIndicator'
 import useItems from './useItems'
 

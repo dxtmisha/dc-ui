@@ -1,5 +1,5 @@
 import { toRefs } from 'vue'
-import attrButton from '@/components/DButton/attrButton'
+import attrButton from './../DButton/attrButton'
 
 export default function useButton (
   props,

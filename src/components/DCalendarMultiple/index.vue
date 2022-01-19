@@ -63,18 +63,18 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DCalendar from '@/components/DCalendar'
-import DMotionAxis from '@/components/DMotionAxis'
-import DMotionScroll from '@/components/DMotionScroll'
+import DButton from './../DButton'
+import DCalendar from './../DCalendar'
+import DMotionAxis from './../DMotionAxis'
+import DMotionScroll from './../DMotionScroll'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'
-import attrCalendar from '@/components/DCalendar/attrCalendar'
-import useAdmin from '@/uses/useAdmin'
-import useButton from '@/components/DCalendarSelect/useButton'
-import useCalendar from '@/components/DCalendarSelect/useCalendar'
+import attrCalendar from './../DCalendar/attrCalendar'
+import useAdmin from './../../uses/useAdmin'
+import useButton from './../DCalendarSelect/useButton'
+import useCalendar from './../DCalendarSelect/useCalendar'
 import useDesktop from './useDesktop'
-import useScroll from '@/uses/useScroll'
+import useScroll from './../../uses/useScroll'
 
 export default {
   name: 'DCalendarMultiple',

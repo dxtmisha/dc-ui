@@ -63,14 +63,14 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DCalendar from '@/components/DCalendar'
-import DMotionAxis from '@/components/DMotionAxis'
-import DScrollbar from '@/components/DScrollbar'
+import DButton from './../DButton'
+import DCalendar from './../DCalendar'
+import DMotionAxis from './../DMotionAxis'
+import DScrollbar from './../DScrollbar'
 import { props } from './props'
 import { computed, onMounted, ref, toRefs, watch } from 'vue'
-import attrCalendar from '@/components/DCalendar/attrCalendar'
-import useAdmin from '@/uses/useAdmin'
+import attrCalendar from './../DCalendar/attrCalendar'
+import useAdmin from './../../uses/useAdmin'
 import useButton from './useButton'
 import useCalendar from './useCalendar'
 

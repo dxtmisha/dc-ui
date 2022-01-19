@@ -1,4 +1,4 @@
-import createElement from '@/functions/createElement'
+import createElement from './../../functions/createElement'
 
 export default function useItem (ripple) {
   const add = (x, y) => createElement(ripple.value, 'span', item => {

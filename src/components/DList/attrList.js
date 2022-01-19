@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DList/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DList/props'
 
 export default function attrList ({
   props,

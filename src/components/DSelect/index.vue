@@ -34,15 +34,15 @@
 </template>
 
 <script>
-import DCarcassField from '@/components/DCarcassField'
-import DMenu from '@/components/DMenu'
-import DSelectValue from '@/components/DSelectValue'
+import DCarcassField from './../DCarcassField'
+import DMenu from './../DMenu'
+import DSelectValue from './../DSelectValue'
 import { props } from './props'
 import { ref } from 'vue'
-import attrSelectValue from '@/components/DSelectValue/attrSelectValue'
-import useAdmin from '@/uses/useAdmin'
+import attrSelectValue from './../DSelectValue/attrSelectValue'
+import useAdmin from './../../uses/useAdmin'
 import useCarcass from './useCarcass'
-import useField from '@/uses/useField'
+import useField from './../../uses/useField'
 import useMenu from './useMenu'
 
 export default {

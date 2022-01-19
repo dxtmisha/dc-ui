@@ -1,4 +1,4 @@
-import forEach from '@/functions/forEach'
+import forEach from './forEach'
 
 export default function addArrayValue (array, values) {
   const data = array instanceof Object ? array : {}

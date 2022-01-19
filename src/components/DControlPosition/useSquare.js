@@ -1,6 +1,6 @@
 import { ref } from 'vue'
-import useClass from '@/uses/useClass'
-import useStyleList from '@/uses/useStyleList'
+import useClass from './../../uses/useClass'
+import useStyleList from './../../uses/useStyleList'
 
 export default function useSquare (
   id,

@@ -1,8 +1,8 @@
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 import { computed, toRefs } from 'vue'
-import forEach from '@/functions/forEach'
-import getExp from '@/functions/getExp'
-import isSelected from '@/functions/isSelected'
+import forEach from './../../functions/forEach'
+import getExp from './../../functions/getExp'
+import isSelected from './../../functions/isSelected'
 
 export default function useFilters (props, list, max) {
   const { filters } = toRefs(props)

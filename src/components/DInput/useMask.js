@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import attrMask from '@/components/DMask/attrMask'
+import attrMask from './../DMask/attrMask'
 
 export default function useMask (props) {
   const isMask = computed(() => !props.arrow &&

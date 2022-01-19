@@ -27,14 +27,14 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
+import DButton from './../DButton'
+import DMenu from './../DMenu'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useBar from './useBar'
-import useObjectList from '@/uses/useObjectList'
-import useSelected from '@/components/DMenu/useSelected'
+import useObjectList from './../../uses/useObjectList'
+import useSelected from './../DMenu/useSelected'
 
 export default {
   name: 'DButtonGroup',

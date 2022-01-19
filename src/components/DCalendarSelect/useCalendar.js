@@ -1,5 +1,5 @@
 import { computed, nextTick, ref } from 'vue'
-import useDateTime from '@/uses/useDateTime'
+import useDateTime from './../../uses/useDateTime'
 
 const QUANTITY = 8
 

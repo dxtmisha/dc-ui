@@ -1,6 +1,6 @@
 import { computed, toRefs } from 'vue'
-import setValues from '@/functions/setValues'
-import useWatch from '@/uses/useWatch'
+import setValues from './../../functions/setValues'
+import useWatch from './../../uses/useWatch'
 
 export default function useSelected (
   props,

@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import useDateTime from '@/uses/useDateTime'
+import useDateTime from './../../uses/useDateTime'
 
 export default function useValue (
   inputIn,

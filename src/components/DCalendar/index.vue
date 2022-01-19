@@ -37,10 +37,10 @@
 <script>
 import { props } from './props'
 import { computed, toRefs } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useCalendar from './useCalendar'
-import useDateTime from '@/uses/useDateTime'
-import useWatch from '@/uses/useWatch'
+import useDateTime from './../../uses/useDateTime'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DCalendar',

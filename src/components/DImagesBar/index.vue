@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
+import DButton from './../DButton'
 import { props } from './props'
 import { computed, inject, toRefs } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DImagesBar',

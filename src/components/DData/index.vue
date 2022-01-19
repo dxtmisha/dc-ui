@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import DDataItem from '@/components/DDataItem'
+import DDataItem from './../DDataItem'
 import { props } from './props'
 import { computed } from 'vue'
-import forEach from '@/functions/forEach'
-import useAdmin from '@/uses/useAdmin'
+import forEach from './../../functions/forEach'
+import useAdmin from './../../uses/useAdmin'
 import useItems from './useItems'
 import useHeaders from './useHeaders'
 

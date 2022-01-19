@@ -1,5 +1,5 @@
 import { computed, toRefs } from 'vue'
-import attrField from '@/components/DCarcassField/attrField'
+import attrField from './../DCarcassField/attrField'
 
 export default function useCarcass (
   props,

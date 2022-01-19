@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
-import EventControl from '@/classes/EventControl'
+import EventControl from './../../classes/EventControl'
 
 export default function useDesktop (calendar, props) {
   const { calendarAdaptive } = toRefs(props)

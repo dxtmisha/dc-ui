@@ -27,11 +27,11 @@
 <script>
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
-import EventControl from '@/classes/EventControl'
-import useAdmin from '@/uses/useAdmin'
-import useClass from '@/uses/useClass'
-import useStyleList from '@/uses/useStyleList'
-import useWatch from '@/uses/useWatch'
+import EventControl from './../../classes/EventControl'
+import useAdmin from './../../uses/useAdmin'
+import useClass from './../../uses/useClass'
+import useStyleList from './../../uses/useStyleList'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DControlResize',

@@ -69,16 +69,16 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import DProgress from '@/components/DProgress'
-import DRipple from '@/components/DRipple'
+import DIcon from './../DIcon'
+import DProgress from './../DProgress'
+import DRipple from './../DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import getIdElement from '@/functions/getIdElement'
-import attrProgress from '@/components/DProgress/attrProgress'
-import attrRipple from '@/components/DRipple/attrRipple'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import getIdElement from './../../functions/getIdElement'
+import attrProgress from './../DProgress/attrProgress'
+import attrRipple from './../DRipple/attrRipple'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 import useIcon from './useIcon'
 import usePrefix from './usePrefix'
 

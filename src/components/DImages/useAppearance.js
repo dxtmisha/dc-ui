@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, onUpdated, ref, toRefs } from 'vue'
-import EventControl from '@/classes/EventControl'
+import EventControl from './../../classes/EventControl'
 
 export default function useAppearance (
   images,

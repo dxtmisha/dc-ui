@@ -82,15 +82,15 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DList from '@/components/DList'
-import DMenu from '@/components/DMenu'
-import DMotionAxis from '@/components/DMotionAxis'
-import DMotionTransform from '@/components/DMotionTransform'
+import DButton from './../DButton'
+import DList from './../DList'
+import DMenu from './../DMenu'
+import DMotionAxis from './../DMotionAxis'
+import DMotionTransform from './../DMotionTransform'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAction from './useAction'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useBar from './useBar'
 import useButton from './useButton'
 import useList from './useList'

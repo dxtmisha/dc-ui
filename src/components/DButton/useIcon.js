@@ -1,5 +1,5 @@
 import { computed, toRefs } from 'vue'
-import attrIcon from '@/components/DIcon/attrIcon'
+import attrIcon from './../DIcon/attrIcon'
 
 export default function useIcon (
   props,

@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
+import DButton from './../DButton'
+import DMenu from './../DMenu'
 import { props } from './props'
 import { ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useButton from './useButton'
-import useField from '@/uses/useField'
-import useMenu from '@/components/DSelect/useMenu'
+import useField from './../../uses/useField'
+import useMenu from './../DSelect/useMenu'
 
 export default {
   name: 'DButtonSelect',

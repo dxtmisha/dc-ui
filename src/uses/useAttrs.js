@@ -1,5 +1,5 @@
 import { reactive, toRefs } from 'vue'
-import forEach from '@/functions/forEach'
+import forEach from './../functions/forEach'
 
 export default function useAttrs ({
   code,

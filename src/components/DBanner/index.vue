@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DIcon from '@/components/DIcon'
-import DMotionTransform from '@/components/DMotionTransform'
+import DActions from './../DActions'
+import DIcon from './../DIcon'
+import DMotionTransform from './../DMotionTransform'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
-import attrActions from '@/components/DActions/attrActions'
-import attrIcon from '@/components/DIcon/attrIcon'
-import useWatch from '@/uses/useWatch'
+import attrActions from './../DActions/attrActions'
+import attrIcon from './../DIcon/attrIcon'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DBanner',

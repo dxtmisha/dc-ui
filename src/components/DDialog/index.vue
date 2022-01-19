@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DScrollbar from '@/components/DScrollbar'
-import DWindow from '@/components/DWindow'
+import DActions from './../DActions'
+import DScrollbar from './../DScrollbar'
+import DWindow from './../DWindow'
 import { props } from './props'
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import attrActions from '@/components/DActions/attrActions'
-import attrWindow from '@/components/DWindow/attrWindow'
+import useAdmin from './../../uses/useAdmin'
+import attrActions from './../DActions/attrActions'
+import attrWindow from './../DWindow/attrWindow'
 
 export default {
   name: 'DDialog',

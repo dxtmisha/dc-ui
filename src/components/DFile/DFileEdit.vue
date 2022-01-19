@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import DDialog from '@/components/DDialog'
-import DRedactionFile from '@/components/DRedactionFile'
+import DDialog from './../DDialog'
+import DRedactionFile from './../DRedactionFile'
 
 export default {
   name: 'DFileEdit',

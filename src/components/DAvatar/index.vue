@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DIconItem from '@/components/DIconItem'
-import DSliderPicker from '@/components/DSliderPicker'
+import DButton from './../DButton'
+import DIconItem from './../DIconItem'
+import DSliderPicker from './../DSliderPicker'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import usePosition from './usePosition'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DAvatar',

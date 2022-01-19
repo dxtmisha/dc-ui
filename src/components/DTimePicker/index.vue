@@ -66,20 +66,20 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DButtonGroup from '@/components/DButtonGroup'
-import DClockFace from '@/components/DClockFace'
-import DInput from '@/components/DInput'
-import DMotionTransform from '@/components/DMotionTransform'
+import DActions from './../DActions'
+import DButtonGroup from './../DButtonGroup'
+import DClockFace from './../DClockFace'
+import DInput from './../DInput'
+import DMotionTransform from './../DMotionTransform'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
 import useActions from './useActions'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useAmPm from './useAmPm'
-import useDateTime from '@/uses/useDateTime'
+import useDateTime from './../../uses/useDateTime'
 import useInput from './useInput'
 import useText from './useText'
-import useWatch from '@/uses/useWatch'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DTimePicker',

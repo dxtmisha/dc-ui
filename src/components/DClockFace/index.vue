@@ -44,7 +44,7 @@
 <script>
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useSelect from './useSelect'
 
 export default {

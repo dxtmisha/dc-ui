@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import List from '@/classes/List'
+import List from './../../classes/List'
 
 export default function useHeaders (props) {
   return computed(() => {

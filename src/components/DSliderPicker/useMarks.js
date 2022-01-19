@@ -1,6 +1,6 @@
 import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
-import List from '@/classes/List'
-import useStyleList from '@/uses/useStyleList'
+import List from './../../classes/List'
+import useStyleList from './../../uses/useStyleList'
 
 export default function useMarks (
   slider,

@@ -36,11 +36,11 @@
 <script>
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useClasses from './useClasses'
 import useEvent from './useEvent'
 import useMotion from './useMotion'
-import useScroll from '@/uses/useScroll'
+import useScroll from './../../uses/useScroll'
 
 export default {
   name: 'DMotionTransform',

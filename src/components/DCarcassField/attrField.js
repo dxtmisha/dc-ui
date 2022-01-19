@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DCarcassField/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DCarcassField/props'
 
 export default function attrField ({
   props,

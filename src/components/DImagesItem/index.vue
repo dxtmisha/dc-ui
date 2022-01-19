@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import DIconItem from '@/components/DIconItem'
-import DImagesBar from '@/components/DImagesBar'
+import DIcon from './../DIcon'
+import DIconItem from './../DIconItem'
+import DImagesBar from './../DImagesBar'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DImagesItem',

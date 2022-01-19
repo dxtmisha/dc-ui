@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import forEach from '@/functions/forEach'
+import forEach from './../../functions/forEach'
 
 export default function useValidity (
   form,

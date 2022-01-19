@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue'
-import createElement from '@/functions/createElement'
+import createElement from './../functions/createElement'
 
 const SCROLL = '__dcUi-scroll'
 let calculate = false

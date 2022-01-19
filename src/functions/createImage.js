@@ -1,4 +1,4 @@
-import getFileResult from '@/functions/getFileResult'
+import getFileResult from './getFileResult'
 
 const MAX_SIZE = 600
 

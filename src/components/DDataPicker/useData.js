@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import attrData from '@/components/DData/attrData'
+import attrData from './../DData/attrData'
 
 export default function useData (props, items) {
   return attrData({

@@ -1,4 +1,4 @@
-import { defaultInit, validatorAxis, validatorShape } from '@/uses/useDefault'
+import { defaultInit, validatorAxis, validatorShape } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-button-group')
 export const props = {

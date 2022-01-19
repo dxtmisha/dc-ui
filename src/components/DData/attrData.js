@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DData/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DData/props'
 
 export default function attrData ({
   props,

@@ -12,10 +12,10 @@
 <script>
 import { props } from './props'
 import { computed, nextTick, ref, toRefs } from 'vue'
-import forEach from '@/functions/forEach'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useWatch from '@/uses/useWatch'
+import forEach from './../../functions/forEach'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DSkeleton',

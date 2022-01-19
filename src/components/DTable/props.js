@@ -1,4 +1,4 @@
-import { defaultInit, validatorAlign, validatorSize } from '@/uses/useDefault'
+import { defaultInit, validatorAlign, validatorSize } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-table')
 export const props = {

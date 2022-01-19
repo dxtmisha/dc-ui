@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DCardMedia/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DCardMedia/props'
 
 export default function attrMedia ({
   props,

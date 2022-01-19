@@ -1,5 +1,5 @@
-import forEach from '@/functions/forEach'
-import attrs from '@/media/demo/attrs'
+import forEach from './../../functions/forEach'
+import attrs from './../../media/demo/attrs'
 
 let items
 

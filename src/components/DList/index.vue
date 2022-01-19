@@ -46,18 +46,18 @@
 </template>
 
 <script>
-import DListItem from '@/components/DListItem'
+import DListItem from './../DListItem'
 import { props } from './props'
 import { computed, defineAsyncComponent } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 import useItems from './useItems'
 
 export default {
   name: 'DList',
   components: {
     DListItem,
-    DMenu: defineAsyncComponent(() => import('@/components/DMenu'))
+    DMenu: defineAsyncComponent(() => import('./../DMenu'))
   },
   props,
   emits: ['on-click', 'on-group'],

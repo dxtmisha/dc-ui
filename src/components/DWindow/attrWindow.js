@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DWindow/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DWindow/props'
 
 export default function attrWindow ({
   props,

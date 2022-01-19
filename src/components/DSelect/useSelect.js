@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import Geo from '@/classes/Geo'
+import Geo from './../../classes/Geo'
 
 export default function useSelect (props) {
   return computed(() => {

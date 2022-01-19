@@ -1,4 +1,4 @@
-import EventControl from '@/classes/EventControl'
+import EventControl from './../../classes/EventControl'
 import { ref } from 'vue'
 
 export default function usePosition (

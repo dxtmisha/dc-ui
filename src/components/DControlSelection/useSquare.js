@@ -1,8 +1,8 @@
 import { ref } from 'vue'
-import EventControl from '@/classes/EventControl'
-import toggleArrayValue from '@/functions/toggleArrayValue'
-import useClass from '@/uses/useClass'
-import useStyleList from '@/uses/useStyleList'
+import EventControl from './../../classes/EventControl'
+import toggleArrayValue from './../../functions/toggleArrayValue'
+import useClass from './../../uses/useClass'
+import useStyleList from './../../uses/useStyleList'
 
 export default function useSquare (
   selection,

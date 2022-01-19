@@ -11,7 +11,7 @@
 <script>
 import { props } from './props'
 import { ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useCell from './useCell'
 
 export default {

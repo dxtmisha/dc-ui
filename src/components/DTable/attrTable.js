@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DTable/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DTable/props'
 
 export default function attrTable ({
   props,

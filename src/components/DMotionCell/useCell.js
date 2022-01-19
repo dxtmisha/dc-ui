@@ -1,5 +1,5 @@
-import forEach from '@/functions/forEach'
-import useClass from '@/uses/useClass'
+import forEach from './../../functions/forEach'
+import useClass from './../../uses/useClass'
 
 export default function useCell (cell) {
   const classFreeze = useClass(cell, 'status-freeze')

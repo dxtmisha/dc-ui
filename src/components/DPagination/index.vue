@@ -49,12 +49,12 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DMenu from '@/components/DMenu'
+import DButton from './../DButton'
+import DMenu from './../DMenu'
 import { props } from './props'
-import Translation from '@/classes/Translation'
-import attrButton from '@/components/DButton/attrButton'
-import useAdmin from '@/uses/useAdmin'
+import Translation from './../../classes/Translation'
+import attrButton from './../DButton/attrButton'
+import useAdmin from './../../uses/useAdmin'
 import usePagination from './usePagination'
 
 export default {

@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DButton/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DButton/props'
 
 export default function attrButton ({
   props,

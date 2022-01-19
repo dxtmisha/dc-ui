@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import GeoDate from '@/classes/GeoDate'
+import GeoDate from './../../classes/GeoDate'
 
 export default function useMask (props) {
   const geo = computed(() => props.type === 'text' ? undefined : new GeoDate(props.locales).setType(props.type))

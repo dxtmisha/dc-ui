@@ -1,4 +1,4 @@
-import { defaultInit } from '@/uses/useDefault'
+import { defaultInit } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-data')
 export const props = {

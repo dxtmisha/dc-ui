@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import DPagination from '@/components/DPagination'
-import DTable from '@/components/DTable'
+import DPagination from './../DPagination'
+import DTable from './../DTable'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import useList from '@/components/DTable/useList'
+import useAdmin from './../../uses/useAdmin'
+import useList from './../DTable/useList'
 import usePagination from './usePagination'
 import useRows from './useRows'
 import useTable from './useTable'

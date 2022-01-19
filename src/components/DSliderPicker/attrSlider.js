@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DSliderPicker/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DSliderPicker/props'
 
 export default function attrSlider ({
   props,

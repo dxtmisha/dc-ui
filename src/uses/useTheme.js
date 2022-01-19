@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import optionsMedia from '../media/options.json'
-import addArrayValue from '@/functions/addArrayValue'
+import addArrayValue from './../functions/addArrayValue'
 
 const DC_THEME = '__dcUi-theme'
 const DC_THEME_COLOR = '__dcUi-theme-color'

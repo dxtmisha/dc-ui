@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import DCardMenu from '@/components/DCardMenu'
-import DIcon from '@/components/DIcon'
+import DCardMenu from './../DCardMenu'
+import DIcon from './../DIcon'
 import { props } from './props'
 import { computed } from 'vue'
-import attrIcon from '@/components/DIcon/attrIcon'
-import useAdmin from '@/uses/useAdmin'
+import attrIcon from './../DIcon/attrIcon'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DCardTitle',

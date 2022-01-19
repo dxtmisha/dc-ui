@@ -1,4 +1,4 @@
-import getKey from '@/functions/getKey'
+import getKey from './../../functions/getKey'
 
 export default function useShifted (
   props,

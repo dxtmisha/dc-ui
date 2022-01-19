@@ -38,8 +38,8 @@
 </template>
 
 <script>
-import DCheckbox from '@/components/DCheckbox'
-import DButtonSelect from '@/components/DButtonSelect'
+import DCheckbox from './../DCheckbox'
+import DButtonSelect from './../DButtonSelect'
 
 export default {
   name: 'InteractiveDemoOption',

@@ -1,5 +1,5 @@
-import forEach from '@/functions/forEach'
-import goFunction from '@/functions/goFunction'
+import forEach from './forEach'
+import goFunction from './goFunction'
 
 export default function createElement (
   parentElement,

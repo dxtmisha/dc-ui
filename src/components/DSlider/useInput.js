@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DSlider/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DSlider/props'
 
 export default function useInput (props) {
   return useAttrs({

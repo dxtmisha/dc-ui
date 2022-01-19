@@ -22,8 +22,8 @@
 <script>
 import { props } from './props'
 import { computed, ref } from 'vue'
-import getIdElement from '@/functions/getIdElement'
-import useAdmin from '@/uses/useAdmin'
+import getIdElement from './../../functions/getIdElement'
+import useAdmin from './../../uses/useAdmin'
 import useEvent from './useEvent'
 import usePosition from './usePosition'
 

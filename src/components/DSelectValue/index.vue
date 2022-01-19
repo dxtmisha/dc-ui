@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
+import DButton from './../DButton'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
-import attrButton from '@/components/DButton/attrButton'
+import useAdmin from './../../uses/useAdmin'
+import attrButton from './../DButton/attrButton'
 
 export default {
   name: 'DSelectValue',

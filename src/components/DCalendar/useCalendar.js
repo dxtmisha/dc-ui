@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import isSelected from '@/functions/isSelected'
+import isSelected from './../../functions/isSelected'
 
 export default function useCalendar (
   props,

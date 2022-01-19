@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DListItem/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DListItem/props'
 
 export default function attrItem ({
   props,

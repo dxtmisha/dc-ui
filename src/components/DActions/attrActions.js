@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DActions/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DActions/props'
 
 export default function attrActions ({
   props,

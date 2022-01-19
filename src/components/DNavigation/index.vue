@@ -50,18 +50,18 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DList from '@/components/DList'
-import DListItem from '@/components/DListItem'
-import DMotionAxis from '@/components/DMotionAxis'
+import DButton from './../DButton'
+import DList from './../DList'
+import DListItem from './../DListItem'
+import DMotionAxis from './../DMotionAxis'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import List from '@/classes/List'
-import useAdmin from '@/uses/useAdmin'
+import List from './../../classes/List'
+import useAdmin from './../../uses/useAdmin'
 import useList from './useList'
 import useOpen from './useOpen'
-import useScroll from '@/uses/useScroll'
-import useSelected from '@/components/DAppBar/useSelected'
+import useScroll from './../../uses/useScroll'
+import useSelected from './../DAppBar/useSelected'
 
 export default {
   name: 'DNavigation',

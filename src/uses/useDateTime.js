@@ -1,6 +1,6 @@
 import { computed, ref, toRefs, watch } from 'vue'
-import Geo from '@/classes/Geo'
-import GeoDate from '@/classes/GeoDate'
+import Geo from './../classes/Geo'
+import GeoDate from './../classes/GeoDate'
 
 export default function useDateTime (
   type,

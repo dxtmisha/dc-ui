@@ -1,4 +1,4 @@
-import attrPagination from '@/components/DPagination/attrPagination'
+import attrPagination from './../DPagination/attrPagination'
 
 export default function usePagination (
   props,

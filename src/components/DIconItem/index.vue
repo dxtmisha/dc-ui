@@ -5,7 +5,7 @@
 <script>
 import { props } from './props'
 import { computed, readonly } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useIcon from './useIcon'
 
 export default {

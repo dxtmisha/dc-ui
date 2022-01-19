@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import DButton from '@/components/DButton'
-import DIcon from '@/components/DIcon'
+import DButton from './../DButton'
+import DIcon from './../DIcon'
 import { props } from './props'
 import { computed, toRefs } from 'vue'
-import attrButton from '@/components/DButton/attrButton'
-import attrIcon from '@/components/DIcon/attrIcon'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useWatch from '@/uses/useWatch'
+import attrButton from './../DButton/attrButton'
+import attrIcon from './../DIcon/attrIcon'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DAlert',

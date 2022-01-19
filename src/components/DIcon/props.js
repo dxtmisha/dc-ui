@@ -1,4 +1,4 @@
-import { validator } from '@/uses/useDefault'
+import { validator } from './../../uses/useDefault'
 
 export const props = {
   // Values

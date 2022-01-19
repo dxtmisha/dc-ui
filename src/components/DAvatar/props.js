@@ -1,4 +1,4 @@
-import { defaultInit, validatorShape } from '@/uses/useDefault'
+import { defaultInit, validatorShape } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-avatar')
 export const props = {

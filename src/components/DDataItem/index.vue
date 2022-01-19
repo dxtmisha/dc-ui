@@ -48,17 +48,17 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import DMotionTransform from '@/components/DMotionTransform'
-import DProgress from '@/components/DProgress'
-import DTop from '@/components/DTop'
+import DIcon from './../DIcon'
+import DMotionTransform from './../DMotionTransform'
+import DProgress from './../DProgress'
+import DTop from './../DTop'
 import { props } from './props'
 import { computed } from 'vue'
-import attrProgress from '@/components/DProgress/attrProgress'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
+import attrProgress from './../DProgress/attrProgress'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
 import useIcon from './useIcon'
-import getExp from '@/functions/getExp'
+import getExp from './../../functions/getExp'
 
 export default {
   name: 'DDataItem',

@@ -16,7 +16,7 @@
 <script>
 import { props } from './props'
 import { computed, onBeforeUpdate, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useGo from './useGo'
 import useTo from './useTo'
 

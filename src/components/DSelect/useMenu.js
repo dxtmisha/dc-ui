@@ -1,4 +1,4 @@
-import attrMenu from '@/components/DMenu/attrMenu'
+import attrMenu from './../DMenu/attrMenu'
 import useSelect from './useSelect'
 
 export default function useMenu (props, propValue) {

@@ -1,5 +1,5 @@
 import { computed, onMounted, ref, watch } from 'vue'
-import EventControl from '@/classes/EventControl'
+import EventControl from './../../classes/EventControl'
 
 export default function useElement (
   scroll,

@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DMenu/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DMenu/props'
 
 export default function attrMenu ({
   props,

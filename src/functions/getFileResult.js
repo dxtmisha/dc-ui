@@ -1,4 +1,4 @@
-import isImage from '@/functions/isImage'
+import isImage from './isImage'
 
 export default function getFileResult (file) {
   return new Promise(resolve => {

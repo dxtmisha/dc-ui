@@ -10,9 +10,9 @@
 <script>
 import { props } from './props'
 import { ref } from 'vue'
-import getIdElement from '@/functions/getIdElement'
-import useAdmin from '@/uses/useAdmin'
-import useElement from '@/components/DMotionScroll/useElement'
+import getIdElement from './../../functions/getIdElement'
+import useAdmin from './../../uses/useAdmin'
+import useElement from './../DMotionScroll/useElement'
 import useMotion from './useMotion'
 
 export default {

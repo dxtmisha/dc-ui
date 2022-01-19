@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DButtonSelect from '@/components/DButtonSelect'
+import DButtonSelect from './../DButtonSelect'
 
 export default {
   name: 'InteractiveDemoRouter',

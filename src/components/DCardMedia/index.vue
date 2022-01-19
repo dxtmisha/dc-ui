@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
-import DIcon from '@/components/DIcon'
+import DIconItem from './../DIconItem'
+import DIcon from './../DIcon'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DCardMedia',

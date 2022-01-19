@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
+import DIconItem from './../DIconItem'
 import { props } from './props'
 import { computed } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DIcon',

@@ -1,4 +1,4 @@
-import { defaultInit, validator, validatorSize } from '@/uses/useDefault'
+import { defaultInit, validator, validatorSize } from './../../uses/useDefault'
 
 const defaultProps = defaultInit('d-images-bar')
 export const props = {

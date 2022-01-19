@@ -1,5 +1,5 @@
 import { toRefs } from 'vue'
-import attrActions from '@/components/DActions/attrActions'
+import attrActions from './../DActions/attrActions'
 
 export default function useActions (
   props,

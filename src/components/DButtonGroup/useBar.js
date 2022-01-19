@@ -1,9 +1,9 @@
 import { computed } from 'vue'
-import forEach from '@/functions/forEach'
-import isSelected from '@/functions/isSelected'
-import attrButton from '@/components/DButton/attrButton'
-import attrMenu from '@/components/DMenu/attrMenu'
-import useWatch from '@/uses/useWatch'
+import forEach from './../../functions/forEach'
+import isSelected from './../../functions/isSelected'
+import attrButton from './../DButton/attrButton'
+import attrMenu from './../DMenu/attrMenu'
+import useWatch from './../../uses/useWatch'
 
 export default function useBar (
   props,

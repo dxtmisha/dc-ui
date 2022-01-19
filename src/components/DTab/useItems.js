@@ -1,8 +1,8 @@
 import { computed } from 'vue'
-import List from '@/classes/List'
-import forEach from '@/functions/forEach'
-import attrItem from '@/components/DListItem/attrItem'
-import useWatch from '@/uses/useWatch'
+import List from './../../classes/List'
+import forEach from './../../functions/forEach'
+import attrItem from './../DListItem/attrItem'
+import useWatch from './../../uses/useWatch'
 
 export default function useItems (props, propSelected) {
   const propList = computed(() => new List(

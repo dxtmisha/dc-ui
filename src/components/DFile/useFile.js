@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
-import Geo from '@/classes/Geo'
-import List from '@/classes/List'
+import Geo from './../../classes/Geo'
+import List from './../../classes/List'
 
 export default function useFile (
   selection,

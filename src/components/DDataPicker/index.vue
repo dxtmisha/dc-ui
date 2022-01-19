@@ -38,19 +38,19 @@
 </template>
 
 <script>
-import DData from '@/components/DData'
-import DPagination from '@/components/DPagination'
-import DProgress from '@/components/DProgress'
+import DData from './../DData'
+import DPagination from './../DPagination'
+import DProgress from './../DProgress'
 import { props } from './props'
 import { computed, ref, toRefs, watch } from 'vue'
-import Translation from '@/classes/Translation'
-import useAdmin from '@/uses/useAdmin'
+import Translation from './../../classes/Translation'
+import useAdmin from './../../uses/useAdmin'
 import useData from './useData'
 import useFilters from './useFilters'
-import useObjectList from '@/uses/useObjectList'
-import usePagination from '@/components/DTablePicker/usePagination'
-import useRows from '@/components/DTablePicker/useRows'
-import DControlPosition from '@/components/DControlPosition'
+import useObjectList from './../../uses/useObjectList'
+import usePagination from './../DTablePicker/usePagination'
+import useRows from './../DTablePicker/useRows'
+import DControlPosition from './../DControlPosition'
 
 export default {
   name: 'DDataPicker',

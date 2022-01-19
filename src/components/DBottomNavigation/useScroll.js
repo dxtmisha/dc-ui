@@ -1,7 +1,7 @@
 import { toRefs } from 'vue'
-import EventControl from '@/classes/EventControl'
-import useStyle from '@/uses/useStyle'
-import useWatch from '@/uses/useWatch'
+import EventControl from './../../classes/EventControl'
+import useStyle from './../../uses/useStyle'
+import useWatch from './../../uses/useWatch'
 
 export default function useScroll (app, props) {
   const { scroll } = toRefs(props)

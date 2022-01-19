@@ -8,7 +8,7 @@
 
 <script>
 import { props } from './props'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DCardText',

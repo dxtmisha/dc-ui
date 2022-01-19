@@ -1,4 +1,4 @@
-import useClassByFocus from '@/uses/useClassByFocus'
+import useClassByFocus from './../../uses/useClassByFocus'
 
 export default function useDrop (
   id,

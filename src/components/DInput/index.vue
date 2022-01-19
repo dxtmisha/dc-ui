@@ -31,13 +31,13 @@
 </template>
 
 <script>
-import DCarcassField from '@/components/DCarcassField'
-import DMask from '@/components/DMask'
+import DCarcassField from './../DCarcassField'
+import DMask from './../DMask'
 import { props } from './props'
 import { ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useCarcass from './useCarcass'
-import useField from '@/uses/useField'
+import useField from './../../uses/useField'
 import useInput from './useInput'
 import useMask from './useMask'
 

@@ -1,6 +1,6 @@
 import { ref, toRefs } from 'vue'
-import forEach from '@/functions/forEach'
-import useWatch from '@/uses/useWatch'
+import forEach from './../../functions/forEach'
+import useWatch from './../../uses/useWatch'
 
 export default function useFields (props) {
   const {

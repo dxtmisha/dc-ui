@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DCalendarSelect/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DCalendarSelect/props'
 
 export default function attrCalendarSelect ({
   props,

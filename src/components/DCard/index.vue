@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DCardMedia from '@/components/DCardMedia'
-import DCardText from '@/components/DCardText'
-import DCardTitle from '@/components/DCardTitle'
+import DActions from './../DActions'
+import DCardMedia from './../DCardMedia'
+import DCardText from './../DCardText'
+import DCardTitle from './../DCardTitle'
 import { props } from './props'
 import { computed } from 'vue'
-import attrActions from '@/components/DActions/attrActions'
-import attrMedia from '@/components/DCardMedia/attrMedia'
-import attrTitle from '@/components/DCardTitle/attrTitle'
-import useAdmin from '@/uses/useAdmin'
+import attrActions from './../DActions/attrActions'
+import attrMedia from './../DCardMedia/attrMedia'
+import attrTitle from './../DCardTitle/attrTitle'
+import useAdmin from './../../uses/useAdmin'
 
 export default {
   name: 'DCard',

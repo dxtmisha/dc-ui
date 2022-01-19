@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DTimePicker/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DTimePicker/props'
 
 export default function attrTimePicker ({
   props,

@@ -75,20 +75,20 @@
 </template>
 
 <script>
-import DActions from '@/components/DActions'
-import DControlPosition from '@/components/DControlPosition'
-import DControlSelection from '@/components/DControlSelection'
-import DDrop from '@/components/DDrop'
-import DFileEdit from '@/components/DFile/DFileEdit'
-import DImages from '@/components/DImages'
-import DImagesItem from '@/components/DImagesItem'
+import DActions from './../DActions'
+import DControlPosition from './../DControlPosition'
+import DControlSelection from './../DControlSelection'
+import DDrop from './../DDrop'
+import DFileEdit from './../DFile/DFileEdit'
+import DImages from './../DImages'
+import DImagesItem from './../DImagesItem'
 import { props } from './props'
 import { computed, nextTick, ref } from 'vue'
-import Translation from '@/classes/Translation'
-import forEach from '@/functions/forEach'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useField from '@/uses/useField'
+import Translation from './../../classes/Translation'
+import forEach from './../../functions/forEach'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
+import useField from './../../uses/useField'
 import useFile from './useFile'
 
 export default {

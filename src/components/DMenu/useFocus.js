@@ -1,8 +1,8 @@
 import { nextTick, ref } from 'vue'
-import EventControl from '@/classes/EventControl'
-import getExp from '@/functions/getExp'
-import getKey from '@/functions/getKey'
-import goScroll from '@/functions/goScroll'
+import EventControl from './../../classes/EventControl'
+import getExp from './../../functions/getExp'
+import getKey from './../../functions/getKey'
+import goScroll from './../../functions/goScroll'
 
 export default function useFocus (
   selected,

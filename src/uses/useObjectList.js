@@ -1,6 +1,6 @@
-import List from '@/classes/List'
+import List from './../classes/List'
 import { computed, ref, toRefs, watch } from 'vue'
-import useWatch from '@/uses/useWatch'
+import useWatch from './useWatch'
 
 export default function useObjectList (props) {
   const {

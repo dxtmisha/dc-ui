@@ -77,14 +77,14 @@
 </template>
 
 <script>
-import DIcon from '@/components/DIcon'
-import DSliderPicker from '@/components/DSliderPicker'
+import DIcon from './../DIcon'
+import DSliderPicker from './../DSliderPicker'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import attrSlider from '@/components/DSliderPicker/attrSlider'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useField from '@/uses/useField'
+import attrSlider from './../DSliderPicker/attrSlider'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
+import useField from './../../uses/useField'
 import useInput from './useInput'
 
 export default {

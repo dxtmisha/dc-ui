@@ -1,6 +1,6 @@
 import { ref, toRefs, watch } from 'vue'
-import createImage from '@/functions/createImage'
-import useWatch from '@/uses/useWatch'
+import createImage from './../../functions/createImage'
+import useWatch from './../../uses/useWatch'
 
 export default function useIcon (props, context) {
   let type

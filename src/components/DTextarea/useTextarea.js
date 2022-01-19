@@ -1,5 +1,5 @@
-import { props as main } from '@/components/DTextarea/props'
-import useAttrs from '@/uses/useAttrs'
+import { props as main } from './../DTextarea/props'
+import useAttrs from './../../uses/useAttrs'
 
 export default function useTextarea (props) {
   return useAttrs({

@@ -1,5 +1,5 @@
-import { defaultInit, validator } from '@/uses/useDefault'
-import Geo from '@/classes/Geo'
+import { defaultInit, validator } from './../../uses/useDefault'
+import Geo from './../../classes/Geo'
 
 const defaultProps = defaultInit('d-button-select')
 export const props = {

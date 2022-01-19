@@ -1,4 +1,4 @@
-import isSelected from '@/functions/isSelected'
+import isSelected from './isSelected'
 
 export default function getKey (list, selected, alias = 'value') {
   let index = -1

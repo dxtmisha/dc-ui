@@ -1,5 +1,5 @@
-import { defaultInit } from '@/uses/useDefault'
-import { max, min } from '@/components/DCalendar/props'
+import { defaultInit } from './../../uses/useDefault'
+import { max, min } from './../DCalendar/props'
 
 const defaultProps = defaultInit('d-date-picker')
 export const props = {

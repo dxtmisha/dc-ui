@@ -1,5 +1,5 @@
-import { defaultInit, validator } from '@/uses/useDefault'
-import Translation from '@/classes/Translation'
+import { defaultInit, validator } from './../../uses/useDefault'
+import Translation from './../../classes/Translation'
 
 const defaultProps = defaultInit('d-form')
 export const props = {

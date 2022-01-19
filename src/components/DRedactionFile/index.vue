@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import DControlResize from '@/components/DControlResize'
-import DIconItem from '@/components/DIconItem'
+import DControlResize from './../DControlResize'
+import DIconItem from './../DIconItem'
 import { props } from './props'
 import { computed, ref, toRefs } from 'vue'
-import getFileResult from '@/functions/getFileResult'
-import useAdmin from '@/uses/useAdmin'
-import useWatch from '@/uses/useWatch'
+import getFileResult from './../../functions/getFileResult'
+import useAdmin from './../../uses/useAdmin'
+import useWatch from './../../uses/useWatch'
 
 export default {
   name: 'DRedactionFile',

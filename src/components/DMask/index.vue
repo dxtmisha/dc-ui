@@ -30,7 +30,7 @@
 <script>
 import { props } from './props'
 import { computed, ref } from 'vue'
-import useAdmin from '@/uses/useAdmin'
+import useAdmin from './../../uses/useAdmin'
 import useCharacter from './useCharacter'
 import useEvent from './useEvent'
 import useMask from './useMask'

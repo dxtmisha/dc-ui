@@ -1,8 +1,8 @@
 import { computed, toRefs } from 'vue'
-import forEach from '@/functions/forEach'
-import isSelected from '@/functions/isSelected'
-import attrDataItem from '@/components/DDataItem/attrDataItem'
-import useWatch from '@/uses/useWatch'
+import forEach from './../../functions/forEach'
+import isSelected from './../../functions/isSelected'
+import attrDataItem from './../DDataItem/attrDataItem'
+import useWatch from './../../uses/useWatch'
 
 export default function useItems (
   props,

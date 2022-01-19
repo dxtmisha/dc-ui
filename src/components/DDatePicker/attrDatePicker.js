@@ -1,5 +1,5 @@
-import useAttrs from '@/uses/useAttrs'
-import { props as main } from '@/components/DDatePicker/props'
+import useAttrs from './../../uses/useAttrs'
+import { props as main } from './../DDatePicker/props'
 
 export default function attrDatePicker ({
   props,

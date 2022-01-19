@@ -1,6 +1,6 @@
 import { computed, onUnmounted, ref } from 'vue'
-import EventControl from '@/classes/EventControl'
-import forEach from '@/functions/forEach'
+import EventControl from './../../classes/EventControl'
+import forEach from './../../functions/forEach'
 
 export default function useSelected (
   app,

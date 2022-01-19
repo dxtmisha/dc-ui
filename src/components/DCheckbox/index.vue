@@ -37,14 +37,14 @@
 </template>
 
 <script>
-import DIconItem from '@/components/DIconItem'
-import DRipple from '@/components/DRipple'
+import DIconItem from './../DIconItem'
+import DRipple from './../DRipple'
 import { props } from './props'
 import { computed, ref } from 'vue'
-import attrRipple from '@/components/DRipple/attrRipple'
-import useAdmin from '@/uses/useAdmin'
-import useColor from '@/uses/useColor'
-import useField from '@/uses/useField'
+import attrRipple from './../DRipple/attrRipple'
+import useAdmin from './../../uses/useAdmin'
+import useColor from './../../uses/useColor'
+import useField from './../../uses/useField'
 
 export default {
   name: 'DCheckbox',

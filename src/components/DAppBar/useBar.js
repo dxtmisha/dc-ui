@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import List from '@/classes/List'
+import List from './../../classes/List'
 
 export default function useBar (props) {
   const getList = list => new List(
