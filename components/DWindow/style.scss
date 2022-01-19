@@ -23,6 +23,11 @@
 
   &__block {
     overflow: hidden;
+
+    #app {
+      @include fixedFull;
+      overflow-x: auto;
+    }
   }
 }
 

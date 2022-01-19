@@ -21,4 +21,14 @@
     ));
     @include initColors($shadeDark, $charts);
   }
+
+  body.theme\:m2-auto {
+    @media (prefers-color-scheme: dark) {
+      @include initConstructor((
+              background: $backgroundDark,
+              text: $textDark
+      ));
+      @include initColors($shadeDark, $charts);
+    }
+  }
 }

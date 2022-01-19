@@ -3,13 +3,14 @@ export default class EventControl {
   _domElement
   _type = ['click']
   _property = {}
+  _options = undefined
   _listener = () => null
   _once = false
 
   _activity = false
 
   constructor (element) {
-    this._element = typeof element === 'string' ? document.querySelector(element) : element
+    this.setElement(element)
   }
 
   static init (
@@ -24,6 +25,11 @@ export default class EventControl {
       .setProperty(property)
       .setListener(listener)
       .setOnce(once)
+  }
+
+  setElement (element) {
+    this._element = typeof element === 'string' ? document.querySelector(element) : element
+    return this
   }
 
   setDomElement (element) {
@@ -43,6 +49,11 @@ export default class EventControl {
       this._property = property
     }
 
+    return this
+  }
+
+  setOptions (options) {
+    this._options = options
     return this
   }
 
@@ -81,7 +92,7 @@ export default class EventControl {
   go () {
     if (this._listener && this._activity === false) {
       this._activity = true
-      this._type.forEach(type => this._element.addEventListener(type, this._listener))
+      this._type.forEach(type => this._element.addEventListener(type, this._listener, this._options))
     }
 
     return this

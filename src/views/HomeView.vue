@@ -25,24 +25,17 @@ export default {
         icon: 'grid_view',
         name: 'Components',
         list: [
-          'd-badge',
-          'd-icon',
-          'd-icon-item',
-          'd-list',
-          'd-list-item',
-          'd-menu'
-        ]
-      },
-      {
-        icon: 'dashboard',
-        name: 'Elements',
-        list: [
           'd-alert',
+          'd-badge',
           'd-banner',
           'd-button',
           'd-button-group',
           'd-button-select',
-          'd-dialog',
+          'd-icon',
+          'd-icon-item',
+          'd-list',
+          'd-list-item',
+          'd-menu',
           'd-snackbar',
           'd-tooltip'
         ]
@@ -76,6 +69,7 @@ export default {
           'd-actions',
           'd-app-bar',
           'd-bottom-navigation',
+          'd-dialog',
           'd-navigation',
           'd-tab',
           'd-top'

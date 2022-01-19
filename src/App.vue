@@ -3,7 +3,7 @@
     <nav/>
     <div class="ui-sector__main">
       <header>
-        <span class="font:headline6 pr-4">dc-UI</span>
+        <a href="/" class="a-static font:headline6 pr-4">dc-UI</a>
         <interactive-demo-router/>
         <div class="flex-grow"/>
         <interactive-demo-theme/>

@@ -1,6 +1,7 @@
-import { nextTick, ref } from 'vue'
+import { nextTick } from 'vue'
 import EventControl from '../../classes/EventControl'
 import useClass from '../../uses/useClass'
+import useScroll from './useScroll'
 
 const isChildren = (target, id) => {
   const focus = target.closest('.d-window')
@@ -21,7 +22,6 @@ export default function useOpen (
   watchPosition,
   context
 ) {
-  const classBody = useClass(ref(document.body), 'd-window__block')
   const classShow = useClass(modal, 'status-show')
   const classHide = useClass(modal, 'status-hide')
   const classPersistent = useClass(
@@ -44,6 +44,7 @@ export default function useOpen (
     false
   )
 
+  const scrollToggle = useScroll()
   const eventBody = EventControl.init(document.body, async (event) => {
     if (open.value) {
       await verification(event.target)
@@ -63,7 +64,8 @@ export default function useOpen (
 
     if (!props.beforeOpening || await props.beforeOpening(toOpen)) {
       if (toOpen) {
-        classBody.set(true)
+        scrollToggle(true)
+
         classHide.set(false)
         open.value = toOpen
 
@@ -72,16 +74,15 @@ export default function useOpen (
 
         requestAnimationFrame(() => {
           classShow.set(true)
-          eventBody.go()
 
+          eventBody.go()
           emitOpening(toOpen)
         })
       } else {
         classHide.set(true)
         classShow.set(false)
-        classBody.set(false)
-        eventBody.stop()
 
+        eventBody.stop()
         emitOpening(toOpen)
       }
 
@@ -144,6 +145,7 @@ export default function useOpen (
       propertyName === 'visibility'
     ) {
       open.value = false
+      requestAnimationFrame(() => scrollToggle(false))
     }
   }
 

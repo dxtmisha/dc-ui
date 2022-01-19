@@ -21,4 +21,14 @@
     ));
     @include initColors($shadeM3Dark, $charts);
   }
+
+  body.theme\:m3-auto {
+    @media (prefers-color-scheme: dark) {
+      @include initConstructor((
+              background: $backgroundM3Dark,
+              text: $textM3Dark
+      ));
+      @include initColors($shadeM3Dark, $charts);
+    }
+  }
 }

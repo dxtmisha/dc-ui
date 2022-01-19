@@ -8,7 +8,6 @@
     :lowercase="true"
     :dense="true"
     icon="drag_indicator"
-    menu-size="compact"
   />
 </template>
 

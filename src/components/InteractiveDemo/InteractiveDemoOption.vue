@@ -19,7 +19,6 @@
           :name="item.value"
           :text="item.text"
           :list="item.list"
-          menu-size="compact"
           adaptive="block"
           menu-width="248px"
           @on-input="onInput"

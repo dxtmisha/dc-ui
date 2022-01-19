@@ -7,7 +7,6 @@
     :value="valueTheme"
     adaptive="auto"
     appearance="text"
-    menu-size="compact"
     name="theme"
     size="small"
     @on-input="onInput"
@@ -34,6 +33,10 @@ export default {
             text: 'Material 2: dark',
             icon: 'dark_mode'
           },
+          'm2-auto': {
+            text: 'Material 2: auto',
+            icon: 'model_training'
+          },
           'm3-line': { line: true },
           m3: { subtitle: 'Material 3' },
           'm3-baseline': {
@@ -43,6 +46,10 @@ export default {
           'm3-dark': {
             text: 'Material 3: dark',
             icon: 'dark_mode'
+          },
+          'm3-auto': {
+            text: 'Material 3: auto',
+            icon: 'model_training'
           }
         }
       }
