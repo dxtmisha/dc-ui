@@ -22,12 +22,6 @@
   transition-property: background-color;
 
   &__block {
-    overflow: hidden;
-
-    #app {
-      @include fixedFull;
-      overflow-x: auto;
-    }
   }
 }
 

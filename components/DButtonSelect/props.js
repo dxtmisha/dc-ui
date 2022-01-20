@@ -68,7 +68,7 @@ export const props = {
   menuAppearance: undefined,
   menuSize: undefined,
   menuShape: undefined,
-  menuWindowWidth: { default: defaultProps('menuWindowWidth', 'auto') },
+  menuWindowWidth: { default: defaultProps('menuWindowWidth') },
   menuWindowInDom: { default: defaultProps('menuWindowInDom') },
   menuAttrs: undefined,
 

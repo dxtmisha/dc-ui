@@ -71,8 +71,8 @@ export const Values = {
     list: [
       { value: undefined },
       {
-        text: 'window',
-        value: window
+        text: '#app',
+        value: document.getElementById('app')
       }
     ]
   },

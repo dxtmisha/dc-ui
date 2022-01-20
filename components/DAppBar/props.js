@@ -3,7 +3,7 @@ import { defaultInit, validator, validatorShape, validatorSize } from '../../use
 const defaultProps = defaultInit('d-app-bar')
 export const props = {
   // Values
-  element: { default: defaultProps('element', window) },
+  element: { default: defaultProps('element', document.getElementById('app')) },
   bar: Array,
   barMenu: Array,
   barNavigation: Array,

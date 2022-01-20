@@ -1,4 +1,4 @@
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUpdated, ref, watch } from 'vue'
 
 export default function useMotion (
   id,
@@ -8,20 +8,22 @@ export default function useMotion (
   context,
   onScroll
 ) {
-  let top = -1
-  let distance = 0
+  let block, top
+  // let distance = 0
   let time
+  let el
 
   const propPage = ref(props.page)
   const propItem = computed(() => document.querySelector(`.${id}[data-page="${propPage.value}"]`))
 
   const emit = () => context.emit('on-scroll', {
     value: propPage.value,
-    item: propItem.value,
-    distance
+    item: propItem.value // ,
+    // distance
   })
 
   const update = (start = false) => {
+    /*
     if (
       propPage.value &&
       propItem.value &&
@@ -32,9 +34,47 @@ export default function useMotion (
     } else {
       top = +0
     }
+     */
+  }
+
+  const controlPage = () => {
+    if (!time) {
+      time = setTimeout(() => {
+        const central = propElement.value.scrollTop + (propElement.value.clientHeight / 2)
+        let focus
+
+        scroll.value.querySelectorAll(`.${id}`).forEach(item => {
+          if (item.offsetTop < central) {
+            el = item
+            focus = item.dataset.page
+          }
+        })
+
+        if (focus) {
+          propPage.value = focus
+        }
+
+        time = undefined
+      }, 256)
+    }
   }
 
   onScroll.value = event => {
+    if (
+      !scroll.value || (
+        event.$element !== propElement.value &&
+        event.$element !== props.element
+      )
+    ) {
+      event.$event.stop()
+    } else if (!block) {
+      controlPage()
+
+      if (el) {
+        top = el.getBoundingClientRect().top
+      }
+    }
+    /*
     if (
       !scroll.value || (
         event.$element !== propElement.value &&
@@ -63,22 +103,35 @@ export default function useMotion (
         }
       }, 256)
     }
+    */
   }
 
   watch(propPage, () => {
+    block = true
+    console.warn('propPage.value', propPage.value, el, top)
+    emit()
+    /*
     top = propElement.value.scrollTop
     distance = top - propItem.value.offsetTop
     emit()
+     */
 
     requestAnimationFrame(async () => {
       await nextTick()
-      update()
+      // update()
     })
   })
 
   onMounted(async () => {
     await nextTick()
     update(true)
+  })
+
+  onUpdated(async () => {
+    await nextTick()
+    update()
+
+    // block = false
   })
 
   return {

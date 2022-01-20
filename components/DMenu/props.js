@@ -44,7 +44,7 @@ export const props = {
   itemAttrs: undefined,
 
   // Window
-  windowWidth: { default: defaultProps('windowWidth', '0px') },
+  windowWidth: { default: defaultProps('windowWidth', '240px') },
   windowShape: { default: defaultProps('windowShape') },
   windowAxis: { default: defaultProps('windowAxis') },
   windowIndent: { default: defaultProps('windowIndent') },

@@ -1,6 +1,7 @@
 @import "../styles/color";
 @import "../styles/dimension";
 @import "../styles/font";
+@import "../styles/position";
 
 @mixin initTypography() {
   *,
@@ -49,7 +50,6 @@
     background-color: var(--background-type0);
     border-color: var(--basic-border);
     font-family: 'Roboto', sans-serif;
-    min-height: 100vh;
   }
 
   b {
@@ -96,5 +96,11 @@
 
   .border, .\!border {
     border-color: inherit;
+  }
+
+  #app {
+    @include fixedFull;
+    overflow: auto;
+    position: fixed;
   }
 }
