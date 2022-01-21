@@ -112,7 +112,7 @@ export default function useMotion (
 
   onMounted(async () => {
     await nextTick()
-    await update()
+    requestAnimationFrame(async () => await update())
   })
 
   return {

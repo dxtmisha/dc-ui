@@ -100,7 +100,10 @@ export default function useOpen (
       if (focus === null) {
         await emit()
       } else if (focus !== modal.value) {
-        if (!target.classList.contains('d-window')) {
+        if (
+          !target.classList.contains('d-window') &&
+          !document.querySelector(`.d-window__control.${focus.dataset.windowId}`)?.closest(`.${id} .window-block`)
+        ) {
           if (isChildren(target, id)) {
             requestAnimationFrame(async () => {
               if (!focus.classList.contains('status-show')) {

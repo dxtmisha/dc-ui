@@ -28,6 +28,8 @@ export default function useCoordinates (
   const right = ref(0)
   const bottom = ref(0)
   const left = ref(0)
+  const width = ref(0)
+  const height = ref(0)
 
   const x = useStyle(modal, '--_wn-x', 'px')
   const y = useStyle(modal, '--_wn-y', 'px')
@@ -95,6 +97,8 @@ export default function useCoordinates (
             right.value = rect.right
             bottom.value = rect.bottom
             left.value = rect.left
+            width.value = modal.value?.offsetWidth
+            height.value = modal.value?.offsetHeight
           } else {
             top.value = 0
             left.value = 0
@@ -115,8 +119,8 @@ export default function useCoordinates (
     }
   }
 
-  watch([right, left], updateX)
-  watch([top, bottom], updateY)
+  watch([right, left, width], updateX)
+  watch([top, bottom, height], updateY)
 
   return {
     clientX,

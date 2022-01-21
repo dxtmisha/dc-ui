@@ -1,13 +1,14 @@
 <template>
   <d-button-select
-    :value="$route.path"
-    :list="routers"
-    appearance="text"
-    size="small"
-    adaptive="auto"
-    :lowercase="true"
     :dense="true"
+    :list="routers"
+    :lowercase="true"
+    :value="$route.path"
+    adaptive="auto"
+    appearance="text"
     icon="drag_indicator"
+    menu-size="compact"
+    size="small"
   />
 </template>
 

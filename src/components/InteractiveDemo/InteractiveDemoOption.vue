@@ -15,11 +15,12 @@
       >
         <d-button-select
           :item="item"
-          :value="item.default"
+          :list="item.list"
           :name="item.value"
           :text="item.text"
-          :list="item.list"
+          :value="item.default"
           adaptive="block"
+          menu-size="compact"
           menu-width="248px"
           @on-input="onInput"
         />

@@ -22,5 +22,5 @@ export default function useIndicator (tab, props) {
     requestAnimationFrame(() => {
       data.value = selected.value
     })
-  }, [], selected.value)
+  }, ['mounted'])
 }

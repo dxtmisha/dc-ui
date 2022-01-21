@@ -7,6 +7,7 @@
     :value="valueTheme"
     adaptive="auto"
     appearance="text"
+    menu-size="compact"
     name="theme"
     size="small"
     @on-input="onInput"
