@@ -22,7 +22,7 @@ export default function useGo (
     height: '--_ma-height'
   }, 'px')
 
-  const toGo = (selected = props.selected) => classSelected.set(selected)
+  const toGo = (selected = props.selected) => requestAnimationFrame(() => classSelected.set(selected))
   const update = selected => {
     coordinates.set(slides.value?.[propSelected.value]?.getBoundingClientRect())
     classBlock.set(selected)
@@ -30,7 +30,6 @@ export default function useGo (
 
     requestAnimationFrame(() => {
       toGo(selected)
-
       propSelected.value = selected
     })
   }
