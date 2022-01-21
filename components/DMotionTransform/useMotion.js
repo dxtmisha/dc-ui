@@ -101,9 +101,13 @@ export default function useMotion (
   }
 
   watch(open, update)
-  watch(propOpen, (status) => {
-    classOpen.set(status && !teleport.value)
-    classWindowOpen.set(status && teleport.value)
+  watch(propOpen, async (status) => {
+    await nextTick()
+
+    requestAnimationFrame(() => {
+      classOpen.set(status && !teleport.value)
+      classWindowOpen.set(status && teleport.value)
+    })
   })
 
   onMounted(async () => {

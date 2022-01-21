@@ -20,7 +20,7 @@
         <div
           ref="body"
           v-if="open || propOpen || propShow"
-          class="d-motion-transform__body"
+          class="d-motion-transform__body mt-body"
         >
           <slot class-close="panel-close"/>
         </div>
