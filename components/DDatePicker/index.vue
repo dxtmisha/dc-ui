@@ -3,11 +3,11 @@
     <d-top
       v-if="multiple && propSwitchDate"
       v-bind="topAttrs"
-      class="d-date-picker__management"
+      class="d-date-picker__management window-static"
       @on-click="onOk"
     />
 
-    <div class="d-date-picker__head">
+    <div class="d-date-picker__head window-static">
       <div class="d-date-picker__title">{{ text[multiple ? 'Selected range' : 'Select date'] }}</div>
       <div class="d-date-picker__selected">
         <div class="d-date-picker__spacer" v-html="textValue"/>
@@ -42,7 +42,7 @@
         </template>
 
         <template v-slot:default>
-          <div v-if="!propSwitchDate" class="d-date-picker__input">
+          <div v-if="!propSwitchDate" class="d-date-picker__input window-static">
             <d-input
               ref="inputIn"
               v-bind="inputAttrs"

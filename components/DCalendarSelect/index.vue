@@ -1,6 +1,6 @@
 <template>
   <div :class="classList" class="d-calendar-select">
-    <div class="d-calendar-select__menu">
+    <div class="d-calendar-select__menu window-static">
       <d-button
         v-bind="bindButton"
         :icon-trailing="iconArrowDown"
@@ -18,7 +18,7 @@
     <div v-if="active" class="d-calendar-select__calendar">
       <d-motion-axis ref="motion">
         <template v-if="motionYears" v-slot:years>
-          <d-scrollbar ref="years" :border="true" class="d-calendar-select__list cs-years">
+          <d-scrollbar ref="years" :border="true" class="d-calendar-select__list cs-years window-static">
             <div
               v-for="{class: className, year} in listYears"
               :key="year"
@@ -35,7 +35,7 @@
         </template>
 
         <template v-if="motionYears" v-slot:months>
-          <d-scrollbar :border="true" class="d-calendar-select__list cs-month">
+          <d-scrollbar :border="true" class="d-calendar-select__list cs-month window-static">
             <div
               v-for="{class: className, text, value} in listMonths"
               :key="value"
