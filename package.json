@@ -37,7 +37,9 @@
     "/media/**/*",
     "/styles/**/*",
     "/translations/**/*",
-    "/uses/**/*"
+    "/uses/**/*",
+    "/init.js",
+    "/initComponents.js"
   ],
   "keywords": [
     "material",
