@@ -1,30 +1,24 @@
-# Material design from @dxtmisha
+# dc-ui
 
-## Install a Vue plugin
+## Project setup
 ```
-import dcode from 'dcode'
-
-Translation.init({
-  'en-GB': [
-    () => import('dcode/translations/dc-ui/en-GB.json'),
-    () => import('...'),
-    ...
-  ],
-  ...
-})
-  .then(() =>
-    createApp(App)
-      ...
-      .use(dcode)
-      .mount('#app')
-  )
+yarn install
 ```
 
-### Install style
+### Compiles and hot-reloads for development
 ```
-@import "~dcode/design/m2-baseline/init";
-@import "~dcode/design/m2-dark/init";
+yarn serve
+```
 
-@include init();
-@include initDark(); // Dark theme (not necessary)
+### Compiles and minifies for production
 ```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
