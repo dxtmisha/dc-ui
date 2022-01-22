@@ -149,7 +149,20 @@ export const routes = getRoutes({
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior: () => {
+    const app = document.getElementById('app')
+
+    if ('scrollTo' in app) {
+      app.scrollTo({
+        top: 0,
+        left: 0
+      })
+    } else {
+      app.scrollTop = 0
+      app.scrollLeft = 0
+    }
+  }
 })
 
 export default router
