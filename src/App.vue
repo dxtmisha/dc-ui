@@ -12,7 +12,11 @@
       <main>
         <router-view/>
       </main>
-      <footer>&copy; 2021 - 2022 dcode</footer>
+      <footer>
+        <d-clipboard class="ui-git" icon="lab-github" value="https://github.com/dxtmisha/dc-ui.git"/>
+        <d-clipboard class="ui-git" icon="lab-npm" value="npm i dcode"/>
+        <div class="ui-copy">&copy; 2021 - 2022 dcode</div>
+      </footer>
     </div>
   </div>
 </template>
@@ -21,10 +25,12 @@
 import InteractiveDemoColor from '@/./components/InteractiveDemo/InteractiveDemoColor'
 import InteractiveDemoRouter from '@/./components/InteractiveDemo/InteractiveDemoRouter'
 import InteractiveDemoTheme from '@/./components/InteractiveDemo/InteractiveDemoTheme'
+import DClipboard from '../components/DClipboard'
 
 export default {
   name: 'App',
   components: {
+    DClipboard,
     InteractiveDemoColor,
     InteractiveDemoRouter,
     InteractiveDemoTheme

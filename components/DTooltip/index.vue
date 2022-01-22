@@ -1,17 +1,17 @@
 <template>
   <slot
-      name="control"
-      :class-list="`d-tooltip__control ${id}`"
-      :on-click="onClick"
-      :on-mouseover="onMouseover"
-      :on-mouseout="onMouseout"
+    name="control"
+    :class-list="`d-tooltip__control ${id}`"
+    :on-click="onClick"
+    :on-mouseover="onMouseover"
+    :on-mouseout="onMouseout"
   />
   <teleport to="body">
     <div
-        ref="tooltip"
-        v-if="isShow"
-        v-bind="binds"
-        class="d-tooltip"
+      ref="tooltip"
+      v-if="isShow"
+      v-bind="binds"
+      class="d-tooltip"
     >
       {{ text }}
       <slot/>
@@ -42,11 +42,11 @@ export default {
       isShow,
       toggle
     } = usePosition(
-        tooltip,
-        props,
-        context,
-        id,
-        open
+      tooltip,
+      props,
+      context,
+      id,
+      open
     )
 
     const {
@@ -54,9 +54,9 @@ export default {
       onMouseover,
       onMouseout
     } = useEvent(
-        id,
-        open,
-        toggle
+      id,
+      open,
+      toggle
     )
 
     const binds = computed(() => {

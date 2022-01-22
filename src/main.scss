@@ -4,6 +4,7 @@
 @import "../design/m3-dark/init";
 @import "../styles/elevation";
 @import "../styles/flex";
+@import "../styles/media";
 
 @import "./assets/icons/line-awesome/css/line-awesome.min.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
@@ -45,7 +46,10 @@ main {
 }
 
 footer {
+  @include flexX;
   --basic-text-opacity: var(--opacity-surface-medium);
+  flex-wrap: wrap;
+  gap: 16px;
   margin: dimension(4) auto dimension(16);
   text-align: right;
   will-change: width;
@@ -59,5 +63,19 @@ footer {
     padding-top: dimension(32);
     flex-grow: 1;
     will-change: width;
+  }
+}
+
+.ui-git {
+  flex-basis: 100%;
+}
+
+.ui-copy {
+  @include flexDynamic;
+}
+
+@include mediaMinWidth {
+  .ui-git {
+    flex-basis: auto;
   }
 }

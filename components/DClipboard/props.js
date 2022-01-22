@@ -6,5 +6,7 @@ export const props = {
   value: String,
 
   // Icon
-  iconCopy: { default: defaultProps('iconCopy', 'content_copy') }
+  icon: String,
+  iconCopy: { default: defaultProps('iconCopy', 'content_copy') },
+  iconBackground: undefined
 }

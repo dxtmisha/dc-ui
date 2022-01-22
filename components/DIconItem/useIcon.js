@@ -21,6 +21,8 @@ export default function useIcon (props, context) {
     switch (type) {
       case 'la':
         return `las ${icon.value}`
+      case 'lab':
+        return `lab ${icon.value.replace('lab-', 'la-')}`
       case 'filled':
       case 'outlined':
       case 'round':
@@ -85,7 +87,7 @@ export default function useIcon (props, context) {
         } else if (value.match(/^#/)) {
           type = 'color'
         } else {
-          type = value.match(/^(la|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
+          type = value.match(/^(la|lab|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
         }
       }
     }

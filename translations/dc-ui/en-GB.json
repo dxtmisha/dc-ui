@@ -1,9 +1,9 @@
 {
-  "[item] of [count]": "[item] of [count]",
-  "Add": "Add",
   "AM": "AM",
+  "Add": "Add",
   "Back": "Back",
   "Cancel": "Cancel",
+  "Copied to the clipboard": "Copied to the clipboard",
   "Delete": "Delete",
   "Depart": "Depart",
   "Dismiss": "Dismiss",
@@ -16,15 +16,16 @@
   "Last": "Last",
   "Minute": "Minute",
   "Next": "Next",
-  "Return": "Return",
-  "Rows per page": "Rows per page",
   "Ok": "Ok",
   "PM": "PM",
+  "Return": "Return",
+  "Rows per page": "Rows per page",
   "Save": "Save",
+  "Select Time": "Select Time",
   "Select date": "Select date",
   "Selected range": "Selected range",
-  "Select Time": "Select Time",
   "Show more": "Show more",
   "Start": "Start",
-  "Your search did not match any documents.": "Your search did not match any documents."
+  "Your search did not match any documents.": "Your search did not match any documents.",
+  "[item] of [count]": "[item] of [count]"
 }
