@@ -47,6 +47,7 @@ export default {
           'd-avatar',
           'd-carcass-field',
           'd-checkbox',
+          'd-clipboard',
           'd-date',
           'd-drop',
           'd-file',

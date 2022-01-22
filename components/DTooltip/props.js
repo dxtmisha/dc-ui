@@ -6,6 +6,7 @@ export const props = {
   text: String,
 
   // Status
+  active: Boolean,
   disabled: Boolean,
 
   // Options

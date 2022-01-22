@@ -1,0 +1,7 @@
+@mixin clipboard() {
+
+}
+
+@mixin clipboardInit() {
+  @include clipboard;
+}

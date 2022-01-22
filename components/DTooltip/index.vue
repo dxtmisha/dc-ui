@@ -1,17 +1,17 @@
 <template>
   <slot
-    name="control"
-    :class-list="`d-tooltip__control ${id}`"
-    :on-click="onClick"
-    :on-mouseover="onMouseover"
-    :on-mouseout="onMouseout"
+      name="control"
+      :class-list="`d-tooltip__control ${id}`"
+      :on-click="onClick"
+      :on-mouseover="onMouseover"
+      :on-mouseout="onMouseout"
   />
   <teleport to="body">
     <div
-      ref="tooltip"
-      v-if="isShow"
-      v-bind="binds"
-      class="d-tooltip"
+        ref="tooltip"
+        v-if="isShow"
+        v-bind="binds"
+        class="d-tooltip"
     >
       {{ text }}
       <slot/>
@@ -21,7 +21,7 @@
 
 <script>
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed, ref, toRefs, watch } from 'vue'
 import getIdElement from './../../functions/getIdElement'
 import useAdmin from '../../uses/useAdmin'
 import useEvent from './useEvent'
@@ -32,6 +32,8 @@ export default {
   inheritAttrs: false,
   props,
   setup (props, context) {
+    const { active } = toRefs(props)
+
     const id = `t--${getIdElement()}`
     const tooltip = ref(false)
     const open = ref(false)
@@ -40,11 +42,11 @@ export default {
       isShow,
       toggle
     } = usePosition(
-      tooltip,
-      props,
-      context,
-      id,
-      open
+        tooltip,
+        props,
+        context,
+        id,
+        open
     )
 
     const {
@@ -52,9 +54,9 @@ export default {
       onMouseover,
       onMouseout
     } = useEvent(
-      id,
-      open,
-      toggle
+        id,
+        open,
+        toggle
     )
 
     const binds = computed(() => {
@@ -66,6 +68,8 @@ export default {
         style: { '--_tt-max-width': props.width }
       }
     })
+
+    watch(active, value => toggle(value, true))
 
     useAdmin('d-tooltip', context)
 

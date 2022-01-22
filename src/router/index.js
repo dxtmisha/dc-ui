@@ -20,6 +20,7 @@ import DemoCardMenu from '../views/DemoCardMenu'
 import DemoCardText from '../views/DemoCardText'
 import DemoCardTitle from '../views/DemoCardTitle'
 import DemoCheckbox from '../views/DemoCheckbox'
+import DemoClipboard from '../views/DemoClipboard'
 import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
@@ -94,6 +95,7 @@ export const routes = getRoutes({
   'd-card-text': DemoCardText,
   'd-card-title': DemoCardTitle,
   'd-checkbox': DemoCheckbox,
+  'd-clipboard': DemoClipboard,
   'd-clock-face': DemoClockFace,
   'd-control-position': DemoControlPosition,
   'd-control-resize': DemoControlResize,
