@@ -87,7 +87,10 @@ export default {
       }
     })
 
-    const bindPicker = attrDatePicker({ props })
+    const bindPicker = attrDatePicker({
+      props,
+      items: { value: propValue }
+    })
     const bindCarcassField = useCarcass(
       props,
       context,

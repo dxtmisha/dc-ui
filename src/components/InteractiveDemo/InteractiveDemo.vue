@@ -113,9 +113,9 @@ export default {
   &__option {
     @extend %id-padding;
     @extend %flex-basis;
-    border-left-width: var(--basic-border-width);
 
     @include mediaMinWidth() {
+      border-left-width: var(--basic-border-width);
       flex-basis: 280px;
     }
 

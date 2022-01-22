@@ -75,7 +75,10 @@ export default {
     const geo = computed(() => new GeoDate(props.locales, propValue.value).setType('time'))
     const output = computed(() => propValue.value ? geo.value.toString(undefined, 'auto') : undefined)
 
-    const bindPicker = attrTimePicker({ props })
+    const bindPicker = attrTimePicker({
+      props,
+      items: { value: propValue }
+    })
     const bindCarcassField = useCarcass(
       props,
       context,

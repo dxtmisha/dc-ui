@@ -28,6 +28,17 @@
     "vuex": "^4.0.2"
   },
   "email": "dxtmisha@gmail.com",
+  "files": [
+    "/classes/**/*",
+    "/components/**/*",
+    "/constructors/**/*",
+    "/design/**/*",
+    "/functions/**/*",
+    "/media/**/*",
+    "/styles/**/*",
+    "/translations/**/*",
+    "/uses/**/*"
+  ],
   "keywords": [
     "material",
     "material design",
