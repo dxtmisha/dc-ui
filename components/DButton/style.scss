@@ -167,7 +167,7 @@
     @extend %border-before-none;
     --_bt-shadow: var(--shadow-type2);
     --_bt--hv-shadow: var(--shadow-type2);
-    --_bt--ac-shadow: var(--shadow-type6);
+    --_bt--ac-shadow: var(--shadow-type3);
     @content;
   }
 }
@@ -201,7 +201,7 @@
 
     --_bt-shadow: var(--shadow-type5);
     --_bt--hv-shadow: var(--shadow-type5);
-    --_bt--ac-shadow: var(--shadow-type7);
+    --_bt--ac-shadow: var(--shadow-type6);
     @content;
   }
 }
