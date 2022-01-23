@@ -4,22 +4,12 @@
     <div
       ref="image"
       class="d-avatar__image"
-      @mousedown.prevent.stop="onMousedown"
-      @touchstart.prevent.stop="onMousedown"
     >
       <d-icon-item
         v-bind="bindIcon"
         @on-load="onLoad"
-      />
-    </div>
-    <div v-if="!readonly" class="d-avatar__slider">
-      <d-slider-picker
-        :disabled="disabled || !propValue.file"
-        :max="maxZoom"
-        :min="100"
-        :value="propValue.zoom"
-        @on-input="onZoom"
-        @on-change="onZoomChange"
+        @mousedown.prevent.stop="onMousedown"
+        @touchstart.prevent.stop="onMousedown"
       />
       <d-button
         v-if="!readonly"
@@ -32,6 +22,16 @@
       >
         <input ref="file" type="file" accept="image/*" @input="onInput">
       </d-button>
+    </div>
+    <div v-if="!readonly" class="d-avatar__slider">
+      <d-slider-picker
+        :disabled="disabled || !propValue.file"
+        :max="maxZoom"
+        :min="100"
+        :value="propValue.zoom"
+        @on-input="onZoom"
+        @on-change="onZoomChange"
+      />
     </div>
   </div>
 </template>

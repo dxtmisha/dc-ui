@@ -24,9 +24,13 @@
   &__image {
     @include aspectRatio(#{var(--_av-width)/var(--_av-height)});
     @include rectangle(var(--_av-width), var(--_av-height));
+    align-items: flex-end;
     background-color: varColor(--background-overlay, --opacity-overlay);
     border-radius: var(--_av-radius);
+    display: flex;
+    justify-content: flex-end;
     margin: 0 auto;
+    padding: var(--_av__sl-padding-y);
     position: relative;
     @content;
   }
@@ -34,6 +38,8 @@
 
 @mixin avatarButton {
   &__button {
+    position: relative;
+    z-index: 12;
     @content;
   }
 }

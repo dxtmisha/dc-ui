@@ -1,5 +1,8 @@
 <template>
   <div class="interactive-demo__option">
+    <div class="basis-full">
+      <d-clipboard :value="clipboard" class="interactive-demo__clipboard"/>
+    </div>
     <div
       v-for="item in options"
       :key="item.value"
@@ -39,18 +42,26 @@
 
 <script>
 import DCheckbox from '../../../components/DCheckbox'
+import DClipboard from '../../../components/DClipboard'
 import DButtonSelect from '../../../components/DButtonSelect'
 
 export default {
   name: 'InteractiveDemoOption',
   components: {
-    DButtonSelect,
-    DCheckbox
+    DCheckbox,
+    DClipboard,
+    DButtonSelect
   },
   props: {
     options: Array
   },
   emits: ['on-input'],
+  computed: {
+    clipboard () {
+      const name = this.$route.name.replace(/^([a-z])|(-)([a-z])/ig, (all, s1, s2, s3) => (s3 || s1).toString().toUpperCase())
+      return `import ${name} from 'dcode/components/${name}'`
+    }
+  },
   methods: {
     onInput (event) {
       this.$emit('on-input', event)
