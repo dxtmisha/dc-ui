@@ -1,5 +1,8 @@
 <template>
   <div class="interactive-demo">
+    <div class="basis-full px-4 py-2">
+      <d-clipboard :value="clipboard" class="interactive-demo__clipboard"/>
+    </div>
     <div class="interactive-demo__show" :class="{ 'option-sticky': sticky }">
       <slot :binds="valueData" :on="on" :update="updateProps"/>
     </div>
@@ -13,6 +16,7 @@
 </template>
 
 <script>
+import DClipboard from '../../../components/DClipboard'
 import DSnackbar from '../../../components/DSnackbar'
 import InteractiveDemoCode from './InteractiveDemoCode'
 import InteractiveDemoOption from './InteractiveDemoOption'
@@ -23,6 +27,7 @@ import forEach from '../../../functions/forEach'
 export default {
   name: 'InteractiveDemo',
   components: {
+    DClipboard,
     DSnackbar,
     InteractiveDemoCode,
     InteractiveDemoOption
@@ -52,6 +57,12 @@ export default {
       setData,
       setValue,
       updateProps
+    }
+  },
+  computed: {
+    clipboard () {
+      const name = this.$route.name.replace(/^([a-z])|(-)([a-z])/ig, (all, s1, s2, s3) => (s3 || s1).toString().toUpperCase())
+      return `import ${name} from 'dcode/components/${name}'`
     }
   },
   methods: {
@@ -93,6 +104,10 @@ export default {
   box-shadow: var(--shadow-type1);
   display: flex;
   flex-wrap: wrap;
+
+  &__clipboard {
+    max-width: 560px;
+  }
 
   &__show {
     @include flexCenter;
