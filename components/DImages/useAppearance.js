@@ -135,11 +135,7 @@ export default function useAppearance (
       ].indexOf(appearance.value) !== -1
     ) {
       if (!event) {
-        event = EventControl.init(window, () => {
-          clearTimeout(timeout)
-
-          timeout = setTimeout(resize, 320)
-        }, ['resize']).go()
+        event = EventControl.init(window, updateByTime, ['resize']).go()
       }
 
       resize()
@@ -147,6 +143,10 @@ export default function useAppearance (
       event.stop()
       event = undefined
     }
+  }
+  const updateByTime = () => {
+    clearTimeout(timeout)
+    timeout = setTimeout(resize, 320)
   }
 
   onMounted(update)
@@ -159,6 +159,7 @@ export default function useAppearance (
 
   return {
     even,
-    update
+    update,
+    updateByTime
   }
 }
