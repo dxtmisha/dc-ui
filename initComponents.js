@@ -20,6 +20,7 @@ import DCardMenu from './components/DCardMenu'
 import DCardText from './components/DCardText'
 import DCardTitle from './components/DCardTitle'
 import DCheckbox from './components/DCheckbox'
+import DClipboard from './components/DClipboard'
 import DClockFace from './components/DClockFace'
 import DControlPosition from './components/DControlPosition'
 import DControlResize from './components/DControlResize'
@@ -95,6 +96,7 @@ export default {
     app.component('d-card-text', DCardText)
     app.component('d-card-title', DCardTitle)
     app.component('d-checkbox', DCheckbox)
+    app.component('d-clipboard', DClipboard)
     app.component('d-clock-face', DClockFace)
     app.component('d-control-position', DControlPosition)
     app.component('d-control-resize', DControlResize)
