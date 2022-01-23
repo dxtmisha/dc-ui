@@ -1,7 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <div class="demo-actions">
       <div class="pt-4" v-html="text"/>
@@ -39,11 +39,6 @@ export default {
       options,
       barManagement,
       text
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

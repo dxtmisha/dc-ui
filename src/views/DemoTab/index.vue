@@ -66,7 +66,6 @@ export default {
     on (event) {
       this.transition = event.direction
       this.selected = event.value
-      console.warn('event', event)
     }
   }
 }

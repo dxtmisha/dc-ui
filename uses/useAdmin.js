@@ -1,5 +1,9 @@
-import { inject, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide } from 'vue'
+// import { inject, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, provide } from 'vue'
 
+export default function useAdmin () {
+}
+
+/*
 export default function useAdmin (
   name,
   context = undefined,
@@ -28,3 +32,4 @@ export default function useAdmin (
     }
   }
 }
+*/

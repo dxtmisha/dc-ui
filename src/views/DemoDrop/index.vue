@@ -2,7 +2,7 @@
   <interactive-demo
     ref="interactive"
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <div class="demo-drop">
       <d-drop
@@ -29,11 +29,6 @@ export default {
   setup () {
     const options = optionsDrop
     return { options }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
-    }
   }
 }
 </script>

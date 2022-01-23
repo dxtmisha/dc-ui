@@ -1,7 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-clock-face
       v-bind="binds"
@@ -27,11 +27,6 @@ export default {
   setup () {
     const options = optionsClockFace
     return { options }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
-    }
   }
 }
 </script>

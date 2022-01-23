@@ -2,7 +2,7 @@
   <interactive-demo
     :options="options"
     :sticky="false"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-control-selection
       v-bind="binds"
@@ -52,11 +52,6 @@ export default {
     return {
       options,
       list
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

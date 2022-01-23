@@ -38,7 +38,6 @@ export default {
   methods: {
     on (event) {
       this.value = event.value
-      console.warn('event', event)
     }
   }
 }

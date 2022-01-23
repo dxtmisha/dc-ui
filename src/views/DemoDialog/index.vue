@@ -2,7 +2,7 @@
   <interactive-demo
     ref="interactive"
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-dialog
       v-bind="binds"
@@ -45,11 +45,6 @@ export default {
     return {
       options,
       text
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

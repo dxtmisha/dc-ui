@@ -1,7 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-time-picker
       v-bind="binds"
@@ -29,11 +29,6 @@ export default {
   setup () {
     const options = optionsTimePicker
     return { options }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
-    }
   }
 }
 </script>

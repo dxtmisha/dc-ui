@@ -8,10 +8,12 @@
       @on-input="onInput"
     />
     <interactive-demo-code :options="valueData"/>
+    <d-snackbar ref="snackbar"/>
   </div>
 </template>
 
 <script>
+import DSnackbar from '../../../components/DSnackbar'
 import InteractiveDemoCode from './InteractiveDemoCode'
 import InteractiveDemoOption from './InteractiveDemoOption'
 import { toRefs } from 'vue'
@@ -21,6 +23,7 @@ import forEach from '../../../functions/forEach'
 export default {
   name: 'InteractiveDemo',
   components: {
+    DSnackbar,
     InteractiveDemoCode,
     InteractiveDemoOption
   },
@@ -59,7 +62,7 @@ export default {
       this.setValue(item, value)
     },
     on (event) {
-      console.warn('event', event)
+      this.$refs.snackbar.show({ text: JSON.stringify(event) })
     }
   }
 }

@@ -2,7 +2,7 @@
   <interactive-demo
     :options="options"
     :sticky="false"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <div class="demo-top">
       <d-top
@@ -35,11 +35,6 @@ export default {
     return {
       options,
       text
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

@@ -2,7 +2,7 @@
   <interactive-demo
     :options="options"
     :sticky="false"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-file
       v-bind="binds"
@@ -29,11 +29,6 @@ export default {
   setup () {
     const options = optionsFile
     return { options }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
-    }
   }
 }
 </script>

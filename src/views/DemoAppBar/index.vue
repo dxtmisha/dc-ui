@@ -55,9 +55,8 @@ export default {
     }
   },
   methods: {
-    on (event) {
+    on () {
       this.$refs.interactive.setData('action', false)
-      console.warn('event', event)
     }
   }
 }

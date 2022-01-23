@@ -1,7 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <div class="demo-control-resize" :style="styleList">
       <d-control-resize v-bind="binds" @on-resize="on"/>
@@ -27,11 +27,6 @@ export default {
     return {
       options,
       styleList
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

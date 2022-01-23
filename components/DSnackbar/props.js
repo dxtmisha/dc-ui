@@ -5,7 +5,10 @@ import Translation from '../../classes/Translation'
 const defaultProps = defaultInit('d-snackbar')
 export const props = {
   // Values
-  items: Array,
+  items: {
+    type: Array,
+    default: []
+  },
 
   // Status
   open: Boolean,

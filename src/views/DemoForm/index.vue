@@ -2,7 +2,7 @@
   <interactive-demo
     :options="options"
     :sticky="false"
-    v-slot:default="{ binds }"
+    v-slot:default="{ binds, on }"
   >
     <d-form
       v-bind="binds"
@@ -34,11 +34,6 @@ export default {
     return {
       options,
       fields
-    }
-  },
-  methods: {
-    on (event) {
-      console.warn('event', event)
     }
   }
 }

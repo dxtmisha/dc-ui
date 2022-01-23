@@ -37,7 +37,6 @@ export default {
   methods: {
     on (event) {
       this.selected = event.selected
-      console.warn('event', event)
     }
   }
 }
