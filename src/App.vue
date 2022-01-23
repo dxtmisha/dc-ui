@@ -15,7 +15,9 @@
       <footer>
         <d-clipboard class="ui-git" icon="lab-github" value="https://github.com/dxtmisha/dc-ui.git"/>
         <d-clipboard class="ui-git" icon="lab-npm" value="npm i dcode"/>
-        <div class="ui-copy">&copy; 2021 - 2022 dcode</div>
+        <div class="ui-copy">
+          <div>2021 - 2022 dxtmisha</div>
+        </div>
       </footer>
     </div>
   </div>

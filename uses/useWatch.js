@@ -1,4 +1,4 @@
-import { onBeforeMount, onMounted, onUpdated, ref, watch } from 'vue'
+import { onBeforeMount, onMounted, onUnmounted, onUpdated, ref, watch } from 'vue'
 
 /**
  * @param sources
@@ -37,6 +37,9 @@ export default function useWatch (
         break
       case 'updated':
         onUpdated(update)
+        break
+      case 'unmounted':
+        onUnmounted(update)
         break
       case 'go':
         update()

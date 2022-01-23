@@ -98,10 +98,4 @@
   .border, .\!border {
     border-color: inherit;
   }
-
-  #app {
-    @include fixedFull;
-    overflow: auto;
-    position: fixed;
-  }
 }

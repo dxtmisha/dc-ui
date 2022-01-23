@@ -1,4 +1,4 @@
-import { toRefs } from 'vue'
+import { onUnmounted, toRefs } from 'vue'
 import EventControl from '../../classes/EventControl'
 import useStyle from '../../uses/useStyle'
 import useWatch from '../../uses/useWatch'
@@ -12,7 +12,7 @@ export default function useScroll (app, props) {
   const update = () => {
     const scroll = props.element?.scrollY || props.element?.scrollTop || 0
     const rect = app.value.getBoundingClientRect()
-    const height = rect.height * -1
+    const height = (rect.height + 64) * -1
     let move = window.innerHeight - rect.bottom + (old || scroll) - scroll
 
     if (move > 0) {
@@ -35,6 +35,7 @@ export default function useScroll (app, props) {
 
     event.toggle(go)
   }, ['mounted'])
+  onUnmounted(() => event.stop())
 
   return {}
 }

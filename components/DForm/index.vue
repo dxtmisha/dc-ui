@@ -56,18 +56,12 @@
 <script>
 import DActions from '../DActions'
 import DAlert from '../DAlert'
-import DAvatar from '../DAvatar'
 import DButton from '../DButton'
 import DCheckbox from '../DCheckbox'
-import DDate from '../DDate'
-import DFile from '../DFile'
 import DInput from '../DInput'
 import DSelect from '../DSelect'
-import DSlider from '../DSlider'
-import DTextarea from '../DTextarea'
-import DTime from '../DTime'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useFields from './useFields'
 import useValidity from './useValidity'
@@ -77,16 +71,16 @@ export default {
   components: {
     DActions,
     DAlert,
-    DAvatar,
+    DAvatar: defineAsyncComponent(() => import('../DAvatar')),
     DButton,
     DCheckbox,
-    DDate,
-    DFile,
+    DDate: defineAsyncComponent(() => import('../DDate')),
+    DFile: defineAsyncComponent(() => import('../DFile')),
     DInput,
     DSelect,
-    DSlider,
-    DTextarea,
-    DTime
+    DSlider: defineAsyncComponent(() => import('../DSlider')),
+    DTextarea: defineAsyncComponent(() => import('../DTextarea')),
+    DTime: defineAsyncComponent(() => import('../DTime'))
   },
   props,
   emits: ['on-submit', 'on-validity'],

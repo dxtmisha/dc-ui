@@ -64,8 +64,6 @@ export default function useOpen (
 
     if (!props.beforeOpening || await props.beforeOpening(toOpen)) {
       if (toOpen) {
-        scrollToggle(true)
-
         classHide.set(false)
         open.value = toOpen
 
@@ -73,6 +71,7 @@ export default function useOpen (
         watchPosition()
 
         requestAnimationFrame(() => {
+          scrollToggle(true)
           classShow.set(true)
 
           eventBody.go()

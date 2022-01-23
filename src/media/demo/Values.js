@@ -72,7 +72,7 @@ export const Values = {
       { value: undefined },
       {
         text: '#app',
-        value: document.getElementById('app')
+        value: window
       }
     ]
   },

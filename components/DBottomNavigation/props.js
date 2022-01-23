@@ -4,7 +4,7 @@ import { palette } from '../../uses/useColor'
 const defaultProps = defaultInit('d-bottom-navigation')
 export const props = {
   // Values
-  element: { default: defaultProps('element', document.getElementById('app')) },
+  element: { default: defaultProps('element', window) },
   list: undefined,
   listInit: {
     type: Boolean,
