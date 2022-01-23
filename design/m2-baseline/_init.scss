@@ -50,19 +50,6 @@
     @include initFonts($font);
     @include initColors($shade, $charts);
   }
-  :export {
-    @include initConstructor((
-            background: $background,
-            text: $text,
-            opacity: $opacity,
-            transition: $transition,
-            radius: $radius,
-            shadow: $shadow,
-            blur: $blur
-    ));
-    @include initFonts($font);
-    @include initColors($shade, $charts);
-  }
 
   @include initTypography;
   @include initScrollbar;
