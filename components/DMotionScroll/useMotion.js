@@ -37,17 +37,19 @@ export default function useMotion (
       event.$event.stop()
     } else if (!time) {
       time = setTimeout(() => {
-        const central = propElement.value.scrollTop + (propElement.value.clientHeight / 2)
-        let focus
+        if (scroll.value) {
+          const central = propElement.value.scrollTop + (propElement.value.clientHeight / 2)
+          let focus
 
-        scroll.value.querySelectorAll(`.${id}`).forEach(item => {
-          if (item.offsetTop < central) {
-            focus = item.dataset.page
+          scroll.value.querySelectorAll(`.${id}`).forEach(item => {
+            if (item.offsetTop < central) {
+              focus = item.dataset.page
+            }
+          })
+
+          if (focus) {
+            propPage.value = focus
           }
-        })
-
-        if (focus) {
-          propPage.value = focus
         }
 
         time = undefined

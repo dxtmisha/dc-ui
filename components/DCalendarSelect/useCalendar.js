@@ -147,10 +147,8 @@ export default function useCalendar (
   }
   const onSelectedMonth = async month => {
     motionYears.value.getObject().setMonth(month - 1)
-    requestAnimationFrame(async () => {
-      motion.value.toTop(await update(motionYears.value.toStandardMonth()))
-      motionYears.value = undefined
-    })
+    motion.value.toTop(await update(motionYears.value.toStandardMonth()))
+    motionYears.value = undefined
   }
   const onActive = async () => {
     if (motionYears.value) {

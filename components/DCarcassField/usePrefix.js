@@ -14,9 +14,6 @@ export default function usePrefix (field, props) {
     await nextTick()
     prefixWidth.set(field.value.querySelector('.cf-prefix')?.offsetWidth || 0)
     suffixWidth.set(field.value.querySelector('.cf-suffix')?.offsetWidth || 0)
-
-    requestAnimationFrame(() => {
-    })
   }
 
   watch([prefix, suffix], update)

@@ -48,7 +48,8 @@ export default {
 
     const {
       even,
-      update
+      update,
+      updateByTime
     } = useAppearance(
       images,
       props,
@@ -57,6 +58,7 @@ export default {
 
     provide('barSize', barSize)
     provide('barDisplay', barDisplay)
+    provide('updateByTime', updateByTime)
 
     const binds = computed(() => {
       return {
@@ -77,7 +79,8 @@ export default {
       images,
       propList,
       binds,
-      update
+      update,
+      updateByTime
     }
   }
 }
