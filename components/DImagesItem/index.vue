@@ -28,7 +28,7 @@ import DIcon from '../DIcon'
 import DIconItem from '../DIconItem'
 import DImagesBar from '../DImagesBar'
 import { props } from './props'
-import { computed, inject, ref } from 'vue'
+import { computed, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 
 export default {
@@ -40,8 +40,6 @@ export default {
   },
   props,
   setup (props, context) {
-    const updateByTime = inject('updateByTime', undefined)
-
     const height = ref(undefined)
     const width = ref(undefined)
 
@@ -67,12 +65,6 @@ export default {
     const onLoad = event => {
       height.value = Math.floor(event.height * 10 / event.width)
       width.value = Math.floor(event.width * 10 / event.height)
-
-      if (updateByTime) {
-        updateByTime()
-      } else {
-        context.emit('on-load')
-      }
     }
 
     useAdmin('d-images-item', context)

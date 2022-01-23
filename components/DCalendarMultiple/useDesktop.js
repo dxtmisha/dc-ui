@@ -5,9 +5,9 @@ export default function useDesktop (calendar, props) {
   const { calendarAdaptive } = toRefs(props)
 
   const desktop = ref(undefined)
-  const updateDesktop = () => {
+  const updateDesktop = () => requestAnimationFrame(() => {
     desktop.value = getComputedStyle(calendar.value).content === '"--DESKTOP--"'
-  }
+  })
 
   const event = EventControl.init(window, updateDesktop, ['resize']).go()
 

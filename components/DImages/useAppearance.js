@@ -35,7 +35,7 @@ export default function useAppearance (
     return values
   }
 
-  const resizeWoven = () => () => {
+  const resizeWoven = () => requestAnimationFrame(() => {
     const list = getLine()
     let turn = false
     let max
@@ -52,59 +52,62 @@ export default function useAppearance (
     })
 
     even.value = max % 2 === 0
-  }
+  })
 
   const masonryHorizontal = () => {
     images.value.querySelectorAll('.d-images-item').forEach(el => el.style.removeProperty('--it-grow'))
+    requestAnimationFrame(() => {
+      const list = getLine()
+      const columns = []
+      let max = 0
 
-    const list = getLine()
-    const columns = []
-    let max = 0
+      list.forEach(items => {
+        let column = 0
+        items.forEach(({ el }) => {
+          column += getWidth(el)
+        })
 
-    list.forEach(items => {
-      let column = 0
-      items.forEach(({ el }) => {
-        column += getWidth(el)
+        if (max < column) {
+          max = column
+        }
+
+        columns.push(column)
       })
 
-      if (max < column) {
-        max = column
-      }
+      list.forEach((items, index) => {
+        let min = max - columns[index]
+        const grow = Math.ceil(min / items.length)
 
-      columns.push(column)
-    })
+        items.forEach(({ el }) => {
+          let value = 0
 
-    list.forEach((items, index) => {
-      let min = max - columns[index]
-      const grow = Math.ceil(min / items.length)
+          if (min >= grow) {
+            value = grow
+            min -= grow
+          } else if (min > 0) {
+            value = min
+            min = 0
+          }
 
-      items.forEach(({ el }) => {
-        let value = 0
-
-        if (min >= grow) {
-          value = grow
-          min -= grow
-        } else if (min > 0) {
-          value = min
-          min = 0
-        }
-
-        if (value) {
-          el.style.setProperty('--it-grow', value)
-        }
+          if (value) {
+            el.style.setProperty('--it-grow', value)
+          }
+        })
       })
     })
   }
 
   const masonryVertical = () => {
     images.value.querySelectorAll('.d-images-item').forEach(el => el.style.removeProperty('--it-grow'))
-    images.value.querySelectorAll('.d-images-item').forEach(item => {
-      const height = parseInt(item.dataset.height)
-      const minHeight = parseFloat(getComputedStyle(item).minHeight.replace('px', ''))
+    requestAnimationFrame(() => {
+      images.value.querySelectorAll('.d-images-item').forEach(item => {
+        const height = parseInt(item.dataset.height)
+        const minHeight = parseFloat(getComputedStyle(item).minHeight.replace('px', ''))
 
-      if (item.scrollHeight > minHeight + 4) {
-        item.style.setProperty('--it-grow', Math.round(item.scrollHeight / (minHeight / height)))
-      }
+        if (item.scrollHeight > minHeight + 4) {
+          item.style.setProperty('--it-grow', Math.round(item.scrollHeight / (minHeight / height)))
+        }
+      })
     })
   }
 
@@ -132,7 +135,11 @@ export default function useAppearance (
       ].indexOf(appearance.value) !== -1
     ) {
       if (!event) {
-        event = EventControl.init(window, updateByTime, ['resize']).go()
+        event = EventControl.init(window, () => {
+          clearTimeout(timeout)
+
+          timeout = setTimeout(resize, 320)
+        }, ['resize']).go()
       }
 
       resize()
@@ -140,10 +147,6 @@ export default function useAppearance (
       event.stop()
       event = undefined
     }
-  }
-  const updateByTime = () => {
-    clearTimeout(timeout)
-    timeout = setTimeout(resize, 320)
   }
 
   onMounted(update)
@@ -156,7 +159,6 @@ export default function useAppearance (
 
   return {
     even,
-    update,
-    updateByTime
+    update
   }
 }
