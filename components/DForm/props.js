@@ -43,6 +43,9 @@ export const props = {
     default: defaultProps('options')
   },
 
+  // Actions
+  actionsAttrs: { default: defaultProps('actionsAttrs') },
+
   // Icon
   iconError: {
     type: String,

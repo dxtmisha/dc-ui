@@ -40,7 +40,7 @@
       </div>
     </div>
     <d-alert v-if="alert.description" v-bind="alert"/>
-    <d-actions :bar="bar">
+    <d-actions v-bind="actionsAttrs" :bar="bar">
       <template v-slot:default>
         <d-button
           v-bind="submit"
