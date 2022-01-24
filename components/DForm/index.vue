@@ -126,7 +126,8 @@ export default {
       success: success.value,
       error: error.value,
       validationMessage: propValidationMessage.value,
-      request
+      request,
+      setValidity
     })
 
     const onSubmit = async () => {
