@@ -87,12 +87,15 @@ export default {
 }
 
 .interactive-demo {
-  align-items: flex-start;
   background: var(--background-type1);
   border-radius: var(--basic-radius);
   box-shadow: var(--shadow-type1);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "show"
+    "options";
 
   &__clipboard {
     max-width: 560px;
@@ -104,6 +107,7 @@ export default {
     @extend %flex-basis;
     flex-grow: 1;
     flex-shrink: 1;
+    grid-area: show;
     min-height: 320px;
     position: relative;
 
@@ -120,11 +124,7 @@ export default {
   &__option {
     @extend %id-padding;
     @extend %flex-basis;
-
-    @include mediaMinWidth() {
-      border-left-width: var(--basic-border-width);
-      flex-basis: 280px;
-    }
+    grid-area: options;
 
     &__item {
       @include flexCenterY;
@@ -144,6 +144,16 @@ export default {
     --basic-text-opacity: var(--opacity-surface-medium);
     flex-basis: 100%;
     text-align: center;
+  }
+
+  @include mediaMinWidth() {
+    grid-template-columns: auto 280px;
+    grid-template-areas:
+      "show options";
+
+    &__option {
+      border-left-width: var(--basic-border-width);
+    }
   }
 }
 </style>
