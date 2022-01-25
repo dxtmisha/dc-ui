@@ -1,5 +1,5 @@
-import useClass from '../../uses/useClass'
 import { ref } from 'vue'
+import useClass from '../../uses/useClass'
 
 const app = document.querySelector('#app')
 const classBody = useClass(ref(document.body), 'd-window__block', false, undefined, false)

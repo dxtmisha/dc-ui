@@ -1,13 +1,18 @@
-import { toRefs } from 'vue'
+import { nextTick, toRefs } from 'vue'
 import useWatch from '../../uses/useWatch'
 
 export default function useIndicator (tab, props) {
-  const { selected } = toRefs(props)
+  const {
+    list,
+    selected
+  } = toRefs(props)
 
   let old
 
-  return useWatch(selected, data => {
-    const item = tab.value?.querySelector(`[data-value=${selected.value}]`)
+  return useWatch([list, selected], async data => {
+    await nextTick()
+
+    const item = tab.value?.querySelector(`[data-value="${selected.value}"]`)
 
     if (item && old) {
       const rect = old.getBoundingClientRect()

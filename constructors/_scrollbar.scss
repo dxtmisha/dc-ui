@@ -17,10 +17,10 @@
       scrollbar-width: thin;
 
       &::-webkit-scrollbar {
-        appearance: none;
-        height: var(--_sc-width);
-        width: var(--_sc-width);
-      }
+         appearance: none;
+         height: var(--_sc-width);
+         width: var(--_sc-width);
+       }
 
       &::-webkit-scrollbar-track {
         background: var(--_sc-background);
