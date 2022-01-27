@@ -141,6 +141,13 @@ export default {
         ]
       },
       {
+        icon: 'money',
+        name: 'Intl',
+        list: [
+          'd-number'
+        ]
+      },
+      {
         icon: 'alt_route',
         name: 'Other',
         list: [

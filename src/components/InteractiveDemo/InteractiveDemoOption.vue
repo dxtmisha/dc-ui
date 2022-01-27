@@ -23,6 +23,7 @@
           :text="item.text"
           :value="item.default"
           adaptive="block"
+          shape="basic"
           menu-size="compact"
           menu-width="248px"
           @on-input="onInput"

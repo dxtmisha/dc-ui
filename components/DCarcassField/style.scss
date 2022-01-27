@@ -431,9 +431,14 @@
     }
   }
 
+  &__input:autofill ~ *,
+  &__input:-webkit-autofill ~ * {
+    @include status-focus-text;
+  }
+
   &__input:placeholder-shown ~ *,
   &.status-active {
-    @extend %status-focus-text;
+    @include status-focus-text;
   }
 }
 
@@ -515,8 +520,10 @@
       @extend %background;
       @extend %filled-shift;
 
+      &:autofill ~ #{$this}__label,
+      &:-webkit-autofill ~ #{$this}__label,
       &:placeholder-shown ~ #{$this}__label {
-        @extend %filled-focus;
+        @include filled-focus;
       }
     }
 
@@ -571,7 +578,16 @@
 
   &.appearance-outlined.status-active #{$this}__label,
   &.appearance-outlined &__input:placeholder-shown ~ #{$this}__label {
-    @extend %outlined-focus;
+    @include outlined-focus;
+
+    #{$this}__title::after {
+      border-top-color: transparent;
+    }
+  }
+
+  &.appearance-outlined &__input:autofill ~ #{$this}__label,
+  &.appearance-outlined &__input:-webkit-autofill ~ #{$this}__label {
+    @include outlined-focus;
 
     #{$this}__title::after {
       border-top-color: transparent;
@@ -582,7 +598,7 @@
     &:focus-within,
     &.status-focus {
       #{$this}__label {
-        @extend %outlined-focus;
+        @include outlined-focus;
       }
 
       #{$this}__title::after {

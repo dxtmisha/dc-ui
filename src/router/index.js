@@ -49,6 +49,7 @@ import DemoMotionScroll from '../views/DemoMotionScroll'
 import DemoMotionSticky from '../views/DemoMotionSticky'
 import DemoMotionTransform from '../views/DemoMotionTransform'
 import DemoNavigation from '../views/DemoNavigation'
+import DemoNumber from '../views/DemoNumber'
 import DemoPagination from '../views/DemoPagination'
 import DemoProgress from '../views/DemoProgress'
 import DemoRedactionFile from '../views/DemoRedactionFile'
@@ -124,6 +125,7 @@ export const routes = getRoutes({
   'd-motion-sticky': DemoMotionSticky,
   'd-motion-transform': DemoMotionTransform,
   'd-navigation': DemoNavigation,
+  'd-number': DemoNumber,
   'd-pagination': DemoPagination,
   'd-progress': DemoProgress,
   'd-redaction-file': DemoRedactionFile,

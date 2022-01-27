@@ -19,7 +19,11 @@ export default class Geo {
   }
 
   getNumber (value, options = {}) {
-    return new Intl.NumberFormat(this._lang, options).format(value)
+    const number = Geo.toNumber(value)
+
+    return number === undefined
+      ? value
+      : new Intl.NumberFormat(this._lang, options).format(number)
   }
 
   getFirstDay () {
@@ -115,5 +119,17 @@ export default class Geo {
 
   static getCountryByCode (code) {
     return geoMedia?.filter(item => `${item?.languageCodes}-${item?.iso2}` === code)?.[0]
+  }
+
+  static toNumber (value) {
+    const number = typeof value !== 'string'
+      ? value
+      : parseFloat(
+        value
+          .replace(',', '.')
+          .replace(/[^0-9.]+/ig, '')
+      )
+
+    return Number.isNaN(number) ? undefined : number
   }
 }

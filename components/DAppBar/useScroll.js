@@ -37,6 +37,8 @@ export default function useScroll (app, props) {
         (props.transform && props.transform !== transform)
       ) {
         move = 0
+      } else if (move < (scroll * -1)) {
+        move = scroll * -1
       } else if (move < height) {
         move = height
       }

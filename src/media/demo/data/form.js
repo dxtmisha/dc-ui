@@ -85,8 +85,7 @@ export default [
         name: 'password',
         text: 'Password',
         icon: 'password',
-        type: 'password',
-        autocomplete: 'new-password'
+        type: 'password'
       }
     ]
   }

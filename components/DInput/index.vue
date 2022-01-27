@@ -34,7 +34,7 @@
 import DCarcassField from '../DCarcassField'
 import DMask from '../DMask'
 import { props } from './props'
-import { ref } from 'vue'
+import { nextTick, onMounted, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useCarcass from './useCarcass'
 import useField from '../../uses/useField'
@@ -91,6 +91,11 @@ export default {
           : parseFloat(propValue.value || props.min || '0') + (props.step || 1) || ''
       })
     }
+
+    onMounted(async () => {
+      await nextTick()
+      requestAnimationFrame(() => console.log('input', input.value.name, input.value.value))
+    })
 
     useAdmin('d-input', context, input)
 
