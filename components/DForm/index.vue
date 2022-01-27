@@ -7,24 +7,24 @@
     novalidate
     @submit.prevent.stop="onSubmit"
   >
-    <div class="d-form__fields">
+    <div :class="classFields" class="d-form__fields">
       <div
-        v-for="{binds, class: className, fields, section, text} in propFields"
+        v-for="{binds, class: className, fields, section} in propFields"
         v-bind="binds"
         :key="section"
         :class="className"
         class="d-form__section"
       >
-        <div v-if="text" class="d-form__title" v-html="text"/>
         <template v-if="fields">
           <template
             v-for="item in (fields)"
             :key="item.name"
           >
-            <div v-if="item?.html" class="d-form__html" v-html="item.html"/>
-            <div v-else-if="item?.subtitle" class="d-form__subtitle" v-html="item.subtitle"/>
-            <div v-else-if="item?.line" class="d-form__line"/>
-            <div v-else-if="item?.space" class="d-form__space"/>
+            <div v-if="item?.html" :class="item?.class" class="d-form__html" v-html="item.html"/>
+            <div v-else-if="item?.title" :class="item?.class" class="d-form__title" v-html="item.title"/>
+            <div v-else-if="item?.subtitle" :class="item?.class" class="d-form__subtitle" v-html="item.subtitle"/>
+            <div v-else-if="item?.line" :class="item?.class" class="d-form__line"/>
+            <div v-else-if="item?.space" :class="item?.class" class="d-form__space"/>
             <component
               v-else-if="item?.name"
               :ref="(el) => { if (el) items[item.name] = { item, el } }"

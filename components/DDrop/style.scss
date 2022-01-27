@@ -1,9 +1,11 @@
 @import "../../styles/color";
 @import "../../styles/dimension";
 @import "../../styles/elevation";
+@import "../../styles/position";
 
 @mixin drop() {
   @include index(1);
+  @include positionFull(var(--_dr-padding));
 
   --_dr-padding: var(--dr-padding, #{dimension(2)});
   --_dr-width: var(--dr-width, #{dimension(.5)});
@@ -16,7 +18,6 @@
   border-style: dashed;
   border-width: var(--_dr-width);
   position: absolute;
-  inset: var(--_dr-padding);
   transition-property: background-color, border-color;
 
   &.status-enter {

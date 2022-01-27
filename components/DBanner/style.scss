@@ -3,10 +3,11 @@
 @import "../../styles/flex";
 @import "../../styles/font";
 @import "../../styles/media";
+@import "../../styles/position";
 
 %flex {
   @include flexX;
-  gap: 0 var(--_bn-gap);
+  @include flexGapX(var(--_bn-gap));
 }
 %color-medium {
   --basic-text-opacity: var(--opacity-surface-medium);
@@ -23,8 +24,8 @@
   border-bottom-width: var(--basic-border-width);
 
   &--sticky {
+    @include sticky;
     background-color: varColor(--background-colorless);
-    position: sticky;
     top: var(--basic-top);
   }
 }

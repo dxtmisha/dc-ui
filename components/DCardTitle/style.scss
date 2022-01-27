@@ -6,7 +6,7 @@
   --_ct-padding: var(--ct-padding, 16px);
 
   @include flexX;
-  gap: 0 var(--_ct-gap);
+  @include flexGapX(var(--_ct-gap));
   padding: var(--_ct-padding);
 
   & + .d-card-text {

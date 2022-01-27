@@ -28,13 +28,13 @@ footer {
 header {
   @include flexX;
   @include index(2);
+  @include sticky;
   background: var(--background-type2);
   border-radius: var(--basic-radius);
   box-shadow: var(--shadow-type2);
   gap: 8px;
   margin: 0 auto dimension(4);
   padding: dimension(2) dimension(4);
-  position: sticky;
   top: dimension(4);
   will-change: width;
 }

@@ -105,8 +105,8 @@
   }
 
   &__title {
+    @include flexGapX(var(--_li__st-gap));
     @extend %flex-x;
-    gap: var(--_li__st-gap);
     flex-basis: 100%;
   }
 

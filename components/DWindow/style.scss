@@ -20,6 +20,7 @@
   padding: var(--_wn-padding);
   transition-duration: var(--transition-menu-collapsing);
   transition-property: background-color;
+  will-change: background-color;
 
   &__block {
     overflow: hidden;
@@ -47,6 +48,7 @@
     visibility var(--transition-flash) linear var(--transition-menu-collapsing);
     width: 100%;
     visibility: hidden;
+    will-change: opacity, transform, visibility;
     @content;
   }
 }

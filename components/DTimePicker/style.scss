@@ -105,9 +105,9 @@
 
       &.status-switch-clock & {
         &__content {
+          @include flexGapX(var(--_tp--landscape-gap));
           align-items: center;
           display: flex;
-          gap: 0 var(--_tp--landscape-gap);
         }
 
         &__input,

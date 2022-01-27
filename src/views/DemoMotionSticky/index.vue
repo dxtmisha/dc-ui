@@ -54,6 +54,7 @@ export default {
 @import "../../../styles/dimension";
 @import "../../../styles/elevation";
 @import "../../../styles/font";
+@import "../../../styles/position";
 
 .demo-motion-sticky {
   position: relative;
@@ -65,10 +66,10 @@ export default {
 
   &__top,
   &__bottom {
+    @include sticky;
     @include index(9);
     @include font('headline6');
     padding: 16px 0;
-    position: sticky;
     text-align: center;
 
     &.status-sticky {

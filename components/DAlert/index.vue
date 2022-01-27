@@ -1,7 +1,7 @@
 <template>
   <div class="d-alert" :class="classList" role="alert">
-    <div class="d-alert__icon">
-      <d-icon v-if="icon" v-bind="bindIcon"/>
+    <div v-if="icon" class="d-alert__icon">
+      <d-icon v-bind="bindIcon"/>
     </div>
     <div class="d-alert__content">
       <div v-if="text" class="d-alert__text" v-html="text"/>

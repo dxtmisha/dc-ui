@@ -88,9 +88,9 @@
 
 @mixin datePickerInput() {
   &__input {
+    @include flexGapX(var(--_dp-padding-y));
     --cf-width: auto;
     display: flex;
-    gap: 0 var(--_dp-padding-y);
     padding: var(--_dp-padding-top) var(--_dp-padding);
 
     &__item {
@@ -173,8 +173,15 @@
         align-items: flex-start;
         flex-flow: column;
         flex-grow: 1;
-        gap: var(--_dp-padding-y) 0;
         justify-content: space-between;
+      }
+
+      &__spacer {
+        padding-bottom: var(--_dp-padding-y);
+      }
+
+      &__management {
+        display: none;
       }
     }
   }

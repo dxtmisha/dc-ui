@@ -60,7 +60,7 @@
 @mixin calendarMultipleMenu() {
   &__menu {
     @include flexX;
-    gap: dimension(1);
+    @include flexGapX(dimension(1));
     padding: var(--_cm__mn-padding);
     height: var(--_cm__mn-height);
     @content;

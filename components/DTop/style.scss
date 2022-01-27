@@ -15,10 +15,10 @@
   --_tp--lr-height: var(--tp--lr-height, #{dimension(16)});
 
   @include flexX;
+  @include flexGapX(var(--_tp-gap));
   --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
   background-color: varColor(--_tp-palette);
-  gap: 0 var(--_tp-gap);
   min-height: var(--_tp-height);
   padding: 0 var(--_tp-padding);
   max-width: 100%;

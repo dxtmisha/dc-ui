@@ -1,5 +1,6 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
+@import "../../styles/position";
 
 @mixin redactionFile {
   --_rf-width: var(--rf-width, 520px);
@@ -24,9 +25,9 @@
 
 @mixin redactionFileSlider {
   &__slider {
+    @include positionFull(var(--_rf__sl-inset));
     --is-width: 100%;
     display: none;
-    inset: var(--_rf__sl-inset);
     margin: auto;
     max-width: var(--_rf__sl-width);
     max-height: var(--_rf__sl-width);

@@ -63,11 +63,11 @@
 
 @mixin appBarBody {
   &__body {
+    @include flexGapX(var(--_ab-gap));
     background-color: varColor(--_ab-palette-type1, --_ab-background-opacity);
     border-radius: inherit;
     box-shadow: var(--shadow-type4);
     display: flex;
-    gap: var(--_ab-gap);
     margin: 0 auto;
     max-width: var(--_ab-width);
     min-height: var(--_ab-height);

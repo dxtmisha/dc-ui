@@ -29,6 +29,7 @@
   @include font('overline');
   @include index(1);
   @include select-none;
+  @include positionFull(auto);
 
   --basic-text: var(--text-type2);
   --basic-text-opacity: var(--opacity-primary-high);
@@ -37,7 +38,6 @@
   background-color: varColor(--_bg-palette, --_bg-opacity);
   border-radius: var(--_bg-radius);
   height: var(--_bg-size);
-  inset: auto;
   margin: auto;
   min-width: var(--_bg-size);
   padding: var(--_bg-padding);

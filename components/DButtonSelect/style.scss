@@ -5,7 +5,10 @@
 
   &__body {
     display: flex;
-    gap: var(--_bs-gap);
+  }
+
+  &__value {
+    padding-left: var(--_bs-gap);
   }
 
   &__button[data-value] &__text {

@@ -1,8 +1,12 @@
 @mixin positionFull($value: 0) {
-  top: $value;
-  right: $value;
-  bottom: $value;
-  left: $value;
+  inset: $value;
+
+  @supports not(inset: $value) {
+    top: $value;
+    right: $value;
+    bottom: $value;
+    left: $value;
+  }
 }
 
 @mixin positionX($value: 0) {
@@ -107,6 +111,13 @@
 @mixin fixedLeft($value: 0) {
   position: fixed;
   @include positionLeft($value);
+}
+
+@mixin sticky() {
+  position: sticky;
+  @supports not(position: sticky) {
+    position: -webkit-sticky;
+  }
 }
 
 @mixin afterAbsolute($type: 'full', $position: relative) {

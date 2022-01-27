@@ -1,6 +1,7 @@
 <template>
   <interactive-demo
     :options="options"
+    :sticky="false"
     v-slot:default="{ binds, on }"
   >
     <div class="demo-actions">

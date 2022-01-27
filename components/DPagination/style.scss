@@ -7,10 +7,10 @@
   --_pg-padding: var(--pg-padding, #{8px 8px});
 
   @include font('body2');
+  @include flexGapX(var(--_pg-gap));
   @extend %flex-x;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: var(--_pg-gap) var(--_pg-gap);
   min-height: var(--_pg-height);
   padding: var(--_pg-padding);
 
@@ -39,8 +39,9 @@
 
 @mixin paginationNavigation {
   &__navigation {
+    @include flexGapX(var(--_pg-gap));
     @extend %flex-x;
-    gap: inherit;
+    margin-left: inherit;
     justify-content: flex-end;
     @content;
   }

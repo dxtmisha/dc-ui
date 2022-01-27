@@ -1,6 +1,7 @@
 @import "../../styles/color";
 @import "../../styles/elevation";
 @import "../../styles/font";
+@import "../../styles/position";
 
 @mixin controlSelection() {
   @include controlSelectionVar;
@@ -44,11 +45,11 @@
 
     &::before {
       @include index(8);
+      @include positionFull;
       background-color: varColor(--_cs-palette-type2, --opacity-container-selected);
       border-width: var(--_cs__it-border);
       content: " ";
       display: none;
-      inset: 0;
       position: absolute;
     }
 

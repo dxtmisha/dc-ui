@@ -27,12 +27,12 @@
 @mixin snackbarBody {
   &__body {
     @include optionBlur;
+    @include flexGapX(var(--_sn-gap));
     @extend %flex-x;
     --basic-text: var(--text-inverse);
     --basic-text-opacity: var(--opacity-primary-high);
     background-image: varColor(--_sn-palette, --opacity-surface-high, true);
     border-radius: var(--_sn-radius);
-    gap: 0 var(--_sn-gap);
     display: flex;
     flex-wrap: wrap;
     padding-left: var(--_sn-padding);
@@ -46,10 +46,10 @@
 
 @mixin snackbarText {
   &__text {
+    @include flexGapX(var(--_sn-gap));
     @include font('body2');
     @extend %flex-x;
     flex-grow: 1;
-    gap: 0 var(--_sn-gap);
     padding: var(--_sn-padding-y) calc(var(--_sn-padding) - var(--_sn-gap)) var(--_sn-padding-y) 0;
   }
 }

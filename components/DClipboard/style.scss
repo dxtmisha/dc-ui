@@ -1,14 +1,18 @@
 @import "../../styles/color";
+@import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
 
 @mixin clipboard() {
+  --_cl-gap: var(--cl-gap, #{dimension(2)});
+  --_cl-padding: var(--cl-padding, #{dimension(1) dimension(2)});
+
   @include flexX;
+  @include flexGapX(var(--_cl-gap));
   @include font('body2');
   background-color: varColor(--background-overlay, --opacity-overlay);
   border-radius: var(--basic-radius);
-  gap: 8px;
-  padding: 4px 8px;
+  padding: var(--_cl-padding);
 
   &__button {
     --basic-text-opacity: var(--opacity-surface-medium);
@@ -18,10 +22,6 @@
     @include ellipsis;
     @include flexDynamic;
     margin-left: 8px;
-  }
-
-  &__icon + &__input {
-    margin-left: 0;
   }
 }
 

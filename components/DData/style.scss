@@ -1,3 +1,5 @@
+@import "../../styles/position";
+
 @mixin data {
   &__headers {
     .d-data-item__body {
@@ -5,8 +7,8 @@
     }
 
     &.option-sticky {
+      @include sticky;
       background: var(--background-type1);
-      position: sticky;
       top: var(--basic-top);
       z-index: 4;
     }

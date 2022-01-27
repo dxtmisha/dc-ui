@@ -34,11 +34,12 @@
   --_al-border: var(--_al-palette);
   --_al-border-opacity: var(--opacity-primary-high);
 
+  @include flexGapX(var(--_al-gap));
+
   align-items: flex-start;
   background-color: varColor(--_al-background, --_al-background-opacity);
   border-radius: var(--_al-radius);
   display: flex;
-  gap: var(--_al-gap);
   padding: var(--_al-padding);
   overflow: hidden;
   transition-property: opacity, transform, visibility;

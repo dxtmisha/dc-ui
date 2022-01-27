@@ -146,10 +146,10 @@
     --_nv__body-max: 0;
 
     @include index(4);
+    @include positionFull(auto);
     background-color: transparent;
     content: none;
     display: block;
-    inset: auto;
     position: relative;
     transition-delay: 100ms;
     width: 0;

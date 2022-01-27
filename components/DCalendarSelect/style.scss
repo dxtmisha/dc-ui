@@ -16,8 +16,8 @@
 @mixin calendarSelectMenu() {
   &__menu {
     @include flexBetween;
+    @include flexGapX(dimension(1));
     align-items: center;
-    gap: dimension(1);
     padding: var(--_cs-padding-x) var(--_cs-padding);
     @content;
   }

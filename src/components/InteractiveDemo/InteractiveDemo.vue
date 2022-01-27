@@ -1,6 +1,6 @@
 <template>
   <div class="interactive-demo">
-    <div class="interactive-demo__show" :class="{ 'option-sticky': sticky }">
+    <div :class="{ 'option-sticky': sticky }" class="interactive-demo__show">
       <slot :binds="valueData" :on="on" :update="updateProps"/>
     </div>
     <interactive-demo-option
@@ -73,6 +73,7 @@ export default {
 @import "../../../styles/flex";
 @import "../../../styles/font";
 @import "../../../styles/media";
+@import "../../../styles/position";
 
 %id-padding {
   padding: dimension(2) dimension(4);
@@ -87,35 +88,32 @@ export default {
 }
 
 .interactive-demo {
-  background: var(--background-type1);
-  border-radius: var(--basic-radius);
-  box-shadow: var(--shadow-type1);
   display: grid;
+  align-items: flex-start;
+  border-radius: var(--basic-radius);
+  background: var(--background-type1);
+  box-shadow: var(--shadow-type1);
   grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-areas:
     "show"
     "options";
 
-  &__clipboard {
-    max-width: 560px;
-  }
-
   &__show {
     @include flexCenter;
     @extend %id-padding;
     @extend %flex-basis;
+    position: relative;
     flex-grow: 1;
     flex-shrink: 1;
-    grid-area: show;
     min-height: 320px;
-    position: relative;
+    grid-area: show;
 
     @include mediaMinWidth() {
       flex-basis: 1px;
 
       &.option-sticky {
-        position: sticky;
+        @include sticky;
         top: var(--basic-top);
       }
     }
@@ -141,9 +139,9 @@ export default {
   &__code {
     @include font('body2');
     @extend %id-padding;
-    --basic-text-opacity: var(--opacity-surface-medium);
     flex-basis: 100%;
     text-align: center;
+    --basic-text-opacity: var(--opacity-surface-medium);
   }
 
   @include mediaMinWidth() {

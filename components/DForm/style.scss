@@ -24,7 +24,7 @@
 
     @include mediaMinWidth(large) {
       align-items: flex-start;
-      display: flex;
+      display: grid;
       gap: var(--_fr-gap);
       @content;
     }
@@ -33,9 +33,7 @@
 
 @mixin formSection() {
   &__section {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
+    display: grid;
     gap: var(--_fr-gap-y) var(--_fr-gap);
     @content;
   }
@@ -53,7 +51,6 @@
 @mixin formTitle() {
   &__title {
     @include font('headline6');
-    @extend %width;
     @content;
   }
 }

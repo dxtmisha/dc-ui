@@ -12,7 +12,7 @@
   --_ac--lr-height: var(--ac--lr-height, #{dimension(15)});
 
   @include flexX;
-  gap: var(--_ac-gap);
+  @include flexGapX(var(--_ac-gap));
   min-height: var(--_ac-height);
   padding: dimension(1) var(--_ac-padding);
   max-width: 100%;

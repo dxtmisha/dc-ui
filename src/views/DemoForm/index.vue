@@ -9,6 +9,7 @@
       id="id-file"
       :fields="fields"
       :admin="true"
+      class-fields="grid-cols-3"
       @on-submit="on"
       @on-validity="on"
     />

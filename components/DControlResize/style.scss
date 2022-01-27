@@ -7,10 +7,10 @@
 @mixin controlResize {
   @include controlResizeVar;
   @include ellipsis;
+  @include positionFull;
   --_cr-disabled: #{varColor(--disabled-type1, --opacity-surface-disabled)};
   display: flex;
   position: absolute;
-  inset: 0;
   z-index: 4;
 
   &__center,

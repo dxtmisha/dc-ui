@@ -24,9 +24,9 @@
   --_li--sh__text-display: none;
 
   @include flexY;
+  @include flexGapY(dimension(1));
   @include squared(var(--_li--nr-height));
   justify-content: center;
-  gap: dimension(1) 0;
 
   #{$this}__text,
   #{$this}__main {

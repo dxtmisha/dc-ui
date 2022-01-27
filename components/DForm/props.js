@@ -42,6 +42,7 @@ export const props = {
     type: Object,
     default: defaultProps('options')
   },
+  classFields: [Object, String],
 
   // Actions
   actionsAttrs: { default: defaultProps('actionsAttrs') },

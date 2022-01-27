@@ -19,8 +19,8 @@
   &__rail,
   &__track,
   &__select {
+    @include positionFull;
     border-radius: var(--_sl-radius);
-    inset: 0;
     height: var(--_sl-height);
     margin: auto 0;
     position: absolute;
@@ -47,8 +47,8 @@
 @mixin sliderPickerMarks() {
   &__marks {
     @include flexX;
+    @include positionFull;
     border-radius: var(--_sl-radius);
-    inset: 0;
     margin: auto 0;
     position: absolute;
     @content;
@@ -269,11 +269,11 @@
       }
 
       &::before {
+        @include positionFull;
         background-color: varColor(--_sl-palette);
         border-radius: var(--_sl--drop__lb-width);
         border-bottom-right-radius: 0;
         content: " ";
-        inset: 0;
         position: absolute;
         transform: rotate(45deg);
         z-index: -1;

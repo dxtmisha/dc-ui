@@ -6,9 +6,9 @@
       :active="active"
       class="d-card-title__icon"
     />
-    <div class="d-card-title__title">
-      <a :href="href" class="d-card-title__text a-static" v-html="title"/>
-      <div class="d-card-title__description" v-html="description"/>
+    <div v-if="title || description" class="d-card-title__title">
+      <a v-if="title" :href="href" class="d-card-title__text a-static" v-html="title"/>
+      <div v-if="description" class="d-card-title__description" v-html="description"/>
     </div>
     <d-card-menu v-if="menu" v-bind="bindMenu" @on-click="onClick"/>
     <slot/>

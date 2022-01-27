@@ -48,7 +48,6 @@
   &__slider {
     @include flexX;
     @include width(var(--_av-width));
-    gap: 8px;
     margin: 0 auto;
     padding: var(--_av__sl-padding-y) var(--_av__sl-padding-x);
     @content;

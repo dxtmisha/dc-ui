@@ -33,7 +33,13 @@
   }
 
   &.option-button-shape {
-    gap: var(--_bg-gap);
+    &.axis-x {
+      @include flexGapX(var(--_bg-gap));
+    }
+
+    &.axis-y {
+      @include flexGapY(var(--_bg-gap));
+    }
   }
 }
 

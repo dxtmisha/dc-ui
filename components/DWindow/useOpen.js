@@ -1,7 +1,6 @@
 import { nextTick } from 'vue'
 import EventControl from '../../classes/EventControl'
 import useClass from '../../uses/useClass'
-import useScroll from './useScroll'
 
 const isChildren = (target, id) => {
   const focus = target.closest('.d-window')
@@ -44,7 +43,6 @@ export default function useOpen (
     false
   )
 
-  const scrollToggle = useScroll()
   const eventBody = EventControl.init(document.body, async (event) => {
     if (open.value) {
       await verification(event.target)
@@ -71,7 +69,6 @@ export default function useOpen (
         watchPosition()
 
         requestAnimationFrame(() => {
-          scrollToggle(true)
           classShow.set(true)
 
           eventBody.go()
@@ -147,7 +144,6 @@ export default function useOpen (
       propertyName === 'visibility'
     ) {
       open.value = false
-      requestAnimationFrame(() => scrollToggle(false))
     }
   }
 

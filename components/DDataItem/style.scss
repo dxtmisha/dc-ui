@@ -3,6 +3,7 @@
 @import "../../styles/font";
 @import "../../styles/media";
 @import "../../styles/padding";
+@import "../../styles/position";
 @import "../../styles/options/optionShape";
 
 %min-height {
@@ -36,9 +37,9 @@
   --_di__bd-type: grid;
   --_di__bd-bottom: 0;
 
+  @include flexGapX(var(--_di-gap));
   align-items: flex-start;
   display: flex;
-  gap: var(--_di-gap);
   min-height: var(--_di-height);
   padding-left: var(--_di-padding-x);
   position: relative;
@@ -54,11 +55,11 @@
 
 @mixin dataItemBody {
   &__body {
+    @include flexGapX(var(--_di__bd-gap));
     @extend %min-height;
     align-items: center;
     display: var(--_di__bd-type);
     flex-grow: 1;
-    gap: var(--_di__bd-gap);
     grid-template-columns: repeat(auto-fit, minmax(#{var(--_di-width)}, 1fr));
     grid-template-rows: auto;
     padding: var(--_di-padding-y) var(--_di-padding-x) var(--_di-padding-y) 0;
@@ -80,7 +81,7 @@
 
 @mixin dataItemTop {
   &__top {
-    position: sticky;
+    @include sticky;
     top: 0;
 
     @include mediaMinList {

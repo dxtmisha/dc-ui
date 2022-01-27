@@ -16,8 +16,8 @@
   --sl-width: auto;
 
   &__body {
+    @include flexGapX(var(--_is-gap));
     @extend %flex-x;
-    gap: var(--_is-gap);
     max-width: 100%;
     width: var(--_is-width);
   }

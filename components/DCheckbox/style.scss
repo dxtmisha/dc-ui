@@ -9,9 +9,9 @@
 @mixin checkbox() {
   @include checkboxVar;
   @include flexX;
+  @include flexGapX(var(--_cb-gap));
   @include select-none;
   display: inline-flex;
-  gap: 0 var(--_cb-gap);
 }
 
 @mixin checkboxInput() {

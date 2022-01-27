@@ -1,6 +1,7 @@
 @import "../../styles/color";
 @import "../../styles/elevation";
 @import "../../styles/font";
+@import "../../styles/position";
 
 @mixin controlPosition {
   --_cp-palette: var(--cp-palette, var(--color-palette, var(--primary-type1)));
@@ -17,10 +18,10 @@
 
     &::before {
       @include index(8);
+      @include positionFull;
       background-color: varColor(--_cp-palette, --opacity-container-selected);
       content: " ";
       display: none;
-      inset: 0;
       position: absolute;
       transition-property: background-color;
     }

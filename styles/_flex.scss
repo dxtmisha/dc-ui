@@ -39,6 +39,18 @@
   flex-shrink: 1;
 }
 
+@mixin flexGapX($value) {
+  > * + * {
+    margin-left: $value;
+  }
+}
+
+@mixin flexGapY($value) {
+  > * + * {
+    margin-top: $value;
+  }
+}
+
 %flex-x {
   @include flexX;
 }
