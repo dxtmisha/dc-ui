@@ -30,6 +30,7 @@ import DemoData from '../views/DemoData'
 import DemoDataItem from '../views/DemoDataItem'
 import DemoDataPicker from '../views/DemoDataPicker'
 import DemoDate from '../views/DemoDate'
+import DemoDateFormat from '../views/DemoDateFormat'
 import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../views/DemoDialog'
 import DemoDrop from '../views/DemoDrop'
@@ -107,6 +108,7 @@ export const routes = getRoutes({
   'd-data-item': DemoDataItem,
   'd-data-picker': DemoDataPicker,
   'd-date': DemoDate,
+  'd-date-format': DemoDateFormat,
   'd-date-picker': DemoDatePicker,
   'd-dialog': DemoDialog,
   'd-drop': DemoDrop,

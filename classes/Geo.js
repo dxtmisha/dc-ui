@@ -57,6 +57,38 @@ export default class Geo {
       }).format(number)
   }
 
+  getDate (
+    value,
+    type = undefined,
+    display = undefined,
+    options = {}
+  ) {
+    const date = new Date(value)
+    const toDisplay = display === '2-digit' ? '2-digit' : 'numeric'
+
+    /**
+     * @type {Intl.DateTimeFormatOptions}
+     */
+    const toOptions = { ...options }
+
+    if (['datetime', 'date'].indexOf(type) !== -1) {
+      toOptions.year = 'numeric'
+      toOptions.month = display
+      toOptions.day = toDisplay
+    }
+
+    if (['datetime', 'time', 'time-full'].indexOf(type) !== -1) {
+      toOptions.hour = toDisplay
+      toOptions.minute = toDisplay
+    }
+
+    if (['time-full'].indexOf(type) !== -1) {
+      toOptions.second = toDisplay
+    }
+
+    return date.toLocaleString(this._lang, toOptions)
+  }
+
   getFirstDay () {
     return this.getCountry()?.firstDay || 'Mo'
   }

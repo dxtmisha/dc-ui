@@ -145,6 +145,7 @@ export default {
         name: 'Intl',
         list: [
           'd-currency',
+          'd-date-format',
           'd-number'
         ]
       },

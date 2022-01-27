@@ -1,24 +1,36 @@
 import { defaultInit, validator } from '../../uses/useDefault'
 import Geo from '../../classes/Geo'
 
-const defaultProps = defaultInit('d-currency')
+const defaultProps = defaultInit('d-date-format')
 export const props = {
   // Values
   value: [Number, String],
-  currency: String,
+  relative: Number,
 
   // Options
   locales: {
     type: String,
     default: defaultProps('locales', Geo.getGlobalLang())
   },
+  type: {
+    type: String,
+    default: 'datetime',
+    validator: validator([
+      'date',
+      'datetime',
+      'time',
+      'time-full'
+    ])
+  },
   display: {
     type: String,
-    default: defaultProps('display'),
+    default: defaultProps('display', 'short'),
     validator: validator([
-      'symbol',
-      'code',
-      'name'
+      'numeric',
+      'long',
+      'short',
+      'narrow',
+      '2-digit'
     ])
   },
   options: Object
