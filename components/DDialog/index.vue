@@ -33,7 +33,7 @@ import DActions from '../DActions'
 import DScrollbar from '../DScrollbar'
 import DWindow from '../DWindow'
 import { props } from './props'
-import { computed, nextTick, onMounted, ref, toRefs, watch } from 'vue'
+import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import attrActions from '../DActions/attrActions'
 import attrWindow from '../DWindow/attrWindow'
@@ -54,10 +54,7 @@ export default {
     const window = ref(undefined)
     const main = ref(undefined)
 
-    const toggle = async () => {
-      await nextTick()
-      window.value.toggle(props.open)
-    }
+    const toggle = () => window.value.toggle(props.open)
 
     const bindActions = attrActions({ props })
     const bindWindow = attrWindow({

@@ -16,7 +16,7 @@
                 v-for="{item, value} in calendar"
                 v-bind="bindCalendar"
                 :key="value"
-                :ref="value"
+                :ref="$el => this[value] = $el"
                 :selected="propValue"
                 :value="item"
                 @on-selected="onSelected"
@@ -137,6 +137,7 @@ export default {
       calendarMain.value,
       calendarNext.value
     ].forEach(calendar => {
+      console.log('calendar', calendar)
       if (item) {
         calendar.onMouseover(item)
       } else {

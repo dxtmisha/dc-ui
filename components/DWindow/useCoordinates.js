@@ -1,4 +1,4 @@
-import { nextTick, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import frame from './../../functions/frame'
 import useStyle from '../../uses/useStyle'
 
