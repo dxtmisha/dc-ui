@@ -38,7 +38,25 @@ export default function useCoordinates (
   const originX = useStyle(modal, '--_wn-or-x')
   const originY = useStyle(modal, '--_wn-or-y')
   const minimum = useStyle(modal, '--_wn--cn-width', 'px')
+  let control
 
+  const reCoordinates = () => {
+    if (modal.value && getComputedStyle(modal.value).content === '"--MENU--"') {
+      const rect = control.getBoundingClientRect()
+
+      minimum.set(props.axis === 'on' ? rect.width : undefined)
+
+      top.value = rect.top
+      right.value = rect.right
+      bottom.value = rect.bottom
+      left.value = rect.left
+      width.value = modal.value?.offsetWidth
+      height.value = modal.value?.offsetHeight
+    } else {
+      top.value = 0
+      left.value = 0
+    }
+  }
   const updateX = () => {
     if (modal.value) {
       const rectRight = contextmenu.value ? clientX.value : right.value + (props.axis === 'x' ? props.indent : 0)
@@ -63,47 +81,29 @@ export default function useCoordinates (
       }
     }
   }
-  const update = async (control) => {
-    await nextTick()
+  const update = () => {
+    reCoordinates()
     updateX()
     updateY()
 
-    requestAnimationFrame(() => {
-      if (clientX.value === 0 && clientY.value === 0) {
-        const rect = control.getBoundingClientRect()
-        originX.set(`${(rect.left + (rect.width / 2)) - x.value}px`)
-        originY.set(`${(rect.top + (rect.height / 2)) - y.value}px`)
-      } else {
-        originX.set(clientX.value ? `${clientX.value - x.value}px` : 'left')
-        originY.set(clientY.value ? `${clientY.value - y.value}px` : 'top')
-      }
-    })
+    if (clientX.value === 0 && clientY.value === 0) {
+      const rect = control.getBoundingClientRect()
+      originX.set(`${(rect.left + (rect.width / 2)) - x.value}px`)
+      originY.set(`${(rect.top + (rect.height / 2)) - y.value}px`)
+    } else {
+      originX.set(clientX.value ? `${clientX.value - x.value}px` : 'left')
+      originY.set(clientY.value ? `${clientY.value - y.value}px` : 'top')
+    }
   }
 
   const watchPosition = () => {
-    const control = document.querySelector(`.d-window__control.${id}`)
+    control = document.querySelector(`.d-window__control.${id}`)
 
     if (open.value && control) {
-      update(control).then()
+      update()
 
       frame(
-        () => {
-          if (modal.value && getComputedStyle(modal.value).content === '"--MENU--"') {
-            const rect = control.getBoundingClientRect()
-
-            minimum.set(props.axis === 'on' ? rect.width : undefined)
-
-            top.value = rect.top
-            right.value = rect.right
-            bottom.value = rect.bottom
-            left.value = rect.left
-            width.value = modal.value?.offsetWidth
-            height.value = modal.value?.offsetHeight
-          } else {
-            top.value = 0
-            left.value = 0
-          }
-        },
+        reCoordinates,
         () => open.value,
         () => {
           x.set(undefined)

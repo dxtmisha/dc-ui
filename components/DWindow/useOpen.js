@@ -1,6 +1,6 @@
-import { nextTick } from 'vue'
 import EventControl from '../../classes/EventControl'
 import useClass from '../../uses/useClass'
+import { nextTick } from 'vue'
 
 const isChildren = (target, id) => {
   const focus = target.closest('.d-window')
