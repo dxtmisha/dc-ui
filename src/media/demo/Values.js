@@ -157,6 +157,17 @@ export const Values = {
     ]
   },
   prefix: { message: 'pr' },
+  relative: {
+    default: 3,
+    list: [
+      { value: undefined },
+      { value: 1 },
+      { value: 3 },
+      { value: 7 },
+      { value: 30 },
+      { value: 60 }
+    ]
+  },
   rows: {
     default: 25,
     list: [
@@ -187,6 +198,7 @@ export const Values = {
   value: {},
   values: {},
   validationMessage: { message: validation1 },
+  unit: {},
   x: {
     list: [
       { value: undefined },

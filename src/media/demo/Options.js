@@ -165,6 +165,13 @@ export const Options = {
       { value: 'always' }
     ]
   },
+  numeric: {
+    list: [
+      { value: undefined },
+      { value: 'always' },
+      { value: 'auto' }
+    ]
+  },
   options: {},
   outline: {
     list: [

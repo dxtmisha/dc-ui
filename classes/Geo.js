@@ -89,6 +89,40 @@ export default class Geo {
     return date.toLocaleString(this._lang, toOptions)
   }
 
+  getRelative (
+    value,
+    unit = undefined,
+    display = 'long',
+    numeric = 'always',
+    options = {}
+  ) {
+    const abs = Math.abs(value)
+    const toDisplay = display === 'long' ? 'long' : 'short'
+    let toUnit = unit
+
+    if (toUnit === undefined) {
+      if (abs < 1) {
+        toUnit = 'hour'
+        value *= 24
+      } else if (abs > 30) {
+        toUnit = 'month'
+        value /= 30
+      } else {
+        toUnit = 'day'
+      }
+    }
+
+    const toValue = Math.round(value)
+
+    return toValue === 0
+      ? ''
+      : new Intl.RelativeTimeFormat(this._lang, {
+        numeric,
+        style: toDisplay,
+        ...options
+      }).format(Math.round(value), toUnit)
+  }
+
   getFirstDay () {
     return this.getCountry()?.firstDay || 'Mo'
   }

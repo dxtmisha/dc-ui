@@ -21,5 +21,13 @@ export const optionsDateFormat = useProps(props, {
       { value: 'narrow' },
       { value: '2-digit' }
     ]
+  },
+  unit: {
+    list: [
+      { value: undefined },
+      { value: 'minute' },
+      { value: 'day' },
+      { value: 'month' }
+    ]
   }
 }, ['value', 'options'])

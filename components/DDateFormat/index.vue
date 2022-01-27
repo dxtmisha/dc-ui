@@ -13,21 +13,27 @@ export default {
   props,
   setup (props, context) {
     const date = computed(() => {
-      let relative
+      const relative = (new Date() - new Date(props.value)) / 1000 / 60 / 60 / 24
 
-      if (props.relative) {
-        const today = new Date()
-        const date = new Date(props.value)
-
-        console.log(today - date)
+      if (
+        props.relative &&
+        relative <= props.relative
+      ) {
+        return new Geo(props.locales).getRelative(
+          relative * -1,
+          props.unit,
+          props.display,
+          props.numeric,
+          props.options
+        )
+      } else {
+        return new Geo(props.locales).getDate(
+          props.value,
+          props.type,
+          props.display,
+          props.options
+        )
       }
-
-      return new Geo(props.locales).getDate(
-        props.value,
-        props.type,
-        props.display,
-        props.options
-      )
     })
 
     useAdmin('d-date-format', context)

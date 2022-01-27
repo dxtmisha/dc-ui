@@ -6,6 +6,7 @@ export const props = {
   // Values
   value: [Number, String],
   relative: Number,
+  unit: String,
 
   // Options
   locales: {
@@ -31,6 +32,14 @@ export const props = {
       'short',
       'narrow',
       '2-digit'
+    ])
+  },
+  numeric: {
+    type: String,
+    default: defaultProps('numeric', 'always'),
+    validator: validator([
+      'always',
+      'auto'
     ])
   },
   options: Object
