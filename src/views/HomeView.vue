@@ -144,6 +144,7 @@ export default {
         icon: 'money',
         name: 'Intl',
         list: [
+          'd-currency',
           'd-number'
         ]
       },

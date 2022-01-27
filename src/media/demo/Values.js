@@ -64,6 +64,7 @@ export const Values = {
     ]
   },
   count: {},
+  currency: {},
   description: { message: quote1 },
   dot: {},
   counterValue: { message: 128 },

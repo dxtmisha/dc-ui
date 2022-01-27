@@ -26,6 +26,37 @@ export default class Geo {
       : new Intl.NumberFormat(this._lang, options).format(number)
   }
 
+  getCurrency (
+    value,
+    currency = undefined,
+    currencyDisplay = undefined,
+    options = {}
+  ) {
+    let number
+    let toCurrency = currency
+
+    if (
+      typeof value === 'string' &&
+      value.match(/ [a-zA-Z]{3}$/ig)
+    ) {
+      value.replace(/^([\S\s]+) ([a-zA-Z]{3})$/ig, (all, s1, s2) => {
+        number = Geo.toNumber(s1)
+        toCurrency = s2.toUpperCase()
+      })
+    } else {
+      number = Geo.toNumber(value)
+    }
+
+    return number === undefined || !toCurrency
+      ? value
+      : new Intl.NumberFormat(this._lang, {
+        style: 'currency',
+        currency: toCurrency,
+        currencyDisplay,
+        ...options
+      }).format(number)
+  }
+
   getFirstDay () {
     return this.getCountry()?.firstDay || 'Mo'
   }

@@ -25,6 +25,7 @@ import DemoClockFace from '../views/DemoClockFace'
 import DemoControlPosition from '../views/DemoControlPosition'
 import DemoControlResize from '../views/DemoControlResize'
 import DemoControlSelection from '../views/DemoControlSelection'
+import DemoCurrency from '../views/DemoCurrency'
 import DemoData from '../views/DemoData'
 import DemoDataItem from '../views/DemoDataItem'
 import DemoDataPicker from '../views/DemoDataPicker'
@@ -90,6 +91,7 @@ export const routes = getRoutes({
   'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
+  'd-currency': DemoCurrency,
   'd-card': DemoCard,
   'd-card-media': DemoCardMedia,
   'd-card-menu': DemoCardMenu,
