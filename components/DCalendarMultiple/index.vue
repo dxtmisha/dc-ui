@@ -137,7 +137,6 @@ export default {
       calendarMain.value,
       calendarNext.value
     ].forEach(calendar => {
-      console.log('calendar', calendar)
       if (item) {
         calendar.onMouseover(item)
       } else {

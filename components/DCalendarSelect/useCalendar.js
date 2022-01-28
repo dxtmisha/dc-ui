@@ -12,7 +12,7 @@ export default function useCalendar (
   context,
   desktop = undefined
 ) {
-  const list = ref({})
+  const list = ref([])
   const listMobile = ref({})
   const active = ref(undefined)
 
@@ -57,7 +57,10 @@ export default function useCalendar (
     return list
   })
 
-  const getActiveItem = () => list.value[active.value]
+  /**
+   * @returns {{value:string,previous:string,next:string}}
+   */
+  const getActiveItem = () => list.value.find(item => item.value === active.value)
 
   const update = (date = undefined) => {
     const value = date || getStandardMonth()
@@ -66,11 +69,11 @@ export default function useCalendar (
     const next = objectFocus.value.toStandardMonth(geo.getNextMonth())
 
     return new Promise(resolve => {
-      if (value in list.value) {
+      if (list.value.findIndex(item => item.value === value) !== -1) {
         active.value = value
         resolve(value)
       } else {
-        list.value[value] = {
+        list.value.push({
           value,
           previous,
           next,
@@ -85,6 +88,10 @@ export default function useCalendar (
               item: next
             }
           ]
+        })
+
+        if (list.value.length > 3) {
+          list.value.shift()
         }
 
         nextTick().then(() => {
