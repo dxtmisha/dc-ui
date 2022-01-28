@@ -125,10 +125,10 @@ export default function useCalendar (
         month.setMonth(month.getMonth() + 1)
       }
 
-      nextTick().then(() => {
+      // nextTick().then(() => {
         active.value = value
         resolve(value)
-      })
+      // })
     })
   }
 

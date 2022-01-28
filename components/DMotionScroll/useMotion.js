@@ -35,7 +35,8 @@ export default function useMotion (
       )
     ) {
       event.$event.stop()
-    } else if (!time) {
+    } else {
+      clearTimeout(time)
       time = setTimeout(() => {
         const central = propElement.value.scrollTop + (propElement.value.clientHeight / 2)
         let focus
@@ -51,7 +52,7 @@ export default function useMotion (
         }
 
         time = undefined
-      }, 256)
+      }, 128)
     }
   }
 
