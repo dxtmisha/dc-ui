@@ -33,8 +33,8 @@ export default function useCoordinates (
 
   const x = useStyle(modal, '--_wn-x', 'px')
   const y = useStyle(modal, '--_wn-y', 'px')
-  const clientX = useStyle(modal, '--_wn-cl-x', 'px', undefined, () => updateX())
-  const clientY = useStyle(modal, '--_wn-cl-y', 'px', undefined, () => updateY())
+  const clientX = useStyle(modal, '--_wn-cl-x', 'px', undefined)
+  const clientY = useStyle(modal, '--_wn-cl-y', 'px', undefined)
   const originX = useStyle(modal, '--_wn-or-x')
   const originY = useStyle(modal, '--_wn-or-y')
   const minimum = useStyle(modal, '--_wn--cn-width', 'px')
@@ -52,7 +52,7 @@ export default function useCoordinates (
       left.value = rect.left
       width.value = modal.value?.offsetWidth
       height.value = modal.value?.offsetHeight
-    } else {
+    } else if (top.value !== 0 || left.value !== 0) {
       top.value = 0
       left.value = 0
     }
@@ -119,8 +119,16 @@ export default function useCoordinates (
     }
   }
 
-  watch([right, left, width], updateX)
-  watch([top, bottom, height], updateY)
+  watch([right, left, width], () => {
+    if (modal.value?.classList.contains('status-show')) {
+      updateX()
+    }
+  })
+  watch([top, bottom, height], () => {
+    if (modal.value?.classList.contains('status-show')) {
+      updateY()
+    }
+  })
 
   return {
     clientX,
