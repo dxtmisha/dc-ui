@@ -9,7 +9,7 @@ export default function useAppearance (
   const { appearance } = toRefs(props)
 
   const even = ref(false)
-  let event, timeout
+  let event, timeout, width
 
   const getWidth = el => parseInt(el.dataset.width || '1')
   const getLine = () => {
@@ -147,8 +147,11 @@ export default function useAppearance (
     }
   }
   const updateByTime = () => {
-    clearTimeout(timeout)
-    timeout = setTimeout(resize, 320)
+    if (window.innerWidth !== width) {
+      clearTimeout(timeout)
+      timeout = setTimeout(resize, 320)
+      width = window.innerWidth
+    }
   }
 
   onMounted(update)
