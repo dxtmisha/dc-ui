@@ -45,7 +45,6 @@
   transition-duration: var(--transition-medium-collapsing);
   transition-property: background-color, width, visibility;
   visibility: hidden;
-  will-change: background-color, width, visibility;
 
   &:not(.option-right):not(.option-bottom) {
     padding-right: var(--_nv--sh-padding);

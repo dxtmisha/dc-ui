@@ -78,7 +78,6 @@
       background-color: var(--_pr__vl-background);
       content: '';
       right: 100%;
-      will-change: left, right;
       transition-property: background-color;
     }
 

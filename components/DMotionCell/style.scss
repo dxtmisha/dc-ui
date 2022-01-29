@@ -1,7 +1,6 @@
 @mixin motionCell {
   &.status-freeze > *:not(&__item) {
     opacity: 0;
-    will-change: opacity;
   }
 
   &.status-go > *:not(&__item) {
@@ -30,7 +29,6 @@
 
       position: absolute;
       transform: translate(var(--mc-left, 0), var(--mc-top, 0));
-      will-change: height, width, transform;
     }
   }
 
