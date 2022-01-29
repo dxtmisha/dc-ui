@@ -38,7 +38,7 @@ export default function useAppearance (
   const resizeWoven = () => requestAnimationFrame(() => {
     const list = getLine()
     let turn = false
-    let max
+    let max = 0
 
     list.forEach(items => {
       turn = !turn
@@ -46,7 +46,7 @@ export default function useAppearance (
         el.classList.toggle('option-turn', turn)
       })
 
-      if (max === undefined) {
+      if (max < items.length) {
         max = items.length
       }
     })

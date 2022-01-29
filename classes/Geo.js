@@ -63,7 +63,7 @@ export default class Geo {
     display = undefined,
     options = {}
   ) {
-    const date = new Date(value)
+    const date = new Date(value.toString().replace(' ', 'T'))
     const toDisplay = display === '2-digit' ? '2-digit' : 'numeric'
 
     /**
@@ -98,6 +98,10 @@ export default class Geo {
   ) {
     const abs = Math.abs(value)
     const toDisplay = display === 'long' ? 'long' : 'short'
+
+    /**
+     * @type {"hour"|"month"|"day"}
+     */
     let toUnit = unit
 
     if (toUnit === undefined) {
@@ -120,7 +124,7 @@ export default class Geo {
         numeric,
         style: toDisplay,
         ...options
-      }).format(Math.round(value), toUnit)
+      }).format(toValue, toUnit)
   }
 
   getFirstDay () {

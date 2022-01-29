@@ -13,7 +13,8 @@ export default {
   props,
   setup (props, context) {
     const date = computed(() => {
-      const relative = (new Date() - new Date(props.value)) / 1000 / 60 / 60 / 24
+      const date = new Date() - new Date(props.value.toString().replace(' ', 'T'))
+      const relative = date / 1000 / 60 / 60 / 24
 
       if (
         props.relative &&
