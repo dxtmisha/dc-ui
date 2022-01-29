@@ -155,7 +155,16 @@ export const routes = getRoutes({
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    const position = savedPosition || {
+      top: 0,
+      left: 0
+    }
+
+    document.body.scrollTo(position)
+    document.documentElement.scrollTo(position)
+  }
 })
 
 export default router

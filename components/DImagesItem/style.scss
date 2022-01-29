@@ -16,7 +16,10 @@
 
 @mixin imagesItemBody {
   &__body {
-    @include squared(100%);
+    @include squared(100%) {
+      height: auto;
+      min-height: var(--_im-size);
+    }
     background-color: varColor(--background-overlay, --opacity-overlay);
     display: block;
     position: relative;

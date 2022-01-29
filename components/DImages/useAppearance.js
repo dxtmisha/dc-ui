@@ -75,24 +75,26 @@ export default function useAppearance (
       })
 
       list.forEach((items, index) => {
-        let min = max - columns[index]
-        const grow = Math.ceil(min / items.length)
+        if (index < list.length - 1) {
+          let min = max - columns[index]
+          const grow = Math.ceil(min / items.length)
 
-        items.forEach(({ el }) => {
-          let value = 0
+          items.forEach(({ el }) => {
+            let value = 0
 
-          if (min >= grow) {
-            value = grow
-            min -= grow
-          } else if (min > 0) {
-            value = min
-            min = 0
-          }
+            if (min >= grow) {
+              value = grow
+              min -= grow
+            } else if (min > 0) {
+              value = min
+              min = 0
+            }
 
-          if (value) {
-            el.style.setProperty('--it-grow', value)
-          }
-        })
+            if (value) {
+              el.style.setProperty('--it-grow', value)
+            }
+          })
+        }
       })
     })
   }

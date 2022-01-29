@@ -134,6 +134,7 @@
 
     .d-icon {
       aspect-ratio: auto;
+      height: auto;
     }
   }
 
@@ -202,6 +203,7 @@
 
   @include mediaMaxList {
     --_di__bd-bottom: 8px;
+    --_di__bd-gap: 0px;
     --_di__bd-type: block;
     --_di--display: none;
   }

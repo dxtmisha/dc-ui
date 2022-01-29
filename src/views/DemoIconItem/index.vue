@@ -53,7 +53,6 @@ export default {
 
 .demo-icon-item {
   @include flexY;
-  gap: dimension(4);
 
   &__item {
     @include font('headline2');

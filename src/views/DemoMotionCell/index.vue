@@ -8,19 +8,19 @@
         id="id-motion-cell"
         ref="cell"
         :admin="true"
-        class="flex gap-4 items-start pb-8"
+        class="flex items-start pb-8"
         v-bind="binds"
       >
         <div
           v-for="({text, index}, key) in list"
           :key="index"
-          class="basis-64 grow shrink"
+          class="basis-64 mx-2 grow shrink"
           @click="onRemove(key)"
         >
           <div class="demo-cell__item p-4 rounded">{{ text }}</div>
         </div>
       </d-motion-cell>
-      <d-button @click="onAdd">Add</d-button>
+      <d-button class="ml-2" @click="onAdd">Add</d-button>
     </div>
   </interactive-demo>
 </template>

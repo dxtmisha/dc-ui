@@ -61,9 +61,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../styles/flex";
+
 .demo-menu {
+  @include flexGapX(8px);
   display: flex;
-  gap: 8px;
   max-width: 400px;
 }
 </style>

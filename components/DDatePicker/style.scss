@@ -132,7 +132,6 @@
 
 @mixin _datePickerAdaptiveMin($this: &) {
   --_dp-width: var(--_dp--ds-width);
-  --_dp--ml-width: var(--_dp--ds-width);
 }
 
 @mixin _datePickerAdaptiveDesktop($this: &) {

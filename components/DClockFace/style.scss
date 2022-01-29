@@ -145,12 +145,14 @@
 
 @mixin clockFacePoint() {
   &__point {
-    @include absoluteFull;
     @include squared(var(--_cf__pn-height));
     background-color: varColor(--_cf-palette-type1, --opacity-primary-high);
     border-radius: 50%;
-    left: calc(50% - (var(--_cf__pn-height) / 2));
+    position: absolute;
     top: calc(50% - (var(--_cf__pn-height) / 2));
+    right: 0;
+    bottom: 0;
+    left: calc(50% - (var(--_cf__pn-height) / 2));
     z-index: 6;
     @content;
   }

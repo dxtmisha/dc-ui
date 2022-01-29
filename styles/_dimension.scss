@@ -31,6 +31,7 @@
   @include width($size);
   @include aspectRatio(#{1/1}) {
     height: $size;
+    @content;
   }
 }
 

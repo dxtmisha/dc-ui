@@ -27,12 +27,12 @@ footer {
 
 header {
   @include flexX;
+  @include flexGapX(8px);
   @include index(2);
   @include sticky;
   background: var(--background-type2);
   border-radius: var(--basic-radius);
   box-shadow: var(--shadow-type2);
-  gap: 8px;
   margin: 0 auto dimension(4);
   padding: dimension(2) dimension(4);
   top: dimension(4);
@@ -47,9 +47,10 @@ main {
 
 footer {
   @include flexX;
+  @include flexGapX(0);
+  @include flexGapY(16px);
   --basic-text-opacity: var(--opacity-surface-medium);
   flex-wrap: wrap;
-  gap: 16px;
   margin: dimension(4) auto dimension(16);
   text-align: right;
   will-change: width;
@@ -75,6 +76,11 @@ footer {
 }
 
 @include mediaMinWidth {
+  footer {
+    @include flexGapX(16px);
+    @include flexGapY(0);
+  }
+
   .ui-git {
     flex-basis: auto;
   }

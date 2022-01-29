@@ -1,9 +1,9 @@
 <template>
   <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 pt-8">
     <div v-for="{icon, list, name} in list" :key="name" class="pt-8">
-      <div class="flex gap-4 items-center pb-4">
+      <div class="flex items-center pb-4">
         <d-icon :icon="icon" :background="true" size="medium"/>
-        {{ name }}
+        <span class="ml-4">{{ name }}</span>
       </div>
       <div v-for="item in (list)" :key="item" class="pl-14">
         <router-link :to="item">{{ item }}</router-link>

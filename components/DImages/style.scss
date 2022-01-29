@@ -33,6 +33,12 @@
   &.appearance-quilted &-item.emphasize-2 &-item__body {
     @include aspectRatio('2/1');
   }
+
+  &.appearance-quilted &-item.emphasize-4 &-item__body {
+    @include aspectRatio('1/1') {
+      min-height: calc((var(--_im-size) * 2) + var(--_im-gap));
+    }
+  }
 }
 
 @mixin imagesWoven {
@@ -43,7 +49,9 @@
   &.appearance-woven:not(.option-even) &-item:nth-child(even) &-item__body,
   &.appearance-woven.option-even &-item:not(.option-turn):nth-child(odd) &-item__body,
   &.appearance-woven.option-even &-item.option-turn:nth-child(even) &-item__body {
-    @include aspectRatio('38/52');
+    @include aspectRatio('38/52') {
+      min-height: calc(var(--_im-size) * 52 / 38);
+    }
   }
 }
 

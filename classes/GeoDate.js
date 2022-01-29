@@ -138,8 +138,8 @@ export default class GeoDate {
   getPreviousMonth () {
     const date = this.getClone()
 
-    date.setMonth(date.getMonth() - 1)
     date.setDate(1)
+    date.setMonth(date.getMonth() - 1)
 
     return date
   }
@@ -147,8 +147,8 @@ export default class GeoDate {
   getNextMonth () {
     const date = this.getClone()
 
-    date.setMonth(date.getMonth() + 1)
     date.setDate(1)
+    date.setMonth(date.getMonth() + 1)
 
     return date
   }

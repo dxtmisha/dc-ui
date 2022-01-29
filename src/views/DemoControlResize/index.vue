@@ -36,7 +36,9 @@ export default {
 @import "../../../styles/dimension";
 
 .demo-control-resize {
-  @include aspectRatio('16/9');
+  @include aspectRatio('16/9') {
+    height: 400px;
+  }
   width: 100%;
   position: relative;
 }
