@@ -21,11 +21,21 @@ export default function useMotion (
     ) {
       event.$event.stop()
     } else if (items.value) {
+      const rect = propElement.value.getBoundingClientRect()
       items.value.forEach(item => {
-        const top = Math.round(item.getBoundingClientRect().top)
+        const itemRect = item.getBoundingClientRect()
+        const style = getComputedStyle(item)
+        const isTop = parseInt(style.top.replace(/[^0-9]/ig, '')) || 0
+        const isTopItem = Math.round(itemRect.top - (rect.top > 0 ? rect.top : 0))
+        const isBottom = parseInt(style.bottom.replace(/[^0-9]/ig, '')) || 0
+        const isBottomItem = Math.round((rect.bottom > window.innerHeight ? window.innerHeight : rect.bottom) - itemRect.bottom)
 
-        item.classList.toggle(props.className, item?.__oldStickyScroll === top)
-        item.__oldStickyScroll = top
+        item.classList.toggle(props.className,
+          isTop === Math.round(isTopItem) ||
+          isTop === Math.floor(isTopItem) ||
+          isBottom === Math.round(isBottomItem) ||
+          isBottom === Math.floor(isBottomItem)
+        )
       })
     }
   }
@@ -33,13 +43,7 @@ export default function useMotion (
   onMounted(async () => {
     await nextTick()
     update()
-
-    const edit = propElement.value.scrollTop === 0 ? 1 : -1
-
     onScroll.value()
-    propElement.value.scrollTop += edit
-    onScroll.value()
-    propElement.value.scrollTop -= edit
   })
   onUpdated(update)
 
