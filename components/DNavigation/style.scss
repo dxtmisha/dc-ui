@@ -62,7 +62,7 @@
     overflow-y: auto;
     transform: var(--_nv-transform);
     transition-duration: inherit;
-    transition-property: box-shadow, transform;
+    transition-property: box-shadow, opacity, transform;
     transition-timing-function: var(--transition-cubic-80-40);
     width: var(--_nv__body-width);
   }
@@ -273,8 +273,9 @@
   }
 
   &.option-bottom &__body {
-    max-height: calc(100vh - 128px);
+    max-height: calc(100vh - 160px);
     max-width: 640px;
+    opacity: 0;
     width: 100%;
   }
 }

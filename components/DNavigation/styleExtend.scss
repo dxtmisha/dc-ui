@@ -10,6 +10,7 @@
 
   &.status-show #{$this}__body {
     transition-timing-function: var(--transition-cubic-80-00);
+    opacity: 1;
   }
 }
 
