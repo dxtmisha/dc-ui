@@ -1,10 +1,13 @@
 export default function useEvent (
+  standard,
   change,
   newValue,
   setValue,
   popValue,
   pasteValue
 ) {
+  let unidentified, length, selectionStart, selectionEnd
+
   const onKeypress = event => {
     if (event.target.selectionStart === event.target.selectionEnd) {
       setValue(event.target.selectionStart, event.key)
@@ -17,7 +20,12 @@ export default function useEvent (
     }
   }
   const onKeydown = event => {
-    if (event.key === 'Backspace') {
+    if (event.key === 'Unidentified' || event.keyCode === 229) {
+      unidentified = true
+      length = event.target.value.length
+      selectionStart = event.target.selectionStart
+      selectionEnd = event.target.selectionEnd
+    } else if (event.key === 'Backspace') {
       event.preventDefault()
 
       if (event.target.selectionStart === event.target.selectionEnd) {
@@ -49,6 +57,30 @@ export default function useEvent (
       change.value = false
     }
   }
+  const onInput = event => {
+    if (unidentified) {
+      if (selectionStart !== selectionEnd) {
+        for (let i = selectionEnd; i > selectionStart; i--) {
+          popValue(i, false)
+        }
+      }
+
+      if (event.data) {
+        if (!setValue(selectionStart, event.data)) {
+          event.target.value = standard.value
+          requestAnimationFrame(() => {
+            event.target.selectionStart = selectionStart
+            event.target.selectionEnd = selectionStart
+          })
+        }
+      } else if (
+        length > event.target.value.length &&
+        selectionStart === selectionEnd
+      ) {
+        popValue(selectionStart)
+      }
+    }
+  }
   const onChange = ({ target }) => newValue(target.value)
 
   return {
@@ -56,6 +88,7 @@ export default function useEvent (
     onKeydown,
     onPaste,
     onBlur,
+    onInput,
     onChange
   }
 }

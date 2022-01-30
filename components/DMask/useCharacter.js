@@ -97,11 +97,14 @@ export default function useCharacter (
           const selectionChar = valueToCharacter(selection)
           setCharacter(selectionChar, char)
           goSelection(characterToValue(selectionChar))
+          return true
         }
       } else {
-        setValue(selection + 1, char)
+        return setValue(selection + 1, char)
       }
     }
+
+    return false
   }
   const pasteValue = (selection, value) => {
     let index = valueToCharacter(selection)
