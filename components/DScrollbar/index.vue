@@ -19,12 +19,15 @@ export default {
   name: 'DScrollbar',
   props,
   setup (props, context) {
-    const { border } = toRefs(props)
+    const {
+      border,
+      borderInverse
+    } = toRefs(props)
 
     const scroll = ref(undefined)
 
     const classScroll = useScroll()
-    const classScrollBorder = useScrollBorder(scroll, border)
+    const classScrollBorder = useScrollBorder(scroll, border, borderInverse)
     const classList = computed(() => {
       return {
         ...classScroll.value,

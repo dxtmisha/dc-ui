@@ -38,6 +38,7 @@ export const Options = {
   back: {},
   background: {},
   border: {},
+  borderInverse: {},
   cancel: { default: true },
   checkbox: {},
   click: {},

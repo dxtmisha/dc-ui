@@ -14,5 +14,18 @@
     &.status-top {
       border-top-color: inherit;
     }
+
+    &--inverse {
+      border-bottom-color: inherit;
+      border-top-color: inherit;
+
+      &.status-bottom {
+        border-bottom-color: transparent;
+      }
+
+      &.status-top {
+        border-top-color: transparent;
+      }
+    }
   }
 }

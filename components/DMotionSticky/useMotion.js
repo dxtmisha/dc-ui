@@ -33,7 +33,7 @@ export default function useMotion (
         item.classList.toggle(props.className,
           isTop === Math.round(isTopItem) ||
           isTop === Math.floor(isTopItem) ||
-          isBottom === Math.round(isBottomItem) ||
+          isBottom === Math.ceil(isBottomItem) ||
           isBottom === Math.floor(isBottomItem)
         )
       })

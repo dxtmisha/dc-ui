@@ -4,15 +4,24 @@ import useClass from './useClass'
 
 export default function useScrollBorder (
   scroll,
-  border
+  border,
+  borderInverse
 ) {
   const top = useClass(scroll, 'status-top')
   const bottom = useClass(scroll, 'status-bottom')
 
   const update = () => {
     if (scroll.value) {
-      top.set(scroll.value.scrollTop !== 0)
-      bottom.set(scroll.value.scrollTop !== scroll.value.scrollHeight - scroll.value.clientHeight)
+      const floor = Math.floor(scroll.value.scrollTop)
+      const bottomScroll = scroll.value.scrollHeight - scroll.value.clientHeight
+      console.log(
+        floor,
+        Math.ceil(scroll.value.scrollTop),
+        bottomScroll
+      )
+
+      top.set(scroll.value.scrollTop > 8)
+      bottom.set(scroll.value.scrollTop < scroll.value.scrollHeight - scroll.value.clientHeight - 8)
     }
   }
   const toggle = () => {
@@ -48,6 +57,9 @@ export default function useScrollBorder (
   onMounted(toggle)
 
   return computed(() => {
-    return { 'd-scrollbar-border': border.value }
+    return {
+      'd-scrollbar-border': border.value,
+      'd-scrollbar-border--inverse': borderInverse.value
+    }
   })
 }

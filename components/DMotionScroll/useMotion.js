@@ -39,15 +39,26 @@ export default function useMotion (
       clearTimeout(time)
       time = setTimeout(() => {
         const central = propElement.value.scrollTop + (propElement.value.clientHeight / 2)
-        let focus
+        let focus, first, last
 
         scroll.value.querySelectorAll(`.${id}`).forEach(item => {
+          if (first === undefined) {
+            first = item.dataset.page
+          }
+
           if (item.offsetTop < central) {
             focus = item.dataset.page
           }
+
+          last = item.dataset.page
         })
 
-        if (focus) {
+        if (
+          focus && (
+            focus === first ||
+            focus === last
+          )
+        ) {
           propPage.value = focus
         }
 

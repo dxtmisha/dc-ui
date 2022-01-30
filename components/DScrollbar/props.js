@@ -7,5 +7,6 @@ export const props = {
     type: String,
     default: 'div'
   },
-  border: Boolean
+  border: Boolean,
+  borderInverse: Boolean
 }

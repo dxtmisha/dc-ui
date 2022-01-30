@@ -23,6 +23,8 @@
   }
 
   &.option-vertical &__body {
+    @include flexGapX(0);
+    @include flexGapY(var(--_is-gap));
     flex-direction: column;
     height: var(--_is-width);
     text-align: center;
