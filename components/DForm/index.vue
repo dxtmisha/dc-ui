@@ -39,7 +39,9 @@
         </template>
       </div>
     </div>
-    <d-alert v-if="alert.description" v-bind="alert"/>
+    <div v-if="alert.description" class="d-form__alert">
+      <d-alert v-bind="alert"/>
+    </div>
     <d-actions v-bind="actionsAttrs" :bar="bar">
       <template v-slot:default>
         <d-button

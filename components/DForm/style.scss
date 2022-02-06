@@ -70,6 +70,13 @@
   }
 }
 
+@mixin formAlert() {
+  &__alert {
+    padding: var(--_fr-padding);
+    @content;
+  }
+}
+
 @mixin formLine() {
   &__line {
     @extend %width;
@@ -94,6 +101,7 @@
   @include formTitle;
   @include formHtml;
   @include formSubtitle;
+  @include formAlert;
   @include formLine;
   @include formSpace;
 }

@@ -62,7 +62,10 @@ export default {
       this.setValue(item, value)
     },
     on (event) {
-      this.$refs.snackbar.show({ text: JSON.stringify(event) })
+      try {
+        this.$refs.snackbar.show({ text: JSON.stringify(event || {}) })
+      } catch (e) {
+      }
     }
   }
 }
