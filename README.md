@@ -1,10 +1,12 @@
 # Material design from @dxtmisha
+
 Demo on [ui.f56go.com](http://ui.f56go.com).
 
 ## Install a Vue plugin
 
 ```
 import dcode from 'dcode'
+import dcode from 'dcode/init' // without component
 
 Translation.init({
   'en-GB': [
@@ -29,5 +31,5 @@ Translation.init({
 @import "~dcode/design/m2-dark/init";
 
 @include init();
-@include initDark(); // Dark theme (not necessary)
+@include initDark(); // dark theme (not necessary)
 ```

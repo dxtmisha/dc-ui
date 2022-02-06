@@ -25,10 +25,12 @@ import DClockFace from './components/DClockFace'
 import DControlPosition from './components/DControlPosition'
 import DControlResize from './components/DControlResize'
 import DControlSelection from './components/DControlSelection'
+import DCurrency from './components/DCurrency'
 import DData from './components/DData'
 import DDataItem from './components/DDataItem'
 import DDataPicker from './components/DDataPicker'
 import DDate from './components/DDate'
+import DDateFormat from './components/DDateFormat'
 import DDatePicker from './components/DDatePicker'
 import DDialog from './components/DDialog'
 import DDrop from './components/DDrop'
@@ -50,6 +52,7 @@ import DMotionScroll from './components/DMotionScroll'
 import DMotionSticky from './components/DMotionSticky'
 import DMotionTransform from './components/DMotionTransform'
 import DNavigation from './components/DNavigation'
+import DNumber from './components/DNumber'
 import DPagination from './components/DPagination'
 import DProgress from './components/DProgress'
 import DRedactionFile from './components/DRedactionFile'
@@ -101,10 +104,12 @@ export default {
     app.component('d-control-position', DControlPosition)
     app.component('d-control-resize', DControlResize)
     app.component('d-control-selection', DControlSelection)
+    app.component('d-currency', DCurrency)
     app.component('d-data', DData)
     app.component('d-data-item', DDataItem)
     app.component('d-data-picker', DDataPicker)
     app.component('d-date', DDate)
+    app.component('d-date-format', DDateFormat)
     app.component('d-date-picker', DDatePicker)
     app.component('d-dialog', DDialog)
     app.component('d-drop', DDrop)
@@ -126,6 +131,7 @@ export default {
     app.component('d-motion-sticky', DMotionSticky)
     app.component('d-motion-transform', DMotionTransform)
     app.component('d-navigation', DNavigation)
+    app.component('d-number', DNumber)
     app.component('d-pagination', DPagination)
     app.component('d-progress', DProgress)
     app.component('d-redaction-file', DRedactionFile)

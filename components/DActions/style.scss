@@ -38,6 +38,8 @@
 
 @mixin actionsAxis {
   &.axis-y {
+    @include flexGapX(0px);
+    @include flexGapY(var(--_ac-gap));
     align-items: flex-end;
     flex-flow: column;
   }
