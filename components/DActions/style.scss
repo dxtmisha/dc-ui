@@ -85,6 +85,10 @@
     &__action,
     &__spacer {
       display: none;
+
+      & + * {
+        margin-left: 0;
+      }
     }
   }
 }

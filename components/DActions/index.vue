@@ -17,7 +17,7 @@
       class="d-actions__bar window-close"
       @on-click="onClick"
     />
-    <slot classSpacer="d-actions__spacer"/>
+    <slot class-spacer="d-actions__spacer"/>
   </div>
 </template>
 
