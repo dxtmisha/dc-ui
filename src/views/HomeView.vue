@@ -70,6 +70,7 @@ export default {
           'd-actions',
           'd-app-bar',
           'd-bottom-navigation',
+          'd-breadcrumbs',
           'd-dialog',
           'd-navigation',
           'd-tab',

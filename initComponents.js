@@ -7,6 +7,7 @@ import DAvatar from './components/DAvatar'
 import DBadge from './components/DBadge'
 import DBanner from './components/DBanner'
 import DBottomNavigation from './components/DBottomNavigation'
+import DBreadcrumbs from './components/DBreadcrumbs'
 import DButton from './components/DButton'
 import DButtonGroup from './components/DButtonGroup'
 import DButtonSelect from './components/DButtonSelect'
@@ -86,6 +87,7 @@ export default {
     app.component('d-badge', DBadge)
     app.component('d-banner', DBanner)
     app.component('d-bottom-navigation', DBottomNavigation)
+    app.component('d-breadcrumbs', DBreadcrumbs)
     app.component('d-button', DButton)
     app.component('d-button-group', DButtonGroup)
     app.component('d-button-select', DButtonSelect)

@@ -7,6 +7,7 @@ import DemoAvatar from '../views/DemoAvatar'
 import DemoBadge from '../views/DemoBadge'
 import DemoBanner from '../views/DemoBanner'
 import DemoBottomNavigation from '../views/DemoBottomNavigation'
+import DemoBreadcrumbs from '../views/DemoBreadcrumbs'
 import DemoButton from '../views/DemoButton'
 import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
@@ -85,6 +86,7 @@ export const routes = getRoutes({
   'd-badge': DemoBadge,
   'd-banner': DemoBanner,
   'd-bottom-navigation': DemoBottomNavigation,
+  'd-breadcrumbs': DemoBreadcrumbs,
   'd-button': DemoButton,
   'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,

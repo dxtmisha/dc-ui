@@ -1,0 +1,85 @@
+@import "../../styles/flex";
+@import "../../styles/font";
+@import "../../styles/media";
+
+@mixin breadcrumbs {
+  --_bd-palette: var(--bd-palette, var(--palette-type1, var(--primary-type1)));
+  --_bd-gap: var(--bd-gap, 8px);
+
+  --_bd__it-display: none;
+  --_bd__bl-display: flex;
+  --_bd__sp-display: none;
+
+  @include font('body2');
+  @extend %flex-x;
+  --basic-text-opacity: var(--opacity-surface-medium);
+}
+
+@mixin breadcrumbsItem {
+  &__item {
+    @extend %flex-x;
+
+    &:not(:nth-last-child(1)) {
+      display: var(--_bd__it-display);
+    }
+
+    &:nth-last-child(1) {
+      --basic-text-opacity: var(--opacity-surface-high);
+      font-weight: 500;
+    }
+  }
+}
+
+@mixin breadcrumbsLink {
+  &__link {
+    @extend %flex-x;
+    cursor: default;
+  }
+
+  &__item:not(:nth-last-child(1)) &__link:hover {
+    --basic-text: var(--_bd-palette);
+    --basic-text-opacity: var(--opacity-surface-high);
+    cursor: pointer;
+  }
+
+  &__icon + &__text {
+    margin-left: var(--_bd-gap);
+  }
+}
+
+@mixin breadcrumbsBlack {
+  &__black {
+    display: var(--_bd__bl-display);
+    margin-right: calc(var(--_bd-gap) * 2);
+  }
+}
+
+@mixin breadcrumbsSeparator {
+  &__separator {
+    display: var(--_bd__sp-display);
+    margin: 0 calc(var(--_bd-gap) / 2);
+  }
+
+  &__item:nth-child(2) &__separator {
+    display: none;
+  }
+}
+
+@mixin breadcrumbsAdaptive {
+  @include mediaMinList {
+    --_bd__it-display: flex;
+    --_bd__bl-display: none;
+    --_bd__sp-display: block;
+    @content;
+  }
+}
+
+@mixin breadcrumbsInit {
+  @include breadcrumbs;
+  @include breadcrumbsItem;
+  @include breadcrumbsLink;
+  @include breadcrumbsBlack;
+  @include breadcrumbsSeparator;
+
+  @include breadcrumbsAdaptive;
+}
