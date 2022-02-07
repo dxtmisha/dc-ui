@@ -69,6 +69,8 @@ export default function useSelected (
       if (event?.value) {
         toClick.value(event)
       }
+
+      requestAnimationFrame(updateHref)
     }
 
     if (contentSelected.value) {
