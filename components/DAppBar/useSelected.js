@@ -69,7 +69,7 @@ export default function useSelected (
       if (event?.value) {
         toClick.value(event)
       }
-
+      console.log('set')
       requestAnimationFrame(updateHref)
     }
 
