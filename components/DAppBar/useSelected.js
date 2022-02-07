@@ -70,7 +70,7 @@ export default function useSelected (
         toClick.value(event)
       }
 
-      setTimeout(updateHref, 384)
+      requestAnimationFrame(updateHref)
     }
 
     if (contentSelected.value) {
@@ -83,8 +83,6 @@ export default function useSelected (
       location.pathname + location.hash,
       location.href
     ]
-
-    console.log('url', url)
 
     getMenu(item => {
       if (item?.href) {

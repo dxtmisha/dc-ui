@@ -135,15 +135,14 @@ export default {
     onClick (event) {
       if (this.to && this?.$router) {
         event.preventDefault()
-        event.stopPropagation()
         this.$router.push(this.to)
-      } else {
-        this.$emit('on-click', {
-          item: this.item,
-          value: this.propValue,
-          selected: !this.selected
-        })
       }
+
+      this.$emit('on-click', {
+        item: this.item,
+        value: this.propValue,
+        selected: !this.selected
+      })
     }
   }
 }
