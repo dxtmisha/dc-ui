@@ -83,7 +83,7 @@ export default function useSelected (
       location.pathname + location.hash,
       location.href
     ]
-
+    console.log('url', url)
     getMenu(item => {
       if (item?.href) {
         url.forEach(hash => {
