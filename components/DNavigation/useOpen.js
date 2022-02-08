@@ -39,9 +39,10 @@ export default function useOpen (
   }
 
   toClick.value = ({ value }) => {
-    classShow.set(false)
-
-    if (value === 'close') {
+    if (
+      isMobile() ||
+      value === 'close'
+    ) {
       show(false)
       context.emit('on-close')
     }
