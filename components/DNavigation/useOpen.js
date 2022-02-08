@@ -43,9 +43,8 @@ export default function useOpen (
 
     if (value === 'close') {
       show(false)
+      context.emit('on-close')
     }
-
-    context.emit('on-close')
   }
 
   watch(open, show)
