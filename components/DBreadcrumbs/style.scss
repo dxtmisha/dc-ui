@@ -72,6 +72,13 @@
     --_bd__sp-display: block;
     @content;
   }
+
+  &.adaptive-basic {
+    --_bd__it-display: flex;
+    --_bd__bl-display: none;
+    --_bd__sp-display: block;
+    flex-wrap: wrap;
+  }
 }
 
 @mixin breadcrumbsInit {
