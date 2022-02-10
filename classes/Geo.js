@@ -63,7 +63,7 @@ export default class Geo {
     display = undefined,
     options = {}
   ) {
-    const date = new Date(value.toString().replace(' ', 'T'))
+    const date = value instanceof Date ? value : new Date(value.toString().replace(' ', 'T'))
     const toDisplay = display === '2-digit' ? '2-digit' : 'numeric'
 
     /**
