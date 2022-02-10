@@ -71,9 +71,12 @@ export default class Geo {
      */
     const toOptions = { ...options }
 
-    if (['datetime', 'date'].indexOf(type) !== -1) {
+    if (['datetime', 'date', 'month'].indexOf(type) !== -1) {
       toOptions.year = 'numeric'
       toOptions.month = display
+    }
+
+    if (['datetime', 'date'].indexOf(type) !== -1) {
       toOptions.day = toDisplay
     }
 

@@ -7,6 +7,7 @@ export const optionsDateFormat = useProps(props, {
       { value: undefined },
       { value: 'date' },
       { value: 'datetime' },
+      { value: 'month' },
       { value: 'time' },
       { value: 'time-full' },
       { value: 'relative' }

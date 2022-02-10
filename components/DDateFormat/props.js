@@ -19,6 +19,7 @@ export const props = {
     validator: validator([
       'date',
       'datetime',
+      'month',
       'time',
       'time-full'
     ])
