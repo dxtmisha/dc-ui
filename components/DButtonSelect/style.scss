@@ -7,7 +7,7 @@
     display: flex;
   }
 
-  &__value {
+  &__text + &__value {
     padding-left: var(--_bs-gap);
   }
 
