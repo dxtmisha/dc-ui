@@ -9,7 +9,11 @@ export default class ApiUser {
   }
 
   static set idAccess (value) {
-    localStorage.setItem('__dcUi-api-access', value)
+    if (value === null) {
+      localStorage.removeItem('__dcUi-api-access')
+    } else {
+      localStorage.setItem('__dcUi-api-access', value)
+    }
   }
 
   static get idRefresh () {
@@ -17,7 +21,7 @@ export default class ApiUser {
   }
 
   static set idRefresh (value) {
-    Cookie.set('__dcUi-api-refresh', value, 30 * 24 * 60 * 60)
+    Cookie.set('__dcUi-api-refresh', value || '', value === null ? 0 : 30 * 24 * 60 * 60)
   }
 
   static get idSignature () {
@@ -40,30 +44,34 @@ export default class ApiUser {
   }
 
   /**
-   * @param {{identifier: number, text: string, avatar: Array|Object}} data
+   * @param {null|{identifier: number, text: string, avatar: Array|Object}} data
    */
   static set users (data) {
-    const users = this.users
+    if (data !== null) {
+      const users = this.users
 
-    const index = users.findIndex(item => item.id === data.identifier)
-    const value = {
-      id: data.identifier,
-      name: data.text,
-      avatar: data.avatar
-    }
-
-    if (index >= 0) {
-      users[index] = value
-    } else {
-      users.push(value)
-
-      if (users.length > this._usersLimit) {
-        users.shift()
+      const index = users.findIndex(item => item.id === data.identifier)
+      const value = {
+        id: data.identifier,
+        name: data.text,
+        avatar: data.avatar
       }
-    }
 
-    localStorage.setItem('__dcUi-api-user', JSON.stringify(value))
-    localStorage.setItem('__dcUi-api-users', JSON.stringify(users))
+      if (index >= 0) {
+        users[index] = value
+      } else {
+        users.push(value)
+
+        if (users.length > this._usersLimit) {
+          users.shift()
+        }
+      }
+
+      localStorage.setItem('__dcUi-api-user', JSON.stringify(value))
+      localStorage.setItem('__dcUi-api-users', JSON.stringify(users))
+    } else {
+      localStorage.removeItem('__dcUi-api-user')
+    }
   }
 
   /**
@@ -73,5 +81,11 @@ export default class ApiUser {
     this.idAccess = data.token
     this.idRefresh = data.refresh
     this.users = data
+  }
+
+  static logout () {
+    this.idAccess = null
+    this.idRefresh = null
+    this.users = null
   }
 }

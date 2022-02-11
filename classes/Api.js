@@ -58,4 +58,8 @@ export default class Api {
       ...value
     }
   }
+
+  static userLogout () {
+    ApiUser.logout()
+  }
 }
