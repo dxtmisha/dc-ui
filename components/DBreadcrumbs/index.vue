@@ -60,7 +60,7 @@ export default {
       breadcrumbs.value.querySelector('.d-breadcrumbs__item:nth-last-child(2) a')?.click()
     }
     const onClick = (event, item) => {
-      if (item.to && item?.$router) {
+      if (item?.to) {
         event.preventDefault()
         router.push(item.to)
       }
