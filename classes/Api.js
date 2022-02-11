@@ -15,7 +15,7 @@ export default class Api {
     const data = await (await fetch(this._url + path, {
       ...init,
       method,
-      headers: this.getHeaders(auth, headers),
+      headers: headers === null ? undefined : this.getHeaders(auth, headers),
       body: method === 'GET' ? undefined : JSON.stringify(request)
     })).json()
 
