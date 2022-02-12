@@ -9,14 +9,14 @@ export default class Api {
     method = 'GET',
     request = {},
     auth = this._auth,
-    headers = {},
+    headers = undefined,
     init = {}
   }) {
     const data = await (await fetch(this._url + path, {
       ...init,
-      method,
+      method: method === 'GET' && headers ? 'POST' : method,
       headers: headers === null ? undefined : this.getHeaders(auth, headers),
-      body: method === 'GET' ? undefined : JSON.stringify(request)
+      body: request ? JSON.stringify(request) : undefined
     })).json()
 
     if (
