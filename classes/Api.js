@@ -7,14 +7,14 @@ export default class Api {
   static async _fetch ({
     path = '',
     method = 'GET',
-    request = {},
+    request = undefined,
     auth = this._auth,
-    headers = undefined,
+    headers = {},
     init = {}
   }) {
     const data = await (await fetch(this._url + path, {
       ...init,
-      method: method === 'GET' && headers ? 'POST' : method,
+      method: method === 'GET' && request ? 'POST' : method,
       headers: headers === null ? undefined : this.getHeaders(auth, headers),
       body: request ? JSON.stringify(request) : undefined
     })).json()
