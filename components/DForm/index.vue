@@ -42,7 +42,7 @@
     <div v-if="alert.description" class="d-form__alert">
       <d-alert v-bind="alert"/>
     </div>
-    <d-actions v-bind="actionsAttrs" :bar="bar">
+    <d-actions v-bind="actionsAttrs" :bar="bar" @on-click="onBar">
       <template v-slot:default>
         <d-button
           v-bind="submit"
@@ -85,7 +85,7 @@ export default {
     DTime: defineAsyncComponent(() => import('../DTime'))
   },
   props,
-  emits: ['on-submit', 'on-validity'],
+  emits: ['on-bar', 'on-submit', 'on-validity'],
   setup (props, context) {
     const form = ref(undefined)
 
@@ -132,6 +132,7 @@ export default {
       setValidity
     })
 
+    const onBar = event => context.emit('on-bar', event)
     const onSubmit = async () => {
       if (checkValidity()) {
         update()
@@ -168,6 +169,7 @@ export default {
       propValues,
       alert,
       update,
+      onBar,
       onSubmit
     }
   }
