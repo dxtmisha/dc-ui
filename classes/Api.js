@@ -10,12 +10,13 @@ export default class Api {
     request = undefined,
     auth = this._auth,
     headers = {},
+    type = 'application/json;charset=UTF-8',
     init = {}
   }) {
     const data = await (await fetch(this._url + path, {
       ...init,
       method: method === 'GET' && request ? 'POST' : method,
-      headers: headers === null ? undefined : this.getHeaders(auth, headers),
+      headers: headers === null ? undefined : this.getHeaders(auth, headers, type),
       body: request
     })).json()
 
@@ -42,9 +43,11 @@ export default class Api {
     return await this._fetch({})
   }
 
-  static getHeaders (auth, value) {
-    const headers = {
-      'Content-Type': 'application/json;charset=UTF-8'
+  static getHeaders (auth, value, type = undefined) {
+    const headers = {}
+
+    if (type) {
+      headers['Content-Type'] = type
     }
 
     if (auth) {
