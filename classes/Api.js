@@ -16,7 +16,7 @@ export default class Api {
       ...init,
       method: method === 'GET' && request ? 'POST' : method,
       headers: headers === null ? undefined : this.getHeaders(auth, headers),
-      body: request ? JSON.stringify(request) : undefined
+      body: request
     })).json()
 
     if (
