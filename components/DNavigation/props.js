@@ -25,7 +25,7 @@ export const props = {
 
   // Status
   open: Boolean,
-  selected: Boolean,
+  selected: undefined,
 
   // Options
   appearance: {

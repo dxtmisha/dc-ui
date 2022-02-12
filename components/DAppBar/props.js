@@ -33,7 +33,7 @@ export const props = {
   // Status
   open: Boolean,
   action: Boolean,
-  selected: Boolean,
+  selected: undefined,
 
   // Options
   appearance: {
