@@ -138,7 +138,8 @@ export default {
       isOne,
       setSelected,
       add,
-      remove
+      remove,
+      updateKey
     } = useFile(
       selection,
       props,
@@ -197,6 +198,11 @@ export default {
         ...palette.value
       }
     })
+    /**
+     * @param {Object.<string, string>} position
+     * @param {Object.<string, string>} selection
+     * @returns {string}
+     */
     const classItem = (position, selection) => [
       position.className,
       position.classNameClick,
@@ -242,6 +248,7 @@ export default {
     }
     const onPosition = event => {
       propValue.value = position.value.toNewPosition(propValue.value, event)
+      updateKey()
     }
 
     setChange()

@@ -54,6 +54,16 @@ export default function useFile (
     propFocus.value = focus
   }
 
+  const updateKey = () => {
+    files.value?.forEach((file, key) => {
+      const item = propValue.value?.find(item => item?.fileIndex === file)
+
+      if (item) {
+        item.fileKey = key
+      }
+    })
+  }
+
   const add = file => {
     const item = {
       text: getName(file),
@@ -76,6 +86,7 @@ export default function useFile (
     requestAnimationFrame(() => checkValidity())
 
     files.value = [...files.value, file]
+    updateKey()
   }
   const remove = () => {
     const newValue = []
@@ -93,6 +104,7 @@ export default function useFile (
 
     propValue.value = newValue
     files.value = newFiles
+    updateKey()
 
     requestAnimationFrame(() => checkValidity())
     selection.value.reset()
@@ -109,6 +121,7 @@ export default function useFile (
     isOne,
     setSelected,
     add,
-    remove
+    remove,
+    updateKey
   }
 }
