@@ -17,7 +17,7 @@ export default class Api {
       ...init,
       method: method === 'GET' && request ? 'POST' : method,
       headers: headers === null ? undefined : this.getHeaders(auth, headers, type),
-      body: request
+      body: request instanceof FormData || typeof request === 'string' ? request : JSON.stringify(request)
     })).json()
 
     if (
