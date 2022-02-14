@@ -32,6 +32,7 @@ export default class Api {
         request,
         auth,
         headers,
+        type,
         init
       })
     } else {
