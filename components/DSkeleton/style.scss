@@ -10,6 +10,7 @@
   background-image: var(--_sk-at2-gradient, none);
   background-size: 2000% 100%;
   border-color: varColor(--_sk-palette, --_sk-border-opacity);
+  box-shadow: none;
   color: transparent;
 }
 
@@ -34,6 +35,7 @@
     *:not(.skeleton-text):not(.skeleton-secondary):not(.skeleton-tertiary):not(.skeleton-background):not(.skeleton-border) {
       background: transparent !important;
       border-color: transparent !important;
+      box-shadow: none !important;
       color: transparent !important;
     }
   }
