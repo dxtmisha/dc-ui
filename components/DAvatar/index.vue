@@ -67,6 +67,7 @@ export default {
     const propValue = useWatch(value, () => {
       return {
         file: undefined,
+        thumbnail: undefined,
         zoom: 100,
         x: 50,
         y: 50,
@@ -104,7 +105,7 @@ export default {
 
     const bindIcon = computed(() => {
       return {
-        icon: propValue.value.file,
+        icon: propValue.value.thumbnail || propValue.value.file,
         zoom: `${propValue.value.zoom}%`,
         x: `${propValue.value.x}%`,
         y: `${propValue.value.y}%`,
@@ -122,6 +123,7 @@ export default {
     const onFile = () => file.value.click()
     const onInput = event => {
       propValue.value.file = event.target.files?.[0]
+      propValue.value.thumbnail = undefined
       files.value = [event.target.files?.[0]]
       emit()
 
