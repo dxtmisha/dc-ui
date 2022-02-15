@@ -34,6 +34,7 @@ import DemoDate from '../views/DemoDate'
 import DemoDateFormat from '../views/DemoDateFormat'
 import DemoDatePicker from '../views/DemoDatePicker'
 import DemoDialog from '../views/DemoDialog'
+import DemoDisplay from '../views/DemoDisplay'
 import DemoDrop from '../views/DemoDrop'
 import DemoFile from '../views/DemoFile'
 import DemoForm from '../views/DemoForm'
@@ -113,6 +114,7 @@ export const routes = getRoutes({
   'd-date-format': DemoDateFormat,
   'd-date-picker': DemoDatePicker,
   'd-dialog': DemoDialog,
+  'd-display': DemoDisplay,
   'd-drop': DemoDrop,
   'd-file': DemoFile,
   'd-form': DemoForm,

@@ -18,6 +18,28 @@ export default class Geo {
     return this._country
   }
 
+  getDisplay (
+    value,
+    type = 'language',
+    style = 'long',
+    options = {}
+  ) {
+    let text
+
+    try {
+      text = new Intl.DisplayNames(this._lang, {
+        type,
+        style,
+        languageDisplay: 'standard',
+        ...options
+      }).of(value)
+    } catch (e) {
+      text = value
+    }
+
+    return text
+  }
+
   getNumber (value, options = {}) {
     const number = Geo.toNumber(value)
 
@@ -222,7 +244,13 @@ export default class Geo {
   }
 
   static getCountryByCode (code) {
-    return geoMedia?.filter(item => `${item?.languageCodes}-${item?.iso2}` === code)?.[0]
+    return geoMedia?.filter(
+      /**
+       * @param {Object.<string, string>} item
+       * @returns {boolean}
+       */
+      item => `${item?.languageCodes}-${item?.iso2}` === code
+    )?.[0]
   }
 
   static toNumber (value) {

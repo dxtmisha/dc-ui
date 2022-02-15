@@ -147,6 +147,7 @@ export default {
         list: [
           'd-currency',
           'd-date-format',
+          'd-display',
           'd-number'
         ]
       },
