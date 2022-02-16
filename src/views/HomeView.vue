@@ -148,6 +148,7 @@ export default {
           'd-currency',
           'd-date-format',
           'd-display',
+          'd-list-format',
           'd-number'
         ]
       },

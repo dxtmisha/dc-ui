@@ -34,6 +34,7 @@ import DDate from './components/DDate'
 import DDateFormat from './components/DDateFormat'
 import DDatePicker from './components/DDatePicker'
 import DDialog from './components/DDialog'
+import DDisplay from './components/DDisplay'
 import DDrop from './components/DDrop'
 import DFile from './components/DFile'
 import DForm from './components/DForm'
@@ -44,6 +45,7 @@ import DImagesBar from './components/DImagesBar'
 import DImagesItem from './components/DImagesItem'
 import DInput from './components/DInput'
 import DList from './components/DList'
+import DListFormat from './components/DListFormat'
 import DListItem from './components/DListItem'
 import DMask from './components/DMask'
 import DMenu from './components/DMenu'
@@ -75,6 +77,7 @@ import DTimePicker from './components/DTimePicker'
 import DTooltip from './components/DTooltip'
 import DTop from './components/DTop'
 import DWindow from './components/DWindow'
+import DemoListFormat from '@/views/DemoListFormat'
 
 export default {
   install (app, options) {
@@ -114,6 +117,7 @@ export default {
     app.component('d-date-format', DDateFormat)
     app.component('d-date-picker', DDatePicker)
     app.component('d-dialog', DDialog)
+    app.component('d-display', DDisplay)
     app.component('d-drop', DDrop)
     app.component('d-file', DFile)
     app.component('d-form', DForm)
@@ -124,6 +128,7 @@ export default {
     app.component('d-images-item', DImagesItem)
     app.component('d-input', DInput)
     app.component('d-list', DList)
+    app.component('d-list-format', DListFormat)
     app.component('d-list-item', DListItem)
     app.component('d-mask', DMask)
     app.component('d-menu', DMenu)

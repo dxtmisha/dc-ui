@@ -40,6 +40,27 @@ export default class Geo {
     return text
   }
 
+  getListFormat (
+    value,
+    type,
+    style,
+    options = {}
+  ) {
+    let text
+
+    try {
+      text = new Intl.ListFormat(this._lang, {
+        type,
+        style,
+        ...options
+      }).format(value)
+    } catch (e) {
+      text = value.join(', ')
+    }
+
+    return text
+  }
+
   getNumber (value, options = {}) {
     const number = Geo.toNumber(value)
 
