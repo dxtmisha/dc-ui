@@ -75,6 +75,7 @@ import DemoTime from '../views/DemoTime'
 import DemoTimePicker from '../views/DemoTimePicker'
 import DemoTooltip from '../views/DemoTooltip'
 import DemoTop from '../views/DemoTop'
+import DemoUnit from '../views/DemoUnit'
 import DemoWindow from '../views/DemoWindow'
 import HomeView from '../views/HomeView'
 
@@ -156,6 +157,7 @@ export const routes = getRoutes({
   'd-time-picker': DemoTimePicker,
   'd-tooltip': DemoTooltip,
   'd-top': DemoTop,
+  'd-unit': DemoUnit,
   'd-window': DemoWindow
 })
 

@@ -76,8 +76,8 @@ import DTime from './components/DTime'
 import DTimePicker from './components/DTimePicker'
 import DTooltip from './components/DTooltip'
 import DTop from './components/DTop'
+import DUnit from './components/DUnit'
 import DWindow from './components/DWindow'
-import DemoListFormat from '@/views/DemoListFormat'
 
 export default {
   install (app, options) {
@@ -159,6 +159,7 @@ export default {
     app.component('d-time-picker', DTimePicker)
     app.component('d-tooltip', DTooltip)
     app.component('d-top', DTop)
+    app.component('d-unit', DUnit)
     app.component('d-window', DWindow)
   }
 }

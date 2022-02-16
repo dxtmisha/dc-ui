@@ -333,6 +333,17 @@ export const Options = {
     ]
   },
   today: { default: true },
+  unit: {
+    default: 'kilogram',
+    list: [
+      { value: undefined },
+      { value: 'square-kilometer' },
+      { value: 'byte' },
+      { value: 'kilojoule' },
+      { value: 'kilometer' },
+      { value: 'kilogram' }
+    ]
+  },
   width: {},
   vertical: {}
 }

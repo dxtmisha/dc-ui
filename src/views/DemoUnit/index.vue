@@ -7,7 +7,7 @@
       <div v-for="value in list" :key="value">
         {{ value }}
         <span class="opacity:surface-medium">=&gt; </span>
-        <d-number
+        <d-unit
           :admin="true"
           :value="value"
           class="font-medium"
@@ -19,18 +19,18 @@
 </template>
 
 <script>
-import DNumber from '../../../components/DNumber'
+import DUnit from '../../../components/DUnit'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsNumber } from './options'
+import { optionsUnit } from './options'
 
 export default {
-  name: 'DemoNumber',
+  name: 'DemoUnit',
   components: {
-    DNumber,
+    DUnit,
     InteractiveDemo
   },
   setup () {
-    const options = optionsNumber
+    const options = optionsUnit
     const list = [
       100,
       1000,
@@ -39,6 +39,10 @@ export default {
       '1000,50',
       '1 000,50',
       1000000,
+      '1200.50 kilometer-per-hour',
+      '1200.50 meter-per-second',
+      '1200.50 mile-per-hour',
+      '1200.50 day',
       'Interactive demo'
     ]
 

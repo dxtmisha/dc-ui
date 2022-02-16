@@ -77,6 +77,7 @@ export default class Geo {
   ) {
     let number
     let toCurrency = currency
+    let text
 
     if (
       typeof value === 'string' &&
@@ -90,14 +91,58 @@ export default class Geo {
       number = Geo.toNumber(value)
     }
 
-    return number === undefined || !toCurrency
-      ? value
-      : new Intl.NumberFormat(this._lang, {
-        style: 'currency',
-        currency: toCurrency,
-        currencyDisplay,
-        ...options
-      }).format(number)
+    try {
+      text = number === undefined || !toCurrency
+        ? value
+        : new Intl.NumberFormat(this._lang, {
+          style: 'currency',
+          currency: toCurrency,
+          currencyDisplay,
+          ...options
+        }).format(number)
+    } catch (e) {
+      text = value
+    }
+
+    return text
+  }
+
+  getUnit (
+    value,
+    unit = undefined,
+    unitDisplay = undefined,
+    options = {}
+  ) {
+    let number
+    let toUnit = unit
+    let text
+
+    if (
+      typeof value === 'string' &&
+      value.match(/ [a-zA-Z0-9-]+$/ig)
+    ) {
+      value.replace(/^([\S\s]+) ([a-zA-Z0-9-]+)$/ig, (all, s1, s2) => {
+        number = Geo.toNumber(s1)
+        toUnit = s2
+      })
+    } else {
+      number = Geo.toNumber(value)
+    }
+
+    try {
+      text = number === undefined || !toUnit
+        ? value
+        : new Intl.NumberFormat(this._lang, {
+          style: 'unit',
+          unit: toUnit,
+          unitDisplay,
+          ...options
+        }).format(number)
+    } catch (e) {
+      text = value
+    }
+
+    return text
   }
 
   getDate (

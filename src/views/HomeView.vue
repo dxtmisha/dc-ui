@@ -149,7 +149,8 @@ export default {
           'd-date-format',
           'd-display',
           'd-list-format',
-          'd-number'
+          'd-number',
+          'd-unit'
         ]
       },
       {

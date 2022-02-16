@@ -8,7 +8,6 @@
         {{ value }}
         <span class="opacity:surface-medium">=&gt; </span>
         <d-currency
-          id="id-number"
           :admin="true"
           :value="value"
           class="font-medium"
