@@ -1,5 +1,6 @@
 import Cookie from './Cookie'
 import getRandom from '../functions/getRandom'
+import Geo from './Geo'
 
 export default class ApiUser {
   static _usersLimit = process.env?.VUE_APP_API_USERS_LIMIT || 8
@@ -10,6 +11,7 @@ export default class ApiUser {
   }
 
   static set idLocale (value) {
+    Geo.globalLang = undefined
     return localStorage.setItem('__dcUi-api-locale', value || this._usersLocale)
   }
 
