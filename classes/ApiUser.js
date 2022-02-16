@@ -3,6 +3,15 @@ import getRandom from '../functions/getRandom'
 
 export default class ApiUser {
   static _usersLimit = process.env?.VUE_APP_API_USERS_LIMIT || 8
+  static _usersLocale = process.env?.VUE_APP_API_LOCALE || 'en-GB'
+
+  static get idLocale () {
+    return localStorage.getItem('__dcUi-api-locale') || this._usersLocale
+  }
+
+  static set idLocale (value) {
+    return localStorage.setItem('__dcUi-api-locale', value || this._usersLocale)
+  }
 
   static get idAccess () {
     return localStorage.getItem('__dcUi-api-access') || null
@@ -44,7 +53,7 @@ export default class ApiUser {
   }
 
   /**
-   * @param {null|{identifier: number, text: string, avatar: Array|Object}} data
+   * @param {null|Object.<string, string>} data
    */
   static set users (data) {
     if (data !== null) {
@@ -75,12 +84,20 @@ export default class ApiUser {
   }
 
   /**
-   * @param {{token: string, refresh: string, identifier: number, text: string, avatar: Array|Object}} data
+   * @param {Object.<string, string>} data
    */
   static initUser (data) {
     this.idAccess = data.token
     this.idRefresh = data.refresh
     this.users = data
+  }
+
+  static initLocale () {
+    const locale = ApiUser.idLocale
+
+    if (locale) {
+      document.querySelector('html').setAttribute('lang', locale)
+    }
   }
 
   static logout () {

@@ -13,7 +13,7 @@ export default class Api {
     type = 'application/json;charset=UTF-8',
     init = {}
   }) {
-    const data = await (await fetch(this._url + path, {
+    const data = await (await fetch(this.getUrl(path), {
       ...init,
       method: method === 'GET' && request ? 'POST' : method,
       headers: headers === null ? undefined : this.getHeaders(auth, headers, type),
@@ -61,6 +61,10 @@ export default class Api {
       ...headers,
       ...value
     }
+  }
+
+  static getUrl (path) {
+    return this._url.replace('{_locale}', ApiUser.idLocale) + path
   }
 
   static userLogout () {
