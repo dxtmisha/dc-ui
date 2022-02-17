@@ -4,7 +4,7 @@ import Geo from './Geo'
 
 export default class ApiUser {
   static _usersLimit = process.env?.VUE_APP_API_USERS_LIMIT || 8
-  static _usersLocale = process.env?.VUE_APP_API_LOCALE || 'en-GB'
+  static _usersLocale = process.env?.VUE_APP_API_LOCALE || null
 
   static get idLocale () {
     return localStorage.getItem('__dcUi-api-locale') || this._usersLocale
