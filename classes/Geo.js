@@ -319,6 +319,26 @@ export default class Geo {
     )?.[0]
   }
 
+  static getCountryByISO (code) {
+    return geoMedia?.findIndex(
+      /**
+       * @param {Object.<string, string>} item
+       * @returns {boolean}
+       */
+      item => item?.iso2 === code
+    )
+  }
+
+  static getCountryByLanguage (code) {
+    return geoMedia?.findIndex(
+      /**
+       * @param {Object.<string, string>} item
+       * @returns {boolean}
+       */
+      item => item?.languageCodes === code
+    )
+  }
+
   static toNumber (value) {
     const number = typeof value !== 'string'
       ? value
