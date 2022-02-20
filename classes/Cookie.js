@@ -38,10 +38,11 @@ export default class Cookie {
     }
   }
 
-  static set (name, value, age = 24 * 60 * 60, argument = []) {
+  static set (name, value, age = 24 * 60 * 60, SameSite = 'Strict', argument = []) {
     document.cookie = [
       `${encodeURIComponent(name.toString().trim())}=${encodeURIComponent(value.toString().trim())}`,
       `max-age=${age}`,
+      `SameSite=${SameSite}`,
       ...argument
     ].join('; ')
 
