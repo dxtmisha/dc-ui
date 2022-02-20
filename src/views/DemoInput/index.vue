@@ -3,14 +3,17 @@
     :options="options"
     v-slot:default="{ binds, on }"
   >
-    <d-input
-      v-bind="binds"
-      id="id-input"
-      name="interactive-demo"
-      :admin="true"
-      @on-input="on"
-      @on-change="on"
-    />
+    <form>
+      <input type="hidden" name="input-match" value="demo">
+      <d-input
+        v-bind="binds"
+        id="id-input"
+        name="interactive-demo"
+        :admin="true"
+        @on-input="on"
+        @on-change="on"
+      />
+    </form>
   </interactive-demo>
 </template>
 

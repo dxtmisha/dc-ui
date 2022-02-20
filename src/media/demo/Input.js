@@ -80,5 +80,8 @@ export const Input = {
       { value: 'time' },
       { value: 'url' }
     ]
+  },
+  inputMatch: {
+    message: 'input-match'
   }
 }

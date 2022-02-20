@@ -33,6 +33,7 @@ export const props = {
     type: Object,
     default: {}
   },
+  inputMatch: String,
   inputAttrs: undefined,
 
   // Status

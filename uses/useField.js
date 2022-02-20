@@ -1,4 +1,5 @@
 import { computed, ref, toRefs, watch } from 'vue'
+import Translation from '../classes/Translation'
 import useWatch from './useWatch'
 
 const EVENT_DEFAULT = 'on-input'
@@ -21,6 +22,22 @@ export default function useField (
     propValidationMessage.value = !change.value
       ? ''
       : props.validationMessage || input.value?.propValidationMessage || input.value?.validationMessage || ''
+
+    if (
+      change.value &&
+      'inputMatch' in props &&
+      propValidationMessage.value === ''
+    ) {
+      const inputMatch = input.value.form.querySelector(`[name="${props.inputMatch}"]`) ||
+        document.querySelector(props.inputMatch)
+
+      if (
+        inputMatch &&
+        inputMatch.value !== input.value.value
+      ) {
+        propValidationMessage.value = Translation.get('Your entries must match.')
+      }
+    }
 
     return check
   }
