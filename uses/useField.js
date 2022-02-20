@@ -35,7 +35,7 @@ export default function useField (
         inputMatch &&
         inputMatch.value !== input.value.value
       ) {
-        propValidationMessage.value = Translation.get('Your entries must match.')
+        propValidationMessage.value = Translation.get(props.inputMatchText || 'Your entries must match.')
       }
     }
 

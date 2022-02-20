@@ -34,6 +34,7 @@ export const props = {
     default: {}
   },
   inputMatch: String,
+  inputMatchText: String,
   inputAttrs: undefined,
 
   // Status
