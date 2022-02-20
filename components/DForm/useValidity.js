@@ -53,7 +53,7 @@ export default function useValidity (
 
     return check
   }
-  const setValidity = data => {
+  const setValidity = (data, scroll = false) => {
     if (data?.validationMessage) {
       let first
 
@@ -63,7 +63,7 @@ export default function useValidity (
         if (el) {
           el.propValidationMessage = message
 
-          if (!first) {
+          if (scroll && !first) {
             goScroll(first = el)
           }
         }
@@ -72,8 +72,13 @@ export default function useValidity (
       propValidationMessage.value = data.validationMessage
     }
 
-    success.value = data?.success
-    error.value = data?.error
+    if ('success' in data) {
+      success.value = data.success
+    }
+
+    if ('error' in data) {
+      error.value = data.error
+    }
   }
 
   return {

@@ -169,6 +169,7 @@ export default {
       propValues,
       alert,
       update,
+      setValidity,
       onBar,
       onSubmit
     }
