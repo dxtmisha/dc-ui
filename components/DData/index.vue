@@ -7,6 +7,7 @@
       v-for="item in propList"
       :key="item.value"
       :position-class="positionClass"
+      :selection-class="selectionClass"
       icon=" "
       v-bind="item"
       @on-open="onOpen"

@@ -1,29 +1,35 @@
 <template>
   <div :class="classList" class="d-data-picker">
     <d-progress :visible="progress"/>
-    <d-control-position v-if="bindData.items" @on-position="onPosition">
+    <d-control-position v-if="bindData.items" :disabled="disabledPosition" @on-position="onPosition">
       <template v-slot:default="{ className }">
-        <d-data
-          :open="open"
-          :selected="selected"
-          :position-class="className"
-          class="d-data-picker__data"
-          v-bind="bindData"
-          @on-open="onClose"
-        >
-          <template
-            v-for="(html, name) in $slots"
-            :key="name"
-            v-slot:[name]="{ item, text }"
-          >
-            <slot
-              :item="item"
-              :name="name"
-              :on="() => onClick(item)"
-              :text="text"
-            />
+        <d-control-selection :disabled="disabledSelection">
+          <template v-slot:default="{ classSelectionName, onClick }">
+            <d-data
+              :open="open"
+              :position-class="className"
+              :selected="selected"
+              :selection-class="classSelectionName"
+              class="d-data-picker__data"
+              v-bind="bindData"
+              @click="onClick"
+              @on-open="onClose"
+            >
+              <template
+                v-for="(html, name) in $slots"
+                :key="name"
+                v-slot:[name]="{ item, text }"
+              >
+                <slot
+                  :item="item"
+                  :name="name"
+                  :on="() => onClick(item)"
+                  :text="text"
+                />
+              </template>
+            </d-data>
           </template>
-        </d-data>
+        </d-control-selection>
       </template>
     </d-control-position>
     <div v-else class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
@@ -51,10 +57,12 @@ import useObjectList from '../../uses/useObjectList'
 import usePagination from '../DTablePicker/usePagination'
 import useRows from '../DTablePicker/useRows'
 import DControlPosition from '../DControlPosition'
+import DControlSelection from '../DControlSelection'
 
 export default {
   name: 'DDataPicker',
   components: {
+    DControlSelection,
     DControlPosition,
     DData,
     DPagination,

@@ -6,6 +6,7 @@
   >
     <slot
       :class-name="`d-control-selection__item ${id}`"
+      :class-selection-name="`d-control-selection__item ${id}`"
       class-name-click="cs-click"
       :selected="propSelected"
       :on-click="onClick"

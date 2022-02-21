@@ -41,6 +41,14 @@ export const props = {
 
   // Status
   disabled: Boolean,
+  disabledPosition: {
+    type: Boolean,
+    default: defaultProps('disabledPosition', true)
+  },
+  disabledSelection: {
+    type: Boolean,
+    default: defaultProps('disabledSelection', true)
+  },
 
   // Options
   palette: undefined,

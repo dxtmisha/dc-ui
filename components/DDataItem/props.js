@@ -83,5 +83,6 @@ export const props = {
   iconAttrs: undefined,
 
   // Position
-  positionClass: String
+  positionClass: String,
+  selectionClass: String
 }

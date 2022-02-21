@@ -4,7 +4,7 @@
     :class="classTransform"
     :data-value="item?.value"
     :open="open"
-    class="d-data-item__transform cp-click cp-position"
+    class="d-data-item__transform cs-click cp-click cp-position"
     v-bind="transformAttrs"
     @on-open="onOpen"
   >
@@ -21,7 +21,7 @@
             <template v-else><span v-html="propText"/></template>
           </div>
           <template v-for="parameter in parameters" :key="parameter">
-            <div class="d-data-item__parameter">
+            <div :data-parameter="parameter" class="d-data-item__parameter">
               <template v-if="parameter in $slots">
                 <slot :name="parameter" :item="item"/>
               </template>
@@ -123,6 +123,7 @@ export default {
     const classTransform = computed(() => {
       return {
         [props.positionClass]: props.positionClass,
+        [props.selectionClass]: props.selectionClass,
         'status-open': props.open
       }
     })
