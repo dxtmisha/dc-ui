@@ -3,7 +3,7 @@
     <d-progress :visible="progress"/>
     <d-control-position v-if="bindData.items" :disabled="disabledPosition" @on-position="onPosition">
       <template v-slot:default="{ className }">
-        <d-control-selection :disabled="disabledSelection">
+        <d-control-selection :disabled="disabledSelection" @on-selected="onSelected">
           <template v-slot:default="{ classSelectionName, onClick }">
             <d-data
               :open="open"
@@ -69,7 +69,7 @@ export default {
     DProgress
   },
   props,
-  emits: ['on-click', 'on-page', 'on-position'],
+  emits: ['on-click', 'on-page', 'on-position', 'on-selected'],
   setup (props, context) {
     const {
       list,
@@ -141,6 +141,7 @@ export default {
       }
     }
     const onPosition = event => context.emit('on-position', event)
+    const onSelected = event => context.emit('on-selected', event)
 
     watch([ajax, list], () => beforeOpening(true))
     watch(propItemsByPage, async () => {
@@ -166,7 +167,8 @@ export default {
       onRows,
       onClick,
       onClose,
-      onPosition
+      onPosition,
+      onSelected
     }
   }
 }
