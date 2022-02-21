@@ -7,7 +7,9 @@ export default class ApiUser {
   static _usersLocale = process.env?.VUE_APP_API_LOCALE || null
 
   static get idLocale () {
-    return localStorage.getItem('__dcUi-api-locale') || this._usersLocale
+    return localStorage.getItem('__dcUi-api-locale') ||
+      this._usersLocale ||
+      document.querySelector('html').getAttribute('lang')
   }
 
   static set idLocale (value) {
@@ -96,9 +98,13 @@ export default class ApiUser {
 
   static initLocale () {
     const locale = ApiUser.idLocale
+    const html = document.querySelector('html')
 
-    if (locale) {
-      document.querySelector('html').setAttribute('lang', locale)
+    if (
+      locale &&
+      locale !== html.getAttribute('lang')
+    ) {
+      html.setAttribute('lang', locale)
     }
   }
 
