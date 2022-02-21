@@ -1,5 +1,12 @@
 [
   {
+    "iso2": "GB",
+    "phoneCode": "44",
+    "timeZone": "Europe\/London",
+    "languageCodes": "en",
+    "firstDay": "Mo"
+  },
+  {
     "iso2": "AF",
     "phoneCode": "93",
     "timeZone": "Asia\/Kabul",
@@ -1587,13 +1594,6 @@
     "timeZone": "Asia\/Dubai",
     "languageCodes": "ar",
     "firstDay": "Sa"
-  },
-  {
-    "iso2": "GB",
-    "phoneCode": "44",
-    "timeZone": "Europe\/London",
-    "languageCodes": "en",
-    "firstDay": "Mo"
   },
   {
     "iso2": "US",

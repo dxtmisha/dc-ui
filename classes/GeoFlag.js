@@ -265,7 +265,7 @@ export default class GeoFlag {
 
   static language (code, lang = undefined) {
     return {
-      icon: this.get(Geo.getCountryByLanguage(code)),
+      icon: this.get(Geo.getCountryByLanguage(code)?.iso2),
       text: new Geo(lang).getDisplay(code, 'language'),
       value: code
     }

@@ -320,7 +320,7 @@ export default class Geo {
   }
 
   static getCountryByISO (code) {
-    return geoMedia?.findIndex(
+    return geoMedia?.find(
       /**
        * @param {Object.<string, string>} item
        * @returns {boolean}
@@ -329,8 +329,12 @@ export default class Geo {
     )
   }
 
+  /**
+   * @param {String} code
+   * @returns {Object.<string, string>}
+   */
   static getCountryByLanguage (code) {
-    return geoMedia?.findIndex(
+    return geoMedia?.find(
       /**
        * @param {Object.<string, string>} item
        * @returns {boolean}
