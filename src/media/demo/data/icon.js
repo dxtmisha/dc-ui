@@ -130,6 +130,26 @@ export const icon = [
     value: require('@/assets/images/image-12.jpeg'),
     icon: require('@/assets/images/thumbnails/image-12-icon.jpeg')
   },
+  {
+    text: 'Image Array 01',
+    value: {
+      file: require('@/assets/images/image-01.jpeg'),
+      zoom: 100,
+      x: 0,
+      y: 0
+    },
+    icon: require('@/assets/images/thumbnails/image-01-icon.jpeg')
+  },
+  {
+    text: 'Image Array 02',
+    value: {
+      file: require('@/assets/images/image-01.jpeg'),
+      zoom: 200,
+      x: 100,
+      y: 100
+    },
+    icon: require('@/assets/images/thumbnails/image-01-icon.jpeg')
+  },
   { line: true },
   { subtitle: 'Colors' },
   {

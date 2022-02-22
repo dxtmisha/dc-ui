@@ -2,8 +2,8 @@ import { validator } from '../../uses/useDefault'
 
 export const props = {
   // Values
-  icon: [File, String],
-  iconActive: [File, String],
+  icon: undefined,
+  iconActive: undefined,
 
   // Status
   active: Boolean,

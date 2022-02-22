@@ -47,7 +47,23 @@ export default function useIcon (props, context) {
       x = props.coordinator?.[3] + (width / 2) + '%'
       y = props.coordinator?.[0] + (height / 2) + '%'
     } else {
-      zoom = image.height < image.width ? `auto ${props.zoom}` : `${props.zoom} auto`
+      const isObject = typeof props.icon === 'object'
+
+      if (props.zoom) {
+        zoom = !props.zoom.match(/%$/)
+          ? props.zoom
+          : image.height < image.width ? `auto ${props.zoom}` : `${props.zoom} auto`
+      } else if (isObject && props.icon?.zoom) {
+        zoom = image.height < image.width ? `auto ${props.icon.zoom}%` : `${props.icon.zoom}% auto`
+      }
+
+      if (Number.isFinite(props.icon?.x)) {
+        x = `${props.icon.x}%`
+      }
+
+      if (Number.isFinite(props.icon?.y)) {
+        y = `${props.icon.y}%`
+      }
     }
 
     return {
@@ -79,7 +95,10 @@ export default function useIcon (props, context) {
     type = undefined
 
     if (value) {
-      if (value instanceof File) {
+      if (
+        value instanceof File ||
+        typeof icon.value === 'object'
+      ) {
         type = 'image'
       } else if (typeof value === 'string') {
         if (value.match(/\//)) {
@@ -120,7 +139,11 @@ export default function useIcon (props, context) {
     }
 
     if (type === 'image') {
-      const image = await createImage(icon.value)
+      const image = await createImage(
+        icon.value?.thumbnail ||
+        icon.value?.file ||
+        icon.value
+      )
 
       context.emit('on-load', image)
 

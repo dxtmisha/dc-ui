@@ -3,7 +3,7 @@ import { defaultInit } from '../../uses/useDefault'
 const defaultProps = defaultInit('d-icon-item')
 export const props = {
   // Values
-  icon: [File, String],
+  icon: [File, Object, String],
   coordinator: Array,
   zoom: {
     type: String,
