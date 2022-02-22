@@ -5,6 +5,9 @@
 @import "../../styles/options/optionBackground";
 
 @mixin motionTransform() {
+  --_mt-height: auto;
+  --_mt-width: auto;
+
   content: "--ANIMATION--";
   height: var(--_mt-height, auto);
   width: var(--_mt-width, auto);
@@ -12,6 +15,14 @@
 
 @mixin motionTransformContext() {
   &__context {
+    --_mt__cn-scale: 1;
+    --_mt__hd-scale: 1;
+    --_mt__cn-left: 0;
+    --_mt__cn-top: 0;
+    --_mt__bd-height: auto;
+    --_mt__cn-height: auto;
+    --_mt__hd-width: auto;
+
     background-color: transparent;
     box-shadow: none;
     content: "--WINDOW--";
