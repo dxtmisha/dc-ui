@@ -1,4 +1,4 @@
-const LANGUAGE_DEFAULT = 'en-GB'
+import ApiUser from './ApiUser'
 
 export default class Translation {
   static _language
@@ -9,7 +9,8 @@ export default class Translation {
   }
 
   static init (paths = {}) {
-    const lang = document.querySelector('html').getAttribute('lang') || LANGUAGE_DEFAULT
+    ApiUser.initLocale()
+    const lang = ApiUser.idLocale
 
     this._language = lang
 
@@ -29,7 +30,6 @@ export default class Translation {
   }
 
   static add (translations) {
-    console.log('translations', translations)
     if (translations) {
       if (typeof translations === 'string') {
         try {
