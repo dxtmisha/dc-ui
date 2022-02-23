@@ -23,7 +23,7 @@
         <template v-for="parameter in parameters" :key="parameter">
           <div :data-parameter="parameter" class="d-data-item__parameter">
             <template v-if="parameter in $slots">
-              <slot :name="parameter" :item="item"/>
+              <slot :name="parameter" :item="item" :value="item[parameter]"/>
             </template>
             <template v-else>{{ item[parameter] }}</template>
           </div>
