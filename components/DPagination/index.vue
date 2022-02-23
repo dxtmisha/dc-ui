@@ -4,6 +4,7 @@
       v-if="showMore"
       v-bind="more"
       class="d-pagination__more"
+      appearance="outlined"
       :shape="undefined"
       @on-click="onMore"
     />
