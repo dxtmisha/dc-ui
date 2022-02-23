@@ -15,7 +15,7 @@
       <template v-slot:head>
         <div class="p-4 border" v-html="text[0]"/>
       </template>
-      <template v-slot:default>
+      <template v-slot:body>
         <div class="p-4"/>
         <div class="p-2 border text-center panel-close cursor-default">Close</div>
         <div class="p-4" v-html="text[1]"/>

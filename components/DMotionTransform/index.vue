@@ -16,13 +16,14 @@
           @click="onClick"
         >
           <slot name="head"/>
+          <slot/>
         </div>
         <div
           ref="body"
           v-if="open || propOpen || propShow"
           class="d-motion-transform__body mt-body"
         >
-          <slot class-close="panel-close"/>
+          <slot name="body" class-close="panel-close"/>
         </div>
       </div>
       <div

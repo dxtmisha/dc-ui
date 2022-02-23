@@ -1,5 +1,6 @@
 <template>
-  <d-motion-transform
+  <component
+    :is="type"
     :adaptive="propAdaptive"
     :class="classTransform"
     :data-value="item?.value"
@@ -8,31 +9,29 @@
     v-bind="transformAttrs"
     @on-open="onOpen"
   >
-    <template v-slot:head>
-      <div v-bind="binds" class="d-data-item panel-static" :data-value="value">
-        <div class="d-data-item__icon">
-          <d-icon v-if="bindIcon.icon" v-bind="bindIcon"/>
-        </div>
-        <div class="d-data-item__body">
-          <div class="d-data-item__text">
-            <template v-if="'text' in $slots">
-              <slot :item="item" :text="propText" name="text"/>
-            </template>
-            <template v-else><span v-html="propText"/></template>
-          </div>
-          <template v-for="parameter in parameters" :key="parameter">
-            <div :data-parameter="parameter" class="d-data-item__parameter">
-              <template v-if="parameter in $slots">
-                <slot :name="parameter" :item="item"/>
-              </template>
-              <template v-else>{{ item[parameter] }}</template>
-            </div>
-          </template>
-        </div>
-        <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
+    <div v-bind="binds" class="d-data-item panel-static" :data-value="value">
+      <div class="d-data-item__icon">
+        <d-icon v-if="bindIcon.icon" v-bind="bindIcon"/>
       </div>
-    </template>
-    <template v-slot:default>
+      <div class="d-data-item__body">
+        <div class="d-data-item__text">
+          <template v-if="'text' in $slots">
+            <slot :item="item" :text="propText" name="text"/>
+          </template>
+          <template v-else><span v-html="propText"/></template>
+        </div>
+        <template v-for="parameter in parameters" :key="parameter">
+          <div :data-parameter="parameter" class="d-data-item__parameter">
+            <template v-if="parameter in $slots">
+              <slot :name="parameter" :item="item"/>
+            </template>
+            <template v-else>{{ item[parameter] }}</template>
+          </div>
+        </template>
+      </div>
+      <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
+    </div>
+    <template v-slot:body>
       <d-top
         :bar="[]"
         :class="classTop"
@@ -44,7 +43,7 @@
       />
       <slot name="body" :item="item"/>
     </template>
-  </d-motion-transform>
+  </component>
 </template>
 
 <script>
@@ -143,6 +142,7 @@ export default {
     useAdmin('d-data-item', context)
 
     return {
+      type: computed(() => 'body' in context.slots ? 'd-motion-transform' : 'div'),
       propText,
       propAdaptive,
       isProgress,

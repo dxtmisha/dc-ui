@@ -41,7 +41,7 @@
           </div>
         </template>
 
-        <template v-slot:default>
+        <template v-slot:body>
           <div v-if="!propSwitchDate" class="d-date-picker__input window-static">
             <d-input
               ref="inputIn"

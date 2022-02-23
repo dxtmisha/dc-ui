@@ -8,7 +8,7 @@
     adaptive="panel"
     @on-open="onOpen"
   >
-    <template v-slot:default>
+    <template v-slot:body>
       <div :style="styleList" class="d-banner">
         <div class="d-banner__body">
           <div class="d-banner__text">

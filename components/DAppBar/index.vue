@@ -69,7 +69,7 @@
         <template v-slot:head>
           <slot name="head"/>
         </template>
-        <template v-slot:default>
+        <template v-slot:body>
           <d-motion-axis :selected="contentSelected" :transition="directions">
             <template v-for="item in propSlots" :key="item.index" v-slot:[item.index]>
               <slot :name="item.index" :set="set"/>
