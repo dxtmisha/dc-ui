@@ -23,7 +23,7 @@
                 <slot
                   :item="item"
                   :name="name"
-                  :on="() => onClick(item)"
+                  :on="() => onTransform(item)"
                   :text="text"
                 />
               </template>
@@ -120,7 +120,7 @@ export default {
       }
     })
 
-    const onClick = item => {
+    const onTransform = item => {
       if (!props.disabled) {
         if (item.value === selected.value) {
           selected.value = undefined
@@ -153,6 +153,8 @@ export default {
       }
     })
 
+    beforeOpening(true)
+
     useAdmin('d-data-picker', context)
 
     return {
@@ -168,7 +170,7 @@ export default {
       onPage,
       onMore,
       onRows,
-      onClick,
+      onTransform,
       onClose,
       onPosition,
       onSelected
