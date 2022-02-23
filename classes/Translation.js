@@ -29,6 +29,7 @@ export default class Translation {
   }
 
   static add (translations) {
+    console.log('translations', translations)
     if (translations) {
       if (typeof translations === 'string') {
         try {
