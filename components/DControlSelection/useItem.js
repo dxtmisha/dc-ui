@@ -12,7 +12,7 @@ export default function useItem (
 
   const getItems = () => selection.value.querySelectorAll(`.${id}`)
   const getTarget = target => target.closest(`.${id}`)
-  const getClick = target => target.closest(`.${id}.cs-click, .${id} .cs-click`)
+  const getClick = target => target?.closest(`.${id}.cs-click, .${id} .cs-click`)
   const getByValue = value => selection.value.querySelector(`.${id}[data-value="${value}"]`)
 
   const setSelected = (value, event = true) => {
