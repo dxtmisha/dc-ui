@@ -71,6 +71,12 @@
       padding: 0 32px;
     }
   }
+
+  @include mediaMinWidth(extra) {
+    &__more {
+      flex-basis: auto;
+    }
+  }
 }
 
 @mixin paginationInit {
