@@ -67,6 +67,7 @@ import { computed, defineAsyncComponent, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useFields from './useFields'
 import useValidity from './useValidity'
+import Api from '../../classes/Api'
 
 export default {
   name: 'DForm',
@@ -146,8 +147,10 @@ export default {
             ...props.request
           }
 
-          const request = await fetch(props.ajax, props.ajax.toString().match(/http:\/\/localhost:/) ? undefined : init)
-          const json = await request.json()
+          const json = await Api.response(
+            props.ajax,
+            window.location.origin.match(/http:\/\/localhost:/) ? undefined : init
+          )
 
           setValidity(json)
           emit(json)

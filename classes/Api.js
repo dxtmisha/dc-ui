@@ -67,6 +67,13 @@ export default class Api {
     return this._url.replace('{_locale}', ApiUser.idLocale) + path
   }
 
+  static async response (path, request) {
+    return await this._fetch({
+      path,
+      ...(request || {})
+    })
+  }
+
   static userLogout () {
     ApiUser.logout()
   }

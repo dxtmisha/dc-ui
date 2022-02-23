@@ -7,11 +7,11 @@ export const optionsForm = useProps(props, {
       { value: undefined },
       {
         text: 'error',
-        value: window.location.origin + '/demo/request/form-error.json'
+        value: 'demo/request/form-error.json'
       },
       {
         text: 'success',
-        value: window.location.origin + '/demo/request/form-success.json'
+        value: 'demo/request/form-success.json'
       }
     ]
   },

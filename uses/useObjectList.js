@@ -1,6 +1,7 @@
 import List from '../classes/List'
 import { computed, ref, toRefs, watch } from 'vue'
 import useWatch from './useWatch'
+import Api from '../classes/Api'
 
 export default function useObjectList (props) {
   const {
@@ -34,10 +35,10 @@ export default function useObjectList (props) {
   const propMax = computed(() => count.value || propList.value.length)
 
   const getAjax = async () => {
-    const response = await (await fetch(
+    const response = await Api.response(
       props.ajax.toString().replace(':page', page),
-      props.request || {}
-    )).json()
+      props.request
+    )
 
     if ('data' in response) {
       count.value = response?.count || count.value
