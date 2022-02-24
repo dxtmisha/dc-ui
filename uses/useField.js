@@ -26,9 +26,10 @@ export default function useField (
     if (
       change.value &&
       'inputMatch' in props &&
+      props.inputMatch &&
       propValidationMessage.value === ''
     ) {
-      const inputMatch = input.value.form.querySelector(`[name="${props.inputMatch}"]`) ||
+      const inputMatch = input.value?.form?.querySelector(`[name="${props.inputMatch}"]`) ||
         document.querySelector(props.inputMatch)
 
       if (

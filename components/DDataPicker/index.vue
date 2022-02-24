@@ -120,6 +120,8 @@ export default {
       }
     })
 
+    const update = () => beforeOpening(true)
+
     const onTransform = item => {
       if (!props.disabled) {
         if (item.value === selected.value) {
@@ -143,7 +145,7 @@ export default {
     const onPosition = event => context.emit('on-position', event)
     const onSelected = event => context.emit('on-selected', event)
 
-    watch([ajax, list], () => beforeOpening(true))
+    watch([ajax, list], update)
     watch(propItemsByPage, async () => {
       if (
         propItemsByPage.value.length < propRows.value ||
@@ -153,7 +155,7 @@ export default {
       }
     })
 
-    beforeOpening(true)
+    update()
 
     useAdmin('d-data-picker', context)
 
@@ -167,6 +169,7 @@ export default {
       bindData,
       bindPagination,
       classList,
+      update,
       onPage,
       onMore,
       onRows,
