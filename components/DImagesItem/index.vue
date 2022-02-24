@@ -1,5 +1,5 @@
 <template>
-  <div v-bind="binds" class="d-images-item a-static">
+  <figure v-bind="binds" class="d-images-item a-static">
     <a :style="styleBody" class="d-images-item__body">
       <slot/>
       <d-icon-item
@@ -20,7 +20,7 @@
       :text="text"
       :selected="selected"
     />
-  </div>
+  </figure>
 </template>
 
 <script>

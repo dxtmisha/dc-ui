@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList" class="d-images-bar">
+  <figcaption :class="classList" class="d-images-bar">
     <div class="d-images-bar__context">
       <div v-if="title" class="d-images-bar__title" v-html="title"/>
       <div v-if="text" class="d-images-bar__text" v-html="text"/>
@@ -15,7 +15,7 @@
       @on-click="onClick"
     />
     <slot/>
-  </div>
+  </figcaption>
 </template>
 
 <script>
