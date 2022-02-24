@@ -26,14 +26,14 @@
             <div v-else-if="item?.line" :class="item?.class" class="d-form__line"/>
             <div v-else-if="item?.space" :class="item?.class" class="d-form__space"/>
             <component
+              :is="item?.component || 'd-input'"
               v-else-if="item?.name"
               :ref="(el) => { if (el) items[item.name] = { item, el } }"
-              :is="item?.component || 'd-input'"
-              v-bind="item"
-              class="d-form__item"
-              :value="values?.[item.name]"
-              :readonly="readonly"
               :disabled="disabled"
+              :readonly="readonly"
+              :value="values?.[item.name]"
+              class="d-form__item"
+              v-bind="item"
             />
           </template>
         </template>
