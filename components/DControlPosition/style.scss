@@ -12,7 +12,6 @@
 
 @mixin controlPositionItem() {
   &__item {
-    @include select-none;
     cursor: default;
     position: relative;
 
@@ -27,6 +26,7 @@
     }
 
     &.cp-active {
+      @include select-none;
       @include index(8);
       @include shadow(8);
       left: calc(var(--_cp-x) + var(--_cp-shift-x, 0px));
