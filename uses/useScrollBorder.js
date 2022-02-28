@@ -12,14 +12,6 @@ export default function useScrollBorder (
 
   const update = () => {
     if (scroll.value) {
-      const floor = Math.floor(scroll.value.scrollTop)
-      const bottomScroll = scroll.value.scrollHeight - scroll.value.clientHeight
-      console.log(
-        floor,
-        Math.ceil(scroll.value.scrollTop),
-        bottomScroll
-      )
-
       top.set(scroll.value.scrollTop > 8)
       bottom.set(scroll.value.scrollTop < scroll.value.scrollHeight - scroll.value.clientHeight - 8)
     }
