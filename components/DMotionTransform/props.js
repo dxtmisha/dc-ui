@@ -4,6 +4,7 @@ const defaultProps = defaultInit('d-motion-transform')
 export const props = {
   // Values
   ignore: undefined,
+  ignoreSelector: defaultProps('ignoreSelector', undefined),
 
   // Status
   open: Boolean,
