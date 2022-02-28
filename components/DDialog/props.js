@@ -19,7 +19,7 @@ export const props = {
   dense: Boolean,
   border: {
     type: Boolean,
-    default: true
+    default: defaultProps('border', true)
   },
 
   // Actions
