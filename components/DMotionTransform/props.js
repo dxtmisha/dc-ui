@@ -6,7 +6,7 @@ export const props = {
   ignore: undefined,
   ignoreSelector: {
     type: String,
-    default: defaultProps('ignoreSelector', undefined)
+    default: defaultProps('ignoreSelector', '.d-window')
   },
 
   // Status

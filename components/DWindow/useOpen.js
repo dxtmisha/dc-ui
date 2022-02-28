@@ -117,7 +117,7 @@ export default function useOpen (
           await emit()
         }
       } else if (
-        target.closest(`.${id} .window-close`) ||
+        target.closest(`.${id} .window-close:not(.window-static)`) ||
         (props.autoClose && !target.closest(`.${id} .window-static, .${id} .d-window__control`))
       ) {
         await emit()
