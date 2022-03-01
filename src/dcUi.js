@@ -1,3 +1,4 @@
+import Hash from '../classes/Hash'
 import Translation from '../classes/Translation'
 import forEach from '../functions/forEach'
 import useTheme from '../uses/useTheme'
@@ -36,6 +37,8 @@ export const getRoutes = function (list) {
 
 export default {
   install (app, options) {
+    Hash._init()
+    setTimeout(() => Hash.set('new', 'value1'), 1000)
     app.config.globalProperties.$theme = useTheme(options?.theme, options?.options)
     app.config.globalProperties.$translate = Translation
     app.config.globalProperties.$menu = () => menu
