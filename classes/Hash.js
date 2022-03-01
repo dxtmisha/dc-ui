@@ -26,7 +26,7 @@ export default class Hash {
       }
     })
 
-    location.hash = hash.length > 0 ? `#${hash.join(';')}` : ''
+    history.replaceState(undefined, null, `#${hash.join(';')}`)
   }
 
   static get (index, defaultValue = undefined) {

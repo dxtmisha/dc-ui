@@ -8,9 +8,10 @@ export default function useEvent (
   context,
   propOpen
 ) {
-  const emit = (target = undefined) => context.emit('on-open', {
+  const emit = (target = undefined, type = 'basic') => context.emit('on-open', {
     open: !props.open,
-    target
+    target,
+    type
   })
   const event = EventControl.init(document.body, ({ target }) => {
     const selector = getIdElement(content.value, '')
@@ -26,7 +27,7 @@ export default function useEvent (
         )
       )
     ) {
-      emit(target)
+      emit(target, 'body')
     }
   })
 
@@ -43,10 +44,10 @@ export default function useEvent (
 
   const onTop = event => {
     if (event.value === 'cancel') {
-      emit()
-    } else {
-      context.emit('on-top', event)
+      emit(undefined, 'top')
     }
+
+    context.emit('on-top', event)
   }
 
   onBeforeUnmount(() => event.stop())
