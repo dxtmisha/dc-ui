@@ -23,6 +23,15 @@
           v-if="open || propOpen || propShow"
           class="d-motion-transform__body mt-body"
         >
+          <d-top
+            v-if="topShow"
+            :appearance="topAppearance"
+            :bar="topBar"
+            :iconClose="iconArrowBack"
+            class="d-motion-transform__top"
+            v-bind="topAttrs"
+            @on-click="onTop"
+          />
           <slot name="body" class-close="panel-close"/>
         </div>
       </div>
@@ -35,6 +44,7 @@
 </template>
 
 <script>
+import DTop from '../DTop'
 import { props } from './props'
 import { computed, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
@@ -45,8 +55,9 @@ import useScroll from '../../uses/useScroll'
 
 export default {
   name: 'DMotionTransform',
+  components: { DTop },
   props,
-  emits: ['on-open', 'on-close'],
+  emits: ['on-open', 'on-close', 'on-top'],
   setup (props, context) {
     const transform = ref(undefined)
     const content = ref(undefined)
@@ -73,7 +84,8 @@ export default {
 
     const {
       toggleEvent,
-      onClick
+      onClick,
+      onTop
     } = useEvent(
       content,
       props,
@@ -124,6 +136,7 @@ export default {
       propShow,
       classList,
       onClick,
+      onTop,
       onTransitionend
     }
   }

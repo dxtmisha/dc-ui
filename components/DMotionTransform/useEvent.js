@@ -8,7 +8,7 @@ export default function useEvent (
   context,
   propOpen
 ) {
-  const emit = target => context.emit('on-open', {
+  const emit = (target = undefined) => context.emit('on-open', {
     open: !props.open,
     target
   })
@@ -41,10 +41,19 @@ export default function useEvent (
     }
   }
 
+  const onTop = event => {
+    if (event.value === 'cancel') {
+      emit()
+    } else {
+      context.emit('on-top', event)
+    }
+  }
+
   onBeforeUnmount(() => event.stop())
 
   return {
     toggleEvent,
-    onClick
+    onClick,
+    onTop
   }
 }

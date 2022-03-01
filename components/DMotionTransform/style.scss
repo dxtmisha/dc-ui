@@ -168,6 +168,18 @@
   }
 }
 
+@mixin motionTransformTop {
+  &__top {
+    @include sticky;
+    display: none;
+    top: 0;
+  }
+
+  &__context.status-window &__top {
+    display: flex;
+  }
+}
+
 @mixin motionTransformBackground() {
   &__background {
     @include optionBackground;
@@ -181,5 +193,6 @@
   @include motionTransformHead;
   @include motionTransformBody;
   @include motionTransformClose;
+  @include motionTransformTop;
   @include motionTransformBackground;
 }

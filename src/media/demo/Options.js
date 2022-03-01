@@ -333,6 +333,7 @@ export const Options = {
     ]
   },
   today: { default: true },
+  topShow: {},
   unit: {
     default: 'kilogram',
     list: [

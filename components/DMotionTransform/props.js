@@ -41,6 +41,20 @@ export const props = {
     default: true
   },
 
+  topShow: {
+    type: Boolean,
+    default: defaultProps('topShow', false)
+  },
+  topBar: { default: defaultProps('topBar', []) },
+  topAppearance: { default: defaultProps('topAppearance', 'transparent') },
+  topAttrs: {
+    type: Object,
+    default: defaultProps('topAttrs', {})
+  },
+
   // Position
-  bottom: Boolean
+  bottom: Boolean,
+
+  // Icon
+  iconArrowBack: { default: defaultProps('iconArrowBack', 'arrow_back') }
 }
