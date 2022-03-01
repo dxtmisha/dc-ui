@@ -5,9 +5,12 @@
     :class="classTransform"
     :data-value="item?.value"
     :open="open"
+    :top-show="true"
+    :top-attrs="topAttrs"
     class="d-data-item__transform cs-click cp-click cp-position"
     v-bind="transformAttrs"
     @on-open="onOpen"
+    @on-top="onTop"
   >
     <div v-bind="binds" class="d-data-item panel-static" :data-value="value">
       <div class="d-data-item__icon">
@@ -32,15 +35,6 @@
       <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
     </div>
     <template v-slot:body>
-      <d-top
-        :bar="[]"
-        :class="classTop"
-        :iconClose="iconArrowBack"
-        appearance="transparent"
-        class="d-data-item__top"
-        v-bind="topAttrs"
-        @on-click="onTop"
-      />
       <slot name="body" :item="item"/>
     </template>
   </component>
@@ -50,20 +44,18 @@
 import DIcon from '../DIcon'
 import DMotionTransform from '../DMotionTransform'
 import DProgress from '../DProgress'
-import DTop from '../DTop'
 import { props } from './props'
 import { computed } from 'vue'
+import getExp from './../../functions/getExp'
 import attrProgress from '../DProgress/attrProgress'
 import useAdmin from '../../uses/useAdmin'
 import useColor from '../../uses/useColor'
 import useIcon from './useIcon'
-import getExp from './../../functions/getExp'
 
 export default {
   name: 'DDataItem',
   inheritAttrs: false,
   components: {
-    DTop,
     DIcon,
     DMotionTransform,
     DProgress
@@ -126,18 +118,9 @@ export default {
         'status-open': props.open
       }
     })
-    const classTop = computed(() => {
-      return { [`adaptive-${props.adaptive}`]: props.adaptive }
-    })
 
     const onOpen = event => context.emit('on-open', event)
-    const onTop = event => {
-      if (event.value === 'cancel') {
-        context.emit('on-open', { open: !props.open })
-      } else {
-        context.emit('on-top', event)
-      }
-    }
+    const onTop = event => context.emit('on-top', event)
 
     useAdmin('d-data-item', context)
 
@@ -150,7 +133,6 @@ export default {
       bindProgress,
       binds,
       classTransform,
-      classTop,
       onOpen,
       onTop
     }
