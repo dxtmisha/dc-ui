@@ -1,7 +1,9 @@
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
 import attrData from '../DData/attrData'
 
 export default function useData (props, items) {
+  const { listNew } = toRefs(props)
+
   return attrData({
     props,
     items: {
@@ -11,7 +13,8 @@ export default function useData (props, items) {
         } else {
           return undefined
         }
-      })
+      }),
+      itemsNew: listNew
     }
   })
 }

@@ -11,6 +11,7 @@ export default function useItems (
 ) {
   const {
     items,
+    itemsNew,
     underline
   } = toRefs(props)
 
@@ -30,6 +31,7 @@ export default function useItems (
   })
 
   const propList = useWatch(items, () => forEach(items.value, item => getItem(item)), ['init'])
+  const propListNew = useWatch(itemsNew, () => forEach(itemsNew.value, item => getItem(item)), ['init'])
   const bindHeaders = getItem(propHeaders, {
     border: true,
     header: true
@@ -37,6 +39,7 @@ export default function useItems (
 
   return {
     propList,
+    propListNew,
     bindHeaders
   }
 }

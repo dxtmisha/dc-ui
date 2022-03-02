@@ -21,6 +21,7 @@ export const props = {
     default: defaultProps('keyValue', 'value')
   },
   list: undefined,
+  listNew: undefined,
   listInit: {
     type: Boolean,
     default: true

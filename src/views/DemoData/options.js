@@ -1,9 +1,13 @@
 import useProps from '@/components/InteractiveDemo/useProps'
+import { tableItems } from '@/media/demo/data/list'
 import { props } from '../../../components/DData/props'
 import { DataItem } from '@/media/demo/DataItem'
 import { Icon } from '@/media/demo/Icon'
 
 export const optionsData = useProps(props, {
+  itemsNew: {
+    message: tableItems(4, 10)
+  },
   adaptive: DataItem.dataItemAdaptive,
   appearance: DataItem.dataItemAppearance,
   headers: {

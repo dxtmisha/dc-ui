@@ -3,6 +3,24 @@
     <div v-if="headers" :class="classHeaders" class="d-data__headers">
       <d-data-item v-bind="bindHeaders"/>
     </div>
+
+    <d-data-item
+      v-for="item in propListNew"
+      :key="item.value"
+      :is-new="true"
+      icon=" "
+      v-bind="item"
+      @on-open="onOpen"
+    >
+      <template
+        v-for="(html, name) in $slots"
+        :key="name"
+        v-slot:[name]="{ item, text }"
+      >
+        <slot :name="name" :item="item" :text="text"/>
+      </template>
+    </d-data-item>
+
     <d-data-item
       v-for="item in propList"
       :key="item.value"
@@ -56,6 +74,7 @@ export default {
 
     const {
       propList,
+      propListNew,
       bindHeaders
     } = useItems(
       props,
@@ -75,6 +94,7 @@ export default {
       propHeaders,
       propParameters,
       propList,
+      propListNew,
       bindHeaders,
       classHeaders,
       onOpen

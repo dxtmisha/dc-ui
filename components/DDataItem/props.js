@@ -18,6 +18,7 @@ export const props = {
   selected: Boolean,
   open: Boolean,
   progress: Boolean,
+  disabled: Boolean,
 
   // Options
   palette,
@@ -68,6 +69,7 @@ export const props = {
     type: Number,
     default: null
   },
+  isNew: Boolean,
   border: {
     type: Boolean,
     default: defaultProps('border', true)

@@ -120,6 +120,7 @@ export const Options = {
       { value: 400 }
     ]
   },
+  isNew: {},
   height: {},
   gap: {
     list: [
