@@ -58,6 +58,7 @@ export default function useObjectList (props) {
       ) {
         progress.value = true
 
+        page = 1
         buffer.value = typeof props.ajax === 'function'
           ? await props.ajax()
           : await getAjax()
@@ -72,7 +73,10 @@ export default function useObjectList (props) {
   }
 
   const next = async () => {
-    if (count.value && count.value !== propList.value.length) {
+    if (
+      count.value &&
+      count.value !== propList.value.length
+    ) {
       progress.value = true
       page++
 

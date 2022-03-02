@@ -148,10 +148,8 @@ export default {
     watch([ajax, list], update)
     watch(propItemsByPage, async () => {
       if (
-        propItemsByPage.value.length && (
-          propItemsByPage.value.length < propRows.value ||
-          propFiltersMax.value <= propRows.value * propPage.value
-        )
+        propItemsByPage.value.length < propRows.value ||
+        propFiltersMax.value <= propRows.value * propPage.value
       ) {
         await next()
       }
