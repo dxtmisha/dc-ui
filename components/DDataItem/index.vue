@@ -19,14 +19,14 @@
       <div class="d-data-item__body">
         <div class="d-data-item__text">
           <template v-if="'text' in $slots">
-            <slot :item="item" :text="propText" name="text"/>
+            <slot :item="item" :item-value="value" :text="propText" name="text"/>
           </template>
           <template v-else><span v-html="propText"/></template>
         </div>
         <template v-for="parameter in parameters" :key="parameter">
           <div :data-parameter="parameter" class="d-data-item__parameter">
             <template v-if="parameter in $slots">
-              <slot :name="parameter" :item="item" :value="item[parameter]"/>
+              <slot :name="parameter" :item="item" :item-value="value" :value="item[parameter]"/>
             </template>
             <template v-else>{{ item[parameter] }}</template>
           </div>
