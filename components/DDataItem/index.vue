@@ -95,7 +95,7 @@ export default {
         class: {
           'value-background': props.backgroundColor,
           'status-selected': props.selected,
-          'status-disabled': props.disabled,
+          'status-disabled': props.disabled || props.item?.disabled,
           [`appearance-${props.appearance}`]: props.appearance,
           [`size-${props.size}`]: props.size,
           [`shape-${props.shape}`]: props.shape,
