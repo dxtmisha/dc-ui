@@ -2,6 +2,7 @@ import init from './init'
 
 import DActions from './components/DActions'
 import DAlert from './components/DAlert'
+import DAnchor from './components/DAnchor'
 import DAppBar from './components/DAppBar'
 import DAvatar from './components/DAvatar'
 import DBadge from './components/DBadge'
@@ -85,6 +86,7 @@ export default {
 
     app.component('d-actions', DActions)
     app.component('d-alert', DAlert)
+    app.component('d-anchor', DAnchor)
     app.component('d-app-bar', DAppBar)
     app.component('d-avatar', DAvatar)
     app.component('d-badge', DBadge)

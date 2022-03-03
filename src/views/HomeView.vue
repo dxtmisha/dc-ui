@@ -68,6 +68,7 @@ export default {
         name: 'Navigation',
         list: [
           'd-actions',
+          'd-anchor',
           'd-app-bar',
           'd-bottom-navigation',
           'd-breadcrumbs',

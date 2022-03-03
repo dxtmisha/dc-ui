@@ -37,6 +37,14 @@ export const Options = {
   axis: { list: axis },
   back: {},
   background: {},
+  behavior: {
+    list: [
+      { value: undefined },
+      { value: 'auto' },
+      { value: 'smooth' }
+    ]
+  },
+  block: {},
   border: {},
   borderInverse: {},
   cancel: { default: true },
@@ -110,6 +118,7 @@ export const Options = {
   },
   indeterminate: {},
   inDom: {},
+  inline: {},
   interspace: {
     list: [
       { value: undefined },
@@ -259,6 +268,15 @@ export const Options = {
       { value: 'rounded' },
       { value: 'pill' },
       { value: 'tile' }
+    ]
+  },
+  shift: {
+    list: [
+      { value: undefined },
+      { value: 32 },
+      { value: 64 },
+      { value: 128 },
+      { value: 256 }
     ]
   },
   showText: {},

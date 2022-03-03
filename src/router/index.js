@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { getRoutes } from '@/dcUi'
 import DemoActions from '../views/DemoActions'
 import DemoAlert from '../views/DemoAlert'
+import DemoAnchor from '../views/DemoAnchor'
 import DemoAppBar from '../views/DemoAppBar'
 import DemoAvatar from '../views/DemoAvatar'
 import DemoBadge from '../views/DemoBadge'
@@ -84,6 +85,7 @@ export const routes = getRoutes({
   's-components': { subtitle: 'Components' },
   'd-actions': DemoActions,
   'd-alert': DemoAlert,
+  'd-anchor': DemoAnchor,
   'd-app-bar': DemoAppBar,
   'd-avatar': DemoAvatar,
   'd-badge': DemoBadge,
