@@ -18,12 +18,14 @@
               <template
                 v-for="(html, name) in $slots"
                 :key="name"
-                v-slot:[name]="{ item, text }"
+                v-slot:[name]="{ item, itemValue, value, text }"
               >
                 <slot
                   :item="item"
+                  :item-value="itemValue"
+                  :value="value"
                   :name="name"
-                  :on="() => onTransform(item)"
+                  :on="() => onTransform(item, itemValue)"
                   :text="text"
                 />
               </template>
@@ -122,13 +124,13 @@ export default {
 
     const update = () => beforeOpening(true)
 
-    const onTransform = item => {
+    const onTransform = (item, itemValue) => {
       if (!props.disabled) {
-        if (item.value === selected.value) {
+        if (itemValue === selected.value) {
           selected.value = undefined
           selectedItem.value = undefined
         } else {
-          selected.value = item.value
+          selected.value = itemValue
           selectedItem.value = item
         }
       }

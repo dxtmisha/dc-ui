@@ -19,14 +19,14 @@
       <div class="d-data-item__body">
         <div class="d-data-item__text">
           <template v-if="'text' in $slots">
-            <slot :item="item" :text="propText" name="text"/>
+            <slot :item="item" :item-value="value" :text="propText" name="text"/>
           </template>
           <template v-else><span v-html="propText"/></template>
         </div>
         <template v-for="parameter in parameters" :key="parameter">
           <div :data-parameter="parameter" class="d-data-item__parameter">
             <template v-if="parameter in $slots">
-              <slot :name="parameter" :item="item" :value="item[parameter]"/>
+              <slot :name="parameter" :item="item" :item-value="value" :value="item[parameter]"/>
             </template>
             <template v-else>{{ item[parameter] }}</template>
           </div>
@@ -95,12 +95,14 @@ export default {
         class: {
           'value-background': props.backgroundColor,
           'status-selected': props.selected,
+          'status-disabled': props.disabled || props.item?.disabled,
           [`appearance-${props.appearance}`]: props.appearance,
           [`size-${props.size}`]: props.size,
           [`shape-${props.shape}`]: props.shape,
           [`adaptive-${props.adaptive}`]: props.adaptive,
           'option-header': props.header,
           'option-dense': props.dense,
+          'option-is-new': props.isNew,
           'option-border': props.border,
           ...palette.value,
           ...context?.attrs?.class

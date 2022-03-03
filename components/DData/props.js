@@ -21,6 +21,7 @@ export const props = {
     default: defaultProps('keyValue', 'value')
   },
   items: [Array, Object],
+  itemsNew: [Array, Object],
   underline: String,
   parameters: Array,
 

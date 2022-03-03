@@ -105,7 +105,9 @@ export const Values = {
   helperMessage: { message: helper1 },
   hour: { message: 15 },
   items: {},
+  itemsNew: {},
   list: {},
+  listNew: {},
   marks: {
     message: [
       { value: 0 },

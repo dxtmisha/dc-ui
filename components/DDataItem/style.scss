@@ -167,6 +167,17 @@
   }
 }
 
+@mixin dataItemIsNew {
+  &.option-is-new {
+    background-color: varColor(--warning-type1, --opacity-overlay);
+
+    @include afterAbsolute('left') {
+      background-color: varColor(--warning-type1, --opacity-primary-high);
+      width: 4px;
+    }
+  }
+}
+
 @mixin dataItemBorder {
   &__transform:not(.status-open) + &__transform &.option-border &__body {
     border-top-width: var(--basic-border-width);
@@ -174,14 +185,19 @@
 }
 
 @mixin dataItemStatus {
-  &:hover {
+  &:not(.status-disabled):hover {
     background-image: varColor(--_di-palette-type1, --opacity-container-hover, true);
   }
 
-  &.status-selected,
-  &__transform.status-selected & {
+  &.status-selected:not(.status-disabled),
+  &__transform.status-selected:not(.status-disabled) & {
     --basic-text: var(--_di-palette-select);
     background-color: varColor(--_di-palette-select, --opacity-container-selected);
+  }
+
+  &.status-disabled,
+  &__transform.status-disabled & {
+    --basic-text-opacity: var(--opacity-surface-disabled);
   }
 }
 
@@ -234,6 +250,7 @@
   @include dataItemSize;
   @include dataItemHeader;
   @include dataItemDense;
+  @include dataItemIsNew;
   @include dataItemBorder;
 
   @include dataItemStatus;

@@ -339,7 +339,7 @@ export const tableHeaders = [
   }
 ]
 
-export const tableItems = (count = 128 * 2) => {
+export const tableItems = (count = 128 * 2, idStart = 1000) => {
   const items = []
   const status = [
     'Approved',
@@ -423,8 +423,8 @@ export const tableItems = (count = 128 * 2) => {
       status: status[itemStatus],
       color: colors[itemStatus],
       name: names[getRandom(0, names.length - 1)],
-      id: 10001 + i,
-      value: 10001 + i,
+      id: idStart + i,
+      value: idStart + i,
       policy: `$${getRandom(10, 99)}00.00`,
       city: city[getRandom(0, city.length - 1)],
       age: getRandom(18, 64)

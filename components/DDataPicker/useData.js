@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import List from '../../classes/List'
 import attrData from '../DData/attrData'
 
 export default function useData (props, items) {
@@ -11,7 +12,17 @@ export default function useData (props, items) {
         } else {
           return undefined
         }
-      })
+      }),
+      itemsNew: computed(() => props.listNew
+        ? new List(
+          props.listNew,
+          props.listInit,
+          props.translation,
+          props.keyText,
+          props.keyValue
+        ).get()
+        : undefined
+      )
     }
   })
 }
