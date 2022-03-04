@@ -70,6 +70,7 @@ export default {
         list: [
           'd-actions',
           'd-anchor',
+          'd-anchor-to',
           'd-app-bar',
           'd-bottom-navigation',
           'd-breadcrumbs',

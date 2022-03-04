@@ -3,6 +3,7 @@ import { getRoutes } from '@/dcUi'
 import DemoActions from '../views/DemoActions'
 import DemoAlert from '../views/DemoAlert'
 import DemoAnchor from '../views/DemoAnchor'
+import DemoAnchorTo from '../views/DemoAnchorTo'
 import DemoAppBar from '../views/DemoAppBar'
 import DemoAvatar from '../views/DemoAvatar'
 import DemoBadge from '../views/DemoBadge'
@@ -87,6 +88,7 @@ export const routes = getRoutes({
   'd-actions': DemoActions,
   'd-alert': DemoAlert,
   'd-anchor': DemoAnchor,
+  'd-anchor-to': DemoAnchorTo,
   'd-app-bar': DemoAppBar,
   'd-avatar': DemoAvatar,
   'd-badge': DemoBadge,

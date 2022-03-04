@@ -10,6 +10,7 @@ import { props } from './props'
 import { computed, nextTick, onMounted } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useScrollTo from './useScrollTo'
+import useClipboard from '../../uses/useClipboard'
 
 export default {
   name: 'DAnchor',
@@ -19,6 +20,9 @@ export default {
     const href = computed(() => `#${props.name}`)
 
     const getElement = () => document.getElementById(props.name)
+    const {
+      writeText
+    } = useClipboard()
 
     onMounted(async () => {
       await nextTick()
@@ -34,9 +38,17 @@ export default {
 
     return {
       href,
-      onClick: () => {
-        scrollTo(getElement() || {})
-        history.replaceState({}, '', href.value)
+      onClick: event => {
+        const element = getElement()
+
+        if (element) {
+          if (event.altKey) {
+            writeText(`${location.origin}${location.pathname}${href.value}`)
+          }
+
+          scrollTo(element)
+          history.replaceState({}, '', href.value)
+        }
       }
     }
   }
