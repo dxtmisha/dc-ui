@@ -16,7 +16,7 @@
 <script>
 import DAnchorTo from '../../../components/DAnchorTo'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { optionsAnchor } from './options'
+import { optionsAnchorTo } from './options'
 
 export default {
   name: 'DemoAnchorTo',
@@ -25,7 +25,7 @@ export default {
     InteractiveDemo
   },
   setup () {
-    const options = optionsAnchor
+    const options = optionsAnchorTo
     return { options }
   }
 }

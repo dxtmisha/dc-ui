@@ -1,4 +1,4 @@
 import useProps from '@/components/InteractiveDemo/useProps'
-import { props } from '../../../components/DAnchor/props'
+import { props } from '../../../components/DAnchorTo/props'
 
-export const optionsAnchor = useProps(props, {}, ['name', 'text'])
+export const optionsAnchorTo = useProps(props, {}, ['name', 'text'])
