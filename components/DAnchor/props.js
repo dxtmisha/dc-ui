@@ -7,6 +7,10 @@ export const props = {
   text: String,
 
   // Options
+  copy: {
+    type: Boolean,
+    default: defaultProps('copy')
+  },
   shift: {
     type: Number,
     default: defaultProps('shift')

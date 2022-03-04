@@ -78,6 +78,7 @@ export default {
       tooltip,
       isShow,
       binds,
+      toggle,
       onClick,
       onMouseover,
       onMouseout
