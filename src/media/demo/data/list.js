@@ -315,6 +315,21 @@ export const page = [
   }
 ]
 
+export const sort = [
+  {
+    text: 'Name',
+    value: 'name'
+  },
+  {
+    text: 'Date',
+    value: 'date'
+  },
+  {
+    text: 'Price',
+    value: 'price'
+  }
+]
+
 export const tableHeaders = [
   {
     text: 'Name',

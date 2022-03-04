@@ -12,6 +12,7 @@ import DBreadcrumbs from './components/DBreadcrumbs'
 import DButton from './components/DButton'
 import DButtonGroup from './components/DButtonGroup'
 import DButtonSelect from './components/DButtonSelect'
+import DButtonSort from './components/DButtonSort'
 import DCalendar from './components/DCalendar'
 import DCalendarMultiple from './components/DCalendarMultiple'
 import DCalendarSelect from './components/DCalendarSelect'
@@ -96,6 +97,7 @@ export default {
     app.component('d-button', DButton)
     app.component('d-button-group', DButtonGroup)
     app.component('d-button-select', DButtonSelect)
+    app.component('d-button-sort', DButtonSort)
     app.component('d-calendar', DCalendar)
     app.component('d-calendar-multiple', DCalendarMultiple)
     app.component('d-calendar-select', DCalendarSelect)

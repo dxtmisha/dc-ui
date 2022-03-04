@@ -12,6 +12,7 @@ import DemoBreadcrumbs from '../views/DemoBreadcrumbs'
 import DemoButton from '../views/DemoButton'
 import DemoButtonGroup from '../views/DemoButtonGroup'
 import DemoButtonSelect from '../views/DemoButtonSelect'
+import DemoButtonSort from '../views/DemoButtonSort'
 import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
@@ -95,6 +96,7 @@ export const routes = getRoutes({
   'd-button': DemoButton,
   'd-button-group': DemoButtonGroup,
   'd-button-select': DemoButtonSelect,
+  'd-button-sort': DemoButtonSort,
   'd-calendar': DemoCalendar,
   'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,

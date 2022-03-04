@@ -31,6 +31,7 @@ export default {
           'd-button',
           'd-button-group',
           'd-button-select',
+          'd-button-sort',
           'd-icon',
           'd-icon-item',
           'd-list',
