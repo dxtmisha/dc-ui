@@ -63,10 +63,10 @@ export default {
           if (props.copy && event.altKey) {
             writeText(`${location.origin}${location.pathname}${href.value}`)
             tooltip.value.toggle(true)
+          } else {
+            scrollTo(element)
+            history.replaceState({}, '', href.value)
           }
-
-          scrollTo(element)
-          history.replaceState({}, '', href.value)
         }
       },
       translation: Translation.get('Copied to the clipboard')

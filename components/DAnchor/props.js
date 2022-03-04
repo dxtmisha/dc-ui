@@ -9,7 +9,7 @@ export const props = {
   // Options
   copy: {
     type: Boolean,
-    default: defaultProps('copy')
+    default: defaultProps('copy', true)
   },
   shift: {
     type: Number,

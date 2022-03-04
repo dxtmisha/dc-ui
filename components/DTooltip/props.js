@@ -31,6 +31,10 @@ export const props = {
     type: Number,
     default: defaultProps('delay', 40)
   },
+  hideAfter: {
+    type: Number,
+    default: defaultProps('hideAfter')
+  },
 
   // Position
   top: {

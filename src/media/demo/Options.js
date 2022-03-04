@@ -52,6 +52,7 @@ export const Options = {
   click: {},
   close: {},
   colored: {},
+  copy: {},
   counter: {},
   delay: {
     list: [
@@ -131,6 +132,14 @@ export const Options = {
   },
   isNew: {},
   height: {},
+  hideAfter: {
+    list: [
+      { value: undefined },
+      { value: 3000 },
+      { value: 6000 },
+      { value: 12000 }
+    ]
+  },
   gap: {
     list: [
       { value: undefined },

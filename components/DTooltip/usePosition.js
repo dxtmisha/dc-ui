@@ -9,7 +9,7 @@ export default function usePosition (
   id,
   open
 ) {
-  let timeout
+  let timeout, timeoutHide
   const show = ref(false)
 
   const isText = computed(() => (props.text || 'default' in context.slots) && !props.disabled)
@@ -55,6 +55,8 @@ export default function usePosition (
       !props.disabled
     ) {
       clearTimeout(timeout)
+      clearTimeout(timeoutHide)
+
       open.value = value
 
       if (value) {
@@ -64,7 +66,13 @@ export default function usePosition (
         updatePosition()
 
         classPreparation.set(true)
-        timeout = setTimeout(() => classShow.set(true), go ? 0 : props.delay)
+        timeout = setTimeout(() => {
+          classShow.set(true)
+
+          if (props.hideAfter) {
+            timeoutHide = setTimeout(() => toggle(false), props.hideAfter)
+          }
+        }, go ? 0 : props.delay)
       } else {
         classPreparation.set(false)
         classShow.set(false)
