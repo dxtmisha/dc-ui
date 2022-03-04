@@ -10,8 +10,10 @@
         ref="link"
         :class="classList"
         @click="onClick"
-        v-html="text"
-      />
+      >
+        {{ text }}
+        <slot/>
+      </a>
     </template>
   </d-tooltip>
 </template>

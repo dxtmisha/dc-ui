@@ -8,7 +8,7 @@ export const props = {
 
   // Tooltip
   tooltipHideAfter: {
-    type: Boolean,
+    type: Number,
     default: defaultProps('tooltipHideAfter', 2000)
   }
 }

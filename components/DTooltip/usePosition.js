@@ -1,4 +1,5 @@
 import { computed, nextTick, ref } from 'vue'
+import EventControl from '../../classes/EventControl'
 import useClass from '../../uses/useClass'
 import useStyle from '../../uses/useStyle'
 
@@ -22,6 +23,8 @@ export default function usePosition (
   const styleX = useStyle(tooltip, '--_tt-left', 'px')
   const styleY = useStyle(tooltip, '--_tt-top', 'px')
   const styleShift = useStyle(tooltip, '--_tt-shift', 'px')
+
+  const eventScroll = EventControl.init(window, () => toggle(false), ['scroll'])
 
   const isTop = (rect, tooltipRect) => (props.top && rect.top - tooltipRect.height - props.indent >= 0) ||
     (rect.bottom + tooltipRect.height + props.indent > window.innerHeight)
@@ -70,6 +73,7 @@ export default function usePosition (
           classShow.set(true)
 
           if (props.hideAfter) {
+            eventScroll.goOnce()
             timeoutHide = setTimeout(() => toggle(false), props.hideAfter)
           }
         }, go ? 0 : props.delay)
