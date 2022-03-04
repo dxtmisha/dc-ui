@@ -42,5 +42,11 @@ export const props = {
       'end',
       'nearest'
     ])
+  },
+
+  // Tooltip
+  tooltipHideAfter: {
+    type: Boolean,
+    default: defaultProps('tooltipHideAfter', 2000)
   }
 }

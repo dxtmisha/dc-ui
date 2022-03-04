@@ -1,12 +1,15 @@
 <template>
-  <d-tooltip ref="tooltip" :text="translation">
-    <template v-slot:control="{ classList, onMouseout }">
+  <d-tooltip
+    ref="tooltip"
+    :hide-after="tooltipHideAfter"
+    :text="translation"
+  >
+    <template v-slot:control="{ classList }">
       <a
         :id="name"
         ref="link"
         :class="classList"
         @click="onClick"
-        @mouseout="onMouseout"
         v-html="text"
       />
     </template>
