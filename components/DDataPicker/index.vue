@@ -75,7 +75,8 @@ export default {
   setup (props, context) {
     const {
       list,
-      ajax
+      ajax,
+      request
     } = toRefs(props)
 
     const text = Translation.getByList([
@@ -147,7 +148,7 @@ export default {
     const onPosition = event => context.emit('on-position', event)
     const onSelected = event => context.emit('on-selected', event)
 
-    watch([ajax, list], update)
+    watch([ajax, list, request], update)
     watch(propItemsByPage, async () => {
       if (
         propItemsByPage.value.length < propRows.value ||
