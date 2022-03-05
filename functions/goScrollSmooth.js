@@ -1,4 +1,4 @@
-export default function goScrollSmooth (element, options) {
+export default function goScrollSmooth (element, options = {}) {
   const shift = options?.shift || 0
   const behavior = options?.behavior || 'smooth'
 
