@@ -354,7 +354,7 @@ export const tableHeaders = [
   }
 ]
 
-export const tableItems = (count = 128 * 2, idStart = 1000) => {
+export const tableItems = (count = 128 * 2, idStart = 10000) => {
   const items = []
   const status = [
     'Approved',
