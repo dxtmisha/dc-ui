@@ -5,7 +5,6 @@
     autocomplete="off"
     class="d-form"
     novalidate
-    @input="onInput"
     @submit.prevent.stop="onSubmit"
   >
     <div :class="classFields" class="d-form__fields">
@@ -35,6 +34,7 @@
               :value="values?.[item.name]"
               class="d-form__item"
               v-bind="item"
+              @on-input="onInput"
             />
           </template>
         </template>
