@@ -102,6 +102,13 @@ export const Values = {
       }
     ]
   },
+  filtersType: {
+    list: [
+      { value: undefined },
+      { value: 'and' },
+      { value: 'or' }
+    ]
+  },
   headers: {},
   helperMessage: { message: helper1 },
   hour: { message: 15 },

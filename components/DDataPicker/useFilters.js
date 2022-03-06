@@ -5,7 +5,10 @@ import getExp from './../../functions/getExp'
 import isSelected from './../../functions/isSelected'
 
 export default function useFilters (props, list, max) {
-  const { filters } = toRefs(props)
+  const {
+    filters,
+    filtersType
+  } = toRefs(props)
 
   const filterCallback = item => {
     let all = 0
@@ -56,10 +59,10 @@ export default function useFilters (props, list, max) {
       length++
     })
 
-    return all === length
+    return (filtersType.value === 'or' && all > 0) || all === length
   }
 
-  const propFilters = useWatch([filters, list], () => {
+  const propFilters = useWatch([filters, filtersType, list], () => {
     return filters.value && list.value
       ? list.value.filter(typeof filters.value === 'function' ? filters.value : filterCallback)
       : list.value

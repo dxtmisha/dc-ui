@@ -1,4 +1,4 @@
-import { defaultInit } from '../../uses/useDefault'
+import { defaultInit, validator } from '../../uses/useDefault'
 
 const defaultProps = defaultInit('d-data-picker')
 export const props = {
@@ -31,6 +31,14 @@ export const props = {
   cache: Boolean,
   underline: undefined,
   filters: [Object, Function],
+  filtersType: {
+    type: String,
+    default: defaultProps('filtersType', 'or'),
+    validator: validator([
+      'and',
+      'or'
+    ])
+  },
   page: {
     type: Number,
     default: 1
