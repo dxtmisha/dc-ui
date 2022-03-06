@@ -5,6 +5,7 @@
     autocomplete="off"
     class="d-form"
     novalidate
+    @input="onInput"
     @submit.prevent.stop="onSubmit"
   >
     <div :class="classFields" class="d-form__fields">
@@ -92,7 +93,7 @@ export default {
     DTime: defineAsyncComponent(() => import('../DTime'))
   },
   props,
-  emits: ['on-bar', 'on-submit', 'on-validity'],
+  emits: ['on-bar', 'on-input', 'on-submit', 'on-validity'],
   setup (props, context) {
     const form = ref(undefined)
 
@@ -140,6 +141,15 @@ export default {
     })
 
     const onBar = event => context.emit('on-bar', event)
+    const onInput = () => {
+      update()
+      context.emit('on-input', {
+        items: items.value,
+        values: propValues.value,
+        files: files.value,
+        body: getBody()
+      })
+    }
     const onSubmit = async () => {
       if (checkValidity()) {
         update()
@@ -180,6 +190,7 @@ export default {
       update,
       setValidity,
       onBar,
+      onInput,
       onSubmit
     }
   }
