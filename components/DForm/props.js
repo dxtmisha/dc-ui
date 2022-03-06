@@ -20,7 +20,7 @@ export const props = {
   // Actions
   bar: {
     type: [Array, Object],
-    default: defaultProps('bar')
+    default: defaultProps('bar', [])
   },
   submit: {
     type: Object,
