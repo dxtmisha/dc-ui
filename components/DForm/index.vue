@@ -42,13 +42,19 @@
     <div v-if="alert.description" class="d-form__alert">
       <d-alert v-bind="alert"/>
     </div>
-    <d-actions v-bind="actionsAttrs" :bar="bar" @on-click="onBar">
+    <d-actions
+      v-if="submit || bar"
+      :bar="bar"
+      v-bind="actionsAttrs"
+      @on-click="onBar"
+    >
       <template v-slot:default>
         <d-button
-          v-bind="submit"
-          :readonly="readonly"
+          v-if="submit"
           :disabled="disabled"
           :progress="propProgress"
+          :readonly="readonly"
+          v-bind="submit"
         />
       </template>
     </d-actions>
