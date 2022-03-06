@@ -41,7 +41,7 @@ export default function useObjectList (props) {
     )
 
     if ('data' in response) {
-      count.value = response?.count || count.value
+      count.value = response?.count || undefined
       return response.data
     } else {
       count.value = undefined
