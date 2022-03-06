@@ -28,7 +28,7 @@ export default function usePagination (props, bindButton) {
       text: translations['Show more'],
       title: translations['Show more'],
       value: props.value + 1,
-      hide: props.value === maxPage.value
+      hide: !maxPage.value || props.value >= maxPage.value
     }
   })
 
