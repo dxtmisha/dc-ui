@@ -1,0 +1,35 @@
+@import "../../styles/dimension";
+@import "../../styles/font";
+
+@mixin carcassMessage() {
+  --_cm-padding: var(--cm-padding, #{dimension(3)});
+  --_cm-space: var(--cm-space, #{dimension(1)});
+
+  @include font('caption');
+  --basic-text-opacity: var(--opacity-surface-medium);
+  align-items: flex-start;
+  display: flex;
+  padding: dimension(1) calc(var(--_cm-padding) + var(--_cm-space)) 0;
+  @content;
+
+  &__info {
+    flex-basis: dimension(1);
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &__counter {
+    flex-basis: dimension(8);
+    padding-left: dimension(2);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  &__validation {
+    --basic-text: var(--error-type1);
+  }
+}
+
+@mixin carcassMessageInit() {
+  @include carcassMessage;
+}

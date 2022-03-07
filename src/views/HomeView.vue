@@ -47,6 +47,7 @@ export default {
         list: [
           'd-avatar',
           'd-carcass-field',
+          'd-carcass-message',
           'd-checkbox',
           'd-clipboard',
           'd-date',
@@ -56,6 +57,7 @@ export default {
           'd-input',
           'd-mask',
           'd-select',
+          'd-select-filter',
           'd-select-value',
           'd-slider',
           'd-slider-picker',

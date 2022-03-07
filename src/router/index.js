@@ -18,6 +18,7 @@ import DemoCalendar from '../views/DemoCalendar'
 import DemoCalendarMultiple from '../views/DemoCalendarMultiple'
 import DemoCalendarSelect from '../views/DemoCalendarSelect'
 import DemoCarcassField from '../views/DemoCarcassField'
+import DemoCarcassMessage from '../views/DemoCarcassMessage'
 import DemoCard from '../views/DemoCard'
 import DemoCardMedia from '../views/DemoCardMedia'
 import DemoCardMenu from '../views/DemoCardMenu'
@@ -65,6 +66,7 @@ import DemoRedactionFile from '../views/DemoRedactionFile'
 import DemoRipple from '../views/DemoRipple'
 import DemoScrollbar from '../views/DemoScrollbar'
 import DemoSelect from '../views/DemoSelect'
+import DemoSelectFilter from '../views/DemoSelectFilter'
 import DemoSelectValue from '../views/DemoSelectValue'
 import DemoSkeleton from '../views/DemoSkeleton'
 import DemoSlider from '../views/DemoSlider'
@@ -104,6 +106,7 @@ export const routes = getRoutes({
   'd-calendar-multiple': DemoCalendarMultiple,
   'd-calendar-select': DemoCalendarSelect,
   'd-carcass-field': DemoCarcassField,
+  'd-carcass-message': DemoCarcassMessage,
   'd-currency': DemoCurrency,
   'd-card': DemoCard,
   'd-card-media': DemoCardMedia,
@@ -151,6 +154,7 @@ export const routes = getRoutes({
   'd-ripple': DemoRipple,
   'd-scrollbar': DemoScrollbar,
   'd-select': DemoSelect,
+  'd-select-filter': DemoSelectFilter,
   'd-select-value': DemoSelectValue,
   'd-skeleton': DemoSkeleton,
   'd-slider': DemoSlider,

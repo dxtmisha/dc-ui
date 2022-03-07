@@ -18,6 +18,7 @@ import DCalendar from './components/DCalendar'
 import DCalendarMultiple from './components/DCalendarMultiple'
 import DCalendarSelect from './components/DCalendarSelect'
 import DCarcassField from './components/DCarcassField'
+import DCarcassMessage from './components/DCarcassMessage'
 import DCard from './components/DCard'
 import DCardMedia from './components/DCardMedia'
 import DCardMenu from './components/DCardMenu'
@@ -66,6 +67,7 @@ import DRedactionFile from './components/DRedactionFile'
 import DRipple from './components/DRipple'
 import DScrollbar from './components/DScrollbar'
 import DSelect from './components/DSelect'
+import DSelectFilter from './components/DSelectFilter'
 import DSelectValue from './components/DSelectValue'
 import DSkeleton from './components/DSkeleton'
 import DSlider from './components/DSlider'
@@ -105,6 +107,7 @@ export default {
     app.component('d-calendar-multiple', DCalendarMultiple)
     app.component('d-calendar-select', DCalendarSelect)
     app.component('d-carcass-field', DCarcassField)
+    app.component('d-carcass-message', DCarcassMessage)
     app.component('d-card', DCard)
     app.component('d-card-media', DCardMedia)
     app.component('d-card-menu', DCardMenu)
@@ -153,6 +156,7 @@ export default {
     app.component('d-ripple', DRipple)
     app.component('d-scrollbar', DScrollbar)
     app.component('d-select', DSelect)
+    app.component('d-select-filter', DSelectFilter)
     app.component('d-select-value', DSelectValue)
     app.component('d-skeleton', DSkeleton)
     app.component('d-slider', DSlider)
