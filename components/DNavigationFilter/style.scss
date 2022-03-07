@@ -1,0 +1,34 @@
+@import "../../styles/media";
+
+@mixin navigationFilter {
+  --_nf-padding: var(--nf-padding, #{16px 8px});
+}
+
+@mixin navigationFilterForm {
+  $this: &;
+
+  &__form {
+    padding: var(--_nf-padding);
+  }
+
+  &__clear {
+    flex-basis: min-content;
+    flex-shrink: 1;
+  }
+
+  &__submit {
+    flex-basis: max-content;
+    flex-grow: 1;
+  }
+
+  @include mediaMinList(desktop) {
+    #{$this}__submit {
+      display: none;
+    }
+  }
+}
+
+@mixin navigationFilterInit {
+  @include navigationFilter;
+  @include navigationFilterForm;
+}

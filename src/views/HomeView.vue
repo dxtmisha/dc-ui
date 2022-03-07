@@ -76,6 +76,7 @@ export default {
           'd-breadcrumbs',
           'd-dialog',
           'd-navigation',
+          'd-navigation-filter',
           'd-tab',
           'd-top'
         ]

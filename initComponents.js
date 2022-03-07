@@ -58,6 +58,7 @@ import DMotionScroll from './components/DMotionScroll'
 import DMotionSticky from './components/DMotionSticky'
 import DMotionTransform from './components/DMotionTransform'
 import DNavigation from './components/DNavigation'
+import DNavigationFilter from './components/DNavigationFilter'
 import DNumber from './components/DNumber'
 import DPagination from './components/DPagination'
 import DProgress from './components/DProgress'
@@ -144,6 +145,7 @@ export default {
     app.component('d-motion-sticky', DMotionSticky)
     app.component('d-motion-transform', DMotionTransform)
     app.component('d-navigation', DNavigation)
+    app.component('d-navigation-filter', DNavigationFilter)
     app.component('d-number', DNumber)
     app.component('d-pagination', DPagination)
     app.component('d-progress', DProgress)

@@ -3,6 +3,7 @@
   "Add": "Add",
   "Back": "Back",
   "Cancel": "Cancel",
+  "Clear Filters": "Clear Filters",
   "Copied to the clipboard": "Copied to the clipboard",
   "Delete": "Delete",
   "Depart": "Depart",
@@ -11,6 +12,7 @@
   "Edit": "Edit",
   "End": "End",
   "Enter date": "Enter date",
+  "Filters": "Filters",
   "First": "First",
   "Hour": "Hour",
   "Last": "Last",
@@ -25,6 +27,7 @@
   "Select date": "Select date",
   "Selected range": "Selected range",
   "Show more": "Show more",
+  "Show results": "Show results",
   "Start": "Start",
   "Your search did not match any documents.": "Your search did not match any documents.",
   "[item] of [count]": "[item] of [count]"

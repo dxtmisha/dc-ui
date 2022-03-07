@@ -46,6 +46,7 @@
     @extend %ripple;
     --basic-text: var(--text-type2);
     --basic-text-opacity: var(--opacity-primary-high);
+    min-width: var(--_cb-size);
     @content;
 
     @include afterAbsolute() {

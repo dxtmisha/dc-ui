@@ -20,6 +20,7 @@
         </div>
       </footer>
     </div>
+    <div class="ui-filter"/>
   </div>
 </template>
 
