@@ -1,0 +1,29 @@
+@import "../../styles/font";
+
+@mixin selectFilter {
+  --_sf-margin: var(--sf-margin, 2px);
+
+  &__input {
+    display: none;
+  }
+
+  &__list {
+    margin: calc(var(--_sf-margin) * -1);
+  }
+
+  &__button {
+    margin: var(--_sf-margin);
+  }
+}
+
+@mixin selectFilterText {
+  &__text {
+    @include font('subtitle2');
+    --basic-text-opacity: var(--opacity-surface-medium);
+  }
+}
+
+@mixin selectFilterInit {
+  @include selectFilter;
+  @include selectFilterText;
+}

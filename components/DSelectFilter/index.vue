@@ -15,24 +15,28 @@
         v-for="item in propList"
         :key="item.value"
         align="left"
+        class="d-select-filter__button"
+        lowercase
         v-bind="item"
         @on-click="onInput"
       />
     </div>
-    <div v-if="ifMessage" class="d-select-filter__message">
-      <div class="d-select-filter__info">
-        <div v-if="propValidationMessage" class="d-select-filter__validation">{{ propValidationMessage }}</div>
-        <div v-else-if="helperMessage" class="d-select-filter__helper">{{ helperMessage }}</div>
-      </div>
-      <div v-if="counter" class="d-select-filter__counter">{{ counterMessage }}</div>
-    </div>
+    <d-carcass-message
+      :counter="counter"
+      :counter-value="propCounter"
+      :disabled="disabled"
+      :helper-message="helperMessage"
+      :maxlength="maxlength"
+      :validation-message="propValidationMessage"
+    />
   </div>
 </template>
 
 <script>
 import DButton from '../DButton'
+import DCarcassMessage from '../DCarcassMessage'
 import { props } from './props'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import setValues from '../../functions/setValues'
 import useAdmin from '../../uses/useAdmin'
 import useField from '../../uses/useField'
@@ -41,7 +45,10 @@ import useItems from './useItems'
 export default {
   name: 'DSelectFilter',
   inheritAttrs: false,
-  components: { DButton },
+  components: {
+    DButton,
+    DCarcassMessage
+  },
   props,
   emits: ['on-input'],
   setup (props, context) {
@@ -76,9 +83,6 @@ export default {
      */
     const propList = useItems(props, propValue)
 
-    const ifMessage = computed(() => (props.helperMessage || propValidationMessage.value || props.counter) && !props.disabled)
-    const counterMessage = computed(() => (propCounter.value || '0') + (props.maxlength ? ` / ${props.maxlength}` : ''))
-
     useAdmin('d-select-filter', context, input)
 
     return {
@@ -87,9 +91,7 @@ export default {
       propList,
       propValidationMessage,
       propValue,
-
-      ifMessage,
-      counterMessage,
+      propCounter,
 
       checkValidity,
       setChange,
@@ -100,4 +102,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import "style";
+
+.d-select-filter {
+  @include selectFilterInit;
+}
+</style>

@@ -6,5 +6,5 @@ import { Select } from '@/media/demo/Select'
 export const optionsSelectFilter = useProps(props, {
   menuSize: Icon.iconSize,
   type: Select.selectType,
-  value: { message: 'home' }
+  value: { message: '10002' }
 }, ['list'])

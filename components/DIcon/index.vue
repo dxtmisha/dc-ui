@@ -32,7 +32,7 @@ export default {
     const classList = computed(() => {
       return {
         'status-turn': props.turn,
-        'status-hide': props.hide,
+        'status-hide': props.hide || (props.iconActive && !props.icon && !props.active),
         [`size-${props.size}`]: props.size,
         [`animation-${props.animationHide}`]: props.animationHide,
         'option-animation': props.animationShow,

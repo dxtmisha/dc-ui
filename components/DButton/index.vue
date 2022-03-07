@@ -6,7 +6,7 @@
     @click="onClick"
   >
     <d-progress v-if="isProgress" v-bind="bindProgress" type="circular"/>
-    <d-icon v-if="icon" v-bind="bindIcon" class="d-button__icon bt-icon"/>
+    <d-icon v-if="icon || iconActive" v-bind="bindIcon" class="d-button__icon bt-icon"/>
     <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-button__icon bt-trailing"/>
     <span class="d-button__text">
       {{ text }}<slot/>
