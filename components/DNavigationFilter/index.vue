@@ -39,6 +39,7 @@ export default {
     DForm,
     DNavigation
   },
+  emit: ['on-input'],
   props,
   setup (props, context) {
     const navigation = ref(undefined)
