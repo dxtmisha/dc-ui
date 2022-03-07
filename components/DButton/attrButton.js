@@ -4,6 +4,7 @@ import { props as main } from './props'
 export default function attrButton ({
   props,
   pointer = [
+    'readonly',
     'disabled',
     'palette',
     'color',

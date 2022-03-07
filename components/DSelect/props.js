@@ -27,6 +27,10 @@ export const props = {
   ajax: undefined,
   request: Object,
   cache: Boolean,
+  isNone: {
+    type: Boolean,
+    default: defaultProps('isNone')
+  },
 
   // Input
   maxlength: Number,

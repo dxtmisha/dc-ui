@@ -77,6 +77,21 @@ export default {
       context
     )
 
+    const propValueItem = computed(() => {
+      if (propValue.value) {
+        return [{
+          text: props.text,
+          value: props.name,
+          onHide: () => {
+            input.value.checked = false
+            onChecked()
+          }
+        }]
+      } else {
+        return []
+      }
+    })
+
     const palette = useColor(props)
     const classList = computed(() => {
       return {
@@ -99,6 +114,7 @@ export default {
 
       propValidationMessage,
       propValue,
+      propValueItem,
       propType,
       propIcon,
       classList,

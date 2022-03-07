@@ -23,6 +23,10 @@ export const props = {
     type: String,
     default: defaultProps('keyValue', 'value')
   },
+  isNone: {
+    type: Boolean,
+    default: defaultProps('isNone', true)
+  },
 
   // Input
   maxlength: Number,

@@ -12,6 +12,7 @@ export default function attrMenu ({
     'ajax',
     'request',
     'cache',
+    'isNone',
     'maxlength',
     'multiple',
     'readonly',

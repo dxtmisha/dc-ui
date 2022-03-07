@@ -1,4 +1,4 @@
-import { ref, toRefs } from 'vue'
+import { nextTick, onMounted, ref, toRefs } from 'vue'
 import forEach from './../../functions/forEach'
 import useWatch from '../../uses/useWatch'
 
@@ -13,6 +13,7 @@ export default function useFields (props) {
   let body
   const files = ref({})
   const items = ref({})
+  const valuesByItem = ref([])
 
   const read = fields => {
     const data = {}
@@ -67,6 +68,7 @@ export default function useFields (props) {
     body = new FormData()
     files.value = {}
     propValues.value = {}
+    valuesByItem.value = []
 
     forEach(items.value, ({ el }) => {
       if ('files' in el) {
@@ -76,8 +78,21 @@ export default function useFields (props) {
       if ('propValue' in el) {
         setValue(el.name, el.propValue)
       }
+
+      if (
+        'propValueItem' in el &&
+        el.propValueItem &&
+        el.propValueItem.length > 0
+      ) {
+        valuesByItem.value.push(...el.propValueItem)
+      }
     })
   }
+
+  onMounted(async () => {
+    await nextTick()
+    requestAnimationFrame(update)
+  })
 
   return {
     propFields,
@@ -85,6 +100,7 @@ export default function useFields (props) {
     propValues,
     files,
     items,
+    valuesByItem,
     getBody,
     update
   }

@@ -17,6 +17,7 @@ export const filter = [
       {
         name: 'size',
         text: 'Size',
+        isNone: true,
         list: [
           { value: undefined },
           { value: '25mm' },
@@ -34,6 +35,7 @@ export const filter = [
         buttonAdaptive: 'block',
         name: 'density',
         text: 'Density',
+        multiple: true,
         list: [
           { value: 0.3 },
           { value: 0.6 },

@@ -9,7 +9,7 @@
       type="text"
       v-bind="inputAttrs"
     >
-    <div class="d-select-filter__text" v-html="text"/>
+    <div v-if="text" class="d-select-filter__text" v-html="text"/>
     <div class="d-select-filter__list">
       <d-button
         v-for="item in propList"
@@ -75,14 +75,18 @@ export default {
         propValue.value,
         value,
         !!props.multiple,
-        props.maxlength
+        props.maxlength,
+        props.isNone
       )
     })
 
-    /**
-     * @type {Ref<Object.<string, *>>}
-     */
-    const propList = useItems(props, propValue)
+    const {
+      /**
+       * @type {Ref<Object.<string, *>>}
+       */
+      propList,
+      propValueItem
+    } = useItems(props, propValue, set)
 
     useAdmin('d-select-filter', context, input)
 
@@ -92,6 +96,7 @@ export default {
       propList,
       propValidationMessage,
       propValue,
+      propValueItem,
       propCounter,
 
       checkValidity,

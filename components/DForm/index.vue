@@ -104,6 +104,7 @@ export default {
       propValues,
       files,
       items,
+      valuesByItem,
       getBody,
       update
     } = useFields(props)
@@ -132,6 +133,7 @@ export default {
     const emit = (request = undefined) => context.emit('on-submit', {
       items: items.value,
       values: propValues.value,
+      valuesByItem: valuesByItem.value,
       files: files.value,
       body: getBody(),
       success: success.value,
@@ -147,6 +149,7 @@ export default {
       context.emit('on-input', {
         items: items.value,
         values: propValues.value,
+        valuesByItem: valuesByItem.value,
         files: files.value,
         body: getBody()
       })
@@ -187,6 +190,7 @@ export default {
       propFields,
       propProgress,
       propValues,
+      valuesByItem,
       alert,
       update,
       setValidity,

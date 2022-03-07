@@ -42,24 +42,28 @@ export default {
   props,
   setup (props, context) {
     const navigation = ref(undefined)
+    const form = ref(undefined)
 
     const {
       values,
+      valuesByItem,
       set,
       clear
-    } = useValues(props, context)
+    } = useValues(props, context, form)
 
     useAdmin('d-navigation-filter', context)
 
     return {
       navigation,
+      form,
       values,
+      valuesByItem,
       bindNavigation: attrNavigation({ props }),
       bindForm: useForm(props),
       set,
       clear,
       show: value => navigation.value?.show(value),
-      onInput: ({ values }) => set(values)
+      onInput: event => set(event)
     }
   }
 }

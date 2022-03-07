@@ -54,7 +54,13 @@ export default {
       return { 'option-multiple': props.multiple }
     })
 
-    const onClick = event => context.emit(event.type, event)
+    const onClick = event => {
+      if (event.item?.onHide) {
+        event.item?.onHide()
+      }
+
+      context.emit(event.type, event)
+    }
 
     useAdmin('d-select-value', context)
 

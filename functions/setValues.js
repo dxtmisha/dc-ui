@@ -2,7 +2,8 @@ export default function setValues (
   selected,
   value,
   multiple = true,
-  maxlength = undefined
+  maxlength = undefined,
+  none = false
 ) {
   let data
 
@@ -24,7 +25,7 @@ export default function setValues (
     } else {
       data = [value]
     }
-  } else {
+  } else if (!none || selected !== value) {
     data = value
   }
 

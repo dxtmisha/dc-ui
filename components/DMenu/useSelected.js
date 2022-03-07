@@ -27,7 +27,8 @@ export default function useSelected (
       propSelected.value,
       value,
       !!props.multiple,
-      props.maxlength
+      props.maxlength,
+      props.isNone
     )
   }
   const cancel = () => {

@@ -114,6 +114,7 @@ export const Values = {
   hour: { message: 15 },
   items: {},
   itemsNew: {},
+  isNone: {},
   list: {},
   listNew: {},
   marks: {

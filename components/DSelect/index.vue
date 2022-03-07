@@ -38,12 +38,13 @@ import DCarcassField from '../DCarcassField'
 import DMenu from '../DMenu'
 import DSelectValue from '../DSelectValue'
 import { props } from './props'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import attrSelectValue from '../DSelectValue/attrSelectValue'
 import useAdmin from '../../uses/useAdmin'
 import useCarcass from './useCarcass'
 import useField from '../../uses/useField'
 import useMenu from './useMenu'
+import forEach from '../../functions/forEach'
 
 export default {
   name: 'DSelect',
@@ -75,6 +76,13 @@ export default {
       context
     )
 
+    const propValueItem = computed(() => forEach(menu.value?.items, item => {
+      return {
+        ...item,
+        onHide: () => onCancelValue({ value: item.value })
+      }
+    }))
+
     const bindMenu = useMenu(props, propValue)
     const bindSelectValue = attrSelectValue({ props })
     const bindCarcassField = useCarcass(
@@ -95,6 +103,7 @@ export default {
 
       propValidationMessage,
       propValue,
+      propValueItem,
 
       bindMenu,
       bindSelectValue,
