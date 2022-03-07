@@ -6,18 +6,16 @@
   >
     <template v-slot:default>
       <slot name="before"/>
-      <div class="px-2 py-4">
-        <d-form
-          ref="form"
-          :fields="fields"
-          :values="values"
-          class="d-navigation-filter__form"
-          v-bind="bindForm"
-          @on-bar="clear"
-          @on-input="onInput"
-          @on-submit="show(false)"
-        />
-      </div>
+      <d-form
+        ref="form"
+        :fields="fields"
+        :values="values"
+        class="d-navigation-filter__form"
+        v-bind="bindForm"
+        @on-bar="clear"
+        @on-input="onInput"
+        @on-submit="show(false)"
+      />
       <slot name="after"/>
     </template>
   </d-navigation>
