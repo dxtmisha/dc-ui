@@ -9,7 +9,6 @@
 @mixin checkbox() {
   @include checkboxVar;
   @include flexX;
-  @include flexGapX(var(--_cb-gap));
   @include select-none;
   display: inline-flex;
 }
@@ -25,6 +24,7 @@
 @mixin checkboxText() {
   &__text {
     @content;
+    margin-left: var(--_cb-gap);
 
     > * {
       display: block;
