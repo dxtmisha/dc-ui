@@ -20,6 +20,7 @@
   &__text {
     @include font('subtitle2');
     --basic-text-opacity: var(--opacity-surface-medium);
+    padding-bottom: 4px;
   }
 }
 

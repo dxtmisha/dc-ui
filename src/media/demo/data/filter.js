@@ -31,10 +31,10 @@ export const filter = [
         component: 'd-select'
       },
       {
+        buttonAdaptive: 'block',
         name: 'density',
         text: 'Density',
         list: [
-          { value: undefined },
           { value: 0.3 },
           { value: 0.6 },
           { value: 0.9 },
@@ -42,7 +42,7 @@ export const filter = [
           { value: 1.2 },
           { value: 2 }
         ],
-        component: 'd-select'
+        component: 'd-select-filter'
       }
     ]
   }

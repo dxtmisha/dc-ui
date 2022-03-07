@@ -17,6 +17,7 @@
         align="left"
         class="d-select-filter__button"
         lowercase
+        tag="span"
         v-bind="item"
         @on-click="onInput"
       />

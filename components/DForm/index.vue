@@ -88,6 +88,7 @@ export default {
     DFile: defineAsyncComponent(() => import('../DFile')),
     DInput,
     DSelect,
+    DSelectFilter: defineAsyncComponent(() => import('../DSelectFilter')),
     DSlider: defineAsyncComponent(() => import('../DSlider')),
     DTextarea: defineAsyncComponent(() => import('../DTextarea')),
     DTime: defineAsyncComponent(() => import('../DTime'))
