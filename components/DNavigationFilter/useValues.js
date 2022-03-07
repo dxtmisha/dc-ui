@@ -9,7 +9,11 @@ export default function useValues (props, context, form) {
     const newValues = event?.values
 
     if (props.save) {
-      localStorage.setItem(nameCache.value, JSON.stringify(newValues))
+      if (newValues === undefined) {
+        localStorage.removeItem(nameCache.value)
+      } else {
+        localStorage.setItem(nameCache.value, JSON.stringify(newValues))
+      }
     }
 
     values.value = newValues
