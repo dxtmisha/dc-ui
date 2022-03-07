@@ -58,17 +58,19 @@
       <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
     </div>
 
-    <div v-if="ifMessage" class="d-carcass-field__message">
-      <div class="d-carcass-field__info">
-        <div v-if="validationMessage" class="d-carcass-field__validation">{{ validationMessage }}</div>
-        <div v-else-if="helperMessage" class="d-carcass-field__helper">{{ helperMessage }}</div>
-      </div>
-      <div v-if="counter" class="d-carcass-field__counter">{{ counterMessage }}</div>
-    </div>
+    <d-carcass-message
+      :counter="counter"
+      :counter-value="counterValue"
+      :disabled="disabled"
+      :helper-message="helperMessage"
+      :maxlength="maxlength"
+      :validation-message="validationMessage"
+    />
   </div>
 </template>
 
 <script>
+import DCarcassMessage from '../DCarcassMessage'
 import DIcon from '../DIcon'
 import DProgress from '../DProgress'
 import DRipple from '../DRipple'
@@ -85,6 +87,7 @@ import usePrefix from './usePrefix'
 export default {
   name: 'DCarcassField',
   components: {
+    DCarcassMessage,
     DIcon,
     DProgress,
     DRipple
@@ -99,9 +102,6 @@ export default {
     const id = `cf--${getIdElement()}`
     const field = ref(undefined)
 
-    const counterMessage = computed(() => (props.counterValue || '0') + (props.maxlength ? ` / ${props.maxlength}` : ''))
-
-    const ifMessage = computed(() => (props.helperMessage || props.validationMessage || props.counter) && !props.disabled)
     const ifCancel = computed(() => {
       return props.cancel &&
         props.filled &&
@@ -177,12 +177,9 @@ export default {
       id,
       field,
 
-      ifMessage,
       ifCancel,
       isProgress,
       isRipple,
-
-      counterMessage,
 
       bindIcon,
       bindTrailing,

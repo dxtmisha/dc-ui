@@ -245,34 +245,6 @@
   }
 }
 
-@mixin carcassFieldMessage() {
-  &__message {
-    @include font('caption');
-    @extend %text-medium-opacity;
-    align-items: flex-start;
-    display: flex;
-    padding: dimension(1) calc(var(--_cf-padding) + var(--_cf-space)) 0;
-    @content;
-  }
-
-  &__info {
-    flex-basis: dimension(1);
-    flex-grow: 1;
-    flex-shrink: 1;
-  }
-
-  &__counter {
-    flex-basis: dimension(8);
-    padding-left: dimension(2);
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  &__validation {
-    --basic-text: var(--error-type1);
-  }
-}
-
 @mixin carcassFieldSize() {
   &.size-dense {
     --_cf-height: var(--_cf--dn-height);
@@ -620,7 +592,6 @@
   @include carcassFieldBorder;
   @include carcassFieldIcon;
   @include carcassFieldPrefix;
-  @include carcassFieldMessage;
 
   @include carcassFieldSize;
   @include carcassFieldShape;
