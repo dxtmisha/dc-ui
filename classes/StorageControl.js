@@ -13,6 +13,8 @@ export default class StorageControl {
       return defaultValue
     } else if (
       read === 'null' ||
+      read === 'true' ||
+      read === 'false' ||
       read.match(/^[[{]/ig)
     ) {
       return JSON.parse(read)
