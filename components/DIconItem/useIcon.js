@@ -54,7 +54,9 @@ export default function useIcon (props, context) {
           ? props.zoom
           : image.height < image.width ? `auto ${props.zoom}` : `${props.zoom} auto`
       } else if (isObject && props.icon?.zoom) {
-        zoom = image.height < image.width ? `auto ${props.icon.zoom}%` : `${props.icon.zoom}% auto`
+        zoom = typeof props.icon.zoom === 'string'
+          ? props.icon.zoom
+          : image.height < image.width ? `auto ${props.icon.zoom}%` : `${props.icon.zoom}% auto`
       }
 
       if (Number.isFinite(props.icon?.x)) {
