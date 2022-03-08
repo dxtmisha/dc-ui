@@ -26,6 +26,7 @@
                   :value="value"
                   :name="name"
                   :on="() => onTransform(item, itemValue)"
+                  :onFocus="() => onFocus(item, itemValue)"
                   :text="text"
                 />
               </template>
@@ -85,7 +86,7 @@ export default {
 
     const selected = ref(undefined)
     const selectedItem = ref(undefined)
-    const open = computed(() => selected.value && 'body' in context.slots ? selected.value : undefined)
+    const open = ref(selected.value && 'body' in context.slots ? selected.value : undefined)
 
     const {
       progress,
@@ -124,8 +125,10 @@ export default {
     })
 
     const update = () => beforeOpening(true)
-
-    const onTransform = (item, itemValue) => {
+    const setSelected = (
+      item,
+      itemValue
+    ) => {
       if (!props.disabled) {
         if (itemValue === selected.value) {
           selected.value = undefined
@@ -136,13 +139,36 @@ export default {
         }
       }
 
-      context.emit('on-click', { item: selectedItem.value })
+      return selectedItem.value
+    }
+
+    const onFocus = (item, itemValue) => context.emit('on-click', {
+      type: 'focus',
+      item: setSelected(item, itemValue)
+    })
+    const onTransform = (item = undefined, itemValue = undefined) => {
+      if ('body' in context.slots) {
+        if (
+          selected.value === open.value ||
+          selected.value === undefined
+        ) {
+          setSelected(item, itemValue)
+          open.value = selected.value
+        } else {
+          open.value = open.value === itemValue ? undefined : itemValue
+        }
+
+        context.emit('on-click', {
+          type: 'open',
+          item: open.value ? item : undefined
+        })
+      } else {
+        onFocus(item, itemValue)
+      }
     }
     const onClose = ({ open }) => {
       if (!open) {
-        selected.value = undefined
-        selectedItem.value = undefined
-        context.emit('on-click', { item: undefined })
+        onTransform()
       }
     }
     const onPosition = event => context.emit('on-position', event)
@@ -176,6 +202,7 @@ export default {
       onPage,
       onMore,
       onRows,
+      onFocus,
       onTransform,
       onClose,
       onPosition,

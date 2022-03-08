@@ -13,9 +13,12 @@
         v-bind="binds"
         @on-click="on"
       >
-        <template v-slot:text="{ item, on, text }">
+        <template v-slot:text="{ item, on, onFocus, text }">
           <div><a @click="on" v-html="text"/></div>
-          <div class="font:body2 opacity:surface-medium"><span>{{ item.id }}</span></div>
+          <div class="font:body2 opacity:surface-medium">
+            <span>{{ item.id }}</span> |
+            <a @click="onFocus">Focus</a>
+          </div>
         </template>
         <template v-slot:body="{ item, on }">
           <div class="p-4">
