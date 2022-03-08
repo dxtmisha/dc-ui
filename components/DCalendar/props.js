@@ -41,7 +41,7 @@ export const props = {
   // Options
   locales: {
     type: String,
-    default: defaultProps('locales', Geo.getGlobalLang())
+    default: defaultProps('locales', () => Geo.getGlobalLang())
   },
   shape: {
     type: String,

@@ -104,6 +104,7 @@ export default class ApiUser {
       locale &&
       locale !== html.getAttribute('lang')
     ) {
+      Geo.globalLang = undefined
       html.setAttribute('lang', locale)
     }
   }

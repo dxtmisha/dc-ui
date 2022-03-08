@@ -32,7 +32,7 @@ export const props = {
   // Options
   locales: {
     type: String,
-    default: defaultProps('locales', Geo.getGlobalLang())
+    default: defaultProps('locales', () => Geo.getGlobalLang())
   },
   format: {
     type: String,

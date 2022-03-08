@@ -48,7 +48,7 @@ export const props = {
   },
   locales: {
     type: String,
-    default: defaultProps('locales', Geo.getGlobalLang())
+    default: defaultProps('locales', () => Geo.getGlobalLang())
   },
   palette: undefined,
   color: undefined,
