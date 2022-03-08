@@ -16,6 +16,10 @@ export const props = {
       'post'
     ])
   },
+  translation: {
+    type: Array,
+    default: defaultProps('translation', ['text', 'helperMessage', 'subtitle'])
+  },
 
   // Actions
   bar: {

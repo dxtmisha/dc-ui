@@ -1,6 +1,7 @@
 import { nextTick, onMounted, ref, toRefs } from 'vue'
 import forEach from './../../functions/forEach'
 import useWatch from '../../uses/useWatch'
+import Translation from '../../classes/Translation'
 
 export default function useFields (props) {
   const {
@@ -23,7 +24,8 @@ export default function useFields (props) {
         if (item?.name) {
           data[key] = {
             ...options.value,
-            ...item
+            ...item,
+            ...readTranslation(item)
           }
         } else {
           data[key] = read(item)
@@ -34,6 +36,19 @@ export default function useFields (props) {
     })
 
     return data
+  }
+  const readTranslation = item => {
+    const translations = {}
+
+    if (props.translation) {
+      props.translation.forEach(index => {
+        if (index in item) {
+          translations[index] = Translation.get(item[index])
+        }
+      })
+    }
+
+    return translations
   }
   const propFields = useWatch([fields, options], data => {
     data.value = read(fields.value)
