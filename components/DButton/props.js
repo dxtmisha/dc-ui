@@ -93,5 +93,6 @@ export const props = {
   iconReadonly: Boolean,
   iconHide: undefined,
   iconAnimationShow: undefined,
-  iconBackground: undefined
+  iconBackground: undefined,
+  iconAttrs: { default: defaultProps('iconAttrs') }
 }
