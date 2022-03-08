@@ -4,7 +4,8 @@ export const defaultInit = function (name) {
   const defaultData = (prop, key = name) => window?.__DUI_GLOBAL?.[key]?.[prop]
 
   return (alias, defaultValue = undefined) =>
-    () => defaultData(alias) || goFunction(defaultValue) || defaultData(alias, 'global')
+    () => defaultData(alias) ||
+      (defaultValue !== undefined ? goFunction(defaultValue) : defaultData(alias, 'global'))
 }
 
 export const validator = function (values) {
