@@ -2,6 +2,7 @@ import { action, bar, menu, menuMin, menuSimplified } from '@/media/demo/data/li
 import { helper1, quote1, validation1 } from '@/media/demo/data/text'
 
 export const Values = {
+  altKey: {},
   ajax: { message: 'demo/request/menu.json' },
   backgroundColor: {
     list: [

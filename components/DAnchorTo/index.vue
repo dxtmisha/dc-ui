@@ -44,7 +44,7 @@ export default {
       link,
       tooltip,
       onClick: event => {
-        if (event.altKey) {
+        if (event.altKey || !props.altKey) {
           writeText(`${location.origin}${location.pathname}#${props.name}`)
           tooltip.value.toggle(true)
         }
