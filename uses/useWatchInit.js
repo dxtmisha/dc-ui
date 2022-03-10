@@ -1,7 +1,7 @@
 import { watch } from 'vue'
 
 /**
- * @param sources
+ * @param {*} sources
  * @param {Function} cb
  * @param {Boolean} deep
  * @returns {ref}
