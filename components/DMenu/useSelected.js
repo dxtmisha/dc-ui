@@ -1,4 +1,4 @@
-import { computed, toRefs } from 'vue'
+import { computed, toRefs, watch } from 'vue'
 import setValues from './../../functions/setValues'
 import useWatch from '../../uses/useWatch'
 
@@ -7,13 +7,16 @@ export default function useSelected (
   object,
   context
 ) {
-  const { selected } = toRefs(props)
+  const {
+    selected,
+    modelValue
+  } = toRefs(props)
 
   const ifValue = () => Array.isArray(propSelected.value)
     ? propSelected.value.length > 0
     : [undefined, null].indexOf(propSelected.value) === -1
 
-  const propSelected = useWatch(selected, () => props.selected, ['init'])
+  const propSelected = useWatch([selected, modelValue], () => props.selected || props.modelValue, ['init'])
   const items = computed(() => ifValue() && object.value ? object.value.getSelected(propSelected.value) : undefined)
   const names = computed(() => ifValue() && object.value ? object.value.getNames(propSelected.value) : undefined)
 
@@ -47,6 +50,11 @@ export default function useSelected (
       emit(event)
     }
   }
+
+  watch(propSelected, value => {
+    context.emit('update:selected', value)
+    context.emit('update:modelValue', value)
+  })
 
   return {
     propSelected,

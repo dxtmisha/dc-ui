@@ -27,6 +27,7 @@ export const props = {
 
   // Status
   selected: undefined,
+  modelValue: undefined,
   readonly: undefined,
   disabled: Boolean,
 

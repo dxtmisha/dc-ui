@@ -72,7 +72,12 @@ export default {
     DMotionAxis
   },
   props,
-  emits: ['on-click', 'on-close'],
+  emits: [
+    'on-click',
+    'on-close',
+    'update:selected',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const navigation = ref(undefined)
     const body = ref(undefined)

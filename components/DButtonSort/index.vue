@@ -17,7 +17,11 @@ export default {
   name: 'DButtonSort',
   components: { DButtonSelect },
   props,
-  emits: ['on-input'],
+  emits: [
+    'on-input',
+    'update:value',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const {
       propValue,
@@ -35,9 +39,16 @@ export default {
         }
       }
 
+      const values = {
+        value: propValue.value,
+        desc: propDesc.value
+      }
+
+      context.emit('update:value', values)
+      context.emit('update:modelValue', values)
       context.emit('on-input', {
         ...event,
-        desc: propDesc.value
+        ...values
       })
     }
 

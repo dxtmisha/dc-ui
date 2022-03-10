@@ -5,6 +5,7 @@ export const props = {
   // Values
   name: String,
   value: Object,
+  modelValue: Object,
   maxZoom: {
     type: Number,
     default: defaultProps('maxZoom', 500)

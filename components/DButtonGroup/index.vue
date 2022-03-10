@@ -43,7 +43,11 @@ export default {
     DMenu
   },
   props,
-  emits: ['on-input'],
+  emits: [
+    'on-input',
+    'update:selected',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const {
       object,

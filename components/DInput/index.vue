@@ -48,7 +48,12 @@ export default {
     DMask
   },
   props,
-  emits: ['on-input', 'on-change'],
+  emits: [
+    'on-input',
+    'on-change',
+    'update:value',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const input = ref(undefined)
 

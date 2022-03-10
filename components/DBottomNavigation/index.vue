@@ -25,7 +25,11 @@ export default {
   name: 'DBottomNavigation',
   components: { DListItem },
   props,
-  emit: ['on-click'],
+  emit: [
+    'on-click',
+    'update:selected',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const { selected } = toRefs(props)
 
@@ -46,7 +50,11 @@ export default {
       }
     })
 
-    const onClick = event => context.emit('on-click', event)
+    const onClick = event => {
+      context.emit('on-click', event)
+      context.emit('update:selected', event?.value)
+      context.emit('update:modelValue', event?.value)
+    }
 
     useAdmin('d-bottom-navigation', context)
 

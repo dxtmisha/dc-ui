@@ -68,6 +68,8 @@ export default function useSelected (
 
       if (event?.value) {
         toClick.value(event)
+        context.emit('update:selected', event?.value)
+        context.emit('update:modelValue', event?.value)
       }
 
       requestAnimationFrame(updateHref)

@@ -41,7 +41,7 @@ import DButton from '../DButton'
 import DIconItem from '../DIconItem'
 import DSliderPicker from '../DSliderPicker'
 import { props } from './props'
-import { computed, ref, toRefs } from 'vue'
+import { computed, ref, toRefs, watch } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import usePosition from './usePosition'
 import useWatch from '../../uses/useWatch'
@@ -54,9 +54,16 @@ export default {
     DSliderPicker
   },
   props,
-  emit: ['on-input'],
+  emit: [
+    'on-input',
+    'update:value',
+    'update:modelValue'
+  ],
   setup (props, context) {
-    const { value } = toRefs(props)
+    const {
+      value,
+      modelValue
+    } = toRefs(props)
 
     const image = ref(undefined)
     const file = ref(undefined)
@@ -64,14 +71,14 @@ export default {
 
     const files = ref(undefined)
 
-    const propValue = useWatch(value, () => {
+    const propValue = useWatch([value, modelValue], () => {
       return {
         file: undefined,
         thumbnail: undefined,
         zoom: 100,
         x: 50,
         y: 50,
-        ...value.value
+        ...(value.value || modelValue.value || {})
       }
     }, ['init'], undefined, true)
     const json = computed(() => JSON.stringify(propValue.value))
@@ -129,6 +136,11 @@ export default {
 
       event.target.value = ''
     }
+
+    watch(propValue, value => {
+      context.emit('update:value', value)
+      context.emit('update:modelValue', value)
+    })
 
     useAdmin('d-avatar', context)
 

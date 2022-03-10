@@ -103,6 +103,11 @@ export default {
     DImages
   },
   props,
+  emits: [
+    'on-input',
+    'update:value',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const input = ref(undefined)
     const drop = ref(undefined)

@@ -107,7 +107,12 @@ export default {
     DMotionTransform
   },
   props,
-  emits: ['on-click', 'on-action'],
+  emits: [
+    'on-click',
+    'on-action',
+    'update:selected',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const app = ref(undefined)
 

@@ -22,7 +22,11 @@ export default {
   name: 'DTab',
   components: { DListItem },
   props,
-  emit: ['on-click'],
+  emit: [
+    'on-click',
+    'update:selected',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const tab = ref(undefined)
 
@@ -45,6 +49,8 @@ export default {
     })
 
     const onClick = event => {
+      context.emit('update:selected', event.value)
+      context.emit('update:modelValue', event.value)
       context.emit('on-click', {
         ...event,
         direction: getDirection(event.value)

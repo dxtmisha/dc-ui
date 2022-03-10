@@ -34,6 +34,7 @@ export const props = {
   open: Boolean,
   action: Boolean,
   selected: undefined,
+  modelValue: undefined,
 
   // Options
   appearance: {

@@ -25,6 +25,7 @@ export const props = {
 
   // Status
   selected: String,
+  modelValue: undefined,
 
   // Options
   palette,

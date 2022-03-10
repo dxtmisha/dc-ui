@@ -5,6 +5,7 @@ export const props = {
   // Values
   item: undefined,
   value: undefined,
+  modelValue: undefined,
   mask: undefined,
   name: undefined,
   text: undefined,

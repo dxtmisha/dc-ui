@@ -12,6 +12,7 @@ export default function useField (
 ) {
   const {
     value,
+    modelValue,
     validationMessage
   } = toRefs(props)
 
@@ -43,10 +44,10 @@ export default function useField (
     return check
   }
 
-  const propValue = useWatch(value, data => {
-    data.value = value.value || ''
+  const propValue = useWatch([value, modelValue], data => {
+    data.value = value.value || modelValue.value || ''
     requestAnimationFrame(checkValidity)
-  }, value.value ? ['go'] : [], '')
+  }, value.value || modelValue.value ? ['go'] : [], '')
   const propCounter = computed(() => propValue.value?.length || 0)
 
   const valueMin = computed(() => Array.isArray(propValue.value) ? (propValue.value?.[0] || 0) : 0)
@@ -142,6 +143,11 @@ export default function useField (
       checkValidity()
     })
   }
+
+  watch(propValue, value => {
+    context.emit('update:value', value)
+    context.emit('update:modelValue', value)
+  })
 
   return {
     change,

@@ -6,6 +6,7 @@ export const props = {
   // Values
   item: undefined,
   value: undefined,
+  modelValue: undefined,
   name: undefined,
   text: String,
   helperMessage: String,

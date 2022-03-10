@@ -47,7 +47,11 @@ export default {
     DMenu
   },
   props,
-  emits: ['on-input'],
+  emits: [
+    'on-input',
+    'update:value',
+    'update:modelValue'
+  ],
   setup (props, context) {
     const input = ref(undefined)
     const menu = ref(undefined)

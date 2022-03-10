@@ -26,6 +26,7 @@ export const props = {
   // Status
   open: Boolean,
   selected: undefined,
+  modelValue: undefined,
 
   // Options
   appearance: {
