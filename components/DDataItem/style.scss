@@ -69,7 +69,11 @@
     flex-grow: 1;
     grid-template-columns: repeat(auto-fit, minmax(#{var(--_di-width)}, 1fr));
     grid-template-rows: auto;
-    padding: var(--_di-padding-y) var(--_di-padding-x) var(--_di-padding-y) 0;
+    padding: var(--_di-padding-y) var(--_di-padding-x) var(--_di-padding-y) var(--_di-padding-x);
+  }
+
+  &__icon + &__body {
+    padding-left: 0;
   }
 }
 
