@@ -35,9 +35,13 @@
         </d-control-selection>
       </template>
     </d-control-position>
-    <div v-else-if="!progress" class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
+    <div v-else class="d-data-picker__none">
+      <template v-if="!progress && !isList">
+        {{ text['Your search did not match any documents.'] }}
+      </template>
+    </div>
     <d-pagination
-      v-if="bindData.items"
+      v-show="isList"
       class="d-data-picker__pagination"
       v-bind="bindPagination"
       @on-click="onPage"
@@ -111,6 +115,7 @@ export default {
       onRows
     } = useRows(props, propFilters, context)
 
+    const isList = computed(() => propList.value && propList.value.length > 0)
     const bindData = useData(props, propItemsByPage)
     const bindPagination = usePagination(
       props,
@@ -125,7 +130,10 @@ export default {
       }
     })
 
-    const update = () => beforeOpening(true)
+    const update = () => {
+      propPage.value = 1
+      beforeOpening(true)
+    }
     const setSelected = (
       item,
       itemValue
@@ -196,6 +204,7 @@ export default {
       selectedItem,
       open,
       propItemsByPage,
+      isList,
       bindData,
       bindPagination,
       classList,

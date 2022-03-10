@@ -1,4 +1,4 @@
-import { computed, toRefs, watch } from 'vue'
+import { computed, toRefs } from 'vue'
 import useWatch from '../../uses/useWatch'
 
 export default function useRows (props, propItems, context) {
@@ -28,10 +28,6 @@ export default function useRows (props, propItems, context) {
   const onRows = ({ value }) => {
     propRows.value = value
   }
-
-  watch(propItems, () => {
-    propPage.value = 1
-  })
 
   return {
     propPage,
