@@ -43,6 +43,7 @@ export default {
       '1200.50 meter-per-second',
       '1200.50 mile-per-hour',
       '1200.50 day',
+      '1200.50 none',
       'Interactive demo'
     ]
 

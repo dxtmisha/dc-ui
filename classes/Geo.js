@@ -1,4 +1,5 @@
 import geoMedia from '../media/geo.json'
+import Translation from './Translation'
 
 export default class Geo {
   static globalLang
@@ -139,7 +140,11 @@ export default class Geo {
           ...options
         }).format(number)
     } catch (e) {
-      text = value
+      if (number === undefined) {
+        text = value
+      } else {
+        text = `${this.getNumber(number, options)} ${Translation.get(toUnit)}`
+      }
     }
 
     return text
