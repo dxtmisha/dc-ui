@@ -35,8 +35,9 @@
         </d-control-selection>
       </template>
     </d-control-position>
-    <div v-else class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
+    <div v-else-if="!progress" class="d-data-picker__none">{{ text['Your search did not match any documents.'] }}</div>
     <d-pagination
+      v-if="bindData.items"
       class="d-data-picker__pagination"
       v-bind="bindPagination"
       @on-click="onPage"
