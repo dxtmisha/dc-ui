@@ -20,6 +20,7 @@ export default function attrData ({
     'dense',
     'column',
     'border',
+    'icon',
     'iconBackground',
     'iconAttrs'
   ],

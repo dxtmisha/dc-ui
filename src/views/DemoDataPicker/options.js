@@ -13,11 +13,10 @@ export const optionsDataPicker = useProps(props, {
   appearance: DataItem.dataItemAppearance,
   headers: {
     message: {
-      icon: ' ',
       name: 'Name',
       city: 'City',
       policy: 'Policy'
     }
   },
   size: Icon.iconSize
-}, ['list'])
+}, ['list', 'icon'])

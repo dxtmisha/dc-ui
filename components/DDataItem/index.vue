@@ -13,8 +13,8 @@
     @on-top="onTop"
   >
     <div v-bind="binds" class="d-data-item panel-static" :data-value="value">
-      <div class="d-data-item__icon">
-        <d-icon v-if="bindIcon.icon" v-bind="bindIcon"/>
+      <div v-if="bindIcon.icon" class="d-data-item__icon">
+        <d-icon v-bind="bindIcon"/>
       </div>
       <div class="d-data-item__body">
         <div class="d-data-item__text">

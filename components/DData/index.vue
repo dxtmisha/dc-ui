@@ -1,14 +1,14 @@
 <template>
   <div v-if="propList" class="d-data">
     <div v-if="headers" :class="classHeaders" class="d-data__headers">
-      <d-data-item v-bind="bindHeaders"/>
+      <d-data-item :icon="icon" v-bind="bindHeaders"/>
     </div>
 
     <d-data-item
       v-for="item in propListNew"
       :key="item.value"
       :is-new="true"
-      icon=" "
+      :icon="icon"
       v-bind="item"
       @on-open="onOpen"
     >
@@ -32,7 +32,7 @@
       :key="item.value"
       :position-class="positionClass"
       :selection-class="selectionClass"
-      icon=" "
+      :icon="icon"
       v-bind="item"
       @on-open="onOpen"
     >

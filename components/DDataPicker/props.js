@@ -88,6 +88,7 @@ export const props = {
   paginationAttrs: undefined,
 
   // Icon
+  icon: { default: defaultProps('icon') },
   iconBackground: undefined,
   iconAttrs: undefined
 }

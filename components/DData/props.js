@@ -45,6 +45,7 @@ export const props = {
   border: undefined,
 
   // Icon
+  icon: { default: defaultProps('icon', ' ') },
   iconBackground: undefined,
   iconAttrs: undefined,
 
