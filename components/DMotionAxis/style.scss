@@ -57,21 +57,21 @@
 }
 
 @mixin motionAxisAxis() {
-  &.axis-x &__slide:not(.status-selected) {
+  &.axis-x > &__slide:not(.status-selected) {
     transform: translateX(var(--_ma-transform));
   }
 
-  &.axis-y &__slide:not(.status-selected) {
+  &.axis-y > &__slide:not(.status-selected) {
     transform: translateY(var(--_ma-transform));
   }
 }
 
 @mixin motionAxisAxisZ() {
-  &.axis-z &__slide:not(.status-selected) {
+  &.axis-z > &__slide:not(.status-selected) {
     transform: scale(var(--_ma-transform));
   }
 
-  &.axis-z &__slide {
+  &.axis-z > &__slide {
     --_ma-transform: .8;
 
     &.status-selected {
@@ -83,7 +83,7 @@
     }
   }
 
-  &.axis-z.transition-back &__slide {
+  &.axis-z.transition-back > &__slide {
     --_ma-transform: 1.1;
 
     &.status-old {
