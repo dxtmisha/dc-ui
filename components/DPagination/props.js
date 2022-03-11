@@ -18,6 +18,10 @@ export const props = {
   },
   showInfo: Boolean,
   showMore: Boolean,
+  hideIfOne: {
+    type: Boolean,
+    default: defaultProps('hideIfOne')
+  },
 
   // Button
   buttonAttrs: { default: defaultProps('buttonAttrs') },

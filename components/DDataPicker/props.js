@@ -85,7 +85,8 @@ export const props = {
   paginationLength: { default: defaultProps('paginationLength') },
   paginationShowInfo: { default: defaultProps('paginationShowInfo', true) },
   paginationShowMore: { default: defaultProps('paginationShowMore', true) },
-  paginationAttrs: undefined,
+  paginationHideIfOne: { default: defaultProps('paginationHideIfOne', true) },
+  paginationAttrs: { default: defaultProps('paginationAttrs') },
 
   // Icon
   icon: { default: defaultProps('icon') },

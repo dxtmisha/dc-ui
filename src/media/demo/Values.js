@@ -187,7 +187,8 @@ export const Values = {
       { value: 25 },
       { value: 50 },
       { value: 75 },
-      { value: 100 }
+      { value: 100 },
+      { value: 150 }
     ]
   },
   second: { message: 45 },

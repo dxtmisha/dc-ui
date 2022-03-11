@@ -1,5 +1,5 @@
 <template>
-  <div class="d-pagination">
+  <div v-if="!hideIfOne || maxPage > 1" class="d-pagination">
     <d-button
       v-if="showMore"
       v-bind="more"

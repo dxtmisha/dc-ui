@@ -140,6 +140,7 @@ export const Options = {
       { value: 12000 }
     ]
   },
+  hideIfOne: {},
   gap: {
     list: [
       { value: undefined },
