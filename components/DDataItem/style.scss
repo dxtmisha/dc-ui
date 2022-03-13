@@ -183,9 +183,19 @@
 }
 
 @mixin dataItemBorder {
-  &__transform:not(.status-open) + &__transform:not(:first-child) &:not(.option-header).option-border > &__body,
-  &__top + &__transform:not(.status-open) & > &__body {
-    border-top-width: var(--basic-border-width);
+  &__transform &.option-border > &__body,
+  &__top + &__transform.status-open &.option-border > &__body {
+    @include afterAbsolute('top') {
+      border-top-width: var(--basic-border-width);
+    }
+  }
+
+  &__transform:first-child &.option-border > &__body,
+  &__transform.status-open + &__transform &.option-border > &__body,
+  &__transform &.option-border.option-header > &__body {
+    &::after {
+      content: none;
+    }
   }
 }
 
