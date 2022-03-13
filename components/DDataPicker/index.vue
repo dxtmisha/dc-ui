@@ -36,7 +36,7 @@
       </template>
     </d-control-position>
     <div v-else class="d-data-picker__none">
-      <template v-if="!progress && !isList">
+      <template v-if="!progress">
         {{ text['Your search did not match any documents.'] }}
       </template>
     </div>

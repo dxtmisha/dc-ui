@@ -69,7 +69,7 @@ export default function useIcon (props, context) {
     }
 
     return {
-      'background-image': `url(${image.src})`,
+      'background-image': `url("${image.src}")`,
       'background-size': zoom,
       'background-position-x': x,
       'background-position-y': y
