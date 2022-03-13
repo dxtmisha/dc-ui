@@ -1,6 +1,6 @@
 <template>
   <div v-if="propList" class="d-data">
-    <div v-if="headers" :class="classHeaders" class="d-data__headers">
+    <div v-if="headers" :class="classHeaders" class="d-data__headers d-data-item__top">
       <d-data-item :icon="icon" v-bind="bindHeaders"/>
     </div>
 

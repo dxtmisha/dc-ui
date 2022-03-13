@@ -2,10 +2,6 @@
 
 @mixin data {
   &__headers {
-    .d-data-item__body {
-      border-bottom-width: var(--basic-border-width);
-    }
-
     &.option-sticky {
       @include sticky;
       background: var(--background-type1);
