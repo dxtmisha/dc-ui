@@ -194,7 +194,7 @@
   &__transform.status-open + &__transform &.option-border > &__body,
   &__transform &.option-border.option-header > &__body {
     &::after {
-      content: none;
+      content: none !important;
     }
   }
 }
