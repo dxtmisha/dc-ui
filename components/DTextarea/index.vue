@@ -5,6 +5,7 @@
         ref="input"
         v-bind="bindTextarea"
         :class="className"
+        :validation-code="validationCode"
         :value="value"
         v-on="on"
         @on-input="onInput"

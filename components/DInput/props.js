@@ -13,6 +13,10 @@ export const props = {
   suffix: undefined,
   helperMessage: undefined,
   validationMessage: undefined,
+  validationCode: {
+    type: Object,
+    default: defaultProps('validationCode', {})
+  },
 
   // Input
   autocomplete: {

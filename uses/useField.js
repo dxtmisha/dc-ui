@@ -18,11 +18,35 @@ export default function useField (
 
   const change = ref(!!props.validationMessage)
   const propValidationMessage = ref(props.validationMessage || '')
+
+  const getValidity = () => {
+    let validity
+
+    if (
+      props?.validationCode &&
+      input.value?.validity
+    ) {
+      for (const index in input.value?.validity) {
+        if (
+          input.value?.validity[index] &&
+          props.validationCode?.[index]
+        ) {
+          validity = props.validationCode[index]
+        }
+      }
+    }
+
+    return !change.value
+      ? ''
+      : props.validationMessage ||
+      input.value?.propValidationMessage ||
+      validity ||
+      input.value?.validationMessage ||
+      ''
+  }
   const checkValidity = () => {
     const check = input.value?.checkValidity()
-    propValidationMessage.value = !change.value
-      ? ''
-      : props.validationMessage || input.value?.propValidationMessage || input.value?.validationMessage || ''
+    propValidationMessage.value = getValidity()
 
     if (
       change.value &&

@@ -3,6 +3,7 @@ export const props = {
   value: String,
   modelValue: undefined,
   name: String,
+  validationCode: undefined,
   on: {
     type: Object,
     default: {}

@@ -43,7 +43,6 @@ export default {
     const classList = computed(() => {
       return {
         [`appearance-${props.appearance}`]: props.appearance,
-        [`shape-${props.shape}`]: props.shape,
         'option-dynamic': props.dynamic
       }
     })

@@ -80,6 +80,7 @@ export default {
           'd-navigation',
           'd-navigation-filter',
           'd-tab',
+          'd-tab-picker',
           'd-top'
         ]
       },

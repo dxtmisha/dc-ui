@@ -76,6 +76,7 @@ import DSnackbar from './components/DSnackbar'
 import DTab from './components/DTab'
 import DTable from './components/DTable'
 import DTablePicker from './components/DTablePicker'
+import DTabPicker from './components/DTabPicker'
 import DTextarea from './components/DTextarea'
 import DTextareaAutosize from './components/DTextareaAutosize'
 import DTime from './components/DTime'
@@ -165,6 +166,7 @@ export default {
     app.component('d-tab', DTab)
     app.component('d-table', DTable)
     app.component('d-table-picker', DTablePicker)
+    app.component('d-tab-picker', DTabPicker)
     app.component('d-textarea', DTextarea)
     app.component('d-textarea-autosize', DTextareaAutosize)
     app.component('d-time', DTime)

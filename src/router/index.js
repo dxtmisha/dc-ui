@@ -75,6 +75,7 @@ import DemoSnackbar from '../views/DemoSnackbar'
 import DemoTab from '../views/DemoTab'
 import DemoTable from '../views/DemoTable'
 import DemoTablePicker from '../views/DemoTablePicker'
+import DemoTabPicker from '../views/DemoTabPicker'
 import DemoTextarea from '../views/DemoTextarea'
 import DemoTextareaAutosize from '../views/DemoTextareaAutosize'
 import DemoTime from '../views/DemoTime'
@@ -163,6 +164,7 @@ export const routes = getRoutes({
   'd-tab': DemoTab,
   'd-table': DemoTable,
   'd-table-picker': DemoTablePicker,
+  'd-tab-picker': DemoTabPicker,
   'd-textarea': DemoTextarea,
   'd-textarea-autosize': DemoTextareaAutosize,
   'd-time': DemoTime,
