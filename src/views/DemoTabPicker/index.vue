@@ -3,7 +3,11 @@
     :options="options"
     v-slot:default="{ binds }"
   >
-    <d-tab-picker v-bind="binds">
+    <d-tab-picker :list="list" selected="favorites" v-bind="binds">
+      <template v-slot:favorites>favorites</template>
+      <template v-slot:music>music</template>
+      <template v-slot:places>places</template>
+      <template v-slot:news>news</template>
     </d-tab-picker>
   </interactive-demo>
 </template>
@@ -11,7 +15,6 @@
 <script>
 import DTabPicker from '../../../components/DTabPicker'
 import InteractiveDemo from '@/components/InteractiveDemo/InteractiveDemo'
-import { ref } from 'vue'
 import { optionsTabPicker } from './options'
 import { bottomNavigation } from '@/media/demo/data/list'
 
@@ -24,16 +27,10 @@ export default {
   setup () {
     const options = optionsTabPicker
     const list = bottomNavigation
-    const selected = ref('favorites')
 
     return {
       options,
-      list,
-      selected
-    }
-  },
-  methods: {
-    on (event) {
+      list
     }
   }
 }

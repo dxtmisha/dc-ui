@@ -6,20 +6,24 @@ export const props = {
   list: undefined,
   listInit: undefined,
   translation: { default: defaultProps('translation') },
-  keyText: { default: defaultProps('keyText', 'text') },
-  keyValue: { default: defaultProps('keyValue', 'value') },
+  keyText: { default: defaultProps('keyText') },
+  keyValue: { default: defaultProps('keyValue') },
 
   // Status
   selected: String,
   modelValue: undefined,
 
   // Options
-  appearance: { default: defaultProps('appearance', 'value') },
-  adaptive: { default: defaultProps('adaptive', 'value') },
-  navigationRail: { default: defaultProps('navigationRail', 'value') },
-  dynamic: { default: defaultProps('dynamic', 'value') },
-  ripple: { default: defaultProps('ripple', 'value') },
-  itemAttrs: { default: defaultProps('itemAttrs', 'value') },
+  appearance: { default: defaultProps('appearance') },
+  adaptive: { default: defaultProps('adaptive') },
+  navigationRail: { default: defaultProps('navigationRail') },
+  dynamic: { default: defaultProps('dynamic') },
+  animationShow: {
+    type: Boolean,
+    default: defaultProps('animationShow', true)
+  },
+  ripple: { default: defaultProps('ripple') },
+  itemAttrs: { default: defaultProps('itemAttrs') },
 
   // Icon
   iconBackground: { default: defaultProps('iconBackground') }
