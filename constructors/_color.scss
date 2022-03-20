@@ -59,7 +59,7 @@
 
     @each $shadeName, $shade in $shades {
       .text\:#{$type}-#{$shadeName} {
-        --basic-text: var(--palette-#{$shadeName});
+        --basic-text: var(--#{$type}-#{$shadeName});
       }
     }
   }
