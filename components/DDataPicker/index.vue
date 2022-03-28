@@ -131,7 +131,7 @@ export default {
     })
 
     const update = () => {
-      propPage.value = 1
+      propPage.value = props.page
       beforeOpening(true)
     }
     const setSelected = (
