@@ -17,7 +17,8 @@ export default function useEvent (
     const selector = getIdElement(content.value, '')
 
     if (
-      propOpen.value && (
+      propOpen.value &&
+      !target.closest('.panel-global-static') && (
         target.closest(`${selector} .panel-close`) ||
         (
           props.autoClose &&
