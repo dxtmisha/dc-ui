@@ -9,7 +9,7 @@ export default function goScrollSmooth (element, options = {}) {
       inline: options?.inline || 'start'
     })
   } else if ('getBoundingClientRect' in element) {
-    const top = (window?.screenY || window.pageYOffset) + element.getBoundingClientRect().top - shift
+    const top = (window?.scrollY || window.pageYOffset) + element.getBoundingClientRect().top - shift
 
     if ('scrollTo' in window) {
       window.scrollTo({
