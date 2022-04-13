@@ -132,7 +132,7 @@ export default class Geo {
 
     try {
       text = number === undefined || !toUnit
-        ? value
+        ? (isFinite(value) ? this.getNumber(number, options) : value)
         : new Intl.NumberFormat(this._lang, {
           style: 'unit',
           unit: toUnit,
