@@ -22,7 +22,7 @@
         <d-icon
           v-if="arrow"
           v-bind="bindPrevious"
-          class="d-carcass-field__icon window-control-static cf-icon"
+          class="d-carcass-field__icon window-control-static cf-arrow cf-icon"
           @click.stop="onClick('on-previous')"
         >
           <d-ripple v-if="isRipple && !disabledPrevious"/>
@@ -36,7 +36,7 @@
         <d-icon
           v-if="arrow"
           v-bind="bindNext"
-          class="d-carcass-field__icon window-control-static cf-trailing"
+          class="d-carcass-field__icon window-control-static cf-arrow cf-trailing"
           @click.stop="onClick('on-next')"
         >
           <d-ripple v-if="isRipple && !disabledNext"/>

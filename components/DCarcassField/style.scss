@@ -216,6 +216,10 @@
   .cf-trailing {
     margin-left: var(--_cf-space);
   }
+
+  .cf-arrow {
+    cursor: pointer;
+  }
 }
 
 @mixin carcassFieldPrefix() {
