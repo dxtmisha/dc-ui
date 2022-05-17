@@ -35,6 +35,7 @@ export const props = {
     default: defaultProps('appearance', 'filled'),
     validator: validator([
       'basic',
+      'basic-outlined',
       'classic',
       'filled',
       'outlined'

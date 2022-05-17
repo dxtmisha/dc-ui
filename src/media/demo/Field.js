@@ -10,6 +10,7 @@ export const Field = {
     list: [
       { value: undefined },
       { value: 'basic' },
+      { value: 'basic-outlined' },
       { value: 'classic' },
       { value: 'filled' },
       { value: 'outlined' }
