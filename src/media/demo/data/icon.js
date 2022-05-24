@@ -246,5 +246,12 @@ export const icon = [
     text: 'Blue Gray',
     value: '#607D8B',
     icon: '#607D8B'
+  },
+  { line: true },
+  { subtitle: 'Public' },
+  {
+    text: 'Person',
+    value: '@person',
+    icon: '@person'
   }
 ]

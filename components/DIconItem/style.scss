@@ -55,6 +55,14 @@
   }
 }
 
+@mixin iconItemPublic() {
+  &--public {
+    background-color: rgba(var(--basic-text), var(--basic-text-opacity));
+    mask-position: center;
+    mask-size: contain
+  }
+}
+
 @mixin iconItemLineAwesome() {
   &.la,
   &.lab,
@@ -90,6 +98,7 @@
 @mixin iconItemInit() {
   @include iconItem;
   @include iconItemMaterial;
+  @include iconItemPublic;
   @include iconItemLineAwesome;
   @include iconItemDisabled;
 }

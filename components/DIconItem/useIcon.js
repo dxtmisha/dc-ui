@@ -30,6 +30,8 @@ export default function useIcon (props, context) {
       case 'two-tone':
       case 'material':
         return 'material-icons'
+      case 'public':
+        return 'd-icon-item--public'
       default:
         return undefined
     }
@@ -83,6 +85,9 @@ export default function useIcon (props, context) {
         case 'image':
           style = getStyleByImage(image)
           break
+        case 'public':
+          style = { 'mask-image': `url("${image}")` }
+          break
         case 'color':
           style = { 'background-color': image }
           break
@@ -107,6 +112,8 @@ export default function useIcon (props, context) {
           type = 'image'
         } else if (value.match(/^#/)) {
           type = 'color'
+        } else if (value.match(/^@/)) {
+          type = 'public'
         } else {
           type = value.match(/^(la|lab|filled|outlined|round|sharp|two-tone)-/)?.[1] || 'material'
         }
@@ -150,6 +157,11 @@ export default function useIcon (props, context) {
       context.emit('on-load', image)
 
       data.value = image
+      styleIcon.value = getStyleName(image)
+    } else if (type === 'public') {
+      const image = icon.value.toString().replace(/^@/, props.urlIcon) + '.svg'
+      console.log('image', image)
+      data.value = undefined
       styleIcon.value = getStyleName(image)
     } else {
       data.value = undefined

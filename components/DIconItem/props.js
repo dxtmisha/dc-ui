@@ -17,6 +17,10 @@ export const props = {
     type: String,
     default: null
   },
+  urlIcon: {
+    type: String,
+    default: defaultProps('urlIcon', '/icons/')
+  },
 
   // Status
   disabled: Boolean,
