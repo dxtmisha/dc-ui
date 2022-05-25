@@ -1,10 +1,16 @@
 <template>
-  <span v-bind="binds" translate="no" class="d-icon-item notranslate" v-text="text"/>
+  <span
+    ref="elementIcon"
+    v-bind="binds"
+    translate="no"
+    class="d-icon-item notranslate"
+    v-text="text"
+  />
 </template>
 
 <script>
 import { props } from './props'
-import { computed, readonly } from 'vue'
+import { computed, readonly, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useIcon from './useIcon'
 
@@ -13,12 +19,13 @@ export default {
   props,
   emits: ['on-load'],
   setup (props, context) {
+    const elementIcon = ref(undefined)
     const {
       text,
       classIcon,
       styleIcon,
       image
-    } = useIcon(props, context)
+    } = useIcon(elementIcon, props, context)
 
     const binds = readonly({
       class: computed(() => {
@@ -35,6 +42,7 @@ export default {
     useAdmin('d-icon-item', context)
 
     return {
+      elementIcon,
       text,
       binds
     }

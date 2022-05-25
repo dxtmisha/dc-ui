@@ -1,8 +1,9 @@
-import { ref, toRefs, watch } from 'vue'
+import { onUnmounted, ref, toRefs, watch } from 'vue'
 import createImage from './../../functions/createImage'
 import useWatch from '../../uses/useWatch'
+import ImageAdaptive from '../../classes/ImageAdaptive'
 
-export default function useIcon (props, context) {
+export default function useIcon (elementIcon, props, context) {
   let type
 
   const {
@@ -16,6 +17,7 @@ export default function useIcon (props, context) {
   const text = ref(undefined)
   const classIcon = ref({})
   const styleIcon = ref({})
+  let adaptive, adaptiveX, adaptiveY
 
   const getClassName = () => {
     switch (type) {
@@ -51,7 +53,11 @@ export default function useIcon (props, context) {
     } else {
       const isObject = typeof props.icon === 'object'
 
-      if (props.zoom) {
+      if (adaptiveX) {
+        zoom = `${adaptiveX}% auto`
+      } else if (adaptiveY) {
+        zoom = `auto ${adaptiveY}%`
+      } else if (props.zoom) {
         zoom = !props.zoom.match(/%$/)
           ? props.zoom
           : image.height < image.width ? `auto ${props.zoom}` : `${props.zoom} auto`
@@ -70,11 +76,15 @@ export default function useIcon (props, context) {
       }
     }
 
+    console.log('zoom', zoom)
+
     return {
       'background-image': `url("${image.src}")`,
       'background-size': zoom,
       'background-position-x': x,
-      'background-position-y': y
+      'background-position-y': y,
+      '--adaptive-x': adaptiveX,
+      '--adaptive-y': adaptiveY
     }
   }
   const getStyleName = image => {
@@ -141,6 +151,7 @@ export default function useIcon (props, context) {
 
     const name = getClassName()
 
+    adaptive = false
     classIcon.value = { [`type-${type}`]: type }
 
     if (name) {
@@ -154,13 +165,31 @@ export default function useIcon (props, context) {
         icon.value
       )
 
+      if (
+        icon.value?.adaptiveX ||
+        icon.value?.adaptiveY
+      ) {
+        ImageAdaptive.add(
+          elementIcon,
+          icon.value?.adaptiveX,
+          icon.value?.adaptiveY,
+          (x, y) => {
+            adaptiveX = x
+            adaptiveY = y
+            styleIcon.value = getStyleName(image)
+          }
+        )
+
+        adaptive = true
+      }
+
       context.emit('on-load', image)
 
       data.value = image
       styleIcon.value = getStyleName(image)
     } else if (type === 'public') {
       const image = icon.value.toString().replace(/^@/, props.urlIcon) + '.svg'
-      console.log('image', image)
+
       data.value = undefined
       styleIcon.value = getStyleName(image)
     } else {
@@ -180,10 +209,18 @@ export default function useIcon (props, context) {
     }
   })
 
+  onUnmounted(() => {
+    if (adaptive) {
+      ImageAdaptive.remove(elementIcon)
+    }
+  })
+
   return {
     text,
     classIcon,
     styleIcon,
-    image
+    image,
+    adaptiveX,
+    adaptiveY
   }
 }
