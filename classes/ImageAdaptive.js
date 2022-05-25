@@ -69,12 +69,11 @@ export default class ImageAdaptive {
   }
 
   static event () {
-    if (!this._time) {
-      this._time = setTimeout(() => {
-        this._time = undefined
-        this.go()
-      }, 128)
-    }
+    clearTimeout(this._time)
+    this._time = setTimeout(() => {
+      this._time = undefined
+      this.go()
+    }, 32)
   }
 
   static go () {

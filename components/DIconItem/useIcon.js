@@ -76,8 +76,6 @@ export default function useIcon (elementIcon, props, context) {
       }
     }
 
-    console.log('zoom', zoom)
-
     return {
       'background-image': `url("${image.src}")`,
       'background-size': zoom,
@@ -165,8 +163,6 @@ export default function useIcon (elementIcon, props, context) {
         icon.value
       )
 
-      console.log('image', image)
-
       if (icon.value?.adaptive) {
         ImageAdaptive.add(
           elementIcon,
@@ -182,6 +178,8 @@ export default function useIcon (elementIcon, props, context) {
         )
 
         adaptive = true
+        adaptiveX = icon.value?.adaptive === 'X' ? 100 : undefined
+        adaptiveY = icon.value?.adaptive === 'Y' ? 100 : undefined
       }
 
       context.emit('on-load', image)
