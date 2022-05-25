@@ -5,7 +5,7 @@ export default class ImageAdaptive {
   static _event
   static _time
   static _old = ''
-  static _min = 128
+  static _min = 32
 
   static is (element) {
     return this._element.findIndex(item => item.element === element)
@@ -13,22 +13,29 @@ export default class ImageAdaptive {
 
   static add (
     element,
+    type,
     x,
     y,
+    image,
     listener
   ) {
     const key = this.is(element)
 
     if (key !== -1) {
+      this._element[key].type = type
       this._element[key].x = x
       this._element[key].y = y
       this._element[key].listener = listener
     } else {
       this._element.push({
         element,
+        type: type.toString().toLowerCase(),
         x,
         y,
-        listener
+        image,
+        listener,
+        percentX: undefined,
+        percentY: undefined
       })
     }
 
@@ -98,8 +105,17 @@ export default class ImageAdaptive {
 
   static resize (focus) {
     let maxX, maxY
+    let offsetX, offsetY
 
     focus.forEach(item => {
+      if (item.element.value.offsetWidth < offsetX || offsetX === undefined) {
+        offsetX = item.element.value.offsetWidth
+      }
+
+      if (item.element.value.offsetHeight < offsetY || offsetY === undefined) {
+        offsetY = item.element.value.offsetHeight
+      }
+
       if (item.x > maxX || maxX === undefined) {
         maxX = item.x
       }
@@ -110,12 +126,45 @@ export default class ImageAdaptive {
     })
 
     if (maxX || maxY) {
-      const oneX = maxX ? 100 / maxX : undefined
-      const oneY = maxY ? 100 / maxY : undefined
+      const oneX = maxX ? 1 / maxX : undefined
+      const oneY = maxY ? 1 / maxY : undefined
+      let factorMax = 1
+
+      focus.forEach(item => {
+        const sizeX = offsetX / item.element.value.offsetWidth
+        const sizeY = offsetY / item.element.value.offsetHeight
+        let factor = 1
+        let sizeImageX, sizeImageY
+
+        switch (item.type) {
+          case 'x':
+            item.percentX = item.x * oneX * sizeX
+            item.percentY = undefined
+            sizeImageY = item.image.height * (item.element.value.offsetWidth * item.percentX / item.image.width)
+
+            if (sizeImageY > item.element.value.offsetHeight) {
+              factor = item.element.value.offsetHeight / sizeImageY
+            }
+            break
+          case 'y':
+            item.percentX = undefined
+            item.percentY = item.y * oneY * sizeY
+            sizeImageX = item.image.width * (item.element.value.offsetHeight * item.percentY / item.image.height)
+
+            if (sizeImageX > item.element.value.offsetWidth) {
+              factor = item.element.value.offsetWidth / sizeImageX
+            }
+            break
+        }
+
+        if (factor < factorMax) {
+          factorMax = factor
+        }
+      })
 
       focus.forEach(item => item.listener(
-        oneX ? item.x * oneX : undefined,
-        oneY ? item.y * oneY : undefined
+        item.percentX ? 100 * item.percentX * factorMax : undefined,
+        item.percentY ? 100 * item.percentY * factorMax : undefined
       ))
     }
   }

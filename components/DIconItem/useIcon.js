@@ -165,14 +165,15 @@ export default function useIcon (elementIcon, props, context) {
         icon.value
       )
 
-      if (
-        icon.value?.adaptiveX ||
-        icon.value?.adaptiveY
-      ) {
+      console.log('image', image)
+
+      if (icon.value?.adaptive) {
         ImageAdaptive.add(
           elementIcon,
+          icon.value?.adaptive,
           icon.value?.adaptiveX,
           icon.value?.adaptiveY,
+          image,
           (x, y) => {
             adaptiveX = x
             adaptiveY = y
