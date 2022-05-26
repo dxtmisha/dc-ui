@@ -210,7 +210,7 @@
   &__circle {
     @include circle(var(--_cb-size));
     @include flexCenter;
-    --_cb__sw-shift: calc((var(--_cb__sw-height) - var(--_cb-size)) / 2);
+    --_cb__sw-shift: calc((var(--_cb__sw-height) / 2) - (var(--_cb__sw-width) / 2));
     --_cb__sw-checked: calc(var(--_cb__sw-width) - var(--_cb-size));
     background-color: transparent;
     position: relative;
@@ -238,7 +238,7 @@
   }
 
   &__input:checked ~ &__switch &__circle {
-    transform: translateX(#{calc(var(--_cb__sw-checked) - var(--_cb__sw-shift))});
+    transform: translateX(#{calc(var(--_cb__sw-shift) * -1)});
 
     &::after {
       background-color: varColor(--_cb-palette-type1);
