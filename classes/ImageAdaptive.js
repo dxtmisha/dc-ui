@@ -5,7 +5,7 @@ export default class ImageAdaptive {
   static _event
   static _time
   static _old = ''
-  static _min = 32
+  static _min = 256
 
   static is (element) {
     return this._element.findIndex(item => item.element === element)
@@ -69,11 +69,12 @@ export default class ImageAdaptive {
   }
 
   static event () {
-    clearTimeout(this._time)
-    this._time = setTimeout(() => {
-      this._time = undefined
-      this.go()
-    }, 32)
+    if (!this._time) {
+      this._time = setTimeout(() => {
+        this._time = undefined
+        this.go()
+      }, 128)
+    }
   }
 
   static go () {
@@ -85,12 +86,25 @@ export default class ImageAdaptive {
 
       if (
         !(
+          rect.bottom < 0 ||
+          rect.top > window.innerHeight
+        )
+      ) {
+        focus.push({
+          item,
+          show: true
+        })
+        index += key
+      } else if (
+        !(
           rect.bottom < (0 - this._min) ||
           rect.top > (window.innerHeight + this._min)
         )
       ) {
-        focus.push(item)
-        index += key
+        focus.push({
+          item,
+          show: false
+        })
       }
     })
 
@@ -106,21 +120,26 @@ export default class ImageAdaptive {
     let maxX, maxY
     let offsetX, offsetY
 
-    focus.forEach(item => {
-      if (item.element.value.offsetWidth < offsetX || offsetX === undefined) {
-        offsetX = item.element.value.offsetWidth
-      }
+    focus.forEach(({
+      item,
+      show
+    }) => {
+      if (show) {
+        if (item.element.value.offsetWidth < offsetX || offsetX === undefined) {
+          offsetX = item.element.value.offsetWidth
+        }
 
-      if (item.element.value.offsetHeight < offsetY || offsetY === undefined) {
-        offsetY = item.element.value.offsetHeight
-      }
+        if (item.element.value.offsetHeight < offsetY || offsetY === undefined) {
+          offsetY = item.element.value.offsetHeight
+        }
 
-      if (item.x > maxX || maxX === undefined) {
-        maxX = item.x
-      }
+        if (item.x > maxX || maxX === undefined) {
+          maxX = item.x
+        }
 
-      if (item.y > maxY || maxY === undefined) {
-        maxY = item.y
+        if (item.y > maxY || maxY === undefined) {
+          maxY = item.y
+        }
       }
     })
 
@@ -129,7 +148,10 @@ export default class ImageAdaptive {
       const oneY = maxY ? 1 / maxY : undefined
       let factorMax = 1
 
-      focus.forEach(item => {
+      focus.forEach(({
+        item,
+        show
+      }) => {
         const sizeX = offsetX / item.element.value.offsetWidth
         const sizeY = offsetY / item.element.value.offsetHeight
         let factor = 1
@@ -156,12 +178,15 @@ export default class ImageAdaptive {
             break
         }
 
-        if (factor < factorMax) {
+        if (
+          show &&
+          factor < factorMax
+        ) {
           factorMax = factor
         }
       })
 
-      focus.forEach(item => item.listener(
+      focus.forEach(({ item }) => item.listener(
         item.percentX ? 100 * item.percentX * factorMax : undefined,
         item.percentY ? 100 * item.percentY * factorMax : undefined
       ))
