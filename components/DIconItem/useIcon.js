@@ -174,7 +174,8 @@ export default function useIcon (elementIcon, props, context) {
             adaptiveX = x
             adaptiveY = y
             styleIcon.value = getStyleName(image)
-          }
+          },
+          icon.value?.adaptiveAlways
         )
 
         adaptive = true
