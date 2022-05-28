@@ -17,7 +17,8 @@ export default class ImageAdaptive {
     x,
     y,
     image,
-    listener
+    listener,
+    always = false
   ) {
     const key = this.is(element)
 
@@ -34,6 +35,7 @@ export default class ImageAdaptive {
         y,
         image,
         listener,
+        always,
         percentX: undefined,
         percentY: undefined
       })
@@ -65,7 +67,7 @@ export default class ImageAdaptive {
       this._event.go()
     }
 
-    this.go()
+    this.event()
   }
 
   static event () {
@@ -88,7 +90,8 @@ export default class ImageAdaptive {
         !(
           rect.bottom < 0 ||
           rect.top > window.innerHeight
-        )
+        ) ||
+        item.always
       ) {
         focus.push({
           item,
