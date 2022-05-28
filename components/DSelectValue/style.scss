@@ -1,7 +1,9 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
+@import "../../styles/font";
 
 @mixin selectValue() {
+  @include ellipsis;
   --_sv-margin: var(--sv-margin, #{dimension(.5)});
 }
 
