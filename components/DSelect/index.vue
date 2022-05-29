@@ -9,6 +9,7 @@
         @on-previous="onArrow('previous')"
         @on-next="onArrow('next')"
         @on-cancel="onCancel"
+        @on-trailing="onClick"
       >
         <template v-slot:default="{ className, classNameHidden }">
           <input
