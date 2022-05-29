@@ -12,8 +12,8 @@
       ref="input"
       :accept="accept"
       :disabled="disabled"
+      :multiple="multiple"
       class="d-drop__input"
-      multiple
       type="file"
       @change="onChange"
       @click="onFocus"
