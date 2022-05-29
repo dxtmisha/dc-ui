@@ -24,6 +24,7 @@
           ref="drop"
           :accept="accept"
           :disabled="propDisabled"
+          multiple
           @on-drop="onDrop"
         />
       </div>
