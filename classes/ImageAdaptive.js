@@ -85,29 +85,33 @@ export default class ImageAdaptive {
 
     this._element.forEach((item, key) => {
       const rect = item.element.value?.getBoundingClientRect()
-
       if (
-        !(
-          rect.bottom < 0 ||
-          rect.top > window.innerHeight
-        ) ||
-        item.always
+        rect &&
+        item.element.value
       ) {
-        focus.push({
-          item,
-          show: true
-        })
-        index += key
-      } else if (
-        !(
-          rect.bottom < (0 - this._min) ||
-          rect.top > (window.innerHeight + this._min)
-        )
-      ) {
-        focus.push({
-          item,
-          show: false
-        })
+        if (
+          !(
+            rect.bottom < 0 ||
+            rect.top > window.innerHeight
+          ) ||
+          item.always
+        ) {
+          focus.push({
+            item,
+            show: true
+          })
+          index += key
+        } else if (
+          !(
+            rect.bottom < (0 - this._min) ||
+            rect.top > (window.innerHeight + this._min)
+          )
+        ) {
+          focus.push({
+            item,
+            show: false
+          })
+        }
       }
     })
 
