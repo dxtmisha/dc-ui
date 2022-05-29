@@ -50,7 +50,12 @@
               @click.stop="onClick('on-cancel')"
             />
           </keep-alive>
-          <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-carcass-field__icon cf-trailing"/>
+          <d-icon
+            v-if="iconTrailing"
+            v-bind="bindTrailing"
+            class="d-carcass-field__icon cf-trailing"
+            @click="onClick('on-trailing', $event)"
+          />
         </template>
       </label>
 
@@ -96,7 +101,8 @@ export default {
   emits: [
     'on-previous',
     'on-next',
-    'on-cancel'
+    'on-cancel',
+    'on-trailing'
   ],
   setup (props, context) {
     const id = `cf--${getIdElement()}`
@@ -150,7 +156,7 @@ export default {
       }
     })
 
-    const onClick = (type) => {
+    const onClick = (type, event = undefined) => {
       let value
 
       switch (type) {
@@ -166,7 +172,7 @@ export default {
       }
 
       if (!value) {
-        context.emit(type)
+        context.emit(type, event)
       }
     }
 
