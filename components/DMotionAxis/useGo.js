@@ -29,11 +29,13 @@ export default function useGo (
     }
   }
   const update = async selected => {
-    coordinates.set(slides.value?.[propSelected.value]?.getBoundingClientRect())
-    classOld.set(propSelected.value)
-    classBlock.set(selected)
+    if (propSelected.value !== selected) {
+      coordinates.set(slides.value?.[propSelected.value]?.getBoundingClientRect())
+      classOld.set(propSelected.value)
+      classBlock.set(selected)
 
-    updateGo(selected)
+      updateGo(selected)
+    }
   }
   const updateGo = selected => requestAnimationFrame(() => {
     const block = axis.value.querySelector('.status-block')
