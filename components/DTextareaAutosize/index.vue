@@ -41,6 +41,7 @@ export default {
       propValue,
       checkValidity,
       cancel,
+      setChange,
       onEmit,
       onChange
     } = useField(
@@ -71,6 +72,7 @@ export default {
       checkValidity,
       cancel,
       reSize,
+      setChange,
       onEmit,
       onChange
     }
