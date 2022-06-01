@@ -111,6 +111,10 @@ export default function useField (
   }
   const setChange = () => {
     change.value = true
+
+    if ('setChange' in input.value) {
+      input.value.setChange()
+    }
   }
   const cancel = () => {
     propValue.value = ''
