@@ -25,6 +25,8 @@
         v-on="on"
         @input="onEmit"
         @change="onChange"
+        @keypress="onKeypress"
+        @paste="onPaste"
       >
     </template>
   </d-carcass-field>
@@ -40,6 +42,7 @@ import useCarcass from './useCarcass'
 import useField from '../../uses/useField'
 import useInput from './useInput'
 import useMask from './useMask'
+import useInputNumber from './useInputNumber'
 
 export default {
   name: 'DInput',
@@ -80,6 +83,11 @@ export default {
       bindMask
     } = useMask(props)
 
+    const {
+      onKeypress,
+      onPaste
+    } = useInputNumber(props, propValue, onEmit)
+
     const bindInput = useInput(props)
     const bindCarcassField = useCarcass(
       props,
@@ -117,7 +125,9 @@ export default {
       onInput,
       onChange,
       onArrow,
-      onCancel
+      onCancel,
+      onKeypress,
+      onPaste
     }
   }
 }
