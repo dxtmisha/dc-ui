@@ -127,6 +127,11 @@ export default function useField (
   }
   const onChange = () => {
     change.value = true
+
+    if (props?.required) {
+      propValue.value = propValue.value.trim()
+    }
+
     emit('on-change')
   }
   const onChecked = () => {

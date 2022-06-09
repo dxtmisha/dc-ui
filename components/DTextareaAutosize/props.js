@@ -7,5 +7,8 @@ export const props = {
   on: {
     type: Object,
     default: {}
-  }
+  },
+
+  // Input
+  required: Boolean
 }

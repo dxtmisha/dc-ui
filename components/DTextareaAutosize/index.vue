@@ -1,10 +1,11 @@
 <template>
   <textarea
     ref="input"
-    v-bind="$attrs"
     v-model="propValue"
     :name="name"
+    :required="required"
     class="d-textarea-autosize"
+    v-bind="$attrs"
     @change="onChange"
     @focus="reSize"
     @input="onEmit"
