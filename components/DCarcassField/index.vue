@@ -166,6 +166,10 @@ export default {
         case 'on-next':
           value = props.disabledNext || props.disabled
           break
+        case 'on-cancel':
+          field.value.querySelector('.d-carcass-field__input')?.focus()
+          value = props.disabled
+          break
         default:
           value = props.disabled
           break
