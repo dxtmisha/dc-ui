@@ -80,6 +80,10 @@ export const props = {
     type: Boolean,
     default: defaultProps('cancel', true)
   },
+  cancelShowAlways: {
+    type: Boolean,
+    default: defaultProps('cancelShowAlways')
+  },
   ripple: {
     type: Boolean,
     default: defaultProps('ripple', true)

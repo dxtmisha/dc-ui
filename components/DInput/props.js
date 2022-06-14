@@ -75,6 +75,7 @@ export const props = {
   arrow: undefined,
   counter: undefined,
   cancel: undefined,
+  cancelShowAlways: undefined,
   ripple: undefined,
   fieldAttrs: undefined,
 

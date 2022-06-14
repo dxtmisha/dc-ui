@@ -2,6 +2,7 @@ import { onUnmounted, ref, toRefs, watch } from 'vue'
 import createImage from './../../functions/createImage'
 import useWatch from '../../uses/useWatch'
 import ImageAdaptive from '../../classes/ImageAdaptive'
+import { Icon } from '../../classes/Icon'
 
 export default function useIcon (elementIcon, props, context) {
   let type
@@ -188,7 +189,7 @@ export default function useIcon (elementIcon, props, context) {
       data.value = image
       styleIcon.value = getStyleName(image)
     } else if (type === 'public') {
-      const image = icon.value.toString().replace(/^@/, props.urlIcon) + '.svg'
+      const image = Icon.get(icon.value, props.urlIcon)
 
       data.value = undefined
       styleIcon.value = getStyleName(image)

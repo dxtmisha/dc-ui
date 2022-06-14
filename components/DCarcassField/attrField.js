@@ -25,6 +25,7 @@ export default function attrField ({
     'arrow',
     'counter',
     'cancel',
+    'cancelShowAlways',
     'ripple',
     'icon',
     'iconActive',

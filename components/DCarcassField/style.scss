@@ -221,6 +221,10 @@
   .cf-arrow {
     cursor: pointer;
   }
+
+  &.option-cancel-always .cf-cancel {
+    opacity: 1;
+  }
 }
 
 @mixin carcassFieldPrefix() {

@@ -152,6 +152,7 @@ export default {
         [`align-${props.align}`]: props.align,
         [`adaptive-${props.adaptive}`]: props.adaptive,
         'option-arrow': props.arrow,
+        'option-cancel-always': props.cancelShowAlways,
         ...palette.value
       }
     })
