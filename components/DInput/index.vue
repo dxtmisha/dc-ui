@@ -21,6 +21,7 @@
         ref="input"
         v-bind="bindInput"
         :class="className"
+        :pattern="bindPattern"
         v-model="propValue"
         v-on="on"
         @input="onEmit"
@@ -36,7 +37,7 @@
 import DCarcassField from '../DCarcassField'
 import DMask from '../DMask'
 import { props } from './props'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import useAdmin from '../../uses/useAdmin'
 import useCarcass from './useCarcass'
 import useField from '../../uses/useField'
@@ -117,6 +118,15 @@ export default {
       bindMask,
       bindInput,
       bindCarcassField,
+      bindPattern: computed(() => {
+        if (props.pattern) {
+          return props.pattern
+        } else if (props.type === 'email') {
+          return '[\\S]+@[\\S]+\\.[\\w]+'
+        } else {
+          return undefined
+        }
+      }),
 
       checkValidity,
       setChange,
