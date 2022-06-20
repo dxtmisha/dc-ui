@@ -122,7 +122,7 @@ export default {
         if (props.pattern) {
           return props.pattern
         } else if (props.type === 'email') {
-          return '[\\S]+@[\\S]+\\.[\\w]+'
+          return '[\\S]+@[\\S]{2,}\\.[\\w]{2,}'
         } else {
           return undefined
         }
