@@ -19,6 +19,14 @@
       </div>
 
       <label class="d-carcass-field__scoreboard">
+        <span
+          ref="slotLeft"
+          v-if="'left' in $slots"
+          class="d-carcass-field__slot-left"
+        >
+          <slot name="left" :update="updateSlot"/>
+        </span>
+
         <d-icon
           v-if="arrow"
           v-bind="bindPrevious"
@@ -88,6 +96,7 @@ import useAdmin from '../../uses/useAdmin'
 import useColor from '../../uses/useColor'
 import useIcon from './useIcon'
 import usePrefix from './usePrefix'
+import useSlot from './useSlot'
 
 export default {
   name: 'DCarcassField',
@@ -130,13 +139,18 @@ export default {
       bindProgress
     } = attrProgress(props)
 
+    const {
+      slotLeft,
+      updateSlot
+    } = useSlot(field)
+
     const isRipple = attrRipple(props)
 
     const palette = useColor(props)
     const classList = computed(() => {
       return {
         'view-icon': props.icon || props.arrow,
-        'view-icon-cancel': ifCancel.value,
+        'view-icon-cancel': ifCancel.value || [undefined, null].indexOf(slotLeft.value) === -1,
         'view-icon-trailing': props.iconTrailing || props.arrow,
         'view-prefix': props.prefix,
         'view-suffix': props.suffix,
@@ -199,6 +213,9 @@ export default {
       bindNext,
       bindProgress,
       classList,
+
+      slotLeft,
+      updateSlot,
 
       onClick
     }

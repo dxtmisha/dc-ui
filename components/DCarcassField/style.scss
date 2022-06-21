@@ -18,7 +18,7 @@
   --_cf__tx-opacity: 1;
   --_cf__tx-medium: var(--opacity-surface-medium);
   --_cf__tx-scale: 1;
-  --_cf__tx-translate-x: var(--_cf__ld-padding);
+  --_cf__tx-translate-x: calc(var(--_cf__ld-padding) + var(--_cf__sl-width, 0px));
   --_cf__tx-translate-y: calc(var(--_cf-height) / 4);
 
   --_cf__ld-padding: 0px;
@@ -28,6 +28,7 @@
   --_cf__pr-opacity: 0;
   --_cf__pr-width: 0px;
   --_cf__sf-width: 0px;
+  --_cf__sl-width: 0px;
 
   width: var(--_cf-width);
 
@@ -56,7 +57,7 @@
       top: calc(var(--_cf-half) - var(--_cf__tx-half) + var(--_cf-shift));
       right: calc(var(--_cf-padding) + (var(--_cf-space) / 2) + var(--_cf__cn-padding) + var(--_cf__tr-padding) + var(--_cf__sf-width));
       bottom: calc(var(--_cf-half) - var(--_cf__tx-half) - var(--_cf-shift));
-      left: calc(var(--_cf-padding) + var(--_cf-space) + var(--_cf__ld-padding) + var(--_cf__pr-width));
+      left: calc(var(--_cf-padding) + var(--_cf-space) + var(--_cf__ld-padding) + var(--_cf__pr-width) + var(--_cf__sl-width));
     }
     position: relative;
     width: 100%;
@@ -254,6 +255,12 @@
   }
 
   &.view-icon-trailing &__suffix {
+    padding-right: var(--_cf-space);
+  }
+}
+
+@mixin carcassFieldSlot() {
+  &__slot-left {
     padding-right: var(--_cf-space);
   }
 }
@@ -610,6 +617,7 @@
   @include carcassFieldBorder;
   @include carcassFieldIcon;
   @include carcassFieldPrefix;
+  @include carcassFieldSlot;
 
   @include carcassFieldSize;
   @include carcassFieldShape;
