@@ -153,7 +153,7 @@ export const Values = {
   mask: {
     list: [
       { value: undefined },
-      { value: '+7 (***) ***-**-**' },
+      { value: '+7 (***) ***-**-**END' },
       { value: '**** **** **** ****' },
       { value: ['**-**', '***-***'] }
     ]

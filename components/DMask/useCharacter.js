@@ -18,6 +18,9 @@ export default function useCharacter (
     input.value.selectionStart = selection
   })
 
+  const charSelectionMask = (status = 1) => {
+    length.value = character.value.length + status
+  }
   const resetValue = value => {
     const data = []
 
@@ -33,7 +36,7 @@ export default function useCharacter (
     return data
   }
 
-  const character = useWatch([mask], () => resetValue(value.value), ['init'])
+  const character = useWatch([value], () => resetValue(value.value), ['init'])
   const standard = computed(() => {
     const value = []
     let stop
@@ -76,12 +79,12 @@ export default function useCharacter (
         selectionChar++
       }
 
-      if (value === undefined && selectionChar > selection) {
+      if (value === undefined && selectionChar >= selection) {
         value = index
       }
     })
 
-    return value || mask.value.length
+    return value !== undefined ? value : mask.value.length
   }
 
   const setCharacter = (selection, char) => character.value.splice(selection, 0, char)
@@ -91,14 +94,19 @@ export default function useCharacter (
     character.value = resetValue(value)
   }
   const setValue = (selection, char) => {
+    charSelectionMask()
+
     const wait = charMask(selection)
 
-    if (wait) {
+    if (
+      wait &&
+      max.value > standard.value.length
+    ) {
       if (ifSpecialChar(wait)) {
         if (char.toString().match(props.match)) {
           const selectionChar = valueToCharacter(selection)
           setCharacter(selectionChar, char)
-          goSelection(characterToValue(selectionChar))
+          goSelection(characterToValue(selectionChar + 1))
           return true
         }
       } else {
@@ -110,7 +118,12 @@ export default function useCharacter (
   }
   const pasteValue = (selection, value) => {
     let index = valueToCharacter(selection)
-    value.split('').forEach(char => setValue(characterToValue(index++), char))
+
+    value.split('').forEach(char => {
+      if (char.toString().match(props.match)) {
+        setValue(characterToValue(index++), char)
+      }
+    })
   }
   const popValue = (selection, go = true) => {
     const index = selection - 1
@@ -122,14 +135,16 @@ export default function useCharacter (
       const selectionChar = valueToCharacter(index)
 
       popCharacter(selectionChar)
-      goSelection(characterToValue(selectionChar - 1))
+      goSelection(characterToValue(selectionChar))
+
+      charSelectionMask(0)
     }
   }
   const cancel = () => {
     character.value = []
   }
 
-  watch(standard, value => {
+  watch(character, value => {
     length.value = value.length
   })
 

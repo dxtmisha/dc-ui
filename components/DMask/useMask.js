@@ -22,7 +22,9 @@ export default function useMask (props) {
     let mask
 
     if (Array.isArray(props.mask)) {
-      mask = props.mask.find(item => item.length >= length.value)
+      mask = props.mask.find(
+        (item, key) => item?.replace(/[^*]+/ig, '').length >= length.value || key === props.mask.length - 1
+      )
     } else {
       mask = props.mask
     }

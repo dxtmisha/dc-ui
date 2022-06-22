@@ -38,16 +38,12 @@ export default function useEvent (
     }
   }
   const onPaste = event => {
-    let start = event.target.selectionStart
+    const start = event.target.selectionStart
 
     if (start !== event.target.selectionEnd) {
       for (let i = event.target.selectionEnd; i > start; i--) {
         popValue(i, false)
       }
-    }
-
-    if (start > 0) {
-      start--
     }
 
     pasteValue(start, (event.clipboardData || window.clipboardData).getData('text'))
