@@ -1,11 +1,13 @@
-import { computed, toRefs } from 'vue'
+import { computed, toRefs, watch } from 'vue'
 import useWatch from '../../uses/useWatch'
 
 export default function useCharacter (
   input,
   props,
+  length,
   geo,
-  mask
+  mask,
+  max
 ) {
   const { value } = toRefs(props)
 
@@ -114,7 +116,7 @@ export default function useCharacter (
     const index = selection - 1
 
     if (
-      mask.value.length >= selection &&
+      max.value >= selection &&
       (go || ifSpecialChar(charMask(index)))
     ) {
       const selectionChar = valueToCharacter(index)
@@ -126,6 +128,10 @@ export default function useCharacter (
   const cancel = () => {
     character.value = []
   }
+
+  watch(standard, value => {
+    length.value = value.length
+  })
 
   return {
     standard,

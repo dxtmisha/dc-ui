@@ -25,6 +25,7 @@
         />
       </span>
     </span>
+    ( {{ length }} {{ propMax }} )
   </label>
 </template>
 
@@ -47,10 +48,12 @@ export default {
     const chars = ref(undefined)
 
     const {
+      length,
       geo,
       propMask,
       propView,
       propPattern,
+      propMax,
       setDate
     } = useMask(props)
 
@@ -64,8 +67,10 @@ export default {
     } = useCharacter(
       input,
       props,
+      length,
       geo,
-      propMask
+      propMask,
+      propMax
     )
 
     const {
@@ -118,7 +123,9 @@ export default {
       chars,
       standard,
 
+      length,
       propPattern,
+      propMax,
       propChars,
       validationMessage,
 
