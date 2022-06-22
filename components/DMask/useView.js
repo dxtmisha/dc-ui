@@ -21,10 +21,15 @@ export default function useView (
         text = props.viewSpecial
       }
 
-      data.push({
-        class: `d-mask__${type}${validationCode.value && char in validationCode.value ? ' status-error' : ''}`,
-        text
-      })
+      if (
+        props.viewPlaceholder ||
+        index < values.length
+      ) {
+        data.push({
+          class: `d-mask__${type}${validationCode.value && char in validationCode.value ? ' status-error' : ''}`,
+          text
+        })
+      }
     })
 
     return data

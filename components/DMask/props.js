@@ -45,5 +45,8 @@ export const props = {
   viewSpecial: {
     default: defaultProps('viewSpecial', '_')
   },
+  viewPlaceholder: {
+    default: defaultProps('viewPlaceholder', true)
+  },
   inputAttrs: undefined
 }

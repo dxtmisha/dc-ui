@@ -376,5 +376,6 @@ export const Options = {
     ]
   },
   width: {},
-  vertical: {}
+  vertical: {},
+  viewPlaceholder: {}
 }

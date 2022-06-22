@@ -25,7 +25,6 @@
         />
       </span>
     </span>
-    ( {{ length }} {{ propMax }} )
   </label>
 </template>
 
