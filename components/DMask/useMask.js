@@ -1,7 +1,8 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import GeoDate from '../../classes/GeoDate'
 
 export default function useMask (props) {
+  const length = ref(0)
   const geo = computed(() => props.type === 'text' ? undefined : new GeoDate(props.locales).setType(props.type))
 
   const getDate = (date = '1987-12-18 10:20:00') => geo.value.toString(date)
@@ -17,6 +18,17 @@ export default function useMask (props) {
     }
   }
 
+  const propBasic = computed(() => {
+    let mask
+
+    if (Array.isArray(props.mask)) {
+      mask = props.mask.find(item => item.length >= length.value)
+    } else {
+      mask = props.mask
+    }
+
+    return mask?.toString().split('') || []
+  })
   const propMask = computed(() => {
     if (geo.value) {
       return getDate()
@@ -24,7 +36,7 @@ export default function useMask (props) {
         .replace(/12|18|10|20/ig, '**')
         .split('')
     } else {
-      return props.mask?.toString().split('') || []
+      return propBasic.value
     }
   })
   const propView = computed(() => {
@@ -37,7 +49,25 @@ export default function useMask (props) {
         .replace('20', 'MM')
         .split('')
     } else {
-      return props.mask?.toString().split('') || []
+      return propBasic.value
+    }
+  })
+  const propMax = computed(() => {
+    if (
+      geo.value ||
+      !Array.isArray(props.mask)
+    ) {
+      return propMask.value.length
+    } else {
+      let length = 0
+
+      props.mask.forEach(item => {
+        if (item.length > length) {
+          length = item.length
+        }
+      })
+
+      return length
     }
   })
   const propPattern = computed(() => {
@@ -75,10 +105,12 @@ export default function useMask (props) {
   })
 
   return {
+    length,
     geo,
     propMask,
     propView,
     propPattern,
+    propMax,
     getDate,
     setDate
   }

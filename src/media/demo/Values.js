@@ -154,7 +154,8 @@ export const Values = {
     list: [
       { value: undefined },
       { value: '+7 (***) ***-**-**' },
-      { value: '**** **** **** ****' }
+      { value: '**** **** **** ****' },
+      { value: ['**-**', '***-***'] }
     ]
   },
   menu: { message: menuMin },

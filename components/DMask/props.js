@@ -6,7 +6,7 @@ export const props = {
   // Values
   value: String,
   mask: {
-    type: String,
+    type: [Array, String],
     default: defaultProps('mask', '**** **** **** ****')
   },
   match: {

@@ -31,7 +31,7 @@ export default function useCharacter (
     return data
   }
 
-  const character = useWatch([mask, value], () => resetValue(value.value), ['init'])
+  const character = useWatch([mask], () => resetValue(value.value), ['init'])
   const standard = computed(() => {
     const value = []
     let stop
