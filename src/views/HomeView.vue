@@ -56,6 +56,7 @@ export default {
           'd-form',
           'd-input',
           'd-mask',
+          'd-phone',
           'd-select',
           'd-select-filter',
           'd-select-value',

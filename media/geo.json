@@ -1,703 +1,853 @@
 [
   {
-    "iso2": "GB",
-    "phoneCode": "44",
-    "timeZone": "Europe\/London",
+    "iso2": "US",
+    "isoC": "EN",
+    "phoneCode": "1",
+    "timeZone": "America/New_York",
     "languageCodes": "en",
-    "firstDay": "Mo"
+    "firstDay": "Su",
+    "phoneMask": "+1-***-***-****"
+  },
+  {
+    "iso2": "GB",
+    "isoC": "UK",
+    "phoneCode": "44",
+    "timeZone": "Europe/London",
+    "languageCodes": "en",
+    "firstDay": "Mo",
+    "phoneMask": "+44-**-****-****"
   },
   {
     "iso2": "AF",
     "phoneCode": "93",
-    "timeZone": "Asia\/Kabul",
+    "timeZone": "Asia/Kabul",
     "languageCodes": "fa",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+93-**-***-****"
   },
   {
     "iso2": "AL",
     "phoneCode": "355",
-    "timeZone": "Europe\/Tirane",
+    "timeZone": "Europe/Tirane",
     "languageCodes": "sq",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+355-***-***-***"
   },
   {
     "iso2": "DZ",
     "phoneCode": "213",
-    "timeZone": "Africa\/Algiers",
+    "timeZone": "Africa/Algiers",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+213-**-***-****"
   },
   {
     "iso2": "AS",
     "phoneCode": "1-684",
-    "timeZone": "Pacific\/Pago_Pago",
+    "timeZone": "Pacific/Pago_Pago",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-684-***-****"
   },
   {
     "iso2": "AD",
     "phoneCode": "376",
-    "timeZone": "Europe\/Andorra",
+    "timeZone": "Europe/Andorra",
     "languageCodes": "ca",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+376-***-***"
   },
   {
     "iso2": "AO",
     "phoneCode": "244",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "pt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+244-***-***-***"
   },
   {
     "iso2": "AI",
     "phoneCode": "1-264",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-264-***-****"
   },
   {
     "iso2": "AQ",
     "phoneCode": "672",
-    "timeZone": "Antarctica\/Troll",
+    "timeZone": "Antarctica/Troll",
     "languageCodes": "",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+672-1-**-***"
   },
   {
     "iso2": "AG",
     "phoneCode": "1-268",
-    "timeZone": "America\/Antigua",
+    "timeZone": "America/Antigua",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-268-***-****"
   },
   {
     "iso2": "AR",
     "phoneCode": "54",
-    "timeZone": "America\/Argentina\/Buenos_Aires",
+    "timeZone": "America/Argentina/Buenos_Aires",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+54-***-***-****"
   },
   {
     "iso2": "AM",
     "phoneCode": "374",
-    "timeZone": "Asia\/Yerevan",
+    "timeZone": "Asia/Yerevan",
     "languageCodes": "hy",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+374-**-***-***"
   },
   {
     "iso2": "AW",
     "phoneCode": "297",
-    "timeZone": "America\/Curacao",
+    "timeZone": "America/Curacao",
     "languageCodes": "nl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+297-***-****"
   },
   {
     "iso2": "AU",
     "phoneCode": "61",
-    "timeZone": "Australia\/Sydney",
+    "timeZone": "Australia/Sydney",
     "languageCodes": "en",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+61-*-****-****"
   },
   {
     "iso2": "AT",
     "phoneCode": "43",
-    "timeZone": "Europe\/Vienna",
+    "timeZone": "Europe/Vienna",
     "languageCodes": "de",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+43-***-***-****"
   },
   {
     "iso2": "AZ",
     "phoneCode": "994",
-    "timeZone": "Asia\/Baku",
+    "timeZone": "Asia/Baku",
     "languageCodes": "az",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+994-**-***-**-**"
   },
   {
     "iso2": "BS",
     "phoneCode": "1-242",
-    "timeZone": "America\/Nassau",
+    "timeZone": "America/Nassau",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-242-***-****"
   },
   {
     "iso2": "BH",
     "phoneCode": "973",
-    "timeZone": "Asia\/Bahrain",
+    "timeZone": "Asia/Bahrain",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+973-****-****"
   },
   {
     "iso2": "BD",
     "phoneCode": "880",
-    "timeZone": "Asia\/Dhaka",
+    "timeZone": "Asia/Dhaka",
     "languageCodes": "bn",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+880-**-***-***"
   },
   {
     "iso2": "BB",
     "phoneCode": "1-246",
-    "timeZone": "America\/Barbados",
+    "timeZone": "America/Barbados",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-246-***-****"
   },
   {
     "iso2": "BY",
     "phoneCode": "375",
-    "timeZone": "Europe\/Minsk",
+    "timeZone": "Europe/Minsk",
     "languageCodes": "be",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+375-**-***-**-**"
   },
   {
     "iso2": "BE",
     "phoneCode": "32",
-    "timeZone": "Europe\/Brussels",
+    "timeZone": "Europe/Brussels",
     "languageCodes": "nl",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+32-***-***-***"
   },
   {
     "iso2": "BZ",
     "phoneCode": "501",
-    "timeZone": "America\/Belize",
+    "timeZone": "America/Belize",
     "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+501-***-****"
   },
   {
     "iso2": "BJ",
     "phoneCode": "229",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+229-**-**-****"
   },
   {
     "iso2": "BM",
     "phoneCode": "1-441",
-    "timeZone": "Atlantic\/Bermuda",
+    "timeZone": "Atlantic/Bermuda",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-441-***-****"
   },
   {
     "iso2": "BT",
     "phoneCode": "975",
-    "timeZone": "Asia\/Thimphu",
+    "timeZone": "Asia/Thimphu",
     "languageCodes": "dz",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+975-*-***-***",
+      "+975-17-***-***"
+    ]
   },
   {
     "iso2": "BO",
     "phoneCode": "591",
-    "timeZone": "America\/La_Paz",
+    "timeZone": "America/La_Paz",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+591-*-***-****"
   },
   {
     "iso2": "BA",
     "phoneCode": "387",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "bs",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+387-**-****",
+      "+387-**-*****"
+    ]
   },
   {
     "iso2": "BW",
     "phoneCode": "267",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+267-**-***-***"
   },
   {
     "iso2": "BR",
     "phoneCode": "55",
-    "timeZone": "America\/Sao_Paulo",
+    "timeZone": "America/Sao_Paulo",
     "languageCodes": "pt",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+55-**-****-****",
+      "+55-**-*****-****"
+    ]
   },
   {
     "iso2": "IO",
     "phoneCode": "246",
-    "timeZone": "Indian\/Chagos",
+    "timeZone": "Indian/Chagos",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+246-***-****"
   },
   {
     "iso2": "VG",
     "phoneCode": "1-284",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-284-***-****"
   },
   {
     "iso2": "BN",
     "phoneCode": "673",
-    "timeZone": "Asia\/Brunei",
+    "timeZone": "Asia/Brunei",
     "languageCodes": "ms",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+673-***-****"
   },
   {
     "iso2": "BG",
     "phoneCode": "359",
-    "timeZone": "Europe\/Sofia",
+    "timeZone": "Europe/Sofia",
     "languageCodes": "bg",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+359-***-***-***"
   },
   {
     "iso2": "BF",
     "phoneCode": "226",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+226-**-**-****"
   },
   {
     "iso2": "BI",
     "phoneCode": "257",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+257-**-**-****"
   },
   {
     "iso2": "KH",
     "phoneCode": "855",
-    "timeZone": "Asia\/Phnom_Penh",
+    "timeZone": "Asia/Phnom_Penh",
     "languageCodes": "km",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+855-**-***-***"
   },
   {
     "iso2": "CM",
     "phoneCode": "237",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+237-****-****"
   },
   {
     "iso2": "CA",
     "phoneCode": "1",
-    "timeZone": "America\/Toronto",
+    "timeZone": "America/Toronto",
     "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+1-***-***-****"
   },
   {
     "iso2": "CV",
     "phoneCode": "238",
-    "timeZone": "Atlantic\/Cape_Verde",
+    "timeZone": "Atlantic/Cape_Verde",
     "languageCodes": "pt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+238-***-**-**"
   },
   {
     "iso2": "KY",
     "phoneCode": "1-345",
-    "timeZone": "America\/Cayman",
+    "timeZone": "America/Cayman",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-345-***-****"
   },
   {
     "iso2": "CF",
     "phoneCode": "236",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+236-**-**-****"
   },
   {
     "iso2": "TD",
     "phoneCode": "235",
-    "timeZone": "Africa\/Ndjamena",
+    "timeZone": "Africa/Ndjamena",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+235-**-**-**-**"
   },
   {
     "iso2": "CL",
     "phoneCode": "56",
-    "timeZone": "America\/Santiago",
+    "timeZone": "America/Santiago",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+56-*-****-****"
   },
   {
     "iso2": "CN",
     "phoneCode": "86",
-    "timeZone": "Asia\/Shanghai",
+    "timeZone": "Asia/Shanghai",
     "languageCodes": "zh",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+86-***-****-***",
+      "+86-***-****-****",
+      "+86-**-*****-*****"
+    ]
   },
   {
     "iso2": "CX",
     "phoneCode": "61",
-    "timeZone": "Indian\/Christmas",
+    "timeZone": "Indian/Christmas",
     "languageCodes": "en",
     "firstDay": null
   },
   {
     "iso2": "CC",
     "phoneCode": "61",
-    "timeZone": "Indian\/Cocos",
+    "timeZone": "Indian/Cocos",
     "languageCodes": "ms",
     "firstDay": null
   },
   {
     "iso2": "CO",
     "phoneCode": "57",
-    "timeZone": "America\/Bogota",
+    "timeZone": "America/Bogota",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+57-***-***-****"
   },
   {
     "iso2": "KM",
     "phoneCode": "269",
-    "timeZone": "Indian\/Comoro",
+    "timeZone": "Indian/Comoro",
     "languageCodes": "ar",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+269-**-*****"
   },
   {
     "iso2": "CK",
     "phoneCode": "682",
-    "timeZone": "Pacific\/Rarotonga",
+    "timeZone": "Pacific/Rarotonga",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+682-**-***"
   },
   {
     "iso2": "CR",
     "phoneCode": "506",
-    "timeZone": "America\/Costa_Rica",
+    "timeZone": "America/Costa_Rica",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+506-****-****"
   },
   {
     "iso2": "HR",
     "phoneCode": "385",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "hr",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+385-**-***-***"
   },
   {
     "iso2": "CU",
     "phoneCode": "53",
-    "timeZone": "America\/Havana",
+    "timeZone": "America/Havana",
     "languageCodes": "es",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+53-*-***-****"
   },
   {
     "iso2": "CW",
     "phoneCode": "599",
-    "timeZone": "America\/Curacao",
+    "timeZone": "America/Curacao",
     "languageCodes": "nl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+599-***-****"
   },
   {
     "iso2": "CY",
     "phoneCode": "357",
-    "timeZone": "Asia\/Nicosia",
+    "timeZone": "Asia/Nicosia",
     "languageCodes": "el",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+357-**-***-***"
   },
   {
     "iso2": "CZ",
     "phoneCode": "420",
-    "timeZone": "Europe\/Prague",
+    "timeZone": "Europe/Prague",
     "languageCodes": "cs",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+420-***-***-***"
   },
   {
     "iso2": "CD",
     "phoneCode": "243",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+243-***-***-***"
   },
   {
     "iso2": "DK",
     "phoneCode": "45",
-    "timeZone": "Europe\/Copenhagen",
+    "timeZone": "Europe/Copenhagen",
     "languageCodes": "da",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+45-**-**-**-**"
   },
   {
     "iso2": "DJ",
     "phoneCode": "253",
-    "timeZone": "Africa\/Djibouti",
+    "timeZone": "Africa/Djibouti",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+253-**-**-**-**"
   },
   {
     "iso2": "DM",
     "phoneCode": "1-767",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-767-***-****"
   },
   {
     "iso2": "DO",
     "phoneCode": "1-809",
     "timeZone": "North America",
-    "languageCodes": "America\/Santo_Domingo",
-    "firstDay": "Su"
+    "languageCodes": "America/Santo_Domingo",
+    "firstDay": "Su",
+    "phoneMask": [
+      "+1-809-***-****",
+      "+1-829-***-****",
+      "+1-849-***-****"
+    ]
   },
   {
     "iso2": "TL",
     "phoneCode": "670",
-    "timeZone": "Asia\/Dili",
+    "timeZone": "Asia/Dili",
     "languageCodes": "tet",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+670-***-****",
+      "+670-77-*-*****",
+      "+670-78-*-*****"
+    ]
   },
   {
     "iso2": "EC",
     "phoneCode": "593",
-    "timeZone": "America\/Guayaquil",
+    "timeZone": "America/Guayaquil",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+593-*-***-****",
+      "+593-**-***-****"
+    ]
   },
   {
     "iso2": "EG",
     "phoneCode": "20",
-    "timeZone": "Africa\/Cairo",
+    "timeZone": "Africa/Cairo",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+20-***-***-****"
   },
   {
     "iso2": "SV",
     "phoneCode": "503",
-    "timeZone": "America\/El_Salvador",
+    "timeZone": "America/El_Salvador",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+503-**-**-****"
   },
   {
     "iso2": "GQ",
     "phoneCode": "240",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "es",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+240-**-***-****"
   },
   {
     "iso2": "ER",
     "phoneCode": "291",
-    "timeZone": "Africa\/Asmara",
+    "timeZone": "Africa/Asmara",
     "languageCodes": "aa",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+291-*-***-***"
   },
   {
     "iso2": "EE",
     "phoneCode": "372",
-    "timeZone": "Europe\/Tallinn",
+    "timeZone": "Europe/Tallinn",
     "languageCodes": "et",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+372-***-****",
+      "+372-****-****"
+    ]
   },
   {
     "iso2": "ET",
     "phoneCode": "251",
-    "timeZone": "Africa\/Addis_Ababa",
+    "timeZone": "Africa/Addis_Ababa",
     "languageCodes": "am",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+251-**-***-****"
   },
   {
     "iso2": "FK",
     "phoneCode": "500",
-    "timeZone": "Atlantic\/Stanley",
+    "timeZone": "Atlantic/Stanley",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+500-*****"
   },
   {
     "iso2": "FO",
     "phoneCode": "298",
-    "timeZone": "Atlantic\/Faroe",
+    "timeZone": "Atlantic/Faroe",
     "languageCodes": "fo",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+298-***-***"
   },
   {
     "iso2": "FJ",
     "phoneCode": "679",
-    "timeZone": "Pacific\/Fiji",
+    "timeZone": "Pacific/Fiji",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+679-**-*****"
   },
   {
     "iso2": "FI",
     "phoneCode": "358",
-    "timeZone": "Europe\/Helsinki",
+    "timeZone": "Europe/Helsinki",
     "languageCodes": "fi",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+358-***-***-**-**"
   },
   {
     "iso2": "FR",
     "phoneCode": "33",
-    "timeZone": "Europe\/Paris",
+    "timeZone": "Europe/Paris",
     "languageCodes": "fr",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+33-***-***-***",
+      "+262-*****-****",
+      "+508-**-****",
+      "+590-***-***-***"
+    ]
   },
   {
     "iso2": "PF",
     "phoneCode": "689",
-    "timeZone": "Pacific\/Tahiti",
+    "timeZone": "Pacific/Tahiti",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+689-**-**-**"
   },
   {
     "iso2": "GA",
     "phoneCode": "241",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+241-*-**-**-**"
   },
   {
     "iso2": "GM",
     "phoneCode": "220",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+220-***-**-**"
   },
   {
     "iso2": "GE",
     "phoneCode": "995",
-    "timeZone": "Asia\/Tbilisi",
+    "timeZone": "Asia/Tbilisi",
     "languageCodes": "ka",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+995-***-***-***"
   },
   {
     "iso2": "DE",
     "phoneCode": "49",
-    "timeZone": "Europe\/Berlin",
+    "timeZone": "Europe/Berlin",
     "languageCodes": "de",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+49-***-***",
+      "+49-***-***-****",
+      "+49-****-***-****"
+    ]
   },
   {
     "iso2": "GH",
     "phoneCode": "233",
-    "timeZone": "Africa\/Accra",
+    "timeZone": "Africa/Accra",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+233-***-***-***"
   },
   {
     "iso2": "GI",
     "phoneCode": "350",
-    "timeZone": "Europe\/Gibraltar",
+    "timeZone": "Europe/Gibraltar",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+350-***-*****"
   },
   {
     "iso2": "GR",
     "phoneCode": "30",
-    "timeZone": "Europe\/Athens",
+    "timeZone": "Europe/Athens",
     "languageCodes": "el",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+30-***-***-****"
   },
   {
     "iso2": "GL",
     "phoneCode": "299",
-    "timeZone": "America\/Godthab",
+    "timeZone": "America/Godthab",
     "languageCodes": "kl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+299-**-**-**"
   },
   {
     "iso2": "GD",
     "phoneCode": "1-473",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-473-***-****"
   },
   {
     "iso2": "GU",
     "phoneCode": "1-671",
-    "timeZone": "Pacific\/Guam",
+    "timeZone": "Pacific/Guam",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-671-***-****"
   },
   {
     "iso2": "GT",
     "phoneCode": "502",
-    "timeZone": "America\/Guatemala",
+    "timeZone": "America/Guatemala",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+502-*-***-****"
   },
   {
     "iso2": "GG",
     "phoneCode": "44-1481",
-    "timeZone": "Europe\/London",
+    "timeZone": "Europe/London",
     "languageCodes": "en",
     "firstDay": null
   },
   {
     "iso2": "GN",
     "phoneCode": "224",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+224-**-***-***"
   },
   {
     "iso2": "GW",
     "phoneCode": "245",
-    "timeZone": "Africa\/Bissau",
+    "timeZone": "Africa/Bissau",
     "languageCodes": "pt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+245-*-******"
   },
   {
     "iso2": "GY",
     "phoneCode": "592",
-    "timeZone": "America\/Guyana",
+    "timeZone": "America/Guyana",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+592-***-****"
   },
   {
     "iso2": "HT",
     "phoneCode": "509",
-    "timeZone": "America\/Port-au-Prince",
+    "timeZone": "America/Port-au-Prince",
     "languageCodes": "ht",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+509-**-**-****"
   },
   {
     "iso2": "HN",
     "phoneCode": "504",
-    "timeZone": "America\/Tegucigalpa",
+    "timeZone": "America/Tegucigalpa",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+504-****-****"
   },
   {
     "iso2": "HK",
     "phoneCode": "852",
-    "timeZone": "Asia\/Hong_Kong",
+    "timeZone": "Asia/Hong_Kong",
     "languageCodes": "zh",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+852-****-****"
   },
   {
     "iso2": "HU",
     "phoneCode": "36",
-    "timeZone": "Europe\/Budapest",
+    "timeZone": "Europe/Budapest",
     "languageCodes": "hu",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+36-***-***-***"
   },
   {
     "iso2": "IS",
     "phoneCode": "354",
-    "timeZone": "Atlantic\/Reykjavik",
+    "timeZone": "Atlantic/Reykjavik",
     "languageCodes": "is",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+354-***-****"
   },
   {
     "iso2": "IN",
     "phoneCode": "91",
-    "timeZone": "Asia\/Kolkata",
+    "timeZone": "Asia/Kolkata",
     "languageCodes": "en",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+91-****-***-***"
   },
   {
     "iso2": "ID",
     "phoneCode": "62",
-    "timeZone": "Asia\/Jakarta",
+    "timeZone": "Asia/Jakarta",
     "languageCodes": "id",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+62-**-***-**",
+      "+62-**-***-***",
+      "+62-**-***-****",
+      "+62-8-**-***-***",
+      "+62-8-**-***-****",
+      "+62-8-**-***-**-***"
+    ]
   },
   {
     "iso2": "IR",
     "phoneCode": "98",
-    "timeZone": "Asia\/Tehran",
+    "timeZone": "Asia/Tehran",
     "languageCodes": "fa",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+98-***-***-****"
   },
   {
     "iso2": "IQ",
     "phoneCode": "964",
-    "timeZone": "Asia\/Baghdad",
+    "timeZone": "Asia/Baghdad",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+964-***-***-****"
   },
   {
     "iso2": "IE",
     "phoneCode": "353",
-    "timeZone": "Europe\/Dublin",
+    "timeZone": "Europe/Dublin",
     "languageCodes": "en",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+353-***-***-***"
   },
   {
     "iso2": "IM",
@@ -709,492 +859,612 @@
   {
     "iso2": "IL",
     "phoneCode": "972",
-    "timeZone": "Asia\/Jerusalem",
+    "timeZone": "Asia/Jerusalem",
     "languageCodes": "he",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+972-*-***-****",
+      "+972-5-*-***-****"
+    ]
   },
   {
     "iso2": "IT",
     "phoneCode": "39",
-    "timeZone": "Europe\/Rome",
+    "timeZone": "Europe/Rome",
     "languageCodes": "it",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+39-***-****-***"
   },
   {
     "iso2": "CI",
     "phoneCode": "225",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+225-**-***-***"
   },
   {
     "iso2": "JM",
     "phoneCode": "1-876",
-    "timeZone": "America\/Jamaica",
+    "timeZone": "America/Jamaica",
     "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+1-876-***-****"
   },
   {
     "iso2": "JP",
     "phoneCode": "81",
-    "timeZone": "Asia\/Tokyo",
+    "timeZone": "Asia/Tokyo",
     "languageCodes": "ja",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+81-***-***-***",
+      "+81-**-****-****"
+    ]
   },
   {
     "iso2": "JE",
     "phoneCode": "44-1534",
-    "timeZone": "Europe\/London",
+    "timeZone": "Europe/London",
     "languageCodes": "en",
     "firstDay": null
   },
   {
     "iso2": "JO",
     "phoneCode": "962",
-    "timeZone": "Asia\/Amman",
+    "timeZone": "Asia/Amman",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+962-*-****-****"
   },
   {
     "iso2": "KZ",
     "phoneCode": "7",
-    "timeZone": "Asia\/Almaty",
+    "timeZone": "Asia/Almaty",
     "languageCodes": "kk",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+7-6-**-***-**-**",
+      "+7-7-**-***-**-**"
+    ]
   },
   {
     "iso2": "KE",
     "phoneCode": "254",
-    "timeZone": "Africa\/Nairobi",
+    "timeZone": "Africa/Nairobi",
     "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+254-***-******"
   },
   {
     "iso2": "KI",
     "phoneCode": "686",
-    "timeZone": "Pacific\/Tarawa",
+    "timeZone": "Pacific/Tarawa",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+686-**-***"
   },
   {
     "iso2": "XK",
     "phoneCode": "383",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "sq",
     "firstDay": "Mo"
   },
   {
     "iso2": "KW",
     "phoneCode": "965",
-    "timeZone": "Asia\/Kuwait",
+    "timeZone": "Asia/Kuwait",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+965-****-****"
   },
   {
     "iso2": "KG",
     "phoneCode": "996",
-    "timeZone": "Asia\/Bishkek",
+    "timeZone": "Asia/Bishkek",
     "languageCodes": "ky",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+996-***-***-***"
   },
   {
     "iso2": "LA",
     "phoneCode": "856",
-    "timeZone": "Asia\/Vientiane",
+    "timeZone": "Asia/Vientiane",
     "languageCodes": "lo",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+856-**-***-***",
+      "+856-20-**-***-***"
+    ]
   },
   {
     "iso2": "LV",
     "phoneCode": "371",
-    "timeZone": "Europe\/Riga",
+    "timeZone": "Europe/Riga",
     "languageCodes": "lv",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+371-**-***-***"
   },
   {
     "iso2": "LB",
     "phoneCode": "961",
-    "timeZone": "Asia\/Beirut",
+    "timeZone": "Asia/Beirut",
     "languageCodes": "ar",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+961-*-***-***",
+      "+961-**-***-***"
+    ]
   },
   {
     "iso2": "LS",
     "phoneCode": "266",
-    "timeZone": "Africa\/Johannesburg",
+    "timeZone": "Africa/Johannesburg",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+266-*-***-****"
   },
   {
     "iso2": "LR",
     "phoneCode": "231",
-    "timeZone": "Africa\/Monrovia",
+    "timeZone": "Africa/Monrovia",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+231-**-***-***"
   },
   {
     "iso2": "LY",
     "phoneCode": "218",
-    "timeZone": "Africa\/Tripoli",
+    "timeZone": "Africa/Tripoli",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": [
+      "+218-**-***-***",
+      "+218-21-***-****"
+    ]
   },
   {
     "iso2": "LI",
     "phoneCode": "423",
-    "timeZone": "Europe\/Zurich",
+    "timeZone": "Europe/Zurich",
     "languageCodes": "de",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+423-***-***-****"
   },
   {
     "iso2": "LT",
     "phoneCode": "370",
-    "timeZone": "Europe\/Vilnius",
+    "timeZone": "Europe/Vilnius",
     "languageCodes": "lt",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+370-***-**-***"
   },
   {
     "iso2": "LU",
     "phoneCode": "352",
-    "timeZone": "Europe\/Luxembourg",
+    "timeZone": "Europe/Luxembourg",
     "languageCodes": "lb",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+352-***-***-***"
   },
   {
     "iso2": "MO",
     "phoneCode": "853",
-    "timeZone": "Asia\/Macau",
+    "timeZone": "Asia/Macau",
     "languageCodes": "zh",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+853-****-****"
   },
   {
     "iso2": "MK",
     "phoneCode": "389",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "mk",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+389-**-***-***"
   },
   {
     "iso2": "MG",
     "phoneCode": "261",
-    "timeZone": "Indian\/Antananarivo",
+    "timeZone": "Indian/Antananarivo",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+261-**-**-*****"
   },
   {
     "iso2": "MW",
     "phoneCode": "265",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "ny",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+265-*-****-****",
+      "+265-1-***-***"
+    ]
   },
   {
     "iso2": "MY",
     "phoneCode": "60",
-    "timeZone": "Asia\/Kuala_Lumpur",
+    "timeZone": "Asia/Kuala_Lumpur",
     "languageCodes": "ms",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+60-*-***-***",
+      "+60-**-***-***",
+      "+60-**-***-****",
+      "+60-***-***-***"
+    ]
   },
   {
     "iso2": "MV",
     "phoneCode": "960",
-    "timeZone": "Indian\/Maldives",
+    "timeZone": "Indian/Maldives",
     "languageCodes": "dv",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+960-***-****"
   },
   {
     "iso2": "ML",
     "phoneCode": "223",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+223-**-**-****"
   },
   {
     "iso2": "MT",
     "phoneCode": "356",
-    "timeZone": "Europe\/Malta",
+    "timeZone": "Europe/Malta",
     "languageCodes": "mt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+356-****-****"
   },
   {
     "iso2": "MH",
     "phoneCode": "692",
-    "timeZone": "Pacific\/Majuro",
+    "timeZone": "Pacific/Majuro",
     "languageCodes": "mh",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+692-***-****"
   },
   {
     "iso2": "MR",
     "phoneCode": "222",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "ar",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+222-**-**-****"
   },
   {
     "iso2": "MU",
     "phoneCode": "230",
-    "timeZone": "Indian\/Mauritius",
+    "timeZone": "Indian/Mauritius",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+230-***-****"
   },
   {
     "iso2": "YT",
     "phoneCode": "262",
-    "timeZone": "Indian\/Mayotte",
+    "timeZone": "Indian/Mayotte",
     "languageCodes": "fr",
     "firstDay": null
   },
   {
     "iso2": "MX",
     "phoneCode": "52",
-    "timeZone": "America\/Mexico_City",
+    "timeZone": "America/Mexico_City",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+52-**-**-****",
+      "+52-***-***-****"
+    ]
   },
   {
     "iso2": "FM",
     "phoneCode": "691",
-    "timeZone": "Pacific\/Pohnpei",
+    "timeZone": "Pacific/Pohnpei",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+691-***-****"
   },
   {
     "iso2": "MD",
     "phoneCode": "373",
-    "timeZone": "Europe\/Chisinau",
+    "timeZone": "Europe/Chisinau",
     "languageCodes": "ro",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+373-****-****"
   },
   {
     "iso2": "MC",
     "phoneCode": "377",
-    "timeZone": "Europe\/Monaco",
+    "timeZone": "Europe/Monaco",
     "languageCodes": "fr",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+377-**-***-***",
+      "+377-***-***-***"
+    ]
   },
   {
     "iso2": "MN",
     "phoneCode": "976",
-    "timeZone": "Asia\/Ulaanbaatar",
+    "timeZone": "Asia/Ulaanbaatar",
     "languageCodes": "mn",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+976-**-**-****"
   },
   {
     "iso2": "ME",
     "phoneCode": "382",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "sr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+382-**-***-***"
   },
   {
     "iso2": "MS",
     "phoneCode": "1-664",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-664-***-****"
   },
   {
     "iso2": "MA",
     "phoneCode": "212",
-    "timeZone": "Africa\/Casablanca",
+    "timeZone": "Africa/Casablanca",
     "languageCodes": "ar",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+212-**-****-***"
   },
   {
     "iso2": "MZ",
     "phoneCode": "258",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "pt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+258-**-***-***"
   },
   {
     "iso2": "MM",
     "phoneCode": "95",
-    "timeZone": "Asia\/Rangoon",
+    "timeZone": "Asia/Rangoon",
     "languageCodes": "my",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+95-***-***",
+      "+95-*-***-***",
+      "+95-**-***-***"
+    ]
   },
   {
     "iso2": "NA",
     "phoneCode": "264",
-    "timeZone": "Africa\/Windhoek",
+    "timeZone": "Africa/Windhoek",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+264-**-***-****"
   },
   {
     "iso2": "NR",
     "phoneCode": "674",
-    "timeZone": "Pacific\/Nauru",
+    "timeZone": "Pacific/Nauru",
     "languageCodes": "na",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+674-***-****"
   },
   {
     "iso2": "NP",
     "phoneCode": "977",
-    "timeZone": "Asia\/Kathmandu",
+    "timeZone": "Asia/Kathmandu",
     "languageCodes": "ne",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+977-**-***-***"
   },
   {
     "iso2": "NL",
     "phoneCode": "31",
-    "timeZone": "Europe\/Amsterdam",
+    "timeZone": "Europe/Amsterdam",
     "languageCodes": "nl",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+31-**-***-****"
   },
   {
     "iso2": "AN",
     "phoneCode": "599",
-    "timeZone": "America\/Curacao",
+    "timeZone": "America/Curacao",
     "languageCodes": "nl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+599-***-****",
+      "+599-9-***-****"
+    ]
   },
   {
     "iso2": "NC",
     "phoneCode": "687",
-    "timeZone": "Pacific\/Noumea",
+    "timeZone": "Pacific/Noumea",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+687-**-****"
   },
   {
     "iso2": "NZ",
     "phoneCode": "64",
-    "timeZone": "Pacific\/Auckland",
+    "timeZone": "Pacific/Auckland",
     "languageCodes": "en",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+64-**-***-***",
+      "+64-***-***-***",
+      "+64-***-***-****"
+    ]
   },
   {
     "iso2": "NI",
     "phoneCode": "505",
-    "timeZone": "America\/Managua",
+    "timeZone": "America/Managua",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+505-****-****"
   },
   {
     "iso2": "NE",
     "phoneCode": "227",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+227-**-**-****"
   },
   {
     "iso2": "NG",
     "phoneCode": "234",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+234-**-***-**",
+      "+234-**-***-***",
+      "+234-***-***-****"
+    ]
   },
   {
     "iso2": "NU",
     "phoneCode": "683",
-    "timeZone": "Pacific\/Niue",
+    "timeZone": "Pacific/Niue",
     "languageCodes": "niu",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+683-****"
   },
   {
     "iso2": "KP",
     "phoneCode": "850",
-    "timeZone": "Asia\/Pyongyang",
+    "timeZone": "Asia/Pyongyang",
     "languageCodes": "ko",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+850-***-***",
+      "+850-**-***-***",
+      "+850-****-****",
+      "+850-***-****-***",
+      "+850-****-*************",
+      "+850-191-***-****"
+    ]
   },
   {
     "iso2": "MP",
     "phoneCode": "1-670",
-    "timeZone": "Pacific\/Saipan",
+    "timeZone": "Pacific/Saipan",
     "languageCodes": "fil",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-670-***-****"
   },
   {
     "iso2": "NO",
     "phoneCode": "47",
-    "timeZone": "Europe\/Oslo",
+    "timeZone": "Europe/Oslo",
     "languageCodes": "no",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+47-***-**-***"
   },
   {
     "iso2": "OM",
     "phoneCode": "968",
-    "timeZone": "Asia\/Muscat",
+    "timeZone": "Asia/Muscat",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+968-**-***-***"
   },
   {
     "iso2": "PK",
     "phoneCode": "92",
-    "timeZone": "Asia\/Karachi",
+    "timeZone": "Asia/Karachi",
     "languageCodes": "ur",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+92-***-***-****"
   },
   {
     "iso2": "PW",
     "phoneCode": "680",
-    "timeZone": "Pacific\/Palau",
+    "timeZone": "Pacific/Palau",
     "languageCodes": "pau",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+680-***-****"
   },
   {
     "iso2": "PS",
     "phoneCode": "970",
-    "timeZone": "Asia\/Hebron",
+    "timeZone": "Asia/Hebron",
     "languageCodes": "ar",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+970-**-***-****"
   },
   {
     "iso2": "PA",
     "phoneCode": "507",
-    "timeZone": "America\/Panama",
+    "timeZone": "America/Panama",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+507-***-****"
   },
   {
     "iso2": "PG",
     "phoneCode": "675",
-    "timeZone": "Pacific\/Port_Moresby",
+    "timeZone": "Pacific/Port_Moresby",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+675-***-**-***"
   },
   {
     "iso2": "PY",
     "phoneCode": "595",
-    "timeZone": "America\/Asuncion",
+    "timeZone": "America/Asuncion",
     "languageCodes": "es",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+595-***-***-***"
   },
   {
     "iso2": "PE",
     "phoneCode": "51",
-    "timeZone": "America\/Lima",
+    "timeZone": "America/Lima",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+51-***-***-***"
   },
   {
     "iso2": "PH",
     "phoneCode": "63",
-    "timeZone": "Asia\/Manila",
+    "timeZone": "Asia/Manila",
     "languageCodes": "tl",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+63-***-***-****"
   },
   {
     "iso2": "PN",
     "phoneCode": "64",
-    "timeZone": "Pacific\/Pitcairn",
+    "timeZone": "Pacific/Pitcairn",
     "languageCodes": "en",
     "firstDay": null
   },
   {
     "iso2": "PL",
     "phoneCode": "48",
-    "timeZone": "Europe\/Warsaw",
+    "timeZone": "Europe/Warsaw",
     "languageCodes": "pl",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+48-***-***-***"
   },
   {
     "iso2": "PT",
     "phoneCode": "351",
-    "timeZone": "Europe\/Lisbon",
+    "timeZone": "Europe/Lisbon",
     "languageCodes": "pt",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+351-**-***-****"
   },
   {
     "iso2": "PR",
@@ -1206,477 +1476,595 @@
   {
     "iso2": "QA",
     "phoneCode": "974",
-    "timeZone": "Asia\/Qatar",
+    "timeZone": "Asia/Qatar",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+974-****-****"
   },
   {
     "iso2": "CG",
     "phoneCode": "242",
-    "timeZone": "Africa\/Lagos",
+    "timeZone": "Africa/Lagos",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+242-**-***-****"
   },
   {
     "iso2": "RE",
     "phoneCode": "262",
-    "timeZone": "Indian\/Reunion",
+    "timeZone": "Indian/Reunion",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+262-*****-****"
   },
   {
     "iso2": "RO",
     "phoneCode": "40",
-    "timeZone": "Europe\/Bucharest",
+    "timeZone": "Europe/Bucharest",
     "languageCodes": "ro",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+40-**-***-****"
   },
   {
     "iso2": "RU",
     "phoneCode": "7",
-    "timeZone": "Europe\/Moscow",
+    "timeZone": "Europe/Moscow",
     "languageCodes": "ru",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+7-***-***-**-**"
   },
   {
     "iso2": "RW",
     "phoneCode": "250",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "rw",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+250-***-***-***"
   },
   {
     "iso2": "BL",
     "phoneCode": "590",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "fr",
     "firstDay": null
   },
   {
     "iso2": "SH",
     "phoneCode": "290",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+290-****"
   },
   {
     "iso2": "KN",
     "phoneCode": "1-869",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-869-***-****"
   },
   {
     "iso2": "LC",
     "phoneCode": "1-758",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-758-***-****"
   },
   {
     "iso2": "MF",
     "phoneCode": "590",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "fr",
     "firstDay": null
   },
   {
     "iso2": "PM",
     "phoneCode": "508",
-    "timeZone": "America\/Miquelon",
+    "timeZone": "America/Miquelon",
     "languageCodes": "fr",
     "firstDay": null
   },
   {
     "iso2": "VC",
     "phoneCode": "1-784",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-784-***-****"
   },
   {
     "iso2": "WS",
     "phoneCode": "685",
-    "timeZone": "Pacific\/Apia",
+    "timeZone": "Pacific/Apia",
     "languageCodes": "sm",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+685-**-****"
   },
   {
     "iso2": "SM",
     "phoneCode": "378",
-    "timeZone": "Europe\/Rome",
+    "timeZone": "Europe/Rome",
     "languageCodes": "it",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+378-****-******"
   },
   {
     "iso2": "ST",
     "phoneCode": "239",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "pt",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+239-**-*****"
   },
   {
     "iso2": "SA",
     "phoneCode": "966",
-    "timeZone": "Asia\/Riyadh",
+    "timeZone": "Asia/Riyadh",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": [
+      "+966-*-***-****",
+      "+966-5-****-****"
+    ]
   },
   {
     "iso2": "SN",
     "phoneCode": "221",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+221-**-***-****"
   },
   {
     "iso2": "RS",
     "phoneCode": "381",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "sr",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+381-**-***-****"
   },
   {
     "iso2": "SC",
     "phoneCode": "248",
-    "timeZone": "Indian\/Mahe",
+    "timeZone": "Indian/Mahe",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+248-*-***-***"
   },
   {
     "iso2": "SL",
     "phoneCode": "232",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+232-**-******"
   },
   {
     "iso2": "SG",
     "phoneCode": "65",
-    "timeZone": "Asia\/Singapore",
+    "timeZone": "Asia/Singapore",
     "languageCodes": "cmn",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+65-****-****"
   },
   {
     "iso2": "SX",
     "phoneCode": "1-721",
-    "timeZone": "America\/Curacao",
+    "timeZone": "America/Curacao",
     "languageCodes": "nl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-721-***-****"
   },
   {
     "iso2": "SK",
     "phoneCode": "421",
-    "timeZone": "Europe\/Prague",
+    "timeZone": "Europe/Prague",
     "languageCodes": "sk",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+421-***-***-***"
   },
   {
     "iso2": "SI",
     "phoneCode": "386",
-    "timeZone": "Europe\/Belgrade",
+    "timeZone": "Europe/Belgrade",
     "languageCodes": "sl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+386-**-***-***"
   },
   {
     "iso2": "SB",
     "phoneCode": "677",
-    "timeZone": "Pacific\/Guadalcanal",
+    "timeZone": "Pacific/Guadalcanal",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+677-*****",
+      "+677-***-****"
+    ]
   },
   {
     "iso2": "SO",
     "phoneCode": "252",
-    "timeZone": "Africa\/Mogadishu",
+    "timeZone": "Africa/Mogadishu",
     "languageCodes": "so",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+252-*-***-***",
+      "+252-**-***-***"
+    ]
   },
   {
     "iso2": "ZA",
     "phoneCode": "27",
-    "timeZone": "Africa\/Johannesburg",
+    "timeZone": "Africa/Johannesburg",
     "languageCodes": "zu",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+27-**-***-****"
   },
   {
     "iso2": "KR",
     "phoneCode": "82",
-    "timeZone": "Asia\/Seoul",
+    "timeZone": "Asia/Seoul",
     "languageCodes": "ko",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+82-**-***-****"
   },
   {
     "iso2": "SS",
     "phoneCode": "211",
-    "timeZone": "Africa\/Khartoum",
+    "timeZone": "Africa/Khartoum",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+211-**-***-****"
   },
   {
     "iso2": "ES",
     "phoneCode": "34",
-    "timeZone": "Europe\/Madrid",
+    "timeZone": "Europe/Madrid",
     "languageCodes": "es",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+34-***-***-***"
   },
   {
     "iso2": "LK",
     "phoneCode": "94",
-    "timeZone": "Asia\/Colombo",
+    "timeZone": "Asia/Colombo",
     "languageCodes": "si",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+94-**-***-****"
   },
   {
     "iso2": "SD",
     "phoneCode": "249",
-    "timeZone": "Africa\/Khartoum",
+    "timeZone": "Africa/Khartoum",
     "languageCodes": "ar",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+249-**-***-****"
   },
   {
     "iso2": "SR",
     "phoneCode": "597",
-    "timeZone": "America\/Paramaribo",
+    "timeZone": "America/Paramaribo",
     "languageCodes": "nl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+597-***-***",
+      "+597-***-****"
+    ]
   },
   {
     "iso2": "SJ",
     "phoneCode": "47",
-    "timeZone": "Europe\/Oslo",
+    "timeZone": "Europe/Oslo",
     "languageCodes": "no",
     "firstDay": null
   },
   {
     "iso2": "SZ",
     "phoneCode": "268",
-    "timeZone": "Africa\/Johannesburg",
+    "timeZone": "Africa/Johannesburg",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+268-**-**-****"
   },
   {
     "iso2": "SE",
     "phoneCode": "46",
-    "timeZone": "Europe\/Stockholm",
+    "timeZone": "Europe/Stockholm",
     "languageCodes": "sv",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+46-**-***-****"
   },
   {
     "iso2": "CH",
     "phoneCode": "41",
-    "timeZone": "Europe\/Zurich",
+    "timeZone": "Europe/Zurich",
     "languageCodes": "de",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+41-**-***-****"
   },
   {
     "iso2": "SY",
     "phoneCode": "963",
-    "timeZone": "Asia\/Damascus",
+    "timeZone": "Asia/Damascus",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": "+963-**-****-***"
   },
   {
     "iso2": "TW",
     "phoneCode": "886",
-    "timeZone": "Asia\/Taipei",
+    "timeZone": "Asia/Taipei",
     "languageCodes": "zh",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": [
+      "+886-****-****",
+      "+886-*-****-****"
+    ]
   },
   {
     "iso2": "TJ",
     "phoneCode": "992",
-    "timeZone": "Asia\/Dushanbe",
+    "timeZone": "Asia/Dushanbe",
     "languageCodes": "tg",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+992-**-***-****"
   },
   {
     "iso2": "TZ",
     "phoneCode": "255",
-    "timeZone": "Africa\/Dar_es_Salaam",
+    "timeZone": "Africa/Dar_es_Salaam",
     "languageCodes": "sw",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+255-**-***-****"
   },
   {
     "iso2": "TH",
     "phoneCode": "66",
-    "timeZone": "Asia\/Bangkok",
+    "timeZone": "Asia/Bangkok",
     "languageCodes": "th",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+66-**-***-****"
   },
   {
     "iso2": "TG",
     "phoneCode": "228",
-    "timeZone": "Africa\/Abidjan",
+    "timeZone": "Africa/Abidjan",
     "languageCodes": "fr",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+228-**-***-***"
   },
   {
     "iso2": "TK",
     "phoneCode": "690",
-    "timeZone": "Pacific\/Fakaofo",
+    "timeZone": "Pacific/Fakaofo",
     "languageCodes": "tkl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+690-****"
   },
   {
     "iso2": "TO",
     "phoneCode": "676",
-    "timeZone": "Pacific\/Tongatapu",
+    "timeZone": "Pacific/Tongatapu",
     "languageCodes": "to",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+676-*****"
   },
   {
     "iso2": "TT",
     "phoneCode": "1-868",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-868-***-****"
   },
   {
     "iso2": "TN",
     "phoneCode": "216",
-    "timeZone": "Africa\/Tunis",
+    "timeZone": "Africa/Tunis",
     "languageCodes": "ar",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+216-**-***-***"
   },
   {
     "iso2": "TR",
     "phoneCode": "90",
-    "timeZone": "Europe\/Istanbul",
+    "timeZone": "Europe/Istanbul",
     "languageCodes": "tr",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+90-***-***-****"
   },
   {
     "iso2": "TM",
     "phoneCode": "993",
-    "timeZone": "Asia\/Ashgabat",
+    "timeZone": "Asia/Ashgabat",
     "languageCodes": "tk",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+993-*-***-****"
   },
   {
     "iso2": "TC",
     "phoneCode": "1-649",
-    "timeZone": "America\/Grand_Turk",
+    "timeZone": "America/Grand_Turk",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-649-***-****"
   },
   {
     "iso2": "TV",
     "phoneCode": "688",
-    "timeZone": "Pacific\/Funafuti",
+    "timeZone": "Pacific/Funafuti",
     "languageCodes": "tvl",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+688-2-****",
+      "+688-90-****"
+    ]
   },
   {
     "iso2": "VI",
     "phoneCode": "1-340",
-    "timeZone": "America\/Port_of_Spain",
+    "timeZone": "America/Port_of_Spain",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+1-340-***-****"
   },
   {
     "iso2": "UG",
     "phoneCode": "256",
-    "timeZone": "Africa\/Kampala",
+    "timeZone": "Africa/Kampala",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+256-***-***-***"
   },
   {
     "iso2": "UA",
     "phoneCode": "380",
-    "timeZone": "Europe\/Kiev",
+    "timeZone": "Europe/Kiev",
     "languageCodes": "uk",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+380-**-***-**-**"
   },
   {
     "iso2": "AE",
     "phoneCode": "971",
-    "timeZone": "Asia\/Dubai",
+    "timeZone": "Asia/Dubai",
     "languageCodes": "ar",
-    "firstDay": "Sa"
-  },
-  {
-    "iso2": "US",
-    "phoneCode": "1",
-    "timeZone": "America\/New_York",
-    "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Sa",
+    "phoneMask": [
+      "+971-*-***-****",
+      "+971-5-*-***-****"
+    ]
   },
   {
     "iso2": "UY",
     "phoneCode": "598",
-    "timeZone": "America\/Montevideo",
+    "timeZone": "America/Montevideo",
     "languageCodes": "es",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+598-*-***-**-**"
   },
   {
     "iso2": "UZ",
     "phoneCode": "998",
-    "timeZone": "Asia\/Tashkent",
+    "timeZone": "Asia/Tashkent",
     "languageCodes": "uz",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": "+998-**-***-****"
   },
   {
     "iso2": "VU",
     "phoneCode": "678",
-    "timeZone": "Pacific\/Efate",
+    "timeZone": "Pacific/Efate",
     "languageCodes": "bi",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": [
+      "+678-*****",
+      "+678-**-*****"
+    ]
   },
   {
     "iso2": "VA",
     "phoneCode": "379",
-    "timeZone": "Europe\/Rome",
+    "timeZone": "Europe/Rome",
     "languageCodes": "la",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+39-6-698-*****"
   },
   {
     "iso2": "VE",
     "phoneCode": "58",
-    "timeZone": "America\/Caracas",
+    "timeZone": "America/Caracas",
     "languageCodes": "es",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+58-***-***-****"
   },
   {
     "iso2": "VN",
     "phoneCode": "84",
-    "timeZone": "Asia\/Ho_Chi_Minh",
+    "timeZone": "Asia/Ho_Chi_Minh",
     "languageCodes": "vi",
-    "firstDay": "Mo"
+    "firstDay": "Mo",
+    "phoneMask": [
+      "+84-**-****-***",
+      "+84-***-****-***"
+    ]
   },
   {
     "iso2": "WF",
     "phoneCode": "681",
-    "timeZone": "Pacific\/Wallis",
+    "timeZone": "Pacific/Wallis",
     "languageCodes": "wls",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+681-**-****"
   },
   {
     "iso2": "EH",
     "phoneCode": "212",
-    "timeZone": "Africa\/El_Aaiun",
+    "timeZone": "Africa/El_Aaiun",
     "languageCodes": "ar",
     "firstDay": null
   },
   {
     "iso2": "YE",
     "phoneCode": "967",
-    "timeZone": "Asia\/Aden",
+    "timeZone": "Asia/Aden",
     "languageCodes": "ar",
-    "firstDay": "Sa"
+    "firstDay": "Sa",
+    "phoneMask": [
+      "+967-*-***-***",
+      "+967-**-***-***",
+      "+967-***-***-***"
+    ]
   },
   {
     "iso2": "ZM",
     "phoneCode": "260",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "en",
-    "firstDay": null
+    "firstDay": null,
+    "phoneMask": "+260-**-***-****"
   },
   {
     "iso2": "ZW",
     "phoneCode": "263",
-    "timeZone": "Africa\/Maputo",
+    "timeZone": "Africa/Maputo",
     "languageCodes": "en",
-    "firstDay": "Su"
+    "firstDay": "Su",
+    "phoneMask": "+263-*-******"
+  },
+  {
+    "iso2": "GF",
+    "phoneCode": "594",
+    "timeZone": "America/Cayenne",
+    "languageCodes": "fr",
+    "firstDay": "Mo",
+    "phoneMask": "+594-*****-****"
+  },
+  {
+    "iso2": "MQ",
+    "phoneCode": "596",
+    "timeZone": "America/Martinique",
+    "languageCodes": "fr",
+    "firstDay": "Mo",
+    "phoneMask": "+596-***-**-**-**"
+  },
+  {
+    "iso2": "MQ",
+    "phoneCode": "596",
+    "timeZone": "America/Martinique",
+    "languageCodes": "fr",
+    "firstDay": "Mo",
+    "phoneMask": "+596-***-**-**-**"
+  },
+  {
+    "iso2": "NF",
+    "phoneCode": "672-3",
+    "timeZone": "Pacific/Norfolk",
+    "languageCodes": "en",
+    "firstDay": "Mo",
+    "phoneMask": "+672-3-**-***"
   }
 ]

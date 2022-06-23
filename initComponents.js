@@ -47,6 +47,7 @@ import DIconItem from './components/DIconItem'
 import DImages from './components/DImages'
 import DImagesBar from './components/DImagesBar'
 import DImagesItem from './components/DImagesItem'
+import DPhone from './components/DPhone'
 import DInput from './components/DInput'
 import DList from './components/DList'
 import DListFormat from './components/DListFormat'
@@ -137,6 +138,7 @@ export default {
     app.component('d-images', DImages)
     app.component('d-images-bar', DImagesBar)
     app.component('d-images-item', DImagesItem)
+    app.component('d-phone', DPhone)
     app.component('d-input', DInput)
     app.component('d-list', DList)
     app.component('d-list-format', DListFormat)

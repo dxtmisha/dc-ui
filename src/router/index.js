@@ -46,6 +46,7 @@ import DemoIcon from '../views/DemoIcon'
 import DemoIconItem from '../views/DemoIconItem'
 import DemoImages from '../views/DemoImages'
 import DemoImagesBar from '../views/DemoImagesBar'
+import DemoPhone from '@/views/DemoPhone'
 import DemoInput from '../views/DemoInput'
 import DemoList from '../views/DemoList'
 import DemoListFormat from '../views/DemoListFormat'
@@ -135,6 +136,7 @@ export const routes = getRoutes({
   'd-icon-item': DemoIconItem,
   'd-images': DemoImages,
   'd-images-bar': DemoImagesBar,
+  'd-phone': DemoPhone,
   'd-input': DemoInput,
   'd-list': DemoList,
   'd-list-format': DemoListFormat,
