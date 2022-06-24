@@ -19,6 +19,10 @@ export default function useMask (
     if (value !== code.value) {
       const country = GeoPhone.getInfo(value)
 
+      if (masksFull === undefined) {
+        masksFull = GeoPhone.getMaskByValue(country.phoneMask)?.masksFull
+      }
+
       mask.value = masksFull || country.phoneMaskFull
       code.value = value
       flag.value = country.icon

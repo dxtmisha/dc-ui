@@ -4,10 +4,10 @@
       <input
         ref="input"
         :pattern="propPattern"
-        :type="typeInput"
         :value="standard"
         class="d-mask__input"
         v-bind="inputAttrs"
+        :type="typeInput"
         @focus="onFocus"
         @blur="onBlur"
         @change="onChange"

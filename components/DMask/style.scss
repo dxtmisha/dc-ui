@@ -2,7 +2,8 @@
 @import "../../styles/position";
 
 @mixin mask() {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 @mixin maskShow() {
