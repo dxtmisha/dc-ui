@@ -73,8 +73,13 @@ export default function useMask (
 
       onInput(event)
     },
-    onClick: () => {
-      if (!propValue.value || propValue.value === '') {
+    onClick: event => {
+      if (
+        event.target === input.value?.input && (
+          !propValue.value ||
+          propValue.value === ''
+        )
+      ) {
         const country = GeoPhone.getInfo(code.value)
         input.value?.pasteValue(
           0,

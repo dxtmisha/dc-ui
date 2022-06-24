@@ -32,7 +32,7 @@
         :visible="false"
         type-input="tel"
         v-bind="bindMask"
-        @click="onClick"
+        @on-focus="onClick"
         @on-input="onInputMask"
         @on-change="onChange"
       />
@@ -99,7 +99,8 @@ export default {
       props,
       input,
       propValue,
-      onInput
+      onInput,
+      onCancel
     )
 
     const bindInput = useInput(props)

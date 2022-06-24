@@ -8,6 +8,7 @@
         :value="standard"
         class="d-mask__input"
         v-bind="inputAttrs"
+        @focus="onFocus"
         @blur="onBlur"
         @change="onChange"
         @input="onInput"
@@ -44,7 +45,11 @@ import useView from './useView'
 export default {
   name: 'DMask',
   props,
-  emits: ['on-input', 'on-change'],
+  emits: [
+    'on-focus',
+    'on-input',
+    'on-change'
+  ],
   setup (props, context) {
     const input = ref(undefined)
     const chars = ref(undefined)
@@ -143,6 +148,7 @@ export default {
       onKeypress,
       onKeydown,
       onPaste,
+      onFocus: event => context.emit('on-focus', event),
       onBlur,
       onInput,
       onChange
