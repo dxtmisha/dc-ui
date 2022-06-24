@@ -68,7 +68,7 @@ export default function useMask (
       const info = GeoPhone.getMaskByValue(event.value)
 
       if (info?.code) {
-        setCountry(info.code)
+        setCountry(info.code, info.masksFull)
       }
 
       onInput(event)

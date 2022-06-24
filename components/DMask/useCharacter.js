@@ -6,15 +6,16 @@ export default function useCharacter (
   props,
   length,
   geo,
-  mask,
+  propMask,
   max
 ) {
   const {
-    value
+    value,
+    mask
   } = toRefs(props)
 
   const ifSpecialChar = char => char === '*'
-  const charMask = selection => mask.value?.[selection]
+  const charMask = selection => propMask.value?.[selection]
   const goSelection = selection => requestAnimationFrame(() => {
     input.value.selectionEnd = selection
     input.value.selectionStart = selection
@@ -53,7 +54,7 @@ export default function useCharacter (
     let key = 0
 
     if (character.value.length > 0) {
-      mask.value.forEach(char => {
+      propMask.value.forEach(char => {
         if (!stop) {
           if (!ifSpecialChar(char)) {
             value.push(char)
@@ -72,7 +73,7 @@ export default function useCharacter (
   const valueToCharacter = selection => {
     let value = -1
 
-    mask.value.forEach((char, index) => {
+    propMask.value.forEach((char, index) => {
       if (index <= selection && ifSpecialChar(char)) {
         value++
       }
@@ -84,7 +85,7 @@ export default function useCharacter (
     let selectionChar = -1
     let value
 
-    mask.value.forEach((char, index) => {
+    propMask.value.forEach((char, index) => {
       if (ifSpecialChar(char)) {
         selectionChar++
       }
@@ -94,7 +95,7 @@ export default function useCharacter (
       }
     })
 
-    return value !== undefined ? value : mask.value.length
+    return value !== undefined ? value : propMask.value.length
   }
 
   const setCharacter = (selection, char) => character.value.splice(selection, 0, char)
