@@ -8,6 +8,6 @@ export default function useMenu (props, propValue) {
       list: useSelect(props),
       selected: propValue
     },
-    attrs: { tag: 'span' }
+    attrs: { tag: 'div' }
   })
 }

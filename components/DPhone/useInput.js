@@ -8,19 +8,9 @@ export default function useInput (props) {
       'name',
       'readonly',
       'disabled',
-      'type',
-      'autocomplete',
       'autofocus',
-      'inputmode',
-      'step',
-      'min',
-      'max',
-      'minlength',
-      'maxlength',
-      'pattern',
       'placeholder',
-      'required',
-      'spellcheck'
+      'required'
     ],
     props: main,
     original: props

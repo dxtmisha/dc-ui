@@ -65,5 +65,6 @@ export const props = {
     default: true
   },
   persistent: Boolean,
-  inDom: Boolean
+  inDom: Boolean,
+  light: Boolean
 }

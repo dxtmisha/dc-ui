@@ -3,26 +3,29 @@
     <span class="d-mask__view">
       <input
         ref="input"
-        v-bind="inputAttrs"
-        class="d-mask__input"
-        :value="standard"
-        type="text"
         :pattern="propPattern"
+        :type="typeInput"
+        :value="standard"
+        class="d-mask__input"
+        v-bind="inputAttrs"
+        @blur="onBlur"
+        @change="onChange"
+        @input="onInput"
+        @keydown="onKeydown"
         v-on="on"
         @keypress.prevent="onKeypress"
-        @keydown="onKeydown"
         @paste.prevent="onPaste"
-        @blur="onBlur"
-        @input="onInput"
-        @change="onChange"
       />
       <span ref="chars" class="d-mask__chars">
-        <span
-          v-for="(item, key) in propChars"
-          :key="key"
-          :class="item.class"
-          v-text="item.text"
-        />
+        <template v-if="propChars.length > 0">
+          <span
+            v-for="(item, key) in propChars"
+            :key="key"
+            :class="item.class"
+            v-text="item.text"
+          />
+        </template>
+        <span v-else>&nbsp;</span>
       </span>
     </span>
   </label>

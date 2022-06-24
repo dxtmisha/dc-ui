@@ -80,6 +80,10 @@ export default function useOpen (
 
         eventBody.stop()
         emitOpening(toOpen)
+
+        if (props.light) {
+          open.value = false
+        }
       }
 
       context.emit('on-open', {

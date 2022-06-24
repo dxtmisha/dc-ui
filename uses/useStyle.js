@@ -10,6 +10,8 @@ export default function useStyle (
 ) {
   const item = { value }
   const update = () => {
+    console.log('name', name, value)
+
     if (item.value === undefined) {
       element.value?.style?.removeProperty(name)
     } else {

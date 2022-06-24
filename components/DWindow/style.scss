@@ -20,6 +20,7 @@
   padding: var(--_wn-padding);
   transition-duration: var(--transition-menu-collapsing);
   transition-property: background-color;
+  will-change: background-color, left, top, contents;
 
   &__block {
     overflow: hidden;
@@ -47,6 +48,7 @@
     visibility var(--transition-flash) linear var(--transition-menu-collapsing);
     width: 100%;
     visibility: hidden;
+    will-change: opacity, visibility, transform, contents;
     @content;
   }
 }
@@ -187,6 +189,15 @@
   }
 }
 
+@mixin windowDom() {
+  &.option-dom &__body {
+    transform: none;
+    transform-origin: center;
+    transition: opacity var(--transition-menu-collapsing) linear;
+    visibility: visible;
+  }
+}
+
 @mixin windowInit() {
   @include window;
   @include windowBody;
@@ -199,4 +210,5 @@
   @include windowPersistent;
 
   @include windowStatus;
+  @include windowDom;
 }

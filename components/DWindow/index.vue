@@ -55,8 +55,8 @@ export default {
     const contextmenu = ref(false)
 
     const {
-      clientX,
-      clientY,
+      clientXValue,
+      clientYValue,
       watchPosition
     } = useCoordinates(
       id,
@@ -86,7 +86,8 @@ export default {
         [`size-${props.size}`]: props.size,
         [`shape-${props.shape}`]: props.shape,
         [`adaptive-${props.adaptive}`]: props.adaptive,
-        [`axis-${props.axis}`]: props.axis
+        [`axis-${props.axis}`]: props.axis,
+        'option-dom': props.light
       }
     })
     const styleList = computed(() => {
@@ -94,8 +95,8 @@ export default {
     })
 
     const onClick = event => {
-      clientX.set(event.clientX)
-      clientY.set(event.clientY)
+      clientXValue.value = event.clientX
+      clientYValue.value = event.clientY
 
       if (!open.value) {
         contextmenu.value = event.type === 'contextmenu'

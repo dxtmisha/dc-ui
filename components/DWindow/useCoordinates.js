@@ -30,6 +30,8 @@ export default function useCoordinates (
   const left = ref(0)
   const width = ref(0)
   const height = ref(0)
+  const clientXValue = ref(0)
+  const clientYValue = ref(0)
 
   const x = useStyle(modal, '--_wn-x', 'px')
   const y = useStyle(modal, '--_wn-y', 'px')
@@ -82,17 +84,24 @@ export default function useCoordinates (
     }
   }
   const update = () => {
+    if (!props.light || contextmenu.value) {
+      clientX.set(clientXValue.value)
+      clientY.set(clientYValue.value)
+    }
+
     reCoordinates()
     updateX()
     updateY()
 
-    if (clientX.value === 0 && clientY.value === 0) {
-      const rect = control.getBoundingClientRect()
-      originX.set(`${(rect.left + (rect.width / 2)) - x.value}px`)
-      originY.set(`${(rect.top + (rect.height / 2)) - y.value}px`)
-    } else {
-      originX.set(clientX.value ? `${clientX.value - x.value}px` : 'left')
-      originY.set(clientY.value ? `${clientY.value - y.value}px` : 'top')
+    if (!props.light) {
+      if (clientX.value === 0 && clientY.value === 0) {
+        const rect = control.getBoundingClientRect()
+        originX.set(`${(rect.left + (rect.width / 2)) - x.value}px`)
+        originY.set(`${(rect.top + (rect.height / 2)) - y.value}px`)
+      } else {
+        originX.set(clientX.value ? `${clientX.value - x.value}px` : 'left')
+        originY.set(clientY.value ? `${clientY.value - y.value}px` : 'top')
+      }
     }
   }
 
@@ -131,6 +140,8 @@ export default function useCoordinates (
   })
 
   return {
+    clientXValue,
+    clientYValue,
     clientX,
     clientY,
     x,

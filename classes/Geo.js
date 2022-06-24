@@ -288,6 +288,10 @@ export default class Geo {
     return list
   }
 
+  static getBase () {
+    return geoMedia
+  }
+
   static getGlobalLang () {
     if (!this.globalLang) {
       this.globalLang = this.getFullLang(
@@ -312,6 +316,10 @@ export default class Geo {
     }
 
     return value.match(/undefined/) || !value.match(/-/) ? 'en-GB' : value
+  }
+
+  static getCountryDefault () {
+    return this.getCountryByCode(this.getGlobalLang())
   }
 
   static getCountryByCode (code) {

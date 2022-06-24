@@ -154,6 +154,7 @@ export const Options = {
   },
   landscape: {},
   length: {},
+  light: {},
   locales: {
     list: [
       { value: undefined },

@@ -7,7 +7,7 @@ export const props = {
   value: String,
   mask: {
     type: [Array, String],
-    default: defaultProps('mask', '**** **** **** ****')
+    default: defaultProps('mask', '****************')
   },
   match: {
     default: /[0-9]/
@@ -37,6 +37,10 @@ export const props = {
       'month',
       'time'
     ])
+  },
+  typeInput: {
+    type: String,
+    default: 'text'
   },
   locales: {
     type: String,
