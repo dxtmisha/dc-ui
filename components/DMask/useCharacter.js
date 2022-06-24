@@ -163,6 +163,11 @@ export default function useCharacter (
     length.value = value.length
   })
 
+  watch(mask, () => {
+    const start = input.value.selectionStart
+    goSelection(start)
+  })
+
   return {
     standard,
     newValue,

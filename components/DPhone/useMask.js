@@ -1,6 +1,6 @@
 import GeoPhone from '../../classes/GeoPhone'
 import attrMask from '../DMask/attrMask'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export default function useMask (
   props,
@@ -31,7 +31,19 @@ export default function useMask (
 
   return {
     bindMask,
-    listMask: GeoPhone.getListSort(),
+    listMask: computed(() => {
+      const data = []
+      GeoPhone.getListSort().forEach(item => {
+        data.push({
+          icon: item.icon,
+          text: item.text,
+          value: item.value,
+          suffix: item.suffix
+        })
+      })
+
+      return data
+    }),
     mask,
     code,
     flag,
