@@ -27,6 +27,7 @@ export default function useButton (
       'lowercase',
       'dense',
       'ellipsis',
+      'minimum',
       'ripple',
       'icon',
       'iconActive',

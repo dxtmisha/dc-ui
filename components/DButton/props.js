@@ -79,6 +79,7 @@ export const props = {
     type: Boolean,
     default: defaultProps('ellipsis', true)
   },
+  minimum: Boolean,
   ripple: {
     type: Boolean,
     default: defaultProps('ripple', true)

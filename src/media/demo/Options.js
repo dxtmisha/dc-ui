@@ -169,6 +169,7 @@ export const Options = {
   },
   lowercase: {},
   magnet: {},
+  minimum: {},
   navigation: {},
   navigationRail: {
     list: [

@@ -307,6 +307,22 @@
   }
 }
 
+@mixin buttonMinimum() {
+  &.option-minimum &__text {
+    display: none;
+  }
+
+  &.option-minimum &__icon {
+    &.bt-icon {
+      margin-right: 0;
+    }
+
+    &.bt-trailing {
+      margin-left: calc(var(--_bt-gap) / 2);
+    }
+  }
+}
+
 @mixin buttonStatus() {
   &:not(:disabled):not(.status-disabled):not(.status-readonly) {
     &:hover,
@@ -393,6 +409,7 @@
   @include buttonAdaptive;
   @include buttonLowercase;
   @include buttonDense;
+  @include buttonMinimum;
 
   @include buttonStatus;
   @include buttonDisabled;

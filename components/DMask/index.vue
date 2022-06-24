@@ -133,6 +133,10 @@ export default {
 
       classList,
 
+      newValue,
+      setValue,
+      pasteValue,
+
       checkValidity,
       cancel,
 

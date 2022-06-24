@@ -5,6 +5,7 @@ const defaultProps = defaultInit('d-mask')
 export const props = {
   // Values
   value: String,
+  valuePaste: Boolean,
   mask: {
     type: [Array, String],
     default: defaultProps('mask', '****************')

@@ -1,0 +1,11 @@
+@mixin phone() {
+  --ic-radius: 0;
+
+  &__menu {
+    --ic-radius: 0;
+  }
+}
+
+@mixin phoneInit() {
+  @include phone;
+}

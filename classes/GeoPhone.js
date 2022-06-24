@@ -5,17 +5,33 @@ import forEach from '../functions/forEach'
 export default class GeoPhone {
   static list
   static sort
+  static sortData
 
   static getList () {
     return this._init().list
   }
 
-  static getMask (country = undefined) {
-    if (country === undefined) {
-      return Geo.getCountryDefault()?.phoneMask
-    } else {
-      return Geo.getCountryByISO(country)?.phoneMask
+  static getListSort () {
+    if (this.sortData === undefined) {
+      const collator = new Intl.Collator(Geo.getGlobalLang())
+
+      this.sortData = this.getList()
+        .sort((a, b) => collator.compare(a.text, b.text))
     }
+
+    return this.sortData
+  }
+
+  static getInfo (country = undefined) {
+    if (country === undefined) {
+      country = Geo.getCountryDefault()?.iso2
+    }
+
+    return this.getList().find(item => item.value === country)
+  }
+
+  static getMask (country = undefined) {
+    return this.getInfo(country)?.phoneMask
   }
 
   static getMaskByValue (value = '') {
@@ -53,11 +69,20 @@ export default class GeoPhone {
           'phoneMask' in item &&
           item.phoneMask
         ) {
+          const flag = GeoFlag.country(item.iso2)
+          const mask = Array.isArray(item.phoneMask) ? item.phoneMask[0] : item.phoneMask
+
           this._initSort(item.phoneMask, item)
           this.list.push({
-            ...GeoFlag.country(item.iso2),
+            ...flag,
+            icon: {
+              file: flag.icon,
+              zoom: 'contain'
+            },
             phoneCode: item?.phoneCode,
-            phoneMask: item.phoneMask
+            phoneMask: item.phoneMask,
+            phoneMaskFull: mask.toString().replace(/[0-9]/ig, '*'),
+            suffix: item.phoneCode
           })
         }
       })
@@ -87,7 +112,10 @@ export default class GeoPhone {
         focus = focus[number]
       })
 
-      focus.data.code = item.iso2
+      if (focus.data.code === undefined) {
+        focus.data.code = item.iso2
+      }
+
       focus.data.masks.push(masks)
       focus.data.masksFull.push(masks.toString().replace(/[0-9]/ig, '*'))
     }

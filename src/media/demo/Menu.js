@@ -10,5 +10,6 @@ export const Menu = {
   menuCache: Values.cache,
   menuShape: Options.shape,
   menuSize: Icon.iconSize,
-  menuWindowWidth: Window.windowWidth
+  menuWindowWidth: Window.windowWidth,
+  menuWindowLight: Window.windowLight
 }

@@ -21,6 +21,7 @@ export const Window = {
   },
   windowIndent: Options.indent,
   windowInDom: Options.inDom,
+  windowLight: Options.light,
   windowPersistent: Options.persistent,
   windowShape: {
     list: [

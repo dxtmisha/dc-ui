@@ -8,7 +8,8 @@ export default function useField (
   input,
   menu,
   props,
-  context
+  context,
+  editValue = undefined
 ) {
   const {
     value,
@@ -69,7 +70,13 @@ export default function useField (
   }
 
   const propValue = useWatch([value, modelValue], data => {
-    data.value = value.value || modelValue.value || ''
+    let newValue = value.value || modelValue.value || ''
+
+    if (editValue && newValue !== '') {
+      newValue = editValue(newValue)
+    }
+
+    data.value = newValue
     requestAnimationFrame(checkValidity)
   }, value.value || modelValue.value ? ['go'] : [], '')
   const propCounter = computed(() => propValue.value?.length || 0)

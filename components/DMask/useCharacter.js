@@ -9,7 +9,9 @@ export default function useCharacter (
   mask,
   max
 ) {
-  const { value } = toRefs(props)
+  const {
+    value
+  } = toRefs(props)
 
   const ifSpecialChar = char => char === '*'
   const charMask = selection => mask.value?.[selection]
@@ -36,7 +38,15 @@ export default function useCharacter (
     return data
   }
 
-  const character = useWatch([value], () => resetValue(value.value), ['init'])
+  const character = useWatch([value], () => {
+    if (props.valuePaste) {
+      return value.value
+        ? value.value?.toString().replace(/[^0-9]+/ig, '').split('')
+        : []
+    } else {
+      return resetValue(value.value)
+    }
+  }, ['init'])
   const standard = computed(() => {
     const value = []
     let stop
@@ -106,6 +116,7 @@ export default function useCharacter (
         if (char.toString().match(props.match)) {
           const selectionChar = valueToCharacter(selection)
           setCharacter(selectionChar, char)
+
           goSelection(characterToValue(selectionChar + 1))
           return true
         }
@@ -118,6 +129,10 @@ export default function useCharacter (
   }
   const pasteValue = (selection, value) => {
     let index = valueToCharacter(selection)
+
+    if (index === -1) {
+      index = 0
+    }
 
     value.split('').forEach(char => {
       if (char.toString().match(props.match)) {

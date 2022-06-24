@@ -62,6 +62,7 @@ export const props = {
   lowercase: { default: defaultProps('lowercase') },
   dense: { default: defaultProps('dense') },
   ellipsis: { default: defaultProps('ellipsis') },
+  minimum: { default: defaultProps('minimum') },
   ripple: { default: defaultProps('ripple') },
   buttonAttrs: undefined,
 
@@ -71,6 +72,7 @@ export const props = {
   menuShape: undefined,
   menuWindowWidth: { default: defaultProps('menuWindowWidth') },
   menuWindowInDom: { default: defaultProps('menuWindowInDom') },
+  menuWindowLight: { default: defaultProps('menuWindowLight') },
   menuAttrs: undefined,
 
   // Icon

@@ -1,10 +1,25 @@
 <template>
   <d-carcass-field
+    class="d-phone"
     v-bind="bindCarcassField"
     @on-cancel="onCancel"
   >
     <template v-slot:left>
-      <d-button-select :list="listMask" :menu-window-in-dom="true" tag="span"/>
+      <d-button-select
+        :icon="flag"
+        :list="listMask"
+        :menu-attrs="{ class: 'd-phone__menu' }"
+        :menu-window-in-dom="true"
+        :menu-window-light="true"
+        :minimum="true"
+        :value="code"
+        adaptive="icon"
+        appearance="text"
+        class="d-phone__button"
+        menu-size="dynamic"
+        tag="span"
+        @on-input="onInputCountry"
+      />
     </template>
     <template v-slot:default="{ className }">
       <d-mask
@@ -12,11 +27,12 @@
         :class="className"
         :inputAttrs="bindInput"
         :mask="mask"
-        :on="on"
-        :visible="false"
+        :value-paste="true"
         :view-placeholder="false"
+        :visible="false"
         type-input="tel"
         v-bind="bindMask"
+        @click="onClick"
         @on-input="onInputMask"
         @on-change="onChange"
       />
@@ -25,6 +41,7 @@
 </template>
 
 <script>
+import DButtonSelect from '../DButtonSelect'
 import DCarcassField from '../DCarcassField'
 import DMask from '../DMask'
 import { props } from './props'
@@ -34,7 +51,6 @@ import useCarcass from './useCarcass'
 import useField from '../../uses/useField'
 import useInput from './useInput'
 import useMask from './useMask'
-import DButtonSelect from '../DButtonSelect'
 
 export default {
   name: 'DPhone',
@@ -74,8 +90,17 @@ export default {
       bindMask,
       listMask,
       mask,
-      onInputMask
-    } = useMask(props, onInput)
+      code,
+      flag,
+      onInputCountry,
+      onInputMask,
+      onClick
+    } = useMask(
+      props,
+      input,
+      propValue,
+      onInput
+    )
 
     const bindInput = useInput(props)
     const bindCarcassField = useCarcass(
@@ -106,10 +131,20 @@ export default {
       bindMask,
       listMask,
       mask,
-      onInputMask
+      code,
+      flag,
+      onInputCountry,
+      onInputMask,
+      onClick
     }
   }
 }
 </script>
 
-<style lang="scss"/>
+<style lang="scss">
+@import "style";
+
+.d-phone {
+  @include phoneInit;
+}
+</style>

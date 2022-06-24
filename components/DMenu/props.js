@@ -51,5 +51,6 @@ export const props = {
   windowAxis: { default: defaultProps('windowAxis') },
   windowIndent: { default: defaultProps('windowIndent') },
   windowInDom: { default: defaultProps('windowInDom') },
+  windowLight: { default: defaultProps('windowLight') },
   windowAttrs: undefined
 }
