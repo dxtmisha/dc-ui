@@ -28,26 +28,22 @@ export default function useCharacter (
     const data = []
 
     if (value) {
-      const chars = geo.value ? geo.value.setValue(value).toString() : value
-      chars.split('').forEach((char, selection) => {
-        if (ifSpecialChar(charMask(selection))) {
-          data.push(char)
-        }
-      })
+      if (props.valuePaste) {
+        data.push(...value.replace(/[^0-9]+/ig, '').split(''))
+      } else {
+        const chars = geo.value ? geo.value.setValue(value).toString() : value
+        chars.split('').forEach((char, selection) => {
+          if (ifSpecialChar(charMask(selection))) {
+            data.push(char)
+          }
+        })
+      }
     }
 
     return data
   }
 
-  const character = useWatch([value], () => {
-    if (props.valuePaste) {
-      return value.value
-        ? value.value?.toString().replace(/[^0-9]+/ig, '').split('')
-        : []
-    } else {
-      return resetValue(value.value)
-    }
-  }, ['init'])
+  const character = useWatch([value], () => resetValue(value.value), ['init'])
   const standard = computed(() => {
     const value = []
     let stop
