@@ -43,5 +43,9 @@ export const props = {
   fieldAttrs: undefined,
 
   // Mask
+  filling: {
+    type: Boolean,
+    default: defaultProps('filling')
+  },
   maskAttrs: undefined
 }

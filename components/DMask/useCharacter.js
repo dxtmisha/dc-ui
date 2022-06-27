@@ -66,6 +66,10 @@ export default function useCharacter (
     return value.join('')
   })
 
+  /**
+   * @param selection
+   * @returns {number}
+   */
   const valueToCharacter = selection => {
     let value = -1
 
@@ -100,7 +104,7 @@ export default function useCharacter (
   const newValue = (value) => {
     character.value = resetValue(value)
   }
-  const setValue = (selection, char) => {
+  const setValue = (selection, char, focus = true) => {
     charSelectionMask()
 
     const wait = charMask(selection)
@@ -114,7 +118,10 @@ export default function useCharacter (
           const selectionChar = valueToCharacter(selection)
           setCharacter(selectionChar, char)
 
-          goSelection(characterToValue(selectionChar + 1))
+          if (focus) {
+            goSelection(characterToValue(selectionChar + 1))
+          }
+
           return true
         }
       } else {
@@ -124,7 +131,7 @@ export default function useCharacter (
 
     return false
   }
-  const pasteValue = (selection, value) => {
+  const pasteValue = (selection, value, focus = true) => {
     let index = valueToCharacter(selection)
 
     if (index === -1) {
@@ -133,7 +140,7 @@ export default function useCharacter (
 
     value.split('').forEach(char => {
       if (char.toString().match(props.match)) {
-        setValue(characterToValue(index++), char)
+        setValue(characterToValue(index++), char, focus)
       }
     })
   }

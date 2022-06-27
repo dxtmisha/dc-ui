@@ -1,6 +1,6 @@
 import GeoPhone from '../../classes/GeoPhone'
 import attrMask from '../DMask/attrMask'
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 export default function useMask (
   props,
@@ -15,6 +15,16 @@ export default function useMask (
   const code = ref(country.value)
   const flag = ref(country.icon)
 
+  const setStart = () => {
+    if (!propValue.value || propValue.value === '') {
+      const country = GeoPhone.getInfo(code.value)
+      input.value?.pasteValue(
+        0,
+        country.phoneCode.toString().replace(/[^0-9]+/ig, ''),
+        false
+      )
+    }
+  }
   const setCountry = (value, masksFull = undefined) => {
     if (value !== code.value) {
       const country = GeoPhone.getInfo(value)
@@ -32,6 +42,12 @@ export default function useMask (
       return undefined
     }
   }
+
+  onMounted(() => {
+    if (props.filling) {
+      setStart()
+    }
+  })
 
   return {
     bindMask,
@@ -78,17 +94,8 @@ export default function useMask (
       onInput(event)
     },
     onClick: event => {
-      if (
-        event.target === input.value?.input && (
-          !propValue.value ||
-          propValue.value === ''
-        )
-      ) {
-        const country = GeoPhone.getInfo(code.value)
-        input.value?.pasteValue(
-          0,
-          country.phoneCode.toString().replace(/[^0-9]+/ig, '')
-        )
+      if (event.target === input.value?.input) {
+        setStart()
       }
     }
   }

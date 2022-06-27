@@ -92,6 +92,7 @@ export const Options = {
   display: {},
   dynamic: {},
   ellipsis: {},
+  filling: {},
   format: {},
   indent: {
     list: [

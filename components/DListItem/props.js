@@ -92,6 +92,7 @@ export const props = {
     type: Boolean,
     default: defaultProps('border')
   },
+  light: Boolean,
   ripple: {
     type: Boolean,
     default: defaultProps('ripple', true)
