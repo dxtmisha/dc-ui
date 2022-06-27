@@ -111,20 +111,14 @@ export default function useCoordinates (
     if (open.value && control) {
       update()
 
-      frame(
-        reCoordinates,
-        () => open.value,
-        () => {
-          x.set(undefined)
-          y.set(undefined)
-
-          minimum.set(undefined)
-          clientX.set(undefined)
-          clientY.set(undefined)
-          originX.set(undefined)
-          originY.set(undefined)
-        }
-      )
+      if (props.light) {
+        reCoordinates()
+      } else {
+        frame(
+          reCoordinates,
+          () => open.value
+        )
+      }
     }
   }
 
@@ -136,6 +130,19 @@ export default function useCoordinates (
   watch([top, bottom, height], () => {
     if (modal.value?.classList.contains('status-show')) {
       updateY()
+    }
+  })
+
+  watch(open, () => {
+    if (!open.value) {
+      x.set(undefined)
+      y.set(undefined)
+
+      minimum.set(undefined)
+      clientX.set(undefined)
+      clientY.set(undefined)
+      originX.set(undefined)
+      originY.set(undefined)
     }
   })
 

@@ -32,7 +32,7 @@
         :visible="false"
         type-input="tel"
         v-bind="bindMask"
-        @on-focus="onClick"
+        @click="onClick"
         @on-input="onInputMask"
         @on-change="onChange"
       />

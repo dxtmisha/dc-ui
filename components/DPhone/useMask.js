@@ -78,10 +78,20 @@ export default function useMask (
         input.value?.newValue('')
         input.value?.pasteValue(
           0,
-          `${country.phoneCode}${info.phone}`
+          `${country.phoneCode}${info.phone}`,
+          false
         )
 
-        requestAnimationFrame(() => input.value?.input?.focus())
+        requestAnimationFrame(() => {
+          if (input.value?.input) {
+            input.value.input.focus()
+
+            requestAnimationFrame(() => {
+              input.value.input.selectionEnd = 999
+              input.value.input.selectionStart = 999
+            })
+          }
+        })
       }
     },
     onInputMask: event => {
