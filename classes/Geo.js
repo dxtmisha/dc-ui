@@ -3,6 +3,7 @@ import Translation from './Translation'
 
 export default class Geo {
   static globalLang
+  static control = {}
 
   _lang
   _country
@@ -315,11 +316,35 @@ export default class Geo {
       value = navigator.languages?.filter(code => this.getCountryByCode(code) !== undefined)?.[0]
     }
 
-    return value.match(/undefined/) || !value.match(/-/) ? 'en-GB' : value
+    return this.getFullLangControl(
+      value.match(/undefined/) || !value.match(/-/) ? 'en-GB' : value
+    )
+  }
+
+  static getFullLangControl (value) {
+    if (
+      value in this.control
+    ) {
+      return this.control[value]
+    } else {
+      const [language, location] = value.split('-')
+      const languageEdit = geoMedia.find(item => item.languageCodesC === language)?.languageCodes || language
+      const locationEdit = geoMedia.find(item => item.isoC === location)?.iso2 || location
+
+      return (this.control[value] = `${languageEdit}-${locationEdit}`)
+    }
+  }
+
+  static getCountry () {
+    return this.getGlobalLang().split('-')?.[1] || 'GB'
+  }
+
+  static getLanguage () {
+    return this.getGlobalLang().split('-')?.[0] || 'en'
   }
 
   static getCountryDefault () {
-    return this.getCountryByCode(this.getGlobalLang())
+    return this.getCountryByISO(this.getCountry())
   }
 
   static getCountryByCode (code) {

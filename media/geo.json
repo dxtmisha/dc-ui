@@ -5,6 +5,7 @@
     "phoneCode": "1",
     "timeZone": "America/New_York",
     "languageCodes": "en",
+    "languageCodesC": "us",
     "firstDay": "Su",
     "phoneMask": "+1-***-***-****"
   },
@@ -861,6 +862,7 @@
     "phoneCode": "972",
     "timeZone": "Asia/Jerusalem",
     "languageCodes": "he",
+    "languageCodesC": "il",
     "firstDay": "Su",
     "phoneMask": [
       "+972-*-***-****",
@@ -1924,6 +1926,7 @@
     "phoneCode": "380",
     "timeZone": "Europe/Kiev",
     "languageCodes": "uk",
+    "languageCodesC": "ua",
     "firstDay": "Mo",
     "phoneMask": "+380-**-***-**-**"
   },
@@ -2058,5 +2061,12 @@
     "languageCodes": "en",
     "firstDay": "Mo",
     "phoneMask": "+672-3-**-***"
+  },
+  {
+    "iso2": "IC",
+    "phoneCode": "3428",
+    "timeZone": "Europe/Berlin",
+    "languageCodes": "es",
+    "firstDay": "Mo"
   }
 ]
