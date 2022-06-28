@@ -32,7 +32,8 @@
         :visible="false"
         type-input="tel"
         v-bind="bindMask"
-        @click="onClick"
+        @on-focus="onClick"
+        @on-blur="onBlur"
         @on-input="onInputMask"
         @on-change="onChange"
       />
@@ -92,9 +93,11 @@ export default {
       mask,
       code,
       flag,
+      propPlaceholder,
       onInputCountry,
       onInputMask,
-      onClick
+      onClick,
+      onBlur
     } = useMask(
       props,
       input,
@@ -103,12 +106,13 @@ export default {
       onCancel
     )
 
-    const bindInput = useInput(props)
+    const bindInput = useInput(props, propPlaceholder)
     const bindCarcassField = useCarcass(
       props,
       propValidationMessage,
       propValue,
-      propCounter
+      propCounter,
+      propPlaceholder
     )
 
     useAdmin('d-input', context, input)
@@ -136,7 +140,8 @@ export default {
       flag,
       onInputCountry,
       onInputMask,
-      onClick
+      onClick,
+      onBlur
     }
   }
 }

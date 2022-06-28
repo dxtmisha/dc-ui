@@ -5,9 +5,10 @@ export default function useCarcass (
   props,
   propValidationMessage,
   propValue,
-  propCounter
+  propCounter,
+  propPlaceholder
 ) {
-  const active = computed(() => !!propValue.value || !!props.placeholder)
+  const active = computed(() => !!propValue.value || !!propPlaceholder.value)
   const filled = computed(() => !!propValue.value)
 
   return attrField({

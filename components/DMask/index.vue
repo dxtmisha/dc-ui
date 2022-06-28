@@ -46,6 +46,7 @@ export default {
   name: 'DMask',
   props,
   emits: [
+    'on-blur',
     'on-focus',
     'on-input',
     'on-change'
@@ -108,7 +109,8 @@ export default {
       newValue,
       setValue,
       popValue,
-      pasteValue
+      pasteValue,
+      context
     )
 
     const { propChars } = useView(

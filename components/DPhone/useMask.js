@@ -67,6 +67,16 @@ export default function useMask (
     mask,
     code,
     flag,
+    propPlaceholder: computed(() => {
+      if (props.placeholder) {
+        return props.placeholder
+      } else if (props.filling) {
+        const country = GeoPhone.getInfo(code.value)
+        return `+${country.phoneCode}`
+      } else {
+        return undefined
+      }
+    }),
 
     setCountry,
 
@@ -75,14 +85,9 @@ export default function useMask (
       const country = setCountry(event.value)
 
       if (country) {
-        input.value?.newValue('')
-        input.value?.pasteValue(
-          0,
-          `${country.phoneCode}${info.phone}`,
-          false
-        )
+        input.value?.newValue(`${country.phoneCode}${info.phone}`)
 
-        requestAnimationFrame(() => {
+        setTimeout(() => {
           if (input.value?.input) {
             input.value.input.focus()
 
@@ -91,7 +96,7 @@ export default function useMask (
               input.value.input.selectionStart = 999
             })
           }
-        })
+        }, 120)
       }
     },
     onInputMask: event => {
@@ -106,6 +111,13 @@ export default function useMask (
     onClick: event => {
       if (event.target === input.value?.input) {
         setStart()
+      }
+    },
+    onBlur: () => {
+      const country = GeoPhone.getInfo(code.value)
+
+      if (propValue.value.replace(/[^0-9]/ig, '') === country.phoneCode) {
+        input.value?.newValue('')
       }
     }
   }

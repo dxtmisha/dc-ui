@@ -44,7 +44,10 @@ export default class GeoPhone {
 
     if (data.length > 0) {
       data.forEach(number => {
-        if (number in focus) {
+        if (
+          phone === '' &&
+          number in focus
+        ) {
           focus = focus[number]
           mask = focus?.data
         } else {

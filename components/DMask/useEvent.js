@@ -4,7 +4,8 @@ export default function useEvent (
   newValue,
   setValue,
   popValue,
-  pasteValue
+  pasteValue,
+  context = undefined
 ) {
   let unidentified, length, selectionStart, selectionEnd
 
@@ -48,9 +49,13 @@ export default function useEvent (
 
     pasteValue(start, (event.clipboardData || window.clipboardData).getData('text'))
   }
-  const onBlur = () => {
+  const onBlur = event => {
     if (change.value) {
       change.value = false
+    }
+
+    if (context) {
+      context.emit('on-blur', event)
     }
   }
   const onInput = event => {

@@ -1,7 +1,7 @@
 import useAttrs from '../../uses/useAttrs'
 import { props as main } from './props'
 
-export default function useInput (props) {
+export default function useInput (props, propPlaceholder) {
   return useAttrs({
     code: 'input',
     pointer: [
@@ -9,10 +9,12 @@ export default function useInput (props) {
       'readonly',
       'disabled',
       'autofocus',
-      'placeholder',
       'required'
     ],
     props: main,
-    original: props
+    original: props,
+    items: {
+      placeholder: propPlaceholder
+    }
   })
 }
