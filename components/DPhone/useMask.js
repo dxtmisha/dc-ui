@@ -1,6 +1,6 @@
 import GeoPhone from '../../classes/GeoPhone'
 import attrMask from '../DMask/attrMask'
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export default function useMask (
   props,
@@ -42,12 +42,6 @@ export default function useMask (
       return undefined
     }
   }
-
-  onMounted(() => {
-    if (props.filling) {
-      setStart()
-    }
-  })
 
   return {
     bindMask,
