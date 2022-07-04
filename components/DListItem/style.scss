@@ -2,6 +2,7 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/margin";
 @import "../../styles/media";
 @import "../../styles/position";
 @import "../../styles/options/optionShape";
@@ -66,8 +67,7 @@
 
 @mixin listItemIcon() {
   &__icon.li-thumbnail {
-    margin-left: var(--_li-squeeze-left);
-    margin-right: var(--_li-squeeze-right);
+    @include marginDirectionX(var(--_li-squeeze-left), var(--_li-squeeze-right));
   }
 
   &__icon.li-trailing {
@@ -78,8 +78,7 @@
   }
 
   &__icon.li-icon ~ &__text {
-    margin-left: var(--_li__ic-padding-left);
-    margin-right: var(--_li__ic-padding-right);
+    @include marginDirectionX(var(--_li__ic-padding-left), var(--_li__ic-padding-right));
   }
 
   &__icon.li-thumbnail ~ &__text {

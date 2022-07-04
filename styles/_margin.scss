@@ -29,3 +29,18 @@
 @mixin marginBottom($value) {
   margin-bottom: dimension($value);
 }
+
+@mixin marginDirectionLeft($value) {
+  margin-left: calc(var(--d-direction-left) * (#{$value}));
+  margin-right: calc(var(--d-direction-right) * (#{$value}));
+}
+
+@mixin marginDirectionRight($value) {
+  margin-left: calc(var(--d-direction-right) * (#{$value}));
+  margin-right: calc(var(--d-direction-left) * (#{$value}));
+}
+
+@mixin marginDirectionX($valueLeft, $valueRight) {
+  margin-left: calc((var(--d-direction-left) * (#{$valueLeft})) + (var(--d-direction-right) * (#{$valueRight})));
+  margin-right: calc((var(--d-direction-left) * (#{$valueRight})) + (var(--d-direction-right) * (#{$valueLeft})));
+}

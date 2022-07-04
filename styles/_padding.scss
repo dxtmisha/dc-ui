@@ -29,3 +29,18 @@
 @mixin paddingBottom($value) {
   padding-bottom: dimension($value);
 }
+
+@mixin paddingDirectionLeft($value) {
+  padding-left: calc(var(--d-direction-left) * (#{$value}));
+  padding-right: calc(var(--d-direction-right) * (#{$value}));
+}
+
+@mixin paddingDirectionRight($value) {
+  padding-left: calc(var(--d-direction-right) * (#{$value}));
+  padding-right: calc(var(--d-direction-left) * (#{$value}));
+}
+
+@mixin paddingDirectionX($valueLeft, $valueRight) {
+  padding-left: calc((var(--d-direction-left) * (#{$valueLeft})) + (var(--d-direction-right) * (#{$valueRight})));
+  padding-right: calc((var(--d-direction-left) * (#{$valueRight})) + (var(--d-direction-right) * (#{$valueLeft})));
+}

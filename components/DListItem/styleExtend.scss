@@ -1,6 +1,7 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/margin";
 
 @mixin mixinAdaptive() {
   --_li-padding: var(--_li--ic-padding);
@@ -66,6 +67,5 @@
 }
 
 %icon-margin-left {
-  margin-left: var(--_li-gap-left);
-  margin-right: var(--_li-gap-right);
+  @include marginDirectionX(var(--_li-gap-left), var(--_li-gap-right));
 }

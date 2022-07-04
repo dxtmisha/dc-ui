@@ -1,14 +1,16 @@
+@import "../../styles/margin";
+
 @mixin buttonSelect() {
   &__button {
     --_bs-gap: var(--bs-gap, 8px);
   }
 
   &__body {
-    display: flex;
+    display: inline-flex;
   }
 
   &__text + &__value {
-    padding-left: var(--_bs-gap);
+    @include marginDirectionLeft(var(--_bs-gap));
   }
 
   &__button[data-value] &__text {

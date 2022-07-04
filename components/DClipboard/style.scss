@@ -2,10 +2,12 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/margin";
 
 @mixin clipboard() {
   --_cl-gap: var(--cl-gap, #{dimension(2)});
   --_cl-padding: var(--cl-padding, #{dimension(1) dimension(2)});
+  --_cl-margin: var(--cl-margin, #{dimension(2)});
 
   @include flexX;
   @include flexGapX(var(--_cl-gap));
@@ -21,7 +23,7 @@
   &__input {
     @include ellipsis;
     @include flexDynamic;
-    margin-left: 8px;
+    @include marginDirectionLeft(var(--_cl-margin));
   }
 }
 
