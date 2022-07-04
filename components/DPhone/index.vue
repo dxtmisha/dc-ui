@@ -8,7 +8,7 @@
       <d-button-select
         :icon="flag"
         :list="listMask"
-        :menu-attrs="{ class: 'd-phone__menu' }"
+        :menu-attrs="{ class: 'd-phone__menu', 'window-axis': 'x' }"
         :menu-window-in-dom="true"
         :menu-window-light="true"
         :minimum="true"

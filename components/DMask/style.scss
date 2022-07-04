@@ -67,6 +67,10 @@
       transition: background-color 5000s ease-in-out 0s;
     }
   }
+
+  &__date {
+    display: none;
+  }
 }
 
 @mixin maskInit() {

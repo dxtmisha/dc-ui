@@ -4,6 +4,7 @@ import useWatch from '../../uses/useWatch'
 
 export default function useValue (
   input,
+  inputDate,
   props,
   geo,
   view,
@@ -79,13 +80,16 @@ export default function useValue (
     }
   }
   const checkValidity = () => {
-    const check = input.value?.checkValidity()
+    let check = input.value?.checkValidity()
 
     validationCode.value = undefined
     validationMessage.value = input.value?.validationMessage
 
     if (!check) {
       checkDate()
+    } else if (validationMessage.value === '' && inputDate.value) {
+      check = inputDate.value.checkValidity()
+      validationMessage.value = inputDate.value.validationMessage
     }
 
     return check

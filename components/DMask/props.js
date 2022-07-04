@@ -16,6 +16,8 @@ export const props = {
 
   // Input
   pattern: undefined,
+  min: String,
+  max: String,
   on: {
     type: Object,
     default: {}

@@ -7,6 +7,8 @@ export default function attrMask ({
     'value',
     'mask',
     'pattern',
+    'min',
+    'max',
     'on',
     'type',
     'locales'

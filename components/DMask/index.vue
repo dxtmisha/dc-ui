@@ -3,11 +3,11 @@
     <span class="d-mask__view">
       <input
         ref="input"
-        :pattern="propPattern"
-        :value="standard"
         class="d-mask__input"
         v-bind="inputAttrs"
+        :pattern="propPattern"
         :type="typeInput"
+        :value="standard"
         @focus="onFocus"
         @blur="onBlur"
         @change="onChange"
@@ -17,6 +17,15 @@
         @keypress.prevent="onKeypress"
         @paste.prevent="onPaste"
       />
+      <input
+        v-if="type === 'date'"
+        ref="inputDate"
+        :max="max"
+        :min="min"
+        :value="propValue"
+        class="d-mask__date"
+        type="date"
+      >
       <span ref="chars" class="d-mask__chars">
         <template v-if="propChars.length > 0">
           <span
@@ -53,6 +62,7 @@ export default {
   ],
   setup (props, context) {
     const input = ref(undefined)
+    const inputDate = ref(undefined)
     const chars = ref(undefined)
 
     const {
@@ -82,12 +92,14 @@ export default {
     )
 
     const {
+      propValue,
       validationCode,
       validationMessage,
       change,
       checkValidity
     } = useValue(
       input,
+      inputDate,
       props,
       geo,
       propView,
@@ -129,10 +141,12 @@ export default {
 
     return {
       input,
+      inputDate,
       chars,
       standard,
 
       length,
+      propValue,
       propPattern,
       propMax,
       propChars,

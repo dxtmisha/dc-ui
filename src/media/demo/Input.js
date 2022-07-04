@@ -24,7 +24,12 @@ export const Input = {
       { value: 40 },
       { value: 50 },
       { value: 60 },
-      { value: 100 }
+      { value: 100 },
+      { value: '2023-01-01' },
+      { value: '2023-06-01' },
+      { value: '2023-06-15' },
+      { value: '2024-01-01' },
+      { value: '2025-01-01' }
     ]
   },
   maxlength: {
@@ -49,7 +54,12 @@ export const Input = {
       { value: 12 },
       { value: 16 },
       { value: 24 },
-      { value: 32 }
+      { value: 32 },
+      { value: '2020-01-01' },
+      { value: '2020-06-01' },
+      { value: '2020-06-15' },
+      { value: '2019-01-01' },
+      { value: '2018-01-01' }
     ]
   },
   minimumDistance: { message: 20 },
