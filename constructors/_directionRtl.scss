@@ -1,0 +1,9 @@
+@mixin initDirectionRtl() {
+  .d-direction-rtl {
+    --d-direction-left: 0;
+    --d-direction-right: 1;
+    --d-direction-text-left: right;
+    --d-direction-text-right: left;
+    direction: rtl;
+  }
+}

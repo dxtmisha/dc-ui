@@ -41,7 +41,8 @@
 
 @mixin flexGapX($value) {
   > * + * {
-    margin-left: $value;
+    margin-left: calc(var(--d-direction-left) * #{$value});
+    margin-right: calc(var(--d-direction-right) * #{$value});
   }
 }
 

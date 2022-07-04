@@ -57,17 +57,21 @@
   &__icon {
     transition-duration: inherit;
     transition-property: color, opacity, transform;
+    --_bt-icon-left: calc(var(--_bt-squeeze) * -1);
+    --_bt-icon-right: var(--_bt-gap);
+    --_bt-trailing-left: var(--_bt-gap);
+    --_bt-trailing-right: calc(var(--_bt-squeeze) * -1);
 
     &.bt-icon {
-      margin-left: calc(var(--_bt-squeeze) * -1);
-      margin-right: var(--_bt-gap);
+      margin-left: calc((var(--d-direction-left) * var(--_bt-icon-left)) + (var(--d-direction-right) * var(--_bt-icon-right)));
+      margin-right: calc((var(--d-direction-left) * var(--_bt-icon-right)) + (var(--d-direction-right) * var(--_bt-icon-left)));
     }
 
     &.bt-trailing {
       cursor: default;
       display: inline-block;
-      margin-left: var(--_bt-gap);
-      margin-right: calc(var(--_bt-squeeze) * -1);
+      margin-left: calc((var(--d-direction-left) * var(--_bt-trailing-left)) + (var(--d-direction-right) * var(--_bt-trailing-right)));
+      margin-right: calc((var(--d-direction-left) * var(--_bt-trailing-right)) + (var(--d-direction-right) * var(--_bt-trailing-left)));
       order: 9;
       position: relative;
       z-index: 4;
@@ -264,11 +268,11 @@
 
 @mixin buttonAlign() {
   &.align-left {
-    text-align: left;
+    text-align: var(--d-direction-text-left);
   }
 
   &.align-right {
-    text-align: right;
+    text-align: var(--d-direction-text-right);
   }
 
   &.align-center {

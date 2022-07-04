@@ -6,6 +6,7 @@
         <a href="/" class="a-static font:headline6 pr-4">dc-UI</a>
         <interactive-demo-router/>
         <div class="flex-grow"/>
+        <interactive-demo-direction/>
         <interactive-demo-theme/>
         <interactive-demo-color/>
       </header>
@@ -26,6 +27,7 @@
 
 <script>
 import InteractiveDemoColor from '@/./components/InteractiveDemo/InteractiveDemoColor'
+import InteractiveDemoDirection from '@/components/InteractiveDemo/InteractiveDemoDirection'
 import InteractiveDemoRouter from '@/./components/InteractiveDemo/InteractiveDemoRouter'
 import InteractiveDemoTheme from '@/./components/InteractiveDemo/InteractiveDemoTheme'
 import DClipboard from '../components/DClipboard'
@@ -35,6 +37,7 @@ export default {
   components: {
     DClipboard,
     InteractiveDemoColor,
+    InteractiveDemoDirection,
     InteractiveDemoRouter,
     InteractiveDemoTheme
   }

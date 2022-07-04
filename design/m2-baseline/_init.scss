@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import "../../constructors/color";
 @import "../../constructors/constructor";
+@import "../../constructors/directionRtl";
 @import "../../constructors/font";
 @import "../../constructors/scrollbar";
 @import "../../constructors/scrollbarBorder";
@@ -52,6 +53,7 @@
   }
 
   @include initTypography;
+  @include initDirectionRtl;
   @include initScrollbar;
   @include initScrollbarBorder;
 
