@@ -3,6 +3,7 @@
 
 @mixin mask() {
   display: flex;
+  direction: ltr;
   align-items: center;
 }
 

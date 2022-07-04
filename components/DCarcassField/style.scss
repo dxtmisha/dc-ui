@@ -1,6 +1,7 @@
 @import "../../styles/color";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/margin";
 @import "../../styles/padding";
 @import "../../styles/position";
 @import "styleExtend";
@@ -50,14 +51,16 @@
 
 @mixin carcassFieldInput() {
   &__input {
+    @include paddingDirectionX(
+                    calc(var(--_cf-padding) + var(--_cf-space) + var(--_cf__ld-padding) + var(--_cf__pr-width) + var(--_cf__sl-width)),
+                    calc(var(--_cf-padding) + (var(--_cf-space) / 2) + var(--_cf__cn-padding) + var(--_cf__tr-padding) + var(--_cf__sf-width))
+    );
     -moz-appearance: textfield;
     border-radius: inherit;
     min-height: var(--_cf-height);
     padding: {
       top: calc(var(--_cf-half) - var(--_cf__tx-half) + var(--_cf-shift));
-      right: calc(var(--_cf-padding) + (var(--_cf-space) / 2) + var(--_cf__cn-padding) + var(--_cf__tr-padding) + var(--_cf__sf-width));
       bottom: calc(var(--_cf-half) - var(--_cf__tx-half) - var(--_cf-shift));
-      left: calc(var(--_cf-padding) + var(--_cf-space) + var(--_cf__ld-padding) + var(--_cf__pr-width) + var(--_cf__sl-width));
     }
     position: relative;
     width: 100%;
@@ -85,7 +88,7 @@
   }
 
   &.view-suffix &__input {
-    text-align: right;
+    text-align: var(--d-direction-text-right);
   }
 }
 
@@ -137,8 +140,8 @@
     line-height: 1;
     max-width: 100%;
     opacity: var(--_cf__tx-opacity);
-    transform: translate(#{calc(var(--_cf__tx-translate-x))}, #{calc(var(--_cf__tx-translate-y) - var(--_cf-shift))}) scale(var(--_cf__tx-scale));
-    transform-origin: left;
+    transform: translate(#{calc(var(--_cf__tx-translate-x) * var(--d-direction))}, #{calc(var(--_cf__tx-translate-y) - var(--_cf-shift))}) scale(var(--_cf__tx-scale));
+    transform-origin: var(--d-direction-text-left);
     transition-property: font-size, opacity, transform;
     transition-timing-function: var(--transition-cubic-80-40);
     @content;
@@ -220,7 +223,7 @@
   }
 
   .cf-trailing {
-    margin-left: var(--_cf-space);
+    @include marginDirectionLeft(var(--_cf-space));
   }
 
   .cf-arrow {
@@ -245,25 +248,21 @@
   }
 
   &__prefix {
-    padding-left: var(--_cf-space);
+    @include paddingDirectionLeft(var(--_cf-space));
   }
 
   &__suffix {
-    padding-right: var(--_cf-space);
+    @include paddingDirectionRight(var(--_cf-space));
   }
 
   &.view-icon &__prefix {
-    padding-left: calc(var(--_cf-space) * 2);
-  }
-
-  &.view-icon-trailing &__suffix {
-    padding-right: var(--_cf-space);
+    @include paddingDirectionLeft(calc(var(--_cf-space) * 2));
   }
 }
 
 @mixin carcassFieldSlot() {
   &__slot-left {
-    padding-right: var(--_cf-space);
+    @include paddingDirectionRight(var(--_cf-space));
   }
 }
 
