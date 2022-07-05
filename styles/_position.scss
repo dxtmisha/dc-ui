@@ -43,6 +43,21 @@
   left: $value;
 }
 
+@mixin positionDirectionLeft($value) {
+  left: var(--d-direction-auto-rtl, #{$value});
+  right: var(--d-direction-auto, #{$value});
+}
+
+@mixin positionDirectionRight($value) {
+  left: var(--d-direction-auto, #{$value});
+  right: var(--d-direction-auto-rtl, #{$value});
+}
+
+@mixin positionDirectionX($valueLeft, $valueRight) {
+  left: calc((var(--d-direction-left) * (#{$valueLeft})) + (var(--d-direction-right) * (#{$valueRight})));
+  right: calc((var(--d-direction-left) * (#{$valueRight})) + (var(--d-direction-right) * (#{$valueLeft})));
+}
+
 @mixin absoluteFull($value: 0) {
   position: absolute;
   @include positionFull($value);

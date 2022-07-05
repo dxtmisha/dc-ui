@@ -51,14 +51,6 @@
     border-color: var(--basic-border);
     font-family: 'Roboto', sans-serif;
     overflow: visible;
-
-    --d-direction: 1;
-    --d-direction-left: 1;
-    --d-direction-right: 0;
-    --d-direction-justify-start: flex-end;
-    --d-direction-justify-end: flex-start;
-    --d-direction-text-left: left;
-    --d-direction-text-right: right;
   }
 
   b {

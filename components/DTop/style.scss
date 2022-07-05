@@ -2,6 +2,7 @@
 @import "../../styles/dimension";
 @import "../../styles/flex";
 @import "../../styles/font";
+@import "../../styles/padding";
 @import "../../styles/options/optionBlur";
 
 @mixin top {
@@ -30,7 +31,7 @@
     @include clamp(2);
     @include font('headline6');
     @include flexDynamic;
-    padding-left: var(--_tp__tt-padding);
+    @include paddingDirectionLeft(var(--_tp__tt-padding));
   }
 }
 

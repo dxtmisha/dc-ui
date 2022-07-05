@@ -101,7 +101,7 @@
 
   &__context.status-window > &__head {
     transform: scale(var(--_mt__hd-scale, 1));
-    transform-origin: left top;
+    transform-origin: var(--d-direction-text-left) top;
     width: var(--_mt__hd-width, auto);
   }
 
