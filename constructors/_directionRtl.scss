@@ -1,5 +1,5 @@
 @mixin initDirectionRtl() {
-  body {
+  html {
     --d-direction: 1;
     --d-direction-left: 1;
     --d-direction-right: 0;
@@ -10,7 +10,8 @@
     --d-direction-text-right: right;
   }
 
-  .d-direction-rtl {
+  .d-direction-rtl,
+  html[dir="rtl"] {
     --d-direction: -1;
     --d-direction-left: 0;
     --d-direction-right: 1;
