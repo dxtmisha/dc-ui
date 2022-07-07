@@ -74,8 +74,20 @@
   }
 }
 
+@mixin maskDate() {
+  &.type-date {
+    justify-content: var(--d-direction-justify-start);
+  }
+
+  &.type-date &__view {
+    display: inline-block;
+    width: auto;
+  }
+}
+
 @mixin maskInit() {
   @include mask;
   @include maskShow;
   @include maskInput;
+  @include maskDate;
 }

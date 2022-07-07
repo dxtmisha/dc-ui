@@ -22,7 +22,7 @@
         ref="inputDate"
         :max="max"
         :min="min"
-        :value="propValue"
+        :value="propValueDate"
         class="d-mask__date"
         type="date"
       >
@@ -134,7 +134,10 @@ export default {
 
     const isCharacter = computed(() => !!standard.value)
     const classList = computed(() => {
-      return { 'status-character': isCharacter.value || props.visible }
+      return {
+        [`type-${props.type}`]: props.type,
+        'status-character': isCharacter.value || props.visible
+      }
     })
 
     useAdmin('d-mask', context)
@@ -147,6 +150,13 @@ export default {
 
       length,
       propValue,
+      propValueDate: computed(() => {
+        if (propMask.value.length === propValue.value.length) {
+          return propValue.value
+        } else {
+          return ''
+        }
+      }),
       propPattern,
       propMax,
       propChars,

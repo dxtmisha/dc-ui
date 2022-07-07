@@ -17,6 +17,7 @@
   @extend %font-size;
   background-size: var(--_ii-background-size);
   border-radius: inherit;
+  direction: ltr;
   transform: none;
   transition-duration: var(--transition-menu-expanding);
   transition-property: background-size, opacity, transform;
@@ -34,6 +35,8 @@
     @extend %display;
     @extend %font-size;
     @content;
+
+    direction: ltr;
 
     &.type- {
       &outlined {
