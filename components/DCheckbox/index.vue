@@ -1,16 +1,16 @@
 <template>
   <label :class="classList" class="d-checkbox">
-    <input :name="name" type="hidden" value="0">
+    <input v-if="propType !== 'radio'" :name="name" type="hidden" value="0">
     <input
       ref="input"
       v-bind="inputAttrs"
-      v-model="propValue"
+      :checked="propValue === true"
       :disabled="disabled"
       :name="name"
       :required="required"
       :type="propType"
+      :value="valueDefault"
       class="d-checkbox__input"
-      value="1"
       v-on="on"
       @input.prevent="onChecked"
     >
@@ -104,6 +104,7 @@ export default {
         [`type-${propType.value}`]: propType.value,
         'option-right': props.right,
         'option-required': props.required,
+        'option-inverse': props.inverse,
         ...palette.value
       }
     })

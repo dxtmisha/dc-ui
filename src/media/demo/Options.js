@@ -132,6 +132,7 @@ export const Options = {
       { value: 400 }
     ]
   },
+  inverse: {},
   isNew: {},
   height: {},
   hideAfter: {

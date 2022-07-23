@@ -8,6 +8,12 @@
 
   --_cb-size: var(--cb-size, #{dimension(10)});
   --_cb__ic-size: var(--cb__ic-size, #{dimension(5)});
+  --_cb__ic-border: var(--cb__ic-border, #{dimension(.5)});
+  --_cb__ic-radius: var(--cb__ic-radius, #{dimension(1)});
+
+  --_cb__rd-size: var(--cb__rd-size, #{dimension(3)});
+  --_cb__rd-color: var(--cb__rd-color, var(--_cb-palette-type1));
+  --_cb__rd-inverse: var(--cb__rd-inverse-color, var(--background-colorless));
 
   --_cb__sw-height: var(--cb__sw-height, #{dimension(3.5)});
   --_cb__sw-width: var(--cb__sw-width, #{dimension(9)});

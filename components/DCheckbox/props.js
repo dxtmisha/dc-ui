@@ -6,6 +6,10 @@ export const props = {
   // Values
   item: undefined,
   value: undefined,
+  valueDefault: {
+    type: String,
+    default: '1'
+  },
   modelValue: undefined,
   name: String,
   text: String,
@@ -34,6 +38,10 @@ export const props = {
       'radio',
       'switch'
     ])
+  },
+  inverse: {
+    type: Boolean,
+    default: defaultProps('inverse')
   },
   ripple: {
     type: Boolean,

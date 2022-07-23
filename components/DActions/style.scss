@@ -21,6 +21,8 @@
 @mixin actionsSpacer {
   &__spacer {
     @include flexDynamic;
+    @include flexGapX(var(--_ac-gap));
+    text-align: var(--d-direction-text-right);
   }
 }
 

@@ -3,13 +3,34 @@
     :options="options"
     v-slot:default="{ binds, on }"
   >
-    <d-checkbox
-      v-bind="binds"
-      id="id-checkbox"
-      name="interactive-demo"
-      :admin="true"
-      @on-input="on"
-    />
+    <div>
+      <d-checkbox
+        v-bind="binds"
+        id="id-checkbox-1"
+        name="interactive-demo"
+        :admin="true"
+        value-default="1"
+        @on-input="on"
+      />
+      <div/>
+      <d-checkbox
+        v-bind="binds"
+        id="id-checkbox-2"
+        name="interactive-demo"
+        :admin="true"
+        value-default="2"
+        @on-input="on"
+      />
+      <div/>
+      <d-checkbox
+        v-bind="binds"
+        id="id-checkbox-3"
+        name="interactive-demo"
+        :admin="true"
+        value-default="3"
+        @on-input="on"
+      />
+    </div>
   </interactive-demo>
 </template>
 

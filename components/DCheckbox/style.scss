@@ -77,8 +77,8 @@
     @include squared(var(--_cb__ic-size));
     background-color: transparent;
     border-color: varColor(--_cb-palette-type1, --opacity-surface-medium);
-    border-radius: dimension(1);
-    border-width: dimension(.5);
+    border-radius: var(--_cb__ic-radius);
+    border-width: var(--_cb__ic-border);
     position: relative;
     transition-property: background-color;
     @content;
@@ -111,6 +111,7 @@
   }
 
   &.option-right &__text {
+    @include marginDirectionRight(var(--_cb-gap));
     order: 1;
   }
 }
@@ -179,18 +180,24 @@
   }
 
   &.type-radio &__input:checked ~ &__item &__icon {
-    background-color: transparent;
-
     > * {
       opacity: 1;
       transform: none;
     }
   }
 
+  &.type-radio:not(.option-inverse) &__input:checked ~ &__item &__icon {
+    background-color: transparent;
+  }
+
   &.type-radio .cb-icon {
-    @include circle(dimension(3));
-    background-color: varColor(--_cb-palette-type1);
+    @include circle(var(--_cb__rd-size));
+    background-color: varColor(--_cb__rd-inverse);
     position: relative;
+  }
+
+  &.type-radio:not(.option-inverse) .cb-icon {
+    background-color: varColor(--_cb-palette-type1);
   }
 }
 

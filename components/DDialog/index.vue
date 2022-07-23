@@ -9,11 +9,11 @@
       <slot name="control" v-bind="binds"/>
     </template>
 
-    <template v-slot:window>
+    <template v-slot:window="binds">
       <div v-bind="$attrs" class="d-dialog__body">
         <div v-if="title" class="d-dialog__title">{{ title }}</div>
         <div v-else-if="'head' in $slots" class="d-dialog__head">
-          <slot name="head"/>
+          <slot name="head" v-bind="binds"/>
         </div>
 
         <div class="d-dialog__main">

@@ -8,15 +8,16 @@
       class="d-actions__action"
       @on-click="onClick"
     />
-    <span class="d-actions__spacer"/>
-    <d-button
-      v-for="item in propBar"
-      :key="item.value"
-      appearance="text-color"
-      v-bind="item"
-      class="d-actions__bar window-close"
-      @on-click="onClick"
-    />
+    <div class="d-actions__spacer">
+      <d-button
+        v-for="item in propBar"
+        :key="item.value"
+        appearance="text-color"
+        v-bind="item"
+        class="d-actions__bar window-close"
+        @on-click="onClick"
+      />
+    </div>
     <slot class-spacer="d-actions__spacer"/>
   </div>
 </template>
