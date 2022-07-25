@@ -16,6 +16,7 @@
   @include flexCenter;
   @extend %font-size;
   background-size: var(--_ii-background-size);
+  background-repeat: no-repeat;
   border-radius: inherit;
   direction: ltr;
   transform: none;
@@ -62,6 +63,8 @@
   &--public {
     background-color: rgba(var(--basic-text), var(--basic-text-opacity));
     mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
     mask-size: contain
   }
 }
