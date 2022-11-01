@@ -11,6 +11,7 @@ export default function useMotion (
 
   const update = () => {
     items.value = document.querySelectorAll(`.${id}`)
+    onScroll.value()
   }
 
   onScroll.value = (event = undefined) => {
@@ -43,9 +44,15 @@ export default function useMotion (
   onMounted(async () => {
     await nextTick()
     update()
-    onScroll.value()
   })
-  onUpdated(update)
+  onUpdated(async () => {
+    await nextTick()
+    update()
 
-  return {}
+    setTimeout(update, 240)
+  })
+
+  return {
+    update
+  }
 }

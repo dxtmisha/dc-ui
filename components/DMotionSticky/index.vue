@@ -27,7 +27,9 @@ export default {
       onScroll
     } = useElement(sticky, props)
 
-    useMotion(
+    const {
+      update
+    } = useMotion(
       id,
       sticky,
       props,
@@ -39,7 +41,9 @@ export default {
 
     return {
       id,
-      sticky
+      sticky,
+      update,
+      onScroll
     }
   }
 }
