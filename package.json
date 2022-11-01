@@ -1,6 +1,5 @@
 {
   "author": "Duong Xuan Tung (dxtmisha)",
-  "dependencies": {},
   "description": "UI based on Material Design",
   "devDependencies": {
     "@babel/core": "^7.16.10",
@@ -59,5 +58,5 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "version": "0.17.36"
+  "version": "0.17.44"
 }

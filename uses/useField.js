@@ -137,9 +137,10 @@ export default function useField (
 
     if (props?.required) {
       propValue.value = propValue.value.trim()
+      requestAnimationFrame(() => emit('on-change'))
+    } else {
+      emit('on-change')
     }
-
-    emit('on-change')
   }
   const onChecked = () => {
     change.value = true
