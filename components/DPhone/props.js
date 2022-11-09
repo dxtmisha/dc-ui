@@ -41,6 +41,7 @@ export const props = {
   cancelShowAlways: undefined,
   ripple: undefined,
   fieldAttrs: undefined,
+  iconArrowFlag: undefined,
 
   // Mask
   filling: {
