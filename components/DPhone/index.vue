@@ -7,13 +7,14 @@
     <template v-slot:left>
       <d-button-select
         :icon="flag"
+        :icon-arrow-down="iconArrowFlag"
         :list="listMask"
         :menu-attrs="{ class: 'd-phone__menu', 'window-axis': 'x' }"
         :menu-window-in-dom="true"
         :menu-window-light="true"
         :minimum="true"
         :value="code"
-        adaptive="icon"
+        :adaptive="iconArrowFlag ? undefined : 'icon'"
         appearance="text"
         class="d-phone__button"
         menu-size="dynamic"
