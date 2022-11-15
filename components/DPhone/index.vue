@@ -12,6 +12,7 @@
         :menu-attrs="{ class: 'd-phone__menu', 'window-axis': 'x' }"
         :menu-window-in-dom="true"
         :menu-window-light="true"
+        menu-window-width="320px"
         :minimum="true"
         :value="code"
         :adaptive="iconArrowFlag ? undefined : 'icon'"

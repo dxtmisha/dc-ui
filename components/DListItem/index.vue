@@ -1,42 +1,42 @@
 <template>
-  <component
-    ref="main"
-    :is="tag"
-    v-if="!hide"
-    v-bind="binds"
-    class="d-list-item a-static"
-    @click="onClick"
-  >
-    <d-icon v-if="thumbnail" v-bind="bindThumbnail" class="d-list-item__icon li-thumbnail"/>
-    <d-icon v-else-if="icon" v-bind="bindIcon" class="d-list-item__icon li-icon"/>
-    <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-list-item__icon li-trailing"/>
+<component
+  ref="main"
+  :is="tag"
+  v-if="!hide"
+  v-bind="binds"
+  class="d-list-item a-static"
+  @click="onClick"
+>
+  <d-icon v-if="thumbnail" v-bind="bindThumbnail" class="d-list-item__icon li-thumbnail"/>
+  <d-icon v-else-if="icon" v-bind="bindIcon" class="d-list-item__icon li-icon"/>
+  <d-icon v-if="iconTrailing" v-bind="bindTrailing" class="d-list-item__icon li-trailing"/>
 
-    <div v-if="textShort" class="d-list-item__text-short">{{ textShort }}</div>
-    <div v-if="text" class="d-list-item__text">
-      <template v-if="prefix || suffix || description || underline">
-        <div class="d-list-item__title">
-          <span v-if="prefix" class="d-list-item__prefix">{{ prefix }}</span>
-          <span class="d-list-item__main" v-html="propText"/>
-          <span v-if="suffix" class="d-list-item__suffix">{{ suffix }}</span>
-        </div>
-        <div v-if="description" class="d-list-item__description" v-html="description"/>
-      </template>
-      <template v-else>{{ text }}</template>
-    </div>
+  <div v-if="textShort" class="d-list-item__text-short">{{ textShort }}</div>
+  <div v-if="text" class="d-list-item__text">
+    <template v-if="prefix || suffix || description || underline">
+      <div class="d-list-item__title">
+        <span v-if="prefix" class="d-list-item__prefix">{{ prefix }}</span>
+        <span class="d-list-item__main" v-html="propText"/>
+        <span v-if="suffix" class="d-list-item__suffix">{{ suffix }}</span>
+      </div>
+      <div v-if="description" class="d-list-item__description" v-html="description"/>
+    </template>
+    <template v-else>{{ text }}</template>
+  </div>
 
-    <d-badge v-if="badge" v-bind="bindBadge"/>
-    <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
-    <d-ripple v-if="isRipple"/>
+  <d-badge v-if="badge" v-bind="bindBadge"/>
+  <d-progress v-if="isProgress" v-bind="bindProgress" :bottom="true"/>
+  <d-ripple v-if="isRipple"/>
 
-    <slot
-      class-name="d-list-item__text"
-      :item="item"
-      :value="value"
-      :text="text"
-      :focus="focus"
-      :selected="selected"
-    />
-  </component>
+  <slot
+    class-name="d-list-item__text"
+    :item="item"
+    :value="value"
+    :text="text"
+    :focus="focus"
+    :selected="selected"
+  />
+</component>
 </template>
 
 <script>
@@ -45,7 +45,7 @@ import DIcon from '../DIcon'
 import DProgress from '../DProgress'
 import DRipple from '../DRipple'
 import { props } from './props'
-import { computed } from 'vue'
+import { computed, inject, ref } from 'vue'
 import getExp from './../../functions/getExp'
 import attrBadge from '../DBadge/attrBadge'
 import attrProgress from '../DProgress/attrProgress'
@@ -75,6 +75,7 @@ export default {
     const propAdaptive = computed(() => props.text || 'default' in context.slots ? props.adaptive : 'icon')
 
     const bindBadge = attrBadge(props)
+    const menuOpen = inject('menuOpen', ref('flex'))
 
     const {
       bindThumbnail,
@@ -120,6 +121,7 @@ export default {
     return {
       isRipple,
       isProgress,
+      menuOpen,
 
       propText,
       propValue,
@@ -153,5 +155,9 @@ export default {
 
 .d-list-item {
   @include listItemInit;
+
+  &:nth-child(n+40) {
+    display: v-bind(menuOpen);
+  }
 }
 </style>

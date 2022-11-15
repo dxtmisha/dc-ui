@@ -1,4 +1,4 @@
-import { nextTick, ref } from 'vue'
+import { nextTick, provide, ref } from 'vue'
 import EventControl from '../../classes/EventControl'
 import getExp from './../../functions/getExp'
 import getKey from './../../functions/getKey'
@@ -13,10 +13,13 @@ export default function useFocus (
   const window = ref(undefined)
   const focus = ref(undefined)
   const search = ref(undefined)
+  const menuOpen = ref('none')
 
   const getList = () => object.value.getFirst()
   const querySelector = selectors => menu.value?.$el.querySelector(selectors)
   const elementFocus = () => querySelector(`[data-value="${focus.value}"]`)
+
+  provide('menuOpen', menuOpen)
 
   const setFocus = value => {
     const list = getList()
@@ -96,9 +99,19 @@ export default function useFocus (
     if (open) {
       focusKey = getKey(getList(), selected.value)
       await nextTick()
-      goScroll(querySelector('.d-list-item.status-selected'))
+
+      setTimeout(() => {
+        menuOpen.value = 'flex'
+        requestAnimationFrame(() => {
+          goScroll(querySelector('.d-list-item.status-selected'))
+        })
+      }, 80)
     } else {
       focus.value = undefined
+
+      requestAnimationFrame(() => {
+        menuOpen.value = 'none'
+      })
     }
   }
 
