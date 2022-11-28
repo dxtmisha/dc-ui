@@ -86,5 +86,7 @@ export const props = {
   // Icon
   icon: undefined,
   iconActive: undefined,
-  iconTrailing: undefined
+  iconTrailing: undefined,
+  iconVisibility: { default: defaultProps('iconVisibility', 'visibility') },
+  iconVisibilityOff: { default: defaultProps('iconVisibilityOff', 'visibility_off') }
 }

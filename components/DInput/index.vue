@@ -114,8 +114,8 @@ export default {
 
     const pVisibility = ref(false)
     const pType = computed(() => pVisibility.value ? 'text' : props.type)
-    const pIconTrailing = computed(() => props.type === 'password' ? 'visibility' : props.iconTrailing)
-    const pIconTrailingActive = computed(() => props.type === 'password' ? 'visibility_off' : undefined)
+    const pIconTrailing = computed(() => props.type === 'password' ? props.iconVisibility : props.iconTrailing)
+    const pIconTrailingActive = computed(() => props.type === 'password' ? props.iconVisibilityOff : undefined)
     const onTrailing = () => {
       pVisibility.value = !pVisibility.value
     }
