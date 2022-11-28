@@ -18,6 +18,7 @@ export const props = {
   // Status
   focus: Boolean,
   active: Boolean,
+  activeTrailing: Boolean,
   filled: Boolean,
   selected: Boolean,
   turn: Boolean,
@@ -93,6 +94,7 @@ export const props = {
   icon: undefined,
   iconActive: undefined,
   iconTrailing: undefined,
+  iconTrailingActive: undefined,
   iconCancel: { default: defaultProps('iconCancel', 'cancel') },
   iconChevronLeft: { default: defaultProps('iconChevronLeft', 'chevron_left') },
   iconChevronRight: { default: defaultProps('iconChevronRight', 'chevron_right') },

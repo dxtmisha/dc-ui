@@ -90,6 +90,11 @@
   &.view-suffix &__input {
     text-align: var(--d-direction-text-right);
   }
+
+  &.is-visibility &__scoreboard,
+  &__input[type="password"] ~ &__scoreboard {
+    z-index: 4;
+  }
 }
 
 @mixin carcassFieldLabel() {

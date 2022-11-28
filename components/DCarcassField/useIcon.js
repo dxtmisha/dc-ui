@@ -4,8 +4,10 @@ import { computed, toRefs } from 'vue'
 export default function useIcon (props) {
   const {
     selected,
+    activeTrailing,
     turn,
     iconTrailing,
+    iconTrailingActive,
     iconCancel,
     iconChevronLeft,
     iconChevronRight
@@ -28,6 +30,8 @@ export default function useIcon (props) {
     items: {
       ...noneActive,
       icon: iconTrailing,
+      iconActive: iconTrailingActive,
+      active: activeTrailing,
       turn
     },
     attrs

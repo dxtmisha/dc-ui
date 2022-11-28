@@ -1,36 +1,42 @@
 <template>
-  <d-carcass-field
-    v-bind="bindCarcassField"
-    @on-previous="onArrow('previous')"
-    @on-next="onArrow('next')"
-    @on-cancel="onCancel"
-  >
-    <template v-slot:default="{ className }">
-      <d-mask
-        v-if="isMask"
-        ref="input"
-        v-bind="bindMask"
-        :class="className"
-        :on="on"
-        :inputAttrs="bindInput"
-        @on-input="onInput"
-        @on-change="onChange"
-      />
-      <input
-        v-else
-        ref="input"
-        v-bind="bindInput"
-        :class="className"
-        :pattern="bindPattern"
-        v-model="propValue"
-        v-on="on"
-        @input="onEmit"
-        @change="onChange"
-        @keypress="onKeypress"
-        @paste="onPaste"
-      >
-    </template>
-  </d-carcass-field>
+<d-carcass-field
+  v-bind="bindCarcassField"
+  :class="{'is-visibility':pVisibility}"
+  :active-trailing="pVisibility"
+  :icon-trailing="pIconTrailing"
+  :icon-trailing-active="pIconTrailingActive"
+  @on-previous="onArrow('previous')"
+  @on-next="onArrow('next')"
+  @on-cancel="onCancel"
+  @on-trailing="onTrailing"
+>
+  <template v-slot:default="{ className }">
+    <d-mask
+      v-if="isMask"
+      ref="input"
+      v-bind="bindMask"
+      :class="className"
+      :on="on"
+      :inputAttrs="bindInput"
+      @on-input="onInput"
+      @on-change="onChange"
+    />
+    <input
+      v-else
+      ref="input"
+      v-bind="bindInput"
+      :type="pType"
+      :class="className"
+      :pattern="bindPattern"
+      v-model="propValue"
+      v-on="on"
+      @input="onEmit"
+      @change="onChange"
+      @keypress="onKeypress"
+      @paste="onPaste"
+    >
+  </template>
+</d-carcass-field>
 </template>
 
 <script>
@@ -106,6 +112,14 @@ export default {
       })
     }
 
+    const pVisibility = ref(false)
+    const pType = computed(() => pVisibility.value ? 'text' : props.type)
+    const pIconTrailing = computed(() => props.type === 'password' ? 'visibility' : props.iconTrailing)
+    const pIconTrailingActive = computed(() => props.type === 'password' ? 'visibility_off' : undefined)
+    const onTrailing = () => {
+      pVisibility.value = !pVisibility.value
+    }
+
     useAdmin('d-input', context, input)
 
     return {
@@ -137,7 +151,13 @@ export default {
       onArrow,
       onCancel,
       onKeypress,
-      onPaste
+      onPaste,
+
+      pVisibility,
+      pType,
+      pIconTrailing,
+      pIconTrailingActive,
+      onTrailing
     }
   }
 }
