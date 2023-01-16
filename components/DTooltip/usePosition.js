@@ -76,7 +76,7 @@ export default function usePosition (
             eventScroll.goOnce()
             timeoutHide = setTimeout(() => toggle(false), props.hideAfter)
           }
-        }, go ? 0 : props.delay)
+        }, go ? 50 : props.delay)
       } else {
         classPreparation.set(false)
         classShow.set(false)
