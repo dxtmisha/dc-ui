@@ -76,7 +76,7 @@ export default function useCoordinates (
       const rectTop = contextmenu.value ? clientY.value : top.value - (props.axis === 'y' ? props.indent : 0)
       const rectBottom = contextmenu.value ? clientY.value : bottom.value + (props.axis === 'y' ? props.indent : 0)
 
-      if (props.axis === 'y') {
+      if (props.axis !== 'y') {
         y.set(getInnerPosition(rectBottom, rectTop, modal.value?.offsetHeight, window.innerHeight))
       } else {
         y.set(getInnerPosition(rectTop, rectBottom, modal.value?.offsetHeight, window.innerHeight))

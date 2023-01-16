@@ -30,7 +30,7 @@
         :inputAttrs="bindInput"
         :mask="mask"
         :value-paste="true"
-        :view-placeholder="false"
+        :view-placeholder="typeof mask === 'string' || mask.length <= 1"
         :visible="false"
         type-input="tel"
         v-bind="bindMask"
