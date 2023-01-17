@@ -29,7 +29,7 @@
   }
 
   &__passed {
-    color: transparent;
+    --basic-text-opacity: var(--ms__opacity, var(--opacity-surface-medium));
   }
 
   &__character {
@@ -55,6 +55,8 @@
   &__input {
     @include absoluteFull;
     --basic-text-opacity: var(--ms__opacity, var(--opacity-surface-medium));
+    caret-color: rgba(var(--basic-text), var(--basic-text-opacity));
+    color: transparent;
     text-align: inherit;
     width: 100%;
     z-index: 4;
