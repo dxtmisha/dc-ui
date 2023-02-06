@@ -7,16 +7,16 @@ const DC_THEME_COLOR = '__dcUi-theme-color'
 const DC_THEME_DEFAULT = 'm2-baseline'
 
 export const getTheme = (name = undefined) => {
-  return localStorage.getItem(DC_THEME) || name || DC_THEME_DEFAULT
+  return localStorage?.getItem(DC_THEME) || name || DC_THEME_DEFAULT
 }
 
 export const setTheme = (name) => {
-  localStorage.setItem(DC_THEME, name)
+  localStorage?.setItem(DC_THEME, name)
   return name
 }
 
-export const getColor = (type) => localStorage.getItem(`${DC_THEME_COLOR}--${type}`)
-export const setColor = (type, name) => localStorage.setItem(`${DC_THEME_COLOR}--${type}`, name)
+export const getColor = (type) => localStorage?.getItem(`${DC_THEME_COLOR}--${type}`)
+export const setColor = (type, name) => localStorage?.setItem(`${DC_THEME_COLOR}--${type}`, name)
 
 export default function useTheme (themeDefault, options = {}) {
   const get = () => getTheme(themeDefault)

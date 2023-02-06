@@ -4,7 +4,7 @@ import createElement from '../functions/createElement'
 const SCROLL = '__dcUi-scroll'
 let calculate = false
 
-const getWidth = () => parseInt(sessionStorage.getItem(SCROLL) || '-1')
+const getWidth = () => parseInt(sessionStorage?.getItem(SCROLL) || '-1')
 const setWidth = function () {
   return new Promise(resolve => {
     if (calculate) {
