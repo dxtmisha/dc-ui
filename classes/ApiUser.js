@@ -7,25 +7,25 @@ export default class ApiUser {
   static _usersLocale = process.env?.VUE_APP_API_LOCALE || null
 
   static get idLocale () {
-    return localStorage.getItem('__dcUi-api-locale') ||
+    return localStorage?.getItem('__dcUi-api-locale') ||
       this._usersLocale ||
       document.querySelector('html').getAttribute('lang')
   }
 
   static set idLocale (value) {
     Geo.globalLang = undefined
-    return localStorage.setItem('__dcUi-api-locale', value || this._usersLocale)
+    return localStorage?.setItem('__dcUi-api-locale', value || this._usersLocale)
   }
 
   static get idAccess () {
-    return localStorage.getItem('__dcUi-api-access') || null
+    return localStorage?.getItem('__dcUi-api-access') || null
   }
 
   static set idAccess (value) {
     if (value === null) {
-      localStorage.removeItem('__dcUi-api-access')
+      localStorage?.removeItem('__dcUi-api-access')
     } else {
-      localStorage.setItem('__dcUi-api-access', value)
+      localStorage?.setItem('__dcUi-api-access', value)
     }
   }
 
@@ -38,22 +38,22 @@ export default class ApiUser {
   }
 
   static get idSignature () {
-    let id = localStorage.getItem('__dcUi-api-signature')
+    let id = localStorage?.getItem('__dcUi-api-signature')
 
     if (!id) {
       id = `${new Date().getMilliseconds()}-${getRandom(100000, 900000)}`
-      localStorage.setItem('__dcUi-api-signature', id)
+      localStorage?.setItem('__dcUi-api-signature', id)
     }
 
     return id
   }
 
   static get user () {
-    return JSON.parse(localStorage.getItem('__dcUi-api-user') || '{}')
+    return JSON.parse(localStorage?.getItem('__dcUi-api-user') || '{}')
   }
 
   static get users () {
-    return JSON.parse(localStorage.getItem('__dcUi-api-users') || '[]')
+    return JSON.parse(localStorage?.getItem('__dcUi-api-users') || '[]')
   }
 
   /**
@@ -80,10 +80,10 @@ export default class ApiUser {
         }
       }
 
-      localStorage.setItem('__dcUi-api-user', JSON.stringify(value))
-      localStorage.setItem('__dcUi-api-users', JSON.stringify(users))
+      localStorage?.setItem('__dcUi-api-user', JSON.stringify(value))
+      localStorage?.setItem('__dcUi-api-users', JSON.stringify(users))
     } else {
-      localStorage.removeItem('__dcUi-api-user')
+      localStorage?.removeItem('__dcUi-api-user')
     }
   }
 

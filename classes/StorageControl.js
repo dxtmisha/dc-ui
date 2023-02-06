@@ -7,7 +7,7 @@ export default class StorageControl {
    * @private
    */
   static _read (type, index, defaultValue) {
-    const read = type.getItem(index)
+    const read = type?.getItem(index)
 
     if (read === null) {
       return defaultValue
@@ -33,11 +33,11 @@ export default class StorageControl {
    */
   static _write (type, index, value) {
     if ([undefined, null].indexOf(value) !== -1) {
-      type.removeItem(index)
+      type?.removeItem(index)
     } else if (typeof value === 'object') {
-      type.setItem(index, JSON.stringify(value))
+      type?.setItem(index, JSON.stringify(value))
     } else {
-      type.setItem(index, value)
+      type?.setItem(index, value)
     }
   }
 
