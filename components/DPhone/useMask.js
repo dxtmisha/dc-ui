@@ -26,13 +26,14 @@ export default function useMask (
     }
   }
   const setCountry = (value, masksFull = undefined) => {
-    if (value !== code.value) {
+    if (value !== code.value || mask.value !== masksFull) {
       const country = GeoPhone.getInfo(value)
 
       if (masksFull === undefined) {
-        masksFull = GeoPhone.getMaskByValue(country.phoneMask)?.masksFull
+        masksFull = GeoPhone.getMaskByValue([propValue.value])?.masksFull
       }
 
+      // console.log('masksFull', masksFull, GeoPhone.getMaskByValue([propValue.value])?.masksFull)
       mask.value = masksFull || country.phoneMaskFull
       code.value = value
       flag.value = country.icon

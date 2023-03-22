@@ -49,7 +49,10 @@ export default class GeoPhone {
           number in focus
         ) {
           focus = focus[number]
-          mask = focus?.data
+
+          if (focus?.data?.code) {
+            mask = focus?.data
+          }
         } else {
           phone += number
         }
