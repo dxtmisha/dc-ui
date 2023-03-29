@@ -1711,7 +1711,10 @@
     "timeZone": "Asia/Seoul",
     "languageCodes": "ko",
     "firstDay": "Su",
-    "phoneMask": "+82-**-***-****"
+    "phoneMask": [
+      "+82-**-***-****",
+      "+82-**-***-****-**"
+    ]
   },
   {
     "iso2": "SS",
