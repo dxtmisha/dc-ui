@@ -49,7 +49,6 @@
   }
 
   &, & *:not(.d-badge) {
-    --basic-text: var(--_bt-basic-text);
     color: varColor(--_bt-basic-text, --basic-text-opacity);
   }
 }
