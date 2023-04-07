@@ -11,8 +11,12 @@ export default function useCarcass (
   const active = computed(() => !!propValue.value || !!props.placeholder || (isMask.value && props.maskVisible))
   const filled = computed(() => !!propValue.value)
 
-  const isPrevious = computed(() => typeof props.min === 'number' && propValue.value ? parseInt(propValue.value) <= props.min : false)
-  const isNext = computed(() => typeof props.max === 'number' && propValue.value ? parseInt(propValue.value) >= props.max : false)
+  const isPrevious = computed(
+    () => typeof props.min === 'number' ? (parseInt(propValue.value) || 0) <= props.min : false
+  )
+  const isNext = computed(
+    () => typeof props.max === 'number' ? (parseInt(propValue.value) || 0) >= props.max : false
+  )
 
   return attrField({
     props,
