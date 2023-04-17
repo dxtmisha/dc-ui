@@ -78,6 +78,7 @@ export const props = {
   menuShape: undefined,
   menuWindowWidth: { default: defaultProps('menuWindowWidth', '280px') },
   menuWindowInDom: { default: defaultProps('menuWindowInDom') },
+  menuWindowLight: { default: defaultProps('menuWindowLight') },
   menuAttrs: undefined,
 
   // Select value

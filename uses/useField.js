@@ -136,7 +136,9 @@ export default function useField (
     change.value = true
 
     if (props?.required) {
-      propValue.value = propValue.value.trim()
+      if (typeof propValue.value === 'string') {
+        propValue.value = propValue.value?.trim()
+      }
       requestAnimationFrame(() => emit('on-change'))
     } else {
       emit('on-change')
