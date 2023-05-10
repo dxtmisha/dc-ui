@@ -103,9 +103,12 @@ export default function useFocus (
       setTimeout(() => {
         menuOpen.value = 'flex'
         requestAnimationFrame(() => {
-          goScroll(querySelector('.d-list-item.status-selected'))
+          const window = querySelector('.d-list-item.status-selected')
+          const control = document.querySelector(`.d-window__control.${window.closest('.d-window').dataset.windowId}`)
+
+          goScroll(window, '.d-window__body', control)
         })
-      }, 80)
+      }, 30)
     } else {
       focus.value = undefined
 

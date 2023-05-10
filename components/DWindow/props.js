@@ -22,6 +22,7 @@ export const props = {
       'minimum'
     ])
   },
+  widthByControl: Boolean,
   shape: {
     type: String,
     default: defaultProps('shape'),

@@ -10,10 +10,10 @@ export const getInnerPosition = function (
 ) {
   if (inValue + length <= innerLength) {
     return inValue
-  } else if (outValue - length > 0) {
+  } else if (outValue - length > 24) {
     return outValue - length
   } else {
-    return 0
+    return 24
   }
 }
 
@@ -46,7 +46,7 @@ export default function useCoordinates (
     if (modal.value && getComputedStyle(modal.value).content === '"--MENU--"') {
       const rect = control.getBoundingClientRect()
 
-      minimum.set(props.axis === 'on' ? rect.width : undefined)
+      minimum.set(props.axis === 'on' || props.widthByControl ? rect.width : undefined)
 
       top.value = rect.top
       right.value = rect.right
