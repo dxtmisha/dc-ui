@@ -104,9 +104,12 @@ export default function useFocus (
         menuOpen.value = 'flex'
         requestAnimationFrame(() => {
           const window = querySelector('.d-list-item.status-selected')
-          const control = document.querySelector(`.d-window__control.${window.closest('.d-window').dataset.windowId}`)
 
-          goScroll(window, '.d-window__body', control)
+          if (window) {
+            const control = document.querySelector(`.d-window__control.${window.closest('.d-window').dataset.windowId}`)
+
+            goScroll(window, '.d-window__body', control)
+          }
         })
       }, 30)
     } else {
