@@ -1411,7 +1411,10 @@
     "timeZone": "America/Panama",
     "languageCodes": "es",
     "firstDay": "Su",
-    "phoneMask": "+507-***-****"
+    "phoneMask": [
+      "+507-***-****",
+      "+507-****-****"
+    ]
   },
   {
     "iso2": "PG",
