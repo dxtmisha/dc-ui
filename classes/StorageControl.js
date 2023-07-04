@@ -19,7 +19,7 @@ export default class StorageControl {
     ) {
       return JSON.parse(read)
     } else if (read.match(/^[0-9.]+$/)) {
-      return parseInt(read)
+      return parseFloat(read)
     } else {
       return read
     }

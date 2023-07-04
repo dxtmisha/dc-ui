@@ -167,7 +167,7 @@ export default class Geo {
 
     if (['datetime', 'date', 'month'].indexOf(type) !== -1) {
       toOptions.year = 'numeric'
-      toOptions.month = display
+      toOptions.month = toDisplay
     }
 
     if (['datetime', 'date'].indexOf(type) !== -1) {
