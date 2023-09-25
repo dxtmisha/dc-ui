@@ -58,5 +58,5 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "version": "0.17.82"
+  "version": "0.17.83"
 }
