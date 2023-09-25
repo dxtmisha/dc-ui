@@ -617,7 +617,10 @@
     "timeZone": "Europe/Helsinki",
     "languageCodes": "fi",
     "firstDay": "Mo",
-    "phoneMask": "+358-***-***-**-**"
+    "phoneMask": [
+      "+358-**********",
+      "+358-***********"
+    ]
   },
   {
     "iso2": "FR",
