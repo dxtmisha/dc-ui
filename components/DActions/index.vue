@@ -13,8 +13,8 @@
         v-for="item in propBar"
         :key="item.value"
         appearance="text-color"
-        v-bind="item"
         class="d-actions__bar window-close"
+        v-bind="item"
         @on-click="onClick"
       />
     </div>

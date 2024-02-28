@@ -1,78 +1,78 @@
 <template>
-  <div :class="classList" class="d-file">
-    <input
-      ref="input"
-      v-bind="inputAttrs"
-      :disabled="disabled"
-      :name="`${name}[list]`"
-      :readonly="readonly"
-      :required="required"
-      :value="json"
-      class="d-file__input"
-      type="text"
+<div :class="classList" class="d-file">
+  <input
+    ref="input"
+    v-bind="inputAttrs"
+    :disabled="disabled"
+    :name="`${name}[list]`"
+    :readonly="readonly"
+    :required="required"
+    :value="json"
+    class="d-file__input"
+    type="text"
+  >
+  <div v-if="text" class="d-file__text">
+    {{ text }}<span v-if="required" class="d-file__required"/>
+  </div>
+  <div class="d-file__body">
+    <div
+      v-show="!readonly && list.length < 1"
+      class="d-file__image"
+      :data-text="translation['Drag and drop files here']"
     >
-    <div v-if="text" class="d-file__text">
-      {{ text }}<span v-if="required" class="d-file__required"/>
-    </div>
-    <div class="d-file__body">
-      <div
-        v-show="!readonly && list.length < 1"
-        class="d-file__image"
-        :data-text="translation['Drag and drop files here']"
-      >
-        <d-drop
-          ref="drop"
-          :accept="accept"
-          :disabled="propDisabled"
-          multiple
-          @on-drop="onDrop"
-        />
-      </div>
-      <d-control-position
-        v-show="list.length > 0"
-        ref="position"
-        v-slot:default="position"
+      <d-drop
+        ref="drop"
+        :accept="accept"
         :disabled="propDisabled"
-        @on-position="onPosition"
-      >
-        <d-control-selection
-          ref="selection"
-          v-slot:default="selection"
-          :disabled="readonly"
-          class="d-file__list"
-          @on-selected="setSelected"
-        >
-          <d-images
-            appearance="standard"
-            size="128px"
-            bar-display="above"
-          >
-            <d-images-item
-              v-for="item in list"
-              :key="item.value"
-              v-bind="item"
-              :class="classItem(position, selection)"
-              @click="selection.onClick"
-            />
-          </d-images>
-        </d-control-selection>
-      </d-control-position>
-      <div v-if="propValidationMessage" class="d-file__validation">{{ propValidationMessage }}</div>
-      <div v-else-if="helperMessage" class="d-file__helper">{{ helperMessage }}</div>
-      <d-actions
-        v-if="!readonly"
-        v-bind="actions"
-        class="d-file__actions"
-        @onClick="onActions"
+        multiple
+        @on-drop="onDrop"
       />
     </div>
-    <d-file-edit
-      v-if="isOne"
-      :file="item"
-      :open="edit"
-      @onInput="onEdit"
+    <d-control-position
+      v-show="list.length > 0"
+      ref="position"
+      v-slot:default="position"
+      :disabled="propDisabled"
+      @on-position="onPosition"
+    >
+      <d-control-selection
+        ref="selection"
+        v-slot:default="selection"
+        :disabled="readonly"
+        class="d-file__list"
+        @on-selected="setSelected"
+      >
+        <d-images
+          appearance="standard"
+          size="128px"
+          bar-display="above"
+        >
+          <d-images-item
+            v-for="item in list"
+            :key="item.value"
+            v-bind="item"
+            :class="classItem(position, selection)"
+            @click="selection.onClick"
+          />
+        </d-images>
+      </d-control-selection>
+    </d-control-position>
+    <div v-if="propValidationMessage" class="d-file__validation">{{ propValidationMessage }}</div>
+    <div v-else-if="helperMessage" class="d-file__helper">{{ helperMessage }}</div>
+    <d-actions
+      v-if="!readonly"
+      v-bind="actions"
+      class="d-file__actions"
+      @onClick="onActions"
     />
   </div>
+  <d-file-edit
+    v-if="isOne"
+    :file="item"
+    :open="edit"
+    @onInput="onEdit"
+  />
+</div>
 </template>
 
 <script>
@@ -167,7 +167,8 @@ export default {
               props.max <= propValue.value?.length
             ),
             shape: props.shape,
-            type: 'button'
+            type: 'button',
+            class: ''
           }
         ],
         barAction: [

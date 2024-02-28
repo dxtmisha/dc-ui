@@ -3,14 +3,16 @@ import useClass from '../../uses/useClass'
 import { nextTick } from 'vue'
 
 const isChildren = (target, id) => {
-  const focus = target.closest('.d-window')
+  if (target) {
+    const focus = target.closest('.d-window')
 
-  if (focus) {
-    return focus.dataset.windowId === id ||
-      isChildren(document.querySelector(`.d-window__control.${focus.dataset.windowId}`), id)
-  } else {
-    return false
+    if (focus) {
+      return focus.dataset.windowId === id ||
+        isChildren(document.querySelector(`.d-window__control.${focus.dataset.windowId}`), id)
+    }
   }
+
+  return false
 }
 
 export default function useOpen (
