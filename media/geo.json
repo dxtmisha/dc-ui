@@ -435,7 +435,10 @@
     "timeZone": "Europe/Belgrade",
     "languageCodes": "hr",
     "firstDay": "Mo",
-    "phoneMask": "+385-**-***-***"
+    "phoneMask": [
+      "+385-**-***-***",
+      "+385-**-***-****"
+    ]
   },
   {
     "iso2": "CU",
