@@ -128,7 +128,7 @@
     "timeZone": "Europe/Vienna",
     "languageCodes": "de",
     "firstDay": "Mo",
-    "phoneMask": "+43-***-***-****"
+    "phoneMask": ["+43-***-***-****", "+43-***-***-*****"]
   },
   {
     "iso2": "AZ",
