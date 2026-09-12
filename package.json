@@ -24,7 +24,8 @@
     "tailwindcss": "^3.1.4",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0"
   },
   "email": "dxtmisha@gmail.com",
   "files": [
